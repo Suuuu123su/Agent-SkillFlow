@@ -10,7 +10,7 @@
 |---|---|---|---|
 | T00 | completed | 见 `docs/repository-baseline.md` | 已完成仓库基线记录，未创建功能实现。 |
 | T01 | completed | 6 tests；覆盖率 92%；ruff/mypy/CLI PASS | 已建立可安装包、CLI、本地门禁与 GitHub CI。 |
-| T02 | pending | 不适用 | 依赖 T01。 |
+| T02 | completed | 文档审计 PASS；6 tests；ruff/mypy/doctor PASS | 已冻结威胁模型、安全语义与 3 份 ADR。 |
 | T03 | pending | 不适用 | 依赖 T02。 |
 | T04 | pending | 不适用 | 依赖 T03。 |
 | T05 | pending | 不适用 | 依赖 T04。 |
@@ -94,7 +94,7 @@
 
 1. 保留现有 `E:\pytorch_cuda_env` 不变。它是 Python 3.10.20，低于任务书规定的 3.11 下限，且承担既有 PyTorch/CUDA 用途。
 2. 使用本机可用的 Python 3.12.13 创建项目专用 `.venv-skillflow`，依赖只安装在该环境中。
-3. LibreOffice Python 首次创建 `.venv` 时因权限失败并留下不完整目录。遵守“不删除任何内容”的规则，没有清空该目录；改用新的 `.venv-skillflow`。
+3. LibreOffice Python 首次创建 `.venv` 时因权限失败并留下不完整目录。T01 完成时遵守“不删除任何内容”的规则，没有清空该目录；改用新的 `.venv-skillflow`。T02 开始前，该不完整目录已由用户手动删除。
 4. `doctor` 完全离线，只检查 Python、SQLite、运行依赖和指定临时目录的真实写入能力。
 5. 质量门禁采用任务书指定的 pytest、pytest-cov、ruff 与 mypy；T01 覆盖率门槛为 80%。
 6. GitHub CI 只有只读仓库权限，不执行发布、部署、网络外发测试或凭据操作。
@@ -129,6 +129,93 @@
 
 ### 遗留问题
 
-- 不完整的 `.venv` 由首次失败的 LibreOffice Python 尝试产生，当前被 Git 忽略且未删除；实际使用 `.venv-skillflow`。
+- 不完整的 `.venv` 由首次失败的 LibreOffice Python 尝试产生；T02 开始前已由用户手动删除。实际环境始终是 `.venv-skillflow`。
 - GitHub Actions 需要在推送后由远端运行；本地已验证工作流 YAML 可解析，但远端运行结果不在本地测试结论内。
-- 下一项可执行任务是 T02，尚未启动。
+- T01 完成时的下一项任务是 T02；T02 已在后续轮次完成，记录见下节。
+
+## T02：威胁模型与安全语义冻结
+
+- 状态：completed
+- 日期：2026-08-24（Asia/Shanghai）
+- 任务边界：只冻结研究语义和架构决定；未实现 T03 数据模型、Schema、验证 CLI 或任何后续运行逻辑。
+
+### 修改文件
+
+- `docs/threat-model.md`：可信主体、攻击者、资产、敏感 Sink、信任边界、范围内/外攻击、成功判据、研究问题—指标映射及手工路径。
+- `docs/security-semantics.md`：三种 provenance、Manifest/Grant 双钥匙、Decision 四事实、跨 task/session、revoke/unload、Observed/Oracle 和形式化不变量。
+- `docs/decisions/0001-use-artifact-event-graph.md`：选择 Artifact–Event 二部图。
+- `docs/decisions/0002-separate-observed-and-oracle.md`：隔离 Observed 与 Oracle。
+- `docs/decisions/0003-use-mock-harness-first.md`：T14 前只使用确定性 Mock Harness。
+- `docs/decisions/README.md`：ADR 索引和变更规则。
+- `docs/summaries/T02_Summary.md`：T02 中文总结。
+- `README.md`：把当前阶段和文档入口更新为 T02。
+- `docs/summaries/T01_Summary.md`：记录不完整 `.venv` 已由用户在 T02 前手动删除。
+- `docs/progress.md`：更新任务状态、验证证据和本节记录。
+
+### 关键设计决定
+
+1. 每个 Skill 是独立 `Principal`；Harness 只是连接 Skill、数据面和 Tool 的桥接层，不提供默认 authority。
+2. 数据来源、决策影响和授权来源分别由血缘图、反事实 Replay 和真实 Grant 证明，不能合并。
+3. Manifest 与 Grant 是双钥匙；普通文本、高 trust 数据、自动批准和 monitor 执行都不能替代 Grant。
+4. 同一 task 的跨 Session Memory 读取创建新 Artifact、连接旧父节点并保留 origins；跨 task 读取不继承旧 Grant。
+5. revoke/unload/delete 均追加事件，不删除历史；撤销后的新派生物携带 `revoked_origins`。
+6. EventStore 是唯一事实源，Artifact–Event 图是可重建只读视图。
+7. Observed 是被评估对象，Oracle 是不可被运行组件读取的独立真值。
+8. T01～T14 只使用确定性 Mock Harness；真实 Harness 仍由 T15 单独门控。
+
+### 形式化不变量
+
+文档冻结了 9 条不变量：
+
+- 普通内容不能签发 Grant；
+- Manifest 不能替代 Grant；
+- 跨 Session Memory 必须保留来源；
+- 撤销不删除历史；
+- Skill 主体必须隔离；
+- 时序只能建立候选影响；
+- monitor 不改变授权真值；
+- 运行组件不能读取 Oracle；
+- Grant 不跨 task 隐式继承。
+
+### 手工语义路径
+
+- G0：具有完整 Manifest 和 Grant 的跨 Skill 良性协作。
+- A1：普通文本“用户已批准”导致的授权洗白。
+- M1：Skill→Memory→新 Session→其他 Skill→Tool 的未授权传播。
+- M2：Skill revoke/unload 后，历史 Memory 继续触发未授权 Effect。
+
+这些路径是后续任务的 Golden 预期，不是已经运行出的实验结果。
+
+### 验证结果
+
+- T02 文档审计 → PASS：6 个必需文档存在且为严格 UTF-8。
+- 研究问题—指标映射 → PASS：RQ1～RQ5 覆盖 Provenance、CI、UEA、ALR、HIAA 和 RIR。
+- 手工路径审计 → PASS：1 条良性路径、3 条攻击路径。
+- 形式化不变量审计 → PASS：9 条。
+- 本地 Markdown 链接检查 → PASS。
+- `git diff --check` → PASS。
+- `.venv-skillflow\Scripts\python.exe -m pytest -q` → PASS，6 passed，覆盖率 92.06%。
+- `.venv-skillflow\Scripts\python.exe -m ruff check .` → PASS。
+- `.venv-skillflow\Scripts\python.exe -m ruff format --check .` → PASS，21 files already formatted。
+- `.venv-skillflow\Scripts\python.exe -m mypy src\skillflow` → PASS。
+- `.venv-skillflow\Scripts\python.exe -m skillflow.cli doctor` → PASS，四项环境检查通过。
+
+### 验收条件
+
+- [x] 明确可信主体、攻击者、资产、敏感 Sink 和信任边界。
+- [x] 明确范围内/外攻击，且未把恶意文本检测定义为主要任务。
+- [x] 明确区分数据来源、决策影响和授权来源。
+- [x] 明确 Skill 是 Principal，Harness 是桥接层。
+- [x] 明确 Manifest/Grant、revoke/unload 和跨 task/session 语义。
+- [x] 3 个架构决定均有独立 ADR。
+- [x] 至少 4 条形式化不变量；实际冻结 9 条。
+- [x] 至少 1 条良性和 3 条攻击路径。
+- [x] 每个后续指标至少对应一个研究问题。
+- [x] 未改变任务书第 1、2 节 MVP 边界。
+
+### 风险或遗留问题
+
+- 本任务只冻结语义，没有提供代码或实验结果；对应不变量必须在 T03 及以后转化为类型、Schema 和测试。
+- Resource URI、scope/lifetime 偏序和稳定 reason codes 分别留给 T03、T08，不在 T02 伪实现。
+- Oracle 隔离要到 T06 才能通过代码依赖和运行时测试验证；当前只有架构合同。
+- 下一项可执行任务是 T03，尚未启动。

@@ -2,7 +2,7 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前仓库只完成到 **T01：项目骨架与质量门禁**。这里还没有实现来源图、授权策略、风险指标、场景执行器或真实 Harness Adapter。
+当前仓库已完成到 **T02：威胁模型与安全语义冻结**。这里已经固定研究边界、授权语义和架构决定，但还没有实现来源图、授权策略、风险指标、场景执行器或真实 Harness Adapter。
 
 ## 当前能力
 
@@ -11,6 +11,7 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 - `skillflow doctor`：离线检查 Python、SQLite、运行依赖和临时目录可写性。
 - pytest、覆盖率、ruff 与 mypy 质量门禁。
 - GitHub Actions 自动执行同一组质量门禁。
+- 中文威胁模型、安全语义、形式化不变量和架构决策记录。
 - 中文任务进度、仓库基线与逐任务总结。
 
 ## 环境要求
@@ -56,4 +57,4 @@ T01 的覆盖率门槛为 80%。后续 T14 才会按任务书将最终门槛提�
 
 首版只面向单 Agent、2～3 个 Skill、共享 Context、Persistent Memory、多 Session 与安全 Mock Tool 的确定性实验。明确不包含真实网络外发、真实 Shell 子进程、真实凭据、生产级 UI、多 Agent 协作或通用平台适配。
 
-完整研究语义、任务依赖和验收标准见 [`SkillFlow_Codex_Task_Spec.md`](SkillFlow_Codex_Task_Spec.md)。当前进度见 [`docs/progress.md`](docs/progress.md)，逐任务总结见 [`docs/summaries/`](docs/summaries/)。
+完整任务依赖和验收标准见 [`SkillFlow_Codex_Task_Spec.md`](SkillFlow_Codex_Task_Spec.md)。冻结的研究边界见 [`docs/threat-model.md`](docs/threat-model.md)，安全语义见 [`docs/security-semantics.md`](docs/security-semantics.md)，架构决策见 [`docs/decisions/`](docs/decisions/)。当前进度见 [`docs/progress.md`](docs/progress.md)，逐任务总结见 [`docs/summaries/`](docs/summaries/)。

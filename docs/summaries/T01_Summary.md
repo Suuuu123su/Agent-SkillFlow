@@ -35,7 +35,7 @@ T01 已完成。SkillFlow 现在具备可安装的 Python 包、Typer CLI、离�
 
 现有 `E:\pytorch_cuda_env` 使用 Python 3.10.20，不满足项目版本要求，因此保持原样。SkillFlow 使用 Python 3.12.13 创建的 `.venv-skillflow`，避免破坏既有 PyTorch/CUDA 环境。
 
-默认 LibreOffice Python 创建 `.venv` 时权限失败并留下不完整目录。由于项目规则禁止未经允许删除内容，该目录保留且被 Git 忽略；它不是 SkillFlow 的运行环境。
+默认 LibreOffice Python 创建 `.venv` 时权限失败并留下不完整目录。T01 完成时该目录按项目规则保留且被 Git 忽略；在 T02 开始前，用户已手动删除它。它从未作为 SkillFlow 的运行环境。
 
 ## 验证证据
 
@@ -64,4 +64,4 @@ T01 没有实现以下功能：
 
 ## 下一任务
 
-下一项可执行任务是 T02：威胁模型与安全语义冻结。当前未启动。
+T01 完成时的下一项任务是 T02：威胁模型与安全语义冻结。T02 已在后续轮次完成，当前状态见 `T02_Summary.md`。
