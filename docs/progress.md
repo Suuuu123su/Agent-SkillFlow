@@ -12,7 +12,7 @@
 | T01 | completed | 6 tests；覆盖率 92%；ruff/mypy/CLI PASS | 已建立可安装包、CLI、本地门禁与 GitHub CI。 |
 | T02 | completed | 文档审计 PASS；6 tests；ruff/mypy/doctor PASS | 已冻结威胁模型、安全语义与 3 份 ADR。 |
 | T03 | completed | 65 tests；覆盖率 90.18%；ruff/mypy/Schema/CLI PASS | 已完成核心模型、四类 Schema 和只读校验 CLI。 |
-| T04 | pending | 不适用 | 依赖 T03。 |
+| T04 | completed | 93 tests；覆盖率 90.60%；ruff/mypy/重启测试 PASS | 已完成追加式 SQLite EventStore、BlobStore、稳定 Trace 与持久恢复。 |
 | T05 | pending | 不适用 | 依赖 T04。 |
 | T06 | pending | 不适用 | 依赖 T05。 |
 | T07 | pending | 不适用 | 依赖 T06。 |
@@ -278,4 +278,68 @@
 - T03 只定义数据契约。`lifetime_covers` 已表达菱形偏序，但 Grant 对当前 call/task/session 的完整运行期匹配属于 T08。
 - ResourceRef 的精确匹配已实现；目录或模式 scope 的合法包含算法仍属于 T08。
 - Risk Report 当前是报告 Schema，不代表 UEA、HIAA、ALR、RIR 或 CI 已经计算。
-- 下一项可执行任务是 T04；本轮到 T03 停止。
+- T04 已在后续轮次完成；本段仍只记录 T03 当时的数据契约交付。
+
+## T04：Append-only EventStore 与持久状态
+
+- 状态：completed
+- 日期：2026-08-24（Asia/Shanghai）
+- 任务边界：只实现可审计、可重启的事件与运行态内容持久化底座；未实现 T05 Harness、来源图计算、策略匹配、指标或完整 Runtime checkpoint。
+
+### 修改文件
+
+- `src/skillflow/store/event_store.py`：定义 EventStore Protocol、原子 Event Envelope、StoredArtifact 与 MemoryHead。
+- `src/skillflow/store/schema.sql`：建立 T04 要求的 12 张业务表、引用约束与追加保护触发器。
+- `src/skillflow/store/sqlite_store.py`、`sqlite_writer.py`：实现 SQLite 生命周期、查询、原子写入和显式 Memory 头更新。
+- `src/skillflow/store/blob_store.py`：实现按 Run 隔离、使用不可预测文件名且不接受调用方路径的 BlobStore。
+- `src/skillflow/store/trace.py`：实现不导出任意 Event metadata 或 Blob 明文的稳定 Trace 投影。
+- `src/skillflow/runtime/determinism.py`：提供可注入虚拟时钟与确定性 ID 工厂。
+- `tests/unit/store/`、`tests/integration/store/`、`tests/e2e/test_store_restart.py`：覆盖接口、数据库、Blob、重启、Memory 与 Trace。
+- `SkillFlow_Codex_Task_Spec.md`：在 T03 任务段补全四值 Lifetime、`call_id` 与菱形偏序遗漏。
+- `README.md`、`docs/summaries/T04_Summary.md`：更新当前能力和中文交付总结。
+
+### 关键设计决定
+
+1. `events` 以自增序号保留稳定追加顺序；`events`、`event_inputs`、`event_outputs` 同时由公共接口和 SQLite 触发器保护，UPDATE/DELETE 均失败。
+2. Event、输入边、输出边、Decision 与 Effect 通过 `EventEnvelope` 在同一 SQLite transaction 提交；引用失败时整体回滚。
+3. Artifact 元数据先以不可变记录登记，再由输出边绑定唯一生成 Event；输出 Artifact 上的唯一约束阻止第二个生成 Event。
+4. Blob 内容保存在 `runs/<experiment_id>/blobs/<run-namespace>/`，文件名由密码学随机数生成；公开引用仅含 Run、Blob ID、hash 和长度。
+5. Blob 读回同时校验 Run、hash 和长度；SQLite 输出边触发器阻止 Event 绑定其他 Run 的 Blob。
+6. `memory_heads` 是唯一显式可变的当前状态投影，更新前必须证明 Artifact 确由同 Run、同 Session 的指定 Event 输出；历史 Event 不被改写。
+7. Trace 只投影结构化事件字段与 Artifact hash/长度/MIME 等元数据，刻意忽略任意 Event metadata 和 Blob 内容，并对规范 JSON 求 SHA-256。
+8. SQLite transaction、`flush`/关闭后重开和完整 Runtime checkpoint 是三个不同承诺；T04 只实现前两项，checkpoint/restore 留到 T10。
+
+### TDD 记录
+
+- 先以缺失模块和公开类型合同得到失败，再建立 EventStore、BlobStore、Trace 与确定性边界。
+- 虚拟时钟、确定性 ID、Blob 持久化/跨 Run 拒绝、SQLite 原子回滚和进程重启都先得到失败，再补最小实现。
+- 跨 Run Blob 测试曾暴露仅在文件系统层隔离仍不足，随后增加 Artifact 的 Blob Run 字段与输出边数据库触发器。
+- 最终审阅新增“Effect 错用历史 Decision 且能力不匹配”反例；该测试先失败，再将请求 Event、Decision 和能力三者的一致性纳入 Envelope 校验。
+- SQLite 主实现接近单文件规模警戒线后，将无状态事务写入拆到 `sqlite_writer.py`，保持存储资源生命周期与写入算法分离。
+
+### 验证结果
+
+- `.venv-skillflow\Scripts\python.exe -m pytest -q` → PASS，93 passed，分支覆盖率 90.60%。
+- T04 定向测试共 28 项，覆盖合同、确定性、Blob、SQLite 与重启场景。
+- `.venv-skillflow\Scripts\ruff.exe check src tests` → PASS。
+- `.venv-skillflow\Scripts\ruff.exe format --check src tests` → PASS。
+- `.venv-skillflow\Scripts\python.exe -m mypy src\skillflow` → PASS，27 个源文件无类型问题。
+- Python no-excuse 规则审计 → `store` 7 个文件、`runtime` 2 个文件均无违规。
+
+### 验收条件
+
+- [x] 12 张指定业务表全部建立。
+- [x] 重复 Event ID、缺失 Artifact、重复输出生成关系和跨 Run Blob 均被拒绝。
+- [x] Event、关系边、Decision 与 Effect 原子提交；失败后不留下半条 Event 或相关记录。
+- [x] 公共接口不提供历史修改能力，直接 SQL 修改也被触发器拒绝。
+- [x] Persistent Memory 可从 Session 1 跨进程重启到 Session 2 读取，历史事件顺序保持稳定。
+- [x] 同一持久事件序列在数据库重开前后产生相同 Trace hash，测试秘密不进入 Trace JSON。
+- [x] 虚拟时钟和确定性 ID 工厂可注入、可重放。
+
+### 风险或遗留问题
+
+- SQLite transaction 不能与文件系统形成分布式事务；若 Blob 已落盘而后续元数据登记失败，可能留下不可达 Blob。T04 不做自动清理，也未删除任何文件。
+- Artifact 登记是 Event Envelope 之前的独立追加步骤；本任务保证 Event、边、Decision、Effect 原子，不宣称 Artifact 与 Blob 的跨介质原子提交。
+- `grants` 与 `revocations` 表已经预留，完整签发、撤销和 lifetime/scope 运行期匹配仍属于 T08。
+- 完整 Runtime state checkpoint/restore 仍属于 T10。
+- 本轮在 T04 停止，没有进入 T05。

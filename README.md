@@ -2,7 +2,7 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前仓库已完成到 **T03：Schema 与核心数据模型**。这里已经固定研究边界、四级 Lifetime 语义、类型化输入输出和只读校验入口，但还没有实现 EventStore、来源图、授权策略、风险指标、场景执行器或真实 Harness Adapter。
+当前仓库已完成到 **T04：Append-only EventStore 与持久状态**。这里已经固定研究边界、四级 Lifetime 语义和类型化数据契约，并具备可重启的 SQLite 事件底座、按 Run 隔离的 BlobStore 与脱敏稳定 Trace；尚未实现 T05 Harness、来源图计算、运行期授权策略、风险指标或场景执行器。
 
 ## 当前能力
 
@@ -13,6 +13,12 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 - `skillflow validate-scenario PATH`：只校验 Scenario，不运行 fixture。
 - Pydantic v2 核心安全模型、受控 Resource URI 和 `call | task | session | persistent` 菱形 Lifetime。
 - `skill-manifest`、`scenario`、`experiment-matrix`、`risk-report` 四类模型生成静态 JSON Schema。
+- SQLite EventStore：事件及输入输出边追加写入，数据库触发器拒绝历史 UPDATE/DELETE。
+- Event、输入输出边、Decision 与 Effect 以一个 Envelope 原子提交；失败时不留下半条事件。
+- 按 Run 隔离的受控 BlobStore：引用不暴露路径，读回时校验内容 hash 与长度。
+- Persistent Memory 头可跨 Session 和进程重启恢复；历史事件仍保持不可变。
+- Trace 默认只投影 hash 与结构化元数据，同一持久事件序列在重开数据库后得到相同哈希。
+- 可注入虚拟时钟与确定性 ID 工厂，用于后续可重放实验。
 - pytest、覆盖率、ruff 与 mypy 质量门禁。
 - GitHub Actions 自动执行同一组质量门禁。
 - 中文威胁模型、安全语义、形式化不变量和架构决策记录。
@@ -57,7 +63,7 @@ python -m venv .venv-skillflow
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli --help
 ```
 
-T01 的覆盖率门槛为 80%。后续 T14 才会按任务书将最终门槛提升到 90%。
+当前 pytest 门禁仍按任务书使用 80% 最低阈值；T04 全量分支覆盖率实测为 90.60%。T14 将把最终门槛正式提升到 90%。
 
 ## 项目范围
 
