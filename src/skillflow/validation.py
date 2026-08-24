@@ -2,9 +2,12 @@
 
 from dataclasses import dataclass
 from pathlib import Path
+from typing import TypeVar
 
 import yaml
 from pydantic import BaseModel, ValidationError
+
+ModelT = TypeVar("ModelT", bound=BaseModel)
 
 
 @dataclass(frozen=True, slots=True)
@@ -45,7 +48,7 @@ def _single_issue(path: Path, code: str, reason: str) -> DocumentValidationError
     )
 
 
-def validate_yaml_document(path: Path, model_type: type[BaseModel]) -> BaseModel:
+def validate_yaml_document(path: Path, model_type: type[ModelT]) -> ModelT:
     """读取 YAML 并在指定 Pydantic 模型边界完成校验。"""
     try:
         raw_text = path.read_text(encoding="utf-8")

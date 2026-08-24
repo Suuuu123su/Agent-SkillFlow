@@ -13,7 +13,7 @@
 | T02 | completed | 文档审计 PASS；6 tests；ruff/mypy/doctor PASS | 已冻结威胁模型、安全语义与 3 份 ADR。 |
 | T03 | completed | 65 tests；覆盖率 90.18%；ruff/mypy/Schema/CLI PASS | 已完成核心模型、四类 Schema 和只读校验 CLI。 |
 | T04 | completed | 93 tests；覆盖率 90.60%；ruff/mypy/重启测试 PASS | 已完成追加式 SQLite EventStore、BlobStore、稳定 Trace 与持久恢复。 |
-| T05 | pending | 不适用 | 依赖 T04。 |
+| T05 | completed | 141 tests；覆盖率 89.19%；ruff/mypy/YAML E2E PASS | 已完成安全 Mock Harness、插桩代理、ScriptedBackend 与 Tool Receipt 链。 |
 | T06 | pending | 不适用 | 依赖 T05。 |
 | T07 | pending | 不适用 | 依赖 T06。 |
 | T08 | pending | 不适用 | 依赖 T07。 |
@@ -343,3 +343,63 @@
 - `grants` 与 `revocations` 表已经预留，完整签发、撤销和 lifetime/scope 运行期匹配仍属于 T08。
 - 完整 Runtime state checkpoint/restore 仍属于 T10。
 - 本轮在 T04 停止，没有进入 T05。
+
+## T05：安全 Mock Harness 与插桩代理
+
+- 状态：completed
+- 日期：2026-08-24（Asia/Shanghai）
+- 任务边界：只实现确定性 Scripted Backend、安全 Mock Harness、运行期插桩代理和 YAML 良性场景；未实现 T06 Oracle、T08 正式授权策略、T10 checkpoint 或任何真实外部副作用。
+
+### 修改文件
+
+- `src/skillflow/adapters/`：最小 Harness Protocol、Mock Harness 和 Benchmark 特权控制入口。
+- `src/skillflow/benchmark/`：白名单 Scripted Backend 与 YAML Scenario Runner。
+- `src/skillflow/instrumentation/`：Context、Memory、File、Skill、Tool、Stub Decision 和强类型 Receipt。
+- `src/skillflow/runtime/session.py`：当前 Session 的确定性事实记录器。
+- `src/skillflow/store/`：增加 Memory 头删除，以及跨请求/结果 Event 的 Decision/Effect 一致性校验。
+- `tests/unit/adapters/`、`tests/unit/instrumentation/`、`tests/integration/harness/`：T05 合同、生命周期、Tool 管线和安全边界测试。
+- `tests/fixtures/t05/benign_read.yaml`、`tests/e2e/test_t05_scenario.py`：从 YAML 到 Receipt 的良性端到端场景与确定性/隔离验证。
+- `README.md`、`docs/summaries/T05_Summary.md`：当前能力、限制和中文交付总结。
+
+### 关键设计决定
+
+1. `HarnessAdapter` 固定只有 start/load/invoke/end 四个方法；checkpoint/restore 不提前占位。
+2. Scripted Backend 只解析进程内 fixture registry；Scenario 不能指定 Python 模块或任意代码。
+3. Context 为 Session 局部状态；Memory 和 Skill 安装/撤销状态只在同一 Run 内跨 Session。
+4. 文件代理只接受 `workspace:`，解析后再次检查目标仍位于注入根目录。
+5. 普通 Tool 只有五个白名单动作；BenchmarkController 不提供给 Skill。
+6. T05 决策只使用 fixture allow/deny，confirm 与正式 Grant 逻辑明确留给 T08。
+7. Tool Receipt 由 Mock Tool Adapter 在执行后创建；这是 API 级强类型约束，不夸大为密码学保证。
+8. Network/Shell 只追加内存记录；Shell 不创建子进程，HTTP 不建立连接。
+9. Decision 与 Effect 即使由结果 Event 一起提交，也必须共享同一个原请求 Event。
+10. Skill/Memory/File/Tool Event 保存受控目标 metadata，但默认脱敏 Trace 继续忽略任意 metadata。
+
+### TDD 与验证
+
+- 模块合同、插桩行为、Tool 链、Skill 生命周期、YAML Runner 和 EventStore 反例都先获得失败再补实现。
+- T05 定向测试 → PASS，47 passed。
+- 全量 pytest → PASS，141 passed，分支覆盖率 89.19%。
+- Ruff lint/format → PASS。
+- mypy strict → PASS，46 个源文件无类型错误。
+- Python no-excuse 规则审计 → PASS，46 个源文件无违规。
+- 同 seed Trace hash → 一致；两个 Run 的 Workspace、Context/Memory 与 Receipt 累积状态隔离。
+- 路径逃逸、Stub confirm 与 Receipt 直接构造 → 拒绝。
+- Denied Tool → 不产生 Effect/Receipt。
+- Shell 哨兵文件 → 未创建。
+
+### 验收条件
+
+- [x] 最小良性 YAML Scenario 可运行到 Tool Receipt。
+- [x] Context、Memory、File、Skill 和 Tool 边界均生成 Artifact/Event。
+- [x] 跨 Session Memory read 连接原 Artifact。
+- [x] 普通 Tool 面不包含用户确认或 Skill 撤销。
+- [x] HTTP/Shell 没有真实外部副作用。
+- [x] 相同 seed 的 Trace hash 一致，不同 Run 无状态积累。
+- [x] 没有进入 T06。
+
+### 风险或遗留问题
+
+- 当前 Runner 的通用顶层 Memory/Tool/Restart 步骤会显式拒绝；参数化 Tool 动作来自固定 FixtureScript。
+- 正式授权匹配、monitor/enforce 语义和 confirm 属于 T08，当前 Stub 结果不能作为授权正确性证据。
+- Oracle 隔离、双轨 Trace、来源图、指标和 checkpoint 均尚未实现。
+- 本轮在 T05 停止，下一项是 T06，必须由用户另行要求后才能开始。

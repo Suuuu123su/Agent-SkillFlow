@@ -80,6 +80,10 @@ class EventStore(Protocol):
         """读取 Persistent Memory 当前头。"""
         ...
 
+    def delete_memory_head(self, run_id: str, key: str) -> None:
+        """删除可变 Memory 当前头，不触碰历史 Event。"""
+        ...
+
     def flush(self) -> None:
         """把已完成事务刷新到持久介质。"""
         ...

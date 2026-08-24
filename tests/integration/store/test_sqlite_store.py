@@ -268,6 +268,54 @@ def test_effect_must_match_event_decision_and_requested_capability(tmp_path: Pat
     store.close()
 
 
+def test_result_effect_and_decision_must_share_request_event(tmp_path: Path) -> None:
+    # Given: 两个合法请求和一个把 Decision/Effect 分别指向不同请求的结果 Envelope
+    store = SqliteEventStore(tmp_path / "state.sqlite")
+    capability = CapabilityEffect.model_validate(
+        {
+            "source": "workspace:/report.txt",
+            "action": "network.send",
+            "sink": "mock://external",
+            "scope": "exact-file",
+            "lifetime": "call",
+            "sensitivity": 2,
+        }
+    )
+    first_request = make_event("request-one").model_copy(update={"requested_effect": capability})
+    second_request = make_event("request-two").model_copy(update={"requested_effect": capability})
+    store.append_event(EventEnvelope(first_request))
+    store.append_event(EventEnvelope(second_request))
+    result = make_event("result").model_copy(
+        update={"decision_id": "decision-1", "requested_effect": capability}
+    )
+    decision = DecisionRecord(
+        decision_id="decision-1",
+        request_event_id=first_request.event_id,
+        enforcement_mode="monitor",
+        baseline_result=Decision.ALLOW,
+        policy_result=Decision.ALLOW,
+        authorized=False,
+        executed=True,
+    )
+    effect = EffectRecord(
+        effect_id="effect-1",
+        effect=capability,
+        request_event_id=second_request.event_id,
+        decision_id=decision.decision_id,
+        result_event_id=result.event_id,
+        tool_receipt_id="receipt-1",
+        executed=True,
+    )
+
+    # When/Then: 不能把两个独立请求拼成貌似完整的 Tool 结果
+    with pytest.raises(StoreIntegrityError):
+        store.append_event(EventEnvelope(result, decision, effect))
+    assert store.get_event(result.event_id) is None
+    assert store.get_decision(decision.decision_id) is None
+    assert store.get_effect(effect.effect_id) is None
+    store.close()
+
+
 def test_output_artifact_has_only_one_generating_event(tmp_path: Path) -> None:
     # Given: 已由 event-1 生成的输出 Artifact
     store = SqliteEventStore(tmp_path / "state.sqlite")

@@ -177,12 +177,19 @@ def _validate_envelope(envelope: EventEnvelope) -> None:
     event = envelope.event
     decision = envelope.decision
     effect = envelope.effect
-    if decision is not None and (
-        decision.request_event_id != event.event_id or event.decision_id != decision.decision_id
-    ):
+    if decision is not None and event.decision_id != decision.decision_id:
         raise StoreIntegrityError("append_event", "Decision 与 Event 引用不一致")
-    if effect is not None and effect.request_event_id != event.event_id:
-        raise StoreIntegrityError("append_event", "Effect 与请求 Event 引用不一致")
+    if (
+        decision is not None
+        and effect is not None
+        and decision.request_event_id != effect.request_event_id
+    ):
+        raise StoreIntegrityError("append_event", "Decision 与 Effect 的请求引用不一致")
+    if effect is not None and effect.result_event_id is None:
+        if effect.request_event_id != event.event_id:
+            raise StoreIntegrityError("append_event", "Effect 与请求 Event 引用不一致")
+    elif effect is not None and effect.result_event_id != event.event_id:
+        raise StoreIntegrityError("append_event", "Effect 与结果 Event 引用不一致")
     if effect is not None and effect.decision_id != event.decision_id:
         raise StoreIntegrityError("append_event", "Effect 与 Event 的 Decision 引用不一致")
     if effect is not None and effect.effect != event.requested_effect:

@@ -126,6 +126,15 @@ class SqliteEventStore:
             updated_event_id=str(row[4]),
         )
 
+    def delete_memory_head(self, run_id: str, key: str) -> None:
+        """删除 Memory 当前头，同时保留全部历史 Event 和 Artifact。"""
+        self._ensure_open()
+        with self._connection:
+            self._connection.execute(
+                "DELETE FROM memory_heads WHERE run_id = ? AND memory_key = ?",
+                (run_id, key),
+            )
+
     def flush(self) -> None:
         """提交当前连接中已完成的事务。"""
         self._ensure_open()
