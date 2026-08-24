@@ -23,6 +23,7 @@ from skillflow.benchmark.oracle_bridge import (
     project_oracle_invocation,
 )
 from skillflow.benchmark.scripted_backend import FixtureScript, ScriptedBackend
+from skillflow.graph.security import SecurityGraph
 from skillflow.instrumentation.errors import UnsupportedStepError, WorkspaceEscapeError
 from skillflow.instrumentation.mock_tools import MockNetworkRecord, MockShellRecord
 from skillflow.instrumentation.tool_proxy import StubDecisionProvider
@@ -56,6 +57,7 @@ class ScenarioRunResult:
     database_path: Path
     observed_trace_path: Path
     oracle_trace_path: Path
+    security_graph_path: Path
 
 
 class ScenarioRunner:
@@ -89,6 +91,7 @@ class ScenarioRunner:
         database = run_root / "state.sqlite"
         observed_trace_path = run_root / "observed-trace.jsonl"
         oracle_trace_path = run_root / "oracle-trace.jsonl"
+        security_graph_path = run_root / "security-graph.json"
         outputs: list[Artifact] = []
         receipts: list[ToolReceipt] = []
         artifact_aliases: dict[str, tuple[str, ...]] = {}
@@ -157,6 +160,7 @@ class ScenarioRunner:
                 )
             )
             trace = build_run_trace(store, run_id)
+            SecurityGraph.from_store(store, run_id).export_json(security_graph_path)
             network_records = harness.network_records
             shell_records = harness.shell_records
         return ScenarioRunResult(
@@ -171,6 +175,7 @@ class ScenarioRunner:
             database_path=database,
             observed_trace_path=observed_trace_path,
             oracle_trace_path=oracle_trace_path,
+            security_graph_path=security_graph_path,
         )
 
     @staticmethod

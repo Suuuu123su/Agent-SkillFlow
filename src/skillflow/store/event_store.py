@@ -72,6 +72,10 @@ class EventStore(Protocol):
         """按 ID 读取效果记录。"""
         ...
 
+    def iter_run_effects(self, run_id: str) -> tuple[EffectRecord, ...]:
+        """按请求事件顺序读取一个 Run 的 EffectRecord。"""
+        ...
+
     def set_memory_head(self, head: MemoryHead) -> None:
         """更新唯一允许可变的 Persistent Memory 头。"""
         ...

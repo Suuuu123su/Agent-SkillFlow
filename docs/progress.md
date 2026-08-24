@@ -15,7 +15,7 @@
 | T04 | completed | 93 tests；覆盖率 90.60%；ruff/mypy/重启测试 PASS | 已完成追加式 SQLite EventStore、BlobStore、稳定 Trace 与持久恢复。 |
 | T05 | completed | 141 tests；覆盖率 89.19%；ruff/mypy/YAML E2E PASS | 已完成安全 Mock Harness、插桩代理、ScriptedBackend 与 Tool Receipt 链。 |
 | T06 | completed | 165 tests；覆盖率 88.48%；ruff/mypy/隔离 E2E PASS | 已完成双轨 JSONL、机械 Oracle、独立 GT_auth/GT_effect 与依赖隔离。 |
-| T07 | pending | 不适用 | 依赖 T06。 |
+| T07 | completed | 182 tests；覆盖率 87.93%；ruff/mypy/Golden E2E PASS | 已完成 EventStore 重建的双层来源图、七类查询、边界深度与脱敏 JSON 导出。 |
 | T08 | pending | 不适用 | 依赖 T07。 |
 | T09 | pending | 不适用 | 依赖 T08。 |
 | T10 | pending | 不适用 | 依赖 T07。 |
@@ -461,3 +461,60 @@
 - Resolver 已支持传入有效撤销 ID，但 Scenario 的 `AUTH_REVOKE` 运行编排和 EventStore Grant 视图仍属于 T08。
 - T06 没有计算正式 Provenance Precision/Recall/F1；测试中的 Recall 只用于证明独立真值能观测丢标，正式指标属于 T09。
 - 尚未构建 NetworkX 图或任何来源路径查询；本轮在 T06 停止，不进入 T07。
+
+## T07：来源图与路径查询
+
+- 状态：completed
+- 日期：2026-08-25（Asia/Shanghai）
+- 任务边界：只实现从 EventStore 重建的只读来源图、安全投影、研究查询、边界计数和脱敏 JSON；未实现 T08 正式授权匹配、T09 风险指标、T10 checkpoint 或 `INFLUENCE_CONFIRMED` 推断。
+
+### 修改文件
+
+- `src/skillflow/graph/`：新增强类型节点/边/路径合同、Artifact–Event 二部图、SecurityGraph 投影、事件与 Record 投影、路径枚举、路径指标和 JSON 导出。
+- `src/skillflow/store/event_store.py`、`sqlite_store.py`：增加按 Run 读取 EffectRecord 的公共 EventStore 合同与 SQLite 实现。
+- `src/skillflow/benchmark/runner.py`：每次 Scenario Run 从持久事实重建图，并以不可覆盖方式生成 `security-graph.json`。
+- `pyproject.toml`：增加 NetworkX 运行依赖，以及兼容 Python 3.11 类型目标的 NetworkX/NumPy 开发类型依赖约束。
+- `tests/unit/graph/`、`tests/integration/graph/`、`tests/e2e/test_t07_scenario_graph.py`：覆盖依赖隔离、环路、深度限制、七类查询、Golden 路径、脱敏导出、Runner 重启和 Session 重新进入。
+- `README.md`、`docs/summaries/T07_Summary.md`：更新当前能力、查询用法、限制与中文验收总结。
+
+### 关键设计决定
+
+1. SQLite EventStore 继续是唯一事实源；图层只读取其公共合同，不读取 Oracle、Observed Trace、运行代理或 Blob 正文。
+2. 来源核心严格保持 `Artifact --USED--> Event --GENERATED--> Artifact`；Principal、Grant、Decision 和 Effect 只存在于上层只读 SecurityGraph。
+3. 对外语义边使用封闭枚举；普通事件最多生成 `INFLUENCE_CANDIDATE`，当前任何代码路径都不会生成 `INFLUENCE_CONFIRMED`。
+4. 每条查询结果同时返回类型化节点、语义边、按路径顺序压缩的 Session 轨迹、证据 Event ID、边界深度和关联的 Grant/Skill/Tool ID。
+5. Context、Memory、Skill、Tool 只在真实跨界结构边上逐次计数，不在同一 Event 的 Artifact 边和 Principal 边重复标记；Session 按实际路径转换计数，`A → B → A` 记为两次而不是全局去重后的一次。
+6. 撤销是带事件时间的独立事实；历史节点和边不改写，只有撤销时间不晚于路径 Effect 时点的来源才标为 revoked origin。
+7. 路径枚举维护逐路径 visited 集合，并同时提供默认最大深度 64 与最多 512 条返回路径的资源上限。
+8. JSON 导出只由允许字段的 Pydantic 模型生成，排除 Blob、正文和任意 Event metadata；使用 exclusive-create 拒绝静默覆盖。
+9. 如果 Tool 请求已有显式输入 Artifact，Skill→Tool 路径沿该 Artifact 传播；只有输入为空时才补 actor Skill→请求 Event 结构边，避免真实 Runner 断链同时也避免绕过 Golden 证据。
+
+### TDD 与验证
+
+- 首轮先写 T07 测试，因 `skillflow.graph` 尚不存在而在收集阶段红灯。
+- Golden、七类查询、循环、最大深度、导出脱敏和隔离测试完成后，首轮定向测试 14/15 通过；真实 Runner 重启查询暴露 inputless Tool 请求与 actor Skill 断链。
+- 脱敏运行图证明请求 Event 已能到达 Effect，但 `benign_reader` 不能到达请求；只在内存补一条 actor→request 边后 `nx.has_path` 从 False 变为 True。修复收紧为仅处理无显式输入 Artifact 的请求。
+- no-excuse 审计发现事件投影和路径模块超过 250 行；按职责拆为 `special_event_projection.py` 与 `path_analysis.py`，公共接口和 T07 行为保持不变。
+- 最终语义复核增加 `Session A → B → A` 回归测试，先因缺少顺序 Session 轨迹失败，再修正为两次穿越。
+- 提交前逐边审计把 Golden 边界深度改为精确值：Context=1、Memory=2、Session=1、Skill=3、Tool=2、total=9；测试先暴露 Skill/Tool 重复标签，再移除重复计数。
+- 二部图节点闭包测试先发现 Principal/Grant/Decision/Effect 被错误加入 provenance 核心，随后将它们限制在上层 SecurityGraph。
+- T07 定向测试：17 passed；全量 pytest：182 passed，分支覆盖率 87.93%。
+- Ruff lint/format、mypy strict（78 个源文件）、Python no-excuse、`skillflow doctor` 与 `pip check` 均通过；最终 Git 证据在提交推送后记录于汇报。
+
+### 验收条件
+
+- [x] 从 EventStore 重建冻结的 Artifact–Event 二部图和类型化 SecurityGraph。
+- [x] 七类指定查询全部实现，并返回节点、边、Session、证据 Event、Grant、Skill、Tool 和边界深度。
+- [x] Golden 路径识别 Skill A、Skill B、一次跨 Session、最终 Tool、撤销来源、关联 Grant 和全部因果 Event。
+- [x] 环路在 visited/max-depth 约束下终止，Session 重新进入按每次穿越计数。
+- [x] 普通轨迹不生成 `INFLUENCE_CONFIRMED`。
+- [x] Runner 自动生成可由强类型模型读回且不含秘密哨兵的 JSON 图。
+- [x] 图包不依赖 Oracle、Adapter、Instrumentation、Runtime 或 Trace Writer。
+
+### 风险或遗留问题
+
+- T07 只投影已经持久化的 Decision/Grant 引用，不判断 Manifest 与 Grant 是否真实覆盖 Effect；完整 matcher、reason code、monitor/enforce 和撤销授权执行属于 T08。
+- `INFLUENCE_CANDIDATE` 只表示可达候选影响，不是因果确认；`INFLUENCE_CONFIRMED` 必须等待后续反事实证据。
+- 简单路径枚举默认深度 64、最多返回 512 条；大图研究必须显式理解该资源边界，不能把截断结果误报为全图无路径。
+- GraphML 未实现，按任务书只作为 T14 后的可选增强。
+- 本轮在 T07 停止；T08 保持 pending，不自动开始。

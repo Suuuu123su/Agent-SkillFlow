@@ -100,6 +100,21 @@ class SqliteEventStore:
         )
         return None if row is None else EffectRecord.model_validate_json(row)
 
+    def iter_run_effects(self, run_id: str) -> tuple[EffectRecord, ...]:
+        """按请求 Event 的追加顺序读取一个 Run 的 EffectRecord。"""
+        self._ensure_open()
+        rows = self._connection.execute(
+            """
+            SELECT effects.effect_json
+            FROM effects
+            JOIN events ON events.event_id = effects.request_event_id
+            WHERE events.run_id = ?
+            ORDER BY events.sequence_number, effects.effect_id
+            """,
+            (run_id,),
+        ).fetchall()
+        return tuple(EffectRecord.model_validate_json(row[0]) for row in rows)
+
     def set_memory_head(self, head: MemoryHead) -> None:
         """更新明确允许可变的 Memory 头。"""
         self._ensure_open()
