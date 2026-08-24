@@ -862,10 +862,35 @@ python -m skillflow.cli --help
 6. 实现模型到 JSON Schema 的一致性测试，避免手写 Schema 与 Pydantic 漂移。
 7. 增加 `validate-manifest` 和 `validate-scenario` CLI，但只校验，不执行。
 
+### Lifetime 补充冻结项
+
+不得按 `session | task` 的最小闭集实现。T03 必须固定支持且仅支持以下四个值，任何未知值全部拒绝：
+
+- `call`：仅当前 Skill/Tool 调用有效，运行期匹配要求 `call_id` 相同；
+- `task`：仅 `task_id` 相同的上下文有效，可以跨 Session；
+- `session`：仅 `session_id` 相同的上下文有效；
+- `persistent`：可以跨 Task 和 Session，直到 `expires_at` 到期或出现对应 `AUTH_REVOKE`。
+
+`SecurityEvent` 和 `AuthorizationGrant` 均须补充可选 `call_id`，用于表达与审计 `call` lifetime；其中 `call` Grant 缺少 `call_id` 时必须拒绝。
+
+Lifetime 是菱形偏序，不是线性大小关系，禁止使用枚举顺序或字符串顺序判断包含：
+
+```text
+       persistent
+       /        \
+    task        session
+       \        /
+          call
+```
+
+因此 `call` 同时窄于 `task` 和 `session`；`task` 与 `session` 互不包含；二者都窄于 `persistent`。T03 负责把四值集合、字段和偏序冻结到模型、Schema 与单元测试；Grant 对当前调用上下文的完整运行期匹配仍在 T08 实现。
+
 ### 必测用例
 
 - 合法 Manifest 和 Scenario 通过。
 - 缺 ID、重复 ID、未知 lifetime、未知 action、非法 URI 被拒绝。
+- 四个 Lifetime 值均可 JSON 往返；菱形偏序的所有有序组合均有测试，且 `task`/`session` 双向都不覆盖。
+- `AuthorizationGrant` 与 `SecurityEvent` 的 `call_id` 可往返；`call` Grant 缺少 `call_id` 被拒绝。
 - Skill 试图把自己写成 `issuer_type=user` 被拒绝。
 - Manifest 声明权限不会自动生成 Grant。
 - 精确文件 scope 不覆盖父目录或相邻前缀。
