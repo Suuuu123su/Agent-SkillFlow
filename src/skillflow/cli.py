@@ -9,8 +9,11 @@ from pathlib import Path
 from typing import Annotated, Final
 
 import typer
+from pydantic import BaseModel
 
 from skillflow import __version__
+from skillflow.models import Scenario, SkillManifest
+from skillflow.validation import DocumentValidationError, validate_yaml_document
 
 app: Final = typer.Typer(
     help="SkillFlow：Agent Skill 安全传播测量原型。",
@@ -96,6 +99,33 @@ def collect_doctor_checks(temp_dir: Path) -> tuple[DoctorCheck, ...]:
 def version_command() -> None:
     """输出 SkillFlow 版本。"""
     typer.echo(f"SkillFlow {__version__}")
+
+
+def _validate_command(path: Path, model_type: type[BaseModel], document_name: str) -> None:
+    """执行一个只读校验命令并统一渲染错误。"""
+    try:
+        validate_yaml_document(path, model_type)
+    except DocumentValidationError as error:
+        for issue in error.issues:
+            typer.echo(issue.render(), err=True)
+        raise typer.Exit(code=2) from error
+    typer.echo(f"[通过] {document_name} 校验成功：{path}")
+
+
+@app.command("validate-manifest")
+def validate_manifest_command(
+    path: Annotated[Path, typer.Argument(help="待校验的 Skill Manifest YAML 文件。")],
+) -> None:
+    """只校验 Manifest，不加载或执行 Skill。"""
+    _validate_command(path, SkillManifest, "Skill Manifest")
+
+
+@app.command("validate-scenario")
+def validate_scenario_command(
+    path: Annotated[Path, typer.Argument(help="待校验的 Scenario YAML 文件。")],
+) -> None:
+    """只校验 Scenario，不运行任何 fixture。"""
+    _validate_command(path, Scenario, "Scenario")
 
 
 @app.command()

@@ -1,0 +1,161 @@
+import json
+from pathlib import Path
+
+import pytest
+from jsonschema import Draft202012Validator
+from jsonschema import ValidationError as JsonSchemaValidationError
+from pydantic import ValidationError
+
+from skillflow.models import ExperimentMatrix, SkillManifest
+from skillflow.models.reports import RISK_REPORT_ADAPTER
+from skillflow.schemas import schema_documents
+
+SCHEMA_DIR = Path("schemas")
+
+
+def valid_manifest_payload() -> dict[str, object]:
+    return {
+        "schema_version": "0.1",
+        "id": "safe-reader",
+        "principal_type": "skill",
+        "description": "只读取一个精确文件",
+        "requested_permissions": [
+            {
+                "source": "workspace:/report.txt",
+                "action": "file.read",
+                "sink": "context:/task",
+                "scope": "exact-file",
+                "lifetime": "call",
+                "sensitivity": 1,
+            }
+        ],
+    }
+
+
+def valid_matrix_payload() -> dict[str, object]:
+    return {
+        "schema_version": "0.1",
+        "id": "mvp",
+        "variants": [
+            {
+                "variant": "baseline",
+                "scenario": "scenarios/b0.yaml",
+                "seed": 7,
+                "target_skill_present": True,
+                "shared_context": False,
+                "persistent_memory": False,
+                "auto_approve_tools": False,
+                "enforcement_mode": "enforce",
+                "provenance_mode": "preserve",
+                "implicit_text_authorization": False,
+            }
+        ],
+    }
+
+
+def valid_risk_report_payload() -> dict[str, object]:
+    return {
+        "schema_version": "0.1",
+        "report_scope": "run",
+        "run_id": "run-1",
+        "effect_ids": ["effect-1"],
+        "uea_count": 1,
+    }
+
+
+def test_experiment_matrix_round_trip_and_duplicate_rejection() -> None:
+    matrix = ExperimentMatrix.model_validate(valid_matrix_payload())
+    assert ExperimentMatrix.model_validate_json(matrix.model_dump_json()) == matrix
+
+    payload = valid_matrix_payload()
+    variants = payload["variants"]
+    assert isinstance(variants, list)
+    variants.append(dict(variants[0]))
+    with pytest.raises(ValidationError, match="重复"):
+        ExperimentMatrix.model_validate(payload)
+
+
+def test_risk_report_discriminator_is_closed() -> None:
+    report = RISK_REPORT_ADAPTER.validate_python(valid_risk_report_payload())
+    assert RISK_REPORT_ADAPTER.validate_json(RISK_REPORT_ADAPTER.dump_json(report)) == report
+
+    payload = valid_risk_report_payload()
+    payload["report_scope"] = "unknown"
+    with pytest.raises(ValidationError):
+        RISK_REPORT_ADAPTER.validate_python(payload)
+
+
+def test_static_schemas_equal_model_generated_schemas() -> None:
+    documents = schema_documents()
+    assert {document.filename for document in documents} == {
+        "skill-manifest.schema.json",
+        "scenario.schema.json",
+        "experiment-matrix.schema.json",
+        "risk-report.schema.json",
+    }
+    for document in documents:
+        static_schema = json.loads((SCHEMA_DIR / document.filename).read_text(encoding="utf-8"))
+        Draft202012Validator.check_schema(static_schema)
+        assert static_schema == document.content
+
+
+def test_manifest_model_and_json_schema_accept_same_valid_document() -> None:
+    payload = valid_manifest_payload()
+    manifest = SkillManifest.model_validate(payload)
+    manifest_schema = next(
+        document.content
+        for document in schema_documents()
+        if document.filename == "skill-manifest.schema.json"
+    )
+
+    Draft202012Validator(manifest_schema).validate(payload)
+    assert manifest.id == "safe-reader"
+
+
+def test_manifest_accepts_declared_permissions_compatibility_name() -> None:
+    payload = valid_manifest_payload()
+    payload["declared_permissions"] = payload.pop("requested_permissions")
+
+    manifest = SkillManifest.model_validate(payload)
+    schema = next(
+        document.content
+        for document in schema_documents()
+        if document.filename == "skill-manifest.schema.json"
+    )
+
+    Draft202012Validator(schema).validate(payload)
+    assert len(manifest.declared_permissions) == 1
+
+
+def test_manifest_rejects_two_nonempty_permission_fields() -> None:
+    payload = valid_manifest_payload()
+    payload["declared_permissions"] = payload["requested_permissions"]
+
+    with pytest.raises(ValidationError, match="不能同时非空"):
+        SkillManifest.model_validate(payload)
+
+
+@pytest.mark.parametrize(
+    ("field", "unknown_value"),
+    [("action", "file.teleport"), ("lifetime", "forever")],
+)
+def test_manifest_model_and_schema_reject_unknown_closed_value(
+    field: str,
+    unknown_value: str,
+) -> None:
+    payload = valid_manifest_payload()
+    permissions = payload["requested_permissions"]
+    assert isinstance(permissions, list)
+    permission = permissions[0]
+    assert isinstance(permission, dict)
+    permission[field] = unknown_value
+
+    with pytest.raises(ValidationError):
+        SkillManifest.model_validate(payload)
+    schema = next(
+        document.content
+        for document in schema_documents()
+        if document.filename == "skill-manifest.schema.json"
+    )
+    with pytest.raises(JsonSchemaValidationError):
+        Draft202012Validator(schema).validate(payload)

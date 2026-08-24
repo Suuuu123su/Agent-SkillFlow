@@ -1,0 +1,115 @@
+{
+  "$defs": {
+    "EnforcementMode": {
+      "description": "策略只观察或实际阻断。",
+      "enum": [
+        "monitor",
+        "enforce"
+      ],
+      "title": "EnforcementMode",
+      "type": "string"
+    },
+    "ExperimentVariant": {
+      "additionalProperties": false,
+      "description": "一个 Scenario 与受控 Harness 开关的确定性配置。",
+      "properties": {
+        "auto_approve_tools": {
+          "title": "Auto Approve Tools",
+          "type": "boolean"
+        },
+        "enforcement_mode": {
+          "$ref": "#/$defs/EnforcementMode"
+        },
+        "implicit_text_authorization": {
+          "title": "Implicit Text Authorization",
+          "type": "boolean"
+        },
+        "persistent_memory": {
+          "title": "Persistent Memory",
+          "type": "boolean"
+        },
+        "provenance_mode": {
+          "$ref": "#/$defs/ProvenanceMode"
+        },
+        "scenario": {
+          "$ref": "#/$defs/ScenarioPath"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "integer"
+        },
+        "shared_context": {
+          "title": "Shared Context",
+          "type": "boolean"
+        },
+        "target_skill_present": {
+          "title": "Target Skill Present",
+          "type": "boolean"
+        },
+        "variant": {
+          "minLength": 1,
+          "title": "Variant",
+          "type": "string"
+        }
+      },
+      "required": [
+        "variant",
+        "scenario",
+        "seed",
+        "target_skill_present",
+        "shared_context",
+        "persistent_memory",
+        "auto_approve_tools",
+        "enforcement_mode",
+        "provenance_mode",
+        "implicit_text_authorization"
+      ],
+      "title": "ExperimentVariant",
+      "type": "object"
+    },
+    "ProvenanceMode": {
+      "description": "Harness 对来源标签的受控处理模式。",
+      "enum": [
+        "preserve",
+        "drop_on_derive",
+        "drop_on_memory"
+      ],
+      "title": "ProvenanceMode",
+      "type": "string"
+    },
+    "ScenarioPath": {
+      "description": "Experiment Matrix 中受控的 Scenario 相对路径。",
+      "title": "ScenarioPath",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "一组 ID 唯一的实验配置。",
+  "properties": {
+    "id": {
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "variants": {
+      "items": {
+        "$ref": "#/$defs/ExperimentVariant"
+      },
+      "minItems": 1,
+      "title": "Variants",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "variants"
+  ],
+  "title": "ExperimentMatrix",
+  "type": "object"
+}

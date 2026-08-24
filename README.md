@@ -2,13 +2,17 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前仓库已完成到 **T02：威胁模型与安全语义冻结**。这里已经固定研究边界、授权语义和架构决定，但还没有实现来源图、授权策略、风险指标、场景执行器或真实 Harness Adapter。
+当前仓库已完成到 **T03：Schema 与核心数据模型**。这里已经固定研究边界、四级 Lifetime 语义、类型化输入输出和只读校验入口，但还没有实现 EventStore、来源图、授权策略、风险指标、场景执行器或真实 Harness Adapter。
 
 ## 当前能力
 
 - 可安装的 Python `src` 布局包。
 - `skillflow version`：输出当前版本。
 - `skillflow doctor`：离线检查 Python、SQLite、运行依赖和临时目录可写性。
+- `skillflow validate-manifest PATH`：只校验 Skill Manifest，不加载或执行 Skill。
+- `skillflow validate-scenario PATH`：只校验 Scenario，不运行 fixture。
+- Pydantic v2 核心安全模型、受控 Resource URI 和 `call | task | session | persistent` 菱形 Lifetime。
+- `skill-manifest`、`scenario`、`experiment-matrix`、`risk-report` 四类模型生成静态 JSON Schema。
 - pytest、覆盖率、ruff 与 mypy 质量门禁。
 - GitHub Actions 自动执行同一组质量门禁。
 - 中文威胁模型、安全语义、形式化不变量和架构决策记录。
@@ -34,6 +38,8 @@ python -m venv .venv-skillflow
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli --help
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli version
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli doctor
+.\.venv-skillflow\Scripts\python.exe -m skillflow.cli validate-manifest tests\fixtures\t03\valid_manifest.yaml
+.\.venv-skillflow\Scripts\python.exe -m skillflow.cli validate-scenario tests\fixtures\t03\valid_scenario.yaml
 ```
 
 安装后也可以直接使用控制台命令：

@@ -122,12 +122,24 @@ authorized(e) :=
   AND g.source_pattern covers e.source
   AND g.sink_pattern covers e.sink
   AND g.scope >= e.scope
-  AND g.task_id == current_task_id
-  AND session_and_lifetime_match(g, e)
+  AND boundary_matches_by_lifetime(g, e)
   AND g.valid_from <= effect_time
   AND (g.expires_at is absent OR effect_time < g.expires_at)
   AND no effective AUTH_REVOKE exists before effect_time
 ```
+
+其中 lifetime 边界匹配固定为：
+
+```text
+call       -> g.call_id == current_call_id
+task       -> g.task_id == current_task_id
+session    -> g.session_id == current_session_id
+persistent -> 不限制 task_id / session_id / call_id
+```
+
+`persistent` 仍受 `expires_at` 和 `AUTH_REVOKE` 约束。Grant 中保留的其他 ID 只记录签发上下文，不能被错误地叠加成额外 lifetime 边界。
+
+Lifetime 是菱形偏序：`call` 同时窄于 `task` 与 `session`；`task` 和 `session` 互不包含；二者都窄于 `persistent`。禁止按枚举顺序或字符串大小实现。
 
 匹配失败必须保留结构化 reason code。T02 只冻结判定维度；Resource URI 规范化、scope/lifetime 偏序和稳定 reason code 的代码实现分别属于 T03、T08。
 
@@ -166,8 +178,11 @@ enforce:
 ### 7.1 边界定义
 
 - `run_id`：一次声明式场景执行的唯一实例。
-- `task_id`：授权和业务目标边界；Grant 必须精确匹配当前 task。
+- `call_id`：一次 Skill/Tool 调用边界；仅 `call` lifetime 要求精确匹配。
+- `task_id`：授权和业务目标边界；仅 `task` lifetime 要求精确匹配，可以跨 Session。
 - `session_id`：一次 Harness 会话边界；Context 默认在 Session 结束时失效。
+- `session` lifetime：仅要求相同 `session_id`，与 `task` lifetime 互不包含。
+- `persistent` lifetime：可以跨 Task 和 Session，直到过期或被 `AUTH_REVOKE`。
 - Persistent Memory：可以跨 Session 存在，但不自动携带 authority。
 
 ### 7.2 跨 Session
@@ -181,18 +196,21 @@ enforce:
 5. 通过 Event/边记录 `MEMORY_READ` 和跨 Session 关系；
 6. 单独重新判断当前 Effect 的 Grant、session、time、lifetime 和 revoke 状态。
 
-旧 Session 的 Grant 不因数据进入 Memory 而延长。`lifetime=session` 的 Grant 必须精确匹配当前 `session_id`；task 级 Grant 也必须满足其余匹配条件。
+旧 Session 的 Grant 不因数据进入 Memory 而延长。`lifetime=session` 必须精确匹配当前 `session_id`；`lifetime=task` 可跨 Session，但必须匹配当前 `task_id`；`lifetime=call` 不能跨调用；`lifetime=persistent` 可跨 Session，但仍受时间和撤销约束。
 
 ### 7.3 跨 Task
 
-MVP 默认规则是 task 隔离：
+MVP 的跨 Task 规则按 lifetime 区分：
 
-- Grant 的 `task_id` 必须与当前 task 完全相等，不允许隐式通配或继承；
-- 旧 task 的授权声明、Manifest、Decision 或 Tool Return 不能授权新 task；
+- `lifetime=call` 只匹配原 `call_id`，不能跨调用；
+- `lifetime=task` 的 `task_id` 必须与当前 task 完全相等；
+- `lifetime=session` 只按 `session_id` 匹配，不与 `task` lifetime 互相包含；
+- `lifetime=persistent` 可以跨 Task 和 Session，直到 `expires_at` 或 `AUTH_REVOKE`；
+- 旧 task 的普通文本授权声明、Manifest、Decision 或 Tool Return 不能授权新 task；只有仍在有效期内且未撤销的 `persistent` 结构化 Grant 可以跨 Task；
 - 如果声明式场景显式允许读取跨 task Persistent Memory，必须创建当前 task 的新 Artifact、连接旧父 Artifact 并保留 origins；
 - 新 Artifact 的 `task_id` 记录当前消费 task，原创建 task 仍可由父链回溯；
 - Context 默认不跨 task；跨 task 数据只能经过显式持久化边界；
-- 跨 task 读取保留数据来源，但不携带旧 task 的 authority。
+- 跨 task 读取保留数据来源，但只可使用当前 Effect 明确匹配的有效 Grant；不得把数据传播本身解释为授权传播。
 
 T02 不引入跨 run 的隐式全局状态。任何跨 run fixture 必须由 Benchmark 显式声明，不能成为生产状态假设。
 
@@ -302,11 +320,16 @@ component IN {Agent, Skill, PolicyEngine, ObservedGraph}
   -> no read dependency on Oracle Plane
 ```
 
-### INV-TASK-01：授权不跨 task 隐式继承
+### INV-LIFETIME-01：授权只按所声明 lifetime 的边界匹配
 
 ```text
-grant.task_id != current_task_id -> grant cannot authorize current effect
+call       -> same call_id
+task       -> same task_id
+session    -> same session_id
+persistent -> cross task/session until expires_at or AUTH_REVOKE
 ```
+
+`task` 与 `session` 互不包含；任何未知 lifetime 均在输入边界拒绝。
 
 ## 11. 语义错误分类
 
@@ -316,7 +339,7 @@ grant.task_id != current_task_id -> grant cannot authorize current effect
 - 未知 Principal、action、scope、lifetime 或 Resource scheme；
 - Artifact 引用不存在的父节点；
 - 一个输出 Artifact 有多个生成 Event；
-- Grant 与 Effect 的主体、source、sink、scope、task、session、time 或 lifetime 不匹配；
+- Grant 与 Effect 的主体、source、sink、scope、当前 lifetime 对应边界、time 或 lifetime 不匹配；
 - 普通文本被转换为 Grant；
 - Observed 组件导入或读取 Oracle；
 - Tool Receipt 不是由对应 Mock Tool 执行产生；
@@ -340,5 +363,5 @@ grant.task_id != current_task_id -> grant cannot authorize current effect
 - 合并 Observed 与 Oracle；
 - 用单一节点图取代 Artifact–Event 图；
 - 从 Mock Tool 改为真实网络、Shell 或凭据；
-- 允许 Grant 默认跨 task 或跨 session；
+- 改变 `call | task | session | persistent` 的菱形 lifetime 语义；
 - 把恶意文本检测改为框架主要任务。

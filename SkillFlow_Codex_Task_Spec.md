@@ -322,6 +322,33 @@ shell.execute
 user.confirm
 ```
 
+`Lifetime` 固定为四个值，未知值一律拒绝：
+
+```text
+call
+task
+session
+persistent
+```
+
+- `call`：仅当前 Skill/Tool 调用有效，必须匹配 `call_id`；
+- `task`：仅相同 `task_id` 有效，可以跨 Session；
+- `session`：仅相同 `session_id` 有效；
+- `persistent`：可以跨 Task 和 Session，直到 `expires_at` 或 `AUTH_REVOKE`；
+- `task_id`、`session_id` 可以作为签发上下文保留，但匹配时只使用当前 lifetime 对应的边界 ID。
+
+Lifetime 是菱形偏序，不是可按字符串或枚举顺序比较的线性大小：
+
+```text
+       persistent
+       /        \
+    task        session
+       \        /
+          call
+```
+
+因此 `call` 比 `task` 和 `session` 都窄，`task` 与 `session` 互不包含，二者都比 `persistent` 窄。
+
 `CapabilityEffect` 是可比较的“效果值”，不是一次运行中已经发生的事件。实际执行实例使用独立记录：
 
 ```python
@@ -379,6 +406,7 @@ class AuthorizationGrant(BaseModel):
     lifetime: Lifetime
     task_id: str
     session_id: str | None
+    call_id: str | None
     valid_from: datetime
     expires_at: datetime | None
 ```
@@ -391,7 +419,7 @@ Effect `e` 被授权，当且仅当存在 Grant `g` 同时满足：
 2. action 完全匹配；
 3. source 与 sink 都在 Grant 的模式范围内；
 4. Effect 的 scope 不宽于 Grant；
-5. task、session、时间和 lifetime 均有效；
+5. 时间和 lifetime 均有效，并且按 lifetime 匹配边界：`call_id`、`task_id`、`session_id` 或不限制 Task/Session；
 6. Effect 发生时尚不存在对该 Grant 生效的撤销事件；
 7. Skill Manifest 也声明了该能力。
 
@@ -447,6 +475,7 @@ class SecurityEvent(BaseModel):
     run_id: str
     task_id: str
     session_id: str
+    call_id: str | None
     timestamp: datetime
     event_type: EventType
     actor_id: str
@@ -825,8 +854,8 @@ python -m skillflow.cli --help
 
 ### 具体步骤
 
-1. 实现枚举：PrincipalType、ArtifactType、EventType、Lifetime、TrustLevel、Decision。
-2. 实现 `ResourceRef`、`CapabilityEffect`、`EffectRecord`、`SecurityLabel`、`AuthorizationGrant`、`DecisionRecord`、`SecurityEvent`。
+1. 实现枚举：PrincipalType、ArtifactType、EventType、Lifetime、TrustLevel、Decision；`Lifetime` 只允许 `call | task | session | persistent`，并按菱形偏序比较。
+2. 实现 `ResourceRef`、`CapabilityEffect`、`EffectRecord`、`SecurityLabel`、`AuthorizationGrant`、`DecisionRecord`、`SecurityEvent`；`AuthorizationGrant` 和 `SecurityEvent` 均包含可选 `call_id`。
 3. 实现 Skill Manifest 模型；Manifest 权限明确命名为 `requested_permissions` 或 `declared_permissions`。
 4. 实现 `skill-manifest.schema.json`、`scenario.schema.json`、`experiment-matrix.schema.json`、`risk-report.schema.json`。
 5. 对 Resource URI 做规范化；MVP 只允许 `workspace:`、`context:`、`memory:`、`mock:`、`fixture:`，拒绝绝对主机路径、空 scope、路径穿越和未知 scheme。
@@ -1005,7 +1034,7 @@ Skill A output
 
 1. 实现 Manifest capability matcher。
 2. 实现 Grant matcher：principal、action、source、sink、scope、task、session、time、revoke。
-3. 定义 scope 偏序和 lifetime 偏序，禁止字符串前缀替代合法路径包含判断。
+3. 定义 scope 偏序和 lifetime 菱形偏序；`call` 同时窄于 `task`/`session`，`task` 与 `session` 互不包含，`persistent` 同时宽于二者；禁止枚举顺序比较，也禁止字符串前缀替代合法路径包含判断。
 4. 实现 PolicyEngine，返回 ALLOW、DENY、CONFIRM 和稳定 reason codes。
 5. 按第 5.6 节真值表同时生成 `baseline_result`、`policy_result` 和 `executed`，不得只存一个模糊 decision。
 6. monitor 模式只允许 baseline 已决定执行的 Mock Effect 继续发生；它不会把 policy deny 改为 authorized。
@@ -1022,6 +1051,7 @@ SINK_SCOPE_EXCEEDED
 GRANT_EXPIRED
 GRANT_REVOKED
 ORIGIN_REVOKED
+CROSS_CALL_USE
 CROSS_TASK_USE
 CROSS_SESSION_USE
 UNTRUSTED_ORIGIN

@@ -1,0 +1,737 @@
+{
+  "$defs": {
+    "ArtifactAliasRef": {
+      "description": "Scenario 内已声明 Artifact output 的引用。",
+      "title": "ArtifactAliasRef",
+      "type": "string"
+    },
+    "AssetSpec": {
+      "additionalProperties": false,
+      "description": "每次 Run 复制到隔离 workspace 的输入资产。",
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "marker": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Marker"
+        },
+        "sensitivity": {
+          "default": 0,
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Sensitivity",
+          "type": "integer"
+        },
+        "trust": {
+          "$ref": "#/$defs/TrustLevel"
+        },
+        "uri": {
+          "$ref": "#/$defs/ResourceRef"
+        }
+      },
+      "required": [
+        "id",
+        "uri",
+        "trust"
+      ],
+      "title": "AssetSpec",
+      "type": "object"
+    },
+    "AuthorizationGrant": {
+      "additionalProperties": false,
+      "description": "由用户或可信策略签发的能力授权。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "call_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Call Id"
+        },
+        "expires_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expires At"
+        },
+        "grant_id": {
+          "minLength": 1,
+          "title": "Grant Id",
+          "type": "string"
+        },
+        "grantee_id": {
+          "minLength": 1,
+          "title": "Grantee Id",
+          "type": "string"
+        },
+        "issuer_id": {
+          "minLength": 1,
+          "title": "Issuer Id",
+          "type": "string"
+        },
+        "issuer_type": {
+          "enum": [
+            "user",
+            "trusted_policy"
+          ],
+          "title": "Issuer Type",
+          "type": "string"
+        },
+        "lifetime": {
+          "$ref": "#/$defs/Lifetime"
+        },
+        "scope": {
+          "minLength": 1,
+          "title": "Scope",
+          "type": "string"
+        },
+        "session_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Session Id"
+        },
+        "sink_pattern": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source_pattern": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "task_id": {
+          "minLength": 1,
+          "title": "Task Id",
+          "type": "string"
+        },
+        "valid_from": {
+          "format": "date-time",
+          "title": "Valid From",
+          "type": "string"
+        }
+      },
+      "required": [
+        "grant_id",
+        "issuer_id",
+        "issuer_type",
+        "grantee_id",
+        "action",
+        "source_pattern",
+        "sink_pattern",
+        "scope",
+        "lifetime",
+        "task_id",
+        "valid_from"
+      ],
+      "title": "AuthorizationGrant",
+      "type": "object"
+    },
+    "CapabilityAction": {
+      "description": "MVP 固定支持的能力动作。",
+      "enum": [
+        "file.read",
+        "file.write",
+        "memory.read",
+        "memory.write",
+        "network.send",
+        "shell.execute",
+        "user.confirm"
+      ],
+      "title": "CapabilityAction",
+      "type": "string"
+    },
+    "ClockSpec": {
+      "additionalProperties": false,
+      "description": "确定性虚拟时钟。",
+      "properties": {
+        "start": {
+          "format": "date-time",
+          "title": "Start",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start"
+      ],
+      "title": "ClockSpec",
+      "type": "object"
+    },
+    "CounterfactualSpec": {
+      "additionalProperties": false,
+      "description": "中和一个 Artifact 后观察 Effect 的反事实重放声明。",
+      "properties": {
+        "intervention": {
+          "const": "neutralize",
+          "title": "Intervention",
+          "type": "string"
+        },
+        "observe": {
+          "$ref": "#/$defs/EffectSelectorRef"
+        },
+        "target": {
+          "$ref": "#/$defs/ArtifactAliasRef"
+        }
+      },
+      "required": [
+        "target",
+        "intervention",
+        "observe"
+      ],
+      "title": "CounterfactualSpec",
+      "type": "object"
+    },
+    "EffectSelector": {
+      "additionalProperties": false,
+      "description": "把运行期多个 EffectRecord 映射到稳定别名。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "alias": {
+          "minLength": 1,
+          "title": "Alias",
+          "type": "string"
+        },
+        "sink_pattern": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source_pattern": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "alias",
+        "action",
+        "source_pattern",
+        "sink_pattern"
+      ],
+      "title": "EffectSelector",
+      "type": "object"
+    },
+    "EffectSelectorRef": {
+      "description": "Scenario 内已声明 effect selector 的引用。",
+      "title": "EffectSelectorRef",
+      "type": "string"
+    },
+    "EnforcementMode": {
+      "description": "策略只观察或实际阻断。",
+      "enum": [
+        "monitor",
+        "enforce"
+      ],
+      "title": "EnforcementMode",
+      "type": "string"
+    },
+    "ExecutionConfig": {
+      "additionalProperties": false,
+      "description": "运行期只观察或实际阻断。",
+      "properties": {
+        "mode": {
+          "$ref": "#/$defs/EnforcementMode"
+        }
+      },
+      "required": [
+        "mode"
+      ],
+      "title": "ExecutionConfig",
+      "type": "object"
+    },
+    "ExpectedOrigins": {
+      "additionalProperties": false,
+      "description": "Artifact 或 Effect 必须保留的来源集合。",
+      "properties": {
+        "origins": {
+          "items": {
+            "$ref": "#/$defs/OriginRef"
+          },
+          "minItems": 1,
+          "title": "Origins",
+          "type": "array"
+        },
+        "target": {
+          "$ref": "#/$defs/ScenarioTargetRef"
+        }
+      },
+      "required": [
+        "target",
+        "origins"
+      ],
+      "title": "ExpectedOrigins",
+      "type": "object"
+    },
+    "ExpectedPersistence": {
+      "additionalProperties": false,
+      "description": "撤销后指定会话偏移上的持续影响预期。",
+      "properties": {
+        "check_offsets": {
+          "items": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "minItems": 1,
+          "title": "Check Offsets",
+          "type": "array"
+        },
+        "revoked_skill": {
+          "minLength": 1,
+          "title": "Revoked Skill",
+          "type": "string"
+        }
+      },
+      "required": [
+        "revoked_skill",
+        "check_offsets"
+      ],
+      "title": "ExpectedPersistence",
+      "type": "object"
+    },
+    "FixtureImplementationRef": {
+      "description": "只能由固定 fixture registry 解析的实现引用。",
+      "title": "FixtureImplementationRef",
+      "type": "string"
+    },
+    "ForbiddenEffect": {
+      "additionalProperties": false,
+      "description": "Oracle 明确禁止的结构化效果。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "sink": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "action",
+        "sink"
+      ],
+      "title": "ForbiddenEffect",
+      "type": "object"
+    },
+    "HarnessConfig": {
+      "additionalProperties": false,
+      "description": "用于四格实验的 Harness 受控开关。",
+      "properties": {
+        "auto_approve_tools": {
+          "title": "Auto Approve Tools",
+          "type": "boolean"
+        },
+        "implicit_text_authorization": {
+          "default": false,
+          "title": "Implicit Text Authorization",
+          "type": "boolean"
+        },
+        "persistent_memory": {
+          "title": "Persistent Memory",
+          "type": "boolean"
+        },
+        "provenance_mode": {
+          "$ref": "#/$defs/ProvenanceMode"
+        },
+        "shared_context": {
+          "title": "Shared Context",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "shared_context",
+        "persistent_memory",
+        "auto_approve_tools",
+        "provenance_mode"
+      ],
+      "title": "HarnessConfig",
+      "type": "object"
+    },
+    "Lifetime": {
+      "description": "授权或效果的有效边界。",
+      "enum": [
+        "call",
+        "task",
+        "session",
+        "persistent"
+      ],
+      "title": "Lifetime",
+      "type": "string"
+    },
+    "ManifestPath": {
+      "description": "只能指向 Scenario 受控 manifests 目录的相对路径。",
+      "title": "ManifestPath",
+      "type": "string"
+    },
+    "OracleSpec": {
+      "additionalProperties": false,
+      "description": "Scenario 的结构化安全预期。",
+      "properties": {
+        "expected_origins": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ExpectedOrigins"
+          },
+          "title": "Expected Origins",
+          "type": "array"
+        },
+        "expected_persistence": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ExpectedPersistence"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "forbidden_effects": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ForbiddenEffect"
+          },
+          "title": "Forbidden Effects",
+          "type": "array"
+        }
+      },
+      "title": "OracleSpec",
+      "type": "object"
+    },
+    "OriginRef": {
+      "description": "来源断言中的 asset 或 skill 引用。",
+      "title": "OriginRef",
+      "type": "string"
+    },
+    "PrincipalType": {
+      "description": "能够产生事件或签发授权的主体类别。",
+      "enum": [
+        "user",
+        "trusted_policy",
+        "harness",
+        "skill",
+        "tool"
+      ],
+      "title": "PrincipalType",
+      "type": "string"
+    },
+    "ProvenanceMode": {
+      "description": "Harness 对来源标签的受控处理模式。",
+      "enum": [
+        "preserve",
+        "drop_on_derive",
+        "drop_on_memory"
+      ],
+      "title": "ProvenanceMode",
+      "type": "string"
+    },
+    "ResourceRef": {
+      "description": "一个已经校验并规范化的 Resource URI。",
+      "title": "ResourceRef",
+      "type": "string"
+    },
+    "ScenarioSkill": {
+      "additionalProperties": false,
+      "description": "受控 Manifest 与 fixture 实现的绑定。",
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "implementation": {
+          "$ref": "#/$defs/FixtureImplementationRef"
+        },
+        "manifest": {
+          "$ref": "#/$defs/ManifestPath"
+        }
+      },
+      "required": [
+        "id",
+        "manifest",
+        "implementation"
+      ],
+      "title": "ScenarioSkill",
+      "type": "object"
+    },
+    "ScenarioStep": {
+      "additionalProperties": false,
+      "description": "Scripted Backend 的一个声明式步骤。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/StepAction"
+        },
+        "actor": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PrincipalType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "outputs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ArtifactAliasRef"
+          },
+          "title": "Outputs",
+          "type": "array"
+        },
+        "skill": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Skill"
+        }
+      },
+      "required": [
+        "id",
+        "action"
+      ],
+      "title": "ScenarioStep",
+      "type": "object"
+    },
+    "ScenarioTargetRef": {
+      "description": "Oracle 可观察的 Artifact 或 effect selector 引用。",
+      "title": "ScenarioTargetRef",
+      "type": "string"
+    },
+    "SessionSpec": {
+      "additionalProperties": false,
+      "description": "一个有序 Session 步骤序列。",
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/$defs/ScenarioStep"
+          },
+          "minItems": 1,
+          "title": "Steps",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "steps"
+      ],
+      "title": "SessionSpec",
+      "type": "object"
+    },
+    "StepAction": {
+      "description": "Scripted Backend 唯一允许的声明式操作。",
+      "enum": [
+        "invoke_skill",
+        "write_memory",
+        "read_memory",
+        "request_tool",
+        "user_confirm",
+        "revoke_skill",
+        "unload_skill",
+        "restart_runtime"
+      ],
+      "title": "StepAction",
+      "type": "string"
+    },
+    "TaskSpec": {
+      "additionalProperties": false,
+      "description": "Scenario 中唯一任务。",
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "prompt": {
+          "minLength": 1,
+          "title": "Prompt",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "prompt"
+      ],
+      "title": "TaskSpec",
+      "type": "object"
+    },
+    "TrustLevel": {
+      "description": "数据来源的保守信任等级。",
+      "enum": [
+        "trusted",
+        "user",
+        "untrusted",
+        "unknown"
+      ],
+      "title": "TrustLevel",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "可静态验证、不可执行任意代码的完整实验场景。",
+  "properties": {
+    "assets": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/AssetSpec"
+      },
+      "title": "Assets",
+      "type": "array"
+    },
+    "clock": {
+      "$ref": "#/$defs/ClockSpec"
+    },
+    "counterfactuals": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/CounterfactualSpec"
+      },
+      "title": "Counterfactuals",
+      "type": "array"
+    },
+    "description": {
+      "minLength": 1,
+      "title": "Description",
+      "type": "string"
+    },
+    "effect_selectors": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/EffectSelector"
+      },
+      "title": "Effect Selectors",
+      "type": "array"
+    },
+    "execution": {
+      "$ref": "#/$defs/ExecutionConfig"
+    },
+    "grants": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/AuthorizationGrant"
+      },
+      "title": "Grants",
+      "type": "array"
+    },
+    "harness": {
+      "$ref": "#/$defs/HarnessConfig"
+    },
+    "id": {
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "oracle": {
+      "$ref": "#/$defs/OracleSpec"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sessions": {
+      "items": {
+        "$ref": "#/$defs/SessionSpec"
+      },
+      "minItems": 1,
+      "title": "Sessions",
+      "type": "array"
+    },
+    "skills": {
+      "items": {
+        "$ref": "#/$defs/ScenarioSkill"
+      },
+      "minItems": 1,
+      "title": "Skills",
+      "type": "array"
+    },
+    "task": {
+      "$ref": "#/$defs/TaskSpec"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "description",
+    "clock",
+    "task",
+    "skills",
+    "harness",
+    "execution",
+    "sessions",
+    "oracle"
+  ],
+  "title": "Scenario",
+  "type": "object"
+}

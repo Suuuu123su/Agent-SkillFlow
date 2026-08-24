@@ -21,7 +21,7 @@ T02 已完成。SkillFlow 的研究边界、主体、资产、攻击者能力、
 3. 数据来源、决策影响和授权来源分别由血缘图、反事实 Replay 和结构化 Grant 证明。
 4. Tool 请求、策略允许和实际 Receipt 是不同事实；只有 Receipt 能证明 Mock Effect 已执行。
 5. Persistent Memory 可以跨 Session 传播数据，但必须保留父链和 origins，且不能延长旧授权。
-6. Grant 默认不跨 task；跨 task 数据读取也不携带旧 task 的 authority。
+6. Grant 按 lifetime 边界匹配：`call` 同调用、`task` 同任务且可跨 Session、`session` 同会话、`persistent` 可跨 Task/Session 直至过期或撤销；数据传播本身不携带 authority。
 7. revoke、unload 和 delete 不删除历史，只通过后续事件改变未来有效性。
 8. Observed 是被评估对象，Oracle 是被测系统不可读取的独立 Ground Truth。
 
@@ -37,7 +37,7 @@ T02 共冻结 9 条不变量，覆盖：
 - 候选影响与确认影响分开；
 - monitor 不改变授权真值；
 - Oracle 运行时隔离；
-- Grant 不跨 task 隐式继承。
+- Grant 只按 `call | task | session | persistent` 对应边界匹配，`task` 与 `session` 互不包含。
 
 ## 手工路径
 
@@ -71,8 +71,8 @@ T02 共冻结 9 条不变量，覆盖：
 
 ## 未完成内容
 
-- 尚未实现 Pydantic 模型、JSON Schema 或 URI 校验；
+- T02 完成时尚未实现 Pydantic 模型、JSON Schema 或 URI 校验；这些内容现已在 T03 落地；
 - 尚未实现 EventStore、Harness、Oracle、来源图、授权 matcher 或风险指标；
 - 尚无任何攻击发生率或安全效果实验结果。
 
-以上内容属于 T03 及之后任务。下一项可执行任务是 T03，当前未启动。
+以上运行期能力仍属于 T04 及之后任务。T03 已在后续轮次完成，详见 `T03_Summary.md`。

@@ -11,7 +11,7 @@
 | T00 | completed | 见 `docs/repository-baseline.md` | 已完成仓库基线记录，未创建功能实现。 |
 | T01 | completed | 6 tests；覆盖率 92%；ruff/mypy/CLI PASS | 已建立可安装包、CLI、本地门禁与 GitHub CI。 |
 | T02 | completed | 文档审计 PASS；6 tests；ruff/mypy/doctor PASS | 已冻结威胁模型、安全语义与 3 份 ADR。 |
-| T03 | pending | 不适用 | 依赖 T02。 |
+| T03 | completed | 65 tests；覆盖率 90.18%；ruff/mypy/Schema/CLI PASS | 已完成核心模型、四类 Schema 和只读校验 CLI。 |
 | T04 | pending | 不适用 | 依赖 T03。 |
 | T05 | pending | 不适用 | 依赖 T04。 |
 | T06 | pending | 不适用 | 依赖 T05。 |
@@ -157,7 +157,7 @@
 1. 每个 Skill 是独立 `Principal`；Harness 只是连接 Skill、数据面和 Tool 的桥接层，不提供默认 authority。
 2. 数据来源、决策影响和授权来源分别由血缘图、反事实 Replay 和真实 Grant 证明，不能合并。
 3. Manifest 与 Grant 是双钥匙；普通文本、高 trust 数据、自动批准和 monitor 执行都不能替代 Grant。
-4. 同一 task 的跨 Session Memory 读取创建新 Artifact、连接旧父节点并保留 origins；跨 task 读取不继承旧 Grant。
+4. 同一 task 的跨 Session Memory 读取创建新 Artifact、连接旧父节点并保留 origins；授权按 `call | task | session | persistent` 的对应边界匹配，数据传播本身不传播 authority。
 5. revoke/unload/delete 均追加事件，不删除历史；撤销后的新派生物携带 `revoked_origins`。
 6. EventStore 是唯一事实源，Artifact–Event 图是可重建只读视图。
 7. Observed 是被评估对象，Oracle 是不可被运行组件读取的独立真值。
@@ -175,7 +175,7 @@
 - 时序只能建立候选影响；
 - monitor 不改变授权真值；
 - 运行组件不能读取 Oracle；
-- Grant 不跨 task 隐式继承。
+- Grant 只按声明的 lifetime 边界匹配，`task` 与 `session` 互不包含。
 
 ### 手工语义路径
 
@@ -216,6 +216,66 @@
 ### 风险或遗留问题
 
 - 本任务只冻结语义，没有提供代码或实验结果；对应不变量必须在 T03 及以后转化为类型、Schema 和测试。
-- Resource URI、scope/lifetime 偏序和稳定 reason codes 分别留给 T03、T08，不在 T02 伪实现。
+- Resource URI 与 lifetime 菱形偏序已在 T03 落地；完整 scope matcher 和稳定 reason codes 仍属于 T08。
 - Oracle 隔离要到 T06 才能通过代码依赖和运行时测试验证；当前只有架构合同。
-- 下一项可执行任务是 T03，尚未启动。
+- T03 已在后续轮次完成；下一项可执行任务是 T04，但本轮不进入 T04。
+
+## T03：Schema 与核心数据模型
+
+- 状态：completed
+- 日期：2026-08-24（Asia/Shanghai）
+- 任务边界：只实现稳定数据契约、静态 Schema 和只读校验；未实现 T04 EventStore 或任何后续运行逻辑。
+
+### 修改文件
+
+- `src/skillflow/models/`：封闭枚举、ResourceRef、授权、效果、来源、事件、Manifest、Scenario、Experiment Matrix 和风险报告模型。
+- `src/skillflow/schemas.py`：四类模型生成静态 JSON Schema 的唯一入口。
+- `src/skillflow/validation.py`：YAML 加载、Pydantic 校验和结构化问题报告。
+- `src/skillflow/cli.py`：新增 `validate-manifest` 与 `validate-scenario`，均只校验不执行。
+- `schemas/*.schema.json`：Skill Manifest、Scenario、Experiment Matrix、Risk Report 四类静态 Schema。
+- `tests/unit/models/`、`tests/integration/test_validation_cli.py`、`tests/fixtures/t03/`：模型、引用、Schema、CLI 和 JSON 往返测试。
+- `docs/decisions/0004-use-diamond-lifetime-lattice.md`：冻结四值菱形 Lifetime。
+- `docs/summaries/T03_Summary.md`：T03 中文总结。
+
+### 关键设计决定
+
+1. `Lifetime` 只允许 `call | task | session | persistent`，未知值全部拒绝。
+2. Lifetime 采用菱形偏序：`call` 同时窄于 `task`/`session`，二者互不包含，`persistent` 同时宽于二者。
+3. `AuthorizationGrant` 与 `SecurityEvent` 均包含可选 `call_id`；`call` Grant 必须提供它。
+4. Pydantic v2 模型默认冻结并拒绝未知字段，Manifest 不能嵌入 Grant 或伪造 issuer。
+5. Resource URI 只允许五种 scheme，拒绝主机绝对路径、空 scope、路径穿越和未知 scheme；精确匹配不使用字符串前缀。
+6. Scenario 只能引用受控 Manifest 路径和 `fixture://<registry-id>`，所有 step/output/effect 引用必须在同一 Scenario 声明。
+7. 静态 Schema 由模型生成；一致性测试防止手写副本漂移。
+
+### TDD 记录
+
+- Lifetime/Resource 第一轮：先得到 25 个失败、1 个通过，再补四值偏序、URI 规范化与精确匹配。
+- 核心模型第二轮：先得到 4 个失败、5 个通过，再补 call/session 边界 ID、Grant 时间窗和 Effect 执行证据。
+- Scenario、Schema、CLI 均先以缺失接口或缺失命令失败，再逐层补最小实现。
+- 没有按 Scenario ID 特判结果，也没有加载任意 Python 实现路径。
+
+### 验证结果
+
+- `.venv-skillflow\Scripts\python.exe -m pytest -q` → PASS，65 passed，分支覆盖率 90.18%。
+- `.venv-skillflow\Scripts\ruff.exe check src tests` → PASS。
+- `.venv-skillflow\Scripts\ruff.exe format --check src tests` → PASS。
+- `.venv-skillflow\Scripts\python.exe -m mypy src\skillflow` → PASS，18 个源文件无类型问题。
+- 四类静态 JSON Schema → Draft 2020-12 结构检查 PASS，且与模型生成内容完全一致。
+- `validate-manifest` / `validate-scenario` → 合法 fixture 退出码 0；非法文档退出码 2，并包含文件、字段路径、代码和原因。
+
+### 验收条件
+
+- [x] 合法 Manifest/Scenario 通过，缺 ID、重复 ID、未知 action/lifetime 和非法 URI 被拒绝。
+- [x] Skill 不能伪装授权签发者，Manifest 声明不会生成 Grant。
+- [x] 精确文件 scope 不覆盖父目录或相邻前缀。
+- [x] 未声明 artifact/effect alias 与任意实现路径被拒绝。
+- [x] JSON 往返不丢失字段，包括 `call_id`。
+- [x] 四类静态 Schema 与 Pydantic 模型保持一致。
+- [x] 未实现 EventStore、运行期 matcher、图、指标或 Harness。
+
+### 风险或遗留问题
+
+- T03 只定义数据契约。`lifetime_covers` 已表达菱形偏序，但 Grant 对当前 call/task/session 的完整运行期匹配属于 T08。
+- ResourceRef 的精确匹配已实现；目录或模式 scope 的合法包含算法仍属于 T08。
+- Risk Report 当前是报告 Schema，不代表 UEA、HIAA、ALR、RIR 或 CI 已经计算。
+- 下一项可执行任务是 T04；本轮到 T03 停止。

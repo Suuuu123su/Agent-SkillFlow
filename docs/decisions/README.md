@@ -7,3 +7,4 @@
 | [0001](0001-use-artifact-event-graph.md) | 已接受 | 使用 Artifact–Event 二部图作为来源事实模型 |
 | [0002](0002-separate-observed-and-oracle.md) | 已接受 | 严格分离 Observed Plane 与 Oracle Plane |
 | [0003](0003-use-mock-harness-first.md) | 已接受 | 第一版只使用确定性 Mock Harness |
+| [0004](0004-use-diamond-lifetime-lattice.md) | 已接受 | Lifetime 使用 `call/task/session/persistent` 四值菱形偏序 |

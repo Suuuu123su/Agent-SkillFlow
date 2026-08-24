@@ -1,0 +1,11 @@
+schema_version: "0.1"
+id: safe_reader
+principal_type: skill
+description: "只读取精确文件并写入当前任务上下文"
+requested_permissions:
+  - source: workspace:/report.txt
+    action: file.read
+    sink: context:/task
+    scope: exact-file
+    lifetime: call
+    sensitivity: 1

@@ -1,0 +1,127 @@
+{
+  "$defs": {
+    "CapabilityAction": {
+      "description": "MVP 固定支持的能力动作。",
+      "enum": [
+        "file.read",
+        "file.write",
+        "memory.read",
+        "memory.write",
+        "network.send",
+        "shell.execute",
+        "user.confirm"
+      ],
+      "title": "CapabilityAction",
+      "type": "string"
+    },
+    "CapabilityEffect": {
+      "additionalProperties": false,
+      "description": "可比较的结构化能力效果。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "lifetime": {
+          "$ref": "#/$defs/Lifetime"
+        },
+        "scope": {
+          "minLength": 1,
+          "title": "Scope",
+          "type": "string"
+        },
+        "sensitivity": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Sensitivity",
+          "type": "integer"
+        },
+        "sink": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "action",
+        "sink",
+        "scope",
+        "lifetime",
+        "sensitivity"
+      ],
+      "title": "CapabilityEffect",
+      "type": "object"
+    },
+    "Lifetime": {
+      "description": "授权或效果的有效边界。",
+      "enum": [
+        "call",
+        "task",
+        "session",
+        "persistent"
+      ],
+      "title": "Lifetime",
+      "type": "string"
+    },
+    "ResourceRef": {
+      "description": "一个已经校验并规范化的 Resource URI。",
+      "title": "ResourceRef",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Skill 声明的能力上限，不包含真实 Grant。",
+  "properties": {
+    "declared_permissions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/CapabilityEffect"
+      },
+      "title": "Declared Permissions",
+      "type": "array"
+    },
+    "description": {
+      "default": "",
+      "title": "Description",
+      "type": "string"
+    },
+    "id": {
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "principal_type": {
+      "const": "skill",
+      "default": "skill",
+      "title": "Principal Type",
+      "type": "string"
+    },
+    "requested_permissions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/CapabilityEffect"
+      },
+      "title": "Requested Permissions",
+      "type": "array"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id"
+  ],
+  "title": "SkillManifest",
+  "type": "object"
+}

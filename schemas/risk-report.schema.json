@@ -1,0 +1,540 @@
+{
+  "$defs": {
+    "Decision": {
+      "description": "Harness 或策略的结构化决策。",
+      "enum": [
+        "allow",
+        "deny",
+        "confirm"
+      ],
+      "title": "Decision",
+      "type": "string"
+    },
+    "ExperimentRiskReport": {
+      "additionalProperties": false,
+      "description": "Experiment 层的四格与持续风险聚合报告。",
+      "properties": {
+        "HIAA_pot": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Hiaa Pot",
+          "type": "number"
+        },
+        "HIAA_run": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Hiaa Run",
+          "type": "number"
+        },
+        "alr_denominator": {
+          "minimum": 0,
+          "title": "Alr Denominator",
+          "type": "integer"
+        },
+        "alr_numerator": {
+          "minimum": 0,
+          "title": "Alr Numerator",
+          "type": "integer"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "p00": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "P00",
+          "type": "number"
+        },
+        "p01": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "P01",
+          "type": "number"
+        },
+        "p10": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "P10",
+          "type": "number"
+        },
+        "p11": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "P11",
+          "type": "number"
+        },
+        "raw_counts": {
+          "$ref": "#/$defs/RawCounts"
+        },
+        "replay_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Replay Ids",
+          "type": "array"
+        },
+        "report_scope": {
+          "const": "experiment",
+          "title": "Report Scope",
+          "type": "string"
+        },
+        "rir_1_denominator": {
+          "minimum": 0,
+          "title": "Rir 1 Denominator",
+          "type": "integer"
+        },
+        "rir_1_numerator": {
+          "minimum": 0,
+          "title": "Rir 1 Numerator",
+          "type": "integer"
+        },
+        "rir_3_denominator": {
+          "minimum": 0,
+          "title": "Rir 3 Denominator",
+          "type": "integer"
+        },
+        "rir_3_numerator": {
+          "minimum": 0,
+          "title": "Rir 3 Numerator",
+          "type": "integer"
+        },
+        "run_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Run Ids",
+          "type": "array"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "report_scope",
+        "experiment_id",
+        "run_ids",
+        "replay_ids",
+        "raw_counts",
+        "p00",
+        "p01",
+        "p10",
+        "p11",
+        "HIAA_pot",
+        "HIAA_run",
+        "alr_numerator",
+        "alr_denominator",
+        "rir_1_numerator",
+        "rir_1_denominator",
+        "rir_3_numerator",
+        "rir_3_denominator"
+      ],
+      "title": "ExperimentRiskReport",
+      "type": "object"
+    },
+    "RawCounts": {
+      "additionalProperties": false,
+      "description": "聚合指标的原始可复核计数。",
+      "properties": {
+        "implicit_authorization_liability_count": {
+          "minimum": 0,
+          "title": "Implicit Authorization Liability Count",
+          "type": "integer"
+        },
+        "replay_count": {
+          "minimum": 0,
+          "title": "Replay Count",
+          "type": "integer"
+        },
+        "run_count": {
+          "minimum": 0,
+          "title": "Run Count",
+          "type": "integer"
+        },
+        "unauthorized_executed_count": {
+          "minimum": 0,
+          "title": "Unauthorized Executed Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "run_count",
+        "replay_count",
+        "unauthorized_executed_count",
+        "implicit_authorization_liability_count"
+      ],
+      "title": "RawCounts",
+      "type": "object"
+    },
+    "ReplayRiskReport": {
+      "additionalProperties": false,
+      "description": "一次原始/中和 Run 配对的因果影响报告。",
+      "properties": {
+        "ci": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Ci",
+          "type": "number"
+        },
+        "confirmed_influence_edges": {
+          "default": [],
+          "items": {
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "minLength": 1,
+                "type": "string"
+              }
+            ],
+            "type": "array"
+          },
+          "title": "Confirmed Influence Edges",
+          "type": "array"
+        },
+        "intervention_artifact_id": {
+          "minLength": 1,
+          "title": "Intervention Artifact Id",
+          "type": "string"
+        },
+        "neutral_run_id": {
+          "minLength": 1,
+          "title": "Neutral Run Id",
+          "type": "string"
+        },
+        "observed_effect_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Observed Effect Ids",
+          "type": "array"
+        },
+        "original_run_id": {
+          "minLength": 1,
+          "title": "Original Run Id",
+          "type": "string"
+        },
+        "replay_id": {
+          "minLength": 1,
+          "title": "Replay Id",
+          "type": "string"
+        },
+        "report_scope": {
+          "const": "replay",
+          "title": "Report Scope",
+          "type": "string"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "report_scope",
+        "replay_id",
+        "original_run_id",
+        "neutral_run_id",
+        "intervention_artifact_id",
+        "ci"
+      ],
+      "title": "ReplayRiskReport",
+      "type": "object"
+    },
+    "RunRiskReport": {
+      "additionalProperties": false,
+      "description": "单次 Run 的结果与可审计证据索引。",
+      "properties": {
+        "authorized_flags": {
+          "default": [],
+          "items": {
+            "type": "boolean"
+          },
+          "title": "Authorized Flags",
+          "type": "array"
+        },
+        "backend": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Backend"
+        },
+        "baseline_decisions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Decision"
+          },
+          "title": "Baseline Decisions",
+          "type": "array"
+        },
+        "effect_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Effect Ids",
+          "type": "array"
+        },
+        "evidence_event_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Event Ids",
+          "type": "array"
+        },
+        "executed_decisions": {
+          "default": [],
+          "items": {
+            "type": "boolean"
+          },
+          "title": "Executed Decisions",
+          "type": "array"
+        },
+        "experiment_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Experiment Id"
+        },
+        "harm": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Harm"
+        },
+        "latency_ms": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latency Ms"
+        },
+        "policy_decisions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Decision"
+          },
+          "title": "Policy Decisions",
+          "type": "array"
+        },
+        "provenance_f1": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provenance F1"
+        },
+        "provenance_precision": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provenance Precision"
+        },
+        "provenance_recall": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provenance Recall"
+        },
+        "receipt_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Receipt Ids",
+          "type": "array"
+        },
+        "report_scope": {
+          "const": "run",
+          "title": "Report Scope",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "scenario": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ScenarioPath"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "seed": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Seed"
+        },
+        "source_to_sink_paths": {
+          "default": [],
+          "items": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Source To Sink Paths",
+          "type": "array"
+        },
+        "task_success": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Task Success"
+        },
+        "uea_count": {
+          "minimum": 0,
+          "title": "Uea Count",
+          "type": "integer"
+        },
+        "uea_type_count": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Uea Type Count",
+          "type": "integer"
+        },
+        "uea_weight": {
+          "default": 0.0,
+          "minimum": 0.0,
+          "title": "Uea Weight",
+          "type": "number"
+        },
+        "variant": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Variant"
+        }
+      },
+      "required": [
+        "schema_version",
+        "report_scope",
+        "run_id",
+        "uea_count"
+      ],
+      "title": "RunRiskReport",
+      "type": "object"
+    },
+    "ScenarioPath": {
+      "description": "Experiment Matrix 中受控的 Scenario 相对路径。",
+      "title": "ScenarioPath",
+      "type": "string"
+    }
+  },
+  "discriminator": {
+    "mapping": {
+      "experiment": "#/$defs/ExperimentRiskReport",
+      "replay": "#/$defs/ReplayRiskReport",
+      "run": "#/$defs/RunRiskReport"
+    },
+    "propertyName": "report_scope"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/RunRiskReport"
+    },
+    {
+      "$ref": "#/$defs/ReplayRiskReport"
+    },
+    {
+      "$ref": "#/$defs/ExperimentRiskReport"
+    }
+  ]
+}
