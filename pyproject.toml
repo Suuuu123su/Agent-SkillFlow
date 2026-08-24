@@ -1,0 +1,106 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-skillflow"
+version = "0.1.0"
+description = "用于测量 Agent Skill 跨上下文、记忆与工具传播风险的研究原型"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "jsonschema>=4.21,<5",
+    "networkx>=3.2,<4",
+    "pydantic>=2.7,<3",
+    "pyyaml>=6,<7",
+    "typer>=0.12,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.11,<2",
+    "pytest>=8,<9",
+    "pytest-cov>=5,<8",
+    "ruff>=0.8,<1",
+]
+
+[project.scripts]
+skillflow = "skillflow.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/skillflow"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = [
+    "-ra",
+    "--strict-config",
+    "--strict-markers",
+    "--cov=skillflow",
+    "--cov-report=term-missing",
+    "--cov-fail-under=80",
+]
+filterwarnings = ["error"]
+
+[tool.coverage.run]
+source = ["skillflow"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["src", "tests"]
+extend-exclude = ["SkillFlow_Codex_Task_Spec.md"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "COM812",
+    "CPY001",
+    "D203",
+    "D213",
+    "D415",
+    "FBT001",
+    "FBT002",
+    "FIX002",
+    "ISC001",
+    "TD002",
+    "TD003",
+]
+allowed-confusables = ["，", "：", "；", "（", "）"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = [
+    "ARG",
+    "D",
+    "ERA001",
+    "PLR2004",
+    "S101",
+    "S603",
+]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["typer.Argument", "typer.Option"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+mypy_path = "src"
+files = ["src/skillflow"]
+warn_unused_configs = true
+warn_unreachable = true
+show_error_codes = true
+pretty = true
