@@ -12,6 +12,7 @@ def make_runner() -> ScenarioRunner:
         output=b"fixture completed",
         actions=(
             ToolScriptAction(
+                action_id="read-report",
                 decision_key="allow-report-read",
                 arguments=ReadFileArgs(resource=ResourceRef("workspace:/documents/report.txt")),
             ),

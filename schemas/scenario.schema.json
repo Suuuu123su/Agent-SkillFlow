@@ -469,7 +469,7 @@
       "type": "string"
     },
     "ProvenanceMode": {
-      "description": "Harness 对来源标签的受控处理模式。",
+      "description": "Harness 对 Observed 来源标签的受控处理模式。",
       "enum": [
         "preserve",
         "drop_on_derive",

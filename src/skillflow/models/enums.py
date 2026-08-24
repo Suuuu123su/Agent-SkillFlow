@@ -82,6 +82,15 @@ class TrustLevel(StrEnum):
 
 
 @unique
+class ProvenanceMode(StrEnum):
+    """Harness 对 Observed 来源标签的受控处理模式。"""
+
+    PRESERVE = "preserve"
+    DROP_ON_DERIVE = "drop_on_derive"
+    DROP_ON_MEMORY = "drop_on_memory"
+
+
+@unique
 class Decision(StrEnum):
     """Harness 或策略的结构化决策。"""
 

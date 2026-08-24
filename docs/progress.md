@@ -14,7 +14,7 @@
 | T03 | completed | 65 tests；覆盖率 90.18%；ruff/mypy/Schema/CLI PASS | 已完成核心模型、四类 Schema 和只读校验 CLI。 |
 | T04 | completed | 93 tests；覆盖率 90.60%；ruff/mypy/重启测试 PASS | 已完成追加式 SQLite EventStore、BlobStore、稳定 Trace 与持久恢复。 |
 | T05 | completed | 141 tests；覆盖率 89.19%；ruff/mypy/YAML E2E PASS | 已完成安全 Mock Harness、插桩代理、ScriptedBackend 与 Tool Receipt 链。 |
-| T06 | pending | 不适用 | 依赖 T05。 |
+| T06 | completed | 165 tests；覆盖率 88.48%；ruff/mypy/隔离 E2E PASS | 已完成双轨 JSONL、机械 Oracle、独立 GT_auth/GT_effect 与依赖隔离。 |
 | T07 | pending | 不适用 | 依赖 T06。 |
 | T08 | pending | 不适用 | 依赖 T07。 |
 | T09 | pending | 不适用 | 依赖 T08。 |
@@ -403,3 +403,61 @@
 - 正式授权匹配、monitor/enforce 语义和 confirm 属于 T08，当前 Stub 结果不能作为授权正确性证据。
 - Oracle 隔离、双轨 Trace、来源图、指标和 checkpoint 均尚未实现。
 - 本轮在 T05 停止，下一项是 T06，必须由用户另行要求后才能开始。
+
+## T06：双轨 Trace 与独立 Oracle
+
+- 状态：completed
+- 日期：2026-08-24（Asia/Shanghai）
+- 任务边界：只实现 Observed/Oracle 双轨 Trace、机械 Ground Truth、稳定 ID/父关系与隔离审计；未实现 T07 来源图、T08 正式 PolicyEngine、T09 指标或 T10 checkpoint。
+
+### 修改文件
+
+- `src/skillflow/trace/`：双轨共用的稳定父关系、不可覆盖 JSONL 写入器和 Observed Trace 投影。
+- `src/skillflow/oracle/`：独立 GT_data 状态、动作/Receipt 绑定、Grant 解析、预注册断言校验和 Oracle Writer。
+- `src/skillflow/benchmark/oracle_bridge.py`、`manifests.py`：Runner 与 Oracle 之间唯一单向桥，并从受控相对路径加载 Manifest。
+- `src/skillflow/models/tool_calls.py`：把 Tool 参数与 attempt 合同提升到中立模型层；旧 instrumentation 入口只做显式兼容导出。
+- `src/skillflow/instrumentation/tool_receipt.py`：增加 call/action/argument/receipt Artifact 稳定 ID，使 Receipt 能锚定 GT_effect。
+- `src/skillflow/runtime/provenance.py`：只对 Observed origins 应用 `drop_on_derive` / `drop_on_memory`。
+- `scenarios/manifests/benign_reader.yaml`、`tests/fixtures/t06/`：受控 Manifest、授权场景和丢标配对。
+- `tests/unit/test_t06_oracle*.py`、`tests/e2e/test_t06_dual_trace.py`：独立授权、四值 Lifetime、五类动作、Memory 传播、依赖隔离、双轨对齐、丢标和拒绝路径测试。
+- `README.md`、`docs/summaries/T06_Summary.md`：更新当前能力、限制和中文交付总结。
+
+### 关键设计决定
+
+1. Observed Writer 可以读取 EventStore 和实际 `observed_label`；Oracle 包不能读取二者，也不能导入 Adapter、Instrumentation、Runtime、Store 或 Observed Writer。
+2. `benchmark/oracle_bridge.py` 是唯一协调边界，只把 Scenario、Manifest、Scripted action、Tool attempt 与 Receipt 的稳定字段单向投影给 sidecar，不传 Artifact 对象或标签。
+3. Scenario asset 先成为 `asset:<id>` 真值根；Tool argument、File/Memory 输出、Receipt 值和 Skill output 再按实际稳定 Artifact ID机械传播 `GT_data`。
+4. deny 动作仍有 Tool argument 真值和对齐 ID，但没有 Receipt、EffectRecord 或 `GT_effect`；只有强类型 Mock Receipt 能产生 `GT_effect=true`。
+5. `OracleGrantResolver` 不接受 DecisionRecord 或 PolicyEngine 输入；`GT_auth` 由 Manifest + Grant 双钥匙、精确资源/scope、四值 Lifetime、时间窗和撤销 ID 独立计算。
+6. `COPY | DERIVE | WRITE | LOAD | INVOKE` 是封闭父关系；当前 T06 输出关系，T07 才从 EventStore 构建 NetworkX 来源图和路径查询。
+7. 两个 JSONL 都排除 Blob、任意 Event metadata、脚本输出和 fixture marker；Oracle 预期只校验机械结果，不反向填充真值。
+8. 编程规范审计发现 Runner 超过 250 行后，按 `omo:refactor` 将 Manifest/动作/Receipt 投影抽到 Oracle Bridge；随后再次通过全部行为和静态门禁。
+9. 最终规范复核发现新增 Oracle 测试文件超过 250 行并含过宽 JSON 类型；拆成授权/数据测试并使用 `JsonValue` 边界解析后，24 项 T06 测试保持通过。
+
+### TDD 与验证
+
+- 首轮红灯：T06 测试因 `skillflow.oracle` 不存在而在收集阶段失败。
+- 第一轮绿灯：8 个核心测试通过；定向命令仅因全仓覆盖率门槛而非功能失败退出非零。
+- 扩展后 T06 定向测试：24 项通过，覆盖独立授权、四值 Lifetime、五类 Tool、Memory WRITE/LOAD、双轨 E2E、丢标、deny attempt 和接口隔离。
+- 全量 pytest：165 passed，分支覆盖率 88.48%。
+- Ruff lint：PASS；format check：115 files already formatted。
+- mypy strict：PASS，64 个源文件无类型问题。
+- Python no-excuse：PASS，70 个本轮相关文件无违规。
+- `skillflow doctor` 与 `pip check`：PASS；Git 状态和远端同步证据在提交后由最终汇报给出。
+
+### 验收条件
+
+- [x] 每次 Run 输出 `observed-trace.jsonl` 和 `oracle-trace.jsonl`。
+- [x] 实际 Artifact/Effect 能按稳定 ID 在两条 Trace 中对齐；deny argument 也不丢失。
+- [x] Scripted Oracle 路径从 asset 经 LOAD/INVOKE 到 Skill output 完整。
+- [x] 删除 Observed origins 会降低手算 Recall，Oracle 逐条记录保持不变。
+- [x] 修改策略结果不改变 Oracle authorization；Observed stub authorization 与 GT_auth 可明确不同。
+- [x] Agent、Skill、Tool 和 Observed 运行组件无法取得或反向导入 Oracle 对象。
+- [x] Oracle 与防御实现无循环依赖，默认 Trace 不包含测试秘密明文。
+
+### 风险或遗留问题
+
+- T06 Oracle 只实现当前 MVP 的精确 Resource/scope 覆盖；目录/模式 scope、稳定 reason code 和正式 monitor/enforce PolicyEngine 属于 T08。
+- Resolver 已支持传入有效撤销 ID，但 Scenario 的 `AUTH_REVOKE` 运行编排和 EventStore Grant 视图仍属于 T08。
+- T06 没有计算正式 Provenance Precision/Recall/F1；测试中的 Recall 只用于证明独立真值能观测丢标，正式指标属于 T09。
+- 尚未构建 NetworkX 图或任何来源路径查询；本轮在 T06 停止，不进入 T07。

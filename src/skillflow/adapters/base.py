@@ -6,6 +6,7 @@ from typing import Protocol
 from skillflow.instrumentation.tool_receipt import ToolReceipt
 from skillflow.models.provenance import Artifact
 from skillflow.models.references import FixtureImplementationRef
+from skillflow.models.tool_calls import ToolActionAttempt
 
 
 @dataclass(frozen=True, slots=True)
@@ -37,6 +38,8 @@ class SkillInvocationResult:
 
     output: Artifact
     receipts: tuple[ToolReceipt, ...]
+    attempts: tuple[ToolActionAttempt, ...]
+    call_id: str
 
 
 class HarnessAdapter(Protocol):

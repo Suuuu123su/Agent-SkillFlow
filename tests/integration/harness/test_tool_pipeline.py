@@ -92,6 +92,7 @@ def request(
     return ToolCallRequest(
         actor_id="skill-a",
         call_id="call-1",
+        action_id=f"action-{key}",
         decision_key=key,
         arguments=arguments,
     )

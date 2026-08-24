@@ -12,6 +12,7 @@ from skillflow.models.enums import (
     CapabilityAction,
     EnforcementMode,
     PrincipalType,
+    ProvenanceMode,
     TrustLevel,
 )
 from skillflow.models.references import (
@@ -23,15 +24,6 @@ from skillflow.models.references import (
     ScenarioTargetRef,
 )
 from skillflow.models.resources import ResourceRef
-
-
-@unique
-class ProvenanceMode(StrEnum):
-    """Harness 对来源标签的受控处理模式。"""
-
-    PRESERVE = "preserve"
-    DROP_ON_DERIVE = "drop_on_derive"
-    DROP_ON_MEMORY = "drop_on_memory"
 
 
 @unique

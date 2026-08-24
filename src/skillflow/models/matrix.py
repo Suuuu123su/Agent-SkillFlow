@@ -6,9 +6,8 @@ from pydantic import Field, model_validator
 from pydantic_core import PydanticCustomError
 
 from skillflow.models.base import NonEmptyStr, StrictModel
-from skillflow.models.enums import EnforcementMode
+from skillflow.models.enums import EnforcementMode, ProvenanceMode
 from skillflow.models.references import ScenarioPath
-from skillflow.models.scenario_parts import ProvenanceMode
 
 
 class ExperimentVariant(StrictModel):

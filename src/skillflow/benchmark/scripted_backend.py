@@ -11,7 +11,11 @@ from skillflow.instrumentation.tool_proxy import (
     InstrumentedTool,
 )
 from skillflow.instrumentation.tool_receipt import ToolReceipt
-from skillflow.instrumentation.tool_types import ToolArguments, ToolCallRequest
+from skillflow.instrumentation.tool_types import (
+    ToolActionAttempt,
+    ToolArguments,
+    ToolCallRequest,
+)
 from skillflow.models.references import FixtureImplementationRef
 from skillflow.runtime.session import ActorCall
 
@@ -20,6 +24,7 @@ from skillflow.runtime.session import ActorCall
 class ToolScriptAction:
     """一个声明式 Mock Tool 动作。"""
 
+    action_id: str
     decision_key: str
     arguments: ToolArguments
 
@@ -38,6 +43,7 @@ class ScriptedInvocationResult:
 
     output: bytes
     receipts: tuple[ToolReceipt, ...]
+    attempts: tuple[ToolActionAttempt, ...]
     parent_artifact_ids: tuple[str, ...]
 
 
@@ -64,29 +70,52 @@ class ScriptedBackend:
             state = "call_id missing"
             raise HarnessStateError(operation, state)
         receipts: list[ToolReceipt] = []
+        attempts: list[ToolActionAttempt] = []
         parent_ids: list[str] = []
         for action in script.actions:
             outcome = tool.call(
                 ToolCallRequest(
                     actor_id=actor.actor_id,
                     call_id=actor.call_id,
+                    action_id=action.action_id,
                     decision_key=action.decision_key,
                     arguments=action.arguments,
                 )
             )
             match outcome:
                 case ExecutedToolCall(
+                    pending=pending,
                     receipt=receipt,
                     output_artifact_ids=output_artifact_ids,
                 ):
+                    attempts.append(
+                        ToolActionAttempt(
+                            action_id=action.action_id,
+                            actor_id=actor.actor_id,
+                            call_id=actor.call_id,
+                            tool=action.arguments.kind,
+                            argument_artifact_id=pending.argument_artifact_id,
+                            executed=True,
+                        )
+                    )
                     receipts.append(receipt)
                     parent_ids.extend(output_artifact_ids)
-                case DeniedToolCall():
-                    pass
+                case DeniedToolCall(pending=pending):
+                    attempts.append(
+                        ToolActionAttempt(
+                            action_id=action.action_id,
+                            actor_id=actor.actor_id,
+                            call_id=actor.call_id,
+                            tool=action.arguments.kind,
+                            argument_artifact_id=pending.argument_artifact_id,
+                            executed=False,
+                        )
+                    )
                 case _ as unreachable:
                     assert_never(unreachable)
         return ScriptedInvocationResult(
             output=script.output,
             receipts=tuple(receipts),
+            attempts=tuple(attempts),
             parent_artifact_ids=tuple(parent_ids),
         )

@@ -2,7 +2,7 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前仓库已完成到 **T05：安全 Mock Harness 与插桩代理**。这里已经固定研究边界、四级 Lifetime 语义和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。尚未实现 T06 双轨 Oracle、来源图计算、正式授权策略、风险指标、Checkpoint 或真实平台 Adapter。
+当前仓库已完成到 **T06：双轨 Trace 与独立 Oracle**。这里已经固定研究边界、四级 Lifetime 语义和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt，同时为每次 Run 输出可按 Artifact/Effect ID 对齐的 Observed 与 Oracle JSONL。尚未实现 T07 来源图、T08 正式策略、风险指标、Checkpoint 或真实平台 Adapter。
 
 ## 当前能力
 
@@ -26,6 +26,12 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 - Tool 调用严格记录请求、规范化 Effect、参数 Artifact、Stub allow/deny、Mock 执行和强类型 Receipt；拒绝请求不产生 Effect 或 Receipt。
 - HTTP 与 Shell 只有进程内结构化 Mock 记录，不建立网络连接、不创建子进程；文件只能访问每次运行独占的 Workspace 根。
 - 同一 YAML、虚拟时间与 seed 的 Trace hash 一致；两个 Run 的 Context、Memory、Receipt 与 Workspace 状态互不累积。
+- 每次 Scenario Run 同时创建 `observed-trace.jsonl` 与 `oracle-trace.jsonl`；默认只含结构化 ID、来源、关系、能力和 Receipt 引用，不含 Blob、Tool 参数明文或 fixture marker。
+- Observed Writer 只投影 Harness 实际标签；Oracle sidecar 只接收 Scenario、受控 Manifest、Scripted action、Tool attempt 和 Receipt 的单向证据投影，不读取 Observed 标签或策略结果。
+- 每个值和实际 Effect 使用稳定 Artifact/Effect ID，并记录 `COPY | DERIVE | WRITE | LOAD | INVOKE` 封闭父关系；被拒绝的 Tool attempt 仍保留可对齐的 argument 值，但不会伪造 Receipt 或 `GT_effect`。
+- `OracleGrantResolver` 以 Manifest + 真实 Grant 双钥匙独立计算 `GT_auth`，支持四值菱形 Lifetime、时间窗和撤销 ID；Stub/Policy 结果不能改写真值。
+- `drop_on_derive`、`drop_on_memory` 只破坏 Observed origins；相同真实步骤下 Oracle JSONL 保持不变，可用于后续来源 Recall 评价。
+- Agent、Skill、Tool、Policy/Observed 运行模块没有 Oracle 反向导入；只有 Benchmark 的单向 bridge 同时接触两侧的中立合同。
 - pytest、覆盖率、ruff 与 mypy 质量门禁。
 - GitHub Actions 自动执行同一组质量门禁。
 - 中文威胁模型、安全语义、形式化不变量和架构决策记录。
@@ -53,7 +59,7 @@ python -m venv .venv-skillflow
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli doctor
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli validate-manifest tests\fixtures\t03\valid_manifest.yaml
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli validate-scenario tests\fixtures\t03\valid_scenario.yaml
-.\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t05_scenario.py -q
+.\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t06_dual_trace.py -q --no-cov
 ```
 
 安装后也可以直接使用控制台命令：
@@ -71,7 +77,7 @@ python -m venv .venv-skillflow
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli --help
 ```
 
-当前 pytest 门禁仍按任务书使用 80% 最低阈值；T05 全量测试为 141 项，分支覆盖率实测为 89.19%。T14 将把最终门槛正式提升到 90%。
+当前 pytest 门禁仍按任务书使用 80% 最低阈值；T06 的最终测试项数与分支覆盖率记录在 [`docs/summaries/T06_Summary.md`](docs/summaries/T06_Summary.md)。T14 将把最终门槛正式提升到 90%。
 
 ## 项目范围
 

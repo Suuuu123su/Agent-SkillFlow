@@ -1,4 +1,4 @@
-"""声明式 Scenario 的 T05 编排入口。"""
+"""声明式 Scenario 的确定性编排入口。"""
 
 from collections.abc import Mapping
 from dataclasses import dataclass
@@ -16,6 +16,12 @@ from skillflow.adapters.mock_harness import (
     MockHarnessAdapter,
     MockHarnessConfig,
 )
+from skillflow.benchmark.oracle_bridge import (
+    OracleInvocationBinding,
+    OracleSetup,
+    build_oracle_sidecar,
+    project_oracle_invocation,
+)
 from skillflow.benchmark.scripted_backend import FixtureScript, ScriptedBackend
 from skillflow.instrumentation.errors import UnsupportedStepError, WorkspaceEscapeError
 from skillflow.instrumentation.mock_tools import MockNetworkRecord, MockShellRecord
@@ -25,11 +31,13 @@ from skillflow.models.enums import Decision
 from skillflow.models.provenance import Artifact
 from skillflow.models.scenario import Scenario
 from skillflow.models.scenario_parts import ScenarioStep, StepAction
+from skillflow.oracle.writer import OracleTraceWriter
 from skillflow.runtime.determinism import DeterministicIdFactory, VirtualClock
 from skillflow.runtime.session import RuntimeDependencies
 from skillflow.store.blob_store import RunBlobStore
 from skillflow.store.sqlite_store import SqliteEventStore
 from skillflow.store.trace import RunTrace, build_run_trace
+from skillflow.trace.observed import ObservedRunInput, ObservedTraceWriter
 from skillflow.validation import validate_yaml_document
 
 
@@ -46,6 +54,8 @@ class ScenarioRunResult:
     shell_records: tuple[MockShellRecord, ...]
     workspace_root: Path
     database_path: Path
+    observed_trace_path: Path
+    oracle_trace_path: Path
 
 
 class ScenarioRunner:
@@ -63,14 +73,25 @@ class ScenarioRunner:
     def run(self, scenario_path: Path, run_root: Path, seed: str) -> ScenarioRunResult:
         """从 YAML 启动一个独立、确定性的安全 Mock Run。"""
         scenario = validate_yaml_document(scenario_path, Scenario)
+        run_id = f"run-{scenario.id}"
+        oracle = build_oracle_sidecar(
+            OracleSetup(
+                scenario_path=scenario_path,
+                scenario=scenario,
+                run_id=run_id,
+                scripts=self._scripts,
+            )
+        )
         run_root.mkdir(parents=True, exist_ok=False)
         workspace = run_root / "workspace"
         workspace.mkdir()
         self._stage_assets(scenario, workspace)
-        run_id = f"run-{scenario.id}"
         database = run_root / "state.sqlite"
+        observed_trace_path = run_root / "observed-trace.jsonl"
+        oracle_trace_path = run_root / "oracle-trace.jsonl"
         outputs: list[Artifact] = []
         receipts: list[ToolReceipt] = []
+        artifact_aliases: dict[str, tuple[str, ...]] = {}
         with (
             SqliteEventStore(database) as store,
             RunBlobStore(run_root, run_id) as blobs,
@@ -85,6 +106,7 @@ class ScenarioRunner:
                         blob_store=blobs,
                         clock=VirtualClock(scenario.clock.start),
                         id_factory=DeterministicIdFactory(seed),
+                        provenance_mode=scenario.harness.provenance_mode,
                     ),
                 ),
                 ScriptedBackend(self._scripts),
@@ -111,8 +133,29 @@ class ScenarioRunner:
                         if result is not None:
                             outputs.append(result.output)
                             receipts.extend(result.receipts)
+                            aliases = tuple(output.root for output in step.outputs)
+                            artifact_aliases[result.output.artifact_id] = aliases
+                            oracle.record_invocation(
+                                project_oracle_invocation(
+                                    OracleInvocationBinding(
+                                        step=step,
+                                        session_id=session.id,
+                                        result=result,
+                                    )
+                                )
+                            )
                 finally:
                     harness.end_session()
+            oracle_records = oracle.finalize()
+            OracleTraceWriter(oracle_trace_path).write(oracle_records)
+            ObservedTraceWriter(observed_trace_path).write(
+                ObservedRunInput(
+                    run_id=run_id,
+                    store=store,
+                    receipts=tuple(receipts),
+                    artifact_aliases=artifact_aliases,
+                )
+            )
             trace = build_run_trace(store, run_id)
             network_records = harness.network_records
             shell_records = harness.shell_records
@@ -126,6 +169,8 @@ class ScenarioRunner:
             shell_records=shell_records,
             workspace_root=workspace,
             database_path=database,
+            observed_trace_path=observed_trace_path,
+            oracle_trace_path=oracle_trace_path,
         )
 
     @staticmethod

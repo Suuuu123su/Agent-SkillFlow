@@ -174,11 +174,15 @@ class InstrumentedTool:
                     allowed.pending.request.actor_id,
                     allowed.pending.request.call_id,
                 ),
+                call_id=allowed.pending.request.call_id,
                 effect_id=effect_id,
                 request_event_id=allowed.pending.request_event_id,
                 result_event_id=fact_ids.event_id,
                 decision_id=allowed.decision_id,
                 receipt_id=receipt_id,
+                action_id=allowed.pending.request.action_id,
+                argument_artifact_id=allowed.pending.argument_artifact_id,
+                receipt_artifact_id=fact_ids.artifact_id,
                 timestamp=self._recorder.now(),
             )
         )

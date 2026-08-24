@@ -90,11 +90,15 @@ class MockExecutionRequest:
 
     arguments: ToolArguments
     actor: ActorCall
+    call_id: str
     effect_id: str
     request_event_id: str
     result_event_id: str
     decision_id: str
     receipt_id: str
+    action_id: str
+    argument_artifact_id: str
+    receipt_artifact_id: str
     timestamp: datetime
 
 
@@ -145,6 +149,10 @@ class MockToolAdapter:
                 result_event_id=request.result_event_id,
                 decision_id=request.decision_id,
                 actor_id=request.actor.actor_id,
+                call_id=request.call_id,
+                action_id=request.action_id,
+                argument_artifact_id=request.argument_artifact_id,
+                receipt_artifact_id=request.receipt_artifact_id,
                 timestamp=request.timestamp,
                 output_artifact_ids=output_ids,
             )

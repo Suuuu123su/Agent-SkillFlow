@@ -8,10 +8,11 @@ from pydantic import JsonValue
 
 from skillflow.instrumentation.errors import ArtifactContentError
 from skillflow.models.effects import CapabilityEffect, EffectRecord
-from skillflow.models.enums import ArtifactType, EventType, TrustLevel
+from skillflow.models.enums import ArtifactType, EventType, ProvenanceMode, TrustLevel
 from skillflow.models.events import DecisionRecord, SecurityEvent
 from skillflow.models.provenance import Artifact, SecurityLabel
 from skillflow.runtime.determinism import Clock, IdFactory
+from skillflow.runtime.provenance import observed_origins
 from skillflow.store.blob_store import RunBlobStore
 from skillflow.store.event_store import EventEnvelope, EventStore, MemoryHead, StoredArtifact
 
@@ -41,6 +42,7 @@ class RuntimeDependencies:
     blob_store: RunBlobStore
     clock: Clock
     id_factory: IdFactory
+    provenance_mode: ProvenanceMode = ProvenanceMode.PRESERVE
 
 
 @dataclass(frozen=True, slots=True)
@@ -131,7 +133,11 @@ class RuntimeRecorder:
             mime_type=emission.mime_type,
             created_by_event_id=fact_ids.event_id,
             observed_label=SecurityLabel(
-                origins=emission.origins,
+                origins=observed_origins(
+                    self._dependencies.provenance_mode,
+                    emission.event_type,
+                    emission.origins,
+                ),
                 trust=emission.trust,
                 task_id=self._identity.task_id,
                 created_session_id=self._identity.session_id,

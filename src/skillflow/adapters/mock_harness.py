@@ -137,7 +137,14 @@ class MockHarnessAdapter:
             dict.fromkeys((*invocation.input_artifact_ids, *scripted.parent_artifact_ids))
         )
         output = runtime.skills.return_output(token, scripted.output, parents)
-        return SkillInvocationResult(output=output, receipts=scripted.receipts)
+        if actor.call_id is None:
+            raise HarnessStateError("invoke_skill", "call_id missing")
+        return SkillInvocationResult(
+            output=output,
+            receipts=scripted.receipts,
+            attempts=scripted.attempts,
+            call_id=actor.call_id,
+        )
 
     def end_session(self) -> None:
         """显式卸载剩余 Skill、记录结束并丢弃 Session 局部代理。"""

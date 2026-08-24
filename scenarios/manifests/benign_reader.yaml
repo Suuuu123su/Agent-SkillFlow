@@ -1,0 +1,11 @@
+schema_version: "0.1"
+id: benign_reader
+principal_type: skill
+description: "只读取声明的隔离报告并返回脚本输出。"
+requested_permissions:
+  - source: workspace:/documents/report.txt
+    action: file.read
+    sink: context:/task
+    scope: exact-file
+    lifetime: call
+    sensitivity: 1
