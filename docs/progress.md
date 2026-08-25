@@ -23,7 +23,7 @@
 | T11.1 | completed | 310 tests；覆盖率 88.98%；ruff/mypy/Schema/语义负例 PASS | 已收紧 RIR、ALR、HIAA 三项研究语义。 |
 | T12 | completed | 360 tests；覆盖率 89.77%；Schema/安全/确定性 PASS | 已完成 16 个场景、8 组能力匹配对照、24 个核心矩阵变体和 2 套 HIAA 四格。 |
 | T13 | completed | 366 tests；覆盖率 89.58%；CLI/Schema/离线 MVP PASS | 已完成分层实验 CLI、标准 Run/Replay/Experiment 报告、复算导出及一命令 MVP 复现。 |
-| T14 | pending | 不适用 | 依赖 T13。 |
+| T14 | completed | 414 tests；覆盖率 90.08%；静态/Schema/5 次复跑 PASS | 已完成 MVP 加固、中文评估协议、本地性能基线与研究验收；外部独立复审不可用。 |
 | T15 | pending | 不适用 | 依赖 T14，且必须获得用户明确批准。 |
 
 ## T00：仓库勘察与执行基线
@@ -890,3 +890,53 @@ skillflow matrix scenarios\matrix\mvp.yaml --backend scripted --output runs\mvp
 - `graph` 的 MVP 输出仅支持 JSON；GraphML/HTML 是任务书允许的可选增强，没有把它们伪报为已实现。
 - `--no-redact` 只改变标准报告的脱敏标志；当前安全实现仍不把 Blob 正文或宿主路径写入报告。
 - 本轮在 T13 完成后停止；T14 保持 pending，未执行。
+
+## T14：MVP 加固与研究验收
+
+- 状态：completed
+- 日期：2026-08-25（Asia/Shanghai）
+- 任务边界：只完成确定性 MVP 的覆盖率、安全、可复现性、性能和研究语义验收；未进入 T15，未接入真实 LLM、真实 Harness、网络、Shell 或凭据。
+
+### 交付内容
+
+- `src/skillflow/benchmark/performance.py`：EventStore append/get 与 PolicyEngine evaluate 的本地观察性微基准。
+- `tests/e2e/test_t14_research_acceptance.py`：四条完整 YAML 链路、Sink 三证据、Oracle/因果 Golden、临时外部能力拦截和报告泄漏检查。
+- `tests/integration/test_t14_security_isolation.py`：Runtime/Policy Oracle 隔离，以及网络、进程、凭据和用户主目录访问的 AST 门禁。
+- `tests/unit/graph/test_t14_event_semantics.py`：全部封闭 EventType 到图关系/边界的穷尽映射，以及保守主体推断。
+- `tests/unit/benchmark/test_t14_performance.py`：性能合同、非法参数、拒绝覆盖和静态基线文件校验。
+- `docs/evaluation-protocol.md`、`docs/performance-baseline.json`、`docs/summaries/T14_Summary.md`：中文复现协议、结构化本机观察值和独立任务总结。
+- `pyproject.toml`：pytest 覆盖率最低门槛从 80% 正式提升为 90%。
+
+### 研究语义结论
+
+1. B0 合法路径完成任务且 `UEA=0`；Grant、Decision、Effect、Receipt 和来源路径对齐。
+2. C1 的 p11 相比 p10 新增 selector 匹配路径。任务书称其为“未授权路径”，但正式 T12 场景已有真实 Grant 并预注册 `UEA=0`；T14 因此按严格合同验收 Policy 因 `UNTRUSTED_ORIGIN` 拒绝但 monitor 执行的路径，没有篡改 UEA 定义。
+3. M2 的 `RIR(1)>0` 只由带 Receipt 的 Effect 和 `INFLUENCE_CONFIRMED` 支持；Oracle provenance 不进入分子。
+4. A1 原运行由隐式文本声明执行；只中和该声明后 baseline 变为 confirm 且动作消失，`ALR>0`。
+5. `preserve` 组的来源 Precision/Recall 均为 1；`drop_on_memory` 是故意降低 Recall 的消融条件，不混入完整重建验收。
+6. 18 个 Replay 的 9 个因果正例和 9 个负例与预注册 Golden 完全一致。
+
+### 性能与安全结果
+
+- 本机环境：Windows 11 10.0.26200、CPython 3.12.13、SQLite 3.53.1、Intel64 Family 6 Model 183。
+- 每项预热 100 次并测量 1,000 次：EventStore append p95=725.3 μs，get p95=7.7 μs，PolicyEngine evaluate p95=4.4 μs。
+- 上述数字只作本机观察性基线，不是机器无关 SLA，也未硬编码为测试阈值。
+- 完整 Matrix 在 socket、subprocess、`os.system` 拦截器下运行，真实外部调用数为 0；执行边界的静态导入与凭据/主目录访问门禁通过。
+- 所有已执行 Sink 均有来源路径、Decision 和 Receipt；Risk Report 未泄漏 Fixture 原文、Blob 字段或宿主绝对路径。
+
+### 正式验证
+
+- T14 专项：47 passed。
+- 全量 pytest：414 passed；总分支覆盖率 90.08%，通过 `--cov-fail-under=90`。
+- Ruff lint：PASS；Ruff format：290 个 Python 文件格式一致。
+- mypy strict：PASS，162 个源文件无类型问题。
+- 静态 Schema 合同：8 passed。
+- `skillflow doctor`、`pip check`：PASS。
+- 任务书 Matrix 命令在新验证根成功：24 个核心 Run、18 个 Replay、24 个确定性检查；每项 5 次，24/24 `consistent=true`，Run/Replay 布局无缺项。
+- 正式聚合：两套 `HIAA_run=1.0`，`ALR=1/2`，`RIR(1)=1/2`，`RIR(3)=1/2`。
+
+### 完整性状态与停止点
+
+- 当前评估类型为 `simulation_only`；不存在把模型输出当真实 GT 或用自身输出统计量归一化的做法。
+- 当前没有可用的独立外部 reviewer backend，跨模型完整性复审记为 `REVIEW_UNAVAILABLE`；未生成伪造的 `EXPERIMENT_AUDIT.md/json` 或 PASS 结论。
+- 本轮在 T14 完成后停止；T15 保持 pending，必须等待用户另行明确批准。

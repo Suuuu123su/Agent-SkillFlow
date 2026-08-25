@@ -1,0 +1,32 @@
+{
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "sqlite": "3.53.1"
+  },
+  "threshold_policy": "observational_baseline_only",
+  "measurements": {
+    "event_store_append": {
+      "samples": 1000,
+      "minimum_us": 371.8,
+      "p50_us": 521.6,
+      "p95_us": 725.3,
+      "maximum_us": 3942.3
+    },
+    "event_store_get": {
+      "samples": 1000,
+      "minimum_us": 4.7,
+      "p50_us": 6.0,
+      "p95_us": 7.7,
+      "maximum_us": 448.6
+    },
+    "policy_engine_evaluate": {
+      "samples": 1000,
+      "minimum_us": 3.4,
+      "p50_us": 4.0,
+      "p95_us": 4.4,
+      "maximum_us": 100.0
+    }
+  }
+}

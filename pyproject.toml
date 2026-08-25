@@ -43,7 +43,7 @@ addopts = [
     "--strict-markers",
     "--cov=skillflow",
     "--cov-report=term-missing",
-    "--cov-fail-under=80",
+    "--cov-fail-under=90",
 ]
 filterwarnings = ["error"]
 

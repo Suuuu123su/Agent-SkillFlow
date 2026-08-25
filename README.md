@@ -2,7 +2,7 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前仓库已完成到 **T13：CLI、报告与端到端复现**。这里已经固定研究边界、四级 Lifetime 菱形偏序和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。研究者现在可用一条 `matrix` 命令完成 Scenario 校验、核心 Run、隔离确定性复跑、成对 Replay、脱敏安全图、HIAA/ALR/RIR 聚合及 JSON/CSV 报告；也可以分别使用 `run`、`analyze`、`graph`、`factorial`、`replay`、`aggregate` 和 `export` 复算各层产物。当前仍未接入真实平台 Adapter。
+当前仓库已完成到 **T14：MVP 加固与研究验收**。这里已经固定研究边界、四级 Lifetime 菱形偏序和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。研究者现在可用一条 `matrix` 命令完成 Scenario 校验、核心 Run、隔离确定性复跑、成对 Replay、脱敏安全图、HIAA/ALR/RIR 聚合及 JSON/CSV 报告；T14 进一步把总覆盖率门槛提升到 90%，并以完整链路 E2E、Oracle 隔离、Sink 证据闭环、外部能力拦截、报告泄漏扫描和本地性能基线约束结论。当前仍未接入真实平台 Adapter。
 
 ## 当前能力
 
@@ -74,7 +74,11 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 - `analyze` 与 `graph` 从共享 SQLite、Blob 元数据和原始 JSONL 重建派生产物；`aggregate` 只读取标准 RunResult/ReplayResult，不依赖 Runtime 对象。
 - JSON 报告以 `report_scope=run | replay | experiment` 判别并经静态 Schema 复验；CSV 同时保留指标值及原始 numerator/denominator。
 - `export` 支持 Run 与 Experiment 报告的不可覆盖导出；宿主绝对路径、Blob 正文和 fixture 原文不进入标准报告。
-- pytest、覆盖率、ruff 与 mypy 质量门禁。
+- T14 四条必需 E2E 均从 YAML 经过解析、运行、双轨 Trace、安全图、指标到报告，测试不直接构造最终 MetricReport。
+- Runtime/Policy 的 Oracle 反向导入和执行边界的真实网络、进程、凭据模块导入均由 AST 门禁检查；MVP Matrix 另在临时网络/进程拦截器下运行。
+- 所有已执行 Sink 必须同时带来源路径、Decision 和 Receipt；风险报告接受 fixture 原文、Blob 字段与宿主绝对路径泄漏扫描。
+- EventStore append/get 与 PolicyEngine evaluate 有可复跑的本机观察性性能基线；没有把本机 p95 写成跨机器 SLA。
+- pytest、90% 分支覆盖率、ruff 与 mypy 质量门禁。
 - GitHub Actions 自动执行同一组质量门禁。
 - 中文威胁模型、安全语义、形式化不变量和架构决策记录。
 - 中文任务进度、仓库基线与逐任务总结。
@@ -117,6 +121,7 @@ python -m venv .venv-skillflow
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t10_counterfactual_replay.py -q --no-cov
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t11_experiment_report.py -q --no-cov
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t12_library_execution.py -q --no-cov
+.\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t14_research_acceptance.py -q --no-cov
 ```
 
 安装后也可以直接使用控制台命令：
@@ -151,7 +156,7 @@ for path in paths:
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli --help
 ```
 
-当前 pytest 门禁仍按任务书使用 80% 最低阈值；T11.1 的三项语义修订见 [`docs/summaries/T11.1_Summary.md`](docs/summaries/T11.1_Summary.md)，T12 场景与矩阵见 [`docs/summaries/T12_Summary.md`](docs/summaries/T12_Summary.md)，T13 CLI、报告、正式 MVP 复现与最新门禁见 [`docs/summaries/T13_Summary.md`](docs/summaries/T13_Summary.md)。T14 将把最终门槛正式提升到 90%。
+当前 pytest 门禁为 90%。完整复现、变量控制、统计纪律与结论边界见 [`docs/evaluation-protocol.md`](docs/evaluation-protocol.md)；本机性能观察值见 [`docs/performance-baseline.json`](docs/performance-baseline.json)；T14 独立交付见 [`docs/summaries/T14_Summary.md`](docs/summaries/T14_Summary.md)。
 
 ## 项目范围
 
