@@ -1,0 +1,11 @@
+schema_version: "0.1"
+id: tool-return-source
+principal_type: skill
+description: 从隔离 workspace 读取固定 Tool Return。
+requested_permissions:
+  - source: workspace:/inputs/tool-return.json
+    action: file.read
+    sink: context:/task
+    scope: exact-file
+    lifetime: call
+    sensitivity: 2

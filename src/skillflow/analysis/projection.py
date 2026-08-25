@@ -36,6 +36,7 @@ class RunTraceAnalysisInput:
     observed_records: tuple[ObservedTraceRecord, ...]
     oracle_records: tuple[OracleTraceRecord, ...]
     graph: SecurityGraph
+    task_success: bool | None = None
 
 
 def project_scenario_facts(run: RunTraceAnalysisInput) -> ScenarioMetricFacts:
@@ -74,6 +75,7 @@ def project_scenario_facts(run: RunTraceAnalysisInput) -> ScenarioMetricFacts:
         run_id=run.run_id,
         effects=effects,
         provenance=tuple(provenance),
+        task_success=run.task_success,
     )
 
 

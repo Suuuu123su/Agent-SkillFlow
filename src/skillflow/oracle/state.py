@@ -1,6 +1,5 @@
 """Oracle GT_data 的机械传播状态。"""
 
-from collections.abc import Iterable
 from typing import assert_never
 
 from skillflow.models.scenario_parts import AssetSpec
@@ -10,6 +9,12 @@ from skillflow.models.tool_calls import (
     ReadMemoryArgs,
     ShellExecArgs,
     WriteMemoryArgs,
+)
+from skillflow.oracle.data_helpers import (
+    origin_set,
+    origins,
+    single_output_aliases,
+    workspace_resource,
 )
 from skillflow.oracle.effects import OracleActionSemantics
 from skillflow.oracle.errors import OracleInvariantError
@@ -35,7 +40,7 @@ class OracleDataState:
         self._asset_origins: dict[str, str] = {}
         self._memory: dict[str, str] = {}
         for asset in assets:
-            resource = _workspace_resource(asset)
+            resource = workspace_resource(asset)
             artifact_id = f"asset:{asset.id}"
             self._assets_by_resource[resource] = artifact_id
             self._asset_origins[asset.id] = resource
@@ -86,8 +91,8 @@ class OracleDataState:
             TraceParent(parent_id=item, relation=ParentRelation.INVOKE)
             for item in semantics.source_artifact_ids
         )
-        origins = (
-            _origins(self.require(item) for item in semantics.source_artifact_ids)
+        argument_origins = (
+            origins(self.require(item) for item in semantics.source_artifact_ids)
             if semantics.source_artifact_ids
             else (skill_id,)
         )
@@ -96,7 +101,7 @@ class OracleDataState:
                 run_id=self._run_id,
                 artifact_id=evidence.argument_artifact_id,
                 value_type=TraceValueType.TOOL_ARG,
-                gt_data=origins,
+                gt_data=argument_origins,
                 parents=parents,
             )
         )
@@ -118,7 +123,13 @@ class OracleDataState:
                         "file_load",
                         f"read_file 未引用 Scenario asset：{resource.root}",
                     ) from error
-                self._copy_value(output_id, TraceValueType.FILE, parent_id, ParentRelation.LOAD)
+                self._copy_value(
+                    output_id,
+                    TraceValueType.FILE,
+                    parent_id,
+                    ParentRelation.LOAD,
+                    single_output_aliases(evidence),
+                )
                 return (output_id,)
             case WriteMemoryArgs(key=key, source_artifact_id=source_id):
                 output_id = self._single_output(evidence)
@@ -127,6 +138,7 @@ class OracleDataState:
                     TraceValueType.MEMORY,
                     source_id,
                     ParentRelation.WRITE,
+                    single_output_aliases(evidence),
                 )
                 self._memory[key] = output_id
                 return (output_id,)
@@ -144,6 +156,7 @@ class OracleDataState:
                     TraceValueType.MEMORY,
                     parent_id,
                     ParentRelation.LOAD,
+                    single_output_aliases(evidence),
                 )
                 return (output_id,)
             case HttpSendArgs() | ShellExecArgs():
@@ -185,14 +198,14 @@ class OracleDataState:
         """把显式输入与 Tool 数据输出机械汇入 Skill return。"""
         parent_ids = tuple(dict.fromkeys((*evidence.input_artifact_ids, *action_output_ids)))
         parent_records = tuple(self.require(item) for item in parent_ids)
-        origins = tuple(sorted({evidence.skill_id, *_origins_set(parent_records)}))
+        output_origins = tuple(sorted({evidence.skill_id, *origin_set(parent_records)}))
         self._add(
             OracleArtifactTrace(
                 run_id=self._run_id,
                 artifact_id=evidence.output_artifact_id,
                 value_type=TraceValueType.SKILL_OUTPUT,
                 aliases=evidence.output_aliases,
-                gt_data=origins,
+                gt_data=output_origins,
                 parents=tuple(
                     TraceParent(parent_id=item, relation=ParentRelation.INVOKE)
                     for item in parent_ids
@@ -210,7 +223,7 @@ class OracleDataState:
             self.require(evidence.argument_artifact_id),
             *(self.require(item) for item in output_ids),
         )
-        return _origins(records)
+        return origins(records)
 
     def _copy_value(
         self,
@@ -218,6 +231,7 @@ class OracleDataState:
         value_type: TraceValueType,
         parent_id: str,
         relation: ParentRelation,
+        aliases: tuple[str, ...] = (),
     ) -> None:
         parent = self.require(parent_id)
         self._add(
@@ -225,6 +239,7 @@ class OracleDataState:
                 run_id=self._run_id,
                 artifact_id=artifact_id,
                 value_type=value_type,
+                aliases=aliases,
                 gt_data=parent.gt_data,
                 parents=(TraceParent(parent_id=parent_id, relation=relation),),
             )
@@ -246,21 +261,3 @@ class OracleDataState:
             )
         self._by_id[record.artifact_id] = record
         self._records.append(record)
-
-
-def _workspace_resource(asset: AssetSpec) -> str:
-    prefix = "fixture://"
-    if not asset.uri.root.startswith(prefix):
-        raise OracleInvariantError(
-            "asset_projection",
-            f"T06 asset 必须使用 fixture://：{asset.uri.root}",
-        )
-    return f"workspace:/{asset.uri.root.removeprefix(prefix)}"
-
-
-def _origins(records: Iterable[OracleArtifactTrace]) -> tuple[str, ...]:
-    return tuple(sorted(_origins_set(records)))
-
-
-def _origins_set(records: Iterable[OracleArtifactTrace]) -> set[str]:
-    return {origin for record in records for origin in record.gt_data}

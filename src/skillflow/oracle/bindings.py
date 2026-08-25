@@ -40,16 +40,23 @@ def bind_attempts(
                 "attempt_binding",
                 f"Tool attempt 主体、call_id 或 Tool 不一致：{attempt.action_id}",
             )
+        arguments = attempt.arguments or action.arguments
         state.record_argument(
             evidence.skill_id,
-            oracle_action_semantics(action.arguments),
+            oracle_action_semantics(arguments),
             attempt,
         )
         attempts[attempt.action_id] = attempt
-    if set(attempts) != set(actions):
+    skipped = set(evidence.skipped_action_ids)
+    if len(skipped) != len(evidence.skipped_action_ids) or skipped & set(attempts):
         raise OracleInvariantError(
             "attempt_binding",
-            "Scripted 动作与 Tool attempt 集合不一致",
+            "跳过动作 ID 重复或与 Tool attempt 重叠",
+        )
+    if set(attempts) | skipped != set(actions):
+        raise OracleInvariantError(
+            "attempt_binding",
+            "Scripted 动作与 Tool attempt/跳过动作集合不一致",
         )
     return attempts
 
@@ -82,7 +89,9 @@ def bind_receipts(
                 "receipt_binding",
                 f"Receipt 与 Tool attempt 不一致：{receipt.action_id}",
             )
-        bound.append((action, receipt))
+        bound.append(
+            (OracleActionPlan(action.action_id, attempt.arguments or action.arguments), receipt)
+        )
     executed = {attempt.action_id for attempt in evidence.attempts if attempt.executed}
     if seen != executed:
         raise OracleInvariantError(

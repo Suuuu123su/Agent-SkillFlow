@@ -4,6 +4,7 @@ from typing import assert_never
 
 from skillflow.analysis.errors import AnalysisInvariantError
 from skillflow.analysis.metric_helpers import ratio_metric
+from skillflow.models.matrix_axes import MatrixRunRole
 from skillflow.models.metrics import RatioMetric
 from skillflow.models.residual_metrics import (
     AttributionKind,
@@ -23,7 +24,9 @@ def calculate_rir(
         raise AnalysisInvariantError("calculate_rir", "RIR 会话偏移必须至少为 1")
     target_session = revocation.session_index + offset
     candidates = tuple(
-        run for run in _unique_runs(runs) if run.valid and run.session_index == target_session
+        run
+        for run in _unique_runs(runs)
+        if run.run_role is MatrixRunRole.CORE and run.valid and run.session_index == target_session
     )
     for run in candidates:
         if run.started_at <= revocation.revoked_at:

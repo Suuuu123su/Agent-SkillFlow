@@ -25,6 +25,7 @@ from skillflow.models.references import (
     ScenarioTargetRef,
 )
 from skillflow.models.resources import ResourceRef
+from skillflow.models.scenario_research import ToolOutputAlias
 
 
 @unique
@@ -113,6 +114,7 @@ class ScenarioStep(StrictModel):
     actor: PrincipalType | None = None
     inputs: tuple[ArtifactAliasRef, ...] = ()
     outputs: tuple[ArtifactAliasRef, ...] = ()
+    tool_outputs: tuple[ToolOutputAlias, ...] = ()
     grant: AuthorizationGrant | None = None
 
     @model_validator(mode="after")
@@ -120,37 +122,52 @@ class ScenarioStep(StrictModel):
         """按封闭操作枚举验证主体和 Skill 引用。"""
         match self.action:
             case StepAction.INVOKE_SKILL:
-                self._require_no_grant()
-                if self.skill is None:
-                    raise PydanticCustomError("step_skill_missing", "invoke_skill 要求 skill")
+                self._validate_invoke_skill()
             case StepAction.WRITE_MEMORY | StepAction.READ_MEMORY | StepAction.REQUEST_TOOL:
-                self._require_no_grant()
-                self._require_no_inputs()
+                self._validate_non_invocation()
             case StepAction.USER_CONFIRM:
-                self._require_no_inputs()
-                self._require_trusted_actor()
-                if self.grant is None:
-                    raise PydanticCustomError(
-                        "step_grant_missing",
-                        "user_confirm 要求结构化 Grant",
-                    )
-                if self.grant.issuer_type is not self.actor:
-                    raise PydanticCustomError(
-                        "step_grant_issuer_mismatch",
-                        "user_confirm actor 必须与 Grant issuer_type 一致",
-                    )
+                self._validate_user_confirmation()
             case StepAction.REVOKE_SKILL | StepAction.UNLOAD_SKILL:
-                self._require_no_grant()
-                self._require_no_inputs()
-                self._require_trusted_actor()
-                if self.skill is None:
-                    raise PydanticCustomError("step_skill_missing", "撤销或卸载步骤要求 skill")
+                self._validate_skill_control()
             case StepAction.RESTART_RUNTIME:
-                self._require_no_grant()
-                self._require_no_inputs()
+                self._validate_non_invocation()
             case _ as unreachable:
                 assert_never(unreachable)
+        if self.action is not StepAction.INVOKE_SKILL and self.tool_outputs:
+            raise PydanticCustomError(
+                "step_tool_outputs_forbidden",
+                "只有 invoke_skill 可以绑定 Tool 输出 alias",
+            )
         return self
+
+    def _validate_invoke_skill(self) -> None:
+        self._require_no_grant()
+        if self.skill is None:
+            raise PydanticCustomError("step_skill_missing", "invoke_skill 要求 skill")
+
+    def _validate_non_invocation(self) -> None:
+        self._require_no_grant()
+        self._require_no_inputs()
+
+    def _validate_user_confirmation(self) -> None:
+        self._require_no_inputs()
+        self._require_trusted_actor()
+        if self.grant is None:
+            raise PydanticCustomError(
+                "step_grant_missing",
+                "user_confirm 要求结构化 Grant",
+            )
+        if self.grant.issuer_type is not self.actor:
+            raise PydanticCustomError(
+                "step_grant_issuer_mismatch",
+                "user_confirm actor 必须与 Grant issuer_type 一致",
+            )
+
+    def _validate_skill_control(self) -> None:
+        self._validate_non_invocation()
+        self._require_trusted_actor()
+        if self.skill is None:
+            raise PydanticCustomError("step_skill_missing", "撤销或卸载步骤要求 skill")
 
     def _require_trusted_actor(self) -> None:
         if self.actor not in {PrincipalType.USER, PrincipalType.TRUSTED_POLICY}:

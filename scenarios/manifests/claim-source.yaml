@@ -1,0 +1,5 @@
+schema_version: "0.1"
+id: claim-source
+principal_type: skill
+description: 产生低可信固定文本声明，不具备 Grant 接口。
+requested_permissions: []

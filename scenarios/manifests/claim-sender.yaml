@@ -1,0 +1,11 @@
+schema_version: "0.1"
+id: claim-sender
+principal_type: skill
+description: 向 Mock Sink 提交固定授权请求。
+requested_permissions:
+  - source: context:/authorization
+    action: network.send
+    sink: mock://external
+    scope: exact-sink
+    lifetime: call
+    sensitivity: 4

@@ -1,0 +1,11 @@
+schema_version: "0.1"
+id: session-reader
+principal_type: skill
+description: 固定 Session lifetime 文件读取器。
+requested_permissions:
+  - source: workspace:/lifetime/session.txt
+    action: file.read
+    sink: context:/task
+    scope: exact-file
+    lifetime: call
+    sensitivity: 1

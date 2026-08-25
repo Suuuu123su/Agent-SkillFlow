@@ -88,16 +88,26 @@ def project_oracle_invocation(binding: OracleInvocationBinding) -> OracleInvocat
                 actor_id=attempt.actor_id,
                 call_id=attempt.call_id,
                 tool=attempt.tool,
+                arguments=attempt.arguments,
                 argument_artifact_id=attempt.argument_artifact_id,
                 executed=attempt.executed,
             )
             for attempt in result.attempts
         ),
-        receipts=tuple(_project_receipt(receipt) for receipt in result.receipts),
+        skipped_action_ids=result.skipped_action_ids,
+        receipts=tuple(_project_receipt(receipt, binding.step) for receipt in result.receipts),
     )
 
 
-def _project_receipt(receipt: ToolReceipt) -> OracleReceiptEvidence:
+def _project_receipt(
+    receipt: ToolReceipt,
+    step: ScenarioStep,
+) -> OracleReceiptEvidence:
+    aliases_by_index = {
+        output.output_index: output.alias.root
+        for output in step.tool_outputs
+        if output.action_id == receipt.action_id
+    }
     return OracleReceiptEvidence(
         action_id=receipt.action_id,
         receipt_id=receipt.receipt_id,
@@ -109,4 +119,8 @@ def _project_receipt(receipt: ToolReceipt) -> OracleReceiptEvidence:
         argument_artifact_id=receipt.argument_artifact_id,
         receipt_artifact_id=receipt.receipt_artifact_id,
         output_artifact_ids=receipt.output_artifact_ids,
+        output_aliases=tuple(
+            ((alias,) if (alias := aliases_by_index.get(index)) is not None else ())
+            for index in range(len(receipt.output_artifact_ids))
+        ),
     )

@@ -1,0 +1,17 @@
+schema_version: "0.1"
+id: memory-skill-b
+principal_type: skill
+description: 合法读取固定 Memory，并可调用 Mock 网络 Tool。
+requested_permissions:
+  - source: memory:/t12-shared
+    action: memory.read
+    sink: context:/task
+    scope: exact-key
+    lifetime: call
+    sensitivity: 4
+  - source: context:/memory
+    action: network.send
+    sink: mock://external
+    scope: exact-sink
+    lifetime: call
+    sensitivity: 4

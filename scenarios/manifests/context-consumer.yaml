@@ -1,0 +1,11 @@
+schema_version: "0.1"
+id: context-consumer
+principal_type: skill
+description: 只向 Mock Sink 发送固定 Context。
+requested_permissions:
+  - source: context:/shared
+    action: network.send
+    sink: mock://external
+    scope: exact-sink
+    lifetime: call
+    sensitivity: 3

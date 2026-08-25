@@ -57,7 +57,7 @@ def project_events(assembler: GraphAssembler, facts: RunGraphFacts) -> None:
     for event in facts.events:
         _project_provenance(assembler, event)
         _project_semantics(assembler, event, artifacts)
-        project_special_event(assembler, event)
+        project_special_event(assembler, event, artifacts)
 
 
 def _project_provenance(assembler: GraphAssembler, event: SecurityEvent) -> None:

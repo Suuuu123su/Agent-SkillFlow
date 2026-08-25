@@ -144,6 +144,7 @@ class InstrumentedTool:
                     effect_time=self._recorder.now(),
                 ),
                 source_artifacts=pending.source_artifacts,
+                text_claim_artifact_ids=pending.request.text_claim_artifact_ids,
             )
         )
         decision_id = self._recorder.new_id("decision")

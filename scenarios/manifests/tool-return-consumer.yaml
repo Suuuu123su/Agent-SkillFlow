@@ -1,0 +1,11 @@
+schema_version: "0.1"
+id: tool-return-consumer
+principal_type: skill
+description: 只向 Mock Sink 发送固定 Tool Return。
+requested_permissions:
+  - source: context:/tool-return
+    action: network.send
+    sink: mock://external
+    scope: exact-sink
+    lifetime: call
+    sensitivity: 3

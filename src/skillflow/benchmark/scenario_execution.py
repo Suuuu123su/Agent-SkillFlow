@@ -39,6 +39,7 @@ class ScenarioExecutionSnapshot:
     output_artifacts: tuple[Artifact, ...]
     receipts: tuple[ToolReceipt, ...]
     alias_artifacts: tuple[tuple[str, str], ...]
+    alias_producers: tuple[tuple[str, str], ...]
 
 
 @dataclass(frozen=True, slots=True)
@@ -48,6 +49,7 @@ class ScenarioExecutionResult:
     output_artifacts: tuple[Artifact, ...]
     receipts: tuple[ToolReceipt, ...]
     artifact_aliases: dict[str, tuple[str, ...]]
+    artifact_ids_by_alias: dict[str, str]
 
 
 @dataclass(frozen=True, slots=True)
@@ -90,6 +92,7 @@ class ScenarioExecutor:
         self._outputs = [] if snapshot is None else list(snapshot.output_artifacts)
         self._receipts = [] if snapshot is None else list(snapshot.receipts)
         self._aliases = {} if snapshot is None else dict(snapshot.alias_artifacts)
+        self._alias_producers = {} if snapshot is None else dict(snapshot.alias_producers)
 
     def run_all(self) -> ScenarioExecutionResult:
         """执行全部剩余步骤并结束所有 Session。"""
@@ -118,6 +121,7 @@ class ScenarioExecutor:
             output_artifacts=tuple(self._outputs),
             receipts=tuple(self._receipts),
             alias_artifacts=tuple(self._aliases.items()),
+            alias_producers=tuple(self._alias_producers.items()),
         )
 
     def result(self) -> ScenarioExecutionResult:
@@ -129,6 +133,7 @@ class ScenarioExecutor:
             output_artifacts=tuple(self._outputs),
             receipts=tuple(self._receipts),
             artifact_aliases={key: tuple(value) for key, value in aliases.items()},
+            artifact_ids_by_alias=dict(self._aliases),
         )
 
     def artifact_id(self, alias: str) -> str:
@@ -179,7 +184,7 @@ class ScenarioExecutor:
         )
 
     def _execute_and_record(self, step: ScenarioStep, session_id: str) -> None:
-        inputs = tuple(self._aliases[item.alias] for item in step.inputs)
+        inputs = self._input_ids(step)
         result = _execute_step(_StepExecution(step, self._harness, self._controller, inputs))
         if (
             step.action is StepAction.USER_CONFIRM
@@ -192,12 +197,45 @@ class ScenarioExecutor:
         self._outputs.append(result.output)
         self._receipts.extend(result.receipts)
         self._aliases.update((output.alias, result.output.artifact_id) for output in step.outputs)
+        if step.skill is not None:
+            self._alias_producers.update((output.alias, step.skill) for output in step.outputs)
+        self._bind_tool_outputs(step, result)
         if self._oracle is not None:
             self._oracle.record_invocation(
                 project_oracle_invocation(
                     OracleInvocationBinding(step=step, session_id=session_id, result=result)
                 )
             )
+
+    def _input_ids(self, step: ScenarioStep) -> tuple[str, ...]:
+        if self._scenario.harness.shared_context or step.skill is None:
+            return tuple(self._aliases[item.alias] for item in step.inputs)
+        return tuple(
+            self._aliases[item.alias]
+            for item in step.inputs
+            if self._alias_producers.get(item.alias) == step.skill
+        )
+
+    def _bind_tool_outputs(
+        self,
+        step: ScenarioStep,
+        result: SkillInvocationResult,
+    ) -> None:
+        receipts = {receipt.action_id: receipt for receipt in result.receipts}
+        for output in step.tool_outputs:
+            receipt = receipts.get(output.action_id)
+            if receipt is None:
+                continue
+            try:
+                artifact_id = receipt.output_artifact_ids[output.output_index]
+            except IndexError as error:
+                raise UnsupportedStepError(
+                    step.id,
+                    f"tool output index out of range: {output.action_id}",
+                ) from error
+            self._aliases[output.alias.alias] = artifact_id
+            if step.skill is not None:
+                self._alias_producers[output.alias.alias] = step.skill
 
 
 def execute_scenario_sessions(

@@ -1,0 +1,11 @@
+schema_version: "0.1"
+id: summary-reader
+principal_type: skill
+description: 固定隔离报告读取器。
+requested_permissions:
+  - source: workspace:/documents/report.md
+    action: file.read
+    sink: context:/task
+    scope: exact-file
+    lifetime: call
+    sensitivity: 1

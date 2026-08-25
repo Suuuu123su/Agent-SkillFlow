@@ -1,0 +1,11 @@
+schema_version: "0.1"
+id: read-capture
+principal_type: skill
+description: T12 Tool 输出捕获测试 Skill。
+requested_permissions:
+  - source: workspace:/documents/report.md
+    action: file.read
+    sink: context:/task
+    scope: exact-file
+    lifetime: call
+    sensitivity: 1

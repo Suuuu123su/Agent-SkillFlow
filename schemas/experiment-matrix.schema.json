@@ -1,5 +1,15 @@
 {
   "$defs": {
+    "AuthorizationCondition": {
+      "description": "实验中被暴露的授权来源条件。",
+      "enum": [
+        "none",
+        "implicit_text",
+        "structured_confirmation"
+      ],
+      "title": "AuthorizationCondition",
+      "type": "string"
+    },
     "CapabilityAction": {
       "description": "MVP 固定支持的能力动作。",
       "enum": [
@@ -62,6 +72,10 @@
       "additionalProperties": false,
       "description": "一个 Scenario 与受控 Harness 开关的确定性配置。",
       "properties": {
+        "authorization_condition": {
+          "$ref": "#/$defs/AuthorizationCondition",
+          "default": "none"
+        },
         "auto_approve_tools": {
           "title": "Auto Approve Tools",
           "type": "boolean"
@@ -91,9 +105,35 @@
           ],
           "default": null
         },
+        "hiaa_design_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hiaa Design Id"
+        },
         "implicit_text_authorization": {
           "title": "Implicit Text Authorization",
           "type": "boolean"
+        },
+        "pair_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pair Id"
         },
         "persistent_memory": {
           "title": "Persistent Memory",
@@ -102,6 +142,10 @@
         "provenance_mode": {
           "$ref": "#/$defs/ProvenanceMode"
         },
+        "run_role": {
+          "$ref": "#/$defs/MatrixRunRole",
+          "default": "core"
+        },
         "scenario": {
           "$ref": "#/$defs/ScenarioPath"
         },
@@ -109,9 +153,17 @@
           "title": "Seed",
           "type": "integer"
         },
+        "session_condition": {
+          "$ref": "#/$defs/SessionCondition",
+          "default": "original"
+        },
         "shared_context": {
           "title": "Shared Context",
           "type": "boolean"
+        },
+        "skill_state": {
+          "$ref": "#/$defs/SkillStateCondition",
+          "default": "normal"
         },
         "target_skill_present": {
           "title": "Target Skill Present",
@@ -235,6 +287,16 @@
       "title": "HiaaDesign",
       "type": "object"
     },
+    "MatrixRunRole": {
+      "description": "核心变体与不得进入普通分母的派生 Run。",
+      "enum": [
+        "core",
+        "determinism_repeat",
+        "counterfactual"
+      ],
+      "title": "MatrixRunRole",
+      "type": "string"
+    },
     "NeutralSkillPair": {
       "additionalProperties": false,
       "description": "除危险语义外保持 Manifest、Schema、工具与长度匹配的 Skill 对。",
@@ -275,6 +337,15 @@
     "ScenarioPath": {
       "description": "Experiment Matrix 中受控的 Scenario 相对路径。",
       "title": "ScenarioPath",
+      "type": "string"
+    },
+    "SessionCondition": {
+      "description": "Effect 位于授权原 Session 或新 Session。",
+      "enum": [
+        "original",
+        "new"
+      ],
+      "title": "SessionCondition",
       "type": "string"
     },
     "SkillControlProfile": {
@@ -346,11 +417,26 @@
       ],
       "title": "SkillLengthInterval",
       "type": "object"
+    },
+    "SkillStateCondition": {
+      "description": "目标 Skill 在核心配置中的状态。",
+      "enum": [
+        "normal",
+        "revoked"
+      ],
+      "title": "SkillStateCondition",
+      "type": "string"
     }
   },
   "additionalProperties": false,
   "description": "一组 ID 唯一的实验配置。",
   "properties": {
+    "determinism_repeats": {
+      "default": 1,
+      "minimum": 1,
+      "title": "Determinism Repeats",
+      "type": "integer"
+    },
     "hiaa_design": {
       "anyOf": [
         {
@@ -361,6 +447,14 @@
         }
       ],
       "default": null
+    },
+    "hiaa_designs": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/HiaaDesign"
+      },
+      "title": "Hiaa Designs",
+      "type": "array"
     },
     "id": {
       "minLength": 1,

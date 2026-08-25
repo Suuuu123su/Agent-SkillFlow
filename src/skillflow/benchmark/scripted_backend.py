@@ -34,6 +34,7 @@ class ToolScriptAction:
     arguments: ToolArguments
     input_binding: "InputArtifactBinding | None" = None
     input_gate: "InputArtifactGate | None" = None
+    authorization_claim: "AuthorizationClaimBinding | None" = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -53,6 +54,14 @@ class InputArtifactGate:
 
 
 @dataclass(frozen=True, slots=True)
+class AuthorizationClaimBinding:
+    """仅当固定输入摘要匹配时，把其 ID 声明为低可信授权文本。"""
+
+    input_index: int
+    expected_content_hash: str
+
+
+@dataclass(frozen=True, slots=True)
 class FixtureScript:
     """一个固定 fixture 的动作与返回值。"""
 
@@ -68,6 +77,7 @@ class ScriptedInvocationResult:
     output: bytes
     receipts: tuple[ToolReceipt, ...]
     attempts: tuple[ToolActionAttempt, ...]
+    skipped_action_ids: tuple[str, ...]
     parent_artifact_ids: tuple[str, ...]
     output_mime_type: str
 
@@ -111,8 +121,12 @@ class ScriptedBackend:
             raise HarnessStateError(operation, state)
         receipts: list[ToolReceipt] = []
         attempts: list[ToolActionAttempt] = []
+        skipped_action_ids: list[str] = []
         parent_ids: list[str] = []
         for action in script.actions:
+            if not _inputs_available(action, invocation.inputs):
+                skipped_action_ids.append(action.action_id)
+                continue
             arguments = _bind_arguments(action, invocation.inputs)
             outcome = invocation.tool.call(
                 ToolCallRequest(
@@ -121,6 +135,10 @@ class ScriptedBackend:
                     action_id=action.action_id,
                     decision_key=_decision_key(action, invocation.inputs),
                     arguments=arguments,
+                    text_claim_artifact_ids=_authorization_claims(
+                        action,
+                        invocation.inputs,
+                    ),
                 )
             )
             match outcome:
@@ -135,6 +153,7 @@ class ScriptedBackend:
                             actor_id=actor.actor_id,
                             call_id=actor.call_id,
                             tool=arguments.kind,
+                            arguments=arguments,
                             argument_artifact_id=pending.argument_artifact_id,
                             executed=True,
                         )
@@ -148,6 +167,7 @@ class ScriptedBackend:
                             actor_id=actor.actor_id,
                             call_id=actor.call_id,
                             tool=arguments.kind,
+                            arguments=arguments,
                             argument_artifact_id=pending.argument_artifact_id,
                             executed=False,
                         )
@@ -158,6 +178,7 @@ class ScriptedBackend:
             output=script.output,
             receipts=tuple(receipts),
             attempts=tuple(attempts),
+            skipped_action_ids=tuple(skipped_action_ids),
             parent_artifact_ids=tuple(parent_ids),
             output_mime_type=script.output_mime_type,
         )
@@ -185,6 +206,31 @@ def _decision_key(
     if input_artifact.content_hash == gate.expected_content_hash:
         return action.decision_key
     return gate.mismatch_decision_key
+
+
+def _inputs_available(
+    action: ToolScriptAction,
+    inputs: tuple[ScriptedInputArtifact, ...],
+) -> bool:
+    indexes = tuple(
+        item.input_index
+        for item in (action.input_binding, action.input_gate, action.authorization_claim)
+        if item is not None
+    )
+    return all(0 <= index < len(inputs) for index in indexes)
+
+
+def _authorization_claims(
+    action: ToolScriptAction,
+    inputs: tuple[ScriptedInputArtifact, ...],
+) -> tuple[str, ...]:
+    binding = action.authorization_claim
+    if binding is None:
+        return ()
+    artifact = _input_at(inputs, binding.input_index, action.action_id)
+    if artifact.content_hash != binding.expected_content_hash:
+        return ()
+    return (artifact.artifact_id,)
 
 
 def _bind_arguments(

@@ -60,6 +60,7 @@ class OracleReceiptEvidence:
     argument_artifact_id: str
     receipt_artifact_id: str
     output_artifact_ids: tuple[str, ...]
+    output_aliases: tuple[tuple[str, ...], ...] = ()
 
 
 @dataclass(frozen=True, slots=True)
@@ -72,6 +73,7 @@ class OracleAttemptEvidence:
     tool: MockToolName
     argument_artifact_id: str
     executed: bool
+    arguments: ToolArguments | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -86,6 +88,7 @@ class OracleInvocationEvidence:
     output_artifact_id: str
     output_aliases: tuple[str, ...]
     attempts: tuple[OracleAttemptEvidence, ...]
+    skipped_action_ids: tuple[str, ...]
     receipts: tuple[OracleReceiptEvidence, ...]
 
 

@@ -12,6 +12,7 @@ from skillflow.analysis.authorization_laundering import (
 from skillflow.analysis.errors import AnalysisInvariantError
 from skillflow.models.advanced_metrics import AuthorizationAttemptClass
 from skillflow.models.enums import Decision, TrustLevel
+from skillflow.models.matrix_axes import MatrixRunRole
 from skillflow.models.metrics import MetricStatus
 
 
@@ -168,3 +169,14 @@ def test_alr_zero_denominator_is_structured_not_applicable() -> None:
     assert metrics.alr.denominator == 0
     assert metrics.alr.value is None
     assert metrics.alr.status is MetricStatus.NOT_APPLICABLE
+
+
+def test_alr_excludes_determinism_repeats_and_counterfactuals() -> None:
+    repeat = replace(_attempt(2), run_role=MatrixRunRole.DETERMINISM_REPEAT)
+    counterfactual = replace(_attempt(3), run_role=MatrixRunRole.COUNTERFACTUAL)
+
+    metrics = calculate_alr((_attempt(1), repeat, counterfactual))
+
+    assert metrics.alr.numerator == 1
+    assert metrics.alr.denominator == 1
+    assert metrics.laundering_request_ids == ("authorization-request-1",)

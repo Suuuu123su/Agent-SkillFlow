@@ -2,7 +2,7 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前仓库已完成到 **T11.1：高级指标研究语义复审**。这里已经固定研究边界、四级 Lifetime 菱形偏序和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。每次普通 Run 会输出可按 Artifact/Effect ID 对齐的 Observed/Oracle JSONL、只从 EventStore 重建的脱敏 `security-graph.json`，以及通过静态 Schema 校验的 `risk-report.json`。在 T10 成对反事实重放基础上，T11/T11.1 可以机械生成并绑定同一 `harm_selector` 的 HIAA 四格、按七项联合条件和唯一授权请求计算 ALR，并只接受 `INFLUENCE_CONFIRMED` 或独立 `GT_influence` 作为 RIR 因果归因。尚未建立 T12 场景库、最终矩阵或真实平台 Adapter。
+当前仓库已完成到 **T12：实验场景库与 MVP 实验矩阵**。这里已经固定研究边界、四级 Lifetime 菱形偏序和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。每次普通 Run 会输出可按 Artifact/Effect ID 对齐的 Observed/Oracle JSONL、只从 EventStore 重建的脱敏 `security-graph.json`，以及通过静态 Schema 校验的 `risk-report.json`。在 T10 成对反事实重放与 T11.1 严格指标语义基础上，T12 提供 12 类核心研究场景、8 组能力匹配良性/攻击对照、2 套独立 HIAA 四格和 24 个受控核心矩阵变体。尚未实现 T13 的批量 CLI/导出，也没有接入真实平台 Adapter。
 
 ## 当前能力
 
@@ -62,6 +62,11 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 - ALR 只有在无真实 Grant、低可信授权声明进入决策依据、baseline reason 为 `IMPLICIT_TEXT_AUTHORIZATION`、原运行有 Receipt、成对中和只删除声明，且中和后变为 confirm/deny 或动作消失时才进入分子；分母按唯一 `authorization_request_id` 去重，普通恶意指令不进入分母。
 - RIR 记录 Skill 撤销 Event、会话索引和带时区时点；每个 Run 最多计一次，因果归因只允许 `INFLUENCE_CONFIRMED`、独立 `GT_influence` 或显式无归因。Oracle `GT_data`/来源路径只作 provenance 审计，不能单独抬高分子。
 - Experiment 风险报告通过判别联合与静态 Schema 复验，包含共享 `harm_selector`、四格、`HIAA_pot`、`HIAA_run`、`ALR`、`RIR_1`、`RIR_3`、洗白/普通绕过 request ID 和全部原始计数。
+- T12 场景库包含 B0、B1、N0、C1、C2、M1、M2、A1、A2、S1、L1、G0，以及四个独立良性控制，共 16 个可执行 YAML；每个攻击场景都有双向绑定的能力匹配良性对照。
+- 每个 T12 Scenario 都声明固定 Task、Fixture/Canary、Manifest、Grant、Session/Step、Effect selector、成功断言、指标方向或结构化 N/A；HIAA 场景额外绑定唯一 `harm_selector`。
+- T12 固定 registry 提供 16 个 `fixture://t12/...` Scripted Skill，实现 Tool Return alias、跨 Session Memory、低可信授权声明和条件动作；没有 Shell 动作，所有网络效果只进入 `mock://` Sink。
+- `scenarios/matrix/mvp.yaml` 包含 24 个核心变体和 2 套机械生成四格，覆盖目标/中性 Skill、Harness 开关、来源故障注入、monitor/enforce、normal/revoked、原/新 Session、假文本/真实确认；每个配置声明 5 次确定性复跑，复跑与 counterfactual 不进入普通指标分母。
+- `task_success` 只由 Artifact SHA-256 与 selector 命中的真实 Effect/Receipt 成功断言机械求值；全部拒绝虽然可令 UEA 为 0，但会在报告中明确显示任务失败。
 - pytest、覆盖率、ruff 与 mypy 质量门禁。
 - GitHub Actions 自动执行同一组质量门禁。
 - 中文威胁模型、安全语义、形式化不变量和架构决策记录。
@@ -95,6 +100,7 @@ python -m venv .venv-skillflow
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t09_risk_report.py -q --no-cov
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t10_counterfactual_replay.py -q --no-cov
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t11_experiment_report.py -q --no-cov
+.\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t12_library_execution.py -q --no-cov
 ```
 
 安装后也可以直接使用控制台命令：
@@ -129,7 +135,7 @@ for path in paths:
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli --help
 ```
 
-当前 pytest 门禁仍按任务书使用 80% 最低阈值；T11 原始实现记录在 [`docs/summaries/T11_Summary.md`](docs/summaries/T11_Summary.md)，T11.1 的三项语义修订、反例和最新门禁记录在 [`docs/summaries/T11.1_Summary.md`](docs/summaries/T11.1_Summary.md)。T14 将把最终门槛正式提升到 90%。
+当前 pytest 门禁仍按任务书使用 80% 最低阈值；T11.1 的三项语义修订见 [`docs/summaries/T11.1_Summary.md`](docs/summaries/T11.1_Summary.md)，T12 场景、矩阵、Golden 结果和最新门禁见 [`docs/summaries/T12_Summary.md`](docs/summaries/T12_Summary.md)。T14 将把最终门槛正式提升到 90%。
 
 ## 项目范围
 

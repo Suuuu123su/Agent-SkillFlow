@@ -13,7 +13,7 @@ from skillflow.instrumentation.skill_proxy import SkillRuntimeSnapshot, SkillSta
 from skillflow.models.enums import ProvenanceMode
 from skillflow.runtime.determinism import DeterministicIdSnapshot, VirtualClockSnapshot
 from skillflow.runtime.workspace_checkpoint import WorkspaceSnapshot
-from skillflow.store.checkpoint import RunStoreSnapshot
+from skillflow.store.checkpoint import ArtifactSnapshot, RunStoreSnapshot
 from skillflow.store.errors import StoreIntegrityError
 
 JSON_VALUE_ADAPTER: TypeAdapter[JsonValue] = TypeAdapter(JsonValue)
@@ -151,7 +151,7 @@ def _prefix_payload(snapshot: RunStoreSnapshot) -> JsonValue:
                 ),
             }
         )
-    artifacts = [item.artifact.model_dump(mode="json") for item in snapshot.artifacts]
+    artifacts = [_artifact_payload(item) for item in snapshot.artifacts]
     heads = [
         {
             "key": head.key,
@@ -202,6 +202,30 @@ def _model_payload(model: BaseModel | None) -> JsonValue:
     return (
         None if model is None else JSON_VALUE_ADAPTER.validate_python(model.model_dump(mode="json"))
     )
+
+
+def _artifact_payload(item: ArtifactSnapshot) -> dict[str, JsonValue]:
+    artifact = item.artifact
+    label = artifact.observed_label
+    return {
+        "artifact_id": artifact.artifact_id,
+        "artifact_type": artifact.artifact_type.value,
+        "content_hash": artifact.content_hash,
+        "content_length": artifact.content_length,
+        "mime_type": artifact.mime_type,
+        "created_by_event_id": artifact.created_by_event_id,
+        "observed_label": JSON_VALUE_ADAPTER.validate_python(
+            {
+                "origins": sorted(label.origins),
+                "trust": label.trust.value,
+                "task_id": label.task_id,
+                "created_session_id": label.created_session_id,
+                "expiry": None if label.expiry is None else label.expiry.isoformat(),
+                "revoked_origins": sorted(label.revoked_origins),
+                "parent_artifact_ids": sorted(label.parent_artifact_ids),
+            }
+        ),
+    }
 
 
 def _hash_payload(payload: JsonValue) -> str:

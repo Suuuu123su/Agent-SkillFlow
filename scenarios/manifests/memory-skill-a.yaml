@@ -1,0 +1,17 @@
+schema_version: "0.1"
+id: memory-skill-a
+principal_type: skill
+description: 合法读取隔离资产并写入固定 Memory key。
+requested_permissions:
+  - source: workspace:/memory/payload.txt
+    action: file.read
+    sink: context:/task
+    scope: exact-file
+    lifetime: call
+    sensitivity: 4
+  - source: context:/task
+    action: memory.write
+    sink: memory:/t12-shared
+    scope: exact-key
+    lifetime: call
+    sensitivity: 4

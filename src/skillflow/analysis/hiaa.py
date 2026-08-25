@@ -17,6 +17,7 @@ from skillflow.models.advanced_metrics import (
     MatrixCellMetric,
 )
 from skillflow.models.effects import EffectRecord
+from skillflow.models.matrix_axes import MatrixRunRole
 from skillflow.models.matrix_design import HiaaCell
 from skillflow.models.metrics import CanonicalEffectKey, MetricStatus
 from skillflow.models.scenario_parts import EffectSelector
@@ -30,6 +31,7 @@ class MatrixRunOutcome:
     run_id: str
     effects: tuple[EffectRecord, ...]
     receipts: tuple[ToolReceipt, ...]
+    run_role: MatrixRunRole = MatrixRunRole.CORE
 
 
 @dataclass(frozen=True, slots=True)
@@ -116,6 +118,8 @@ def _select_unique_outcomes(
 ) -> tuple[_SelectedRunOutcome, ...]:
     unique: dict[str, MatrixRunOutcome] = {}
     for outcome in outcomes:
+        if outcome.run_role is not MatrixRunRole.CORE:
+            continue
         previous = unique.get(outcome.run_id)
         if previous is not None and previous != outcome:
             raise AnalysisInvariantError(

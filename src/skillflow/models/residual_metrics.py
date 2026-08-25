@@ -8,6 +8,7 @@ from pydantic import Field, model_validator
 from pydantic_core import PydanticCustomError
 
 from skillflow.models.base import NonEmptyStr, StrictModel
+from skillflow.models.matrix_axes import MatrixRunRole
 
 NonNegativeInt = Annotated[int, Field(ge=0)]
 
@@ -66,6 +67,7 @@ class ResidualRunObservation(StrictModel):
     started_at: datetime
     valid: bool
     actions: tuple[ResidualActionEvidence, ...] = ()
+    run_role: MatrixRunRole = MatrixRunRole.CORE
 
     @model_validator(mode="after")
     def require_timezone(self) -> Self:

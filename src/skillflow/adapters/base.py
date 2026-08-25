@@ -43,6 +43,7 @@ class SkillInvocationResult:
     output: Artifact
     receipts: tuple[ToolReceipt, ...]
     attempts: tuple[ToolActionAttempt, ...]
+    skipped_action_ids: tuple[str, ...]
     call_id: str
     input_artifact_ids: tuple[str, ...]
 

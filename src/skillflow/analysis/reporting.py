@@ -22,6 +22,7 @@ def analyze_scenario(facts: ScenarioMetricFacts) -> RunRiskReport:
         report_scope="run",
         run_id=facts.run_id,
         scenario_id=facts.scenario_id,
+        task_success=facts.task_success,
         uea=uea.summary,
         provenance=provenance,
         unauthorized_effects=uea.unauthorized_effects,

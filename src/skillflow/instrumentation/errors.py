@@ -42,7 +42,7 @@ class FixtureNotFoundError(InstrumentationError):
         return f"fixture 未注册：{self.reference}"
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(slots=True)
 class HarnessStateError(InstrumentationError):
     """Harness 操作与当前 Session 状态不相容。"""
 

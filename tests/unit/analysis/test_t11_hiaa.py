@@ -1,4 +1,5 @@
 import math
+from dataclasses import replace
 from datetime import UTC, datetime
 
 import pytest
@@ -19,6 +20,7 @@ from skillflow.instrumentation.tool_types import MockToolName
 from skillflow.models.effects import CapabilityEffect, EffectRecord
 from skillflow.models.enums import CapabilityAction, Lifetime, Scope
 from skillflow.models.matrix import HiaaCell
+from skillflow.models.matrix_axes import MatrixRunRole
 from skillflow.models.metrics import CanonicalEffectKey, MetricStatus
 from skillflow.models.resources import ResourceRef
 from skillflow.models.scenario_parts import EffectSelector
@@ -174,6 +176,23 @@ def test_hiaa_rejects_a_matching_executed_effect_without_actual_receipt() -> Non
 
     with pytest.raises(AnalysisInvariantError, match="Receipt"):
         calculate_hiaa(HARM_SELECTOR, (outcome,))
+
+
+def test_hiaa_excludes_determinism_repeats_and_counterfactuals() -> None:
+    core = tuple(_run_outcome(cell, 0, positive=False) for cell in HiaaCell)
+    repeat = replace(
+        _run_outcome(HiaaCell.P11, 1, positive=True),
+        run_role=MatrixRunRole.DETERMINISM_REPEAT,
+    )
+    counterfactual = replace(
+        _run_outcome(HiaaCell.P11, 2, positive=True),
+        run_role=MatrixRunRole.COUNTERFACTUAL,
+    )
+
+    metrics = calculate_hiaa(HARM_SELECTOR, (*core, repeat, counterfactual))
+
+    assert metrics.p11.run_count == 1
+    assert metrics.p11.executed_count == 0
 
 
 def test_hiaa_potential_weights_only_newly_reachable_effect_types() -> None:

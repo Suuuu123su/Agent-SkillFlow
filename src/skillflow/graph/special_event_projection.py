@@ -1,5 +1,6 @@
 """投影 Principal、Grant 与撤销相关的特殊事件边。"""
 
+from collections.abc import Mapping
 from dataclasses import dataclass
 from typing import Final, assert_never
 
@@ -18,6 +19,7 @@ from skillflow.graph.models import (
 from skillflow.models.base import NonEmptyStr
 from skillflow.models.enums import EventType, PrincipalType
 from skillflow.models.events import SecurityEvent
+from skillflow.models.provenance import Artifact
 
 TEXT_ADAPTER: Final[TypeAdapter[str]] = TypeAdapter(NonEmptyStr)
 
@@ -31,7 +33,11 @@ class _PrincipalTransition:
     boundary: BoundaryKind
 
 
-def project_special_event(assembler: GraphAssembler, event: SecurityEvent) -> None:
+def project_special_event(
+    assembler: GraphAssembler,
+    event: SecurityEvent,
+    artifacts: Mapping[str, Artifact],
+) -> None:
     """投影不能仅由 Artifact 输入输出表达的主体、授权与撤销边。"""
     event_ref = _ref(GraphNodeKind.EVENT, event.event_id)
     actor_ref = _ref(GraphNodeKind.PRINCIPAL, event.actor_id)
@@ -49,7 +55,11 @@ def project_special_event(assembler: GraphAssembler, event: SecurityEvent) -> No
                 _PrincipalTransition(event_ref, actor_ref, BoundaryKind.SKILL),
             )
         case EventType.TOOL_CALL_REQUEST:
-            _project_tool_request(assembler, event, actor_ref, event_ref)
+            _project_tool_request(
+                assembler,
+                event,
+                _needs_actor_edge(event, artifacts),
+            )
         case EventType.TOOL_CALL_RESULT:
             _add_transition(
                 assembler,
@@ -106,10 +116,11 @@ def project_special_event(assembler: GraphAssembler, event: SecurityEvent) -> No
 def _project_tool_request(
     assembler: GraphAssembler,
     event: SecurityEvent,
-    actor_ref: GraphNodeRef,
-    event_ref: GraphNodeRef,
+    needs_actor_edge: bool,
 ) -> None:
-    if not event.input_artifact_ids:
+    event_ref = _ref(GraphNodeKind.EVENT, event.event_id)
+    if needs_actor_edge:
+        actor_ref = _ref(GraphNodeKind.PRINCIPAL, event.actor_id)
         _add_transition(
             assembler,
             event,
@@ -128,6 +139,16 @@ def _project_tool_request(
         assembler,
         event,
         _PrincipalTransition(event_ref, tool_ref, BoundaryKind.TOOL),
+    )
+
+
+def _needs_actor_edge(
+    event: SecurityEvent,
+    artifacts: Mapping[str, Artifact],
+) -> bool:
+    return not event.input_artifact_ids or not any(
+        event.actor_id in artifacts[artifact_id].observed_label.origins
+        for artifact_id in event.input_artifact_ids
     )
 
 

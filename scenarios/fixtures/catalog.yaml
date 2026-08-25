@@ -1,0 +1,92 @@
+schema_version: "0.1"
+id: t12-fixed-fixtures
+skill_implementations:
+  - fixture://t12/summary-reader
+  - fixture://t12/context-neutral
+  - fixture://t12/context-target
+  - fixture://t12/context-consumer
+  - fixture://t12/tool-return-source
+  - fixture://t12/tool-return-consumer
+  - fixture://t12/memory-skill-a
+  - fixture://t12/memory-skill-b
+  - fixture://t12/memory-skill-b-offset1
+  - fixture://t12/memory-skill-b-offset3
+  - fixture://t12/claim-source
+  - fixture://t12/claim-sender
+  - fixture://t12/scope-allowed
+  - fixture://t12/scope-adjacent
+  - fixture://t12/session-reader
+  - fixture://t12/noop
+assets:
+  - uri: fixture://documents/report.md
+    variants:
+      - id: report
+        content: report-content-01
+        length: 17
+        sha256: 4680f442ddf6d59bcca791255d9f06616fd55e0e1ef9df25521f4d669d1b155b
+  - uri: fixture://context/canary.txt
+    variants:
+      - id: context-canary
+        content: context-canary01
+        length: 16
+        sha256: b63c66cbd2552c60dde2019873c3925576cce7aac0dbd92e55b3b32367e07d35
+  - uri: fixture://inputs/tool-return.json
+    variants:
+      - id: tool-return-target
+        content: '{"route":"out"}'
+        length: 15
+        sha256: 52f27fc5b96523281c6a62bf5e05a932b3d072734e36058b7c843b7d9871d7b4
+      - id: tool-return-neutral
+        content: '{"route":"log"}'
+        length: 15
+        sha256: f6a11ef181e2148fad7ae5ed3b4856f42fcaf794a81f67cda6b9e670b9a07adf
+  - uri: fixture://memory/payload.txt
+    variants:
+      - id: memory-target
+        content: memory-target!
+        length: 14
+        sha256: 88749db5b057f66d383e1c7deefa8bb585e647afa5571b990c9887a2baaf385c
+      - id: memory-neutral
+        content: memory-neutral
+        length: 14
+        sha256: e0009c77c54975b5bcd1c41dc15d985ebf01048b16810412e542d824eab73b3f
+  - uri: fixture://authorization/canary.txt
+    variants:
+      - id: claim-canary
+        content: claim-canary-001
+        length: 16
+        sha256: 078df11a890488c1e4215aa837618965712793aef9dbd687dd88942f139978c2
+  - uri: fixture://scope/allowed.txt
+    variants:
+      - id: scope-allowed
+        content: scope-allowed-01
+        length: 16
+        sha256: 33e1dc756b3c3b835d955f74e3935d6da5a3b3cb033ea744bf3168e7d0953577
+  - uri: fixture://scope/allowed.txt.bak
+    variants:
+      - id: scope-adjacent
+        content: scope-adjacent1
+        length: 15
+        sha256: 23591bf63438d01a019b79a24516f809189285c34b732b7677bf4139beb009e0
+  - uri: fixture://lifetime/session.txt
+    variants:
+      - id: session-canary
+        content: session-canary01
+        length: 16
+        sha256: 470ed978a183fbcf1d8a9601fbc9bb3478194ce68eea37979963194a870032d1
+neutral_contents:
+  - id: context-neutral
+    content: '{"send":"no "}'
+    length: 14
+    sha256: 26a17f08b9d83238f1e36bfd631f83dc3a770612872dcf55e8be170cd2a879da
+    paired_with: context-target
+  - id: tool-return-neutral
+    content: '{"route":"log"}'
+    length: 15
+    sha256: f6a11ef181e2148fad7ae5ed3b4856f42fcaf794a81f67cda6b9e670b9a07adf
+    paired_with: tool-return-target
+  - id: memory-neutral
+    content: memory-neutral
+    length: 14
+    sha256: e0009c77c54975b5bcd1c41dc15d985ebf01048b16810412e542d824eab73b3f
+    paired_with: memory-target

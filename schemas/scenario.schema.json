@@ -5,6 +5,32 @@
       "title": "ArtifactAliasRef",
       "type": "string"
     },
+    "ArtifactSha256Assertion": {
+      "additionalProperties": false,
+      "description": "用内容摘要验证一个声明式输出。",
+      "properties": {
+        "expected_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Expected Sha256",
+          "type": "string"
+        },
+        "kind": {
+          "const": "artifact_sha256",
+          "title": "Kind",
+          "type": "string"
+        },
+        "target": {
+          "$ref": "#/$defs/ArtifactAliasRef"
+        }
+      },
+      "required": [
+        "kind",
+        "target",
+        "expected_sha256"
+      ],
+      "title": "ArtifactSha256Assertion",
+      "type": "object"
+    },
     "AssetSpec": {
       "additionalProperties": false,
       "description": "每次 Run 复制到隔离 workspace 的输入资产。",
@@ -164,6 +190,34 @@
       "title": "AuthorizationGrant",
       "type": "object"
     },
+    "CanarySpec": {
+      "additionalProperties": false,
+      "description": "只以 ID 与摘要引用测试 Canary，不把正文写入报告合同。",
+      "properties": {
+        "asset_id": {
+          "minLength": 1,
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "asset_id",
+        "sha256"
+      ],
+      "title": "CanarySpec",
+      "type": "object"
+    },
     "CapabilityAction": {
       "description": "MVP 固定支持的能力动作。",
       "enum": [
@@ -216,6 +270,31 @@
         "observe"
       ],
       "title": "CounterfactualSpec",
+      "type": "object"
+    },
+    "EffectReceiptedAssertion": {
+      "additionalProperties": false,
+      "description": "验证 selector 是否命中带真实 Receipt 的已执行 Effect。",
+      "properties": {
+        "expected": {
+          "title": "Expected",
+          "type": "boolean"
+        },
+        "kind": {
+          "const": "effect_receipted",
+          "title": "Kind",
+          "type": "string"
+        },
+        "target": {
+          "$ref": "#/$defs/EffectSelectorRef"
+        }
+      },
+      "required": [
+        "kind",
+        "target",
+        "expected"
+      ],
+      "title": "EffectReceiptedAssertion",
       "type": "object"
     },
     "EffectSelector": {
@@ -280,6 +359,72 @@
       ],
       "title": "ExecutionConfig",
       "type": "object"
+    },
+    "ExpectedInfluence": {
+      "additionalProperties": false,
+      "description": "Artifact 到目标 Effect 的预注册因果预期。",
+      "properties": {
+        "expectation": {
+          "$ref": "#/$defs/InfluenceExpectationKind"
+        },
+        "source": {
+          "$ref": "#/$defs/ArtifactAliasRef"
+        },
+        "target": {
+          "$ref": "#/$defs/EffectSelectorRef"
+        }
+      },
+      "required": [
+        "source",
+        "target",
+        "expectation"
+      ],
+      "title": "ExpectedInfluence",
+      "type": "object"
+    },
+    "ExpectedMetric": {
+      "additionalProperties": false,
+      "description": "一个指标的方向预期或带理由的结构化 N/A。",
+      "properties": {
+        "expectation": {
+          "$ref": "#/$defs/MetricExpectationKind"
+        },
+        "metric": {
+          "$ref": "#/$defs/ExpectedMetricName"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "metric",
+        "expectation"
+      ],
+      "title": "ExpectedMetric",
+      "type": "object"
+    },
+    "ExpectedMetricName": {
+      "description": "T12 场景可以预注册的研究输出。",
+      "enum": [
+        "UEA",
+        "causal_impact",
+        "HIAA_run",
+        "ALR",
+        "RIR_1",
+        "RIR_3"
+      ],
+      "title": "ExpectedMetricName",
+      "type": "string"
     },
     "ExpectedOrigins": {
       "additionalProperties": false,
@@ -398,6 +543,15 @@
       "title": "HarnessConfig",
       "type": "object"
     },
+    "InfluenceExpectationKind": {
+      "description": "反事实预期只区分确认影响与明确无影响。",
+      "enum": [
+        "confirmed",
+        "none"
+      ],
+      "title": "InfluenceExpectationKind",
+      "type": "string"
+    },
     "Lifetime": {
       "description": "授权或效果的有效边界。",
       "enum": [
@@ -412,6 +566,16 @@
     "ManifestPath": {
       "description": "只能指向 Scenario 受控 manifests 目录的相对路径。",
       "title": "ManifestPath",
+      "type": "string"
+    },
+    "MetricExpectationKind": {
+      "description": "不把 N/A 与数值零混同的封闭预期。",
+      "enum": [
+        "zero",
+        "positive",
+        "not_applicable"
+      ],
+      "title": "MetricExpectationKind",
       "type": "string"
     },
     "OracleSpec": {
@@ -454,6 +618,21 @@
       "title": "OriginRef",
       "type": "string"
     },
+    "PairFactor": {
+      "description": "良性/攻击配对中唯一允许变化的预注册因素。",
+      "enum": [
+        "grant",
+        "skill_semantics",
+        "tool_return_semantics",
+        "memory_semantics",
+        "authorization_source",
+        "scope_target",
+        "session_boundary",
+        "revocation_residual"
+      ],
+      "title": "PairFactor",
+      "type": "string"
+    },
     "PrincipalType": {
       "description": "能够产生事件或签发授权的主体类别。",
       "enum": [
@@ -480,6 +659,32 @@
       "description": "一个已经校验并规范化的 Resource URI。",
       "title": "ResourceRef",
       "type": "string"
+    },
+    "ScenarioPairing": {
+      "additionalProperties": false,
+      "description": "一个场景与其能力匹配对照的稳定关系。",
+      "properties": {
+        "factor": {
+          "$ref": "#/$defs/PairFactor"
+        },
+        "pair_id": {
+          "minLength": 1,
+          "title": "Pair Id",
+          "type": "string"
+        },
+        "paired_scenario_id": {
+          "minLength": 1,
+          "title": "Paired Scenario Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "pair_id",
+        "paired_scenario_id",
+        "factor"
+      ],
+      "title": "ScenarioPairing",
+      "type": "object"
     },
     "ScenarioSkill": {
       "additionalProperties": false,
@@ -567,6 +772,14 @@
           ],
           "default": null,
           "title": "Skill"
+        },
+        "tool_outputs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ToolOutputAlias"
+          },
+          "title": "Tool Outputs",
+          "type": "array"
         }
       },
       "required": [
@@ -654,6 +867,32 @@
       "title": "TaskSpec",
       "type": "object"
     },
+    "ToolOutputAlias": {
+      "additionalProperties": false,
+      "description": "把一次白名单 Tool 数据输出绑定为 Scenario Artifact alias。",
+      "properties": {
+        "action_id": {
+          "minLength": 1,
+          "title": "Action Id",
+          "type": "string"
+        },
+        "alias": {
+          "$ref": "#/$defs/ArtifactAliasRef"
+        },
+        "output_index": {
+          "minimum": 0,
+          "title": "Output Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action_id",
+        "output_index",
+        "alias"
+      ],
+      "title": "ToolOutputAlias",
+      "type": "object"
+    },
     "TrustLevel": {
       "description": "数据来源的保守信任等级。",
       "enum": [
@@ -676,6 +915,17 @@
       },
       "title": "Assets",
       "type": "array"
+    },
+    "canary": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/CanarySpec"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
     },
     "clock": {
       "$ref": "#/$defs/ClockSpec"
@@ -704,6 +954,22 @@
     "execution": {
       "$ref": "#/$defs/ExecutionConfig"
     },
+    "expected_influences": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ExpectedInfluence"
+      },
+      "title": "Expected Influences",
+      "type": "array"
+    },
+    "expected_metrics": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ExpectedMetric"
+      },
+      "title": "Expected Metrics",
+      "type": "array"
+    },
     "grants": {
       "default": [],
       "items": {
@@ -711,6 +977,17 @@
       },
       "title": "Grants",
       "type": "array"
+    },
+    "harm_selector": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/EffectSelectorRef"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
     },
     "harness": {
       "$ref": "#/$defs/HarnessConfig"
@@ -722,6 +999,17 @@
     },
     "oracle": {
       "$ref": "#/$defs/OracleSpec"
+    },
+    "pairing": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ScenarioPairing"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
     },
     "schema_version": {
       "minLength": 1,
@@ -742,6 +1030,28 @@
       },
       "minItems": 1,
       "title": "Skills",
+      "type": "array"
+    },
+    "success_assertions": {
+      "default": [],
+      "items": {
+        "discriminator": {
+          "mapping": {
+            "artifact_sha256": "#/$defs/ArtifactSha256Assertion",
+            "effect_receipted": "#/$defs/EffectReceiptedAssertion"
+          },
+          "propertyName": "kind"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/$defs/ArtifactSha256Assertion"
+          },
+          {
+            "$ref": "#/$defs/EffectReceiptedAssertion"
+          }
+        ]
+      },
+      "title": "Success Assertions",
       "type": "array"
     },
     "task": {

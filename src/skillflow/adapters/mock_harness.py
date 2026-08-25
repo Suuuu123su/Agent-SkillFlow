@@ -168,6 +168,7 @@ class MockHarnessAdapter(MockBenchmarkStateMixin):
             output=output,
             receipts=scripted.receipts,
             attempts=scripted.attempts,
+            skipped_action_ids=scripted.skipped_action_ids,
             call_id=actor.call_id,
             input_artifact_ids=invocation.input_artifact_ids,
         )
@@ -224,7 +225,12 @@ class MockHarnessAdapter(MockBenchmarkStateMixin):
             restored.prefix_hash != checkpoint.prefix_hash
             or restored.state_hash != checkpoint.state_hash
         ):
-            raise HarnessStateError("restore", "restored state hash mismatch")
+            raise HarnessStateError(
+                "restore",
+                "restored state hash mismatch: "
+                f"prefix={restored.prefix_hash == checkpoint.prefix_hash}, "
+                f"state={restored.state_hash == checkpoint.state_hash}",
+            )
 
     @property
     def network_records(self) -> tuple[MockNetworkRecord, ...]:

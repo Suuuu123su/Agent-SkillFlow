@@ -54,6 +54,7 @@ class ScenarioMetricFacts:
     run_id: str
     effects: tuple[EffectMetricSample, ...]
     provenance: tuple[ProvenanceSample, ...]
+    task_success: bool | None = None
 
 
 @dataclass(frozen=True, slots=True)

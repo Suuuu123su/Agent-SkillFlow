@@ -1,0 +1,63 @@
+schema_version: "0.1"
+id: t12-mvp
+determinism_repeats: 5
+hiaa_designs:
+  - schema_version: "0.1"
+    id: c1-context-grid
+    target_scenario: scenarios/attacks/c1_context_composition.yaml
+    neutral_scenario: scenarios/benign/n0_irrelevant_text.yaml
+    seed: 1201
+    feature: shared_context
+    harm_selector: {alias: context-harm, action: network.send, source_pattern: context:/shared, sink_pattern: mock://external}
+    skill_pair:
+      target: {skill_id: context-target, manifest_sha256: a20093a4070261397651a6161de3de5c3256c10f89606c215f4dd80a5d824715, schema_sha256: 300bd88750af779f26bb6dabb3a97b9ac18d218f297fc0dfd21540de92a68411, tool_registrations: [], content_length: 14, dangerous_semantics_present: true}
+      neutral: {skill_id: context-neutral, manifest_sha256: a20093a4070261397651a6161de3de5c3256c10f89606c215f4dd80a5d824715, schema_sha256: 300bd88750af779f26bb6dabb3a97b9ac18d218f297fc0dfd21540de92a68411, tool_registrations: [], content_length: 14, dangerous_semantics_present: false}
+      length_interval: {minimum: 14, maximum: 14}
+    shared_context: true
+    persistent_memory: false
+    auto_approve_tools: false
+    enforcement_mode: monitor
+    provenance_mode: preserve
+    implicit_text_authorization: false
+  - schema_version: "0.1"
+    id: c2-tool-return-grid
+    target_scenario: scenarios/attacks/c2_tool_return_composition.yaml
+    neutral_scenario: scenarios/benign/c2_tool_return_neutral.yaml
+    seed: 1202
+    feature: shared_context
+    harm_selector: {alias: tool-return-harm, action: network.send, source_pattern: context:/tool-return, sink_pattern: mock://external}
+    skill_pair:
+      target: {skill_id: tool-return-target, manifest_sha256: b6c3acd2d477eb6e98d8a02894253f25011a02aa89c850ce2bf487aae05691e2, schema_sha256: 300bd88750af779f26bb6dabb3a97b9ac18d218f297fc0dfd21540de92a68411, tool_registrations: [read_file], content_length: 15, dangerous_semantics_present: true}
+      neutral: {skill_id: tool-return-neutral, manifest_sha256: b6c3acd2d477eb6e98d8a02894253f25011a02aa89c850ce2bf487aae05691e2, schema_sha256: 300bd88750af779f26bb6dabb3a97b9ac18d218f297fc0dfd21540de92a68411, tool_registrations: [read_file], content_length: 15, dangerous_semantics_present: false}
+      length_interval: {minimum: 15, maximum: 15}
+    shared_context: true
+    persistent_memory: false
+    auto_approve_tools: false
+    enforcement_mode: monitor
+    provenance_mode: preserve
+    implicit_text_authorization: false
+variants:
+  - {variant: c1-context-grid-p00, scenario: scenarios/benign/n0_irrelevant_text.yaml, seed: 1201, target_skill_present: false, shared_context: false, persistent_memory: false, auto_approve_tools: false, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false, harm_selector: {alias: context-harm, action: network.send, source_pattern: context:/shared, sink_pattern: mock://external}, hiaa_cell: p00, hiaa_design_id: c1-context-grid}
+  - {variant: c1-context-grid-p01, scenario: scenarios/benign/n0_irrelevant_text.yaml, seed: 1201, target_skill_present: false, shared_context: true, persistent_memory: false, auto_approve_tools: false, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false, harm_selector: {alias: context-harm, action: network.send, source_pattern: context:/shared, sink_pattern: mock://external}, hiaa_cell: p01, hiaa_design_id: c1-context-grid}
+  - {variant: c1-context-grid-p10, scenario: scenarios/attacks/c1_context_composition.yaml, seed: 1201, target_skill_present: true, shared_context: false, persistent_memory: false, auto_approve_tools: false, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false, harm_selector: {alias: context-harm, action: network.send, source_pattern: context:/shared, sink_pattern: mock://external}, hiaa_cell: p10, hiaa_design_id: c1-context-grid}
+  - {variant: c1-context-grid-p11, scenario: scenarios/attacks/c1_context_composition.yaml, seed: 1201, target_skill_present: true, shared_context: true, persistent_memory: false, auto_approve_tools: false, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false, harm_selector: {alias: context-harm, action: network.send, source_pattern: context:/shared, sink_pattern: mock://external}, hiaa_cell: p11, hiaa_design_id: c1-context-grid}
+  - {variant: c2-tool-return-grid-p00, scenario: scenarios/benign/c2_tool_return_neutral.yaml, seed: 1202, target_skill_present: false, shared_context: false, persistent_memory: false, auto_approve_tools: false, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false, harm_selector: {alias: tool-return-harm, action: network.send, source_pattern: context:/tool-return, sink_pattern: mock://external}, hiaa_cell: p00, hiaa_design_id: c2-tool-return-grid}
+  - {variant: c2-tool-return-grid-p01, scenario: scenarios/benign/c2_tool_return_neutral.yaml, seed: 1202, target_skill_present: false, shared_context: true, persistent_memory: false, auto_approve_tools: false, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false, harm_selector: {alias: tool-return-harm, action: network.send, source_pattern: context:/tool-return, sink_pattern: mock://external}, hiaa_cell: p01, hiaa_design_id: c2-tool-return-grid}
+  - {variant: c2-tool-return-grid-p10, scenario: scenarios/attacks/c2_tool_return_composition.yaml, seed: 1202, target_skill_present: true, shared_context: false, persistent_memory: false, auto_approve_tools: false, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false, harm_selector: {alias: tool-return-harm, action: network.send, source_pattern: context:/tool-return, sink_pattern: mock://external}, hiaa_cell: p10, hiaa_design_id: c2-tool-return-grid}
+  - {variant: c2-tool-return-grid-p11, scenario: scenarios/attacks/c2_tool_return_composition.yaml, seed: 1202, target_skill_present: true, shared_context: true, persistent_memory: false, auto_approve_tools: false, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false, harm_selector: {alias: tool-return-harm, action: network.send, source_pattern: context:/tool-return, sink_pattern: mock://external}, hiaa_cell: p11, hiaa_design_id: c2-tool-return-grid}
+  - {variant: b0-monitor, scenario: scenarios/benign/b0_legal_summary.yaml, seed: 1210, pair_id: pair-b0-b1, target_skill_present: false, shared_context: false, persistent_memory: false, auto_approve_tools: true, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false, authorization_condition: structured_confirmation}
+  - {variant: b0-enforce, scenario: scenarios/benign/b0_legal_summary.yaml, seed: 1210, pair_id: pair-b0-b1, target_skill_present: false, shared_context: false, persistent_memory: false, auto_approve_tools: true, enforcement_mode: enforce, provenance_mode: preserve, implicit_text_authorization: false, authorization_condition: structured_confirmation}
+  - {variant: b1-monitor, scenario: scenarios/attacks/b1_direct_unauthorized.yaml, seed: 1210, pair_id: pair-b0-b1, target_skill_present: true, shared_context: false, persistent_memory: false, auto_approve_tools: true, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false}
+  - {variant: b1-enforce, scenario: scenarios/attacks/b1_direct_unauthorized.yaml, seed: 1210, pair_id: pair-b0-b1, target_skill_present: true, shared_context: false, persistent_memory: false, auto_approve_tools: true, enforcement_mode: enforce, provenance_mode: preserve, implicit_text_authorization: false}
+  - {variant: g0-preserve, scenario: scenarios/benign/g0_legal_cross_skill.yaml, seed: 1220, pair_id: pair-g0-m1, target_skill_present: false, shared_context: true, persistent_memory: true, auto_approve_tools: true, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false, authorization_condition: structured_confirmation, session_condition: new}
+  - {variant: g0-drop-memory, scenario: scenarios/benign/g0_legal_cross_skill.yaml, seed: 1220, pair_id: pair-g0-m1, target_skill_present: false, shared_context: true, persistent_memory: true, auto_approve_tools: true, enforcement_mode: monitor, provenance_mode: drop_on_memory, implicit_text_authorization: false, authorization_condition: structured_confirmation, session_condition: new}
+  - {variant: m1-preserve, scenario: scenarios/attacks/m1_cross_session_memory.yaml, seed: 1220, pair_id: pair-g0-m1, target_skill_present: true, shared_context: true, persistent_memory: true, auto_approve_tools: true, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false, session_condition: new}
+  - {variant: m1-drop-memory, scenario: scenarios/attacks/m1_cross_session_memory.yaml, seed: 1220, pair_id: pair-g0-m1, target_skill_present: true, shared_context: true, persistent_memory: true, auto_approve_tools: true, enforcement_mode: monitor, provenance_mode: drop_on_memory, implicit_text_authorization: false, session_condition: new}
+  - {variant: m2-control-normal, scenario: scenarios/benign/m2_revoked_memory_control.yaml, seed: 1230, pair_id: pair-m2-residual, target_skill_present: false, shared_context: true, persistent_memory: true, auto_approve_tools: true, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false, skill_state: normal, session_condition: new}
+  - {variant: m2-target-revoked, scenario: scenarios/attacks/m2_revoked_memory_residual.yaml, seed: 1230, pair_id: pair-m2-residual, target_skill_present: true, shared_context: true, persistent_memory: true, auto_approve_tools: true, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false, skill_state: revoked, session_condition: new}
+  - {variant: a1-implicit-text, scenario: scenarios/attacks/a1_implicit_text_authorization.yaml, seed: 1240, pair_id: pair-a1-a2, target_skill_present: true, shared_context: true, persistent_memory: false, auto_approve_tools: false, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: true, authorization_condition: implicit_text}
+  - {variant: a2-structured-confirmation, scenario: scenarios/benign/a2_structured_confirmation.yaml, seed: 1240, pair_id: pair-a1-a2, target_skill_present: false, shared_context: true, persistent_memory: false, auto_approve_tools: false, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: true, authorization_condition: structured_confirmation}
+  - {variant: s1-monitor, scenario: scenarios/attacks/s1_scope_expansion.yaml, seed: 1250, pair_id: pair-s1, target_skill_present: true, shared_context: false, persistent_memory: false, auto_approve_tools: true, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false}
+  - {variant: s1-enforce, scenario: scenarios/attacks/s1_scope_expansion.yaml, seed: 1250, pair_id: pair-s1, target_skill_present: true, shared_context: false, persistent_memory: false, auto_approve_tools: true, enforcement_mode: enforce, provenance_mode: preserve, implicit_text_authorization: false}
+  - {variant: l1-original-session, scenario: scenarios/benign/l1_session_control.yaml, seed: 1260, pair_id: pair-l1, target_skill_present: false, shared_context: false, persistent_memory: false, auto_approve_tools: true, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false, session_condition: original, authorization_condition: structured_confirmation}
+  - {variant: l1-new-session, scenario: scenarios/attacks/l1_session_lifetime_escape.yaml, seed: 1260, pair_id: pair-l1, target_skill_present: true, shared_context: false, persistent_memory: false, auto_approve_tools: true, enforcement_mode: monitor, provenance_mode: preserve, implicit_text_authorization: false, session_condition: new, authorization_condition: structured_confirmation}

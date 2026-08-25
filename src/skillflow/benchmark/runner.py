@@ -11,6 +11,7 @@ from skillflow.benchmark.oracle_bridge import OracleSetup, build_oracle_sidecar
 from skillflow.benchmark.run_workspace import stage_assets
 from skillflow.benchmark.scenario_execution import execute_scenario_sessions
 from skillflow.benchmark.scripted_backend import FixtureScript
+from skillflow.benchmark.success import TaskSuccessFacts, evaluate_task_success
 from skillflow.graph.security import SecurityGraph
 from skillflow.instrumentation.mock_tools import MockNetworkRecord, MockShellRecord
 from skillflow.instrumentation.tool_receipt import ToolReceipt
@@ -34,6 +35,7 @@ class ScenarioRunResult:
     trace: RunTrace
     receipts: tuple[ToolReceipt, ...]
     output_artifacts: tuple[Artifact, ...]
+    artifact_ids_by_alias: dict[str, str]
     network_records: tuple[MockNetworkRecord, ...]
     shell_records: tuple[MockShellRecord, ...]
     workspace_root: Path
@@ -96,6 +98,20 @@ class ScenarioRunner:
                 )
             )
             execution = execute_scenario_sessions(scenario, harness, oracle)
+            alias_artifacts = tuple(
+                artifact
+                for artifact_id in execution.artifact_ids_by_alias.values()
+                if (artifact := store.get_artifact(artifact_id)) is not None
+            )
+            task_success = evaluate_task_success(
+                TaskSuccessFacts(
+                    scenario=scenario,
+                    artifact_ids_by_alias=execution.artifact_ids_by_alias,
+                    artifacts=alias_artifacts,
+                    effects=store.iter_run_effects(run_id),
+                    receipts=execution.receipts,
+                )
+            )
             oracle_records = oracle.finalize()
             OracleTraceWriter(oracle_trace_path).write(oracle_records)
             observed_records = ObservedTraceWriter(observed_trace_path).write(
@@ -117,6 +133,7 @@ class ScenarioRunner:
                     observed_records=observed_records,
                     oracle_records=oracle_records,
                     graph=graph,
+                    task_success=task_success,
                 ),
             )
             network_records = harness.network_records
@@ -127,6 +144,7 @@ class ScenarioRunner:
             trace=trace,
             receipts=execution.receipts,
             output_artifacts=execution.output_artifacts,
+            artifact_ids_by_alias=execution.artifact_ids_by_alias,
             network_records=network_records,
             shell_records=shell_records,
             workspace_root=workspace,

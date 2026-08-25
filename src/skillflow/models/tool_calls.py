@@ -82,6 +82,7 @@ class ToolCallRequest(StrictModel):
     action_id: NonEmptyStr
     decision_key: NonEmptyStr
     arguments: ToolArguments
+    text_claim_artifact_ids: tuple[NonEmptyStr, ...] = ()
 
 
 class ToolActionAttempt(StrictModel):
@@ -91,5 +92,6 @@ class ToolActionAttempt(StrictModel):
     actor_id: NonEmptyStr
     call_id: NonEmptyStr
     tool: MockToolName
+    arguments: ToolArguments
     argument_artifact_id: NonEmptyStr
     executed: bool

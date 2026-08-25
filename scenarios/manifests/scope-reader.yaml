@@ -1,0 +1,17 @@
+schema_version: "0.1"
+id: scope-reader
+principal_type: skill
+description: 注册相同 Tool 的相邻路径范围测试读取器。
+requested_permissions:
+  - source: workspace:/scope/allowed.txt
+    action: file.read
+    sink: context:/task
+    scope: exact-file
+    lifetime: call
+    sensitivity: 2
+  - source: workspace:/scope/allowed.txt.bak
+    action: file.read
+    sink: context:/task
+    scope: exact-file
+    lifetime: call
+    sensitivity: 2

@@ -11,6 +11,7 @@ from skillflow.models.advanced_metrics import (
     AuthorizationLaunderingMetrics,
 )
 from skillflow.models.enums import Decision, TrustLevel
+from skillflow.models.matrix_axes import MatrixRunRole
 
 
 @unique
@@ -49,6 +50,7 @@ class AuthorizationAttemptFact:
     neutral_baseline_result: Decision
     neutral_receipt_ids: tuple[str, ...]
     evidence_ids: tuple[str, ...]
+    run_role: MatrixRunRole = MatrixRunRole.CORE
 
 
 def classify_authorization_attempt(
@@ -187,6 +189,8 @@ def _unique_requests(
 ) -> tuple[AuthorizationAttemptFact, ...]:
     unique: dict[str, AuthorizationAttemptFact] = {}
     for attempt in attempts:
+        if attempt.run_role is not MatrixRunRole.CORE:
+            continue
         request_id = attempt.authorization_request_id
         previous = unique.get(request_id)
         if previous is not None and previous != attempt:

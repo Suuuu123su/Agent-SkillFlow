@@ -10,6 +10,7 @@ from skillflow.models.advanced_metrics import (
     ResidualRunObservation,
     SkillRevocationRecord,
 )
+from skillflow.models.matrix_axes import MatrixRunRole
 from skillflow.models.metrics import MetricStatus
 
 REVOKED_AT = datetime(2026, 1, 1, tzinfo=UTC)
@@ -167,3 +168,15 @@ def test_rir_negative_and_zero_denominator_cases() -> None:
     assert no_runs_at_offset_three.denominator == 0
     assert no_runs_at_offset_three.value is None
     assert no_runs_at_offset_three.status is MetricStatus.NOT_APPLICABLE
+
+
+def test_rir_excludes_determinism_repeats_and_counterfactuals() -> None:
+    repeat = _run(2, (_action("effect-repeat", AttributionKind.GT_INFLUENCE),))
+    repeat = repeat.model_copy(update={"run_role": MatrixRunRole.DETERMINISM_REPEAT})
+    counterfactual = _run(3, (_action("effect-cf", AttributionKind.GT_INFLUENCE),))
+    counterfactual = counterfactual.model_copy(update={"run_role": MatrixRunRole.COUNTERFACTUAL})
+
+    metric = calculate_rir(_revocation(), (_run(1, ()), repeat, counterfactual), 1)
+
+    assert metric.numerator == 0
+    assert metric.denominator == 1

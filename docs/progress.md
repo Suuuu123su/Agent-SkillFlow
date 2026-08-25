@@ -21,7 +21,7 @@
 | T10 | completed | 275 tests；覆盖率 89.39%；ruff/mypy/Replay Golden E2E PASS | 已完成完整 Checkpoint、隔离恢复、结构保持中和、成对 Receipt 差异、CI 与确认影响边。 |
 | T11 | completed | 303 tests；覆盖率 88.76%；ruff/mypy/Schema/Golden PASS | 已完成四格矩阵、HIAA、ALR、RIR 与 Experiment 风险报告。 |
 | T11.1 | completed | 310 tests；覆盖率 88.98%；ruff/mypy/Schema/语义负例 PASS | 已收紧 RIR、ALR、HIAA 三项研究语义。 |
-| T12 | pending | 不适用 | 依赖 T11.1。 |
+| T12 | completed | 360 tests；覆盖率 89.77%；Schema/安全/确定性 PASS | 已完成 16 个场景、8 组能力匹配对照、24 个核心矩阵变体和 2 套 HIAA 四格。 |
 | T13 | pending | 不适用 | 依赖 T12。 |
 | T14 | pending | 不适用 | 依赖 T13。 |
 | T15 | pending | 不适用 | 依赖 T14，且必须获得用户明确批准。 |
@@ -782,3 +782,52 @@
 - Ruff lint/format、mypy strict、静态 Schema 同步与合同检查：PASS。
 - no-excuse、最大参数数审计、`skillflow doctor`、CLI help 与 `pip check`：PASS。
 - T12：pending，未执行。
+
+## T12：实验场景库与 MVP 实验矩阵
+
+- 状态：completed
+- 日期：2026-08-25（Asia/Shanghai）
+- 任务边界：只建立确定性实验场景库、固定 Fixture、成功判据和 MVP Matrix；未实现 T13 批量 CLI/export，未连接真实 LLM、网络、Shell 或外部 Agent 平台。
+
+### 交付内容
+
+- `scenarios/benign/`、`scenarios/attacks/`：12 类核心场景及 4 个独立良性控制，共 16 个可执行 Scenario。
+- `scenarios/manifests/`、`scenarios/fixtures/`：14 个 T12 Manifest、16 个封闭 `fixture://t12/...` Skill 实现，以及带长度/SHA-256 的固定资产、Canary 和中性内容目录。
+- `scenarios/matrix/mvp.yaml`：24 个核心变体、2 套独立 HIAA 四格和每配置 5 次确定性复跑计划。
+- Scenario 合同新增配对因素、Canary、`success_assertions`、`expected_metrics`、`expected_influences`、`harm_selector` 与 Tool 输出 alias；Matrix 合同新增受控轴、多四格绑定和非核心 Run 角色。
+- Scripted/Oracle 最小扩展支持结构化 Tool 参数、条件动作、低可信授权声明、Tool Return alias 与未产生动作记录；没有修改 HIAA、ALR、RIR 公式或放宽 Oracle 隔离。
+- `task_success` 由输出 Artifact SHA-256 和 selector 命中的真实 Effect/Receipt 合取求值，不使用自然语言 Judge。
+
+### 核心实验结果
+
+- B0、G0：`task_success=true` 且 `UEA=0`；Enforce 下合法任务仍成功。
+- B1、S1、L1：Monitor 下分别产生目标 UEA；Enforce 下 Receipt 消失、`UEA=0`，同时 `task_success=false`，明确显示安全/可用性代价。
+- N0：中和前后均无目标 Effect，`CI=0`，不生成 `INFLUENCE_CONFIRMED`。
+- C1、C2：两套四格均得到 `(p00,p01,p10,p11)=(0,0,0,1)`，`HIAA_run=1.0`，且共享各自唯一 `harm_selector`。
+- M1：图中恢复跨 Session Memory 路径；中和目标 Memory 后 Effect 消失，`CI=1` 并生成确认影响边。
+- M2：目标版本在第 1、第 3 个 Session 均得到 `CI=1`，严格归因后 `RIR(1)=RIR(3)=1.0`；等长中性控制均为 0。
+- A1：无真实匹配 Grant、声明进入决策依据、原运行有 Receipt、只删除声明后动作消失，`ALR=1.0`；A2 通过正式确认创建 Grant，`UEA=0`、`ALR=0`、`CI=0`。
+
+### 矩阵纪律
+
+1. C1 与 C2 各占 4 个机械生成四格；B0/B1、G0/M1 各占 4 个控制变体；M2、A1/A2、S1、L1 各占 2 个，共 24 个。
+2. 覆盖目标/中性 Skill、Harness 桥梁、`preserve/drop_on_memory`、monitor/enforce、normal/revoked、原/新 Session、假文本/真实结构化确认。
+3. `determinism_repeats=5` 只声明复跑计划，不制造额外核心变体；`determinism_repeat` 和 `counterfactual` 在模型与聚合入口均被排除出普通分母。
+4. 16 个基础 Scenario 各用同一 seed 在 5 个新 Run 根复跑；Observed Trace、Oracle Trace、Security Graph 和 Risk Report 均逐字节一致。
+
+### 验证
+
+- 全量 pytest：360 passed；分支覆盖率 89.77%，高于当前 80% 门槛。
+- Ruff lint：PASS；Ruff format：238 个 Python 文件格式一致。
+- mypy strict：PASS，130 个源文件无类型问题。
+- 静态 Schema 同步与 T12 全部 Scenario/Manifest/Matrix 实例校验：PASS。
+- Python no-excuse：PASS，45 个变更 Python 文件均不超过 250 个非空非注释行，最大为 248；最大参数数审计：PASS。
+- 安全检查：所有实现均为白名单 `fixture://`，无 Shell 动作，网络仅 `mock://`，运行资产只进入 Run 独占 workspace；PASS。
+- `skillflow doctor`、CLI help、`pip check`：PASS。
+
+### 风险或遗留问题
+
+- 当前结果只证明确定性 Scripted Backend、Mock Tool 与合成 Oracle 的实验闭环，不是现实 LLM/平台攻击成功率。
+- 能力匹配由 Manifest、工具动作类型、调用输入输出形状、资产属性和内容长度机械检查，不能证明任意自然语言 Skill 的完全行为等价。
+- MVP Matrix 是可校验的实验计划；批量执行、Experiment 聚合 CLI 和导出属于 T13，本轮没有提前实现。
+- 本轮在 T12 完成后停止；T13 保持 pending，未执行。

@@ -1,12 +1,13 @@
 """Scenario DSL 顶层模型与引用完整性检查。"""
 
-from typing import Annotated, Self
+from typing import Annotated, Self, assert_never
 
 from pydantic import Field, model_validator
 from pydantic_core import PydanticCustomError
 
 from skillflow.models.authorization import AuthorizationGrant
 from skillflow.models.base import NonEmptyStr, StrictModel
+from skillflow.models.references import EffectSelectorRef
 from skillflow.models.scenario_parts import (
     AssetSpec,
     ClockSpec,
@@ -18,6 +19,15 @@ from skillflow.models.scenario_parts import (
     ScenarioSkill,
     SessionSpec,
     TaskSpec,
+)
+from skillflow.models.scenario_research import (
+    ArtifactSha256Assertion,
+    CanarySpec,
+    EffectReceiptedAssertion,
+    ExpectedInfluence,
+    ExpectedMetric,
+    ScenarioPairing,
+    SuccessAssertion,
 )
 
 
@@ -48,6 +58,12 @@ class Scenario(StrictModel):
     sessions: Annotated[tuple[SessionSpec, ...], Field(min_length=1)]
     oracle: OracleSpec
     counterfactuals: tuple[CounterfactualSpec, ...] = ()
+    pairing: ScenarioPairing | None = None
+    canary: CanarySpec | None = None
+    harm_selector: EffectSelectorRef | None = None
+    success_assertions: tuple[SuccessAssertion, ...] = ()
+    expected_metrics: tuple[ExpectedMetric, ...] = ()
+    expected_influences: tuple[ExpectedInfluence, ...] = ()
 
     @model_validator(mode="after")
     def validate_unique_ids(self) -> Self:
@@ -64,10 +80,10 @@ class Scenario(StrictModel):
         session_ids = tuple(session.id for session in self.sessions)
         step_ids = tuple(step.id for session in self.sessions for step in session.steps)
         artifact_ids = tuple(
-            output.alias
+            reference.alias
             for session in self.sessions
             for step in session.steps
-            for output in step.outputs
+            for reference in (*step.outputs, *(output.alias for output in step.tool_outputs))
         )
         self._reject_duplicates(
             ("asset", asset_ids),
@@ -114,6 +130,7 @@ class Scenario(StrictModel):
                             {"value": reference.root},
                         )
                 available.update(output.alias for output in step.outputs)
+                available.update(output.alias.alias for output in step.tool_outputs)
         return self
 
     @model_validator(mode="after")
@@ -123,10 +140,10 @@ class Scenario(StrictModel):
         declared_skills = frozenset(skill.id for skill in self.skills)
         declared_selectors = frozenset(selector.alias for selector in self.effect_selectors)
         declared_artifacts = frozenset(
-            output.alias
+            reference.alias
             for session in self.sessions
             for step in session.steps
-            for output in step.outputs
+            for reference in (*step.outputs, *(output.alias for output in step.tool_outputs))
         )
         for expectation in self.oracle.expected_origins:
             self._validate_target(expectation.target.root, declared_artifacts, declared_selectors)
@@ -141,14 +158,60 @@ class Scenario(StrictModel):
         return self
 
     @model_validator(mode="after")
+    def validate_t12_research_references(self) -> Self:
+        """校验 Canary、harm selector、成功断言与影响预期的引用闭包。"""
+        declared_assets = frozenset(asset.id for asset in self.assets)
+        declared_selectors = frozenset(selector.alias for selector in self.effect_selectors)
+        declared_artifacts = frozenset(
+            reference.alias
+            for session in self.sessions
+            for step in session.steps
+            for reference in (*step.outputs, *(output.alias for output in step.tool_outputs))
+        )
+        if self.canary is not None and self.canary.asset_id not in declared_assets:
+            self._undeclared("canary asset", self.canary.asset_id)
+        if self.harm_selector is not None and self.harm_selector.alias not in declared_selectors:
+            self._undeclared("harm selector", self.harm_selector.root)
+        self._validate_success_references(declared_artifacts, declared_selectors)
+        self._validate_influence_references(declared_artifacts, declared_selectors)
+        return self
+
+    def _validate_success_references(
+        self,
+        declared_artifacts: frozenset[str],
+        declared_selectors: frozenset[str],
+    ) -> None:
+        for assertion in self.success_assertions:
+            match assertion:
+                case ArtifactSha256Assertion(target=target):
+                    if target.alias not in declared_artifacts:
+                        self._undeclared("success artifact", target.root)
+                case EffectReceiptedAssertion(target=target):
+                    if target.alias not in declared_selectors:
+                        self._undeclared("success effect selector", target.root)
+                case unreachable:
+                    assert_never(unreachable)
+
+    def _validate_influence_references(
+        self,
+        declared_artifacts: frozenset[str],
+        declared_selectors: frozenset[str],
+    ) -> None:
+        for expectation in self.expected_influences:
+            if expectation.source.alias not in declared_artifacts:
+                self._undeclared("influence source", expectation.source.root)
+            if expectation.target.alias not in declared_selectors:
+                self._undeclared("influence target", expectation.target.root)
+
+    @model_validator(mode="after")
     def validate_counterfactual_references(self) -> Self:
         """校验反事实引用只观察同一 Scenario 内声明。"""
         declared_selectors = frozenset(selector.alias for selector in self.effect_selectors)
         declared_artifacts = frozenset(
-            output.alias
+            reference.alias
             for session in self.sessions
             for step in session.steps
-            for output in step.outputs
+            for reference in (*step.outputs, *(output.alias for output in step.tool_outputs))
         )
         for counterfactual in self.counterfactuals:
             if counterfactual.target.alias not in declared_artifacts:
