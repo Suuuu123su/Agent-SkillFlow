@@ -1,0 +1,54 @@
+{
+  "id": "skillflow-observer",
+  "name": "SkillFlow T15 Observer",
+  "description": "Records four bounded OpenClaw hook families and exposes a receipt-only safe sink.",
+  "activation": {"onStartup": true},
+  "contracts": {"tools": ["skillflow_safe_sink"]},
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["logPath", "runId", "taskId", "workspaceRoot", "resources", "skills"],
+    "properties": {
+      "logPath": {"type": "string", "minLength": 1},
+      "runId": {"type": "string", "minLength": 1},
+      "taskId": {"type": "string", "minLength": 1},
+      "workspaceRoot": {"type": "string", "minLength": 1},
+      "skills": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["skillId", "relativePath"],
+          "properties": {
+            "skillId": {"type": "string", "minLength": 1},
+            "relativePath": {"type": "string", "minLength": 1}
+          }
+        }
+      },
+      "resources": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "tool", "relative_path", "resource", "action", "sink", "scope",
+            "lifetime", "sensitivity", "origin_ids"
+          ],
+          "properties": {
+            "tool": {"type": "string", "enum": ["read", "write"]},
+            "relative_path": {"type": "string", "minLength": 1},
+            "resource": {"type": "string", "minLength": 1},
+            "action": {"type": "string", "enum": ["file.read", "memory.read", "memory.write"]},
+            "source": {"type": ["string", "null"]},
+            "sink": {"type": "string", "minLength": 1},
+            "scope": {"type": "string", "enum": ["exact-file", "exact-key"]},
+            "lifetime": {"type": "string", "const": "call"},
+            "sensitivity": {"type": "integer", "minimum": 0, "maximum": 4},
+            "origin_ids": {"type": "array", "items": {"type": "string", "minLength": 1}},
+            "effect_alias": {"type": ["string", "null"]}
+          }
+        }
+      }
+    }
+  }
+}

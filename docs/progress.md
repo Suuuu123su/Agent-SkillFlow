@@ -24,7 +24,7 @@
 | T12 | completed | 360 tests；覆盖率 89.77%；Schema/安全/确定性 PASS | 已完成 16 个场景、8 组能力匹配对照、24 个核心矩阵变体和 2 套 HIAA 四格。 |
 | T13 | completed | 366 tests；覆盖率 89.58%；CLI/Schema/离线 MVP PASS | 已完成分层实验 CLI、标准 Run/Replay/Experiment 报告、复算导出及一命令 MVP 复现。 |
 | T14 | completed | 414 tests；覆盖率 90.08%；静态/Schema/5 次复跑 PASS | 已完成 MVP 加固、中文评估协议、本地性能基线与研究验收；外部独立复审不可用。 |
-| T15 | pending | 不适用 | 依赖 T14，且必须获得用户明确批准。 |
+| T15 | completed | 463 tests；覆盖率 90.31%；OpenClaw 三场景/TS/Schema PASS | 已完成固定 OpenClaw revision 的隔离双 Adapter Pilot；缺失钩子已显式报告。 |
 
 ## T00：仓库勘察与执行基线
 
@@ -939,4 +939,49 @@ skillflow matrix scenarios\matrix\mvp.yaml --backend scripted --output runs\mvp
 
 - 当前评估类型为 `simulation_only`；不存在把模型输出当真实 GT 或用自身输出统计量归一化的做法。
 - 当前没有可用的独立外部 reviewer backend，跨模型完整性复审记为 `REVIEW_UNAVAILABLE`；未生成伪造的 `EXPERIMENT_AUDIT.md/json` 或 PASS 结论。
-- 本轮在 T14 完成后停止；T15 保持 pending，必须等待用户另行明确批准。
+- T14 轮次结束时按门控要求停止；之后用户已单独批准 OpenClaw，执行记录见下方 T15。
+
+## T15：OpenClaw 真实 Harness Pilot
+
+- 状态：completed
+- 日期：2026-08-25（Asia/Shanghai）
+- 目标平台：OpenClaw version `2026.8.1`，commit `452e734022214f5f00bdd44cae675cc467c3cd85`
+- 任务边界：只接入 Skill load/invoke、Context、Memory 与 Tool call；不修改核心模型/分析器，不使用真实凭据，不执行真实外部效果。
+
+### 交付内容
+
+- `docs/openclaw-adapter-design.md`：先于实现冻结版本、钩子映射、证据强度、安全不变量与停手条件。
+- `src/skillflow/pilot/`：同一 Scenario 的双 Adapter 编排、严格 OpenClaw JSONL 边界、统一 `SecurityEvent` 转换、Effect/来源口径比较和不可覆盖报告。
+- `integrations/openclaw/`：隔离 Gateway Driver、假 Provider 回合控制、Skill 白名单、观察插件和安全 Sink。
+- `tests/unit/pilot/` 与 TypeScript tests：覆盖事件拒绝、Adapter、子进程参数、commit pin、CLI、Session key、完整 Effect 等待和 Skill invoke 双条件。
+- `docs/evidence/t15-pilot-summary.json`：从最终真实运行提取的结构化、可提交证据摘要。
+- `docs/summaries/T15_Summary.md`：T15 中文结论、验收与局限。
+
+### 真实运行结论
+
+1. B0、G0、M2 在 Mock/OpenClaw 两侧的目标 Effect 数分别为 `1/1`、`1/1`、`2/2`，全部带执行事实与 Receipt。
+2. 三个场景的 policy 均不匹配：Mock 有 Manifest + Grant + Policy 事实；OpenClaw 只能报告平台已执行且无等价 Grant fact。安全 Sink 成功没有被写成授权成功。
+3. Mock 的 provenance 是全图 Artifact recall；OpenClaw 是目标 Effect 标签覆盖率。三场景数值均为 1，但 basis 不同，`provenance_delta=null`。
+4. B0/G0 缺少 `grant_matcher`、`artifact_provenance_graph`；M2 还缺少 `skill_revocation_hook`。差异全部定位在 Adapter 平台边界，没有向核心模块加入 OpenClaw 分支。
+5. OpenClaw 原始事件数为 B0=8、G0=38、M2=71。G0 只加载预注册 Skill；invoke 必须由 Skill 目录宣告与精确 `SKILL.md` 成功读取共同证明。
+6. 固定 OpenClaw checkout 的完整 build 通过；最终 Pilot 不使用真实凭据、替换全部外部效果、未修改生产状态。
+
+### 调试与证据纪律
+
+- 真实 Gateway 曾暴露四类关键边界问题：外部 Driver 的 ESM 包边界、Session key 小写规范化、受限 `llm_input` 权限、异步 `after_tool_call` 尚未落盘即关停；均先有失败复现，再以定向测试和相同场景实跑确认。
+- 初版报告把两个数值同为 1 的不同 provenance 口径作差；语义复审后增加显式 basis，并在 basis 不同的场景强制 delta 为 `null`。
+- 调试运行目录和 `.debug-journal.md` 按“未经允许不删除”保留且不纳入提交；正式结构化摘要不含 Prompt、文件正文、Memory 正文、真实凭据或宿主绝对路径。
+
+### 正式验证
+
+- OpenClaw commit/version pin：PASS；完整 `pnpm build`：PASS。
+- 三场景真实 Gateway Pilot：PASS；安全标志均符合预注册约束。
+- Python Pilot 定向：49 passed；TypeScript：6 passed。
+- 全量 pytest：463 passed；总分支覆盖率 90.31%，通过 90% 门槛。
+- Ruff lint/format、mypy strict、静态 Schema、`skillflow doctor` 和 `pip check`：PASS。
+
+### 完整性状态与停止点
+
+- T15 结论是“统一事件边界可迁移，且缺失钩子可定位”，不是“OpenClaw 与 Mock 安全语义等价”。
+- Artifact provenance、结构化 Grant 与 Skill revocation enforcement 在固定版本中仍不可观测/不可执行；没有绕过、伪造或修改 OpenClaw 核心源码。
+- T15 是任务书最后一项。本轮完成后停止，不自动扩展到其他 Harness、真实模型或生产部署。

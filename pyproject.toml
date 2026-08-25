@@ -30,6 +30,7 @@ dev = [
 
 [project.scripts]
 skillflow = "skillflow.cli:main"
+skillflow-pilot = "skillflow.pilot.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/skillflow"]

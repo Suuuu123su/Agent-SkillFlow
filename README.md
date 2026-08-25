@@ -2,13 +2,14 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前仓库已完成到 **T14：MVP 加固与研究验收**。这里已经固定研究边界、四级 Lifetime 菱形偏序和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。研究者现在可用一条 `matrix` 命令完成 Scenario 校验、核心 Run、隔离确定性复跑、成对 Replay、脱敏安全图、HIAA/ALR/RIR 聚合及 JSON/CSV 报告；T14 进一步把总覆盖率门槛提升到 90%，并以完整链路 E2E、Oracle 隔离、Sink 证据闭环、外部能力拦截、报告泄漏扫描和本地性能基线约束结论。当前仍未接入真实平台 Adapter。
+当前仓库已完成到 **T15：OpenClaw 真实 Harness Pilot**。T00–T14 的确定性 MVP 保持不变；T15 在核心模型与分析器之外新增隔离 Adapter，把同一组 B0、G0、M2 Scenario 分别交给 Mock Harness 和固定 revision 的 OpenClaw Gateway 执行。真实平台 Pilot 只观察 Skill、Context、Memory 与 Tool 边界，模型端使用 OpenClaw 仓库内的假 Provider，所有外部效果都替换为安全 Sink，不使用真实凭据、不访问生产状态。结果证明统一 `SecurityEvent` 边界可以迁移，但也实测暴露 OpenClaw 缺少等价 Grant matcher、Artifact 来源图和 Skill 撤销执行钩子；因此这不是生产级平台集成。
 
 ## 当前能力
 
 - 可安装的 Python `src` 布局包。
 - `skillflow version`：输出当前版本。
 - `skillflow doctor`：离线检查 Python、SQLite、运行依赖和临时目录可写性。
+- `skillflow-pilot`：在固定 OpenClaw revision 上运行 B0、G0、M2 的 Mock/OpenClaw 双 Adapter Pilot。
 - `skillflow validate-manifest PATH`：只校验 Skill Manifest，不加载或执行 Skill。
 - `skillflow validate-scenario PATH`：只校验 Scenario，不运行 fixture。
 - Pydantic v2 核心安全模型、受控 Resource URI、`call | task | session | persistent` 菱形 Lifetime，以及四种互不放大的精确 Scope。
@@ -80,6 +81,12 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 - EventStore append/get 与 PolicyEngine evaluate 有可复跑的本机观察性性能基线；没有把本机 p95 写成跨机器 SLA。
 - pytest、90% 分支覆盖率、ruff 与 mypy 质量门禁。
 - GitHub Actions 自动执行同一组质量门禁。
+- OpenClaw Adapter 只位于 `skillflow.pilot` 与 `integrations/openclaw`；核心 Policy、SecurityGraph 和指标分析器没有平台专用分支。
+- OpenClaw 事件经过严格 JSONL/Pydantic 边界转换为统一 `SecurityEvent`；未知事件、空行、非连续序号和不完整 Receipt Effect 全部拒绝。
+- OpenClaw Gateway 固定到 commit `452e734022214f5f00bdd44cae675cc467c3cd85`、version `2026.8.1`，只绑定 loopback，只允许 `read`、`write` 与 `skillflow_safe_sink`。
+- Pilot 只加载 Scenario 预注册 Skill；Skill invoke 必须同时满足目录已宣告和对应 `SKILL.md` 精确读取成功，不能用 `skill_changed` 冒充调用。
+- B0/G0/M2 的目标 Effect 数在 Mock 与 OpenClaw 间分别为 `1/1`、`1/1`、`2/2`；三者的策略事实均不匹配，差异被定位到缺失平台钩子。
+- Mock 来源指标是全图 Artifact recall，OpenClaw 只能给出目标 Effect 标签覆盖率；统计单位不同，报告把 `provenance_delta` 保持为 `null`，不伪造可比性。
 - 中文威胁模型、安全语义、形式化不变量和架构决策记录。
 - 中文任务进度、仓库基线与逐任务总结。
 
@@ -87,6 +94,7 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 
 - Python 3.11 或更高版本。
 - 测试和 CLI 不访问外网，不需要 API Key 或用户账号。
+- 仅运行 T15 Pilot 时，还需要 Node.js、已构建且精确固定 revision 的 OpenClaw checkout；仍不需要真实模型凭据。
 
 Windows 本地安装：
 
@@ -130,6 +138,18 @@ python -m venv .venv-skillflow
 .\.venv-skillflow\Scripts\skillflow.exe --help
 ```
 
+## T15 OpenClaw Pilot
+
+先确认 OpenClaw checkout 的 `HEAD` 精确等于 `452e734022214f5f00bdd44cae675cc467c3cd85`，并已按 OpenClaw 自身流程完成构建。输出目录必须尚不存在：
+
+```powershell
+.\.venv-skillflow\Scripts\skillflow-pilot.exe `
+  --openclaw-root C:\path\to\openclaw `
+  --output runs\t15-pilot
+```
+
+Pilot 会为 B0、G0、M2 分别写出 Mock/OpenClaw observation、统一 `security-events.jsonl` 和总 `pilot-report.json`。它不会读取用户 OpenClaw 主目录配置；Gateway、state、workspace、假 Provider 与插件日志都在本次输出边界内隔离。完整设计见 [`docs/openclaw-adapter-design.md`](docs/openclaw-adapter-design.md)，已验证的结构化摘要见 [`docs/evidence/t15-pilot-summary.json`](docs/evidence/t15-pilot-summary.json)。
+
 从已持久化 Run 重建来源图并查询：
 
 ```python
@@ -156,10 +176,10 @@ for path in paths:
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli --help
 ```
 
-当前 pytest 门禁为 90%。完整复现、变量控制、统计纪律与结论边界见 [`docs/evaluation-protocol.md`](docs/evaluation-protocol.md)；本机性能观察值见 [`docs/performance-baseline.json`](docs/performance-baseline.json)；T14 独立交付见 [`docs/summaries/T14_Summary.md`](docs/summaries/T14_Summary.md)。
+当前 pytest 门禁为 90%。完整复现、变量控制、统计纪律与结论边界见 [`docs/evaluation-protocol.md`](docs/evaluation-protocol.md)；本机性能观察值见 [`docs/performance-baseline.json`](docs/performance-baseline.json)；T15 独立交付见 [`docs/summaries/T15_Summary.md`](docs/summaries/T15_Summary.md)。
 
 ## 项目范围
 
-首版只面向单 Agent、2～3 个 Skill、共享 Context、Persistent Memory、多 Session 与安全 Mock Tool 的确定性实验。明确不包含真实网络外发、真实 Shell 子进程、真实凭据、生产级 UI、多 Agent 协作或通用平台适配。
+首版 MVP 仍只面向单 Agent、2～3 个 Skill、共享 Context、Persistent Memory、多 Session 与安全 Mock Tool 的确定性实验。T15 只增加一个隔离 OpenClaw Pilot，不扩大为通用平台适配；真实网络外发、真实 Shell、真实凭据、生产级 UI、多 Agent 协作与生产部署仍不在范围内。
 
 完整任务依赖和验收标准见 [`SkillFlow_Codex_Task_Spec.md`](SkillFlow_Codex_Task_Spec.md)。冻结的研究边界见 [`docs/threat-model.md`](docs/threat-model.md)，安全语义见 [`docs/security-semantics.md`](docs/security-semantics.md)，架构决策见 [`docs/decisions/`](docs/decisions/)。当前进度见 [`docs/progress.md`](docs/progress.md)，逐任务总结见 [`docs/summaries/`](docs/summaries/)。
