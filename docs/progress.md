@@ -18,7 +18,7 @@
 | T07 | completed | 182 tests；覆盖率 87.93%；ruff/mypy/Golden E2E PASS | 已完成 EventStore 重建的双层来源图、七类查询、边界深度与脱敏 JSON 导出。 |
 | T08 | completed | 236 tests；覆盖率 89.18%；ruff/mypy/策略 E2E PASS | 已完成双钥匙 matcher、PolicyEngine、Grant/撤销事实、monitor/enforce 与特权确认。 |
 | T09 | completed | 254 tests；覆盖率 89.28%；ruff/mypy/Golden E2E PASS | 已完成结构化 UEA、来源指标、micro 聚合、证据路径与风险报告。 |
-| T10 | pending | 不适用 | 依赖 T07。 |
+| T10 | completed | 275 tests；覆盖率 89.39%；ruff/mypy/Replay Golden E2E PASS | 已完成完整 Checkpoint、隔离恢复、结构保持中和、成对 Receipt 差异、CI 与确认影响边。 |
 | T11 | pending | 不适用 | 依赖 T09 和 T10。 |
 | T12 | pending | 不适用 | 依赖 T11。 |
 | T13 | pending | 不适用 | 依赖 T12。 |
@@ -636,3 +636,66 @@
 - `RunRiskReport` 已从 T08 占位式平铺字段迁移为 T09 嵌套结构；当前仓库没有既有外部消费者，但后续公开发布前仍需冻结版本迁移策略。
 - PowerShell 7.6.5 已设为 Windows Terminal 默认 Profile；仓库命令继续显式使用项目 `.venv-skillflow` 解释器。
 - 本轮在 T09 完成后停止；T10 保持 pending，不自动开始。
+
+## T10：Checkpoint 与反事实重放
+
+- 状态：completed
+- 日期：2026-08-25（Asia/Shanghai）
+- 任务边界：只实现确定性 Scripted Backend 的完整 checkpoint/restore、Artifact identity/neutral 干预、成对 Replay、Effect Receipt 差异和 CI；未实现 T11 高级指标或真实平台 Pilot。
+
+### 修改文件
+
+- `src/skillflow/adapters/checkpoint.py`、`mock_checkpoint.py`、`mock_harness.py`：冻结并恢复 Store/Blob、Workspace、Context、Memory、Skill、Grant/撤销、Mock Tool、虚拟时间和 ID 计数，恢复后复验规范化哈希。
+- `src/skillflow/store/checkpoint.py`、`runtime/workspace_checkpoint.py`：通过公开存储合同逻辑导出前缀，并导入新的空分支；源分支保持追加式不变。
+- `src/skillflow/benchmark/scenario_execution.py`：把一次性循环重构为可在目标 Artifact alias 后暂停、快照、替换 Alias 并恢复后缀的 `ScenarioExecutor`。
+- `src/skillflow/benchmark/harness_factory.py`：统一普通 Runner 与 Replay Runner 的确定性 Harness 装配，避免两套策略配置漂移。
+- `src/skillflow/instrumentation/artifact_intervention.py`：新增 `identity | neutral` 的 `ARTIFACT_DERIVE`，保持 Artifact 类型、MIME、JSON 结构和精确长度。
+- `src/skillflow/benchmark/replay*.py`：新增公共 checkpoint、original/neutral 隔离分支、控制条件摘要、Receipt 匹配、Effect diff、CI、报告和清单写入。
+- `src/skillflow/models/reports.py`、`schemas/risk-report.schema.json`：新增强类型确认影响边和有符号 Replay 风险报告合同。
+- `tests/unit/**/test_t10_*`、`tests/integration/harness/test_t10_checkpoint_restore.py`、`tests/e2e/test_t10_counterfactual_replay.py`：覆盖模型边界、输入绑定、确定性状态、完整恢复、正因果、负对照、泄漏和字节确定性。
+- `README.md`、`docs/security-semantics.md`、`docs/summaries/T10_Summary.md`：更新中文能力、确认影响语义、验收证据和停止点。
+
+### 关键设计决定
+
+1. 最小 `HarnessAdapter` 保持不变；checkpoint/restore 只属于独立的 `CheckpointableHarnessAdapter` 扩展。
+2. Checkpoint 只在没有活动 Skill 调用的 step 边界建立，并同时保存 Harness 状态和 Scenario 编排器游标；只恢复 Harness 而重跑前缀不算 T10 合格恢复。
+3. `prefix_hash` 对分支 run ID 做规范化，`state_hash` 继续覆盖 Context、Memory、Skill、Tool、授权注册、时间、ID 和 Workspace；宿主路径、随机 Blob ID 和正文不进入哈希。
+4. 每个 counterfactual 使用 source/original/neutral 三个独立 Run；original 与 neutral 从同一 checkpoint 恢复，run ID 和持久目录不同，但干预前哈希相同。
+5. 原始分支也追加 identity `ARTIFACT_DERIVE`，使两边在干预点消耗相同的 Event/Artifact ID 序列；中和分支不能删除 Skill 或原地改写源 Artifact。
+6. JSON neutral 保留键、容器和标量种类并精确补齐字节长度；文本和二进制采用等长中和值。无法定义中和形式时显式失败。
+7. Scenario 的 `inputs` 只允许引用此前步骤产生的 Artifact alias；Scripted Backend 实际读取输入 Artifact ID/哈希来绑定 Tool source 和选择决策键，不能只在报告层伪造影响。
+8. Replay 只认 selector 命中的已执行 Effect，且必须能对齐同分支 `ToolReceipt`；被拒请求、自然语言输出和图上游关系都不能计入 `y`。
+9. Scripted CI 固定为 `int(y_original)-int(y_neutral)`；非零 CI 只能指向机械 removed/added Effect，零 CI 严禁确认边。
+10. `replay-report.json` 与 `pair-manifest.json` 均独占创建，且不输出 Artifact 正文、Blob ID、Tool 参数正文或宿主路径。
+
+### TDD 与验证
+
+- Replay E2E 首先因 `skillflow.benchmark.replay` 不存在而红灯；实现不是对已有结果增加空断言。
+- 完整恢复测试建立非空 Context、Memory、已加载 Skill、初始 Grant、Mock Shell、虚拟时间、ID 计数和 Workspace，再恢复到不同 run ID/根；两级哈希相同且源分支后续变化不污染恢复分支。
+- 首轮正因果分支没有 Effect；读取真实 Decision 后确认是 enforce 正确拒绝 `UNTRUSTED_ORIGIN`。Golden fixture 改用 monitor 单独观察内容 gate，保留同一 Grant、Manifest 和 policy 拒绝事实，没有放宽正式策略。
+- 正因果对照得到 `true → false, CI=1` 和一条确认边；无关内容负对照得到 `true → true, CI=0` 且无确认边。
+- 两个不同的新输出根生成逐字节一致的 `replay-report.json` 和 `pair-manifest.json`；文件中不存在 fixture 正文或临时目录路径。
+- T05–T09 端到端定向回归：13 passed。
+- 整理后的 T10 单元、集成、端到端专项：21 passed。
+- 最终全量 pytest：275 passed，分支覆盖率 89.39%。
+- Ruff lint：PASS；format check：204 个 Python 文件格式一致。
+- mypy strict：PASS，116 个源文件无类型问题。
+- T10 变更 Python no-excuse：PASS，26 个文件无违规。
+- `skillflow doctor`、CLI help、`pip check`：PASS。
+
+### 验收条件
+
+- [x] Checkpoint 保存任务书要求的 Context、Memory、Skill、授权、Tool、随机/ID 状态和虚拟时间。
+- [x] 恢复到全新分支后，干预点之前的规范化 Trace 前缀哈希和完整状态哈希一致。
+- [x] Artifact identity/neutral 都通过追加派生实现，保持类型、MIME、结构和精确长度，不删除 Skill。
+- [x] 两分支共享 seed、时间、Script/Tool 返回、Manifest、Grant 和其他 checkpoint 输入。
+- [x] 正因果中和后 Effect/Receipt 消失；无关输入中和后 Effect/Receipt 不变。
+- [x] Replay 输出原始/中和 run、干预 Artifact、Effect diff、有符号 CI 和严格确认边。
+- [x] 报告和证据清单不泄漏 Artifact 正文、Blob ID 或宿主路径，并可跨新根逐字节复现。
+
+### 风险或遗留问题
+
+- 当前确认影响只适用于确定性 Scripted Backend；真实 LLM 必须等待 T15 人工批准和预注册统计阈值。
+- JSON 的“Schema 保持”指键、容器、标量种类和可解析性，不是任意外部 JSON Schema 的通用求解；无法保持时必须失败。
+- Replay DSL 当前直接中和 Artifact alias；Memory 与授权状态虽然已进入 checkpoint，但专用 Memory/Grant 中和声明尚未扩展。
+- 本轮在 T10 完成后停止；T11 保持 pending，不自动开始。

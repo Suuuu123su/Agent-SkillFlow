@@ -2,7 +2,7 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前仓库已完成到 **T09：基础指标 UEA 与 Provenance**。这里已经固定研究边界、四级 Lifetime 菱形偏序和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。每次 Run 会输出可按 Artifact/Effect ID 对齐的 Observed/Oracle JSONL、只从 EventStore 重建的脱敏 `security-graph.json`，以及通过静态 Schema 校验的 `risk-report.json`。报告用 Oracle 的 `GT_auth`/`GT_effect` 与真实 Receipt 计算 UEA，并给出来源 Precision、Recall、F1、边界深度 Decay、结构化 N/A 和证据 ID；尚未实现 T10 Checkpoint、反事实重放或真实平台 Adapter。
+当前仓库已完成到 **T10：Checkpoint 与反事实重放**。这里已经固定研究边界、四级 Lifetime 菱形偏序和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。每次普通 Run 会输出可按 Artifact/Effect ID 对齐的 Observed/Oracle JSONL、只从 EventStore 重建的脱敏 `security-graph.json`，以及通过静态 Schema 校验的 `risk-report.json`。T10 进一步允许在 Artifact step 边界冻结完整运行态，从同一 checkpoint 恢复 identity/neutral 两条隔离分支，并只依据真实 Effect Receipt 差异计算有符号 CI 和 `INFLUENCE_CONFIRMED`；尚未实现 T11 的 HIAA、ALR、RIR 或真实平台 Adapter。
 
 ## 当前能力
 
@@ -19,7 +19,7 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 - Persistent Memory 头可跨 Session 和进程重启恢复；历史事件仍保持不可变。
 - Trace 默认只投影 hash 与结构化元数据，同一持久事件序列在重开数据库后得到相同哈希。
 - 可注入虚拟时钟与确定性 ID 工厂，用于后续可重放实验。
-- 最小 `HarnessAdapter` 只包含 `start_session`、`load_skill`、`invoke_skill`、`end_session`；没有提前伪实现 T10 的 checkpoint/restore。
+- 最小 `HarnessAdapter` 仍只包含 `start_session`、`load_skill`、`invoke_skill`、`end_session`；T10 通过独立的 `CheckpointableHarnessAdapter` 扩展增加 `checkpoint`/`restore`，不扩大普通 Harness 合同。
 - `MockHarnessAdapter` 与白名单 `ScriptedBackend` 不调用真实 LLM，也不动态导入 Scenario 指定的 Python 实现。
 - Context、Persistent Memory、隔离 Workspace 文件和 Skill 六段生命周期都生成不可变 Artifact 或追加 Event。
 - 普通 Tool 白名单固定为 `read_file`、`write_memory`、`read_memory`、`http_send`、`shell_exec`；用户确认和 Skill 撤销不在普通 Tool 面中。
@@ -48,6 +48,13 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 - 来源指标按 Artifact 对齐 Oracle/Observed origins，输出 TP/FP/FN、Precision、Recall、F1 和相邻边界深度 Decay；每个比例都包含 numerator、denominator、value、status 与证据 ID，零分母严格表示为结构化 N/A。
 - 多场景分析同时保留逐场景 `RunRiskReport` 和 micro 聚合；micro 先汇总 UEA 实例与原始 TP/FP/FN，再重算比例，不平均各场景百分比。
 - Oracle 声明式 asset 根允许只存在于 Oracle；除它以外的运行 Artifact 必须在双轨中完整对齐，避免缺失 Observed Artifact 被静默排除而高估 Recall。
+- Checkpoint 在静止 step 边界冻结 EventStore/Blob、Workspace、Context、Memory、Skill 安装/加载/撤销状态、Grant/撤销事实、Mock Tool 状态、虚拟时间和确定性 ID 计数；恢复目标必须是新的空分支，恢复后重新计算的规范化前缀哈希与状态哈希必须一致。
+- `ScenarioExecutor` 可以在目标 Artifact alias 产生后暂停，并连同有序游标、Alias 绑定、输出和 Receipt 一起恢复；正常 Run 仍通过原 `ScenarioRunner` 公开入口执行。
+- Artifact 中和通过追加 `ARTIFACT_DERIVE` 新版本完成，不修改源 Artifact，也不删除 Skill；identity 与 neutral 分支保持 Artifact 类型、MIME、可机械验证的结构 Schema 和精确长度，并使用相同 seed、虚拟时间、脚本、Tool 返回、Manifest、Grant 和其余输入。
+- `ReplayRunner` 对每个预注册 counterfactual 创建 source/original/neutral 三个隔离 Run；原始与中和分支从同一 checkpoint 恢复，具有不同 run ID，但干预前 Trace 前缀和完整状态哈希一致。
+- Replay 只比较 Effect selector 命中的已执行 `EffectRecord`，且每个结果必须有同分支真实 `ToolReceipt`；自然语言输出、时序相关和普通来源图不会生成确认因果边。
+- Scripted CI 固定为 `int(y_original) - int(y_neutral)`，取值仅为 `-1 | 0 | 1`；只有非零 CI 才生成类型化 `INFLUENCE_CONFIRMED`，无关内容负对照必须得到 CI=0。
+- 每个配对以不可覆盖方式写出 `replay-report.json` 和 `pair-manifest.json`；只包含 ID、哈希、结构、控制条件和 Effect diff，不包含 Artifact 正文、Blob ID 或宿主路径。
 - pytest、覆盖率、ruff 与 mypy 质量门禁。
 - GitHub Actions 自动执行同一组质量门禁。
 - 中文威胁模型、安全语义、形式化不变量和架构决策记录。
@@ -79,6 +86,7 @@ python -m venv .venv-skillflow
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t07_scenario_graph.py -q --no-cov
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t08_policy_modes.py -q --no-cov
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t09_risk_report.py -q --no-cov
+.\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t10_counterfactual_replay.py -q --no-cov
 ```
 
 安装后也可以直接使用控制台命令：
@@ -113,7 +121,7 @@ for path in paths:
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli --help
 ```
 
-当前 pytest 门禁仍按任务书使用 80% 最低阈值；T09 的最终测试项数、分支覆盖率、Golden 指标和证据报告结构记录在 [`docs/summaries/T09_Summary.md`](docs/summaries/T09_Summary.md)。T14 将把最终门槛正式提升到 90%。
+当前 pytest 门禁仍按任务书使用 80% 最低阈值；T10 的最终测试项数、分支覆盖率、checkpoint 内容、正负因果 Golden Test 和 Replay 证据合同记录在 [`docs/summaries/T10_Summary.md`](docs/summaries/T10_Summary.md)。T14 将把最终门槛正式提升到 90%。
 
 ## 项目范围
 

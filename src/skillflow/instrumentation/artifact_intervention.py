@@ -69,8 +69,11 @@ def _intervention_content(
         raise HarnessStateError("neutralize_artifact", "zero-length artifact has no neutral form")
     if mime_type == "application/json":
         value = JSON_VALUE_ADAPTER.validate_json(content)
+        neutral_value = _neutral_json(value)
+        if not _same_json_shape(value, neutral_value):
+            raise HarnessStateError("neutralize_artifact", "neutral JSON changed structure")
         encoded = json.dumps(
-            _neutral_json(value),
+            neutral_value,
             ensure_ascii=True,
             separators=(",", ":"),
             sort_keys=False,
@@ -86,16 +89,53 @@ def _intervention_content(
 def _neutral_json(value: JsonValue) -> JsonValue:
     match value:
         case None:
-            return None
+            neutral: JsonValue = None
         case bool():
-            return False
-        case int() | float():
-            return 0
+            neutral = False
+        case int():
+            neutral = 0
+        case float():
+            neutral = 0.0
         case str():
-            return "x" * len(value)
+            neutral = "x" * len(value)
         case list():
-            return [_neutral_json(item) for item in value]
+            neutral = [_neutral_json(item) for item in value]
         case dict():
-            return {key: _neutral_json(item) for key, item in value.items()}
+            neutral = {key: _neutral_json(item) for key, item in value.items()}
         case _ as unreachable:
             assert_never(unreachable)
+    return neutral
+
+
+def _same_json_shape(original: JsonValue, neutral: JsonValue) -> bool:
+    if type(original) is not type(neutral):
+        return False
+    match original:
+        case None:
+            same = neutral is None
+        case bool():
+            same = isinstance(neutral, bool)
+        case int():
+            same = isinstance(neutral, int)
+        case float():
+            same = isinstance(neutral, float)
+        case str():
+            same = isinstance(neutral, str)
+        case list():
+            same = (
+                isinstance(neutral, list)
+                and len(original) == len(neutral)
+                and all(
+                    _same_json_shape(left, right)
+                    for left, right in zip(original, neutral, strict=True)
+                )
+            )
+        case dict():
+            same = (
+                isinstance(neutral, dict)
+                and tuple(original) == tuple(neutral)
+                and all(_same_json_shape(original[key], neutral[key]) for key in original)
+            )
+        case _ as unreachable:
+            assert_never(unreachable)
+    return same
