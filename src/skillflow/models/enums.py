@@ -72,6 +72,16 @@ class Lifetime(StrEnum):
 
 
 @unique
+class Scope(StrEnum):
+    """MVP 中互不放大的四种精确作用域。"""
+
+    EXACT_FILE = "exact-file"
+    EXACT_KEY = "exact-key"
+    EXACT_SINK = "exact-sink"
+    COMMAND = "command"
+
+
+@unique
 class TrustLevel(StrEnum):
     """数据来源的保守信任等级。"""
 
@@ -135,3 +145,8 @@ def lifetime_covers(granted: Lifetime, requested: Lifetime) -> bool:
         case _ as unreachable:
             assert_never(unreachable)
     return requested in covered
+
+
+def scope_covers(granted: Scope, requested: Scope) -> bool:
+    """判断 Grant/Manifest scope 是否覆盖 Effect scope。"""
+    return granted is requested

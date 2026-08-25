@@ -121,7 +121,7 @@ authorized(e) :=
   AND g.action == e.action
   AND g.source_pattern covers e.source
   AND g.sink_pattern covers e.sink
-  AND g.scope >= e.scope
+  AND scope_covers(g.scope, e.scope)
   AND boundary_matches_by_lifetime(g, e)
   AND g.valid_from <= effect_time
   AND (g.expires_at is absent OR effect_time < g.expires_at)
@@ -141,7 +141,9 @@ persistent -> 不限制 task_id / session_id / call_id
 
 Lifetime 是菱形偏序：`call` 同时窄于 `task` 与 `session`；`task` 和 `session` 互不包含；二者都窄于 `persistent`。禁止按枚举顺序或字符串大小实现。
 
-匹配失败必须保留结构化 reason code。T02 只冻结判定维度；Resource URI 规范化、scope/lifetime 偏序和稳定 reason code 的代码实现分别属于 T03、T08。
+首版 Scope 固定为 `exact-file | exact-key | exact-sink | command`，四者构成离散反链：每个值只覆盖自身。资源覆盖使用规范化 URI 的精确相等，不允许用字符串前缀伪造目录、Key 或 Sink 包含关系。未来如要支持目录或模式 Scope，必须先扩展模型和偏序，不能悄悄改变当前含义。
+
+匹配失败必须保留结构化 reason code。T08 已把 Resource、Scope、Lifetime、时间、撤销和来源检查落实为独立 matcher 与 PolicyEngine；实现不读取 Oracle。
 
 ## 6. DecisionRecord 的四个独立事实
 

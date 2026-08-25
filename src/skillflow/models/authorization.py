@@ -7,7 +7,7 @@ from pydantic import model_validator
 from pydantic_core import PydanticCustomError
 
 from skillflow.models.base import NonEmptyStr, StrictModel
-from skillflow.models.enums import CapabilityAction, Lifetime, PrincipalType
+from skillflow.models.enums import CapabilityAction, Lifetime, PrincipalType, Scope
 from skillflow.models.resources import ResourceRef
 
 
@@ -21,7 +21,7 @@ class AuthorizationGrant(StrictModel):
     action: CapabilityAction
     source_pattern: ResourceRef | None
     sink_pattern: ResourceRef
-    scope: NonEmptyStr
+    scope: Scope
     lifetime: Lifetime
     task_id: NonEmptyStr
     session_id: NonEmptyStr | None = None

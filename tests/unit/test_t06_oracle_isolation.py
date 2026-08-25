@@ -26,6 +26,7 @@ def test_runtime_and_observed_components_do_not_import_oracle() -> None:
     component_roots = (
         SOURCE_ROOT / "adapters",
         SOURCE_ROOT / "instrumentation",
+        SOURCE_ROOT / "policy",
         SOURCE_ROOT / "runtime",
         SOURCE_ROOT / "store",
         SOURCE_ROOT / "trace",
@@ -58,6 +59,7 @@ def test_oracle_package_does_not_import_runtime_or_defense_implementations() -> 
     forbidden_prefixes = (
         "skillflow.adapters",
         "skillflow.instrumentation",
+        "skillflow.policy",
         "skillflow.runtime",
         "skillflow.store",
         "skillflow.trace.observed",

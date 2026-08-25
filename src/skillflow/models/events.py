@@ -19,6 +19,7 @@ class DecisionRecord(StrictModel):
     policy_result: Decision
     authorized: bool
     executed: bool
+    manifest_id: NonEmptyStr | None = None
     decision_basis_artifact_ids: tuple[NonEmptyStr, ...] = ()
     matched_grant_ids: tuple[NonEmptyStr, ...] = ()
     reason_codes: tuple[NonEmptyStr, ...] = ()

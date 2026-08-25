@@ -25,9 +25,7 @@
           "$ref": "#/$defs/Lifetime"
         },
         "scope": {
-          "minLength": 1,
-          "title": "Scope",
-          "type": "string"
+          "$ref": "#/$defs/Scope"
         },
         "sensitivity": {
           "maximum": 4,
@@ -74,6 +72,17 @@
     "ResourceRef": {
       "description": "一个已经校验并规范化的 Resource URI。",
       "title": "ResourceRef",
+      "type": "string"
+    },
+    "Scope": {
+      "description": "MVP 中互不放大的四种精确作用域。",
+      "enum": [
+        "exact-file",
+        "exact-key",
+        "exact-sink",
+        "command"
+      ],
+      "title": "Scope",
       "type": "string"
     }
   },

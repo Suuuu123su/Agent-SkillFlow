@@ -2,16 +2,24 @@
 
 import sqlite3
 
+from skillflow.models.authorization import AuthorizationGrant
 from skillflow.models.effects import EffectRecord
 from skillflow.models.events import DecisionRecord, SecurityEvent
+from skillflow.store.envelope_validation import validate_envelope
 from skillflow.store.errors import StoreConflictError, StoreIntegrityError
-from skillflow.store.event_store import EventEnvelope, MemoryHead, StoredArtifact
+from skillflow.store.event_store import (
+    EventEnvelope,
+    MemoryHead,
+    RevocationRecord,
+    RevocationTargetKind,
+    StoredArtifact,
+)
 
 
 def append_envelope(connection: sqlite3.Connection, envelope: EventEnvelope) -> None:
     """在单个事务内追加 Event、边、Decision 和 Effect。"""
     event = envelope.event
-    _validate_envelope(envelope)
+    validate_envelope(envelope)
     try:
         with connection:
             connection.execute(
@@ -49,6 +57,8 @@ def append_envelope(connection: sqlite3.Connection, envelope: EventEnvelope) -> 
             _insert_edges(connection, event)
             _insert_decision(connection, envelope.decision)
             _insert_effect(connection, envelope.effect)
+            _insert_grant(connection, envelope.grant, event.event_id)
+            _insert_revocation(connection, envelope.revocation)
     except sqlite3.IntegrityError as error:
         reason = str(error)
         if "events.event_id" in reason:
@@ -173,24 +183,44 @@ def _insert_effect(connection: sqlite3.Connection, effect: EffectRecord | None) 
         )
 
 
-def _validate_envelope(envelope: EventEnvelope) -> None:
-    event = envelope.event
-    decision = envelope.decision
-    effect = envelope.effect
-    if decision is not None and event.decision_id != decision.decision_id:
-        raise StoreIntegrityError("append_event", "Decision 与 Event 引用不一致")
-    if (
-        decision is not None
-        and effect is not None
-        and decision.request_event_id != effect.request_event_id
-    ):
-        raise StoreIntegrityError("append_event", "Decision 与 Effect 的请求引用不一致")
-    if effect is not None and effect.result_event_id is None:
-        if effect.request_event_id != event.event_id:
-            raise StoreIntegrityError("append_event", "Effect 与请求 Event 引用不一致")
-    elif effect is not None and effect.result_event_id != event.event_id:
-        raise StoreIntegrityError("append_event", "Effect 与结果 Event 引用不一致")
-    if effect is not None and effect.decision_id != event.decision_id:
-        raise StoreIntegrityError("append_event", "Effect 与 Event 的 Decision 引用不一致")
-    if effect is not None and effect.effect != event.requested_effect:
-        raise StoreIntegrityError("append_event", "Effect 与 Event 请求的能力不一致")
+def _insert_grant(
+    connection: sqlite3.Connection,
+    grant: AuthorizationGrant | None,
+    issue_event_id: str,
+) -> None:
+    if grant is not None:
+        connection.execute(
+            "INSERT INTO grants (grant_id, issue_event_id, grant_json) VALUES (?, ?, ?)",
+            (grant.grant_id, issue_event_id, grant.model_dump_json()),
+        )
+
+
+def _insert_revocation(
+    connection: sqlite3.Connection,
+    revocation: RevocationRecord | None,
+) -> None:
+    if revocation is not None:
+        if revocation.target_kind is RevocationTargetKind.GRANT:
+            exists = connection.execute(
+                "SELECT 1 FROM grants WHERE grant_id = ?",
+                (revocation.target_id,),
+            ).fetchone()
+            if exists is None:
+                raise StoreIntegrityError(
+                    "append_event",
+                    f"AUTH_REVOKE 目标 Grant 不存在：{revocation.target_id}",
+                )
+        connection.execute(
+            """
+            INSERT INTO revocations (
+                revocation_id, target_kind, target_id, event_id, timestamp
+            ) VALUES (?, ?, ?, ?, ?)
+            """,
+            (
+                revocation.revocation_id,
+                revocation.target_kind.value,
+                revocation.target_id,
+                revocation.event_id,
+                revocation.timestamp.isoformat(),
+            ),
+        )

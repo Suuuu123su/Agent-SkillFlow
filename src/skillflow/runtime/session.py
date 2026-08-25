@@ -1,89 +1,39 @@
 """当前 Session 的确定性运行依赖与事实记录。"""
 
-from collections.abc import Mapping
-from dataclasses import dataclass, field
 from datetime import datetime
-
-from pydantic import JsonValue
+from typing import assert_never
 
 from skillflow.instrumentation.errors import ArtifactContentError
-from skillflow.models.effects import CapabilityEffect, EffectRecord
-from skillflow.models.enums import ArtifactType, EventType, ProvenanceMode, TrustLevel
-from skillflow.models.events import DecisionRecord, SecurityEvent
+from skillflow.models.authorization import AuthorizationGrant
+from skillflow.models.enums import EventType
+from skillflow.models.events import SecurityEvent
 from skillflow.models.provenance import Artifact, SecurityLabel
-from skillflow.runtime.determinism import Clock, IdFactory
+from skillflow.runtime.contracts import (
+    ActorCall,
+    ArtifactEmission,
+    ArtifactFactIds,
+    EventEmission,
+    RuntimeDependencies,
+    SessionIdentity,
+)
 from skillflow.runtime.provenance import observed_origins
-from skillflow.store.blob_store import RunBlobStore
-from skillflow.store.event_store import EventEnvelope, EventStore, MemoryHead, StoredArtifact
+from skillflow.store.event_store import (
+    EventEnvelope,
+    MemoryHead,
+    RevocationRecord,
+    RevocationTargetKind,
+    StoredArtifact,
+)
 
-
-@dataclass(frozen=True, slots=True)
-class ActorCall:
-    """事件实际主体和可选调用边界。"""
-
-    actor_id: str
-    call_id: str | None
-
-
-@dataclass(frozen=True, slots=True)
-class SessionIdentity:
-    """当前 Run、Task 与 Session 标识。"""
-
-    run_id: str
-    task_id: str
-    session_id: str
-
-
-@dataclass(frozen=True, slots=True)
-class RuntimeDependencies:
-    """事实记录所需的存储与确定性依赖。"""
-
-    event_store: EventStore
-    blob_store: RunBlobStore
-    clock: Clock
-    id_factory: IdFactory
-    provenance_mode: ProvenanceMode = ProvenanceMode.PRESERVE
-
-
-@dataclass(frozen=True, slots=True)
-class ArtifactFactIds:
-    """允许相关记录在提交前引用同一 Event 和 Artifact。"""
-
-    event_id: str
-    artifact_id: str
-
-
-@dataclass(frozen=True, slots=True)
-class ArtifactEmission:
-    """一次 Artifact 与生成 Event 的类型化输入。"""
-
-    event_type: EventType
-    artifact_type: ArtifactType
-    content: bytes
-    actor: ActorCall
-    input_artifact_ids: tuple[str, ...] = ()
-    origins: frozenset[str] = frozenset()
-    trust: TrustLevel = TrustLevel.UNKNOWN
-    mime_type: str = "application/octet-stream"
-    requested_effect: CapabilityEffect | None = None
-    decision_id: str | None = None
-    decision: DecisionRecord | None = None
-    effect: EffectRecord | None = None
-    metadata: Mapping[str, JsonValue] = field(default_factory=dict)
-
-
-@dataclass(frozen=True, slots=True)
-class EventEmission:
-    """一次无输出 Event 的类型化输入。"""
-
-    event_type: EventType
-    actor: ActorCall
-    input_artifact_ids: tuple[str, ...] = ()
-    requested_effect: CapabilityEffect | None = None
-    decision_id: str | None = None
-    decision: DecisionRecord | None = None
-    effect: EffectRecord | None = None
-    metadata: Mapping[str, JsonValue] = field(default_factory=dict)
+__all__ = [
+    "ActorCall",
+    "ArtifactEmission",
+    "ArtifactFactIds",
+    "EventEmission",
+    "RuntimeDependencies",
+    "RuntimeRecorder",
+    "SessionIdentity",
+]
 
 
 class RuntimeRecorder:
@@ -141,6 +91,7 @@ class RuntimeRecorder:
                 trust=emission.trust,
                 task_id=self._identity.task_id,
                 created_session_id=self._identity.session_id,
+                revoked_origins=self._revoked_origins(emission),
                 parent_artifact_ids=frozenset(emission.input_artifact_ids),
             ),
         )
@@ -172,6 +123,40 @@ class RuntimeRecorder:
         )
         return event
 
+    def record_authorization_grant(
+        self,
+        grant: AuthorizationGrant,
+        actor: ActorCall,
+    ) -> SecurityEvent:
+        """原子追加特权 AUTH_GRANT Event 与不可变 Grant。"""
+        event = self._event(
+            self.new_id("event"),
+            EventEmission(
+                event_type=EventType.AUTH_GRANT,
+                actor=actor,
+                metadata={"grant_id": grant.grant_id},
+            ),
+            (),
+        )
+        self._dependencies.event_store.append_event(EventEnvelope(event, grant=grant))
+        return event
+
+    def record_authorization_revocation(
+        self,
+        grant_id: str,
+        actor: ActorCall,
+    ) -> SecurityEvent:
+        """追加从当前事件时间起生效的 AUTH_REVOKE。"""
+        return self._record_revocation(RevocationTargetKind.GRANT, grant_id, actor)
+
+    def record_principal_revocation(
+        self,
+        principal_id: str,
+        actor: ActorCall,
+    ) -> SecurityEvent:
+        """追加 Skill Principal 撤销而不改写历史。"""
+        return self._record_revocation(RevocationTargetKind.PRINCIPAL, principal_id, actor)
+
     def require_artifact(self, artifact_id: str) -> Artifact:
         """读取存在的 Artifact，否则返回类型化错误。"""
         artifact = self._dependencies.event_store.get_artifact(artifact_id)
@@ -202,6 +187,54 @@ class RuntimeRecorder:
     def delete_memory_head(self, key: str) -> None:
         """删除 Memory 当前头但保留历史。"""
         self._dependencies.event_store.delete_memory_head(self._identity.run_id, key)
+
+    def _record_revocation(
+        self,
+        target_kind: RevocationTargetKind,
+        target_id: str,
+        actor: ActorCall,
+    ) -> SecurityEvent:
+        metadata_key: str
+        match target_kind:
+            case RevocationTargetKind.GRANT:
+                event_type = EventType.AUTH_REVOKE
+                metadata_key = "grant_id"
+            case RevocationTargetKind.PRINCIPAL:
+                event_type = EventType.SKILL_REVOKE
+                metadata_key = "skill_id"
+            case _ as unreachable:
+                assert_never(unreachable)
+        event = self._event(
+            self.new_id("event"),
+            EventEmission(
+                event_type=event_type,
+                actor=actor,
+                metadata={metadata_key: target_id},
+            ),
+            (),
+        )
+        revocation = RevocationRecord(
+            revocation_id=self.new_id("revocation"),
+            target_kind=target_kind,
+            target_id=target_id,
+            event_id=event.event_id,
+            timestamp=event.timestamp,
+        )
+        self._dependencies.event_store.append_event(EventEnvelope(event, revocation=revocation))
+        return event
+
+    def _revoked_origins(self, emission: ArtifactEmission) -> frozenset[str]:
+        inherited = frozenset(
+            origin
+            for artifact_id in emission.input_artifact_ids
+            for origin in self.require_artifact(artifact_id).observed_label.revoked_origins
+        )
+        active_principals = frozenset(
+            item.target_id
+            for item in self._dependencies.event_store.iter_run_revocations(self._identity.run_id)
+            if item.target_kind is RevocationTargetKind.PRINCIPAL and item.timestamp <= self.now()
+        )
+        return inherited | (emission.origins & active_principals)
 
     def _event(
         self,

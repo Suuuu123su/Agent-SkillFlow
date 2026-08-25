@@ -106,7 +106,7 @@ def test_scripted_run_writes_complete_aligned_observed_and_oracle_paths(
     assert oracle_effect["gt_effect"] is True
     assert oracle_effect["gt_auth"] is True
     assert oracle_effect["matched_grant_ids"] == ["grant-read-report"]
-    assert observed_effect["observed_auth"] is False
+    assert observed_effect["observed_auth"] is True
 
     # And: 两个默认报告都没有泄漏 fixture marker 明文
     trace_text = result.observed_trace_path.read_text(encoding="utf-8")

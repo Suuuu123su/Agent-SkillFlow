@@ -16,6 +16,7 @@ from skillflow.adapters.mock_harness import (
     MockHarnessAdapter,
     MockHarnessConfig,
 )
+from skillflow.benchmark.manifests import load_manifests
 from skillflow.benchmark.oracle_bridge import (
     OracleInvocationBinding,
     OracleSetup,
@@ -26,13 +27,13 @@ from skillflow.benchmark.scripted_backend import FixtureScript, ScriptedBackend
 from skillflow.graph.security import SecurityGraph
 from skillflow.instrumentation.errors import UnsupportedStepError, WorkspaceEscapeError
 from skillflow.instrumentation.mock_tools import MockNetworkRecord, MockShellRecord
-from skillflow.instrumentation.tool_proxy import StubDecisionProvider
 from skillflow.instrumentation.tool_receipt import ToolReceipt
 from skillflow.models.enums import Decision
 from skillflow.models.provenance import Artifact
 from skillflow.models.scenario import Scenario
 from skillflow.models.scenario_parts import ScenarioStep, StepAction
 from skillflow.oracle.writer import OracleTraceWriter
+from skillflow.policy.runtime import RuntimePolicySetup, StoredPolicyDecisionProvider
 from skillflow.runtime.determinism import DeterministicIdFactory, VirtualClock
 from skillflow.runtime.session import RuntimeDependencies
 from skillflow.store.blob_store import RunBlobStore
@@ -75,6 +76,7 @@ class ScenarioRunner:
     def run(self, scenario_path: Path, run_root: Path, seed: str) -> ScenarioRunResult:
         """从 YAML 启动一个独立、确定性的安全 Mock Run。"""
         scenario = validate_yaml_document(scenario_path, Scenario)
+        manifest_bindings = load_manifests(scenario_path, scenario)
         run_id = f"run-{scenario.id}"
         oracle = build_oracle_sidecar(
             OracleSetup(
@@ -111,9 +113,22 @@ class ScenarioRunner:
                         id_factory=DeterministicIdFactory(seed),
                         provenance_mode=scenario.harness.provenance_mode,
                     ),
+                    initial_grants=scenario.grants,
                 ),
                 ScriptedBackend(self._scripts),
-                StubDecisionProvider(self._decisions),
+                StoredPolicyDecisionProvider(
+                    store,
+                    RuntimePolicySetup(
+                        run_id=run_id,
+                        manifests={
+                            binding.skill_id: binding.manifest for binding in manifest_bindings
+                        },
+                        structural_decisions=self._decisions,
+                        enforcement_mode=scenario.execution.mode,
+                        auto_approve_tools=scenario.harness.auto_approve_tools,
+                        implicit_text_authorization=(scenario.harness.implicit_text_authorization),
+                    ),
+                ),
             )
             controller = BenchmarkController(harness)
             bindings = {
@@ -133,6 +148,8 @@ class ScenarioRunner:
                         harness.load_skill(bindings[skill_id])
                     for step in session.steps:
                         result = self._execute_step(step, harness, controller)
+                        if step.action is StepAction.USER_CONFIRM and step.grant is not None:
+                            oracle.record_grant(step.grant)
                         if result is not None:
                             outputs.append(result.output)
                             receipts.extend(result.receipts)
@@ -200,9 +217,9 @@ class ScenarioRunner:
                 controller.unload_skill(step.skill, step.actor)
                 return None
             case StepAction.USER_CONFIRM:
-                if step.actor is None:
+                if step.actor is None or step.grant is None:
                     raise UnsupportedStepError(step.id, "invalid user_confirm")
-                controller.confirm_tool(step.id, step.actor)
+                controller.confirm_tool(step.grant, step.actor)
                 return None
             case (
                 StepAction.WRITE_MEMORY

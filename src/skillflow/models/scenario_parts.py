@@ -7,6 +7,7 @@ from typing import Annotated, Literal, Self, assert_never
 from pydantic import Field, model_validator
 from pydantic_core import PydanticCustomError
 
+from skillflow.models.authorization import AuthorizationGrant
 from skillflow.models.base import NonEmptyStr, StrictModel
 from skillflow.models.enums import (
     CapabilityAction,
@@ -111,24 +112,37 @@ class ScenarioStep(StrictModel):
     skill: NonEmptyStr | None = None
     actor: PrincipalType | None = None
     outputs: tuple[ArtifactAliasRef, ...] = ()
+    grant: AuthorizationGrant | None = None
 
     @model_validator(mode="after")
     def validate_action_contract(self) -> Self:
         """按封闭操作枚举验证主体和 Skill 引用。"""
         match self.action:
             case StepAction.INVOKE_SKILL:
+                self._require_no_grant()
                 if self.skill is None:
                     raise PydanticCustomError("step_skill_missing", "invoke_skill 要求 skill")
             case StepAction.WRITE_MEMORY | StepAction.READ_MEMORY | StepAction.REQUEST_TOOL:
-                pass
+                self._require_no_grant()
             case StepAction.USER_CONFIRM:
                 self._require_trusted_actor()
+                if self.grant is None:
+                    raise PydanticCustomError(
+                        "step_grant_missing",
+                        "user_confirm 要求结构化 Grant",
+                    )
+                if self.grant.issuer_type is not self.actor:
+                    raise PydanticCustomError(
+                        "step_grant_issuer_mismatch",
+                        "user_confirm actor 必须与 Grant issuer_type 一致",
+                    )
             case StepAction.REVOKE_SKILL | StepAction.UNLOAD_SKILL:
+                self._require_no_grant()
                 self._require_trusted_actor()
                 if self.skill is None:
                     raise PydanticCustomError("step_skill_missing", "撤销或卸载步骤要求 skill")
             case StepAction.RESTART_RUNTIME:
-                pass
+                self._require_no_grant()
             case _ as unreachable:
                 assert_never(unreachable)
         return self
@@ -138,6 +152,13 @@ class ScenarioStep(StrictModel):
             raise PydanticCustomError(
                 "step_actor_untrusted",
                 "该步骤要求 USER 或 TRUSTED_POLICY 可信主体",
+            )
+
+    def _require_no_grant(self) -> None:
+        if self.grant is not None:
+            raise PydanticCustomError(
+                "step_grant_forbidden",
+                "只有 user_confirm 可以携带 Grant",
             )
 
 

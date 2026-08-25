@@ -154,13 +154,7 @@ class InstrumentedSkill:
     def revoke(self, skill_id: str, actor: ActorCall) -> None:
         """由 Benchmark 特权入口追加撤销事件。"""
         self._state.revoke(skill_id)
-        self._recorder.record_event(
-            EventEmission(
-                event_type=EventType.SKILL_REVOKE,
-                actor=actor,
-                metadata={"skill_id": skill_id},
-            )
-        )
+        self._recorder.record_principal_revocation(skill_id, actor)
 
     def unload(self, skill_id: str, actor: ActorCall) -> None:
         """从当前 Session 卸载 Skill，不删除任何历史。"""

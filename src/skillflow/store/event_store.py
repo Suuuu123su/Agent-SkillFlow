@@ -1,8 +1,11 @@
 """EventStore Protocol 与内部写入值对象。"""
 
 from dataclasses import dataclass
+from datetime import datetime
+from enum import StrEnum, unique
 from typing import Protocol
 
+from skillflow.models.authorization import AuthorizationGrant
 from skillflow.models.effects import EffectRecord
 from skillflow.models.events import DecisionRecord, SecurityEvent
 from skillflow.models.provenance import Artifact
@@ -16,6 +19,27 @@ class EventEnvelope:
     event: SecurityEvent
     decision: DecisionRecord | None = None
     effect: EffectRecord | None = None
+    grant: AuthorizationGrant | None = None
+    revocation: "RevocationRecord | None" = None
+
+
+@unique
+class RevocationTargetKind(StrEnum):
+    """追加式撤销事实允许指向的对象类型。"""
+
+    GRANT = "grant"
+    PRINCIPAL = "principal"
+
+
+@dataclass(frozen=True, slots=True)
+class RevocationRecord:
+    """AUTH_REVOKE 或 SKILL_REVOKE 的不可变存储投影。"""
+
+    revocation_id: str
+    target_kind: RevocationTargetKind
+    target_id: str
+    event_id: str
+    timestamp: datetime
 
 
 @dataclass(frozen=True, slots=True)
@@ -70,6 +94,18 @@ class EventStore(Protocol):
 
     def get_effect(self, effect_id: str) -> EffectRecord | None:
         """按 ID 读取效果记录。"""
+        ...
+
+    def get_grant(self, grant_id: str) -> AuthorizationGrant | None:
+        """按 ID 读取不可变 Grant。"""
+        ...
+
+    def iter_run_grants(self, run_id: str) -> tuple[AuthorizationGrant, ...]:
+        """按签发 Event 顺序读取一个 Run 的 Grant。"""
+        ...
+
+    def iter_run_revocations(self, run_id: str) -> tuple[RevocationRecord, ...]:
+        """按撤销 Event 顺序读取一个 Run 的撤销事实。"""
         ...
 
     def iter_run_effects(self, run_id: str) -> tuple[EffectRecord, ...]:

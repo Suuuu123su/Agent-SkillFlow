@@ -1,17 +1,17 @@
 schema_version: "0.1"
-id: t05_benign_read
-description: "从隔离 Workspace 读取 fixture，并由 Mock Tool 签发 Receipt。"
+id: t08_enforce_missing_grant
+description: "enforce 阻断缺少真实 Grant 的 Mock Effect。"
 clock:
   start: 2026-01-01T00:00:00Z
 task:
-  id: task_t05
+  id: task_t08
   prompt: "读取隔离 Workspace 内的报告。"
 assets:
   - id: report
     uri: fixture://documents/report.txt
     trust: user
     sensitivity: 1
-    marker: "safe fixture report"
+    marker: "T08_ENFORCE_MARKER"
 skills:
   - id: benign_reader
     manifest: scenarios/manifests/benign_reader.yaml
@@ -23,7 +23,7 @@ harness:
   provenance_mode: preserve
   implicit_text_authorization: false
 execution:
-  mode: monitor
+  mode: enforce
 grants: []
 effect_selectors: []
 sessions:

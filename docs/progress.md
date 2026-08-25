@@ -16,7 +16,7 @@
 | T05 | completed | 141 tests；覆盖率 89.19%；ruff/mypy/YAML E2E PASS | 已完成安全 Mock Harness、插桩代理、ScriptedBackend 与 Tool Receipt 链。 |
 | T06 | completed | 165 tests；覆盖率 88.48%；ruff/mypy/隔离 E2E PASS | 已完成双轨 JSONL、机械 Oracle、独立 GT_auth/GT_effect 与依赖隔离。 |
 | T07 | completed | 182 tests；覆盖率 87.93%；ruff/mypy/Golden E2E PASS | 已完成 EventStore 重建的双层来源图、七类查询、边界深度与脱敏 JSON 导出。 |
-| T08 | pending | 不适用 | 依赖 T07。 |
+| T08 | completed | 236 tests；覆盖率 89.18%；ruff/mypy/策略 E2E PASS | 已完成双钥匙 matcher、PolicyEngine、Grant/撤销事实、monitor/enforce 与特权确认。 |
 | T09 | pending | 不适用 | 依赖 T08。 |
 | T10 | pending | 不适用 | 依赖 T07。 |
 | T11 | pending | 不适用 | 依赖 T09 和 T10。 |
@@ -518,3 +518,60 @@
 - 简单路径枚举默认深度 64、最多返回 512 条；大图研究必须显式理解该资源边界，不能把截断结果误报为全图无路径。
 - GraphML 未实现，按任务书只作为 T14 后的可选增强。
 - 本轮在 T07 停止；T08 保持 pending，不自动开始。
+
+## T08：授权匹配与策略决策
+
+- 状态：completed
+- 日期：2026-08-25（Asia/Shanghai）
+- 任务边界：只实现 Manifest/Grant 双钥匙匹配、正式 PolicyEngine、Grant/撤销持久事实、决策真值表与 Benchmark 特权确认；未实现 T09 指标、T10 checkpoint 或真实平台 Adapter。
+
+### 修改文件
+
+- `src/skillflow/policy/`：新增 Manifest/Grant matcher、稳定 reason codes、来源检查、baseline 真值表、PolicyEngine 与 EventStore 运行适配器。
+- `src/skillflow/models/`：把 Scope 收紧为封闭枚举，为 Decision 增加 Manifest 追踪，并允许 `user_confirm` 携带结构化 Grant。
+- `src/skillflow/store/`：新增不可变 Grant 与撤销视图、SQLite 表和防改写触发器；Event、Grant/撤销继续原子追加。
+- `src/skillflow/instrumentation/`、`adapters/`、`benchmark/`：ToolProxy 接入完整策略计划；Runner 注册初始 Grant，支持 USER/TRUSTED_POLICY 特权确认，并把最小结构化事实单向投影给 Oracle。
+- `src/skillflow/runtime/contracts.py`、`store/envelope_validation.py`：把运行合同和跨事实校验按职责拆出，消除超过 250 行的源模块。
+- `tests/unit/policy/`、`tests/integration/policy/`、`tests/e2e/test_t08_policy_modes.py`：覆盖双钥匙矩阵、四值 Lifetime、Scope、撤销、来源、monitor/enforce 和确认路径。
+- `README.md`、`docs/security-semantics.md`、`docs/summaries/T08_Summary.md`：更新中文能力、冻结语义与验收总结。
+
+### 关键设计决定
+
+1. `authorized` 只由 Manifest 声明与有效结构化 Grant 共同决定；baseline、policy 和 executed 均不能改写它。
+2. Lifetime 继续使用菱形偏序：`call < task < persistent` 与 `call < session < persistent`，其中 task/session 互不包含；匹配只检查当前 lifetime 对应的边界 ID。
+3. 首版 Scope 固定为 `exact-file | exact-key | exact-sink | command` 的离散反链；资源只做规范化 URI 精确匹配，不接受字符串前缀。
+4. baseline 按“结构无效 → 已有结构化确认 → auto approve → 相关文本开关 → confirm”的固定优先级计算；文本只可能影响 baseline，不创建 Grant。
+5. policy 只有在双钥匙和来源检查全部通过时 ALLOW；只有 Manifest 已覆盖且单纯缺 Grant、策略又允许获取新授权时才 CONFIRM，否则 DENY。
+6. monitor 仅在 baseline ALLOW 时执行 Mock Effect；enforce 还要求 policy ALLOW。两种模式不改变 policy 与 authorized 真值。
+7. USER/TRUSTED_POLICY 确认通过 Skill 不可见的 `BenchmarkController` 生成 Grant；actor 必须与 `issuer_type` 一致，Skill actor 被显式拒绝。
+8. AUTH_REVOKE 和 Skill Principal 撤销均是有时间戳的追加事实；后续请求读取 EventStore 计算，历史 Grant、Event 和 Effect 不回写。
+9. Policy 运行面和 Oracle 双向静态隔离；Oracle 只接收 Benchmark 已实际执行的结构化确认，不读取 Policy 结果。
+
+### TDD 与验证
+
+- 首轮 policy 单元测试因 `skillflow.policy` 尚不存在而红灯；实现后 36 项 matcher/engine 测试通过。
+- Runner 接入前，T08 E2E 的三条路径按预期失败；接入正式 provider 与特权确认后全部转绿。
+- 全量回归首次暴露 T05 旧 fixture 未开启 baseline auto approve、T06 仍断言 Stub 授权值、Stub 兼容方法缺失和静态 Schema 未更新；逐项修正后没有改变 Oracle 真值。
+- 新增特权边界测试，证明 Skill actor 不能签发 Grant，USER 可以签发并追加撤销；普通“用户已批准”文本不会产生 AUTH_GRANT。
+- no-excuse 审计发现 `runtime/session.py`、`store/sqlite_writer.py` 和扩展后的 matcher 测试超长；分别按运行合同、Envelope 校验及 Manifest/Grant 测试职责拆分后，本轮相关文件无规则违规。
+- 最终全量 pytest：236 passed，分支覆盖率 89.18%。
+- Ruff lint：PASS；format check：158 files already formatted。
+- mypy strict：PASS，88 个源文件无类型问题。
+- T08 相关 Python no-excuse：PASS；`skillflow doctor`、CLI help 与 `pip check`：PASS。
+
+### 验收条件
+
+- [x] Manifest 与 Grant matcher 覆盖任务书指定维度，并返回稳定 reason codes。
+- [x] 未知 Scope/Lifetime 被模型拒绝；Lifetime 不按枚举顺序比较，task/session 互不包含。
+- [x] `baseline_result`、`policy_result`、`authorized`、`executed` 四事实同时持久化且可追踪到 Manifest、Grant 和来源 Artifact。
+- [x] monitor/enforce 保持相同策略真值，只在实际执行上按规则分歧。
+- [x] 过期 Grant、撤销 Grant、撤销来源、跨 call/task/session 和不可信/不完整来源均有稳定拒绝原因。
+- [x] Skill 文本不能生成 Grant；只有 Benchmark USER/TRUSTED_POLICY 特权接口可以确认。
+- [x] Policy 不读取 Oracle，Oracle 也不导入 Policy 或运行防御实现。
+
+### 风险或遗留问题
+
+- 首版 Scope 是精确离散反链，不支持目录、glob、域名层级或命令参数模式；不得把该限制误报为通用范围包含。
+- 当前确认步骤由声明式 Benchmark 预注册结构化 Grant，不包含真实交互式 UI 或外部身份认证。
+- T08 只产出逐 Effect 的完整 Decision 与证据，不计算 UEA、Precision、Recall、F1 或 Decay；这些属于 T09。
+- 本轮在 T08 停止；T09 保持 pending，不自动开始。

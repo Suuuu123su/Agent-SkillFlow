@@ -59,6 +59,13 @@ class OracleGrantResolver:
             matched_grant_ids=matches,
         )
 
+    def with_grant(self, grant: AuthorizationGrant) -> "OracleGrantResolver":
+        """返回加入 Benchmark 结构化确认后的新解析器。"""
+        return OracleGrantResolver(
+            (*self._grants, grant),
+            self._revoked_grant_ids,
+        )
+
     def _grant_matches(
         self,
         grant: AuthorizationGrant,

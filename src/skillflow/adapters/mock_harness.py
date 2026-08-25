@@ -12,7 +12,7 @@ from skillflow.adapters.base import (
 from skillflow.benchmark.scripted_backend import ScriptedBackend
 from skillflow.instrumentation.context_proxy import InstrumentedContext
 from skillflow.instrumentation.decision_stub import DecisionProvider
-from skillflow.instrumentation.errors import HarnessStateError, UnsupportedStepError
+from skillflow.instrumentation.errors import HarnessStateError
 from skillflow.instrumentation.file_proxy import InstrumentedFile
 from skillflow.instrumentation.memory_proxy import InstrumentedMemory, MemoryState
 from skillflow.instrumentation.mock_tools import (
@@ -25,6 +25,7 @@ from skillflow.instrumentation.mock_tools import (
 )
 from skillflow.instrumentation.skill_proxy import InstrumentedSkill, SkillState
 from skillflow.instrumentation.tool_proxy import InstrumentedTool
+from skillflow.models.authorization import AuthorizationGrant
 from skillflow.models.enums import EventType, PrincipalType
 from skillflow.runtime.session import (
     ActorCall,
@@ -43,6 +44,7 @@ class MockHarnessConfig:
     task_id: str
     workspace_root: Path
     dependencies: RuntimeDependencies
+    initial_grants: tuple[AuthorizationGrant, ...] = ()
 
 
 @dataclass(frozen=True, slots=True)
@@ -75,6 +77,7 @@ class MockHarnessAdapter:
         self._network = MockNetworkSink()
         self._shell = MockShellSink()
         self._runtime: _SessionRuntime | None = None
+        self._initial_grants_registered = False
 
     def start_session(self, session: HarnessSession) -> None:
         """建立 Session 局部 Context/代理并保留 Run 级 Memory/Skill 状态。"""
@@ -113,6 +116,13 @@ class MockHarnessAdapter:
         recorder.record_event(
             EventEmission(event_type=EventType.SESSION_START, actor=ActorCall("harness", None))
         )
+        if not self._initial_grants_registered:
+            for grant in self._config.initial_grants:
+                recorder.record_authorization_grant(
+                    grant,
+                    ActorCall(grant.issuer_id, None),
+                )
+            self._initial_grants_registered = True
 
     def load_skill(self, binding: SkillBinding) -> None:
         """首次加载时安装固定绑定，再加载到当前 Session。"""
@@ -175,6 +185,16 @@ class MockHarnessAdapter:
         runtime = self._require_runtime("unload_skill")
         runtime.skills.unload(skill_id, actor)
 
+    def benchmark_issue_grant(self, grant: AuthorizationGrant, actor: ActorCall) -> None:
+        """仅供 BenchmarkController 调用的结构化确认入口。"""
+        runtime = self._require_runtime("confirm_tool")
+        runtime.recorder.record_authorization_grant(grant, actor)
+
+    def benchmark_revoke_grant(self, grant_id: str, actor: ActorCall) -> None:
+        """仅供 BenchmarkController 调用的 Grant 撤销入口。"""
+        runtime = self._require_runtime("revoke_grant")
+        runtime.recorder.record_authorization_revocation(grant_id, actor)
+
     def _require_runtime(self, operation: str) -> _SessionRuntime:
         if self._runtime is None:
             raise HarnessStateError(operation, "no active session")
@@ -198,10 +218,17 @@ class BenchmarkController:
         self._require_trusted(actor, "unload_skill")
         self._harness.benchmark_unload_skill(skill_id, ActorCall(actor.value, None))
 
-    def confirm_tool(self, step_id: str, actor: PrincipalType) -> None:
-        """T05 明确拒绝提前实现 T08 的结构化确认与 Grant。"""
+    def confirm_tool(self, grant: AuthorizationGrant, actor: PrincipalType) -> None:
+        """由 USER/TRUSTED_POLICY 特权确认生成结构化 Grant。"""
         self._require_trusted(actor, "confirm_tool")
-        raise UnsupportedStepError(step_id, "user_confirm belongs to T08")
+        if grant.issuer_type is not actor:
+            raise HarnessStateError("confirm_tool", "actor and issuer_type mismatch")
+        self._harness.benchmark_issue_grant(grant, ActorCall(grant.issuer_id, None))
+
+    def revoke_grant(self, grant_id: str, actor: PrincipalType) -> None:
+        """由可信 Benchmark 主体撤销 Grant。"""
+        self._require_trusted(actor, "revoke_grant")
+        self._harness.benchmark_revoke_grant(grant_id, ActorCall(actor.value, None))
 
     @staticmethod
     def _require_trusted(actor: PrincipalType, operation: str) -> None:

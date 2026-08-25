@@ -1,16 +1,24 @@
 """SQLite EventStore 实现。"""
 
 import sqlite3
+from datetime import datetime
 from pathlib import Path
 from types import TracebackType
 from typing import Self
 
+from skillflow.models.authorization import AuthorizationGrant
 from skillflow.models.effects import EffectRecord
 from skillflow.models.events import DecisionRecord, SecurityEvent
 from skillflow.models.provenance import Artifact
 from skillflow.store.blob_store import BlobRef
 from skillflow.store.errors import StoreClosedError
-from skillflow.store.event_store import EventEnvelope, MemoryHead, StoredArtifact
+from skillflow.store.event_store import (
+    EventEnvelope,
+    MemoryHead,
+    RevocationRecord,
+    RevocationTargetKind,
+    StoredArtifact,
+)
 from skillflow.store.sqlite_writer import (
     append_envelope,
     put_stored_artifact,
@@ -114,6 +122,53 @@ class SqliteEventStore:
             (run_id,),
         ).fetchall()
         return tuple(EffectRecord.model_validate_json(row[0]) for row in rows)
+
+    def get_grant(self, grant_id: str) -> AuthorizationGrant | None:
+        """按 ID 读取不可变 AuthorizationGrant。"""
+        row = self._fetch_one(
+            "SELECT grant_json FROM grants WHERE grant_id = ?",
+            grant_id,
+        )
+        return None if row is None else AuthorizationGrant.model_validate_json(row)
+
+    def iter_run_grants(self, run_id: str) -> tuple[AuthorizationGrant, ...]:
+        """按 AUTH_GRANT Event 的追加顺序返回一个 Run 的 Grant。"""
+        self._ensure_open()
+        rows = self._connection.execute(
+            """
+            SELECT grants.grant_json
+            FROM grants
+            JOIN events ON events.event_id = grants.issue_event_id
+            WHERE events.run_id = ?
+            ORDER BY events.sequence_number
+            """,
+            (run_id,),
+        ).fetchall()
+        return tuple(AuthorizationGrant.model_validate_json(row[0]) for row in rows)
+
+    def iter_run_revocations(self, run_id: str) -> tuple[RevocationRecord, ...]:
+        """按撤销 Event 的追加顺序返回一个 Run 的撤销事实。"""
+        self._ensure_open()
+        rows = self._connection.execute(
+            """
+            SELECT revocation_id, target_kind, target_id, event_id, revocations.timestamp
+            FROM revocations
+            JOIN events USING (event_id)
+            WHERE events.run_id = ?
+            ORDER BY events.sequence_number
+            """,
+            (run_id,),
+        ).fetchall()
+        return tuple(
+            RevocationRecord(
+                revocation_id=str(row[0]),
+                target_kind=RevocationTargetKind(str(row[1])),
+                target_id=str(row[2]),
+                event_id=str(row[3]),
+                timestamp=datetime.fromisoformat(str(row[4])),
+            )
+            for row in rows
+        )
 
     def set_memory_head(self, head: MemoryHead) -> None:
         """更新明确允许可变的 Memory 头。"""

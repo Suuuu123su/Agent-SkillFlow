@@ -109,9 +109,7 @@
           "$ref": "#/$defs/Lifetime"
         },
         "scope": {
-          "minLength": 1,
-          "title": "Scope",
-          "type": "string"
+          "$ref": "#/$defs/Scope"
         },
         "session_id": {
           "anyOf": [
@@ -525,6 +523,17 @@
           ],
           "default": null
         },
+        "grant": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AuthorizationGrant"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "id": {
           "minLength": 1,
           "title": "Id",
@@ -562,6 +571,17 @@
     "ScenarioTargetRef": {
       "description": "Oracle 可观察的 Artifact 或 effect selector 引用。",
       "title": "ScenarioTargetRef",
+      "type": "string"
+    },
+    "Scope": {
+      "description": "MVP 中互不放大的四种精确作用域。",
+      "enum": [
+        "exact-file",
+        "exact-key",
+        "exact-sink",
+        "command"
+      ],
+      "title": "Scope",
       "type": "string"
     },
     "SessionSpec": {

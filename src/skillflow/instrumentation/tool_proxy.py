@@ -4,7 +4,6 @@ from dataclasses import dataclass
 from typing import TypeAlias, assert_never
 
 from skillflow.instrumentation.decision_stub import DecisionProvider, StubDecisionProvider
-from skillflow.instrumentation.errors import DecisionFixtureError
 from skillflow.instrumentation.mock_tools import MockExecutionRequest, MockToolAdapter
 from skillflow.instrumentation.tool_effects import (
     NormalizedToolRequest,
@@ -15,12 +14,13 @@ from skillflow.instrumentation.tool_types import ToolCallRequest
 from skillflow.models.effects import EffectRecord
 from skillflow.models.enums import (
     ArtifactType,
-    Decision,
-    EnforcementMode,
     EventType,
     TrustLevel,
 )
 from skillflow.models.events import DecisionRecord
+from skillflow.models.provenance import Artifact
+from skillflow.policy.models import AuthorizationBoundary, DecisionPlan
+from skillflow.policy.runtime import PolicyToolRequest
 from skillflow.runtime.session import (
     ActorCall,
     ArtifactEmission,
@@ -46,20 +46,21 @@ class PendingToolCall:
     normalized: NormalizedToolRequest
     request_event_id: str
     argument_artifact_id: str
+    source_artifacts: tuple[Artifact, ...]
 
 
 @dataclass(frozen=True, slots=True)
 class AllowedToolCall:
-    """Stub fixture 明确允许的待执行 Tool 请求。"""
+    """当前执行模式决定继续执行的 Tool 请求。"""
 
     pending: PendingToolCall
-    decision_id: str
+    decision: DecisionRecord
     decision_event_id: str
 
 
 @dataclass(frozen=True, slots=True)
 class DeniedToolCall:
-    """Stub fixture 明确拒绝的 Tool 请求。"""
+    """当前执行模式决定不执行的 Tool 请求。"""
 
     pending: PendingToolCall
     decision: DecisionRecord
@@ -96,10 +97,11 @@ class InstrumentedTool:
     def request(self, request: ToolCallRequest) -> PendingToolCall:
         """规范化 Effect 并记录参数 Artifact 与 TOOL_CALL_REQUEST。"""
         normalized = normalize_tool_request(request.arguments)
-        source_labels = tuple(
-            self._recorder.require_artifact(artifact_id).observed_label
+        source_artifacts = tuple(
+            self._recorder.require_artifact(artifact_id)
             for artifact_id in normalized.source_artifact_ids
         )
+        source_labels = tuple(artifact.observed_label for artifact in source_artifacts)
         origins = (
             frozenset(origin for label in source_labels for origin in label.origins)
             if source_labels
@@ -124,43 +126,52 @@ class InstrumentedTool:
             normalized=normalized,
             request_event_id=argument.created_by_event_id,
             argument_artifact_id=argument.artifact_id,
+            source_artifacts=source_artifacts,
         )
 
     def decision(self, pending: PendingToolCall) -> AllowedToolCall | DeniedToolCall:
-        """记录 Stub allow/deny，且不复制 T08 授权逻辑。"""
-        result = self._decisions.decide(pending.request.decision_key)
+        """记录 baseline/policy/authorized/executed 四个独立事实。"""
+        plan = self._decisions.evaluate(
+            PolicyToolRequest(
+                decision_key=pending.request.decision_key,
+                actor_id=pending.request.actor_id,
+                argument_artifact_id=pending.argument_artifact_id,
+                effect=pending.normalized.effect,
+                boundary=AuthorizationBoundary(
+                    task_id=self._recorder.identity.task_id,
+                    session_id=self._recorder.identity.session_id,
+                    call_id=pending.request.call_id,
+                    effect_time=self._recorder.now(),
+                ),
+                source_artifacts=pending.source_artifacts,
+            )
+        )
         decision_id = self._recorder.new_id("decision")
+        decision = self._decision_record(pending, decision_id, plan)
         actor = ActorCall("harness", pending.request.call_id)
-        match result:
-            case Decision.ALLOW:
-                event = self._recorder.record_event(
-                    EventEmission(
-                        event_type=EventType.TOOL_CALL_ALLOW,
-                        actor=actor,
-                        input_artifact_ids=(pending.argument_artifact_id,),
-                        requested_effect=pending.normalized.effect,
-                        metadata={"tool": pending.request.arguments.kind.value},
-                    )
+        if plan.executed:
+            event = self._recorder.record_event(
+                EventEmission(
+                    event_type=EventType.TOOL_CALL_ALLOW,
+                    actor=actor,
+                    input_artifact_ids=(pending.argument_artifact_id,),
+                    requested_effect=pending.normalized.effect,
+                    metadata={"tool": pending.request.arguments.kind.value},
                 )
-                return AllowedToolCall(pending, decision_id, event.event_id)
-            case Decision.DENY:
-                decision = self._decision_record(pending, decision_id, result)
-                event = self._recorder.record_event(
-                    EventEmission(
-                        event_type=EventType.TOOL_CALL_DENY,
-                        actor=actor,
-                        input_artifact_ids=(pending.argument_artifact_id,),
-                        requested_effect=pending.normalized.effect,
-                        decision_id=decision_id,
-                        decision=decision,
-                        metadata={"tool": pending.request.arguments.kind.value},
-                    )
-                )
-                return DeniedToolCall(pending, decision, event.event_id)
-            case Decision.CONFIRM:
-                raise DecisionFixtureError(pending.request.decision_key, "T05 Stub 禁止 confirm")
-            case _ as unreachable:
-                assert_never(unreachable)
+            )
+            return AllowedToolCall(pending, decision, event.event_id)
+        event = self._recorder.record_event(
+            EventEmission(
+                event_type=EventType.TOOL_CALL_DENY,
+                actor=actor,
+                input_artifact_ids=(pending.argument_artifact_id,),
+                requested_effect=pending.normalized.effect,
+                decision_id=decision_id,
+                decision=decision,
+                metadata={"tool": pending.request.arguments.kind.value},
+            )
+        )
+        return DeniedToolCall(pending, decision, event.event_id)
 
     def execute(self, allowed: AllowedToolCall) -> ExecutedToolCall:
         """仅执行 Allowed 状态，并原子记录 Decision、Effect 和 Receipt Artifact。"""
@@ -178,7 +189,7 @@ class InstrumentedTool:
                 effect_id=effect_id,
                 request_event_id=allowed.pending.request_event_id,
                 result_event_id=fact_ids.event_id,
-                decision_id=allowed.decision_id,
+                decision_id=allowed.decision.decision_id,
                 receipt_id=receipt_id,
                 action_id=allowed.pending.request.action_id,
                 argument_artifact_id=allowed.pending.argument_artifact_id,
@@ -186,16 +197,11 @@ class InstrumentedTool:
                 timestamp=self._recorder.now(),
             )
         )
-        decision = self._decision_record(
-            allowed.pending,
-            allowed.decision_id,
-            Decision.ALLOW,
-        )
         effect = EffectRecord(
             effect_id=effect_id,
             effect=allowed.pending.normalized.effect,
             request_event_id=allowed.pending.request_event_id,
-            decision_id=allowed.decision_id,
+            decision_id=allowed.decision.decision_id,
             result_event_id=fact_ids.event_id,
             tool_receipt_id=receipt_id,
             executed=True,
@@ -218,8 +224,8 @@ class InstrumentedTool:
                 trust=TrustLevel.TRUSTED,
                 mime_type="application/json",
                 requested_effect=allowed.pending.normalized.effect,
-                decision_id=allowed.decision_id,
-                decision=decision,
+                decision_id=allowed.decision.decision_id,
+                decision=allowed.decision,
                 effect=effect,
                 metadata={"tool": allowed.pending.request.arguments.kind.value},
             ),
@@ -246,15 +252,18 @@ class InstrumentedTool:
     def _decision_record(
         pending: PendingToolCall,
         decision_id: str,
-        result: Decision,
+        plan: DecisionPlan,
     ) -> DecisionRecord:
         return DecisionRecord(
             decision_id=decision_id,
             request_event_id=pending.request_event_id,
-            enforcement_mode=EnforcementMode.MONITOR,
-            baseline_result=result,
-            policy_result=result,
-            authorized=False,
-            executed=result is Decision.ALLOW,
-            reason_codes=("t05_stub_fixture",),
+            enforcement_mode=plan.enforcement_mode,
+            baseline_result=plan.baseline_result,
+            policy_result=plan.policy_result,
+            authorized=plan.authorized,
+            executed=plan.executed,
+            manifest_id=plan.manifest_id,
+            decision_basis_artifact_ids=plan.decision_basis_artifact_ids,
+            matched_grant_ids=plan.matched_grant_ids,
+            reason_codes=plan.reason_codes,
         )

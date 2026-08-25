@@ -182,3 +182,27 @@ BEFORE DELETE ON event_outputs
 BEGIN
     SELECT RAISE(ABORT, 'event_outputs are append-only');
 END;
+
+CREATE TRIGGER IF NOT EXISTS grants_reject_update
+BEFORE UPDATE ON grants
+BEGIN
+    SELECT RAISE(ABORT, 'grants are append-only');
+END;
+
+CREATE TRIGGER IF NOT EXISTS grants_reject_delete
+BEFORE DELETE ON grants
+BEGIN
+    SELECT RAISE(ABORT, 'grants are append-only');
+END;
+
+CREATE TRIGGER IF NOT EXISTS revocations_reject_update
+BEFORE UPDATE ON revocations
+BEGIN
+    SELECT RAISE(ABORT, 'revocations are append-only');
+END;
+
+CREATE TRIGGER IF NOT EXISTS revocations_reject_delete
+BEFORE DELETE ON revocations
+BEGIN
+    SELECT RAISE(ABORT, 'revocations are append-only');
+END;

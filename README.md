@@ -2,7 +2,7 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前仓库已完成到 **T07：来源图与路径查询**。这里已经固定研究边界、四级 Lifetime 语义和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。每次 Run 除了输出可按 Artifact/Effect ID 对齐的 Observed 与 Oracle JSONL，还会只从 EventStore 重建只读 NetworkX 来源图并导出脱敏 `security-graph.json`。尚未实现 T08 正式策略、T09 风险指标、T10 Checkpoint 或真实平台 Adapter。
+当前仓库已完成到 **T08：授权匹配与策略决策**。这里已经固定研究边界、四级 Lifetime 菱形偏序和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。每次 Run 除了输出可按 Artifact/Effect ID 对齐的 Observed 与 Oracle JSONL，还会只从 EventStore 重建只读 NetworkX 来源图并导出脱敏 `security-graph.json`。正式 PolicyEngine 现在会分别计算 Harness 基线、策略建议、真实授权和实际执行；尚未实现 T09 风险指标、T10 Checkpoint 或真实平台 Adapter。
 
 ## 当前能力
 
@@ -11,9 +11,9 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 - `skillflow doctor`：离线检查 Python、SQLite、运行依赖和临时目录可写性。
 - `skillflow validate-manifest PATH`：只校验 Skill Manifest，不加载或执行 Skill。
 - `skillflow validate-scenario PATH`：只校验 Scenario，不运行 fixture。
-- Pydantic v2 核心安全模型、受控 Resource URI 和 `call | task | session | persistent` 菱形 Lifetime。
+- Pydantic v2 核心安全模型、受控 Resource URI、`call | task | session | persistent` 菱形 Lifetime，以及四种互不放大的精确 Scope。
 - `skill-manifest`、`scenario`、`experiment-matrix`、`risk-report` 四类模型生成静态 JSON Schema。
-- SQLite EventStore：事件及输入输出边追加写入，数据库触发器拒绝历史 UPDATE/DELETE。
+- SQLite EventStore：事件、Grant、撤销及输入输出边追加写入，数据库触发器拒绝历史 UPDATE/DELETE。
 - Event、输入输出边、Decision 与 Effect 以一个 Envelope 原子提交；失败时不留下半条事件。
 - 按 Run 隔离的受控 BlobStore：引用不暴露路径，读回时校验内容 hash 与长度。
 - Persistent Memory 头可跨 Session 和进程重启恢复；历史事件仍保持不可变。
@@ -23,7 +23,11 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 - `MockHarnessAdapter` 与白名单 `ScriptedBackend` 不调用真实 LLM，也不动态导入 Scenario 指定的 Python 实现。
 - Context、Persistent Memory、隔离 Workspace 文件和 Skill 六段生命周期都生成不可变 Artifact 或追加 Event。
 - 普通 Tool 白名单固定为 `read_file`、`write_memory`、`read_memory`、`http_send`、`shell_exec`；用户确认和 Skill 撤销不在普通 Tool 面中。
-- Tool 调用严格记录请求、规范化 Effect、参数 Artifact、Stub allow/deny、Mock 执行和强类型 Receipt；拒绝请求不产生 Effect 或 Receipt。
+- Tool 调用严格记录请求、规范化 Effect、参数 Artifact、完整 Decision、Mock 执行和强类型 Receipt；拒绝请求不产生 Effect 或 Receipt。
+- Manifest capability matcher 与 Grant matcher 同时校验主体、动作、精确资源、Scope、Lifetime 边界、时间窗和撤销状态；两把钥匙缺一不可。
+- PolicyEngine 返回 `ALLOW | DENY | CONFIRM` 与稳定 reason codes，并保持 `baseline_result`、`policy_result`、`authorized`、`executed` 四个事实互不覆盖。
+- monitor 只放行 baseline 已允许的 Mock Effect，不会洗白授权；enforce 只在 baseline 与 policy 都允许时执行。
+- 只有 Benchmark 编排器能以 `USER | TRUSTED_POLICY` 调用特权确认入口并生成结构化 Grant；Skill 身份和普通“用户已批准”文本都不能授权。
 - HTTP 与 Shell 只有进程内结构化 Mock 记录，不建立网络连接、不创建子进程；文件只能访问每次运行独占的 Workspace 根。
 - 同一 YAML、虚拟时间与 seed 的 Trace hash 一致；两个 Run 的 Context、Memory、Receipt 与 Workspace 状态互不累积。
 - 每次 Scenario Run 同时创建 `observed-trace.jsonl` 与 `oracle-trace.jsonl`；默认只含结构化 ID、来源、关系、能力和 Receipt 引用，不含 Blob、Tool 参数明文或 fixture marker。
@@ -67,6 +71,7 @@ python -m venv .venv-skillflow
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli validate-scenario tests\fixtures\t03\valid_scenario.yaml
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t06_dual_trace.py -q --no-cov
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t07_scenario_graph.py -q --no-cov
+.\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t08_policy_modes.py -q --no-cov
 ```
 
 安装后也可以直接使用控制台命令：
@@ -101,7 +106,7 @@ for path in paths:
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli --help
 ```
 
-当前 pytest 门禁仍按任务书使用 80% 最低阈值；T07 的最终测试项数、分支覆盖率与 Golden 路径证据记录在 [`docs/summaries/T07_Summary.md`](docs/summaries/T07_Summary.md)。T14 将把最终门槛正式提升到 90%。
+当前 pytest 门禁仍按任务书使用 80% 最低阈值；T08 的最终测试项数、分支覆盖率、策略真值表与授权证据记录在 [`docs/summaries/T08_Summary.md`](docs/summaries/T08_Summary.md)。T14 将把最终门槛正式提升到 90%。
 
 ## 项目范围
 

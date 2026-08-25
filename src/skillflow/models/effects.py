@@ -6,7 +6,7 @@ from pydantic import Field, model_validator
 from pydantic_core import PydanticCustomError
 
 from skillflow.models.base import NonEmptyStr, StrictModel
-from skillflow.models.enums import CapabilityAction, Lifetime
+from skillflow.models.enums import CapabilityAction, Lifetime, Scope
 from skillflow.models.resources import ResourceRef
 
 
@@ -16,7 +16,7 @@ class CapabilityEffect(StrictModel):
     source: ResourceRef | None
     action: CapabilityAction
     sink: ResourceRef
-    scope: NonEmptyStr
+    scope: Scope
     lifetime: Lifetime
     sensitivity: Annotated[int, Field(ge=0, le=4)]
 

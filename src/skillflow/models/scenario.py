@@ -55,6 +55,12 @@ class Scenario(StrictModel):
         asset_ids = tuple(asset.id for asset in self.assets)
         skill_ids = tuple(skill.id for skill in self.skills)
         selector_ids = tuple(selector.alias for selector in self.effect_selectors)
+        grant_ids = tuple(grant.grant_id for grant in self.grants) + tuple(
+            step.grant.grant_id
+            for session in self.sessions
+            for step in session.steps
+            if step.grant is not None
+        )
         session_ids = tuple(session.id for session in self.sessions)
         step_ids = tuple(step.id for session in self.sessions for step in session.steps)
         artifact_ids = tuple(
@@ -67,6 +73,7 @@ class Scenario(StrictModel):
             ("asset", asset_ids),
             ("skill", skill_ids),
             ("effect selector", selector_ids),
+            ("grant", grant_ids),
             ("session", session_ids),
             ("step", step_ids),
             ("artifact alias", artifact_ids),
@@ -75,21 +82,22 @@ class Scenario(StrictModel):
 
     @model_validator(mode="after")
     def validate_skill_and_grant_references(self) -> Self:
-        """校验步骤 Skill 与 Grant 的任务和受权主体引用。"""
+        """校验步骤 Skill 与 Grant 的受权主体引用。"""
         declared_skills = frozenset(skill.id for skill in self.skills)
         for session in self.sessions:
             for step in session.steps:
                 if step.skill is not None and step.skill not in declared_skills:
                     self._undeclared("skill", step.skill)
 
-        for grant in self.grants:
+        grants = self.grants + tuple(
+            step.grant
+            for session in self.sessions
+            for step in session.steps
+            if step.grant is not None
+        )
+        for grant in grants:
             if grant.grantee_id not in declared_skills:
                 self._undeclared("grant grantee", grant.grantee_id)
-            if grant.task_id != self.task.id:
-                raise PydanticCustomError(
-                    "scenario_grant_task_mismatch",
-                    "Grant task_id 必须与 Scenario task.id 相同",
-                )
         return self
 
     @model_validator(mode="after")

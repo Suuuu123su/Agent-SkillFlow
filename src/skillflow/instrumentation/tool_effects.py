@@ -12,7 +12,7 @@ from skillflow.instrumentation.tool_types import (
     WriteMemoryArgs,
 )
 from skillflow.models.effects import CapabilityEffect
-from skillflow.models.enums import CapabilityAction, Lifetime
+from skillflow.models.enums import CapabilityAction, Lifetime, Scope
 from skillflow.models.resources import ResourceRef
 
 
@@ -33,7 +33,7 @@ def normalize_tool_request(arguments: ToolArguments) -> NormalizedToolRequest:
         case ReadFileArgs(resource=resource, sink=sink, sensitivity=sensitivity):
             action = CapabilityAction.FILE_READ
             source = resource
-            scope = "exact-file"
+            scope = Scope.EXACT_FILE
             source_ids = ()
         case WriteMemoryArgs(
             key=key,
@@ -43,12 +43,12 @@ def normalize_tool_request(arguments: ToolArguments) -> NormalizedToolRequest:
         ):
             action = CapabilityAction.MEMORY_WRITE
             sink = ResourceRef(f"memory:/{key}")
-            scope = "exact-key"
+            scope = Scope.EXACT_KEY
             source_ids = (source_id,)
         case ReadMemoryArgs(key=key, sink=sink, sensitivity=sensitivity):
             action = CapabilityAction.MEMORY_READ
             source = ResourceRef(f"memory:/{key}")
-            scope = "exact-key"
+            scope = Scope.EXACT_KEY
             source_ids = ()
         case HttpSendArgs(
             source_artifact_id=source_id,
@@ -57,12 +57,12 @@ def normalize_tool_request(arguments: ToolArguments) -> NormalizedToolRequest:
             sensitivity=sensitivity,
         ):
             action = CapabilityAction.NETWORK_SEND
-            scope = "exact-sink"
+            scope = Scope.EXACT_SINK
             source_ids = (source_id,)
         case ShellExecArgs(sink=sink, sensitivity=sensitivity):
             action = CapabilityAction.SHELL_EXECUTE
             source = None
-            scope = "command"
+            scope = Scope.COMMAND
             source_ids = ()
         case _ as unreachable:
             assert_never(unreachable)

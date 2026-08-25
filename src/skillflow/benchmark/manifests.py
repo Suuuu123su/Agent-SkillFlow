@@ -1,5 +1,6 @@
 """从受控仓库相对路径加载 Scenario Manifest。"""
 
+from dataclasses import dataclass
 from pathlib import Path
 
 from skillflow.models.manifest import SkillManifest
@@ -8,17 +9,47 @@ from skillflow.oracle.models import OracleManifestPlan
 from skillflow.validation import DocumentValidationError, ValidationIssue, validate_yaml_document
 
 
+@dataclass(frozen=True, slots=True)
+class ManifestBinding:
+    """Scenario Skill 与已验证 Manifest 的中立绑定。"""
+
+    skill_id: str
+    manifest: SkillManifest
+
+
+def load_manifests(
+    scenario_path: Path,
+    scenario: Scenario,
+) -> tuple[ManifestBinding, ...]:
+    """为 Runtime 与 Oracle 各自提供同一只读声明输入。"""
+    bindings: list[ManifestBinding] = []
+    for skill in scenario.skills:
+        manifest_path = _find_relative_file(scenario_path, skill.manifest.root)
+        manifest = validate_yaml_document(manifest_path, SkillManifest)
+        if manifest.id != skill.id:
+            raise DocumentValidationError(
+                (
+                    ValidationIssue(
+                        file=manifest_path,
+                        field_path="$.id",
+                        code="manifest_skill_id_mismatch",
+                        reason=f"Manifest ID 必须等于 Scenario Skill ID：{skill.id}",
+                    ),
+                )
+            )
+        bindings.append(ManifestBinding(skill.id, manifest))
+    return tuple(bindings)
+
+
 def load_oracle_manifests(
     scenario_path: Path,
     scenario: Scenario,
 ) -> tuple[OracleManifestPlan, ...]:
     """在 Scenario 所在仓库祖先中解析受控 Manifest 引用。"""
-    bindings: list[OracleManifestPlan] = []
-    for skill in scenario.skills:
-        manifest_path = _find_relative_file(scenario_path, skill.manifest.root)
-        manifest = validate_yaml_document(manifest_path, SkillManifest)
-        bindings.append(OracleManifestPlan(skill.id, manifest))
-    return tuple(bindings)
+    return tuple(
+        OracleManifestPlan(binding.skill_id, binding.manifest)
+        for binding in load_manifests(scenario_path, scenario)
+    )
 
 
 def _find_relative_file(scenario_path: Path, relative_path: str) -> Path:

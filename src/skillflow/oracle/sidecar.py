@@ -1,5 +1,6 @@
 """按声明计划和 Receipt 证据增量维护独立 Oracle。"""
 
+from skillflow.models.authorization import AuthorizationGrant
 from skillflow.models.effects import CapabilityEffect
 from skillflow.models.scenario_parts import StepAction
 from skillflow.oracle.bindings import bind_attempts, bind_receipts
@@ -28,6 +29,7 @@ class OracleSidecar:
         self._plan = plan
         self._state = OracleDataState(plan.run_id, plan.scenario.assets)
         self._resolver = OracleGrantResolver(plan.scenario.grants)
+        self._grant_ids = {grant.grant_id for grant in plan.scenario.grants}
         self._effects: list[OracleEffectTrace] = []
         self._effect_ids: set[str] = set()
         self._recorded_steps: set[str] = set()
@@ -57,6 +59,13 @@ class OracleSidecar:
             action_outputs.extend(receipt.output_artifact_ids)
         self._state.record_skill_output(evidence, tuple(action_outputs))
         self._recorded_steps.add(evidence.step_id)
+
+    def record_grant(self, grant: AuthorizationGrant) -> None:
+        """只接收 Benchmark 已执行的结构化确认，不读取 Policy。"""
+        if grant.grant_id in self._grant_ids:
+            raise OracleInvariantError("grant", f"Grant ID 重复：{grant.grant_id}")
+        self._resolver = self._resolver.with_grant(grant)
+        self._grant_ids.add(grant.grant_id)
 
     def finalize(self) -> tuple[OracleTraceRecord, ...]:
         """验证完整脚本路径和预注册来源断言后返回只读 Trace。"""
