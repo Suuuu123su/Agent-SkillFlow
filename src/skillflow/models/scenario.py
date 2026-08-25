@@ -101,6 +101,22 @@ class Scenario(StrictModel):
         return self
 
     @model_validator(mode="after")
+    def validate_ordered_artifact_inputs(self) -> Self:
+        """输入 alias 必须由当前 Scenario 的此前步骤产生。"""
+        available: set[str] = set()
+        for session in self.sessions:
+            for step in session.steps:
+                for reference in step.inputs:
+                    if reference.alias not in available:
+                        raise PydanticCustomError(
+                            "scenario_input_not_available",
+                            "Artifact 输入必须由此前步骤产生：{value}",
+                            {"value": reference.root},
+                        )
+                available.update(output.alias for output in step.outputs)
+        return self
+
+    @model_validator(mode="after")
     def validate_oracle_references(self) -> Self:
         """校验 Oracle 目标、来源和撤销 Skill 均已声明。"""
         declared_assets = frozenset(asset.id for asset in self.assets)

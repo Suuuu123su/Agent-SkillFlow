@@ -9,7 +9,11 @@ from skillflow.adapters.base import (
     SkillInvocation,
     SkillInvocationResult,
 )
-from skillflow.benchmark.scripted_backend import ScriptedBackend
+from skillflow.benchmark.scripted_backend import (
+    ScriptedBackend,
+    ScriptedInputArtifact,
+    ScriptedInvocation,
+)
 from skillflow.instrumentation.context_proxy import InstrumentedContext
 from skillflow.instrumentation.decision_stub import DecisionProvider
 from skillflow.instrumentation.errors import HarnessStateError
@@ -142,7 +146,18 @@ class MockHarnessAdapter:
             invocation.input_artifact_ids,
             actor,
         )
-        scripted = self._backend.invoke(binding.implementation, actor, runtime.tools)
+        inputs = tuple(
+            ScriptedInputArtifact(
+                artifact_id=artifact_id,
+                content_hash=artifact.content_hash,
+                content_length=artifact.content_length,
+            )
+            for artifact_id in invocation.input_artifact_ids
+            for artifact in (runtime.recorder.require_artifact(artifact_id),)
+        )
+        scripted = self._backend.invoke(
+            ScriptedInvocation(binding.implementation, actor, runtime.tools, inputs)
+        )
         parents = tuple(
             dict.fromkeys((*invocation.input_artifact_ids, *scripted.parent_artifact_ids))
         )
@@ -154,6 +169,7 @@ class MockHarnessAdapter:
             receipts=scripted.receipts,
             attempts=scripted.attempts,
             call_id=actor.call_id,
+            input_artifact_ids=invocation.input_artifact_ids,
         )
 
     def end_session(self) -> None:

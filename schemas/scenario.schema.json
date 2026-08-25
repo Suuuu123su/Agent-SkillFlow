@@ -539,6 +539,14 @@
           "title": "Id",
           "type": "string"
         },
+        "inputs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ArtifactAliasRef"
+          },
+          "title": "Inputs",
+          "type": "array"
+        },
         "outputs": {
           "default": [],
           "items": {

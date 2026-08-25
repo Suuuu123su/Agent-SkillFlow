@@ -111,6 +111,7 @@ class ScenarioStep(StrictModel):
     action: StepAction
     skill: NonEmptyStr | None = None
     actor: PrincipalType | None = None
+    inputs: tuple[ArtifactAliasRef, ...] = ()
     outputs: tuple[ArtifactAliasRef, ...] = ()
     grant: AuthorizationGrant | None = None
 
@@ -124,7 +125,9 @@ class ScenarioStep(StrictModel):
                     raise PydanticCustomError("step_skill_missing", "invoke_skill 要求 skill")
             case StepAction.WRITE_MEMORY | StepAction.READ_MEMORY | StepAction.REQUEST_TOOL:
                 self._require_no_grant()
+                self._require_no_inputs()
             case StepAction.USER_CONFIRM:
+                self._require_no_inputs()
                 self._require_trusted_actor()
                 if self.grant is None:
                     raise PydanticCustomError(
@@ -138,11 +141,13 @@ class ScenarioStep(StrictModel):
                     )
             case StepAction.REVOKE_SKILL | StepAction.UNLOAD_SKILL:
                 self._require_no_grant()
+                self._require_no_inputs()
                 self._require_trusted_actor()
                 if self.skill is None:
                     raise PydanticCustomError("step_skill_missing", "撤销或卸载步骤要求 skill")
             case StepAction.RESTART_RUNTIME:
                 self._require_no_grant()
+                self._require_no_inputs()
             case _ as unreachable:
                 assert_never(unreachable)
         return self
@@ -159,6 +164,13 @@ class ScenarioStep(StrictModel):
             raise PydanticCustomError(
                 "step_grant_forbidden",
                 "只有 user_confirm 可以携带 Grant",
+            )
+
+    def _require_no_inputs(self) -> None:
+        if self.inputs:
+            raise PydanticCustomError(
+                "step_inputs_forbidden",
+                "只有 invoke_skill 可以引用 Artifact 输入",
             )
 
 

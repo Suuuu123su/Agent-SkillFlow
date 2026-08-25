@@ -97,6 +97,34 @@
       "title": "CapabilityAction",
       "type": "string"
     },
+    "ConfirmedInfluenceEdge": {
+      "additionalProperties": false,
+      "description": "仅由成对反事实证据确认的 Artifact→Effect 影响边。",
+      "properties": {
+        "relation": {
+          "const": "INFLUENCE_CONFIRMED",
+          "default": "INFLUENCE_CONFIRMED",
+          "title": "Relation",
+          "type": "string"
+        },
+        "source_artifact_id": {
+          "minLength": 1,
+          "title": "Source Artifact Id",
+          "type": "string"
+        },
+        "target_effect_id": {
+          "minLength": 1,
+          "title": "Target Effect Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_artifact_id",
+        "target_effect_id"
+      ],
+      "title": "ConfirmedInfluenceEdge",
+      "type": "object"
+    },
     "Decision": {
       "description": "Harness 或策略的结构化决策。",
       "enum": [
@@ -503,28 +531,28 @@
       "additionalProperties": false,
       "description": "一次原始/中和 Run 配对的因果影响报告。",
       "properties": {
+        "added_effect_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Added Effect Ids",
+          "type": "array"
+        },
         "ci": {
-          "maximum": 1.0,
-          "minimum": 0.0,
+          "enum": [
+            -1,
+            0,
+            1
+          ],
           "title": "Ci",
-          "type": "number"
+          "type": "integer"
         },
         "confirmed_influence_edges": {
           "default": [],
           "items": {
-            "maxItems": 2,
-            "minItems": 2,
-            "prefixItems": [
-              {
-                "minLength": 1,
-                "type": "string"
-              },
-              {
-                "minLength": 1,
-                "type": "string"
-              }
-            ],
-            "type": "array"
+            "$ref": "#/$defs/ConfirmedInfluenceEdge"
           },
           "title": "Confirmed Influence Edges",
           "type": "array"
@@ -532,6 +560,20 @@
         "intervention_artifact_id": {
           "minLength": 1,
           "title": "Intervention Artifact Id",
+          "type": "string"
+        },
+        "neutral_effect_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Neutral Effect Ids",
+          "type": "array"
+        },
+        "neutral_intervention_artifact_id": {
+          "minLength": 1,
+          "title": "Neutral Intervention Artifact Id",
           "type": "string"
         },
         "neutral_run_id": {
@@ -548,10 +590,33 @@
           "title": "Observed Effect Ids",
           "type": "array"
         },
+        "original_effect_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Original Effect Ids",
+          "type": "array"
+        },
+        "original_intervention_artifact_id": {
+          "minLength": 1,
+          "title": "Original Intervention Artifact Id",
+          "type": "string"
+        },
         "original_run_id": {
           "minLength": 1,
           "title": "Original Run Id",
           "type": "string"
+        },
+        "removed_effect_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Removed Effect Ids",
+          "type": "array"
         },
         "replay_id": {
           "minLength": 1,
@@ -567,6 +632,14 @@
           "minLength": 1,
           "title": "Schema Version",
           "type": "string"
+        },
+        "y_neutral": {
+          "title": "Y Neutral",
+          "type": "boolean"
+        },
+        "y_original": {
+          "title": "Y Original",
+          "type": "boolean"
         }
       },
       "required": [
@@ -576,6 +649,10 @@
         "original_run_id",
         "neutral_run_id",
         "intervention_artifact_id",
+        "original_intervention_artifact_id",
+        "neutral_intervention_artifact_id",
+        "y_original",
+        "y_neutral",
         "ci"
       ],
       "title": "ReplayRiskReport",

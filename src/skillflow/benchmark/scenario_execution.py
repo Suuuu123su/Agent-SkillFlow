@@ -31,6 +31,14 @@ class ScenarioExecutionResult:
     artifact_aliases: dict[str, tuple[str, ...]]
 
 
+@dataclass(frozen=True, slots=True)
+class _StepExecution:
+    step: ScenarioStep
+    harness: MockHarnessAdapter
+    controller: BenchmarkController
+    input_artifact_ids: tuple[str, ...]
+
+
 def execute_scenario_sessions(
     scenario: Scenario,
     harness: MockHarnessAdapter,
@@ -40,6 +48,7 @@ def execute_scenario_sessions(
     outputs: list[Artifact] = []
     receipts: list[ToolReceipt] = []
     artifact_aliases: dict[str, tuple[str, ...]] = {}
+    alias_artifacts: dict[str, str] = {}
     controller = BenchmarkController(harness)
     bindings = {
         skill.id: SkillBinding(skill.id, skill.implementation) for skill in scenario.skills
@@ -57,7 +66,8 @@ def execute_scenario_sessions(
             for skill_id in invoked_skills:
                 harness.load_skill(bindings[skill_id])
             for step in session.steps:
-                result = _execute_step(step, harness, controller)
+                input_ids = tuple(alias_artifacts[item.alias] for item in step.inputs)
+                result = _execute_step(_StepExecution(step, harness, controller, input_ids))
                 if step.action is StepAction.USER_CONFIRM and step.grant is not None:
                     oracle.record_grant(step.grant)
                 if result is not None:
@@ -65,6 +75,9 @@ def execute_scenario_sessions(
                     receipts.extend(result.receipts)
                     aliases = tuple(output.root for output in step.outputs)
                     artifact_aliases[result.output.artifact_id] = aliases
+                    alias_artifacts.update(
+                        (output.alias, result.output.artifact_id) for output in step.outputs
+                    )
                     oracle.record_invocation(
                         project_oracle_invocation(
                             OracleInvocationBinding(
@@ -79,30 +92,29 @@ def execute_scenario_sessions(
     return ScenarioExecutionResult(tuple(outputs), tuple(receipts), artifact_aliases)
 
 
-def _execute_step(
-    step: ScenarioStep,
-    harness: MockHarnessAdapter,
-    controller: BenchmarkController,
-) -> SkillInvocationResult | None:
+def _execute_step(execution: _StepExecution) -> SkillInvocationResult | None:
+    step = execution.step
     match step.action:
         case StepAction.INVOKE_SKILL:
             if step.skill is None:
                 raise UnsupportedStepError(step.id, "invoke_skill without skill")
-            return harness.invoke_skill(SkillInvocation(step.skill))
+            return execution.harness.invoke_skill(
+                SkillInvocation(step.skill, execution.input_artifact_ids)
+            )
         case StepAction.REVOKE_SKILL:
             if step.skill is None or step.actor is None:
                 raise UnsupportedStepError(step.id, "invalid revoke_skill")
-            controller.revoke_skill(step.skill, step.actor)
+            execution.controller.revoke_skill(step.skill, step.actor)
             return None
         case StepAction.UNLOAD_SKILL:
             if step.skill is None or step.actor is None:
                 raise UnsupportedStepError(step.id, "invalid unload_skill")
-            controller.unload_skill(step.skill, step.actor)
+            execution.controller.unload_skill(step.skill, step.actor)
             return None
         case StepAction.USER_CONFIRM:
             if step.actor is None or step.grant is None:
                 raise UnsupportedStepError(step.id, "invalid user_confirm")
-            controller.confirm_tool(step.grant, step.actor)
+            execution.controller.confirm_tool(step.grant, step.actor)
             return None
         case (
             StepAction.WRITE_MEMORY

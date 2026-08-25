@@ -40,6 +40,7 @@ class SkillInvocationResult:
     receipts: tuple[ToolReceipt, ...]
     attempts: tuple[ToolActionAttempt, ...]
     call_id: str
+    input_artifact_ids: tuple[str, ...]
 
 
 class HarnessAdapter(Protocol):

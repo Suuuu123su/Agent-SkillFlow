@@ -79,7 +79,7 @@ def project_oracle_invocation(binding: OracleInvocationBinding) -> OracleInvocat
         skill_id=skill_id,
         session_id=binding.session_id,
         call_id=result.call_id,
-        input_artifact_ids=(),
+        input_artifact_ids=result.input_artifact_ids,
         output_artifact_id=result.output.artifact_id,
         output_aliases=tuple(output.root for output in binding.step.outputs),
         attempts=tuple(
