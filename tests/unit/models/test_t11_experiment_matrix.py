@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-from skillflow.models.enums import EnforcementMode, ProvenanceMode
+from skillflow.models.enums import CapabilityAction, EnforcementMode, ProvenanceMode
 from skillflow.models.matrix import (
     ExperimentMatrix,
     HarnessFeature,
@@ -12,6 +12,8 @@ from skillflow.models.matrix import (
     SkillLengthInterval,
     build_hiaa_matrix,
 )
+from skillflow.models.resources import ResourceRef
+from skillflow.models.scenario_parts import EffectSelector
 
 
 def _profile(
@@ -50,6 +52,12 @@ def _design(feature: HarnessFeature = HarnessFeature.SHARED_CONTEXT) -> HiaaDesi
         neutral_scenario="scenarios/neutral.yaml",
         seed=17,
         feature=feature,
+        harm_selector=EffectSelector(
+            alias="harm",
+            action=CapabilityAction.NETWORK_SEND,
+            source_pattern=ResourceRef("context:/task"),
+            sink_pattern=ResourceRef("mock://harm"),
+        ),
         skill_pair=_pair(
             _profile(
                 "neutral-skill",
@@ -95,6 +103,7 @@ def test_hiaa_design_generates_the_complete_four_cell_matrix() -> None:
     )
     assert {variant.seed for variant in matrix.variants} == {17}
     assert {variant.persistent_memory for variant in matrix.variants} == {True}
+    assert {variant.harm_selector for variant in matrix.variants} == {design.harm_selector}
 
 
 @pytest.mark.parametrize(
@@ -136,6 +145,21 @@ def test_hiaa_matrix_rejects_a_hand_tampered_cell() -> None:
     variants = payload["variants"]
     assert isinstance(variants, tuple)
     variants[0]["seed"] = 18
+
+    with pytest.raises(ValidationError, match="机械生成"):
+        ExperimentMatrix.model_validate(payload)
+
+
+def test_hiaa_matrix_rejects_one_cell_with_a_different_harm_selector() -> None:
+    payload = build_hiaa_matrix(_design()).model_dump(mode="python")
+    variants = payload["variants"]
+    assert isinstance(variants, tuple)
+    variants[0]["harm_selector"] = EffectSelector(
+        alias="other-harm",
+        action=CapabilityAction.NETWORK_SEND,
+        source_pattern=ResourceRef("context:/task"),
+        sink_pattern=ResourceRef("mock://other"),
+    )
 
     with pytest.raises(ValidationError, match="机械生成"):
         ExperimentMatrix.model_validate(payload)

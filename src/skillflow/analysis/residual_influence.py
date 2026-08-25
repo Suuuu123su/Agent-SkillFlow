@@ -51,6 +51,7 @@ def calculate_rir(
                         action.receipt_id,
                         action.attributed_skill_id,
                         *action.attribution_evidence_ids,
+                        *action.oracle_provenance_evidence_ids,
                     )
                     if evidence_id is not None
                 ),
@@ -62,7 +63,7 @@ def calculate_rir(
 
 def _counts_for_rir(action: ResidualActionEvidence, revoked_skill_id: str) -> bool:
     match action.attribution:
-        case AttributionKind.ORACLE_PATH | AttributionKind.CONFIRMED_INFLUENCE:
+        case AttributionKind.INFLUENCE_CONFIRMED | AttributionKind.GT_INFLUENCE:
             return action.unauthorized and action.attributed_skill_id == revoked_skill_id
         case AttributionKind.NONE:
             return False

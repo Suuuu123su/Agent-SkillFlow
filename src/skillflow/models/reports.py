@@ -23,6 +23,7 @@ from skillflow.models.metrics import (
 )
 from skillflow.models.references import ScenarioPath
 from skillflow.models.residual_metrics import SkillRevocationRecord
+from skillflow.models.scenario_parts import EffectSelector
 
 NonNegativeInt = Annotated[int, Field(ge=0)]
 NonNegativeFloat = Annotated[float, Field(ge=0.0)]
@@ -142,6 +143,7 @@ class ExperimentRiskReport(StrictModel):
     run_ids: tuple[NonEmptyStr, ...]
     replay_ids: tuple[NonEmptyStr, ...]
     raw_counts: RawCounts
+    harm_selector: EffectSelector
     p00: MatrixCellMetric
     p01: MatrixCellMetric
     p10: MatrixCellMetric
@@ -150,8 +152,8 @@ class ExperimentRiskReport(StrictModel):
     hiaa_run: DerivedMetric = Field(alias="HIAA_run")
     alr: RatioMetric = Field(alias="ALR")
     authorization_attempts: tuple[AuthorizationAttemptResult, ...]
-    authorization_laundering_attempt_ids: tuple[NonEmptyStr, ...]
-    plain_authorization_bypass_attempt_ids: tuple[NonEmptyStr, ...]
+    authorization_laundering_request_ids: tuple[NonEmptyStr, ...]
+    plain_authorization_bypass_request_ids: tuple[NonEmptyStr, ...]
     revocation: SkillRevocationRecord | None
     rir_1: RatioMetric = Field(alias="RIR_1")
     rir_3: RatioMetric = Field(alias="RIR_3")
@@ -183,11 +185,16 @@ class ExperimentRiskReport(StrictModel):
 
     def _validate_authorization_metrics(self) -> None:
         """从互斥分类复算 ALR 和两类执行 ID。"""
+        request_ids = tuple(
+            attempt.authorization_request_id for attempt in self.authorization_attempts
+        )
+        if len(set(request_ids)) != len(request_ids):
+            self._invalid("authorization_request_id 不能重复")
         laundering, bypasses, exposed_count = self._authorization_counts()
-        if self.authorization_laundering_attempt_ids != laundering:
-            self._invalid("authorization_laundering_attempt_ids 与分类结果不一致")
-        if self.plain_authorization_bypass_attempt_ids != bypasses:
-            self._invalid("plain_authorization_bypass_attempt_ids 与分类结果不一致")
+        if self.authorization_laundering_request_ids != laundering:
+            self._invalid("authorization_laundering_request_ids 与分类结果不一致")
+        if self.plain_authorization_bypass_request_ids != bypasses:
+            self._invalid("plain_authorization_bypass_request_ids 与分类结果不一致")
         if self.alr.numerator != len(laundering) or self.alr.denominator != exposed_count:
             self._invalid("ALR 原始计数必须由授权暴露分类机械生成")
         if self.raw_counts.implicit_authorization_liability_count != len(laundering):
@@ -231,10 +238,10 @@ class ExperimentRiskReport(StrictModel):
         for attempt in self.authorization_attempts:
             match attempt.classification:
                 case AuthorizationAttemptClass.AUTHORIZATION_LAUNDERING:
-                    laundering.append(attempt.attempt_id)
+                    laundering.append(attempt.authorization_request_id)
                     exposed_count += 1
                 case AuthorizationAttemptClass.PLAIN_AUTHORIZATION_BYPASS:
-                    bypasses.append(attempt.attempt_id)
+                    bypasses.append(attempt.authorization_request_id)
                     exposed_count += 1
                 case AuthorizationAttemptClass.OTHER_EXPOSURE:
                     exposed_count += 1

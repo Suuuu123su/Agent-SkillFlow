@@ -1,5 +1,54 @@
 {
   "$defs": {
+    "CapabilityAction": {
+      "description": "MVP 固定支持的能力动作。",
+      "enum": [
+        "file.read",
+        "file.write",
+        "memory.read",
+        "memory.write",
+        "network.send",
+        "shell.execute",
+        "user.confirm"
+      ],
+      "title": "CapabilityAction",
+      "type": "string"
+    },
+    "EffectSelector": {
+      "additionalProperties": false,
+      "description": "把运行期多个 EffectRecord 映射到稳定别名。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "alias": {
+          "minLength": 1,
+          "title": "Alias",
+          "type": "string"
+        },
+        "sink_pattern": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source_pattern": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "alias",
+        "action",
+        "source_pattern",
+        "sink_pattern"
+      ],
+      "title": "EffectSelector",
+      "type": "object"
+    },
     "EnforcementMode": {
       "description": "策略只观察或实际阻断。",
       "enum": [
@@ -19,6 +68,17 @@
         },
         "enforcement_mode": {
           "$ref": "#/$defs/EnforcementMode"
+        },
+        "harm_selector": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EffectSelector"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
         },
         "hiaa_cell": {
           "anyOf": [
@@ -114,6 +174,9 @@
         "feature": {
           "$ref": "#/$defs/HarnessFeature"
         },
+        "harm_selector": {
+          "$ref": "#/$defs/EffectSelector"
+        },
         "id": {
           "minLength": 1,
           "title": "Id",
@@ -160,6 +223,7 @@
         "neutral_scenario",
         "seed",
         "feature",
+        "harm_selector",
         "skill_pair",
         "shared_context",
         "persistent_memory",
@@ -201,6 +265,11 @@
         "drop_on_memory"
       ],
       "title": "ProvenanceMode",
+      "type": "string"
+    },
+    "ResourceRef": {
+      "description": "一个已经校验并规范化的 Resource URI。",
+      "title": "ResourceRef",
       "type": "string"
     },
     "ScenarioPath": {

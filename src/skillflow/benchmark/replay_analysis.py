@@ -3,7 +3,10 @@
 from dataclasses import dataclass
 
 from skillflow.analysis.counterfactual import compute_scripted_ci
-from skillflow.analysis.errors import AnalysisInvariantError
+from skillflow.analysis.effect_selection import (
+    EffectSelectionFacts,
+    select_receipted_effects,
+)
 from skillflow.benchmark.replay_models import (
     ReplayBranchResult,
     ReplayControlEvidence,
@@ -39,8 +42,8 @@ class ReplayAnalysisResult:
 
 def analyze_replay_pair(setup: ReplayAnalysisSetup) -> ReplayAnalysisResult:
     """只把 selector 命中的已执行 Effect 与实际 Receipt 纳入 CI。"""
-    original_effects = _confirmed_effects(setup.original, setup.selector)
-    neutral_effects = _confirmed_effects(setup.neutral, setup.selector)
+    original_effects = _receipted_effects(setup.original, setup.selector)
+    neutral_effects = _receipted_effects(setup.neutral, setup.selector)
     original_ids = tuple(effect.effect_id for effect in original_effects)
     neutral_ids = tuple(effect.effect_id for effect in neutral_effects)
     observed_ids = tuple(dict.fromkeys((*original_ids, *neutral_ids)))
@@ -76,39 +79,14 @@ def analyze_replay_pair(setup: ReplayAnalysisSetup) -> ReplayAnalysisResult:
     return ReplayAnalysisResult(report, _build_manifest(setup, report))
 
 
-def _confirmed_effects(
+def _receipted_effects(
     branch: ReplayBranchResult,
     selector: EffectSelector,
 ) -> tuple[EffectRecord, ...]:
-    receipts = {receipt.receipt_id: receipt for receipt in branch.receipts}
-    matched: list[EffectRecord] = []
-    for effect in branch.effects:
-        if not effect.executed or not _matches(effect, selector):
-            continue
-        receipt_id = effect.tool_receipt_id
-        receipt = None if receipt_id is None else receipts.get(receipt_id)
-        if receipt is None or receipt.effect_id != effect.effect_id:
-            raise AnalysisInvariantError(
-                "analyze_replay_pair",
-                f"已执行 Effect 缺少同分支 Tool Receipt：{effect.effect_id}",
-            )
-        matched.append(effect)
-    return tuple(matched)
-
-
-def _matches(effect: EffectRecord, selector: EffectSelector) -> bool:
-    actual_source = effect.effect.source
-    expected_source = selector.source_pattern
-    source_matches = (actual_source is None and expected_source is None) or (
-        actual_source is not None
-        and expected_source is not None
-        and expected_source.matches_exact(actual_source)
+    selected = select_receipted_effects(
+        EffectSelectionFacts(branch.effects, branch.receipts, selector)
     )
-    return (
-        source_matches
-        and selector.action is effect.effect.action
-        and selector.sink_pattern.matches_exact(effect.effect.sink)
-    )
+    return tuple(item.effect for item in selected)
 
 
 def _build_manifest(

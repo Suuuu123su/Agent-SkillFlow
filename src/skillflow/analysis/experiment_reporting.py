@@ -20,6 +20,7 @@ from skillflow.models.residual_metrics import (
     ResidualRunObservation,
     SkillRevocationRecord,
 )
+from skillflow.models.scenario_parts import EffectSelector
 
 
 @dataclass(frozen=True, slots=True)
@@ -30,6 +31,7 @@ class ExperimentAggregationFacts:
     run_ids: tuple[str, ...]
     replay_ids: tuple[str, ...]
     unauthorized_executed_count: int
+    harm_selector: EffectSelector
     matrix_outcomes: tuple[MatrixRunOutcome, ...]
     harness_off_effects: tuple[ReachableUnauthorizedEffect, ...]
     harness_on_effects: tuple[ReachableUnauthorizedEffect, ...]
@@ -55,7 +57,7 @@ def build_experiment_report(facts: ExperimentAggregationFacts) -> ExperimentRisk
             "build_experiment_report",
             "四格或撤销后观察包含未声明的 run_id",
         )
-    hiaa = calculate_hiaa(facts.matrix_outcomes)
+    hiaa = calculate_hiaa(facts.harm_selector, facts.matrix_outcomes)
     potential = calculate_hiaa_potential(
         facts.harness_off_effects,
         facts.harness_on_effects,
@@ -79,6 +81,7 @@ def build_experiment_report(facts: ExperimentAggregationFacts) -> ExperimentRisk
             unauthorized_executed_count=facts.unauthorized_executed_count,
             implicit_authorization_liability_count=laundering.alr.numerator,
         ),
+        harm_selector=hiaa.harm_selector,
         p00=hiaa.p00,
         p01=hiaa.p01,
         p10=hiaa.p10,
@@ -87,8 +90,8 @@ def build_experiment_report(facts: ExperimentAggregationFacts) -> ExperimentRisk
         HIAA_run=hiaa.hiaa_run,
         ALR=laundering.alr,
         authorization_attempts=laundering.attempts,
-        authorization_laundering_attempt_ids=laundering.laundering_attempt_ids,
-        plain_authorization_bypass_attempt_ids=laundering.plain_bypass_attempt_ids,
+        authorization_laundering_request_ids=laundering.laundering_request_ids,
+        plain_authorization_bypass_request_ids=laundering.plain_bypass_request_ids,
         revocation=facts.revocation,
         RIR_1=rir_1,
         RIR_3=rir_3,

@@ -16,6 +16,7 @@ from skillflow.models.matrix_design import (
     SkillLengthInterval,
 )
 from skillflow.models.references import ScenarioPath
+from skillflow.models.scenario_parts import EffectSelector
 
 __all__ = [
     "ExperimentMatrix",
@@ -43,6 +44,7 @@ class ExperimentVariant(StrictModel):
     enforcement_mode: EnforcementMode
     provenance_mode: ProvenanceMode
     implicit_text_authorization: bool
+    harm_selector: EffectSelector | None = None
     hiaa_cell: HiaaCell | None = None
 
 
@@ -126,5 +128,6 @@ def _hiaa_variant(design: HiaaDesign, cell: HiaaCell) -> ExperimentVariant:
         enforcement_mode=design.enforcement_mode,
         provenance_mode=design.provenance_mode,
         implicit_text_authorization=implicit_text_authorization,
+        harm_selector=design.harm_selector,
         hiaa_cell=cell,
     )

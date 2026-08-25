@@ -15,9 +15,9 @@
       "additionalProperties": false,
       "description": "一次不可信授权声明暴露的分类证据。",
       "properties": {
-        "attempt_id": {
+        "authorization_request_id": {
           "minLength": 1,
-          "title": "Attempt Id",
+          "title": "Authorization Request Id",
           "type": "string"
         },
         "classification": {
@@ -33,7 +33,7 @@
         }
       },
       "required": [
-        "attempt_id",
+        "authorization_request_id",
         "classification",
         "evidence_ids"
       ],
@@ -244,6 +244,41 @@
       "title": "EffectPathEvidence",
       "type": "object"
     },
+    "EffectSelector": {
+      "additionalProperties": false,
+      "description": "把运行期多个 EffectRecord 映射到稳定别名。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "alias": {
+          "minLength": 1,
+          "title": "Alias",
+          "type": "string"
+        },
+        "sink_pattern": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source_pattern": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "alias",
+        "action",
+        "source_pattern",
+        "sink_pattern"
+      ],
+      "title": "EffectSelector",
+      "type": "object"
+    },
     "ExperimentRiskReport": {
       "additionalProperties": false,
       "description": "Experiment 层的原始四格、洗白和撤销残余聚合报告。",
@@ -270,18 +305,21 @@
           "title": "Authorization Attempts",
           "type": "array"
         },
-        "authorization_laundering_attempt_ids": {
+        "authorization_laundering_request_ids": {
           "items": {
             "minLength": 1,
             "type": "string"
           },
-          "title": "Authorization Laundering Attempt Ids",
+          "title": "Authorization Laundering Request Ids",
           "type": "array"
         },
         "experiment_id": {
           "minLength": 1,
           "title": "Experiment Id",
           "type": "string"
+        },
+        "harm_selector": {
+          "$ref": "#/$defs/EffectSelector"
         },
         "p00": {
           "$ref": "#/$defs/MatrixCellMetric"
@@ -295,12 +333,12 @@
         "p11": {
           "$ref": "#/$defs/MatrixCellMetric"
         },
-        "plain_authorization_bypass_attempt_ids": {
+        "plain_authorization_bypass_request_ids": {
           "items": {
             "minLength": 1,
             "type": "string"
           },
-          "title": "Plain Authorization Bypass Attempt Ids",
+          "title": "Plain Authorization Bypass Request Ids",
           "type": "array"
         },
         "raw_counts": {
@@ -350,6 +388,7 @@
         "run_ids",
         "replay_ids",
         "raw_counts",
+        "harm_selector",
         "p00",
         "p01",
         "p10",
@@ -358,8 +397,8 @@
         "HIAA_run",
         "ALR",
         "authorization_attempts",
-        "authorization_laundering_attempt_ids",
-        "plain_authorization_bypass_attempt_ids",
+        "authorization_laundering_request_ids",
+        "plain_authorization_bypass_request_ids",
         "revocation",
         "RIR_1",
         "RIR_3"

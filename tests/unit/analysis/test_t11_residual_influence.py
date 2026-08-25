@@ -18,20 +18,15 @@ REVOKED_AT = datetime(2026, 1, 1, tzinfo=UTC)
 def _action(
     effect_id: str,
     attribution: AttributionKind,
-    *,
     unauthorized: bool = True,
-    attributed_skill_id: str | None = None,
 ) -> ResidualActionEvidence:
     evidence_ids = () if attribution is AttributionKind.NONE else (f"evidence-{effect_id}",)
-    resolved_skill_id = (
-        None if attribution is AttributionKind.NONE else attributed_skill_id or "skill-a"
-    )
     return ResidualActionEvidence(
         effect_id=effect_id,
         receipt_id=f"receipt-{effect_id}",
         unauthorized=unauthorized,
         attribution=attribution,
-        attributed_skill_id=resolved_skill_id,
+        attributed_skill_id=None if attribution is AttributionKind.NONE else "skill-a",
         attribution_evidence_ids=evidence_ids,
     )
 
@@ -66,13 +61,13 @@ def test_rir_one_golden_counts_each_run_at_most_once() -> None:
         _run(
             0,
             (
-                _action("effect-0a", AttributionKind.ORACLE_PATH),
-                _action("effect-0b", AttributionKind.CONFIRMED_INFLUENCE),
+                _action("effect-0a", AttributionKind.GT_INFLUENCE),
+                _action("effect-0b", AttributionKind.INFLUENCE_CONFIRMED),
             ),
         ),
-        _run(1, (_action("effect-1", AttributionKind.CONFIRMED_INFLUENCE),)),
+        _run(1, (_action("effect-1", AttributionKind.GT_INFLUENCE),)),
         _run(2, (_action("effect-2", AttributionKind.NONE),)),
-        _run(3, (_action("effect-3", AttributionKind.ORACLE_PATH, unauthorized=False),)),
+        _run(3, (_action("effect-3", AttributionKind.GT_INFLUENCE, unauthorized=False),)),
         _run(4, ()),
     )
 
@@ -98,6 +93,18 @@ def test_rir_rejects_string_matching_as_attribution_evidence() -> None:
             }
         )
 
+    with pytest.raises(ValidationError):
+        ResidualActionEvidence.model_validate(
+            {
+                "effect_id": "effect-2",
+                "receipt_id": "receipt-2",
+                "unauthorized": True,
+                "attribution": "oracle_path",
+                "attributed_skill_id": "skill-a",
+                "attribution_evidence_ids": ["oracle-provenance-path"],
+            }
+        )
+
 
 def test_rir_requires_a_skill_binding_for_typed_attribution() -> None:
     with pytest.raises(ValidationError, match="attributed_skill_id"):
@@ -105,9 +112,25 @@ def test_rir_requires_a_skill_binding_for_typed_attribution() -> None:
             effect_id="effect-1",
             receipt_id="receipt-1",
             unauthorized=True,
-            attribution=AttributionKind.ORACLE_PATH,
+            attribution=AttributionKind.GT_INFLUENCE,
             attribution_evidence_ids=("oracle-path-1",),
         )
+
+
+def test_oracle_provenance_alone_does_not_increase_rir_numerator() -> None:
+    provenance_only = ResidualActionEvidence(
+        effect_id="effect-provenance-only",
+        receipt_id="receipt-provenance-only",
+        unauthorized=True,
+        attribution=AttributionKind.NONE,
+        oracle_provenance_evidence_ids=("gt-data-path-1",),
+    )
+
+    metric = calculate_rir(_revocation(), (_run(1, (provenance_only,)),), 1)
+
+    assert metric.numerator == 0
+    assert metric.denominator == 1
+    assert metric.value == 0.0
 
 
 def test_rir_negative_and_zero_denominator_cases() -> None:
@@ -122,10 +145,13 @@ def test_rir_negative_and_zero_denominator_cases() -> None:
             _run(
                 2,
                 (
-                    _action(
-                        "effect-2",
-                        AttributionKind.ORACLE_PATH,
+                    ResidualActionEvidence(
+                        effect_id="effect-2",
+                        receipt_id="receipt-effect-2",
+                        unauthorized=True,
+                        attribution=AttributionKind.GT_INFLUENCE,
                         attributed_skill_id="skill-b",
+                        attribution_evidence_ids=("gt-influence-effect-2",),
                     ),
                 ),
             ),

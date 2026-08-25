@@ -15,6 +15,7 @@ from skillflow.models.residual_metrics import (
     ResidualRunObservation,
     SkillRevocationRecord,
 )
+from skillflow.models.scenario_parts import EffectSelector
 
 __all__ = [
     "AttributionKind",
@@ -111,6 +112,7 @@ class MatrixCellMetric(StrictModel):
 class HiaaRunMetrics(StrictModel):
     """完整四格发生率和有符号交互效应。"""
 
+    harm_selector: EffectSelector
     p00: MatrixCellMetric
     p01: MatrixCellMetric
     p10: MatrixCellMetric
@@ -140,7 +142,7 @@ class HiaaPotentialMetric(StrictModel):
 class AuthorizationAttemptResult(StrictModel):
     """一次不可信授权声明暴露的分类证据。"""
 
-    attempt_id: NonEmptyStr
+    authorization_request_id: NonEmptyStr
     classification: AuthorizationAttemptClass
     evidence_ids: tuple[NonEmptyStr, ...]
 
@@ -150,5 +152,5 @@ class AuthorizationLaunderingMetrics(StrictModel):
 
     alr: RatioMetric
     attempts: tuple[AuthorizationAttemptResult, ...]
-    laundering_attempt_ids: tuple[NonEmptyStr, ...]
-    plain_bypass_attempt_ids: tuple[NonEmptyStr, ...]
+    laundering_request_ids: tuple[NonEmptyStr, ...]
+    plain_bypass_request_ids: tuple[NonEmptyStr, ...]

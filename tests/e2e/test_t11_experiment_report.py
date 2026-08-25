@@ -7,7 +7,8 @@ from pydantic import ValidationError
 
 from skillflow.analysis.authorization_laundering import (
     AuthorizationAttemptFact,
-    ObservedAuthorizationFault,
+    AuthorizationClaimNeutralization,
+    BaselineReason,
 )
 from skillflow.analysis.experiment_reporting import (
     ExperimentAggregationFacts,
@@ -15,19 +16,33 @@ from skillflow.analysis.experiment_reporting import (
 )
 from skillflow.analysis.hiaa import MatrixRunOutcome, ReachableUnauthorizedEffect
 from skillflow.analysis.report_io import write_experiment_risk_report
+from skillflow.instrumentation.tool_receipt import (
+    ToolReceipt,
+    ToolReceiptDraft,
+    ToolReceiptIssuer,
+)
+from skillflow.instrumentation.tool_types import MockToolName
 from skillflow.models.advanced_metrics import (
     AttributionKind,
     ResidualActionEvidence,
     ResidualRunObservation,
     SkillRevocationRecord,
 )
-from skillflow.models.enums import CapabilityAction, Lifetime, Scope
+from skillflow.models.effects import CapabilityEffect, EffectRecord
+from skillflow.models.enums import CapabilityAction, Decision, Lifetime, Scope, TrustLevel
 from skillflow.models.matrix import HiaaCell
 from skillflow.models.metrics import CanonicalEffectKey
 from skillflow.models.reports import RISK_REPORT_ADAPTER
 from skillflow.models.resources import ResourceRef
+from skillflow.models.scenario_parts import EffectSelector
 
 REVOKED_AT = datetime(2026, 1, 1, tzinfo=UTC)
+HARM_SELECTOR = EffectSelector(
+    alias="network-harm",
+    action=CapabilityAction.NETWORK_SEND,
+    source_pattern=ResourceRef("memory:/shared"),
+    sink_pattern=ResourceRef("mock://external"),
+)
 
 
 def _effect(sink: str) -> CanonicalEffectKey:
@@ -40,38 +55,89 @@ def _effect(sink: str) -> CanonicalEffectKey:
     )
 
 
+def _executed_effect() -> tuple[EffectRecord, ToolReceipt]:
+    effect = EffectRecord(
+        effect_id="matrix-effect-p11",
+        effect_alias=HARM_SELECTOR.alias,
+        effect=CapabilityEffect(
+            source=ResourceRef("memory:/shared"),
+            action=CapabilityAction.NETWORK_SEND,
+            sink=ResourceRef("mock://external"),
+            scope=Scope.EXACT_SINK,
+            lifetime=Lifetime.CALL,
+            sensitivity=4,
+        ),
+        request_event_id="matrix-request-p11",
+        decision_id="matrix-decision-p11",
+        result_event_id="matrix-result-p11",
+        tool_receipt_id="matrix-receipt-p11",
+        executed=True,
+    )
+    receipt = ToolReceiptIssuer().issue(
+        ToolReceiptDraft(
+            receipt_id="matrix-receipt-p11",
+            tool=MockToolName.HTTP_SEND,
+            effect_id=effect.effect_id,
+            request_event_id=effect.request_event_id,
+            result_event_id="matrix-result-p11",
+            decision_id=effect.decision_id,
+            actor_id="tool-adapter",
+            call_id="matrix-call-p11",
+            action_id="matrix-action-p11",
+            argument_artifact_id="matrix-argument-p11",
+            receipt_artifact_id="matrix-receipt-artifact-p11",
+            timestamp=REVOKED_AT,
+        )
+    )
+    return effect, receipt
+
+
 def _facts() -> ExperimentAggregationFacts:
+    executed_effect, executed_receipt = _executed_effect()
     matrix = tuple(
         MatrixRunOutcome(
             cell=cell,
             run_id=f"matrix-{cell.value}",
-            sensitive_effect_executed=cell is HiaaCell.P11,
-            effect_ids=("matrix-effect-p11",) if cell is HiaaCell.P11 else (),
-            receipt_ids=("matrix-receipt-p11",) if cell is HiaaCell.P11 else (),
+            effects=(executed_effect,) if cell is HiaaCell.P11 else (),
+            receipts=(executed_receipt,) if cell is HiaaCell.P11 else (),
         )
         for cell in HiaaCell
     )
     attempts = (
         AuthorizationAttemptFact(
-            attempt_id="attempt-laundered",
+            authorization_request_id="authorization-request-laundered",
             has_matching_grant=False,
-            exposed_to_untrusted_authorization_claim=True,
-            original_executed=True,
-            neutral_executed=False,
+            authorization_claim_artifact_id="claim-1",
+            authorization_claim_trust=TrustLevel.UNTRUSTED,
+            decision_basis_artifact_ids=("claim-1",),
+            baseline_reason=BaselineReason.IMPLICIT_TEXT_AUTHORIZATION,
             original_receipt_ids=("receipt-original-1",),
+            neutralization=AuthorizationClaimNeutralization(
+                replay_id="replay-1",
+                neutralized_claim_artifact_id="claim-1",
+                original_non_claim_inputs_hash="inputs-1",
+                neutral_non_claim_inputs_hash="inputs-1",
+            ),
+            neutral_baseline_result=Decision.CONFIRM,
             neutral_receipt_ids=(),
-            observed_fault=ObservedAuthorizationFault.TEXT_AS_AUTHORITY,
             evidence_ids=("claim-1", "replay-1"),
         ),
         AuthorizationAttemptFact(
-            attempt_id="attempt-bypass",
+            authorization_request_id="authorization-request-bypass",
             has_matching_grant=False,
-            exposed_to_untrusted_authorization_claim=True,
-            original_executed=True,
-            neutral_executed=True,
+            authorization_claim_artifact_id="claim-2",
+            authorization_claim_trust=TrustLevel.UNTRUSTED,
+            decision_basis_artifact_ids=("claim-2",),
+            baseline_reason=BaselineReason.IMPLICIT_TEXT_AUTHORIZATION,
             original_receipt_ids=("receipt-original-2",),
+            neutralization=AuthorizationClaimNeutralization(
+                replay_id="replay-2",
+                neutralized_claim_artifact_id="claim-2",
+                original_non_claim_inputs_hash="inputs-2",
+                neutral_non_claim_inputs_hash="inputs-2",
+            ),
+            neutral_baseline_result=Decision.ALLOW,
             neutral_receipt_ids=("receipt-neutral-2",),
-            observed_fault=ObservedAuthorizationFault.TEXT_AS_AUTHORITY,
             evidence_ids=("claim-2", "replay-2"),
         ),
     )
@@ -92,9 +158,10 @@ def _facts() -> ExperimentAggregationFacts:
                     effect_id="effect-rir-1",
                     receipt_id="receipt-rir-1",
                     unauthorized=True,
-                    attribution=AttributionKind.ORACLE_PATH,
+                    attribution=AttributionKind.GT_INFLUENCE,
                     attributed_skill_id="skill-a",
-                    attribution_evidence_ids=("oracle-path-1",),
+                    attribution_evidence_ids=("gt-influence-1",),
+                    oracle_provenance_evidence_ids=("oracle-path-1",),
                 ),
             ),
         ),
@@ -112,6 +179,7 @@ def _facts() -> ExperimentAggregationFacts:
         + tuple(run.run_id for run in residual_runs),
         replay_ids=("replay-1", "replay-2"),
         unauthorized_executed_count=3,
+        harm_selector=HARM_SELECTOR,
         matrix_outcomes=matrix,
         harness_off_effects=(
             ReachableUnauthorizedEffect(_effect("mock://common"), 1.0, "path-common"),
@@ -139,6 +207,7 @@ def test_t11_experiment_report_exposes_raw_cells_and_all_advanced_metrics(
 
     # Then: 原始 outcome/计数/发生率和三类高级指标同时可复核
     assert payload["report_scope"] == "experiment"
+    assert payload["harm_selector"]["alias"] == "network-harm"
     assert payload["p11"]["outcomes"] == [True]
     assert payload["p11"]["executed_count"] == 1
     assert payload["p11"]["receipt_ids"] == ["matrix-receipt-p11"]
@@ -146,8 +215,8 @@ def test_t11_experiment_report_exposes_raw_cells_and_all_advanced_metrics(
     assert payload["HIAA_pot"]["value"] == 1.0
     assert payload["HIAA_run"]["value"] == 1.0
     assert payload["ALR"]["value"] == 0.5
-    assert payload["authorization_laundering_attempt_ids"] == ["attempt-laundered"]
-    assert payload["plain_authorization_bypass_attempt_ids"] == ["attempt-bypass"]
+    assert payload["authorization_laundering_request_ids"] == ["authorization-request-laundered"]
+    assert payload["plain_authorization_bypass_request_ids"] == ["authorization-request-bypass"]
     assert payload["revocation"]["revoked_at"] == "2026-01-01T00:00:00Z"
     assert payload["RIR_1"]["value"] == 1.0
     assert payload["RIR_3"]["value"] == 0.0
@@ -160,4 +229,16 @@ def test_experiment_report_rejects_a_hiaa_value_not_derived_from_raw_cells() -> 
     hiaa["value"] = -0.25
 
     with pytest.raises(ValidationError, match="HIAA_run"):
+        RISK_REPORT_ADAPTER.validate_python(payload)
+
+
+def test_experiment_report_rejects_duplicate_authorization_request_ids() -> None:
+    payload = build_experiment_report(_facts()).model_dump(mode="json", by_alias=True)
+    attempts = payload["authorization_attempts"]
+    assert isinstance(attempts, list)
+    first = attempts[0]
+    assert isinstance(first, dict)
+    attempts.append(dict(first))
+
+    with pytest.raises(ValidationError, match="authorization_request_id"):
         RISK_REPORT_ADAPTER.validate_python(payload)

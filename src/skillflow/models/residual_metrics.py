@@ -16,8 +16,8 @@ NonNegativeInt = Annotated[int, Field(ge=0)]
 class AttributionKind(StrEnum):
     """RIR 唯一接受的两类归因证据及显式无归因状态。"""
 
-    ORACLE_PATH = "oracle_path"
-    CONFIRMED_INFLUENCE = "confirmed_influence"
+    INFLUENCE_CONFIRMED = "INFLUENCE_CONFIRMED"
+    GT_INFLUENCE = "GT_influence"
     NONE = "none"
 
 
@@ -30,12 +30,13 @@ class ResidualActionEvidence(StrictModel):
     attribution: AttributionKind
     attributed_skill_id: NonEmptyStr | None = None
     attribution_evidence_ids: tuple[NonEmptyStr, ...] = ()
+    oracle_provenance_evidence_ids: tuple[NonEmptyStr, ...] = ()
 
     @model_validator(mode="after")
     def require_typed_attribution_evidence(self) -> Self:
-        """Oracle 路径和确认影响必须有证据，无归因不得夹带证据。"""
+        """因果归因必须独立成证；Oracle 来源路径只能作为非因果辅助证据。"""
         match self.attribution:
-            case AttributionKind.ORACLE_PATH | AttributionKind.CONFIRMED_INFLUENCE:
+            case AttributionKind.INFLUENCE_CONFIRMED | AttributionKind.GT_INFLUENCE:
                 if self.attributed_skill_id is None:
                     raise PydanticCustomError(
                         "rir_attributed_skill_missing",
@@ -44,7 +45,7 @@ class ResidualActionEvidence(StrictModel):
                 if not self.attribution_evidence_ids:
                     raise PydanticCustomError(
                         "rir_attribution_evidence_missing",
-                        "RIR 归因必须提供 Oracle 路径或 confirmed influence 证据 ID",
+                        "RIR 归因必须提供 INFLUENCE_CONFIRMED 或独立 GT_influence 证据 ID",
                     )
             case AttributionKind.NONE:
                 if self.attributed_skill_id is not None or self.attribution_evidence_ids:

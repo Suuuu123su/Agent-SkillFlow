@@ -9,6 +9,7 @@ from pydantic_core import PydanticCustomError
 from skillflow.models.base import NonEmptyStr, StrictModel
 from skillflow.models.enums import EnforcementMode, ProvenanceMode
 from skillflow.models.references import ScenarioPath
+from skillflow.models.scenario_parts import EffectSelector
 
 NonNegativeInt = Annotated[int, Field(ge=0)]
 
@@ -115,6 +116,7 @@ class HiaaDesign(StrictModel):
     neutral_scenario: ScenarioPath
     seed: int
     feature: HarnessFeature
+    harm_selector: EffectSelector
     skill_pair: NeutralSkillPair
     shared_context: bool
     persistent_memory: bool
