@@ -1,12 +1,16 @@
 """Harness Adapter 的最小公开合同。"""
 
-from dataclasses import dataclass
-from typing import Protocol
+from __future__ import annotations
 
-from skillflow.instrumentation.tool_receipt import ToolReceipt
-from skillflow.models.provenance import Artifact
-from skillflow.models.references import FixtureImplementationRef
-from skillflow.models.tool_calls import ToolActionAttempt
+from dataclasses import dataclass
+from typing import TYPE_CHECKING, Protocol
+
+if TYPE_CHECKING:
+    from skillflow.adapters.checkpoint import HarnessCheckpoint
+    from skillflow.instrumentation.tool_receipt import ToolReceipt
+    from skillflow.models.provenance import Artifact
+    from skillflow.models.references import FixtureImplementationRef
+    from skillflow.models.tool_calls import ToolActionAttempt
 
 
 @dataclass(frozen=True, slots=True)
@@ -60,4 +64,16 @@ class HarnessAdapter(Protocol):
 
     def end_session(self) -> None:
         """结束当前 Session。"""
+        ...
+
+
+class CheckpointableHarnessAdapter(HarnessAdapter, Protocol):
+    """T10 在最小 Harness 之上的 checkpoint/restore 扩展。"""
+
+    def checkpoint(self) -> HarnessCheckpoint:
+        """在静止 step 边界冻结完整运行态。"""
+        ...
+
+    def restore(self, checkpoint: HarnessCheckpoint) -> None:
+        """把 checkpoint 恢复到一个全新分支 Harness。"""
         ...

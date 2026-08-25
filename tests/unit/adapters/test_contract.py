@@ -54,6 +54,7 @@ def test_t05_responsibility_modules_exist(module_name: str) -> None:
             "skillflow.adapters.base",
             (
                 "HarnessAdapter",
+                "CheckpointableHarnessAdapter",
                 "HarnessSession",
                 "SkillBinding",
                 "SkillInvocation",

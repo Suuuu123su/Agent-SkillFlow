@@ -1,9 +1,18 @@
 """Context 转换插桩。"""
 
+from dataclasses import dataclass
+
 from skillflow.instrumentation.errors import ArtifactContentError
 from skillflow.models.enums import ArtifactType, EventType, TrustLevel
 from skillflow.models.provenance import Artifact
 from skillflow.runtime.session import ActorCall, ArtifactEmission, RuntimeRecorder
+
+
+@dataclass(frozen=True, slots=True)
+class ContextStateSnapshot:
+    """Session Context 的有序 Artifact 索引。"""
+
+    artifact_ids: tuple[str, ...]
 
 
 class InstrumentedContext:
@@ -67,6 +76,14 @@ class InstrumentedContext:
         )
         self._artifact_ids.append(artifact.artifact_id)
         return artifact
+
+    def snapshot(self) -> ContextStateSnapshot:
+        """冻结当前 Context 的有序索引。"""
+        return ContextStateSnapshot(tuple(self._artifact_ids))
+
+    def restore(self, snapshot: ContextStateSnapshot) -> None:
+        """恢复 checkpoint 中的有序 Context 索引。"""
+        self._artifact_ids = list(snapshot.artifact_ids)
 
     def _require_current(self, artifact_id: str) -> Artifact:
         if artifact_id not in self._artifact_ids:

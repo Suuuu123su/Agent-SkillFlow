@@ -24,6 +24,22 @@ class SkillInvocationToken:
     invocation_event_id: str
 
 
+@dataclass(frozen=True, slots=True)
+class SkillStateSnapshot:
+    """Run 级安装绑定与撤销集合。"""
+
+    bindings: tuple[SkillBinding, ...]
+    revoked_skill_ids: tuple[str, ...]
+
+
+@dataclass(frozen=True, slots=True)
+class SkillRuntimeSnapshot:
+    """Session 级加载与活动调用集合。"""
+
+    loaded_skill_ids: tuple[str, ...]
+    active_invocation_event_ids: tuple[str, ...]
+
+
 class SkillState:
     """一个 Run 内跨 Session 持续存在的安装与撤销状态。"""
 
@@ -59,6 +75,16 @@ class SkillState:
         if skill_id in self._revoked:
             raise SkillLifecycleError(skill_id, "revoke", "already revoked")
         self._revoked.add(skill_id)
+
+    def snapshot(self) -> SkillStateSnapshot:
+        """按 Skill ID 冻结安装与撤销状态。"""
+        bindings = tuple(self._bindings[key] for key in sorted(self._bindings))
+        return SkillStateSnapshot(bindings, tuple(sorted(self._revoked)))
+
+    def restore(self, snapshot: SkillStateSnapshot) -> None:
+        """恢复 checkpoint 中的安装与撤销状态。"""
+        self._bindings = {binding.skill_id: binding for binding in snapshot.bindings}
+        self._revoked = set(snapshot.revoked_skill_ids)
 
 
 class InstrumentedSkill:
@@ -177,6 +203,18 @@ class InstrumentedSkill:
     def loaded_skill_ids(self) -> tuple[str, ...]:
         """返回当前 Session 已加载 Skill 的稳定快照。"""
         return tuple(sorted(self._loaded))
+
+    def snapshot(self) -> SkillRuntimeSnapshot:
+        """冻结当前 Session 的加载与活动调用状态。"""
+        return SkillRuntimeSnapshot(
+            tuple(sorted(self._loaded)),
+            tuple(sorted(self._active_invocations)),
+        )
+
+    def restore(self, snapshot: SkillRuntimeSnapshot) -> None:
+        """恢复当前 Session 的加载状态。"""
+        self._loaded = set(snapshot.loaded_skill_ids)
+        self._active_invocations = set(snapshot.active_invocation_event_ids)
 
     def _require_loaded(
         self,

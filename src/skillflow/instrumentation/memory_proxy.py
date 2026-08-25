@@ -1,5 +1,7 @@
 """Persistent Memory 插桩。"""
 
+from dataclasses import dataclass
+
 from skillflow.instrumentation.errors import MemoryKeyMissingError
 from skillflow.models.enums import ArtifactType, EventType
 from skillflow.models.provenance import Artifact
@@ -9,6 +11,13 @@ from skillflow.runtime.session import (
     EventEmission,
     RuntimeRecorder,
 )
+
+
+@dataclass(frozen=True, slots=True)
+class MemoryStateSnapshot:
+    """Run 级 Memory 当前头的稳定快照。"""
+
+    entries: tuple[tuple[str, str], ...]
 
 
 class MemoryState:
@@ -35,6 +44,14 @@ class MemoryState:
             del self._entries[key]
         except KeyError as error:
             raise MemoryKeyMissingError(key) from error
+
+    def snapshot(self) -> MemoryStateSnapshot:
+        """按 key 排序冻结当前 Memory 映射。"""
+        return MemoryStateSnapshot(tuple(sorted(self._entries.items())))
+
+    def restore(self, snapshot: MemoryStateSnapshot) -> None:
+        """恢复 checkpoint 中的当前 Memory 映射。"""
+        self._entries = dict(snapshot.entries)
 
 
 class InstrumentedMemory:

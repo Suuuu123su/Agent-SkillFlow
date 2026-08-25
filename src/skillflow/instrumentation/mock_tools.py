@@ -58,6 +58,10 @@ class MockNetworkSink:
         """只追加记录，不建立网络连接。"""
         self._records.append(MockNetworkRecord(effect_id, sink, source_artifact_id))
 
+    def restore(self, records: tuple[MockNetworkRecord, ...]) -> None:
+        """恢复 checkpoint 前的 Mock 网络记录。"""
+        self._records = list(records)
+
 
 @dataclass(frozen=True, slots=True)
 class MockShellRecord:
@@ -82,6 +86,10 @@ class MockShellSink:
     def execute(self, effect_id: str, command: tuple[str, ...]) -> None:
         """只追加记录，不调用 subprocess、Shell 或 OS 执行接口。"""
         self._records.append(MockShellRecord(effect_id, command))
+
+    def restore(self, records: tuple[MockShellRecord, ...]) -> None:
+        """恢复 checkpoint 前的 Mock Shell 记录。"""
+        self._records = list(records)
 
 
 @dataclass(frozen=True, slots=True)
