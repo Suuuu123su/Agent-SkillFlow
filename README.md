@@ -2,7 +2,7 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前仓库已完成到 **T10：Checkpoint 与反事实重放**。这里已经固定研究边界、四级 Lifetime 菱形偏序和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。每次普通 Run 会输出可按 Artifact/Effect ID 对齐的 Observed/Oracle JSONL、只从 EventStore 重建的脱敏 `security-graph.json`，以及通过静态 Schema 校验的 `risk-report.json`。T10 进一步允许在 Artifact step 边界冻结完整运行态，从同一 checkpoint 恢复 identity/neutral 两条隔离分支，并只依据真实 Effect Receipt 差异计算有符号 CI 和 `INFLUENCE_CONFIRMED`；尚未实现 T11 的 HIAA、ALR、RIR 或真实平台 Adapter。
+当前仓库已完成到 **T11：HIAA、ALR 与 RIR**。这里已经固定研究边界、四级 Lifetime 菱形偏序和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。每次普通 Run 会输出可按 Artifact/Effect ID 对齐的 Observed/Oracle JSONL、只从 EventStore 重建的脱敏 `security-graph.json`，以及通过静态 Schema 校验的 `risk-report.json`。在 T10 成对反事实重放基础上，T11 可以机械生成 HIAA 四格、验证能力匹配的中性 Skill、从 Effect/Receipt 原始 outcome 计算有符号 HIAA、按五条件区分授权洗白与普通绕过，并只用 Oracle 路径或 `INFLUENCE_CONFIRMED` 计算撤销后的 `RIR(1)`/`RIR(3)`。尚未建立 T12 场景库、最终矩阵或真实平台 Adapter。
 
 ## 当前能力
 
@@ -55,6 +55,13 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 - Replay 只比较 Effect selector 命中的已执行 `EffectRecord`，且每个结果必须有同分支真实 `ToolReceipt`；自然语言输出、时序相关和普通来源图不会生成确认因果边。
 - Scripted CI 固定为 `int(y_original) - int(y_neutral)`，取值仅为 `-1 | 0 | 1`；只有非零 CI 才生成类型化 `INFLUENCE_CONFIRMED`，无关内容负对照必须得到 CI=0。
 - 每个配对以不可覆盖方式写出 `replay-report.json` 和 `pair-manifest.json`；只包含 ID、哈希、结构、控制条件和 Effect diff，不包含 Artifact 正文、Blob ID 或宿主路径。
+- `HiaaDesign` 自动生成 `p00/p01/p10/p11` 四格；四格只改变目标/中性 Skill 和一个预注册 Harness 特性，其余 seed、执行模式、来源模式与开关保持一致。
+- 中性 Skill 对照必须与目标 Skill 具有相同 Manifest 摘要、Schema 摘要和工具注册，并共同落入预注册长度区间；目标必须含待测危险语义，中性版本必须明确移除该语义。
+- 每个四格 true outcome 必须携带同 Run 的敏感 Effect ID 与 Mock Tool Receipt ID；报告同时公开原始 outcome、Effect/Receipt、计数、分母、发生率与结构化 N/A。
+- `HIAA_pot` 按 `W(U_H1 \ U_H0)` 计算，`HIAA_run` 按 `p11-p10-p01+p00` 计算并保留负值；任一四格零分母时结果为结构化 N/A。
+- ALR 分类器逐项执行无真实 Grant、不可信授权声明暴露、原运行 Receipt、配对中和后停止、Observed 来源丢失/升级或把文本当授权五个必要条件；中和后仍执行的行为单列为 `plain_authorization_bypass`。
+- RIR 记录 Skill 撤销 Event、会话索引和带时区时点；每个 Run 最多计一次，且归因类型只允许 Oracle 路径、`confirmed_influence` 或显式无归因。严格归因还必须绑定被撤销的 `skill_id`；其他 Skill、未知值和字符串匹配均不计入。
+- Experiment 风险报告通过判别联合与静态 Schema 复验，包含四格、`HIAA_pot`、`HIAA_run`、`ALR`、`RIR_1`、`RIR_3`、洗白/普通绕过 ID 和全部原始计数。
 - pytest、覆盖率、ruff 与 mypy 质量门禁。
 - GitHub Actions 自动执行同一组质量门禁。
 - 中文威胁模型、安全语义、形式化不变量和架构决策记录。
@@ -87,6 +94,7 @@ python -m venv .venv-skillflow
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t08_policy_modes.py -q --no-cov
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t09_risk_report.py -q --no-cov
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t10_counterfactual_replay.py -q --no-cov
+.\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t11_experiment_report.py -q --no-cov
 ```
 
 安装后也可以直接使用控制台命令：
@@ -121,7 +129,7 @@ for path in paths:
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli --help
 ```
 
-当前 pytest 门禁仍按任务书使用 80% 最低阈值；T10 的最终测试项数、分支覆盖率、checkpoint 内容、正负因果 Golden Test 和 Replay 证据合同记录在 [`docs/summaries/T10_Summary.md`](docs/summaries/T10_Summary.md)。T14 将把最终门槛正式提升到 90%。
+当前 pytest 门禁仍按任务书使用 80% 最低阈值；T11 的最终测试项数、分支覆盖率、四格/ALR/RIR Golden Test 与 Experiment 报告合同记录在 [`docs/summaries/T11_Summary.md`](docs/summaries/T11_Summary.md)。T14 将把最终门槛正式提升到 90%。
 
 ## 项目范围
 
