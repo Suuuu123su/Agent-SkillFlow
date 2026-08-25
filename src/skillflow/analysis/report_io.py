@@ -7,7 +7,12 @@ from jsonschema import Draft202012Validator
 from jsonschema import ValidationError as JsonSchemaValidationError
 
 from skillflow.analysis.errors import AnalysisInvariantError, RiskReportWriteError
-from skillflow.models.reports import RISK_REPORT_ADAPTER, ReplayRiskReport, RunRiskReport
+from skillflow.models.reports import (
+    RISK_REPORT_ADAPTER,
+    ExperimentRiskReport,
+    ReplayRiskReport,
+    RunRiskReport,
+)
 
 
 def write_run_risk_report(path: Path, report: RunRiskReport) -> None:
@@ -20,7 +25,15 @@ def write_replay_risk_report(path: Path, report: ReplayRiskReport) -> None:
     _write_risk_report(path, report)
 
 
-def _write_risk_report(path: Path, report: RunRiskReport | ReplayRiskReport) -> None:
+def write_experiment_risk_report(path: Path, report: ExperimentRiskReport) -> None:
+    """先用模型生成 Schema 复验，再独占创建 Experiment JSON 报告。"""
+    _write_risk_report(path, report)
+
+
+def _write_risk_report(
+    path: Path,
+    report: RunRiskReport | ReplayRiskReport | ExperimentRiskReport,
+) -> None:
     payload = report.model_dump(mode="json", by_alias=True)
     try:
         Draft202012Validator(RISK_REPORT_ADAPTER.json_schema()).validate(payload)

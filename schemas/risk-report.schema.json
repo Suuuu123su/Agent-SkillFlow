@@ -1,5 +1,45 @@
 {
   "$defs": {
+    "AuthorizationAttemptClass": {
+      "description": "不可信授权声明暴露的互斥分类。",
+      "enum": [
+        "authorization_laundering",
+        "plain_authorization_bypass",
+        "other_exposure",
+        "not_exposed"
+      ],
+      "title": "AuthorizationAttemptClass",
+      "type": "string"
+    },
+    "AuthorizationAttemptResult": {
+      "additionalProperties": false,
+      "description": "一次不可信授权声明暴露的分类证据。",
+      "properties": {
+        "attempt_id": {
+          "minLength": 1,
+          "title": "Attempt Id",
+          "type": "string"
+        },
+        "classification": {
+          "$ref": "#/$defs/AuthorizationAttemptClass"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "attempt_id",
+        "classification",
+        "evidence_ids"
+      ],
+      "title": "AuthorizationAttemptResult",
+      "type": "object"
+    },
     "BoundaryDepth": {
       "additionalProperties": false,
       "description": "五类边界及总深度计数。",
@@ -135,6 +175,43 @@
       "title": "Decision",
       "type": "string"
     },
+    "DerivedMetric": {
+      "additionalProperties": false,
+      "description": "无单一整数分母的派生指标或结构化 N/A。",
+      "properties": {
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "maximum": 2.0,
+              "minimum": -2.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "value",
+        "status"
+      ],
+      "title": "DerivedMetric",
+      "type": "object"
+    },
     "EffectPathEvidence": {
       "additionalProperties": false,
       "description": "一个来源节点到 Effect 节点的脱敏可审计路径。",
@@ -169,29 +246,37 @@
     },
     "ExperimentRiskReport": {
       "additionalProperties": false,
-      "description": "Experiment 层的四格与持续风险聚合报告。",
+      "description": "Experiment 层的原始四格、洗白和撤销残余聚合报告。",
       "properties": {
+        "ALR": {
+          "$ref": "#/$defs/RatioMetric"
+        },
         "HIAA_pot": {
-          "maximum": 1.0,
-          "minimum": 0.0,
-          "title": "Hiaa Pot",
-          "type": "number"
+          "$ref": "#/$defs/HiaaPotentialMetric"
         },
         "HIAA_run": {
-          "maximum": 1.0,
-          "minimum": 0.0,
-          "title": "Hiaa Run",
-          "type": "number"
+          "$ref": "#/$defs/DerivedMetric"
         },
-        "alr_denominator": {
-          "minimum": 0,
-          "title": "Alr Denominator",
-          "type": "integer"
+        "RIR_1": {
+          "$ref": "#/$defs/RatioMetric"
         },
-        "alr_numerator": {
-          "minimum": 0,
-          "title": "Alr Numerator",
-          "type": "integer"
+        "RIR_3": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "authorization_attempts": {
+          "items": {
+            "$ref": "#/$defs/AuthorizationAttemptResult"
+          },
+          "title": "Authorization Attempts",
+          "type": "array"
+        },
+        "authorization_laundering_attempt_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Authorization Laundering Attempt Ids",
+          "type": "array"
         },
         "experiment_id": {
           "minLength": 1,
@@ -199,28 +284,24 @@
           "type": "string"
         },
         "p00": {
-          "maximum": 1.0,
-          "minimum": 0.0,
-          "title": "P00",
-          "type": "number"
+          "$ref": "#/$defs/MatrixCellMetric"
         },
         "p01": {
-          "maximum": 1.0,
-          "minimum": 0.0,
-          "title": "P01",
-          "type": "number"
+          "$ref": "#/$defs/MatrixCellMetric"
         },
         "p10": {
-          "maximum": 1.0,
-          "minimum": 0.0,
-          "title": "P10",
-          "type": "number"
+          "$ref": "#/$defs/MatrixCellMetric"
         },
         "p11": {
-          "maximum": 1.0,
-          "minimum": 0.0,
-          "title": "P11",
-          "type": "number"
+          "$ref": "#/$defs/MatrixCellMetric"
+        },
+        "plain_authorization_bypass_attempt_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Plain Authorization Bypass Attempt Ids",
+          "type": "array"
         },
         "raw_counts": {
           "$ref": "#/$defs/RawCounts"
@@ -238,25 +319,15 @@
           "title": "Report Scope",
           "type": "string"
         },
-        "rir_1_denominator": {
-          "minimum": 0,
-          "title": "Rir 1 Denominator",
-          "type": "integer"
-        },
-        "rir_1_numerator": {
-          "minimum": 0,
-          "title": "Rir 1 Numerator",
-          "type": "integer"
-        },
-        "rir_3_denominator": {
-          "minimum": 0,
-          "title": "Rir 3 Denominator",
-          "type": "integer"
-        },
-        "rir_3_numerator": {
-          "minimum": 0,
-          "title": "Rir 3 Numerator",
-          "type": "integer"
+        "revocation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SkillRevocationRecord"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "run_ids": {
           "items": {
@@ -285,14 +356,59 @@
         "p11",
         "HIAA_pot",
         "HIAA_run",
-        "alr_numerator",
-        "alr_denominator",
-        "rir_1_numerator",
-        "rir_1_denominator",
-        "rir_3_numerator",
-        "rir_3_denominator"
+        "ALR",
+        "authorization_attempts",
+        "authorization_laundering_attempt_ids",
+        "plain_authorization_bypass_attempt_ids",
+        "revocation",
+        "RIR_1",
+        "RIR_3"
       ],
       "title": "ExperimentRiskReport",
+      "type": "object"
+    },
+    "HiaaCell": {
+      "description": "目标 Skill 与 Harness 特性的四格组合。",
+      "enum": [
+        "p00",
+        "p01",
+        "p10",
+        "p11"
+      ],
+      "title": "HiaaCell",
+      "type": "string"
+    },
+    "HiaaPotentialMetric": {
+      "additionalProperties": false,
+      "description": "Harness 开启后新增可达未授权 Effect 集合的权重。",
+      "properties": {
+        "added_effect_keys": {
+          "items": {
+            "$ref": "#/$defs/CanonicalEffectKey"
+          },
+          "title": "Added Effect Keys",
+          "type": "array"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "value": {
+          "minimum": 0.0,
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "value",
+        "added_effect_keys",
+        "evidence_ids"
+      ],
+      "title": "HiaaPotentialMetric",
       "type": "object"
     },
     "Lifetime": {
@@ -305,6 +421,71 @@
       ],
       "title": "Lifetime",
       "type": "string"
+    },
+    "MatrixCellMetric": {
+      "additionalProperties": false,
+      "description": "一个 HIAA 单元格的原始 outcome、计数和发生率。",
+      "properties": {
+        "cell": {
+          "$ref": "#/$defs/HiaaCell"
+        },
+        "effect_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Effect Ids",
+          "type": "array"
+        },
+        "executed_count": {
+          "minimum": 0,
+          "title": "Executed Count",
+          "type": "integer"
+        },
+        "outcomes": {
+          "items": {
+            "type": "boolean"
+          },
+          "title": "Outcomes",
+          "type": "array"
+        },
+        "rate": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "receipt_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Receipt Ids",
+          "type": "array"
+        },
+        "run_count": {
+          "minimum": 0,
+          "title": "Run Count",
+          "type": "integer"
+        },
+        "run_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Run Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "cell",
+        "run_ids",
+        "outcomes",
+        "effect_ids",
+        "receipt_ids",
+        "executed_count",
+        "run_count",
+        "rate"
+      ],
+      "title": "MatrixCellMetric",
+      "type": "object"
     },
     "MetricStatus": {
       "description": "比例指标是否有可解释分母。",
@@ -933,6 +1114,40 @@
         "status"
       ],
       "title": "SignedRatioMetric",
+      "type": "object"
+    },
+    "SkillRevocationRecord": {
+      "additionalProperties": false,
+      "description": "计算会话偏移所需的不可变 Skill 撤销时点。",
+      "properties": {
+        "revoke_event_id": {
+          "minLength": 1,
+          "title": "Revoke Event Id",
+          "type": "string"
+        },
+        "revoked_at": {
+          "format": "date-time",
+          "title": "Revoked At",
+          "type": "string"
+        },
+        "session_index": {
+          "minimum": 0,
+          "title": "Session Index",
+          "type": "integer"
+        },
+        "skill_id": {
+          "minLength": 1,
+          "title": "Skill Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "skill_id",
+        "revoke_event_id",
+        "session_index",
+        "revoked_at"
+      ],
+      "title": "SkillRevocationRecord",
       "type": "object"
     },
     "UeaMetricSummary": {

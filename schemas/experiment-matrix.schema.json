@@ -20,6 +20,17 @@
         "enforcement_mode": {
           "$ref": "#/$defs/EnforcementMode"
         },
+        "hiaa_cell": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/HiaaCell"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "implicit_text_authorization": {
           "title": "Implicit Text Authorization",
           "type": "boolean"
@@ -67,6 +78,121 @@
       "title": "ExperimentVariant",
       "type": "object"
     },
+    "HarnessFeature": {
+      "description": "首版可做开关对照的 Harness 布尔特性。",
+      "enum": [
+        "shared_context",
+        "persistent_memory",
+        "auto_approve_tools",
+        "implicit_text_authorization"
+      ],
+      "title": "HarnessFeature",
+      "type": "string"
+    },
+    "HiaaCell": {
+      "description": "目标 Skill 与 Harness 特性的四格组合。",
+      "enum": [
+        "p00",
+        "p01",
+        "p10",
+        "p11"
+      ],
+      "title": "HiaaCell",
+      "type": "string"
+    },
+    "HiaaDesign": {
+      "additionalProperties": false,
+      "description": "自动生成四格矩阵所需的全部预注册控制条件。",
+      "properties": {
+        "auto_approve_tools": {
+          "title": "Auto Approve Tools",
+          "type": "boolean"
+        },
+        "enforcement_mode": {
+          "$ref": "#/$defs/EnforcementMode"
+        },
+        "feature": {
+          "$ref": "#/$defs/HarnessFeature"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "implicit_text_authorization": {
+          "title": "Implicit Text Authorization",
+          "type": "boolean"
+        },
+        "neutral_scenario": {
+          "$ref": "#/$defs/ScenarioPath"
+        },
+        "persistent_memory": {
+          "title": "Persistent Memory",
+          "type": "boolean"
+        },
+        "provenance_mode": {
+          "$ref": "#/$defs/ProvenanceMode"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "integer"
+        },
+        "shared_context": {
+          "title": "Shared Context",
+          "type": "boolean"
+        },
+        "skill_pair": {
+          "$ref": "#/$defs/NeutralSkillPair"
+        },
+        "target_scenario": {
+          "$ref": "#/$defs/ScenarioPath"
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "target_scenario",
+        "neutral_scenario",
+        "seed",
+        "feature",
+        "skill_pair",
+        "shared_context",
+        "persistent_memory",
+        "auto_approve_tools",
+        "enforcement_mode",
+        "provenance_mode",
+        "implicit_text_authorization"
+      ],
+      "title": "HiaaDesign",
+      "type": "object"
+    },
+    "NeutralSkillPair": {
+      "additionalProperties": false,
+      "description": "除危险语义外保持 Manifest、Schema、工具与长度匹配的 Skill 对。",
+      "properties": {
+        "length_interval": {
+          "$ref": "#/$defs/SkillLengthInterval"
+        },
+        "neutral": {
+          "$ref": "#/$defs/SkillControlProfile"
+        },
+        "target": {
+          "$ref": "#/$defs/SkillControlProfile"
+        }
+      },
+      "required": [
+        "target",
+        "neutral",
+        "length_interval"
+      ],
+      "title": "NeutralSkillPair",
+      "type": "object"
+    },
     "ProvenanceMode": {
       "description": "Harness 对 Observed 来源标签的受控处理模式。",
       "enum": [
@@ -81,11 +207,92 @@
       "description": "Experiment Matrix 中受控的 Scenario 相对路径。",
       "title": "ScenarioPath",
       "type": "string"
+    },
+    "SkillControlProfile": {
+      "additionalProperties": false,
+      "description": "一个 Skill 在中和配对中必须公开的结构控制量。",
+      "properties": {
+        "content_length": {
+          "minimum": 0,
+          "title": "Content Length",
+          "type": "integer"
+        },
+        "dangerous_semantics_present": {
+          "title": "Dangerous Semantics Present",
+          "type": "boolean"
+        },
+        "manifest_sha256": {
+          "minLength": 1,
+          "title": "Manifest Sha256",
+          "type": "string"
+        },
+        "schema_sha256": {
+          "minLength": 1,
+          "title": "Schema Sha256",
+          "type": "string"
+        },
+        "skill_id": {
+          "minLength": 1,
+          "title": "Skill Id",
+          "type": "string"
+        },
+        "tool_registrations": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Tool Registrations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "skill_id",
+        "manifest_sha256",
+        "schema_sha256",
+        "tool_registrations",
+        "content_length",
+        "dangerous_semantics_present"
+      ],
+      "title": "SkillControlProfile",
+      "type": "object"
+    },
+    "SkillLengthInterval": {
+      "additionalProperties": false,
+      "description": "目标与中性 Skill 必须共同落入的预注册长度区间。",
+      "properties": {
+        "maximum": {
+          "minimum": 0,
+          "title": "Maximum",
+          "type": "integer"
+        },
+        "minimum": {
+          "minimum": 0,
+          "title": "Minimum",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "minimum",
+        "maximum"
+      ],
+      "title": "SkillLengthInterval",
+      "type": "object"
     }
   },
   "additionalProperties": false,
   "description": "一组 ID 唯一的实验配置。",
   "properties": {
+    "hiaa_design": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/HiaaDesign"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
     "id": {
       "minLength": 1,
       "title": "Id",

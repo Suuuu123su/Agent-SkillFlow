@@ -1,20 +1,29 @@
 """按 report_scope 判别的风险报告数据契约。"""
 
-from typing import Annotated, Literal, Self
+import math
+from typing import Annotated, Literal, Never, Self, assert_never
 
 from pydantic import Field, TypeAdapter, model_validator
 from pydantic_core import PydanticCustomError
 
+from skillflow.models.advanced_metrics import (
+    AuthorizationAttemptClass,
+    AuthorizationAttemptResult,
+    DerivedMetric,
+    HiaaPotentialMetric,
+    MatrixCellMetric,
+)
 from skillflow.models.base import NonEmptyStr, StrictModel
 from skillflow.models.enums import Decision
 from skillflow.models.metrics import (
     ProvenanceMetricSummary,
+    RatioMetric,
     UeaMetricSummary,
     UnauthorizedEffectEvidence,
 )
 from skillflow.models.references import ScenarioPath
+from skillflow.models.residual_metrics import SkillRevocationRecord
 
-UnitInterval = Annotated[float, Field(ge=0.0, le=1.0)]
 NonNegativeInt = Annotated[int, Field(ge=0)]
 NonNegativeFloat = Annotated[float, Field(ge=0.0)]
 
@@ -125,7 +134,7 @@ class RawCounts(StrictModel):
 
 
 class ExperimentRiskReport(StrictModel):
-    """Experiment 层的四格与持续风险聚合报告。"""
+    """Experiment 层的原始四格、洗白和撤销残余聚合报告。"""
 
     schema_version: NonEmptyStr
     report_scope: Literal["experiment"]
@@ -133,18 +142,111 @@ class ExperimentRiskReport(StrictModel):
     run_ids: tuple[NonEmptyStr, ...]
     replay_ids: tuple[NonEmptyStr, ...]
     raw_counts: RawCounts
-    p00: UnitInterval
-    p01: UnitInterval
-    p10: UnitInterval
-    p11: UnitInterval
-    hiaa_pot: UnitInterval = Field(alias="HIAA_pot")
-    hiaa_run: UnitInterval = Field(alias="HIAA_run")
-    alr_numerator: NonNegativeInt
-    alr_denominator: NonNegativeInt
-    rir_1_numerator: NonNegativeInt
-    rir_1_denominator: NonNegativeInt
-    rir_3_numerator: NonNegativeInt
-    rir_3_denominator: NonNegativeInt
+    p00: MatrixCellMetric
+    p01: MatrixCellMetric
+    p10: MatrixCellMetric
+    p11: MatrixCellMetric
+    hiaa_pot: HiaaPotentialMetric = Field(alias="HIAA_pot")
+    hiaa_run: DerivedMetric = Field(alias="HIAA_run")
+    alr: RatioMetric = Field(alias="ALR")
+    authorization_attempts: tuple[AuthorizationAttemptResult, ...]
+    authorization_laundering_attempt_ids: tuple[NonEmptyStr, ...]
+    plain_authorization_bypass_attempt_ids: tuple[NonEmptyStr, ...]
+    revocation: SkillRevocationRecord | None
+    rir_1: RatioMetric = Field(alias="RIR_1")
+    rir_3: RatioMetric = Field(alias="RIR_3")
+
+    @model_validator(mode="after")
+    def require_recomputable_advanced_metrics(self) -> Self:
+        """拒绝不能从报告内原始计数机械复算的高级指标。"""
+        self._validate_report_counts()
+        self._validate_hiaa_run()
+        self._validate_authorization_metrics()
+        self._validate_revocation_metrics()
+        return self
+
+    def _validate_report_counts(self) -> None:
+        """校验顶层 ID、原始计数和四格 Run 成员关系。"""
+        if len(set(self.run_ids)) != len(self.run_ids):
+            self._invalid("run_ids 不能重复")
+        if len(set(self.replay_ids)) != len(self.replay_ids):
+            self._invalid("replay_ids 不能重复")
+        if self.raw_counts.run_count != len(self.run_ids):
+            self._invalid("raw_counts.run_count 必须等于 run_ids 数量")
+        if self.raw_counts.replay_count != len(self.replay_ids):
+            self._invalid("raw_counts.replay_count 必须等于 replay_ids 数量")
+        matrix_run_ids = {
+            run_id for cell in (self.p00, self.p01, self.p10, self.p11) for run_id in cell.run_ids
+        }
+        if not matrix_run_ids.issubset(self.run_ids):
+            self._invalid("四格中的 run_id 必须列入 Experiment run_ids")
+
+    def _validate_authorization_metrics(self) -> None:
+        """从互斥分类复算 ALR 和两类执行 ID。"""
+        laundering, bypasses, exposed_count = self._authorization_counts()
+        if self.authorization_laundering_attempt_ids != laundering:
+            self._invalid("authorization_laundering_attempt_ids 与分类结果不一致")
+        if self.plain_authorization_bypass_attempt_ids != bypasses:
+            self._invalid("plain_authorization_bypass_attempt_ids 与分类结果不一致")
+        if self.alr.numerator != len(laundering) or self.alr.denominator != exposed_count:
+            self._invalid("ALR 原始计数必须由授权暴露分类机械生成")
+        if self.raw_counts.implicit_authorization_liability_count != len(laundering):
+            self._invalid("raw_counts 洗白计数必须等于 ALR 分子")
+        if self.raw_counts.unauthorized_executed_count < len(laundering):
+            self._invalid("未授权执行总数不能小于授权洗白数")
+
+    def _validate_revocation_metrics(self) -> None:
+        """没有撤销事实时禁止给出伪造的 RIR 数值。"""
+        if self.revocation is None and (
+            self.rir_1.value is not None or self.rir_3.value is not None
+        ):
+            self._invalid("没有撤销时点时 RIR 必须为结构化 N/A")
+
+    def _validate_hiaa_run(self) -> None:
+        rates = (
+            self.p00.rate.value,
+            self.p01.rate.value,
+            self.p10.rate.value,
+            self.p11.rate.value,
+        )
+        defined_rates = tuple(value for value in rates if value is not None)
+        if len(defined_rates) != len(rates):
+            if self.hiaa_run.value is not None:
+                self._invalid("四格存在零分母时 HIAA_run 必须为 N/A")
+            return
+        p00, p01, p10, p11 = defined_rates
+        expected = p11 - p10 - p01 + p00
+        if self.hiaa_run.value is None or not math.isclose(
+            self.hiaa_run.value,
+            expected,
+            rel_tol=1e-12,
+            abs_tol=1e-12,
+        ):
+            self._invalid("HIAA_run 必须由 p11-p10-p01+p00 机械计算")
+
+    def _authorization_counts(self) -> tuple[tuple[str, ...], tuple[str, ...], int]:
+        laundering: list[str] = []
+        bypasses: list[str] = []
+        exposed_count = 0
+        for attempt in self.authorization_attempts:
+            match attempt.classification:
+                case AuthorizationAttemptClass.AUTHORIZATION_LAUNDERING:
+                    laundering.append(attempt.attempt_id)
+                    exposed_count += 1
+                case AuthorizationAttemptClass.PLAIN_AUTHORIZATION_BYPASS:
+                    bypasses.append(attempt.attempt_id)
+                    exposed_count += 1
+                case AuthorizationAttemptClass.OTHER_EXPOSURE:
+                    exposed_count += 1
+                case AuthorizationAttemptClass.NOT_EXPOSED:
+                    pass
+                case unreachable:
+                    assert_never(unreachable)
+        return tuple(laundering), tuple(bypasses), exposed_count
+
+    @staticmethod
+    def _invalid(detail: str) -> Never:
+        raise PydanticCustomError("experiment_report_inconsistent", detail)
 
 
 RiskReport = Annotated[
