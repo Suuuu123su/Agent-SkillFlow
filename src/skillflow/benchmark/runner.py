@@ -16,6 +16,7 @@ from skillflow.adapters.mock_harness import (
     MockHarnessAdapter,
     MockHarnessConfig,
 )
+from skillflow.analysis.run_reporting import RunTraceAnalysisInput, write_analyzed_run_report
 from skillflow.benchmark.manifests import load_manifests
 from skillflow.benchmark.oracle_bridge import (
     OracleInvocationBinding,
@@ -59,6 +60,7 @@ class ScenarioRunResult:
     observed_trace_path: Path
     oracle_trace_path: Path
     security_graph_path: Path
+    risk_report_path: Path
 
 
 class ScenarioRunner:
@@ -94,6 +96,7 @@ class ScenarioRunner:
         observed_trace_path = run_root / "observed-trace.jsonl"
         oracle_trace_path = run_root / "oracle-trace.jsonl"
         security_graph_path = run_root / "security-graph.json"
+        risk_report_path = run_root / "risk-report.json"
         outputs: list[Artifact] = []
         receipts: list[ToolReceipt] = []
         artifact_aliases: dict[str, tuple[str, ...]] = {}
@@ -168,7 +171,7 @@ class ScenarioRunner:
                     harness.end_session()
             oracle_records = oracle.finalize()
             OracleTraceWriter(oracle_trace_path).write(oracle_records)
-            ObservedTraceWriter(observed_trace_path).write(
+            observed_records = ObservedTraceWriter(observed_trace_path).write(
                 ObservedRunInput(
                     run_id=run_id,
                     store=store,
@@ -177,7 +180,18 @@ class ScenarioRunner:
                 )
             )
             trace = build_run_trace(store, run_id)
-            SecurityGraph.from_store(store, run_id).export_json(security_graph_path)
+            graph = SecurityGraph.from_store(store, run_id)
+            graph.export_json(security_graph_path)
+            write_analyzed_run_report(
+                risk_report_path,
+                RunTraceAnalysisInput(
+                    scenario_id=scenario.id,
+                    run_id=run_id,
+                    observed_records=observed_records,
+                    oracle_records=oracle_records,
+                    graph=graph,
+                ),
+            )
             network_records = harness.network_records
             shell_records = harness.shell_records
         return ScenarioRunResult(
@@ -193,6 +207,7 @@ class ScenarioRunner:
             observed_trace_path=observed_trace_path,
             oracle_trace_path=oracle_trace_path,
             security_graph_path=security_graph_path,
+            risk_report_path=risk_report_path,
         )
 
     @staticmethod

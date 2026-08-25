@@ -17,7 +17,7 @@
 | T06 | completed | 165 tests；覆盖率 88.48%；ruff/mypy/隔离 E2E PASS | 已完成双轨 JSONL、机械 Oracle、独立 GT_auth/GT_effect 与依赖隔离。 |
 | T07 | completed | 182 tests；覆盖率 87.93%；ruff/mypy/Golden E2E PASS | 已完成 EventStore 重建的双层来源图、七类查询、边界深度与脱敏 JSON 导出。 |
 | T08 | completed | 236 tests；覆盖率 89.18%；ruff/mypy/策略 E2E PASS | 已完成双钥匙 matcher、PolicyEngine、Grant/撤销事实、monitor/enforce 与特权确认。 |
-| T09 | pending | 不适用 | 依赖 T08。 |
+| T09 | completed | 254 tests；覆盖率 89.28%；ruff/mypy/Golden E2E PASS | 已完成结构化 UEA、来源指标、micro 聚合、证据路径与风险报告。 |
 | T10 | pending | 不适用 | 依赖 T07。 |
 | T11 | pending | 不适用 | 依赖 T09 和 T10。 |
 | T12 | pending | 不适用 | 依赖 T11。 |
@@ -575,3 +575,64 @@
 - 当前确认步骤由声明式 Benchmark 预注册结构化 Grant，不包含真实交互式 UI 或外部身份认证。
 - T08 只产出逐 Effect 的完整 Decision 与证据，不计算 UEA、Precision、Recall、F1 或 Decay；这些属于 T09。
 - 本轮在 T08 停止；T09 保持 pending，不自动开始。
+
+## T09：基础指标 UEA 与 Provenance
+
+- 状态：completed
+- 日期：2026-08-25（Asia/Shanghai）
+- 任务边界：只实现可由结构化真值直接计算的 UEA 与来源指标、逐场景报告和 micro 聚合；未实现 T10 Checkpoint、反事实重放、确认影响边或 T11 高级指标。
+
+### 修改文件
+
+- `src/skillflow/models/metrics.py`、`models/reports.py`：新增比例状态、原始计数、UEA 五元组、路径证据、逐深度来源指标与嵌套 Run 报告合同。
+- `src/skillflow/analysis/`：新增双轨/图投影、UEA、Provenance、micro 聚合、Run 报告门面、Schema 复验和不可覆盖写入。
+- `src/skillflow/benchmark/runner.py`：在 Observed/Oracle Trace 与 SecurityGraph 完成后自动写出 `risk-report.json`，并在结果中返回路径。
+- `schemas/risk-report.schema.json`：由更新后的 Pydantic 判别联合确定性重生成。
+- `tests/unit/analysis/`、`tests/unit/models/`、`tests/e2e/test_t09_risk_report.py`：覆盖 Golden 指标、N/A、重复去重、micro、双轨完整性、不可覆盖写入和真实 Run 报告。
+- `pyproject.toml`：补充 `types-jsonschema` 开发依赖，使运行时 Schema 校验代码通过 mypy strict。
+- `README.md`、`docs/summaries/T09_Summary.md`：更新中文能力、使用方法、验收证据与停止点。
+
+### 关键设计决定
+
+1. UEA 只认 Oracle 的 `GT_effect=true`、`GT_auth=false` 和真实 Receipt，不使用 baseline、policy 或模型文本猜测授权。
+2. `UEA_count` 按 Effect/Receipt 实例计数；`UEA_type_count` 按规范化五元组全局去重；首版 `UEA_weight` 每个未授权已执行实例固定加 1。
+3. 每个 UEA 实例输出 Manifest/Grant 缺失 reason codes，以及 SecurityGraph 中 Principal 到 Effect 的全部有限路径；路径只包含类型化 ID、边界深度和证据 Event ID，不复制正文或 Blob。
+4. 来源指标逐 Artifact 比较 `Observed origins` 与 `Oracle GT_data`，先保留 TP/FP/FN，再计算 Precision、Recall 和 F1。所有比例都输出 numerator、denominator、value、status 与 evidence IDs。
+5. 零分母不伪装为 0：完全无来源暴露时为 `0/0/null/not_applicable`；Oracle 非空而 Observed 为空时 Precision 为 N/A，Recall/F1 为 0。
+6. Decay 固定为相邻总边界深度的 `Recall(d-1) - Recall(d)`；缺少前一深度或任一 Recall 无分母时为 N/A。
+7. micro 聚合对 UEA 实例求和、对五元组全局去重，并汇总原始 TP/FP/FN 后重新计算比例；禁止平均场景百分比。
+8. Oracle 的声明式 asset 根不要求进入 Observed；其余运行 Artifact 必须双轨完整对齐，任一侧整体缺失均拒绝计算，防止选择性漏记抬高指标。
+9. `risk-report.json` 以 exclusive-create 写入，并在落盘前使用模型生成的 Draft 2020-12 Schema 复验；已有文件不会被覆盖。
+10. Runner 的公开类和导入路径保持原位；T09 投影、计算和写入由 `analysis.run_reporting` 门面组合，Runner 保持 250 行有效代码。
+
+### TDD 与验证
+
+- 第一轮报告/聚合测试得到两个预期红灯：micro 聚合抛 `NotImplementedError`，Runner 结果缺少 `risk_report_path`。
+- UEA 与来源 Golden 测试先以八个 `NotImplementedError` 红灯确认覆盖，再补纯计算实现转绿。
+- 真实 Run 首次能写出报告后，静态 `risk-report.schema.json` 因仍为 T08 旧合同而失败；重生成 Schema 并迁移契约 fixture 后转绿。
+- 完整性审查新增 Oracle-only 运行 Artifact 用例，现状按预期未抛错；加入非 asset 双轨集合保护后转绿，同时保留 Oracle-only 声明式 asset 根用例。
+- 不可覆盖写入用 sentinel 文件验证：第二次写入抛 `RiskReportWriteError`，原字节保持不变。
+- T05–T09 跨阶段定向回归：63 passed。
+- 最终全量 pytest：254 passed，分支覆盖率 89.28%。
+- Ruff lint：PASS；Ruff format：177 个文件格式一致。
+- mypy strict：PASS，98 个源文件无类型问题。
+- T09 相关 Python no-excuse：PASS；Runner 为 250 pure LOC。
+- `skillflow doctor`、CLI help、`pip check`：PASS。
+
+### 验收条件
+
+- [x] UEA 实例数、类型数和固定权重只由 Oracle/Receipt 结构化事实计算。
+- [x] 每个未授权已执行 Effect 都有稳定 reason codes、路径和证据 ID。
+- [x] Golden P/R/F1、全缺失、空集合、多来源、重复事件与 Decay 用例通过。
+- [x] 同时保留逐场景结果与从原始计数计算的 micro 聚合，不执行 macro 百分比平均。
+- [x] 比例误差约束严于 `1e-9`，且零分母使用结构化 N/A。
+- [x] Run 自动写出并可由静态 JSON Schema 验证的 `risk-report.json`。
+- [x] 报告和图中不包含 fixture marker、Blob 正文或任意 Event metadata。
+
+### 风险或遗留问题
+
+- 当前 source-to-sink 证据是确定性 SecurityGraph 中的 Principal→Effect 候选路径；T10 之前不会把候选影响升级为因果确认。
+- 边界深度使用每个 Artifact 可达祖先路径中的最大总深度；这是首版清晰规则，不代表所有路径分布统计。
+- `RunRiskReport` 已从 T08 占位式平铺字段迁移为 T09 嵌套结构；当前仓库没有既有外部消费者，但后续公开发布前仍需冻结版本迁移策略。
+- PowerShell 7.6.5 已设为 Windows Terminal 默认 Profile；仓库命令继续显式使用项目 `.venv-skillflow` 解释器。
+- 本轮在 T09 完成后停止；T10 保持 pending，不自动开始。

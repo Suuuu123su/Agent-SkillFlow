@@ -1,5 +1,102 @@
 {
   "$defs": {
+    "BoundaryDepth": {
+      "additionalProperties": false,
+      "description": "五类边界及总深度计数。",
+      "properties": {
+        "context": {
+          "minimum": 0,
+          "title": "Context",
+          "type": "integer"
+        },
+        "memory": {
+          "minimum": 0,
+          "title": "Memory",
+          "type": "integer"
+        },
+        "session": {
+          "minimum": 0,
+          "title": "Session",
+          "type": "integer"
+        },
+        "skill": {
+          "minimum": 0,
+          "title": "Skill",
+          "type": "integer"
+        },
+        "tool": {
+          "minimum": 0,
+          "title": "Tool",
+          "type": "integer"
+        },
+        "total": {
+          "minimum": 0,
+          "title": "Total",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "context",
+        "memory",
+        "session",
+        "skill",
+        "tool",
+        "total"
+      ],
+      "title": "BoundaryDepth",
+      "type": "object"
+    },
+    "CanonicalEffectKey": {
+      "additionalProperties": false,
+      "description": "UEA 类型去重使用的规范化五元组。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "lifetime": {
+          "$ref": "#/$defs/Lifetime"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "sink": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "action",
+        "sink",
+        "scope",
+        "lifetime"
+      ],
+      "title": "CanonicalEffectKey",
+      "type": "object"
+    },
+    "CapabilityAction": {
+      "description": "MVP 固定支持的能力动作。",
+      "enum": [
+        "file.read",
+        "file.write",
+        "memory.read",
+        "memory.write",
+        "network.send",
+        "shell.execute",
+        "user.confirm"
+      ],
+      "title": "CapabilityAction",
+      "type": "string"
+    },
     "Decision": {
       "description": "Harness 或策略的结构化决策。",
       "enum": [
@@ -9,6 +106,38 @@
       ],
       "title": "Decision",
       "type": "string"
+    },
+    "EffectPathEvidence": {
+      "additionalProperties": false,
+      "description": "一个来源节点到 Effect 节点的脱敏可审计路径。",
+      "properties": {
+        "boundary_depth": {
+          "$ref": "#/$defs/BoundaryDepth"
+        },
+        "evidence_event_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Event Ids",
+          "type": "array"
+        },
+        "node_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Node Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "node_ids",
+        "evidence_event_ids",
+        "boundary_depth"
+      ],
+      "title": "EffectPathEvidence",
+      "type": "object"
     },
     "ExperimentRiskReport": {
       "additionalProperties": false,
@@ -138,6 +267,204 @@
       "title": "ExperimentRiskReport",
       "type": "object"
     },
+    "Lifetime": {
+      "description": "授权或效果的有效边界。",
+      "enum": [
+        "call",
+        "task",
+        "session",
+        "persistent"
+      ],
+      "title": "Lifetime",
+      "type": "string"
+    },
+    "MetricStatus": {
+      "description": "比例指标是否有可解释分母。",
+      "enum": [
+        "defined",
+        "not_applicable"
+      ],
+      "title": "MetricStatus",
+      "type": "string"
+    },
+    "PolicyReasonCode": {
+      "description": "T08 冻结的授权、边界与来源失败原因。",
+      "enum": [
+        "MANIFEST_PERMISSION_MISSING",
+        "USER_GRANT_MISSING",
+        "RESOURCE_SCOPE_EXCEEDED",
+        "SINK_SCOPE_EXCEEDED",
+        "GRANT_EXPIRED",
+        "GRANT_REVOKED",
+        "ORIGIN_REVOKED",
+        "CROSS_CALL_USE",
+        "CROSS_TASK_USE",
+        "CROSS_SESSION_USE",
+        "UNTRUSTED_ORIGIN",
+        "PROVENANCE_INCOMPLETE",
+        "GRANT_NOT_YET_VALID"
+      ],
+      "title": "PolicyReasonCode",
+      "type": "string"
+    },
+    "ProvenanceCounts": {
+      "additionalProperties": false,
+      "description": "来源集合比较的 TP、FP、FN 原始计数。",
+      "properties": {
+        "artifact_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Artifact Ids",
+          "type": "array"
+        },
+        "fn": {
+          "minimum": 0,
+          "title": "Fn",
+          "type": "integer"
+        },
+        "fp": {
+          "minimum": 0,
+          "title": "Fp",
+          "type": "integer"
+        },
+        "tp": {
+          "minimum": 0,
+          "title": "Tp",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "tp",
+        "fp",
+        "fn",
+        "artifact_ids"
+      ],
+      "title": "ProvenanceCounts",
+      "type": "object"
+    },
+    "ProvenanceDepthMetrics": {
+      "additionalProperties": false,
+      "description": "一个边界总深度上的来源指标和相邻深度衰减。",
+      "properties": {
+        "boundary_depth": {
+          "minimum": 0,
+          "title": "Boundary Depth",
+          "type": "integer"
+        },
+        "decay": {
+          "$ref": "#/$defs/SignedRatioMetric"
+        },
+        "metrics": {
+          "$ref": "#/$defs/ProvenanceMetricSet"
+        }
+      },
+      "required": [
+        "boundary_depth",
+        "metrics",
+        "decay"
+      ],
+      "title": "ProvenanceDepthMetrics",
+      "type": "object"
+    },
+    "ProvenanceMetricSet": {
+      "additionalProperties": false,
+      "description": "同一聚合范围内的来源混淆计数与三类比例。",
+      "properties": {
+        "counts": {
+          "$ref": "#/$defs/ProvenanceCounts"
+        },
+        "f1": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "precision": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "recall": {
+          "$ref": "#/$defs/RatioMetric"
+        }
+      },
+      "required": [
+        "counts",
+        "precision",
+        "recall",
+        "f1"
+      ],
+      "title": "ProvenanceMetricSet",
+      "type": "object"
+    },
+    "ProvenanceMetricSummary": {
+      "additionalProperties": false,
+      "description": "单场景或 micro 范围的总体与逐深度来源指标。",
+      "properties": {
+        "by_boundary_depth": {
+          "items": {
+            "$ref": "#/$defs/ProvenanceDepthMetrics"
+          },
+          "title": "By Boundary Depth",
+          "type": "array"
+        },
+        "overall": {
+          "$ref": "#/$defs/ProvenanceMetricSet"
+        }
+      },
+      "required": [
+        "overall",
+        "by_boundary_depth"
+      ],
+      "title": "ProvenanceMetricSummary",
+      "type": "object"
+    },
+    "RatioMetric": {
+      "additionalProperties": false,
+      "description": "值域为零到一的比例及其原始计数和证据。",
+      "properties": {
+        "denominator": {
+          "minimum": 0,
+          "title": "Denominator",
+          "type": "integer"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "numerator": {
+          "minimum": 0,
+          "title": "Numerator",
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "numerator",
+        "denominator",
+        "value",
+        "status"
+      ],
+      "title": "RatioMetric",
+      "type": "object"
+    },
     "RawCounts": {
       "additionalProperties": false,
       "description": "聚合指标的原始可复核计数。",
@@ -254,6 +581,11 @@
       "title": "ReplayRiskReport",
       "type": "object"
     },
+    "ResourceRef": {
+      "description": "一个已经校验并规范化的 Resource URI。",
+      "title": "ResourceRef",
+      "type": "string"
+    },
     "RunRiskReport": {
       "additionalProperties": false,
       "description": "单次 Run 的结果与可审计证据索引。",
@@ -359,47 +691,8 @@
           "title": "Policy Decisions",
           "type": "array"
         },
-        "provenance_f1": {
-          "anyOf": [
-            {
-              "maximum": 1.0,
-              "minimum": 0.0,
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Provenance F1"
-        },
-        "provenance_precision": {
-          "anyOf": [
-            {
-              "maximum": 1.0,
-              "minimum": 0.0,
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Provenance Precision"
-        },
-        "provenance_recall": {
-          "anyOf": [
-            {
-              "maximum": 1.0,
-              "minimum": 0.0,
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Provenance Recall"
+        "provenance": {
+          "$ref": "#/$defs/ProvenanceMetricSummary"
         },
         "receipt_ids": {
           "default": [],
@@ -431,6 +724,11 @@
           ],
           "default": null
         },
+        "scenario_id": {
+          "minLength": 1,
+          "title": "Scenario Id",
+          "type": "string"
+        },
         "schema_version": {
           "minLength": 1,
           "title": "Schema Version",
@@ -448,18 +746,6 @@
           "default": null,
           "title": "Seed"
         },
-        "source_to_sink_paths": {
-          "default": [],
-          "items": {
-            "items": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "title": "Source To Sink Paths",
-          "type": "array"
-        },
         "task_success": {
           "anyOf": [
             {
@@ -472,22 +758,15 @@
           "default": null,
           "title": "Task Success"
         },
-        "uea_count": {
-          "minimum": 0,
-          "title": "Uea Count",
-          "type": "integer"
+        "uea": {
+          "$ref": "#/$defs/UeaMetricSummary"
         },
-        "uea_type_count": {
-          "default": 0,
-          "minimum": 0,
-          "title": "Uea Type Count",
-          "type": "integer"
-        },
-        "uea_weight": {
-          "default": 0.0,
-          "minimum": 0.0,
-          "title": "Uea Weight",
-          "type": "number"
+        "unauthorized_effects": {
+          "items": {
+            "$ref": "#/$defs/UnauthorizedEffectEvidence"
+          },
+          "title": "Unauthorized Effects",
+          "type": "array"
         },
         "variant": {
           "anyOf": [
@@ -507,7 +786,10 @@
         "schema_version",
         "report_scope",
         "run_id",
-        "uea_count"
+        "scenario_id",
+        "uea",
+        "provenance",
+        "unauthorized_effects"
       ],
       "title": "RunRiskReport",
       "type": "object"
@@ -516,6 +798,170 @@
       "description": "Experiment Matrix 中受控的 Scenario 相对路径。",
       "title": "ScenarioPath",
       "type": "string"
+    },
+    "Scope": {
+      "description": "MVP 中互不放大的四种精确作用域。",
+      "enum": [
+        "exact-file",
+        "exact-key",
+        "exact-sink",
+        "command"
+      ],
+      "title": "Scope",
+      "type": "string"
+    },
+    "SignedRatioMetric": {
+      "additionalProperties": false,
+      "description": "允许为负的比例差及其精确整数分子、分母。",
+      "properties": {
+        "denominator": {
+          "minimum": 0,
+          "title": "Denominator",
+          "type": "integer"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "numerator": {
+          "title": "Numerator",
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": -1.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "numerator",
+        "denominator",
+        "value",
+        "status"
+      ],
+      "title": "SignedRatioMetric",
+      "type": "object"
+    },
+    "UeaMetricSummary": {
+      "additionalProperties": false,
+      "description": "UEA 实例数、全局类型数、主权重及其全部证据。",
+      "properties": {
+        "canonical_effect_keys": {
+          "items": {
+            "$ref": "#/$defs/CanonicalEffectKey"
+          },
+          "title": "Canonical Effect Keys",
+          "type": "array"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "uea_count": {
+          "minimum": 0,
+          "title": "Uea Count",
+          "type": "integer"
+        },
+        "uea_type_count": {
+          "minimum": 0,
+          "title": "Uea Type Count",
+          "type": "integer"
+        },
+        "uea_weight": {
+          "minimum": 0.0,
+          "title": "Uea Weight",
+          "type": "number"
+        }
+      },
+      "required": [
+        "uea_count",
+        "uea_type_count",
+        "uea_weight",
+        "evidence_ids",
+        "canonical_effect_keys"
+      ],
+      "title": "UeaMetricSummary",
+      "type": "object"
+    },
+    "UnauthorizedEffectEvidence": {
+      "additionalProperties": false,
+      "description": "一个未授权且已执行 Effect 的理由、路径与稳定 ID。",
+      "properties": {
+        "canonical_key": {
+          "$ref": "#/$defs/CanonicalEffectKey"
+        },
+        "decision_id": {
+          "minLength": 1,
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "effect_id": {
+          "minLength": 1,
+          "title": "Effect Id",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "paths": {
+          "items": {
+            "$ref": "#/$defs/EffectPathEvidence"
+          },
+          "minItems": 1,
+          "title": "Paths",
+          "type": "array"
+        },
+        "reason_codes": {
+          "items": {
+            "$ref": "#/$defs/PolicyReasonCode"
+          },
+          "minItems": 1,
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "receipt_id": {
+          "minLength": 1,
+          "title": "Receipt Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "effect_id",
+        "receipt_id",
+        "decision_id",
+        "reason_codes",
+        "canonical_key",
+        "paths",
+        "evidence_ids"
+      ],
+      "title": "UnauthorizedEffectEvidence",
+      "type": "object"
     }
   },
   "discriminator": {

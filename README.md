@@ -2,7 +2,7 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前仓库已完成到 **T08：授权匹配与策略决策**。这里已经固定研究边界、四级 Lifetime 菱形偏序和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。每次 Run 除了输出可按 Artifact/Effect ID 对齐的 Observed 与 Oracle JSONL，还会只从 EventStore 重建只读 NetworkX 来源图并导出脱敏 `security-graph.json`。正式 PolicyEngine 现在会分别计算 Harness 基线、策略建议、真实授权和实际执行；尚未实现 T09 风险指标、T10 Checkpoint 或真实平台 Adapter。
+当前仓库已完成到 **T09：基础指标 UEA 与 Provenance**。这里已经固定研究边界、四级 Lifetime 菱形偏序和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。每次 Run 会输出可按 Artifact/Effect ID 对齐的 Observed/Oracle JSONL、只从 EventStore 重建的脱敏 `security-graph.json`，以及通过静态 Schema 校验的 `risk-report.json`。报告用 Oracle 的 `GT_auth`/`GT_effect` 与真实 Receipt 计算 UEA，并给出来源 Precision、Recall、F1、边界深度 Decay、结构化 N/A 和证据 ID；尚未实现 T10 Checkpoint、反事实重放或真实平台 Adapter。
 
 ## 当前能力
 
@@ -42,6 +42,12 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 - 已实现七类研究查询：祖先、任意端点路径、不可信来源、授权路径、撤销祖先、跨 Session 路径和 Skill→Effect 路径；每条路径返回类型化节点、语义边、Session 顺序、证据 Event ID、Grant/Skill/Tool ID 与五类边界深度。
 - 路径枚举使用逐路径访问集合和默认最大深度 64，循环图不会无限遍历；Session 重新进入按真实顺序再次计数。
 - Scenario Runner 自动以不可覆盖方式写出脱敏 `security-graph.json`；导出模型不含 Blob、正文或任意 metadata，GraphML 明确保留到 T14 后再评估。
+- Scenario Runner 自动生成 `risk-report.json`；写入前同时经过 Pydantic 判别联合和 Draft 2020-12 JSON Schema 复验，已有文件不会被覆盖。
+- `UEA_count` 按未授权且已执行的 Effect/Receipt 实例计数，`UEA_type_count` 按 `(source, action, sink, scope, lifetime)` 全局去重，首版 `UEA_weight` 对每个实例取权重 1。
+- 每个 UEA 实例都保留 Manifest/Grant 缺失 reason codes、Effect/Receipt/Decision ID，以及 SecurityGraph 中 Principal→Effect 的类型化路径、边界深度与证据 Event ID。
+- 来源指标按 Artifact 对齐 Oracle/Observed origins，输出 TP/FP/FN、Precision、Recall、F1 和相邻边界深度 Decay；每个比例都包含 numerator、denominator、value、status 与证据 ID，零分母严格表示为结构化 N/A。
+- 多场景分析同时保留逐场景 `RunRiskReport` 和 micro 聚合；micro 先汇总 UEA 实例与原始 TP/FP/FN，再重算比例，不平均各场景百分比。
+- Oracle 声明式 asset 根允许只存在于 Oracle；除它以外的运行 Artifact 必须在双轨中完整对齐，避免缺失 Observed Artifact 被静默排除而高估 Recall。
 - pytest、覆盖率、ruff 与 mypy 质量门禁。
 - GitHub Actions 自动执行同一组质量门禁。
 - 中文威胁模型、安全语义、形式化不变量和架构决策记录。
@@ -72,6 +78,7 @@ python -m venv .venv-skillflow
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t06_dual_trace.py -q --no-cov
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t07_scenario_graph.py -q --no-cov
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t08_policy_modes.py -q --no-cov
+.\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t09_risk_report.py -q --no-cov
 ```
 
 安装后也可以直接使用控制台命令：
@@ -106,7 +113,7 @@ for path in paths:
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli --help
 ```
 
-当前 pytest 门禁仍按任务书使用 80% 最低阈值；T08 的最终测试项数、分支覆盖率、策略真值表与授权证据记录在 [`docs/summaries/T08_Summary.md`](docs/summaries/T08_Summary.md)。T14 将把最终门槛正式提升到 90%。
+当前 pytest 门禁仍按任务书使用 80% 最低阈值；T09 的最终测试项数、分支覆盖率、Golden 指标和证据报告结构记录在 [`docs/summaries/T09_Summary.md`](docs/summaries/T09_Summary.md)。T14 将把最终门槛正式提升到 90%。
 
 ## 项目范围
 

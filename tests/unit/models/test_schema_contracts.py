@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 from jsonschema import Draft202012Validator
 from jsonschema import ValidationError as JsonSchemaValidationError
-from pydantic import ValidationError
+from pydantic import JsonValue, ValidationError
 
 from skillflow.models import ExperimentMatrix, SkillManifest
 from skillflow.models.reports import RISK_REPORT_ADAPTER
@@ -13,7 +13,7 @@ from skillflow.schemas import schema_documents
 SCHEMA_DIR = Path("schemas")
 
 
-def valid_manifest_payload() -> dict[str, object]:
+def valid_manifest_payload() -> dict[str, JsonValue]:
     return {
         "schema_version": "0.1",
         "id": "safe-reader",
@@ -32,7 +32,7 @@ def valid_manifest_payload() -> dict[str, object]:
     }
 
 
-def valid_matrix_payload() -> dict[str, object]:
+def valid_matrix_payload() -> dict[str, JsonValue]:
     return {
         "schema_version": "0.1",
         "id": "mvp",
@@ -53,13 +53,36 @@ def valid_matrix_payload() -> dict[str, object]:
     }
 
 
-def valid_risk_report_payload() -> dict[str, object]:
+def valid_risk_report_payload() -> dict[str, JsonValue]:
+    not_applicable: dict[str, JsonValue] = {
+        "numerator": 0,
+        "denominator": 0,
+        "value": None,
+        "status": "not_applicable",
+        "evidence_ids": [],
+    }
     return {
         "schema_version": "0.1",
         "report_scope": "run",
         "run_id": "run-1",
-        "effect_ids": ["effect-1"],
-        "uea_count": 1,
+        "scenario_id": "scenario-1",
+        "uea": {
+            "uea_count": 0,
+            "uea_type_count": 0,
+            "uea_weight": 0.0,
+            "evidence_ids": [],
+            "canonical_effect_keys": [],
+        },
+        "provenance": {
+            "overall": {
+                "counts": {"tp": 0, "fp": 0, "fn": 0, "artifact_ids": []},
+                "precision": not_applicable,
+                "recall": not_applicable,
+                "f1": not_applicable,
+            },
+            "by_boundary_depth": [],
+        },
+        "unauthorized_effects": [],
     }
 
 
@@ -70,7 +93,9 @@ def test_experiment_matrix_round_trip_and_duplicate_rejection() -> None:
     payload = valid_matrix_payload()
     variants = payload["variants"]
     assert isinstance(variants, list)
-    variants.append(dict(variants[0]))
+    variant = variants[0]
+    assert isinstance(variant, dict)
+    variants.append(dict(variant))
     with pytest.raises(ValidationError, match="重复"):
         ExperimentMatrix.model_validate(payload)
 

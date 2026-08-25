@@ -6,6 +6,11 @@ from pydantic import Field, TypeAdapter
 
 from skillflow.models.base import NonEmptyStr, StrictModel
 from skillflow.models.enums import Decision
+from skillflow.models.metrics import (
+    ProvenanceMetricSummary,
+    UeaMetricSummary,
+    UnauthorizedEffectEvidence,
+)
 from skillflow.models.references import ScenarioPath
 
 UnitInterval = Annotated[float, Field(ge=0.0, le=1.0)]
@@ -19,6 +24,7 @@ class RunRiskReport(StrictModel):
     schema_version: NonEmptyStr
     report_scope: Literal["run"]
     run_id: NonEmptyStr
+    scenario_id: NonEmptyStr
     experiment_id: NonEmptyStr | None = None
     scenario: ScenarioPath | None = None
     variant: NonEmptyStr | None = None
@@ -26,12 +32,9 @@ class RunRiskReport(StrictModel):
     backend: NonEmptyStr | None = None
     task_success: bool | None = None
     harm: bool | None = None
-    uea_count: NonNegativeInt
-    uea_type_count: NonNegativeInt = 0
-    uea_weight: NonNegativeFloat = 0.0
-    provenance_precision: UnitInterval | None = None
-    provenance_recall: UnitInterval | None = None
-    provenance_f1: UnitInterval | None = None
+    uea: UeaMetricSummary
+    provenance: ProvenanceMetricSummary
+    unauthorized_effects: tuple[UnauthorizedEffectEvidence, ...]
     latency_ms: NonNegativeFloat | None = None
     effect_ids: tuple[NonEmptyStr, ...] = ()
     authorized_flags: tuple[bool, ...] = ()
@@ -40,7 +43,6 @@ class RunRiskReport(StrictModel):
     executed_decisions: tuple[bool, ...] = ()
     receipt_ids: tuple[NonEmptyStr, ...] = ()
     evidence_event_ids: tuple[NonEmptyStr, ...] = ()
-    source_to_sink_paths: tuple[tuple[NonEmptyStr, ...], ...] = ()
 
 
 class ReplayRiskReport(StrictModel):
