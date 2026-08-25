@@ -85,8 +85,7 @@ def capture_run_store(request: StoreCaptureRequest) -> RunStoreSnapshot:
     )
     artifacts = _capture_artifacts(request, events)
     heads = tuple(
-        _memory_head(request, key, artifact_id)
-        for key, artifact_id in request.memory_entries
+        _memory_head(request, key, artifact_id) for key, artifact_id in request.memory_entries
     )
     return RunStoreSnapshot(envelopes, artifacts, heads)
 

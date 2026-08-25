@@ -153,6 +153,7 @@ class InstrumentedSkill:
         invocation: SkillInvocationToken,
         content: bytes,
         parent_artifact_ids: tuple[str, ...],
+        mime_type: str = "text/plain",
     ) -> Artifact:
         """完成调用，生成连接全部显式父节点的 Skill 输出。"""
         if invocation.invocation_event_id not in self._active_invocations:
@@ -170,7 +171,7 @@ class InstrumentedSkill:
                     | {origin for parent in parents for origin in parent.observed_label.origins}
                 ),
                 trust=TrustLevel.UNTRUSTED,
-                mime_type="text/plain",
+                mime_type=mime_type,
                 metadata={"skill_id": invocation.skill_id},
             )
         )

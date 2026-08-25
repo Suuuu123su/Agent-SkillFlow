@@ -1,11 +1,11 @@
 import pytest
-from pydantic import ValidationError
+from pydantic import JsonValue, ValidationError
 
 from skillflow.analysis.counterfactual import compute_scripted_ci
 from skillflow.models.reports import ConfirmedInfluenceEdge, ReplayRiskReport
 
 
-def _report_payload() -> dict[str, object]:
+def _report_payload() -> dict[str, JsonValue]:
     return {
         "schema_version": "0.1",
         "report_scope": "replay",
@@ -66,7 +66,7 @@ def test_replay_report_requires_a_typed_confirmed_edge_for_nonzero_ci() -> None:
         ("removed_effect_ids", []),
     ],
 )
-def test_replay_report_rejects_inconsistent_pair_facts(field: str, value: object) -> None:
+def test_replay_report_rejects_inconsistent_pair_facts(field: str, value: JsonValue) -> None:
     payload = _report_payload()
     payload[field] = value
 

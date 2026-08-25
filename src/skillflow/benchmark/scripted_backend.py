@@ -58,6 +58,7 @@ class FixtureScript:
 
     output: bytes
     actions: tuple[ToolScriptAction, ...] = ()
+    output_mime_type: str = "text/plain"
 
 
 @dataclass(frozen=True, slots=True)
@@ -68,6 +69,7 @@ class ScriptedInvocationResult:
     receipts: tuple[ToolReceipt, ...]
     attempts: tuple[ToolActionAttempt, ...]
     parent_artifact_ids: tuple[str, ...]
+    output_mime_type: str
 
 
 @dataclass(frozen=True, slots=True)
@@ -157,6 +159,7 @@ class ScriptedBackend:
             receipts=tuple(receipts),
             attempts=tuple(attempts),
             parent_artifact_ids=tuple(parent_ids),
+            output_mime_type=script.output_mime_type,
         )
 
 

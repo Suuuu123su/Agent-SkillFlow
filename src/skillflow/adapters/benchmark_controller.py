@@ -2,6 +2,10 @@
 
 from typing import Protocol
 
+from skillflow.instrumentation.artifact_intervention import (
+    ArtifactInterventionMode,
+    ArtifactInterventionResult,
+)
 from skillflow.instrumentation.errors import HarnessStateError
 from skillflow.models.authorization import AuthorizationGrant
 from skillflow.models.enums import PrincipalType
@@ -26,6 +30,12 @@ class _BenchmarkHarness(Protocol):
         source_artifact_id: str,
         actor: ActorCall,
     ) -> Artifact: ...
+
+    def benchmark_intervene_artifact(
+        self,
+        source_artifact_id: str,
+        mode: ArtifactInterventionMode,
+    ) -> ArtifactInterventionResult: ...
 
 
 class BenchmarkController:
@@ -75,6 +85,14 @@ class BenchmarkController:
             source_artifact_id,
             ActorCall(actor.value, None),
         )
+
+    def intervene_artifact(
+        self,
+        source_artifact_id: str,
+        mode: ArtifactInterventionMode,
+    ) -> ArtifactInterventionResult:
+        """执行 T10 固定 identity/neutral Artifact 派生。"""
+        return self._harness.benchmark_intervene_artifact(source_artifact_id, mode)
 
     @staticmethod
     def _require_trusted(actor: PrincipalType, operation: str) -> None:

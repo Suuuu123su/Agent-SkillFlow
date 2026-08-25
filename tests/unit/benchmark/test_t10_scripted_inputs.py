@@ -1,5 +1,3 @@
-from dataclasses import dataclass, field
-
 from skillflow.benchmark.scripted_backend import (
     FixtureScript,
     InputArtifactBinding,
@@ -19,9 +17,9 @@ from skillflow.models.tool_calls import HttpSendArgs, ToolCallRequest
 from skillflow.runtime.session import ActorCall
 
 
-@dataclass(slots=True)
 class RecordingTool:
-    requests: list[ToolCallRequest] = field(default_factory=list)
+    def __init__(self) -> None:
+        self.requests: list[ToolCallRequest] = []
 
     def call(self, request: ToolCallRequest) -> DeniedToolCall:
         self.requests.append(request)

@@ -4,13 +4,13 @@ from collections.abc import Mapping
 from dataclasses import dataclass
 from pathlib import Path
 
-from skillflow.adapters.mock_harness import MockHarnessAdapter, MockHarnessConfig
 from skillflow.analysis.run_reporting import RunTraceAnalysisInput, write_analyzed_run_report
+from skillflow.benchmark.harness_factory import HarnessFactorySetup, create_scenario_harness
 from skillflow.benchmark.manifests import load_manifests
 from skillflow.benchmark.oracle_bridge import OracleSetup, build_oracle_sidecar
 from skillflow.benchmark.run_workspace import stage_assets
 from skillflow.benchmark.scenario_execution import execute_scenario_sessions
-from skillflow.benchmark.scripted_backend import FixtureScript, ScriptedBackend
+from skillflow.benchmark.scripted_backend import FixtureScript
 from skillflow.graph.security import SecurityGraph
 from skillflow.instrumentation.mock_tools import MockNetworkRecord, MockShellRecord
 from skillflow.instrumentation.tool_receipt import ToolReceipt
@@ -18,9 +18,6 @@ from skillflow.models.enums import Decision
 from skillflow.models.provenance import Artifact
 from skillflow.models.scenario import Scenario
 from skillflow.oracle.writer import OracleTraceWriter
-from skillflow.policy.runtime import RuntimePolicySetup, StoredPolicyDecisionProvider
-from skillflow.runtime.determinism import DeterministicIdFactory, VirtualClock
-from skillflow.runtime.session import RuntimeDependencies
 from skillflow.store.blob_store import RunBlobStore
 from skillflow.store.sqlite_store import SqliteEventStore
 from skillflow.store.trace import RunTrace, build_run_trace
@@ -85,34 +82,18 @@ class ScenarioRunner:
             SqliteEventStore(database) as store,
             RunBlobStore(run_root, run_id) as blobs,
         ):
-            harness = MockHarnessAdapter(
-                MockHarnessConfig(
+            harness = create_scenario_harness(
+                HarnessFactorySetup(
+                    scenario=scenario,
                     run_id=run_id,
-                    task_id=scenario.task.id,
-                    workspace_root=workspace,
-                    dependencies=RuntimeDependencies(
-                        event_store=store,
-                        blob_store=blobs,
-                        clock=VirtualClock(scenario.clock.start),
-                        id_factory=DeterministicIdFactory(seed),
-                        provenance_mode=scenario.harness.provenance_mode,
-                    ),
-                    initial_grants=scenario.grants,
-                ),
-                ScriptedBackend(self._scripts),
-                StoredPolicyDecisionProvider(
-                    store,
-                    RuntimePolicySetup(
-                        run_id=run_id,
-                        manifests={
-                            binding.skill_id: binding.manifest for binding in manifest_bindings
-                        },
-                        structural_decisions=self._decisions,
-                        enforcement_mode=scenario.execution.mode,
-                        auto_approve_tools=scenario.harness.auto_approve_tools,
-                        implicit_text_authorization=(scenario.harness.implicit_text_authorization),
-                    ),
-                ),
+                    workspace=workspace,
+                    event_store=store,
+                    blob_store=blobs,
+                    scripts=self._scripts,
+                    decisions=self._decisions,
+                    manifests=manifest_bindings,
+                    seed=seed,
+                )
             )
             execution = execute_scenario_sessions(scenario, harness, oracle)
             oracle_records = oracle.finalize()

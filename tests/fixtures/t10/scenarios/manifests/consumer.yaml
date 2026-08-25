@@ -1,0 +1,11 @@
+schema_version: "0.1"
+id: consumer
+principal_type: skill
+description: "只向固定 Mock Sink 发送结构化触发 Artifact。"
+requested_permissions:
+  - source: context:/trigger
+    action: network.send
+    sink: mock://external
+    scope: exact-sink
+    lifetime: call
+    sensitivity: 1

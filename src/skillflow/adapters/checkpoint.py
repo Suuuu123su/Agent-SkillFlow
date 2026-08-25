@@ -4,7 +4,7 @@ import hashlib
 import json
 from dataclasses import dataclass
 
-from pydantic import BaseModel
+from pydantic import BaseModel, JsonValue, TypeAdapter
 
 from skillflow.instrumentation.context_proxy import ContextStateSnapshot
 from skillflow.instrumentation.memory_proxy import MemoryStateSnapshot
@@ -15,6 +15,8 @@ from skillflow.runtime.determinism import DeterministicIdSnapshot, VirtualClockS
 from skillflow.runtime.workspace_checkpoint import WorkspaceSnapshot
 from skillflow.store.checkpoint import RunStoreSnapshot
 from skillflow.store.errors import StoreIntegrityError
+
+JSON_VALUE_ADAPTER: TypeAdapter[JsonValue] = TypeAdapter(JsonValue)
 
 
 @dataclass(frozen=True, slots=True)
@@ -124,8 +126,8 @@ def verify_harness_checkpoint(checkpoint: HarnessCheckpoint) -> None:
         raise StoreIntegrityError("restore_checkpoint", "checkpoint 哈希不一致")
 
 
-def _prefix_payload(snapshot: RunStoreSnapshot) -> dict[str, object]:
-    envelopes: list[dict[str, object]] = []
+def _prefix_payload(snapshot: RunStoreSnapshot) -> JsonValue:
+    envelopes: list[dict[str, JsonValue]] = []
     for envelope in snapshot.envelopes:
         event = envelope.event.model_dump(mode="json")
         event["run_id"] = "<branch-run>"
@@ -149,8 +151,8 @@ def _prefix_payload(snapshot: RunStoreSnapshot) -> dict[str, object]:
                 ),
             }
         )
-    artifacts = tuple(item.artifact.model_dump(mode="json") for item in snapshot.artifacts)
-    heads = tuple(
+    artifacts = [item.artifact.model_dump(mode="json") for item in snapshot.artifacts]
+    heads = [
         {
             "key": head.key,
             "artifact_id": head.artifact_id,
@@ -158,47 +160,51 @@ def _prefix_payload(snapshot: RunStoreSnapshot) -> dict[str, object]:
             "updated_event_id": head.updated_event_id,
         }
         for head in snapshot.memory_heads
+    ]
+    return JSON_VALUE_ADAPTER.validate_python(
+        {"artifacts": artifacts, "envelopes": envelopes, "memory_heads": heads}
     )
-    return {"artifacts": artifacts, "envelopes": envelopes, "memory_heads": heads}
 
 
-def _state_payload(parts: HarnessCheckpointParts, prefix_hash: str) -> dict[str, object]:
-    return {
-        "prefix_hash": prefix_hash,
-        "task_id": parts.task_id,
-        "session_id": parts.session_id,
-        "provenance_mode": parts.provenance_mode.value,
-        "context": parts.context.artifact_ids,
-        "memory": parts.memory.entries,
-        "skill_bindings": tuple(
-            (binding.skill_id, binding.implementation.root)
-            for binding in parts.skill_state.bindings
-        ),
-        "revoked_skills": parts.skill_state.revoked_skill_ids,
-        "loaded_skills": parts.skills.loaded_skill_ids,
-        "network": tuple(
-            (record.effect_id, record.sink.root, record.source_artifact_id)
-            for record in parts.network_records
-        ),
-        "shell": tuple(
-            (record.effect_id, record.command) for record in parts.shell_records
-        ),
-        "clock": parts.clock.current.isoformat(),
-        "id_seed": parts.ids.seed,
-        "id_counters": parts.ids.counters,
-        "initial_grants_registered": parts.initial_grants_registered,
-        "workspace": tuple(
-            (item.relative_path, item.content_hash, item.content_length)
-            for item in parts.workspace.files
-        ),
-    }
+def _state_payload(parts: HarnessCheckpointParts, prefix_hash: str) -> JsonValue:
+    return JSON_VALUE_ADAPTER.validate_python(
+        {
+            "prefix_hash": prefix_hash,
+            "task_id": parts.task_id,
+            "session_id": parts.session_id,
+            "provenance_mode": parts.provenance_mode.value,
+            "context": list(parts.context.artifact_ids),
+            "memory": [list(entry) for entry in parts.memory.entries],
+            "skill_bindings": [
+                [binding.skill_id, binding.implementation.root]
+                for binding in parts.skill_state.bindings
+            ],
+            "revoked_skills": list(parts.skill_state.revoked_skill_ids),
+            "loaded_skills": list(parts.skills.loaded_skill_ids),
+            "network": [
+                [record.effect_id, record.sink.root, record.source_artifact_id]
+                for record in parts.network_records
+            ],
+            "shell": [[record.effect_id, list(record.command)] for record in parts.shell_records],
+            "clock": parts.clock.current.isoformat(),
+            "id_seed": parts.ids.seed,
+            "id_counters": [list(counter) for counter in parts.ids.counters],
+            "initial_grants_registered": parts.initial_grants_registered,
+            "workspace": [
+                [item.relative_path, item.content_hash, item.content_length]
+                for item in parts.workspace.files
+            ],
+        }
+    )
 
 
-def _model_payload(model: BaseModel | None) -> dict[str, object] | None:
-    return None if model is None else model.model_dump(mode="json")
+def _model_payload(model: BaseModel | None) -> JsonValue:
+    return (
+        None if model is None else JSON_VALUE_ADAPTER.validate_python(model.model_dump(mode="json"))
+    )
 
 
-def _hash_payload(payload: dict[str, object]) -> str:
+def _hash_payload(payload: JsonValue) -> str:
     encoded = json.dumps(
         payload,
         ensure_ascii=True,
@@ -226,8 +232,7 @@ def _verify_private_content(
     for workspace_item in workspace.files:
         valid = (
             len(workspace_item.content) == workspace_item.content_length
-            and hashlib.sha256(workspace_item.content).hexdigest()
-            == workspace_item.content_hash
+            and hashlib.sha256(workspace_item.content).hexdigest() == workspace_item.content_hash
         )
         if not valid:
             raise StoreIntegrityError(

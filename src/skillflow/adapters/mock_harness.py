@@ -13,6 +13,7 @@ from skillflow.adapters.benchmark_controller import BenchmarkController
 from skillflow.adapters.checkpoint import (
     HarnessCheckpoint,
 )
+from skillflow.adapters.mock_benchmark_state import MockBenchmarkStateMixin
 from skillflow.adapters.mock_checkpoint import (
     MockCheckpointCapture,
     MockCheckpointRestore,
@@ -41,7 +42,6 @@ from skillflow.instrumentation.mock_tools import (
 from skillflow.instrumentation.skill_proxy import SkillState
 from skillflow.models.authorization import AuthorizationGrant
 from skillflow.models.enums import EventType
-from skillflow.models.provenance import Artifact
 from skillflow.runtime.session import (
     ActorCall,
     EventEmission,
@@ -67,7 +67,7 @@ class MockHarnessConfig:
     initial_grants: tuple[AuthorizationGrant, ...] = ()
 
 
-class MockHarnessAdapter:
+class MockHarnessAdapter(MockBenchmarkStateMixin):
     """不访问真实 LLM、网络或 Shell 的 Harness。"""
 
     def __init__(
@@ -156,7 +156,12 @@ class MockHarnessAdapter:
         parents = tuple(
             dict.fromkeys((*invocation.input_artifact_ids, *scripted.parent_artifact_ids))
         )
-        output = runtime.skills.return_output(token, scripted.output, parents)
+        output = runtime.skills.return_output(
+            token,
+            scripted.output,
+            parents,
+            scripted.output_mime_type,
+        )
         if actor.call_id is None:
             raise HarnessStateError("invoke_skill", "call_id missing")
         return SkillInvocationResult(
@@ -230,43 +235,6 @@ class MockHarnessAdapter:
     def shell_records(self) -> tuple[MockShellRecord, ...]:
         """返回当前 Run 的内存 Shell 记录。"""
         return self._shell.records
-
-    def benchmark_revoke_skill(self, skill_id: str, actor: ActorCall) -> None:
-        """仅供 BenchmarkController 调用的撤销入口。"""
-        runtime = self._require_runtime("revoke_skill")
-        runtime.skills.revoke(skill_id, actor)
-
-    def benchmark_add_context(self, content: bytes, actor: ActorCall) -> Artifact:
-        """仅供 BenchmarkController 建立受控 Context 前缀。"""
-        return self._require_runtime("add_context").context.add(content, actor)
-
-    def benchmark_write_memory(
-        self,
-        key: str,
-        source_artifact_id: str,
-        actor: ActorCall,
-    ) -> Artifact:
-        """仅供 BenchmarkController 建立受控 Memory 前缀。"""
-        return self._require_runtime("write_memory").memory.write(
-            key,
-            source_artifact_id,
-            actor,
-        )
-
-    def benchmark_unload_skill(self, skill_id: str, actor: ActorCall) -> None:
-        """仅供 BenchmarkController 调用的卸载入口。"""
-        runtime = self._require_runtime("unload_skill")
-        runtime.skills.unload(skill_id, actor)
-
-    def benchmark_issue_grant(self, grant: AuthorizationGrant, actor: ActorCall) -> None:
-        """仅供 BenchmarkController 调用的结构化确认入口。"""
-        runtime = self._require_runtime("confirm_tool")
-        runtime.recorder.record_authorization_grant(grant, actor)
-
-    def benchmark_revoke_grant(self, grant_id: str, actor: ActorCall) -> None:
-        """仅供 BenchmarkController 调用的 Grant 撤销入口。"""
-        runtime = self._require_runtime("revoke_grant")
-        runtime.recorder.record_authorization_revocation(grant_id, actor)
 
     def _require_runtime(self, operation: str) -> MockSessionRuntime:
         if self._runtime is None:

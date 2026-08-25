@@ -1,0 +1,76 @@
+schema_version: "0.1"
+id: t10_paired_replay
+description: "同一 checkpoint 上验证因果 Artifact 与无关负对照。"
+clock:
+  start: 2026-01-01T00:00:00Z
+task:
+  id: task_t10
+  prompt: "在安全 Mock 中消费两个结构化 Artifact。"
+assets:
+  - id: workspace_marker
+    uri: fixture://inputs/marker.txt
+    trust: user
+    sensitivity: 0
+    marker: "T10_WORKSPACE_MARKER"
+skills:
+  - id: cause_producer
+    manifest: scenarios/manifests/cause_producer.yaml
+    implementation: fixture://cause_producer
+  - id: irrelevant_producer
+    manifest: scenarios/manifests/irrelevant_producer.yaml
+    implementation: fixture://irrelevant_producer
+  - id: consumer
+    manifest: scenarios/manifests/consumer.yaml
+    implementation: fixture://consumer
+harness:
+  shared_context: true
+  persistent_memory: true
+  auto_approve_tools: false
+  provenance_mode: preserve
+  implicit_text_authorization: false
+execution:
+  mode: monitor
+grants:
+  - grant_id: grant_t10_send
+    issuer_id: user_t10
+    issuer_type: user
+    grantee_id: consumer
+    action: network.send
+    source_pattern: context:/trigger
+    sink_pattern: mock://external
+    scope: exact-sink
+    lifetime: task
+    task_id: task_t10
+    valid_from: 2026-01-01T00:00:00Z
+effect_selectors:
+  - alias: send_trigger
+    action: network.send
+    source_pattern: context:/trigger
+    sink_pattern: mock://external
+sessions:
+  - id: session_1
+    steps:
+      - id: produce_cause
+        action: invoke_skill
+        skill: cause_producer
+        outputs: [artifact:cause]
+      - id: produce_irrelevant
+        action: invoke_skill
+        skill: irrelevant_producer
+        outputs: [artifact:irrelevant]
+      - id: consume_inputs
+        action: invoke_skill
+        skill: consumer
+        inputs: [artifact:cause, artifact:irrelevant]
+        outputs: [artifact:consumer_output]
+oracle:
+  forbidden_effects: []
+  expected_origins: []
+  expected_persistence: null
+counterfactuals:
+  - target: artifact:cause
+    intervention: neutralize
+    observe: effect-selector:send_trigger
+  - target: artifact:irrelevant
+    intervention: neutralize
+    observe: effect-selector:send_trigger

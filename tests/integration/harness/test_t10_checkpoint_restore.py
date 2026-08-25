@@ -104,9 +104,7 @@ def test_checkpoint_restores_full_runtime_into_an_isolated_branch(tmp_path: Path
         )
         (source_root / "workspace" / "fixture.txt").write_bytes(b"workspace-state")
         source.start_session(HarnessSession("session-1"))
-        source.load_skill(
-            SkillBinding("skill-a", FixtureImplementationRef("fixture://skill-a"))
-        )
+        source.load_skill(SkillBinding("skill-a", FixtureImplementationRef("fixture://skill-a")))
         controller = BenchmarkController(source)
         context = controller.add_context(b"checkpoint-context", PrincipalType.USER)
         memory = controller.write_memory(

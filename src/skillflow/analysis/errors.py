@@ -26,3 +26,15 @@ class RiskReportWriteError(Exception):
     def __str__(self) -> str:
         """返回目标路径与底层写入错误。"""
         return f"风险报告写入失败：{self.path}：{self.detail}"
+
+
+@dataclass(frozen=True, slots=True)
+class ReplayManifestWriteError(Exception):
+    """反事实分支证据清单无法按不可覆盖合同写入。"""
+
+    path: Path
+    detail: str
+
+    def __str__(self) -> str:
+        """返回目标路径与底层写入错误。"""
+        return f"Replay 清单写入失败：{self.path}：{self.detail}"
