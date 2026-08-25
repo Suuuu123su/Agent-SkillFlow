@@ -1,9 +1,12 @@
-"""从类型化模型生成四类静态 JSON Schema 的唯一入口。"""
+"""从类型化模型生成静态 JSON Schema 的唯一入口。"""
 
 import json
 from dataclasses import dataclass
 from pathlib import Path
 
+from skillflow.experiment.t16.budget import BudgetConfig
+from skillflow.experiment.t16.provider import ProviderConfig
+from skillflow.experiment.t16.trial import TrialResult
 from skillflow.models.manifest import SkillManifest
 from skillflow.models.matrix import ExperimentMatrix
 from skillflow.models.reports import RISK_REPORT_ADAPTER
@@ -21,7 +24,7 @@ class SchemaDocument:
 
 
 def schema_documents() -> tuple[SchemaDocument, ...]:
-    """按固定顺序返回 T03 的四类 JSON Schema。"""
+    """按固定顺序返回基础与 T16 实验 JSON Schema。"""
     return (
         SchemaDocument("skill-manifest.schema.json", SkillManifest.model_json_schema()),
         SchemaDocument("scenario.schema.json", Scenario.model_json_schema()),
@@ -30,6 +33,9 @@ def schema_documents() -> tuple[SchemaDocument, ...]:
             ExperimentMatrix.model_json_schema(),
         ),
         SchemaDocument("risk-report.schema.json", RISK_REPORT_ADAPTER.json_schema()),
+        SchemaDocument("t16-trial-result.schema.json", TrialResult.model_json_schema()),
+        SchemaDocument("t16-budget.schema.json", BudgetConfig.model_json_schema()),
+        SchemaDocument("t16-provider.schema.json", ProviderConfig.model_json_schema()),
     )
 
 

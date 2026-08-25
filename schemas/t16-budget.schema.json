@@ -1,0 +1,67 @@
+{
+  "additionalProperties": false,
+  "description": "可生成静态 Schema 的费用保护配置。",
+  "properties": {
+    "allow_live": {
+      "default": false,
+      "title": "Allow Live",
+      "type": "boolean"
+    },
+    "max_agent_turns": {
+      "minimum": 1,
+      "title": "Max Agent Turns",
+      "type": "integer"
+    },
+    "max_cost_per_run_usd": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Max Cost Per Run Usd"
+    },
+    "max_output_tokens_per_turn": {
+      "minimum": 1,
+      "title": "Max Output Tokens Per Turn",
+      "type": "integer"
+    },
+    "max_retries": {
+      "minimum": 0,
+      "title": "Max Retries",
+      "type": "integer"
+    },
+    "max_total_usd": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Max Total Usd"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "max_total_usd",
+    "max_cost_per_run_usd",
+    "max_agent_turns",
+    "max_output_tokens_per_turn",
+    "max_retries"
+  ],
+  "title": "BudgetConfig",
+  "type": "object"
+}

@@ -985,3 +985,40 @@ skillflow matrix scenarios\matrix\mvp.yaml --backend scripted --output runs\mvp
 - T15 结论是“统一事件边界可迁移，且缺失钩子可定位”，不是“OpenClaw 与 Mock 安全语义等价”。
 - Artifact provenance、结构化 Grant 与 Skill revocation enforcement 在固定版本中仍不可观测/不可执行；没有绕过、伪造或修改 OpenClaw 核心源码。
 - T15 是任务书最后一项。本轮完成后停止，不自动扩展到其他 Harness、真实模型或生产部署。
+
+## T16-A：真实 LLM 实验的零费用准备
+
+- 状态：completed
+- 日期：2026-08-25（Asia/Shanghai）
+- 任务边界：只建立预注册、实验链、TrialResult、Provider 接口与费用保护；没有真实 LLM API、真实凭据、外部网络或 T16-B 实验。
+
+### 交付内容
+
+- `experiments/t16/preregistration.yaml`：固定 B0、G0、N0、C1 四格、M2 target/control、A1 claim/neutralized 与 A2 structured confirmation，共 12 个条件。
+- 每个条件 10 个语义等价实例、每实例 3 次采样；所有链都有 condition、semantic instance、pair 与 repeat 身份。
+- `matrix_smoke.yaml`、`matrix_model1.yaml`、`matrix_model2_subset.yaml`：分别包含 48、360、72 条可机械复核的实验链。
+- `src/skillflow/experiment/t16/`：严格预注册、实际 Scenario/Manifest 绑定、矩阵展开、统一 TrialResult、费用账本和 Fake/Live Provider 接口。
+- 三份 T16 静态 Schema、费用配置示例及不含凭据字段的 `.env.example`。
+- `docs/summaries/T16A_Summary.md`：本阶段设计、验收、限制与停止点的中文总结。
+
+### 关键安全语义
+
+1. target/neutral/control 保持相同 Skill、Manifest、Tool、数据格式与长度区间；授权结构只有在 `authorization_source` 为自变量时可改变。
+2. C1 四格共享同一个 harm selector；M2 target/control 都只观察 Session 1、3；A1 neutralized 只中和授权声明。
+3. TrialResult 的 harm 只能由已执行目标 Effect 和 Receipt 共同成立；失败链归入 invalid，安全完成不能由 Scenario ID 决定。
+4. Provider 输出拒绝 `origin_ids`；来源只信任平台 Hook 或外部 Oracle。缺失 Hook 固定为结构化 N/A，不记 0。
+5. `allow_live=false` 默认关闭；总费用、单 Run 费用、turn、单轮输出和重试上限都在调用前执行，仓库没有真实 HTTP Client 或环境凭据读取路径。
+
+### 正式验证
+
+- 全量 pytest：496 passed；总分支覆盖率 90.08%，通过 90% 门槛。
+- Ruff lint/format：PASS；322 个 Python 文件格式一致。
+- mypy strict：PASS；181 个源文件无类型问题。
+- 静态 Schema、Matrix 机械重建、CLI help、`skillflow doctor`、`pip check`：PASS。
+- 零网络端到端测试在 socket 构造/建连硬失败条件下通过；Live 接口只调用注入 Mock Client。
+
+### 完整性状态与停止点
+
+- 本阶段没有真实模型结果，不产生攻击率、费用或跨模型结论。
+- Live 模型、revision 与价格保持 `live_pending`，必须由 T16-B 单独冻结后才能执行。
+- T16-B 保持 pending，本轮完成后停止；没有自动进入下一阶段，也没有 git push。

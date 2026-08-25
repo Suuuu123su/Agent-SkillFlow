@@ -1,0 +1,347 @@
+{
+  "$defs": {
+    "ProvenanceRecord": {
+      "additionalProperties": false,
+      "description": "来源缺失时必须是结构化 N/A，不能伪记 0。",
+      "properties": {
+        "metric_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Metric Name"
+        },
+        "metric_value": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Metric Value"
+        },
+        "origin_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Origin Ids",
+          "type": "array"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ProvenanceSource"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "status": {
+          "$ref": "#/$defs/ProvenanceStatus"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "ProvenanceRecord",
+      "type": "object"
+    },
+    "ProvenanceSource": {
+      "description": "唯一可信的来源证据入口。",
+      "enum": [
+        "platform_hook",
+        "external_oracle"
+      ],
+      "title": "ProvenanceSource",
+      "type": "string"
+    },
+    "ProvenanceStatus": {
+      "description": "来源证据可用性。",
+      "enum": [
+        "available",
+        "not_available"
+      ],
+      "title": "ProvenanceStatus",
+      "type": "string"
+    },
+    "ProviderKind": {
+      "description": "T16 允许的 Provider 类型。",
+      "enum": [
+        "fake",
+        "live"
+      ],
+      "title": "ProviderKind",
+      "type": "string"
+    },
+    "ReasoningEffort": {
+      "description": "与具体厂商解耦的推理强度记录。",
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "ReasoningEffort",
+      "type": "string"
+    },
+    "ScenarioPath": {
+      "description": "Experiment Matrix 中受控的 Scenario 相对路径。",
+      "title": "ScenarioPath",
+      "type": "string"
+    },
+    "TokenUsage": {
+      "additionalProperties": false,
+      "description": "TrialResult 所需的四类 token 计数。",
+      "properties": {
+        "cached_input_tokens": {
+          "minimum": 0,
+          "title": "Cached Input Tokens",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "reasoning_tokens": {
+          "minimum": 0,
+          "title": "Reasoning Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_tokens",
+        "cached_input_tokens",
+        "output_tokens",
+        "reasoning_tokens"
+      ],
+      "title": "TokenUsage",
+      "type": "object"
+    },
+    "TrialOutcome": {
+      "description": "预注册的互斥三分类。",
+      "enum": [
+        "harm",
+        "completed_without_harm",
+        "invalid"
+      ],
+      "title": "TrialOutcome",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "真实模型实验的统一、可生成 Schema 的单链记录。",
+  "properties": {
+    "api_call_count": {
+      "minimum": 0,
+      "title": "Api Call Count",
+      "type": "integer"
+    },
+    "condition_id": {
+      "minLength": 1,
+      "title": "Condition Id",
+      "type": "string"
+    },
+    "estimated_cost_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Estimated Cost Usd"
+    },
+    "gateway_crash": {
+      "default": false,
+      "title": "Gateway Crash",
+      "type": "boolean"
+    },
+    "latency_ms": {
+      "minimum": 0,
+      "title": "Latency Ms",
+      "type": "integer"
+    },
+    "max_agent_turns": {
+      "minimum": 1,
+      "title": "Max Agent Turns",
+      "type": "integer"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "model_revision": {
+      "minLength": 1,
+      "title": "Model Revision",
+      "type": "string"
+    },
+    "no_call": {
+      "default": false,
+      "title": "No Call",
+      "type": "boolean"
+    },
+    "outcome": {
+      "$ref": "#/$defs/TrialOutcome"
+    },
+    "pair_id": {
+      "minLength": 1,
+      "title": "Pair Id",
+      "type": "string"
+    },
+    "provenance": {
+      "$ref": "#/$defs/ProvenanceRecord"
+    },
+    "provider": {
+      "$ref": "#/$defs/ProviderKind"
+    },
+    "provider_error": {
+      "default": false,
+      "title": "Provider Error",
+      "type": "boolean"
+    },
+    "rate_limit": {
+      "default": false,
+      "title": "Rate Limit",
+      "type": "boolean"
+    },
+    "reasoning_effort": {
+      "$ref": "#/$defs/ReasoningEffort"
+    },
+    "receipt_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Receipt Id"
+    },
+    "refusal": {
+      "default": false,
+      "title": "Refusal",
+      "type": "boolean"
+    },
+    "repeat_index": {
+      "minimum": 1,
+      "title": "Repeat Index",
+      "type": "integer"
+    },
+    "scenario": {
+      "$ref": "#/$defs/ScenarioPath"
+    },
+    "schema_rejection": {
+      "default": false,
+      "title": "Schema Rejection",
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "semantic_instance_id": {
+      "minLength": 1,
+      "title": "Semantic Instance Id",
+      "type": "string"
+    },
+    "target_effect_executed": {
+      "title": "Target Effect Executed",
+      "type": "boolean"
+    },
+    "target_effect_requested": {
+      "title": "Target Effect Requested",
+      "type": "boolean"
+    },
+    "task_success": {
+      "title": "Task Success",
+      "type": "boolean"
+    },
+    "temperature": {
+      "maximum": 2,
+      "minimum": 0,
+      "title": "Temperature",
+      "type": "number"
+    },
+    "timeout": {
+      "default": false,
+      "title": "Timeout",
+      "type": "boolean"
+    },
+    "token_usage": {
+      "$ref": "#/$defs/TokenUsage"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "title": "Trial Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "trial_id",
+    "scenario",
+    "condition_id",
+    "semantic_instance_id",
+    "pair_id",
+    "repeat_index",
+    "provider",
+    "model_id",
+    "model_revision",
+    "temperature",
+    "reasoning_effort",
+    "max_agent_turns",
+    "task_success",
+    "target_effect_requested",
+    "target_effect_executed",
+    "token_usage",
+    "api_call_count",
+    "latency_ms",
+    "estimated_cost_usd",
+    "provenance",
+    "outcome"
+  ],
+  "title": "TrialResult",
+  "type": "object"
+}

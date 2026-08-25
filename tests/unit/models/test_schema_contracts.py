@@ -117,6 +117,9 @@ def test_static_schemas_equal_model_generated_schemas() -> None:
         "scenario.schema.json",
         "experiment-matrix.schema.json",
         "risk-report.schema.json",
+        "t16-trial-result.schema.json",
+        "t16-budget.schema.json",
+        "t16-provider.schema.json",
     }
     for document in documents:
         static_schema = json.loads((SCHEMA_DIR / document.filename).read_text(encoding="utf-8"))
