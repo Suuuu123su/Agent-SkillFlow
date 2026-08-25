@@ -2,7 +2,7 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前仓库已完成到 **T12：实验场景库与 MVP 实验矩阵**。这里已经固定研究边界、四级 Lifetime 菱形偏序和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。每次普通 Run 会输出可按 Artifact/Effect ID 对齐的 Observed/Oracle JSONL、只从 EventStore 重建的脱敏 `security-graph.json`，以及通过静态 Schema 校验的 `risk-report.json`。在 T10 成对反事实重放与 T11.1 严格指标语义基础上，T12 提供 12 类核心研究场景、8 组能力匹配良性/攻击对照、2 套独立 HIAA 四格和 24 个受控核心矩阵变体。尚未实现 T13 的批量 CLI/导出，也没有接入真实平台 Adapter。
+当前仓库已完成到 **T13：CLI、报告与端到端复现**。这里已经固定研究边界、四级 Lifetime 菱形偏序和类型化数据契约，具备可重启的 SQLite/BlobStore 事件底座，并能从受控 YAML Scenario 驱动确定性 Scripted Skill 到 Mock Tool Receipt。研究者现在可用一条 `matrix` 命令完成 Scenario 校验、核心 Run、隔离确定性复跑、成对 Replay、脱敏安全图、HIAA/ALR/RIR 聚合及 JSON/CSV 报告；也可以分别使用 `run`、`analyze`、`graph`、`factorial`、`replay`、`aggregate` 和 `export` 复算各层产物。当前仍未接入真实平台 Adapter。
 
 ## 当前能力
 
@@ -67,6 +67,13 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 - T12 固定 registry 提供 16 个 `fixture://t12/...` Scripted Skill，实现 Tool Return alias、跨 Session Memory、低可信授权声明和条件动作；没有 Shell 动作，所有网络效果只进入 `mock://` Sink。
 - `scenarios/matrix/mvp.yaml` 包含 24 个核心变体和 2 套机械生成四格，覆盖目标/中性 Skill、Harness 开关、来源故障注入、monitor/enforce、normal/revoked、原/新 Session、假文本/真实确认；每个配置声明 5 次确定性复跑，复跑与 counterfactual 不进入普通指标分母。
 - `task_success` 只由 Artifact SHA-256 与 selector 命中的真实 Effect/Receipt 成功断言机械求值；全部拒绝虽然可令 UEA 为 0，但会在报告中明确显示任务失败。
+- `skillflow run` 自动建立 single-run Experiment；`skillflow matrix` 和 `skillflow factorial` 建立可复现批量 Experiment，默认启用脱敏。
+- 标准 Experiment 根包含 `experiment-manifest.json`、`aggregate-metrics.json`、`summary.csv`、`experiment-report.json`、共享 `state.sqlite`、受控 `blobs/`、核心 `runs/` 与规范化 `replays/`。
+- 每个核心 Run 固定输出 `run-manifest.json`、双轨 JSONL、`graph.json` 与 `run-report.json`；每个 Replay 固定输出 `pair-manifest.json` 与 `replay-report.json`。
+- 确定性副本只写入 `blobs/determinism/` 并记录一致性指纹，不注册为核心 Run，也不进入 HIAA、ALR、RIR 或 CSV 分母。
+- `analyze` 与 `graph` 从共享 SQLite、Blob 元数据和原始 JSONL 重建派生产物；`aggregate` 只读取标准 RunResult/ReplayResult，不依赖 Runtime 对象。
+- JSON 报告以 `report_scope=run | replay | experiment` 判别并经静态 Schema 复验；CSV 同时保留指标值及原始 numerator/denominator。
+- `export` 支持 Run 与 Experiment 报告的不可覆盖导出；宿主绝对路径、Blob 正文和 fixture 原文不进入标准报告。
 - pytest、覆盖率、ruff 与 mypy 质量门禁。
 - GitHub Actions 自动执行同一组质量门禁。
 - 中文威胁模型、安全语义、形式化不变量和架构决策记录。
@@ -94,6 +101,15 @@ python -m venv .venv-skillflow
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli doctor
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli validate-manifest tests\fixtures\t03\valid_manifest.yaml
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli validate-scenario tests\fixtures\t03\valid_scenario.yaml
+.\.venv-skillflow\Scripts\python.exe -m skillflow.cli run scenarios\attacks\a1_implicit_text_authorization.yaml --mode monitor --output runs\a1
+.\.venv-skillflow\Scripts\python.exe -m skillflow.cli analyze run-a1-single --runs-root runs
+.\.venv-skillflow\Scripts\python.exe -m skillflow.cli graph run-a1-single --format json --runs-root runs
+.\.venv-skillflow\Scripts\python.exe -m skillflow.cli factorial scenarios\attacks\b0_legal_summary.yaml --feature persistent_memory --seeds 0 --output runs\b0-factorial
+.\.venv-skillflow\Scripts\python.exe -m skillflow.cli matrix scenarios\matrix\mvp.yaml --backend scripted --output runs\mvp
+.\.venv-skillflow\Scripts\python.exe -m skillflow.cli replay RUN_ID --neutralize-artifact ARTIFACT_ID --runs-root runs
+.\.venv-skillflow\Scripts\python.exe -m skillflow.cli aggregate mvp --runs-root runs
+.\.venv-skillflow\Scripts\python.exe -m skillflow.cli export --scope run RUN_ID --output run-report.json --runs-root runs
+.\.venv-skillflow\Scripts\python.exe -m skillflow.cli export --scope experiment mvp --output experiment-report.json --runs-root runs
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t06_dual_trace.py -q --no-cov
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t07_scenario_graph.py -q --no-cov
 .\.venv-skillflow\Scripts\python.exe -m pytest tests\e2e\test_t08_policy_modes.py -q --no-cov
@@ -135,7 +151,7 @@ for path in paths:
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli --help
 ```
 
-当前 pytest 门禁仍按任务书使用 80% 最低阈值；T11.1 的三项语义修订见 [`docs/summaries/T11.1_Summary.md`](docs/summaries/T11.1_Summary.md)，T12 场景、矩阵、Golden 结果和最新门禁见 [`docs/summaries/T12_Summary.md`](docs/summaries/T12_Summary.md)。T14 将把最终门槛正式提升到 90%。
+当前 pytest 门禁仍按任务书使用 80% 最低阈值；T11.1 的三项语义修订见 [`docs/summaries/T11.1_Summary.md`](docs/summaries/T11.1_Summary.md)，T12 场景与矩阵见 [`docs/summaries/T12_Summary.md`](docs/summaries/T12_Summary.md)，T13 CLI、报告、正式 MVP 复现与最新门禁见 [`docs/summaries/T13_Summary.md`](docs/summaries/T13_Summary.md)。T14 将把最终门槛正式提升到 90%。
 
 ## 项目范围
 

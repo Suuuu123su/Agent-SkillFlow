@@ -22,7 +22,7 @@
 | T11 | completed | 303 tests；覆盖率 88.76%；ruff/mypy/Schema/Golden PASS | 已完成四格矩阵、HIAA、ALR、RIR 与 Experiment 风险报告。 |
 | T11.1 | completed | 310 tests；覆盖率 88.98%；ruff/mypy/Schema/语义负例 PASS | 已收紧 RIR、ALR、HIAA 三项研究语义。 |
 | T12 | completed | 360 tests；覆盖率 89.77%；Schema/安全/确定性 PASS | 已完成 16 个场景、8 组能力匹配对照、24 个核心矩阵变体和 2 套 HIAA 四格。 |
-| T13 | pending | 不适用 | 依赖 T12。 |
+| T13 | completed | 366 tests；覆盖率 89.58%；CLI/Schema/离线 MVP PASS | 已完成分层实验 CLI、标准 Run/Replay/Experiment 报告、复算导出及一命令 MVP 复现。 |
 | T14 | pending | 不适用 | 依赖 T13。 |
 | T15 | pending | 不适用 | 依赖 T14，且必须获得用户明确批准。 |
 
@@ -831,3 +831,62 @@
 - 能力匹配由 Manifest、工具动作类型、调用输入输出形状、资产属性和内容长度机械检查，不能证明任意自然语言 Skill 的完全行为等价。
 - MVP Matrix 是可校验的实验计划；批量执行、Experiment 聚合 CLI 和导出属于 T13，本轮没有提前实现。
 - 本轮在 T12 完成后停止；T13 保持 pending，未执行。
+
+## T13：CLI、报告与端到端复现
+
+- 状态：completed
+- 日期：2026-08-25（Asia/Shanghai）
+- 任务边界：只建立离线 Scripted 实验编排、分层产物、复算与导出；未进入 T14 加固，也未连接真实 LLM、网络、Shell 或外部 Agent 平台。
+
+### 交付内容
+
+- 根 CLI 新增 `run`、`analyze`、`graph`、`factorial`、`matrix`、`replay`、`aggregate` 与 `export`；既有 `validate-manifest`、`validate-scenario` 保持只校验不执行。
+- `run` 自动创建 single-run Experiment；`matrix` 执行 T12 Matrix；`factorial` 针对一个注册 Harness feature 生成关闭/开启两个水平。
+- Experiment 根固定输出 Manifest、聚合 JSON、CSV、共享 SQLite、受控 Blob、核心 Run 子目录和规范化 Replay 子目录。
+- RunResult、ReplayResult、ExperimentReport 通过 `report_scope` 判别联合与静态 `risk-report.schema.json`；报告默认脱敏，导出不可覆盖已有目标。
+- `analyze` 与 `graph` 从持久化 SQLite、Blob 元数据和双轨 JSONL 重建派生产物；`aggregate` 只读取标准 Run/Replay 报告，不读取 Runtime 或场景正文。
+
+### 产物与复算纪律
+
+1. 每个核心 Run 只包含 `run-manifest.json`、`observed-trace.jsonl`、`oracle-trace.jsonl`、`graph.json`、`run-report.json`。
+2. 每个 Replay 只包含 `pair-manifest.json`、`replay-report.json`；运行时恢复分支和中和 Blob 留在受控 `blobs/`，不进入导出。
+3. Matrix 的确定性副本只落入 `blobs/determinism/`，使用相同 run ID、seed 和规范化报告角色计算指纹；它们不注册到 Experiment `run_ids`，也不进入 HIAA、ALR、RIR 或 CSV 分母。
+4. `summary.csv` 对每个核心 Run 保留任务成功、harm、UEA、来源指标及高级指标原始 numerator/denominator，避免只给百分比。
+5. 所有标准 Manifest 和报告使用相对 Scenario 引用，不包含宿主绝对路径、Blob 正文或 fixture 原文；GraphML/HTML 保持可选且未提前实现。
+
+### 指标聚合边界
+
+- HIAA 按 `hiaa_design_id` 分组；每套四格再次校验唯一 `harm_selector`，`y` 只来自 selector 匹配且有同 Run Receipt 的 Effect。
+- ALR 从 RunResult 的真实 Grant、低可信声明、决策依据和原 Receipt，与 ReplayResult 的仅声明中和、同输入控制、neutral baseline/Receipt 联合构造；分母按唯一授权请求去重。
+- RIR 只接受 ReplayResult 中 `CI=1` 且存在 `INFLUENCE_CONFIRMED` 的 selector alias，再与撤销后精确 Session 的未授权 Run Effect 对齐；Oracle provenance 不参与分子。
+- 聚合服务没有 `ScenarioRunner`、`ReplayRunner`、EventStore 或 Runtime 输入，指标可以从持久化标准结果独立复算。
+
+### 正式 MVP 验收
+
+任务书原样命令在离线环境成功：
+
+```powershell
+skillflow matrix scenarios\matrix\mvp.yaml --backend scripted --output runs\mvp
+```
+
+实测产物与结果：
+
+- 24 个核心 Run、18 个 Replay、24 项确定性检查；每项 `repeats=5` 且 `consistent=true`。
+- 96 个额外重复副本全部位于 `blobs/determinism/`；Experiment Manifest、报告和 CSV 仍只包含 24 个核心 Run。
+- 两套 HIAA design 的 `HIAA_run` 均为 `1.0`；Matrix 聚合 `ALR=1/2`、`RIR_1=1/2`、`RIR_3=1/2`。
+- 24 个 Run 子目录与 18 个 Replay 子目录逐项检查，无缺失或额外标准文件。
+
+### 验证
+
+- 全量 pytest：366 passed；总覆盖率（含分支）89.58%，高于当前 80% 门槛。
+- Ruff lint、Ruff format、mypy strict：PASS；161 个源文件无类型错误。
+- 静态 Schema 确定性重生成及模型同步测试：PASS；T13/T10 定向集合 17 passed。
+- Python no-excuse：本轮新增/显著修改模块均低于 250 个非空非注释行；最大参数数审计：PASS。
+- `skillflow doctor`、根 CLI help、`pip check`：PASS。
+
+### 风险或遗留问题
+
+- 本轮结果证明的是固定 Scripted Skill、合成 Oracle 与进程内 Mock Tool 的可复现实验闭环，不是现实 LLM 攻击成功率或生产安全结论。
+- `graph` 的 MVP 输出仅支持 JSON；GraphML/HTML 是任务书允许的可选增强，没有把它们伪报为已实现。
+- `--no-redact` 只改变标准报告的脱敏标志；当前安全实现仍不把 Blob 正文或宿主路径写入报告。
+- 本轮在 T13 完成后停止；T14 保持 pending，未执行。

@@ -12,6 +12,7 @@ import typer
 from pydantic import BaseModel
 
 from skillflow import __version__
+from skillflow.experiment.cli import register_research_commands
 from skillflow.models import Scenario, SkillManifest
 from skillflow.validation import DocumentValidationError, validate_yaml_document
 
@@ -149,6 +150,9 @@ def doctor(
 def main() -> None:
     """运行命令行应用。"""
     app()
+
+
+register_research_commands(app)
 
 
 if __name__ == "__main__":

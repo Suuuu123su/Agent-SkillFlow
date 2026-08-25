@@ -15,6 +15,7 @@ from skillflow.instrumentation.tool_receipt import ToolReceipt
 from skillflow.models.base import NonEmptyStr, StrictModel
 from skillflow.models.effects import EffectRecord
 from skillflow.models.enums import ArtifactType
+from skillflow.models.events import DecisionRecord
 from skillflow.models.reports import ReplayRiskReport
 
 
@@ -126,6 +127,7 @@ class ReplayBranchResult:
     pre_intervention_skill_state: SkillStateSnapshot
     effects: tuple[EffectRecord, ...]
     receipts: tuple[ToolReceipt, ...]
+    decisions: tuple[DecisionRecord, ...] = ()
 
 
 @dataclass(frozen=True, slots=True)

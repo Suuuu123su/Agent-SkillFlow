@@ -1,17 +1,26 @@
 """把双轨 Trace 与 SecurityGraph 投影为 T09 中立事实。"""
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import TypeVar, assert_never
 
+from skillflow.analysis.effect_projection import (
+    EffectAnalysisEvidence,
+    EffectProjectionInput,
+    project_effect_samples,
+)
 from skillflow.analysis.errors import AnalysisInvariantError
 from skillflow.analysis.facts import (
-    EffectMetricSample,
     ProvenanceSample,
+    RunReportMetadata,
     ScenarioMetricFacts,
 )
-from skillflow.graph.models import SecurityPath
 from skillflow.graph.security import SecurityGraph
-from skillflow.models.metrics import EffectPathEvidence
+from skillflow.models.provenance import Artifact
+from skillflow.models.run_results import (
+    ArtifactAliasEvidence,
+    RunRevocationEvidence,
+)
+from skillflow.models.scenario import Scenario
 from skillflow.oracle.models import (
     OracleArtifactTrace,
     OracleEffectTrace,
@@ -37,6 +46,11 @@ class RunTraceAnalysisInput:
     oracle_records: tuple[OracleTraceRecord, ...]
     graph: SecurityGraph
     task_success: bool | None = None
+    scenario_definition: Scenario | None = None
+    metadata: RunReportMetadata = field(default_factory=RunReportMetadata)
+    effect_evidence: tuple[EffectAnalysisEvidence, ...] = ()
+    runtime_artifacts: tuple[Artifact, ...] = ()
+    revocations: tuple[RunRevocationEvidence, ...] = ()
 
 
 def project_scenario_facts(run: RunTraceAnalysisInput) -> ScenarioMetricFacts:
@@ -48,9 +62,15 @@ def project_scenario_facts(run: RunTraceAnalysisInput) -> ScenarioMetricFacts:
             "project_effects",
             "Observed 与 Oracle 的 Receipt Effect 集合不一致",
         )
-    effects = tuple(
-        _effect_sample(record, observed_effects[effect_id], run.graph)
-        for effect_id, record in oracle_effects.items()
+    effects = project_effect_samples(
+        EffectProjectionInput(
+            oracle_effects,
+            observed_effects,
+            run.graph,
+            run.effect_evidence,
+            run.scenario_definition,
+            observed_artifacts,
+        )
     )
     observed_artifact_ids = set(observed_artifacts)
     oracle_runtime_artifact_ids = {
@@ -76,6 +96,10 @@ def project_scenario_facts(run: RunTraceAnalysisInput) -> ScenarioMetricFacts:
         effects=effects,
         provenance=tuple(provenance),
         task_success=run.task_success,
+        metadata=run.metadata,
+        counterfactual_artifacts=_counterfactual_artifacts(run, observed_artifacts),
+        revocations=run.revocations,
+        rir_check_offsets=_rir_check_offsets(run.scenario_definition),
     )
 
 
@@ -113,42 +137,42 @@ def _index_oracle(
     return artifacts, effects
 
 
-def _effect_sample(
-    oracle: OracleEffectTrace,
-    observed: ObservedEffectTrace,
-    graph: SecurityGraph,
-) -> EffectMetricSample:
-    if (
-        oracle.receipt_id != observed.receipt_id
-        or oracle.actor_id != observed.actor_id
-        or oracle.action_id != observed.action_id
-        or oracle.call_id != observed.call_id
-        or oracle.effect != observed.effect
-        or oracle.gt_effect != observed.observed_effect
-    ):
-        raise AnalysisInvariantError(
-            "project_effects",
-            f"Observed 与 Oracle Effect 绑定冲突：{oracle.effect_id}",
+def _counterfactual_artifacts(
+    run: RunTraceAnalysisInput,
+    observed: dict[str, ObservedArtifactTrace],
+) -> tuple[ArtifactAliasEvidence, ...]:
+    scenario = run.scenario_definition
+    if scenario is None:
+        return ()
+    runtime = {artifact.artifact_id: artifact for artifact in run.runtime_artifacts}
+    by_alias = {
+        alias.removeprefix("artifact:"): record.artifact_id
+        for record in observed.values()
+        for alias in record.aliases
+    }
+    values: list[ArtifactAliasEvidence] = []
+    for counterfactual in scenario.counterfactuals:
+        alias = counterfactual.target.alias
+        artifact_id = by_alias.get(alias)
+        if artifact_id is None or artifact_id not in runtime:
+            raise AnalysisInvariantError(
+                "project_counterfactual",
+                f"反事实 alias 缺少运行 Artifact：{alias}",
+            )
+        values.append(
+            ArtifactAliasEvidence(
+                alias=alias,
+                artifact_id=artifact_id,
+                trust=runtime[artifact_id].observed_label.trust,
+            )
         )
-    paths = tuple(
-        _path_evidence(path) for path in graph.find_paths(oracle.actor_id, oracle.effect_id)
-    )
-    if oracle.gt_effect and not oracle.gt_auth and not paths:
-        raise AnalysisInvariantError(
-            "project_effects",
-            f"未授权已执行 Effect 缺少来源到落点路径：{oracle.effect_id}",
-        )
-    return EffectMetricSample(
-        effect_id=oracle.effect_id,
-        receipt_id=oracle.receipt_id,
-        decision_id=observed.decision_id,
-        effect=oracle.effect,
-        executed=oracle.gt_effect,
-        authorized=oracle.gt_auth,
-        manifest_declared=oracle.manifest_declared,
-        matched_grant_ids=oracle.matched_grant_ids,
-        paths=paths,
-    )
+    return tuple(values)
+
+
+def _rir_check_offsets(scenario: Scenario | None) -> tuple[int, ...]:
+    if scenario is None or scenario.oracle.expected_persistence is None:
+        return ()
+    return scenario.oracle.expected_persistence.check_offsets
 
 
 def _provenance_sample(
@@ -176,16 +200,6 @@ def _provenance_sample(
                 *(event_id for path in paths for event_id in path.evidence_event_ids),
             )
         ),
-    )
-
-
-def _path_evidence(path: SecurityPath) -> EffectPathEvidence:
-    return EffectPathEvidence(
-        node_ids=tuple(
-            f"{reference.kind.value}:{reference.node_id}" for reference in path.node_refs
-        ),
-        evidence_event_ids=path.evidence_event_ids,
-        boundary_depth=path.boundary_depth,
     )
 
 

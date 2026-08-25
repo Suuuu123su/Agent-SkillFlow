@@ -31,7 +31,8 @@ class RunBlobStore:
     def __init__(self, experiment_root: Path, run_id: str) -> None:
         """在 Experiment 根内建立不可由外部路径控制的 Run 命名空间。"""
         run_namespace = hashlib.sha256(run_id.encode()).hexdigest()[:32]
-        self._directory = experiment_root / "blobs" / run_namespace
+        directory = (experiment_root / "blobs" / run_namespace).resolve()
+        self._directory = _extended_windows_path(directory)
         self._directory.mkdir(parents=True, exist_ok=True)
         self._run_id = run_id
         self._closed = False
@@ -95,3 +96,10 @@ class RunBlobStore:
     def _ensure_open(self) -> None:
         if self._closed:
             raise StoreClosedError(resource="BlobStore")
+
+
+def _extended_windows_path(path: Path) -> Path:
+    """让受控 Blob 在 Windows 深层实验目录中仍可使用。"""
+    if os.name != "nt" or str(path).startswith("\\\\?\\"):
+        return path
+    return Path(f"\\\\?\\{path}")

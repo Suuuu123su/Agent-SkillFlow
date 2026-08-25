@@ -1,13 +1,18 @@
 """声明式 Scenario 的确定性编排入口。"""
 
 from collections.abc import Mapping
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
+from skillflow.analysis.facts import RunReportMetadata
 from skillflow.analysis.run_reporting import RunTraceAnalysisInput, write_analyzed_run_report
 from skillflow.benchmark.harness_factory import HarnessFactorySetup, create_scenario_harness
 from skillflow.benchmark.manifests import load_manifests
 from skillflow.benchmark.oracle_bridge import OracleSetup, build_oracle_sidecar
+from skillflow.benchmark.run_facts import (
+    load_effect_analysis_evidence,
+    load_run_revocations,
+)
 from skillflow.benchmark.run_workspace import stage_assets
 from skillflow.benchmark.scenario_execution import execute_scenario_sessions
 from skillflow.benchmark.scripted_backend import FixtureScript
@@ -17,6 +22,7 @@ from skillflow.instrumentation.mock_tools import MockNetworkRecord, MockShellRec
 from skillflow.instrumentation.tool_receipt import ToolReceipt
 from skillflow.models.enums import Decision
 from skillflow.models.provenance import Artifact
+from skillflow.models.reports import RunRiskReport
 from skillflow.models.scenario import Scenario
 from skillflow.oracle.writer import OracleTraceWriter
 from skillflow.store.blob_store import RunBlobStore
@@ -44,6 +50,31 @@ class ScenarioRunResult:
     oracle_trace_path: Path
     security_graph_path: Path
     risk_report_path: Path
+    risk_report: RunRiskReport
+
+
+@dataclass(frozen=True, slots=True)
+class ScenarioRunLayout:
+    """一次 Run 的事实库、受控内容与派生产物路径。"""
+
+    run_root: Path
+    experiment_root: Path
+    database_path: Path
+    workspace_root: Path
+    security_graph_path: Path
+    risk_report_path: Path
+
+
+@dataclass(frozen=True, slots=True)
+class ScenarioRunRequest:
+    """已校验 Scenario 的完整 T13 执行请求。"""
+
+    scenario_path: Path
+    scenario: Scenario
+    run_id: str
+    id_seed: str
+    layout: ScenarioRunLayout
+    report_metadata: RunReportMetadata = field(default_factory=RunReportMetadata)
 
 
 class ScenarioRunner:
@@ -61,8 +92,30 @@ class ScenarioRunner:
     def run(self, scenario_path: Path, run_root: Path, seed: str) -> ScenarioRunResult:
         """从 YAML 启动一个独立、确定性的安全 Mock Run。"""
         scenario = validate_yaml_document(scenario_path, Scenario)
-        manifest_bindings = load_manifests(scenario_path, scenario)
         run_id = f"run-{scenario.id}"
+        return self.run_configured(
+            ScenarioRunRequest(
+                scenario_path=scenario_path,
+                scenario=scenario,
+                run_id=run_id,
+                id_seed=seed,
+                layout=ScenarioRunLayout(
+                    run_root=run_root,
+                    experiment_root=run_root,
+                    database_path=run_root / "state.sqlite",
+                    workspace_root=run_root / "workspace",
+                    security_graph_path=run_root / "security-graph.json",
+                    risk_report_path=run_root / "risk-report.json",
+                ),
+            )
+        )
+
+    def run_configured(self, request: ScenarioRunRequest) -> ScenarioRunResult:
+        """执行一个具有显式 Run ID、共享事实库和报告身份的 Scenario。"""
+        scenario_path = request.scenario_path
+        scenario = request.scenario
+        manifest_bindings = load_manifests(scenario_path, scenario)
+        run_id = request.run_id
         oracle = build_oracle_sidecar(
             OracleSetup(
                 scenario_path=scenario_path,
@@ -71,18 +124,21 @@ class ScenarioRunner:
                 scripts=self._scripts,
             )
         )
+        layout = request.layout
+        run_root = layout.run_root
         run_root.mkdir(parents=True, exist_ok=False)
-        workspace = run_root / "workspace"
+        workspace = layout.workspace_root
+        workspace.parent.mkdir(parents=True, exist_ok=True)
         workspace.mkdir()
         stage_assets(scenario, workspace)
-        database = run_root / "state.sqlite"
+        database = layout.database_path
         observed_trace_path = run_root / "observed-trace.jsonl"
         oracle_trace_path = run_root / "oracle-trace.jsonl"
-        security_graph_path = run_root / "security-graph.json"
-        risk_report_path = run_root / "risk-report.json"
+        security_graph_path = layout.security_graph_path
+        risk_report_path = layout.risk_report_path
         with (
             SqliteEventStore(database) as store,
-            RunBlobStore(run_root, run_id) as blobs,
+            RunBlobStore(layout.experiment_root, run_id) as blobs,
         ):
             harness = create_scenario_harness(
                 HarnessFactorySetup(
@@ -94,7 +150,7 @@ class ScenarioRunner:
                     scripts=self._scripts,
                     decisions=self._decisions,
                     manifests=manifest_bindings,
-                    seed=seed,
+                    seed=request.id_seed,
                 )
             )
             execution = execute_scenario_sessions(scenario, harness, oracle)
@@ -125,7 +181,8 @@ class ScenarioRunner:
             trace = build_run_trace(store, run_id)
             graph = SecurityGraph.from_store(store, run_id)
             graph.export_json(security_graph_path)
-            write_analyzed_run_report(
+            effects = store.iter_run_effects(run_id)
+            report = write_analyzed_run_report(
                 risk_report_path,
                 RunTraceAnalysisInput(
                     scenario_id=scenario.id,
@@ -134,6 +191,11 @@ class ScenarioRunner:
                     oracle_records=oracle_records,
                     graph=graph,
                     task_success=task_success,
+                    scenario_definition=scenario,
+                    metadata=request.report_metadata,
+                    effect_evidence=load_effect_analysis_evidence(store, effects),
+                    runtime_artifacts=alias_artifacts,
+                    revocations=load_run_revocations(store, scenario, run_id),
                 ),
             )
             network_records = harness.network_records
@@ -153,4 +215,5 @@ class ScenarioRunner:
             oracle_trace_path=oracle_trace_path,
             security_graph_path=security_graph_path,
             risk_report_path=risk_report_path,
+            risk_report=report,
         )

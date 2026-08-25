@@ -8,12 +8,14 @@ from skillflow.analysis.projection import (
 )
 from skillflow.analysis.report_io import write_run_risk_report
 from skillflow.analysis.reporting import analyze_scenario
+from skillflow.models.reports import RunRiskReport
 
 __all__ = ["RunTraceAnalysisInput", "write_analyzed_run_report"]
 
 
-def write_analyzed_run_report(path: Path, run: RunTraceAnalysisInput) -> None:
+def write_analyzed_run_report(path: Path, run: RunTraceAnalysisInput) -> RunRiskReport:
     """保持投影、纯计算、Schema 校验写入的固定顺序。"""
     facts = project_scenario_facts(run)
     report = analyze_scenario(facts)
     write_run_risk_report(path, report)
+    return report

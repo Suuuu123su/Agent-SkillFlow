@@ -5,6 +5,8 @@ from dataclasses import dataclass
 from skillflow.analysis.counterfactual import compute_scripted_ci
 from skillflow.analysis.effect_selection import (
     EffectSelectionFacts,
+    ReceiptedEffect,
+    effect_matches_selector,
     select_receipted_effects,
 )
 from skillflow.benchmark.replay_models import (
@@ -14,7 +16,8 @@ from skillflow.benchmark.replay_models import (
     ReplayPairManifest,
     ReplaySourceState,
 )
-from skillflow.models.effects import EffectRecord
+from skillflow.models.enums import Decision
+from skillflow.models.references import ScenarioPath
 from skillflow.models.reports import ConfirmedInfluenceEdge, ReplayRiskReport
 from skillflow.models.scenario_parts import EffectSelector
 
@@ -30,6 +33,10 @@ class ReplayAnalysisSetup:
     neutral: ReplayBranchResult
     selector: EffectSelector
     controls: ReplayControlEvidence
+    experiment_id: str | None = None
+    source_run_id: str | None = None
+    scenario: ScenarioPath | None = None
+    redacted: bool = True
 
 
 @dataclass(frozen=True, slots=True)
@@ -44,8 +51,8 @@ def analyze_replay_pair(setup: ReplayAnalysisSetup) -> ReplayAnalysisResult:
     """只把 selector 命中的已执行 Effect 与实际 Receipt 纳入 CI。"""
     original_effects = _receipted_effects(setup.original, setup.selector)
     neutral_effects = _receipted_effects(setup.neutral, setup.selector)
-    original_ids = tuple(effect.effect_id for effect in original_effects)
-    neutral_ids = tuple(effect.effect_id for effect in neutral_effects)
+    original_ids = tuple(item.effect.effect_id for item in original_effects)
+    neutral_ids = tuple(item.effect.effect_id for item in neutral_effects)
     observed_ids = tuple(dict.fromkeys((*original_ids, *neutral_ids)))
     removed_ids = tuple(item for item in original_ids if item not in neutral_ids)
     added_ids = tuple(item for item in neutral_ids if item not in original_ids)
@@ -55,6 +62,11 @@ def analyze_replay_pair(setup: ReplayAnalysisSetup) -> ReplayAnalysisResult:
         schema_version="0.1",
         report_scope="replay",
         replay_id=setup.replay_id,
+        experiment_id=setup.experiment_id,
+        source_run_id=setup.source_run_id,
+        scenario=setup.scenario,
+        target_alias=setup.target_alias,
+        selector_alias=setup.selector.alias,
         original_run_id=setup.original.run_id,
         neutral_run_id=setup.neutral.run_id,
         intervention_artifact_id=setup.source.source_artifact_id,
@@ -65,6 +77,11 @@ def analyze_replay_pair(setup: ReplayAnalysisSetup) -> ReplayAnalysisResult:
         neutral_effect_ids=neutral_ids,
         removed_effect_ids=removed_ids,
         added_effect_ids=added_ids,
+        original_receipt_ids=tuple(item.receipt.receipt_id for item in original_effects),
+        neutral_receipt_ids=tuple(item.receipt.receipt_id for item in neutral_effects),
+        original_baseline_result=_baseline_result(setup.original, setup.selector),
+        neutral_baseline_result=_baseline_result(setup.neutral, setup.selector),
+        neutralization_preserves_other_inputs=setup.controls.same_other_inputs,
         y_original=bool(original_ids),
         y_neutral=bool(neutral_ids),
         ci=ci,
@@ -75,6 +92,7 @@ def analyze_replay_pair(setup: ReplayAnalysisSetup) -> ReplayAnalysisResult:
             )
             for effect_id in edge_targets
         ),
+        redacted=setup.redacted,
     )
     return ReplayAnalysisResult(report, _build_manifest(setup, report))
 
@@ -82,11 +100,25 @@ def analyze_replay_pair(setup: ReplayAnalysisSetup) -> ReplayAnalysisResult:
 def _receipted_effects(
     branch: ReplayBranchResult,
     selector: EffectSelector,
-) -> tuple[EffectRecord, ...]:
-    selected = select_receipted_effects(
-        EffectSelectionFacts(branch.effects, branch.receipts, selector)
-    )
-    return tuple(item.effect for item in selected)
+) -> tuple[ReceiptedEffect, ...]:
+    return select_receipted_effects(EffectSelectionFacts(branch.effects, branch.receipts, selector))
+
+
+def _baseline_result(
+    branch: ReplayBranchResult,
+    selector: EffectSelector,
+) -> Decision | None:
+    """返回 selector 对应尝试的真实基线决策。"""
+    decisions = {decision.decision_id: decision for decision in branch.decisions}
+    for effect in branch.effects:
+        if not effect_matches_selector(effect, selector):
+            continue
+        decision = decisions.get(effect.decision_id)
+        if decision is not None:
+            return decision.baseline_result
+    if branch.decisions:
+        return branch.decisions[-1].baseline_result
+    return None
 
 
 def _build_manifest(

@@ -121,6 +121,13 @@ def run_replay_branch(setup: ReplayBranchSetup) -> ReplayBranchResult:
         receipts = tuple(
             receipt for receipt in execution.receipts if receipt.effect_id in effect_ids
         )
+        decisions = tuple(
+            decision
+            for event in store.iter_run_events(setup.run_id)
+            if event.decision_id is not None
+            for decision in (store.get_decision(event.decision_id),)
+            if decision is not None
+        )
     return ReplayBranchResult(
         run_id=setup.run_id,
         restore_state_hash=restored.state_hash,
@@ -129,6 +136,7 @@ def run_replay_branch(setup: ReplayBranchSetup) -> ReplayBranchResult:
         pre_intervention_skill_state=restored.skill_state,
         effects=effects,
         receipts=receipts,
+        decisions=decisions,
     )
 
 
