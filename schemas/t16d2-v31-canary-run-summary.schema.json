@@ -1,0 +1,532 @@
+{
+  "$defs": {
+    "ActualUsageStatus": {
+      "description": "一条 Trial 的实际用量覆盖程度。",
+      "enum": [
+        "complete",
+        "partial",
+        "not_available"
+      ],
+      "title": "ActualUsageStatus",
+      "type": "string"
+    },
+    "LiveTrialTerminalStatus": {
+      "description": "v3.1 Trial 的持久化终态。",
+      "enum": [
+        "completed",
+        "step_limit_exhausted",
+        "partial"
+      ],
+      "title": "LiveTrialTerminalStatus",
+      "type": "string"
+    },
+    "T16D2CanaryTrialSummary": {
+      "additionalProperties": false,
+      "description": "一条完整或 Partial Canary 的可审计结果。",
+      "properties": {
+        "actual_usage_status": {
+          "$ref": "#/$defs/ActualUsageStatus"
+        },
+        "agent_steps": {
+          "minimum": 0,
+          "title": "Agent Steps",
+          "type": "integer"
+        },
+        "completed_session_indices": {
+          "items": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Completed Session Indices",
+          "type": "array"
+        },
+        "condition_id": {
+          "minLength": 1,
+          "title": "Condition Id",
+          "type": "string"
+        },
+        "no_call": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "No Call"
+        },
+        "observed_estimated_cost_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Observed Estimated Cost Usd"
+        },
+        "observed_token_usage": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TokenUsage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "provider_model_revision": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Provider Model Revision"
+        },
+        "receipt_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Receipt Id"
+        },
+        "refusal": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Refusal"
+        },
+        "schema_rejection": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Schema Rejection"
+        },
+        "target_effect_executed": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Target Effect Executed"
+        },
+        "target_effect_requested": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Target Effect Requested"
+        },
+        "task_success": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Task Success"
+        },
+        "terminal_status": {
+          "$ref": "#/$defs/LiveTrialTerminalStatus"
+        },
+        "trial_id": {
+          "minLength": 1,
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "trial_id",
+        "condition_id",
+        "agent_steps",
+        "completed_session_indices",
+        "terminal_status",
+        "actual_usage_status",
+        "observed_token_usage",
+        "observed_estimated_cost_usd",
+        "task_success",
+        "target_effect_requested",
+        "target_effect_executed",
+        "receipt_id",
+        "refusal",
+        "no_call",
+        "schema_rejection",
+        "provider_model_revision"
+      ],
+      "title": "T16D2CanaryTrialSummary",
+      "type": "object"
+    },
+    "T16D2StopReason": {
+      "description": "付费桥接阶段可能触发的封闭停止原因。",
+      "enum": [
+        "canary_gate_blocked",
+        "budget_limit",
+        "p95_budget_prediction",
+        "model_revision_changed",
+        "infrastructure_rate",
+        "technical_not_evaluable",
+        "evidence_binding",
+        "secret_scan",
+        "gateway_crash"
+      ],
+      "title": "T16D2StopReason",
+      "type": "string"
+    },
+    "TokenUsage": {
+      "additionalProperties": false,
+      "description": "TrialResult 所需的生成、缓存读写与推理 token 计数。",
+      "properties": {
+        "cache_write_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cache Write Tokens",
+          "type": "integer"
+        },
+        "cached_input_tokens": {
+          "minimum": 0,
+          "title": "Cached Input Tokens",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "reasoning_tokens": {
+          "minimum": 0,
+          "title": "Reasoning Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_tokens",
+        "cached_input_tokens",
+        "output_tokens",
+        "reasoning_tokens"
+      ],
+      "title": "TokenUsage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "仅针对 11 条 Canary 的阶段验收，不代表完整 48 条实验。",
+  "properties": {
+    "actual_usage_status": {
+      "$ref": "#/$defs/ActualUsageStatus"
+    },
+    "api_call_count": {
+      "minimum": 0,
+      "title": "Api Call Count",
+      "type": "integer"
+    },
+    "c1_harm_selector_shared": {
+      "title": "C1 Harm Selector Shared",
+      "type": "boolean"
+    },
+    "canary_gate_passed": {
+      "title": "Canary Gate Passed",
+      "type": "boolean"
+    },
+    "config_id": {
+      "minLength": 1,
+      "title": "Config Id",
+      "type": "string"
+    },
+    "config_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Config Sha256",
+      "type": "string"
+    },
+    "conservative_reserved_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Conservative Reserved Usd"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "failed_assertion_count": {
+      "minimum": 0,
+      "title": "Failed Assertion Count",
+      "type": "integer"
+    },
+    "infrastructure_invalid": {
+      "minimum": 0,
+      "title": "Infrastructure Invalid",
+      "type": "integer"
+    },
+    "m2_target_actual_steps": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "M2 Target Actual Steps"
+    },
+    "not_evaluable_assertion_count": {
+      "minimum": 0,
+      "title": "Not Evaluable Assertion Count",
+      "type": "integer"
+    },
+    "observed": {
+      "minimum": 0,
+      "title": "Observed",
+      "type": "integer"
+    },
+    "observed_estimated_cost_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Observed Estimated Cost Usd"
+    },
+    "observed_token_usage": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TokenUsage"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "pairs_complete": {
+      "title": "Pairs Complete",
+      "type": "boolean"
+    },
+    "passed_assertion_count": {
+      "minimum": 0,
+      "title": "Passed Assertion Count",
+      "type": "integer"
+    },
+    "phase_contract_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Phase Contract Sha256",
+      "type": "string"
+    },
+    "protocol_id": {
+      "const": "t16-task-success-bridge-preregistration-v3.1",
+      "title": "Protocol Id",
+      "type": "string"
+    },
+    "provider_model_revisions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Provider Model Revisions",
+      "type": "array"
+    },
+    "raw_records_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Raw Records Sha256",
+      "type": "string"
+    },
+    "receipt_coverage_complete": {
+      "title": "Receipt Coverage Complete",
+      "type": "boolean"
+    },
+    "scheduled": {
+      "const": 11,
+      "default": 11,
+      "title": "Scheduled",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PASSED",
+        "BLOCKED"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "stop_detail": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Stop Detail"
+    },
+    "stop_reason": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/T16D2StopReason"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "target_effect_executed_count": {
+      "minimum": 0,
+      "title": "Target Effect Executed Count",
+      "type": "integer"
+    },
+    "target_effect_receipt_count": {
+      "minimum": 0,
+      "title": "Target Effect Receipt Count",
+      "type": "integer"
+    },
+    "target_effect_requested_count": {
+      "minimum": 0,
+      "title": "Target Effect Requested Count",
+      "type": "integer"
+    },
+    "task_success_evidence_count": {
+      "minimum": 0,
+      "title": "Task Success Evidence Count",
+      "type": "integer"
+    },
+    "task_success_false": {
+      "minimum": 0,
+      "title": "Task Success False",
+      "type": "integer"
+    },
+    "task_success_na": {
+      "minimum": 0,
+      "title": "Task Success Na",
+      "type": "integer"
+    },
+    "task_success_result_count": {
+      "minimum": 0,
+      "title": "Task Success Result Count",
+      "type": "integer"
+    },
+    "task_success_true": {
+      "minimum": 0,
+      "title": "Task Success True",
+      "type": "integer"
+    },
+    "trials": {
+      "items": {
+        "$ref": "#/$defs/T16D2CanaryTrialSummary"
+      },
+      "title": "Trials",
+      "type": "array"
+    },
+    "unrun": {
+      "minimum": 0,
+      "title": "Unrun",
+      "type": "integer"
+    },
+    "usage_journal_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Usage Journal Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "created_at",
+    "status",
+    "protocol_id",
+    "config_id",
+    "config_sha256",
+    "phase_contract_sha256",
+    "observed",
+    "unrun",
+    "canary_gate_passed",
+    "infrastructure_invalid",
+    "pairs_complete",
+    "c1_harm_selector_shared",
+    "task_success_result_count",
+    "task_success_evidence_count",
+    "passed_assertion_count",
+    "failed_assertion_count",
+    "not_evaluable_assertion_count",
+    "task_success_true",
+    "task_success_false",
+    "task_success_na",
+    "target_effect_requested_count",
+    "target_effect_executed_count",
+    "target_effect_receipt_count",
+    "receipt_coverage_complete",
+    "actual_usage_status",
+    "observed_token_usage",
+    "observed_estimated_cost_usd",
+    "conservative_reserved_usd",
+    "api_call_count",
+    "m2_target_actual_steps",
+    "provider_model_revisions",
+    "raw_records_sha256",
+    "usage_journal_sha256",
+    "trials"
+  ],
+  "title": "T16D2CanaryRunSummary",
+  "type": "object"
+}

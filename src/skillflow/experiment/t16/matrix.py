@@ -46,7 +46,7 @@ class TrialSpec(StrictModel):
 class T16Matrix(StrictModel):
     """一个 Provider 上可逐链执行的确定性矩阵。"""
 
-    schema_version: Literal["0.1"] = "0.1"
+    schema_version: Literal["0.1", "0.2"] = "0.1"
     id: NonEmptyStr
     preregistration_id: NonEmptyStr
     kind: MatrixKind
@@ -112,8 +112,10 @@ def build_matrix(
                 )
                 for repeat_index in range(1, repeat_count + 1)
             )
+    version_suffix = "" if registration.schema_version == "0.1" else "-v2"
     return T16Matrix(
-        id=f"t16-{kind.value}",
+        schema_version=registration.schema_version,
+        id=f"t16-{kind.value}{version_suffix}",
         preregistration_id=registration.id,
         kind=kind,
         provider=provider,

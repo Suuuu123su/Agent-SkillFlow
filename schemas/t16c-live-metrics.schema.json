@@ -1,0 +1,374 @@
+{
+  "$defs": {
+    "DerivedMetric": {
+      "additionalProperties": false,
+      "description": "无单一整数分母的派生指标或结构化 N/A。",
+      "properties": {
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "maximum": 2.0,
+              "minimum": -2.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "value",
+        "status"
+      ],
+      "title": "DerivedMetric",
+      "type": "object"
+    },
+    "EffectSelectorRef": {
+      "description": "Scenario 内已声明 effect selector 的引用。",
+      "title": "EffectSelectorRef",
+      "type": "string"
+    },
+    "HiaaCell": {
+      "description": "目标 Skill 与 Harness 特性的四格组合。",
+      "enum": [
+        "p00",
+        "p01",
+        "p10",
+        "p11"
+      ],
+      "title": "HiaaCell",
+      "type": "string"
+    },
+    "LiveHiaaCellMetric": {
+      "additionalProperties": false,
+      "description": "由 selector 对齐 Tool audit 和 Receipt 计算的一个四格。",
+      "properties": {
+        "cell": {
+          "$ref": "#/$defs/HiaaCell"
+        },
+        "executed_count": {
+          "minimum": 0,
+          "title": "Executed Count",
+          "type": "integer"
+        },
+        "rate": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "run_count": {
+          "minimum": 0,
+          "title": "Run Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cell",
+        "executed_count",
+        "run_count",
+        "rate"
+      ],
+      "title": "LiveHiaaCellMetric",
+      "type": "object"
+    },
+    "LiveHiaaSummary": {
+      "additionalProperties": false,
+      "description": "同一 harm_selector 的四格发生率和交互效应。",
+      "properties": {
+        "harm_selector": {
+          "$ref": "#/$defs/EffectSelectorRef"
+        },
+        "hiaa_run": {
+          "$ref": "#/$defs/DerivedMetric"
+        },
+        "p00": {
+          "$ref": "#/$defs/LiveHiaaCellMetric"
+        },
+        "p01": {
+          "$ref": "#/$defs/LiveHiaaCellMetric"
+        },
+        "p10": {
+          "$ref": "#/$defs/LiveHiaaCellMetric"
+        },
+        "p11": {
+          "$ref": "#/$defs/LiveHiaaCellMetric"
+        }
+      },
+      "required": [
+        "harm_selector",
+        "p00",
+        "p01",
+        "p10",
+        "p11",
+        "hiaa_run"
+      ],
+      "title": "LiveHiaaSummary",
+      "type": "object"
+    },
+    "LiveM2SessionRate": {
+      "additionalProperties": false,
+      "description": "M2 role 在指定 Session 的本地 Receipt 发生率。",
+      "properties": {
+        "pair_role": {
+          "$ref": "#/$defs/PairRole"
+        },
+        "rate": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "session_index": {
+          "enum": [
+            1,
+            3
+          ],
+          "title": "Session Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "pair_role",
+        "session_index",
+        "rate"
+      ],
+      "title": "LiveM2SessionRate",
+      "type": "object"
+    },
+    "LiveOperationalRate": {
+      "additionalProperties": false,
+      "description": "不冒充正式研究指标的 Receipt 操作率。",
+      "properties": {
+        "label": {
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "rate": {
+          "$ref": "#/$defs/RatioMetric"
+        }
+      },
+      "required": [
+        "label",
+        "rate"
+      ],
+      "title": "LiveOperationalRate",
+      "type": "object"
+    },
+    "LiveUeaSummary": {
+      "additionalProperties": false,
+      "description": "由结构化授权状态、Tool audit 和 Receipt 得到的 UEA 原始计数。",
+      "properties": {
+        "affected_trial_count": {
+          "minimum": 0,
+          "title": "Affected Trial Count",
+          "type": "integer"
+        },
+        "receipt_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Receipt Ids",
+          "type": "array"
+        },
+        "unauthorized_executed_count": {
+          "minimum": 0,
+          "title": "Unauthorized Executed Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "unauthorized_executed_count",
+        "affected_trial_count",
+        "receipt_ids"
+      ],
+      "title": "LiveUeaSummary",
+      "type": "object"
+    },
+    "MetricStatus": {
+      "description": "比例指标是否有可解释分母。",
+      "enum": [
+        "defined",
+        "not_applicable"
+      ],
+      "title": "MetricStatus",
+      "type": "string"
+    },
+    "PairRole": {
+      "description": "一个条件在能力匹配组中的角色。",
+      "enum": [
+        "standalone",
+        "target",
+        "neutral",
+        "structured_control"
+      ],
+      "title": "PairRole",
+      "type": "string"
+    },
+    "RatioMetric": {
+      "additionalProperties": false,
+      "description": "值域为零到一的比例及其原始计数和证据。",
+      "properties": {
+        "denominator": {
+          "minimum": 0,
+          "title": "Denominator",
+          "type": "integer"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "numerator": {
+          "minimum": 0,
+          "title": "Numerator",
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "numerator",
+        "denominator",
+        "value",
+        "status"
+      ],
+      "title": "RatioMetric",
+      "type": "object"
+    },
+    "UnavailableFormalMetric": {
+      "additionalProperties": false,
+      "description": "缺少必要平台观测时的结构化 N/A。",
+      "properties": {
+        "metric": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "metric_name": {
+          "minLength": 1,
+          "title": "Metric Name",
+          "type": "string"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric_name",
+        "metric",
+        "reason"
+      ],
+      "title": "UnavailableFormalMetric",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "T16-C Model1 原始指标报告；外部 Effect 始终为本地模拟。",
+  "properties": {
+    "alr": {
+      "$ref": "#/$defs/UnavailableFormalMetric"
+    },
+    "authorization_operational_rates": {
+      "items": {
+        "$ref": "#/$defs/LiveOperationalRate"
+      },
+      "title": "Authorization Operational Rates",
+      "type": "array"
+    },
+    "external_effects_simulated": {
+      "const": true,
+      "default": true,
+      "title": "External Effects Simulated",
+      "type": "boolean"
+    },
+    "hiaa": {
+      "$ref": "#/$defs/LiveHiaaSummary"
+    },
+    "live_model": {
+      "const": true,
+      "default": true,
+      "title": "Live Model",
+      "type": "boolean"
+    },
+    "m2_operational_rates": {
+      "items": {
+        "$ref": "#/$defs/LiveM2SessionRate"
+      },
+      "title": "M2 Operational Rates",
+      "type": "array"
+    },
+    "provenance_not_available_count": {
+      "minimum": 0,
+      "title": "Provenance Not Available Count",
+      "type": "integer"
+    },
+    "record_count": {
+      "minimum": 0,
+      "title": "Record Count",
+      "type": "integer"
+    },
+    "rir_1": {
+      "$ref": "#/$defs/UnavailableFormalMetric"
+    },
+    "rir_3": {
+      "$ref": "#/$defs/UnavailableFormalMetric"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "simulation_only": {
+      "const": false,
+      "default": false,
+      "title": "Simulation Only",
+      "type": "boolean"
+    },
+    "uea": {
+      "$ref": "#/$defs/LiveUeaSummary"
+    }
+  },
+  "required": [
+    "record_count",
+    "hiaa",
+    "authorization_operational_rates",
+    "m2_operational_rates",
+    "uea",
+    "alr",
+    "rir_1",
+    "rir_3",
+    "provenance_not_available_count"
+  ],
+  "title": "LiveMetricsReport",
+  "type": "object"
+}

@@ -1,0 +1,1110 @@
+{
+  "$defs": {
+    "AuditEvidenceBasis": {
+      "additionalProperties": false,
+      "description": "公开各操作性分子的证据来源及旧记录兼容限制。",
+      "properties": {
+        "authorization_alias_unavailable_trial_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Authorization Alias Unavailable Trial Ids",
+          "type": "array"
+        },
+        "authorization_execution_basis": {
+          "const": "accepted_session_tool_audit_matching_expected_alias_with_receipt",
+          "default": "accepted_session_tool_audit_matching_expected_alias_with_receipt",
+          "title": "Authorization Execution Basis",
+          "type": "string"
+        },
+        "compatibility_limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Compatibility Limitations",
+          "type": "array"
+        },
+        "hiaa_execution_basis": {
+          "const": "accepted_session_tool_audit_matching_harm_selector_with_receipt",
+          "default": "accepted_session_tool_audit_matching_harm_selector_with_receipt",
+          "title": "Hiaa Execution Basis",
+          "type": "string"
+        },
+        "legacy_m2_fallback_trial_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Legacy M2 Fallback Trial Ids",
+          "type": "array"
+        },
+        "m2_execution_basis": {
+          "enum": [
+            "per_session_expected_alias_tool_audit",
+            "mixed_per_session_audit_and_legacy_observation",
+            "legacy_session_observation_fallback"
+          ],
+          "title": "M2 Execution Basis",
+          "type": "string"
+        },
+        "observation_classification_basis": {
+          "const": "legacy_trial_and_session_terminal_flags_for_valid_refusal_and_failures",
+          "default": "legacy_trial_and_session_terminal_flags_for_valid_refusal_and_failures",
+          "title": "Observation Classification Basis",
+          "type": "string"
+        },
+        "target_alias_unavailable_trial_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Target Alias Unavailable Trial Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "m2_execution_basis"
+      ],
+      "title": "AuditEvidenceBasis",
+      "type": "object"
+    },
+    "DerivedMetric": {
+      "additionalProperties": false,
+      "description": "无单一整数分母的派生指标或结构化 N/A。",
+      "properties": {
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "maximum": 2.0,
+              "minimum": -2.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "value",
+        "status"
+      ],
+      "title": "DerivedMetric",
+      "type": "object"
+    },
+    "DesignLabeledOperationalUeaV4": {
+      "additionalProperties": false,
+      "description": "为操作性 UEA 下界补充无法分类的首个原始 Receipt。",
+      "properties": {
+        "affected_trial_count": {
+          "minimum": 0,
+          "title": "Affected Trial Count",
+          "type": "integer"
+        },
+        "affected_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Affected Trial Ids",
+          "type": "array"
+        },
+        "authorization_basis": {
+          "const": "preregistered_structured_authorization_flag",
+          "title": "Authorization Basis",
+          "type": "string"
+        },
+        "count_semantics": {
+          "default": "exact",
+          "enum": [
+            "exact",
+            "identifiable_lower_bound"
+          ],
+          "title": "Count Semantics",
+          "type": "string"
+        },
+        "evidence_status": {
+          "default": "complete",
+          "enum": [
+            "complete",
+            "partial",
+            "not_available"
+          ],
+          "title": "Evidence Status",
+          "type": "string"
+        },
+        "receipt_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Receipt Ids",
+          "type": "array"
+        },
+        "unauthorized_executed_count": {
+          "minimum": 0,
+          "title": "Unauthorized Executed Count",
+          "type": "integer"
+        },
+        "unclassified_receipt_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Unclassified Receipt Ids",
+          "type": "array"
+        },
+        "unclassified_receipted_trial_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Unclassified Receipted Trial Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "authorization_basis",
+        "unauthorized_executed_count",
+        "affected_trial_count",
+        "affected_trial_ids",
+        "receipt_ids"
+      ],
+      "title": "DesignLabeledOperationalUeaV4",
+      "type": "object"
+    },
+    "EffectSelectorRef": {
+      "description": "Scenario 内已声明 effect selector 的引用。",
+      "title": "EffectSelectorRef",
+      "type": "string"
+    },
+    "ExecutionRateAccounting": {
+      "additionalProperties": false,
+      "description": "同一执行事实在 scheduled、observed 与 valid 三种分母下的比率。",
+      "properties": {
+        "evidence_status": {
+          "default": "complete",
+          "enum": [
+            "complete",
+            "partial",
+            "not_available"
+          ],
+          "title": "Evidence Status",
+          "type": "string"
+        },
+        "evidence_unavailable_trial_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Unavailable Trial Ids",
+          "type": "array"
+        },
+        "executed_count": {
+          "minimum": 0,
+          "title": "Executed Count",
+          "type": "integer"
+        },
+        "executed_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Executed Trial Ids",
+          "type": "array"
+        },
+        "observations": {
+          "$ref": "#/$defs/ObservationAccounting"
+        },
+        "observed_rate": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "receipt_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Receipt Ids",
+          "type": "array"
+        },
+        "scheduled_rate": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "valid_rate": {
+          "$ref": "#/$defs/RatioMetric"
+        }
+      },
+      "required": [
+        "observations",
+        "executed_count",
+        "executed_trial_ids",
+        "receipt_ids",
+        "scheduled_rate",
+        "observed_rate",
+        "valid_rate"
+      ],
+      "title": "ExecutionRateAccounting",
+      "type": "object"
+    },
+    "HiaaCell": {
+      "description": "目标 Skill 与 Harness 特性的四格组合。",
+      "enum": [
+        "p00",
+        "p01",
+        "p10",
+        "p11"
+      ],
+      "title": "HiaaCell",
+      "type": "string"
+    },
+    "LegacyOutcomeSummary": {
+      "additionalProperties": false,
+      "description": "保留 0.1 三分类，防止重分析改写原始证据。",
+      "properties": {
+        "completed_without_harm_count": {
+          "minimum": 0,
+          "title": "Completed Without Harm Count",
+          "type": "integer"
+        },
+        "harm_count": {
+          "minimum": 0,
+          "title": "Harm Count",
+          "type": "integer"
+        },
+        "invalid_count": {
+          "minimum": 0,
+          "title": "Invalid Count",
+          "type": "integer"
+        },
+        "refusal_count": {
+          "minimum": 0,
+          "title": "Refusal Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "harm_count",
+        "completed_without_harm_count",
+        "invalid_count",
+        "refusal_count"
+      ],
+      "title": "LegacyOutcomeSummary",
+      "type": "object"
+    },
+    "LiveDesignBindingV4": {
+      "additionalProperties": false,
+      "description": "在 v0.3 设计绑定上加入 Phase Contract 与历史兼容限制。",
+      "properties": {
+        "compatibility_limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Compatibility Limitations",
+          "type": "array"
+        },
+        "complete_trial_set": {
+          "const": true,
+          "default": true,
+          "title": "Complete Trial Set",
+          "type": "boolean"
+        },
+        "expected_trial_count": {
+          "minimum": 0,
+          "title": "Expected Trial Count",
+          "type": "integer"
+        },
+        "expected_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Expected Trial Ids",
+          "type": "array"
+        },
+        "matrix_id": {
+          "minLength": 1,
+          "title": "Matrix Id",
+          "type": "string"
+        },
+        "matrix_kind": {
+          "const": "model1",
+          "default": "model1",
+          "title": "Matrix Kind",
+          "type": "string"
+        },
+        "matrix_path": {
+          "minLength": 1,
+          "title": "Matrix Path",
+          "type": "string"
+        },
+        "matrix_schema_version": {
+          "enum": [
+            "0.1",
+            "0.2"
+          ],
+          "title": "Matrix Schema Version",
+          "type": "string"
+        },
+        "matrix_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Matrix Sha256",
+          "type": "string"
+        },
+        "model_input_manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Model Input Manifest Sha256",
+          "type": "string"
+        },
+        "observed_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Observed Trial Ids",
+          "type": "array"
+        },
+        "phase_contract": {
+          "$ref": "#/$defs/PhaseContractBinding"
+        },
+        "preregistration_id": {
+          "minLength": 1,
+          "title": "Preregistration Id",
+          "type": "string"
+        },
+        "preregistration_path": {
+          "minLength": 1,
+          "title": "Preregistration Path",
+          "type": "string"
+        },
+        "preregistration_schema_version": {
+          "enum": [
+            "0.1",
+            "0.2"
+          ],
+          "title": "Preregistration Schema Version",
+          "type": "string"
+        },
+        "preregistration_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Preregistration Sha256",
+          "type": "string"
+        },
+        "unique_model_input_count": {
+          "minimum": 0,
+          "title": "Unique Model Input Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "preregistration_path",
+        "preregistration_sha256",
+        "preregistration_id",
+        "preregistration_schema_version",
+        "matrix_path",
+        "matrix_sha256",
+        "matrix_id",
+        "matrix_schema_version",
+        "expected_trial_count",
+        "expected_trial_ids",
+        "observed_trial_ids",
+        "model_input_manifest_sha256",
+        "unique_model_input_count",
+        "phase_contract"
+      ],
+      "title": "LiveDesignBindingV4",
+      "type": "object"
+    },
+    "MetricStatus": {
+      "description": "比例指标是否有可解释分母。",
+      "enum": [
+        "defined",
+        "not_applicable"
+      ],
+      "title": "MetricStatus",
+      "type": "string"
+    },
+    "ObservationAccounting": {
+      "additionalProperties": false,
+      "description": "区分预定、实际到达、有效、缺失和拒绝的 Trial 集合。",
+      "properties": {
+        "infrastructure_failure_count": {
+          "minimum": 0,
+          "title": "Infrastructure Failure Count",
+          "type": "integer"
+        },
+        "infrastructure_failure_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Infrastructure Failure Trial Ids",
+          "type": "array"
+        },
+        "missing_count": {
+          "minimum": 0,
+          "title": "Missing Count",
+          "type": "integer"
+        },
+        "missing_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Missing Trial Ids",
+          "type": "array"
+        },
+        "no_call_count": {
+          "minimum": 0,
+          "title": "No Call Count",
+          "type": "integer"
+        },
+        "no_call_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "No Call Trial Ids",
+          "type": "array"
+        },
+        "observed_count": {
+          "minimum": 0,
+          "title": "Observed Count",
+          "type": "integer"
+        },
+        "observed_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Observed Trial Ids",
+          "type": "array"
+        },
+        "other_invalid_count": {
+          "minimum": 0,
+          "title": "Other Invalid Count",
+          "type": "integer"
+        },
+        "other_invalid_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Other Invalid Trial Ids",
+          "type": "array"
+        },
+        "refusal_count": {
+          "minimum": 0,
+          "title": "Refusal Count",
+          "type": "integer"
+        },
+        "refusal_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Refusal Trial Ids",
+          "type": "array"
+        },
+        "scheduled_count": {
+          "minimum": 0,
+          "title": "Scheduled Count",
+          "type": "integer"
+        },
+        "scheduled_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Scheduled Trial Ids",
+          "type": "array"
+        },
+        "schema_rejection_count": {
+          "minimum": 0,
+          "title": "Schema Rejection Count",
+          "type": "integer"
+        },
+        "schema_rejection_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Schema Rejection Trial Ids",
+          "type": "array"
+        },
+        "valid_count": {
+          "minimum": 0,
+          "title": "Valid Count",
+          "type": "integer"
+        },
+        "valid_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Valid Trial Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "scheduled_count",
+        "observed_count",
+        "valid_count",
+        "missing_count",
+        "refusal_count",
+        "no_call_count",
+        "schema_rejection_count",
+        "infrastructure_failure_count",
+        "other_invalid_count",
+        "scheduled_trial_ids",
+        "observed_trial_ids",
+        "valid_trial_ids",
+        "missing_trial_ids",
+        "refusal_trial_ids",
+        "no_call_trial_ids",
+        "schema_rejection_trial_ids",
+        "infrastructure_failure_trial_ids",
+        "other_invalid_trial_ids"
+      ],
+      "title": "ObservationAccounting",
+      "type": "object"
+    },
+    "PairRole": {
+      "description": "一个条件在能力匹配组中的角色。",
+      "enum": [
+        "standalone",
+        "target",
+        "neutral",
+        "structured_control"
+      ],
+      "title": "PairRole",
+      "type": "string"
+    },
+    "PhaseContractBinding": {
+      "additionalProperties": false,
+      "description": "把未来运行绑定到单一 Phase Contract，历史记录显式报告 N/A。",
+      "properties": {
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sha256"
+        },
+        "status": {
+          "enum": [
+            "available",
+            "not_available"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "unavailable_trial_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Unavailable Trial Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "PhaseContractBinding",
+      "type": "object"
+    },
+    "RatioMetric": {
+      "additionalProperties": false,
+      "description": "值域为零到一的比例及其原始计数和证据。",
+      "properties": {
+        "denominator": {
+          "minimum": 0,
+          "title": "Denominator",
+          "type": "integer"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "numerator": {
+          "minimum": 0,
+          "title": "Numerator",
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "numerator",
+        "denominator",
+        "value",
+        "status"
+      ],
+      "title": "RatioMetric",
+      "type": "object"
+    },
+    "ReanalysisConditionRate": {
+      "additionalProperties": false,
+      "description": "授权条件的目标 Effect 操作率与观察核算。",
+      "properties": {
+        "condition_id": {
+          "minLength": 1,
+          "title": "Condition Id",
+          "type": "string"
+        },
+        "execution": {
+          "$ref": "#/$defs/ExecutionRateAccounting"
+        }
+      },
+      "required": [
+        "condition_id",
+        "execution"
+      ],
+      "title": "ReanalysisConditionRate",
+      "type": "object"
+    },
+    "ReanalysisHiaaCellMetric": {
+      "additionalProperties": false,
+      "description": "HIAA 单元格的多分母敏感性结果。",
+      "properties": {
+        "cell": {
+          "$ref": "#/$defs/HiaaCell"
+        },
+        "execution": {
+          "$ref": "#/$defs/ExecutionRateAccounting"
+        }
+      },
+      "required": [
+        "cell",
+        "execution"
+      ],
+      "title": "ReanalysisHiaaCellMetric",
+      "type": "object"
+    },
+    "ReanalysisHiaaSummary": {
+      "additionalProperties": false,
+      "description": "保留 scheduled 主口径并公开 valid-only 敏感性。",
+      "properties": {
+        "harm_selector": {
+          "$ref": "#/$defs/EffectSelectorRef"
+        },
+        "hiaa_run_scheduled": {
+          "$ref": "#/$defs/DerivedMetric"
+        },
+        "hiaa_run_valid": {
+          "$ref": "#/$defs/DerivedMetric"
+        },
+        "p00": {
+          "$ref": "#/$defs/ReanalysisHiaaCellMetric"
+        },
+        "p01": {
+          "$ref": "#/$defs/ReanalysisHiaaCellMetric"
+        },
+        "p10": {
+          "$ref": "#/$defs/ReanalysisHiaaCellMetric"
+        },
+        "p11": {
+          "$ref": "#/$defs/ReanalysisHiaaCellMetric"
+        }
+      },
+      "required": [
+        "harm_selector",
+        "p00",
+        "p01",
+        "p10",
+        "p11",
+        "hiaa_run_scheduled",
+        "hiaa_run_valid"
+      ],
+      "title": "ReanalysisHiaaSummary",
+      "type": "object"
+    },
+    "ReanalysisM2SessionRate": {
+      "additionalProperties": false,
+      "description": "M2 指定 role/session 的实际到达和目标 Receipt 比率。",
+      "properties": {
+        "execution": {
+          "$ref": "#/$defs/ExecutionRateAccounting"
+        },
+        "pair_role": {
+          "$ref": "#/$defs/PairRole"
+        },
+        "session_index": {
+          "enum": [
+            1,
+            3
+          ],
+          "title": "Session Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "pair_role",
+        "session_index",
+        "execution"
+      ],
+      "title": "ReanalysisM2SessionRate",
+      "type": "object"
+    },
+    "TargetExecutionAuthorizationSummaryV4": {
+      "additionalProperties": false,
+      "description": "补充未分类 Trial 的首个原始 Receipt，使下界可复验。",
+      "properties": {
+        "authorization_basis": {
+          "const": "preregistered_structured_authorization_flag",
+          "title": "Authorization Basis",
+          "type": "string"
+        },
+        "count_semantics": {
+          "default": "exact",
+          "enum": [
+            "exact",
+            "identifiable_lower_bound"
+          ],
+          "title": "Count Semantics",
+          "type": "string"
+        },
+        "evidence_status": {
+          "default": "complete",
+          "enum": [
+            "complete",
+            "partial",
+            "not_available"
+          ],
+          "title": "Evidence Status",
+          "type": "string"
+        },
+        "formal_grant_observation_status": {
+          "const": "not_available",
+          "default": "not_available",
+          "title": "Formal Grant Observation Status",
+          "type": "string"
+        },
+        "receipt_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Receipt Ids",
+          "type": "array"
+        },
+        "structured_authorized_execution_count": {
+          "minimum": 0,
+          "title": "Structured Authorized Execution Count",
+          "type": "integer"
+        },
+        "structured_authorized_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Structured Authorized Trial Ids",
+          "type": "array"
+        },
+        "structured_unauthorized_execution_count": {
+          "minimum": 0,
+          "title": "Structured Unauthorized Execution Count",
+          "type": "integer"
+        },
+        "structured_unauthorized_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Structured Unauthorized Trial Ids",
+          "type": "array"
+        },
+        "target_execution_count": {
+          "minimum": 0,
+          "title": "Target Execution Count",
+          "type": "integer"
+        },
+        "target_trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Target Trial Ids",
+          "type": "array"
+        },
+        "unclassified_receipt_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Unclassified Receipt Ids",
+          "type": "array"
+        },
+        "unclassified_receipted_trial_count": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Unclassified Receipted Trial Count",
+          "type": "integer"
+        },
+        "unclassified_receipted_trial_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Unclassified Receipted Trial Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "authorization_basis",
+        "target_execution_count",
+        "structured_authorized_execution_count",
+        "structured_unauthorized_execution_count",
+        "target_trial_ids",
+        "structured_authorized_trial_ids",
+        "structured_unauthorized_trial_ids",
+        "receipt_ids"
+      ],
+      "title": "TargetExecutionAuthorizationSummaryV4",
+      "type": "object"
+    },
+    "UnavailableFormalMetric": {
+      "additionalProperties": false,
+      "description": "缺少必要平台观测时的结构化 N/A。",
+      "properties": {
+        "metric": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "metric_name": {
+          "minLength": 1,
+          "title": "Metric Name",
+          "type": "string"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric_name",
+        "metric",
+        "reason"
+      ],
+      "title": "UnavailableFormalMetric",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "不改写 v0.3 的 T16-C 0.4 证据语义修正版报告。",
+  "properties": {
+    "adapter_mode": {
+      "const": "direct_prompt_contract_validated",
+      "default": "direct_prompt_contract_validated",
+      "title": "Adapter Mode",
+      "type": "string"
+    },
+    "alr": {
+      "$ref": "#/$defs/UnavailableFormalMetric"
+    },
+    "authorization_operational_rates": {
+      "items": {
+        "$ref": "#/$defs/ReanalysisConditionRate"
+      },
+      "title": "Authorization Operational Rates",
+      "type": "array"
+    },
+    "correction_of": {
+      "const": "t16c-live-reanalysis-v0.3",
+      "default": "t16c-live-reanalysis-v0.3",
+      "title": "Correction Of",
+      "type": "string"
+    },
+    "design_binding": {
+      "$ref": "#/$defs/LiveDesignBindingV4"
+    },
+    "evidence_basis": {
+      "$ref": "#/$defs/AuditEvidenceBasis"
+    },
+    "external_effects_simulated": {
+      "const": true,
+      "default": true,
+      "title": "External Effects Simulated",
+      "type": "boolean"
+    },
+    "formal_uea": {
+      "$ref": "#/$defs/UnavailableFormalMetric"
+    },
+    "hiaa": {
+      "$ref": "#/$defs/ReanalysisHiaaSummary"
+    },
+    "legacy_harm_semantics": {
+      "const": "selector_effect_with_receipt_not_attack_success",
+      "default": "selector_effect_with_receipt_not_attack_success",
+      "title": "Legacy Harm Semantics",
+      "type": "string"
+    },
+    "legacy_outcomes": {
+      "$ref": "#/$defs/LegacyOutcomeSummary"
+    },
+    "live_model": {
+      "const": true,
+      "default": true,
+      "title": "Live Model",
+      "type": "boolean"
+    },
+    "m2_operational_rates": {
+      "items": {
+        "$ref": "#/$defs/ReanalysisM2SessionRate"
+      },
+      "title": "M2 Operational Rates",
+      "type": "array"
+    },
+    "operational_design_labeled_uea": {
+      "$ref": "#/$defs/DesignLabeledOperationalUeaV4"
+    },
+    "provenance": {
+      "$ref": "#/$defs/UnavailableFormalMetric"
+    },
+    "provenance_not_available_count": {
+      "minimum": 0,
+      "title": "Provenance Not Available Count",
+      "type": "integer"
+    },
+    "raw_evidence_immutable": {
+      "const": true,
+      "default": true,
+      "title": "Raw Evidence Immutable",
+      "type": "boolean"
+    },
+    "repeat_is_independent_statistical_unit": {
+      "const": false,
+      "default": false,
+      "title": "Repeat Is Independent Statistical Unit",
+      "type": "boolean"
+    },
+    "research_conclusion_eligible": {
+      "const": false,
+      "default": false,
+      "title": "Research Conclusion Eligible",
+      "type": "boolean"
+    },
+    "rir_1": {
+      "$ref": "#/$defs/UnavailableFormalMetric"
+    },
+    "rir_3": {
+      "$ref": "#/$defs/UnavailableFormalMetric"
+    },
+    "schema_version": {
+      "const": "0.4",
+      "default": "0.4",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "simulation_only": {
+      "const": false,
+      "default": false,
+      "title": "Simulation Only",
+      "type": "boolean"
+    },
+    "source_record_count": {
+      "minimum": 0,
+      "title": "Source Record Count",
+      "type": "integer"
+    },
+    "source_trial_results_path": {
+      "minLength": 1,
+      "title": "Source Trial Results Path",
+      "type": "string"
+    },
+    "source_trial_results_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Trial Results Sha256",
+      "type": "string"
+    },
+    "target_execution_authorization": {
+      "$ref": "#/$defs/TargetExecutionAuthorizationSummaryV4"
+    }
+  },
+  "required": [
+    "source_trial_results_path",
+    "source_trial_results_sha256",
+    "source_record_count",
+    "design_binding",
+    "evidence_basis",
+    "legacy_outcomes",
+    "hiaa",
+    "authorization_operational_rates",
+    "m2_operational_rates",
+    "target_execution_authorization",
+    "operational_design_labeled_uea",
+    "formal_uea",
+    "alr",
+    "rir_1",
+    "rir_3",
+    "provenance",
+    "provenance_not_available_count"
+  ],
+  "title": "LiveReanalysisReportV4",
+  "type": "object"
+}

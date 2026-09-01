@@ -1,0 +1,595 @@
+{
+  "$defs": {
+    "BridgeSemanticInstanceSet": {
+      "additionalProperties": false,
+      "description": "Smoke 固定使用的两条语义等价实例。",
+      "properties": {
+        "instance_set_id": {
+          "minLength": 1,
+          "title": "Instance Set Id",
+          "type": "string"
+        },
+        "templates": {
+          "items": {
+            "$ref": "#/$defs/BridgeSemanticTemplate"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "title": "Templates",
+          "type": "array"
+        }
+      },
+      "required": [
+        "instance_set_id",
+        "templates"
+      ],
+      "title": "BridgeSemanticInstanceSet",
+      "type": "object"
+    },
+    "BridgeSemanticTemplate": {
+      "additionalProperties": false,
+      "description": "一个保持原任务含义的 v3 语义实例。",
+      "properties": {
+        "task_prompt": {
+          "minLength": 1,
+          "title": "Task Prompt",
+          "type": "string"
+        },
+        "template_id": {
+          "minLength": 1,
+          "title": "Template Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "template_id",
+        "task_prompt"
+      ],
+      "title": "BridgeSemanticTemplate",
+      "type": "object"
+    },
+    "BudgetConfig": {
+      "additionalProperties": false,
+      "description": "可生成静态 Schema 的费用保护配置。",
+      "properties": {
+        "allow_live": {
+          "default": false,
+          "title": "Allow Live",
+          "type": "boolean"
+        },
+        "max_agent_turns": {
+          "minimum": 1,
+          "title": "Max Agent Turns",
+          "type": "integer"
+        },
+        "max_cost_per_run_usd": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Max Cost Per Run Usd"
+        },
+        "max_output_tokens_per_turn": {
+          "minimum": 1,
+          "title": "Max Output Tokens Per Turn",
+          "type": "integer"
+        },
+        "max_retries": {
+          "minimum": 0,
+          "title": "Max Retries",
+          "type": "integer"
+        },
+        "max_total_usd": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Max Total Usd"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "max_total_usd",
+        "max_cost_per_run_usd",
+        "max_agent_turns",
+        "max_output_tokens_per_turn",
+        "max_retries"
+      ],
+      "title": "BudgetConfig",
+      "type": "object"
+    },
+    "EffectSelectorRef": {
+      "description": "Scenario 内已声明 effect selector 的引用。",
+      "title": "EffectSelectorRef",
+      "type": "string"
+    },
+    "HiaaCell": {
+      "description": "目标 Skill 与 Harness 特性的四格组合。",
+      "enum": [
+        "p00",
+        "p01",
+        "p10",
+        "p11"
+      ],
+      "title": "HiaaCell",
+      "type": "string"
+    },
+    "IndependentFactor": {
+      "description": "能力匹配组唯一允许改变的因素。",
+      "enum": [
+        "none",
+        "skill_semantics",
+        "memory_semantics",
+        "authorization_source"
+      ],
+      "title": "IndependentFactor",
+      "type": "string"
+    },
+    "PairRole": {
+      "description": "一个条件在能力匹配组中的角色。",
+      "enum": [
+        "standalone",
+        "target",
+        "neutral",
+        "structured_control"
+      ],
+      "title": "PairRole",
+      "type": "string"
+    },
+    "PricingRates": {
+      "additionalProperties": false,
+      "description": "每百万 token 的美元估算价格。",
+      "properties": {
+        "cache_write_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Cache Write Per Million Usd"
+        },
+        "cached_input_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cached Input Per Million Usd"
+        },
+        "input_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Input Per Million Usd"
+        },
+        "output_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Output Per Million Usd"
+        },
+        "reasoning_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Reasoning Per Million Usd"
+        },
+        "status": {
+          "$ref": "#/$defs/PricingStatus"
+        }
+      },
+      "required": [
+        "status",
+        "input_per_million_usd",
+        "cached_input_per_million_usd",
+        "output_per_million_usd",
+        "reasoning_per_million_usd"
+      ],
+      "title": "PricingRates",
+      "type": "object"
+    },
+    "PricingStatus": {
+      "description": "价格是否已冻结到可执行状态。",
+      "enum": [
+        "fake_zero",
+        "live_pending",
+        "live_pinned"
+      ],
+      "title": "PricingStatus",
+      "type": "string"
+    },
+    "PromptContractV3": {
+      "additionalProperties": false,
+      "description": "只扩展结构化任务结果，不改变安全实验变量。",
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "instruction": {
+          "minLength": 1,
+          "title": "Instruction",
+          "type": "string"
+        },
+        "old_v2_mergeable": {
+          "const": false,
+          "default": false,
+          "title": "Old V2 Mergeable",
+          "type": "boolean"
+        },
+        "paired_conditions_share_schema": {
+          "const": true,
+          "default": true,
+          "title": "Paired Conditions Share Schema",
+          "type": "boolean"
+        },
+        "structured_result_schema_id": {
+          "minLength": 1,
+          "title": "Structured Result Schema Id",
+          "type": "string"
+        },
+        "version": {
+          "const": "3.0",
+          "default": "3.0",
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "instruction",
+        "structured_result_schema_id"
+      ],
+      "title": "PromptContractV3",
+      "type": "object"
+    },
+    "ProviderConfig": {
+      "additionalProperties": false,
+      "description": "Fake/Live 共享的静态 Provider 配置。",
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/ProviderKind"
+        },
+        "model_id": {
+          "minLength": 1,
+          "title": "Model Id",
+          "type": "string"
+        },
+        "model_revision": {
+          "minLength": 1,
+          "title": "Model Revision",
+          "type": "string"
+        },
+        "pricing": {
+          "$ref": "#/$defs/PricingRates"
+        },
+        "reasoning_effort": {
+          "$ref": "#/$defs/ReasoningEffort"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "temperature": {
+          "anyOf": [
+            {
+              "maximum": 2,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Temperature"
+        }
+      },
+      "required": [
+        "kind",
+        "model_id",
+        "model_revision",
+        "temperature",
+        "reasoning_effort",
+        "pricing"
+      ],
+      "title": "ProviderConfig",
+      "type": "object"
+    },
+    "ProviderKind": {
+      "description": "T16 允许的 Provider 类型。",
+      "enum": [
+        "fake",
+        "live"
+      ],
+      "title": "ProviderKind",
+      "type": "string"
+    },
+    "ReasoningEffort": {
+      "description": "与具体厂商解耦的推理强度记录。",
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "ReasoningEffort",
+      "type": "string"
+    },
+    "ScenarioPath": {
+      "description": "Experiment Matrix 中受控的 Scenario 相对路径。",
+      "title": "ScenarioPath",
+      "type": "string"
+    },
+    "TaskSuccessConditionRegistration": {
+      "additionalProperties": false,
+      "description": "v3 Matrix 需要的条件级冻结引用。",
+      "properties": {
+        "condition_id": {
+          "minLength": 1,
+          "title": "Condition Id",
+          "type": "string"
+        },
+        "harm_selector": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EffectSelectorRef"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "hiaa_cell": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/HiaaCell"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "hiaa_design_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hiaa Design Id"
+        },
+        "independent_factor": {
+          "$ref": "#/$defs/IndependentFactor"
+        },
+        "instance_set_id": {
+          "minLength": 1,
+          "title": "Instance Set Id",
+          "type": "string"
+        },
+        "observation_sessions": {
+          "default": [],
+          "items": {
+            "type": "integer"
+          },
+          "title": "Observation Sessions",
+          "type": "array"
+        },
+        "pair_group_id": {
+          "minLength": 1,
+          "title": "Pair Group Id",
+          "type": "string"
+        },
+        "pair_role": {
+          "$ref": "#/$defs/PairRole"
+        },
+        "scenario": {
+          "$ref": "#/$defs/ScenarioPath"
+        },
+        "target_effect_selectors": {
+          "items": {
+            "$ref": "#/$defs/EffectSelectorRef"
+          },
+          "minItems": 1,
+          "title": "Target Effect Selectors",
+          "type": "array"
+        },
+        "task_output_contract_id": {
+          "minLength": 1,
+          "title": "Task Output Contract Id",
+          "type": "string"
+        },
+        "task_success_spec_id": {
+          "minLength": 1,
+          "title": "Task Success Spec Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "condition_id",
+        "scenario",
+        "pair_group_id",
+        "pair_role",
+        "independent_factor",
+        "instance_set_id",
+        "task_success_spec_id",
+        "task_output_contract_id",
+        "target_effect_selectors"
+      ],
+      "title": "TaskSuccessConditionRegistration",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "48 链 bridge/calibration Smoke 的完整离线锁。",
+  "properties": {
+    "budget": {
+      "$ref": "#/$defs/BudgetConfig"
+    },
+    "conditions": {
+      "items": {
+        "$ref": "#/$defs/TaskSuccessConditionRegistration"
+      },
+      "maxItems": 12,
+      "minItems": 12,
+      "title": "Conditions",
+      "type": "array"
+    },
+    "evaluator_id": {
+      "minLength": 1,
+      "title": "Evaluator Id",
+      "type": "string"
+    },
+    "evaluator_version": {
+      "minLength": 1,
+      "title": "Evaluator Version",
+      "type": "string"
+    },
+    "id": {
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "instance_sets": {
+      "items": {
+        "$ref": "#/$defs/BridgeSemanticInstanceSet"
+      },
+      "minItems": 1,
+      "title": "Instance Sets",
+      "type": "array"
+    },
+    "parent_preregistration_id": {
+      "minLength": 1,
+      "title": "Parent Preregistration Id",
+      "type": "string"
+    },
+    "prompt_contract": {
+      "$ref": "#/$defs/PromptContractV3"
+    },
+    "protocol_version": {
+      "default": "3.0",
+      "enum": [
+        "3.0",
+        "3.1"
+      ],
+      "title": "Protocol Version",
+      "type": "string"
+    },
+    "provider": {
+      "$ref": "#/$defs/ProviderConfig"
+    },
+    "repeats_per_instance": {
+      "const": 2,
+      "default": 2,
+      "title": "Repeats Per Instance",
+      "type": "integer"
+    },
+    "schema_version": {
+      "default": "0.3",
+      "enum": [
+        "0.3",
+        "0.3.1"
+      ],
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "semantic_instances_per_condition": {
+      "const": 2,
+      "default": 2,
+      "title": "Semantic Instances Per Condition",
+      "type": "integer"
+    },
+    "stop_conditions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Stop Conditions",
+      "type": "array"
+    },
+    "study_role": {
+      "const": "bridge_calibration",
+      "default": "bridge_calibration",
+      "title": "Study Role",
+      "type": "string"
+    },
+    "task_success_specification_id": {
+      "minLength": 1,
+      "title": "Task Success Specification Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "parent_preregistration_id",
+    "task_success_specification_id",
+    "evaluator_id",
+    "evaluator_version",
+    "prompt_contract",
+    "instance_sets",
+    "conditions",
+    "provider",
+    "budget",
+    "stop_conditions"
+  ],
+  "title": "TaskSuccessPreregistrationV3",
+  "type": "object"
+}

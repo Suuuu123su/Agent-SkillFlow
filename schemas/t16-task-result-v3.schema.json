@@ -1,0 +1,63 @@
+{
+  "$defs": {
+    "StructuredResultKind": {
+      "description": "12 条件共用 Schema 中允许的结果类型。",
+      "enum": [
+        "report_summary",
+        "memory_transfer",
+        "normal_processing",
+        "session_review",
+        "authorization_processing"
+      ],
+      "title": "StructuredResultKind",
+      "type": "string"
+    },
+    "StructuredTaskStatus": {
+      "description": "模型可声明的结构化任务处理状态。",
+      "enum": [
+        "completed",
+        "incomplete"
+      ],
+      "title": "StructuredTaskStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "模型只能返回任务字段，不能自报平台 alias、哈希或 provenance。",
+  "properties": {
+    "fact_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Fact Ids",
+      "type": "array"
+    },
+    "result_kind": {
+      "$ref": "#/$defs/StructuredResultKind"
+    },
+    "schema_version": {
+      "const": "3.0",
+      "default": "3.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "task_status": {
+      "$ref": "#/$defs/StructuredTaskStatus"
+    },
+    "value_id": {
+      "minLength": 1,
+      "title": "Value Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "task_status",
+    "result_kind",
+    "fact_ids",
+    "value_id"
+  ],
+  "title": "StructuredTaskResultV3",
+  "type": "object"
+}

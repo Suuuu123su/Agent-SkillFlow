@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.1",
+  "simulation_only": true,
+  "expected_trial_count": 720,
+  "scheduled_trial_count": 720,
+  "unique_trial_id_count": 720,
+  "slot_count": 2,
+  "condition_count": 12,
+  "semantic_instances_per_condition": 10,
+  "repeats_per_instance": 3,
+  "target_neutral_pair_ids_aligned": true,
+  "hiaa_shared_harm_selector": true,
+  "m2_sessions_exact": true,
+  "a1_neutralization_exact": true,
+  "duplicate_handling": "reject_duplicate_trial_id",
+  "denominators": {
+    "unique_condition_instances": 120,
+    "unique_pair_instances": 70,
+    "fake_repeats_are_independent_samples": false
+  },
+  "operational_counts": {
+    "harm": 180,
+    "completed_without_harm": 540,
+    "refusal": 0,
+    "no_call": 0,
+    "invalid_other": 0
+  }
+}

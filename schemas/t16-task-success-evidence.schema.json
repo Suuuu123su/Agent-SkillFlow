@@ -1,0 +1,259 @@
+{
+  "$defs": {
+    "AssertionStatus": {
+      "description": "一条任务成功断言的三值结果。",
+      "enum": [
+        "passed",
+        "failed",
+        "not_evaluable"
+      ],
+      "title": "AssertionStatus",
+      "type": "string"
+    },
+    "EvidenceReason": {
+      "description": "不包含正文的稳定判定原因。",
+      "enum": [
+        "assertion_passed",
+        "artifact_missing",
+        "artifact_registry_unavailable",
+        "alias_not_resolved",
+        "schema_not_valid",
+        "structured_field_missing",
+        "structured_field_mismatch",
+        "structured_set_missing",
+        "structured_set_mismatch",
+        "content_commitment_mismatch",
+        "receipt_missing",
+        "receipt_registry_unavailable",
+        "receipt_run_mismatch",
+        "receipt_session_mismatch",
+        "safe_sink_commitment_mismatch",
+        "session_not_reached",
+        "session_trace_unavailable",
+        "tool_sequence_mismatch"
+      ],
+      "title": "EvidenceReason",
+      "type": "string"
+    },
+    "EvidenceSource": {
+      "description": "可被任务成功 evaluator 信任的封闭证据入口。",
+      "enum": [
+        "platform_artifact_registry",
+        "platform_effect_receipt",
+        "platform_safe_sink",
+        "platform_session_trace",
+        "deterministic_evaluator"
+      ],
+      "title": "EvidenceSource",
+      "type": "string"
+    },
+    "TaskSuccessAssertionType": {
+      "description": "允许进入确定性 evaluator 的封闭断言类型。",
+      "enum": [
+        "artifact_exists",
+        "artifact_alias_resolves",
+        "artifact_schema_valid",
+        "artifact_structured_field_equals",
+        "artifact_structured_set_equals",
+        "artifact_content_commitment_matches",
+        "required_receipt_exists",
+        "receipt_bound_to_run",
+        "receipt_bound_to_session",
+        "safe_sink_commitment_matches",
+        "required_session_reached",
+        "required_tool_sequence_observed"
+      ],
+      "title": "TaskSuccessAssertionType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "一条断言的结构化、可复核且不保存正文的证据。",
+  "properties": {
+    "artifact_alias": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Artifact Alias"
+    },
+    "artifact_content_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Artifact Content Sha256"
+    },
+    "artifact_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Artifact Id"
+    },
+    "assertion_id": {
+      "minLength": 1,
+      "title": "Assertion Id",
+      "type": "string"
+    },
+    "assertion_status": {
+      "$ref": "#/$defs/AssertionStatus"
+    },
+    "assertion_type": {
+      "$ref": "#/$defs/TaskSuccessAssertionType"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "effect_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Effect Id"
+    },
+    "evaluator_id": {
+      "minLength": 1,
+      "title": "Evaluator Id",
+      "type": "string"
+    },
+    "evaluator_version": {
+      "minLength": 1,
+      "title": "Evaluator Version",
+      "type": "string"
+    },
+    "evidence_id": {
+      "minLength": 1,
+      "title": "Evidence Id",
+      "type": "string"
+    },
+    "evidence_source": {
+      "$ref": "#/$defs/EvidenceSource"
+    },
+    "expected_value_commitment_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Expected Value Commitment Sha256"
+    },
+    "observed_value_commitment_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Observed Value Commitment Sha256"
+    },
+    "reason_code": {
+      "$ref": "#/$defs/EvidenceReason"
+    },
+    "receipt_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Receipt Id"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "safe_sink_commitment_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Safe Sink Commitment Sha256"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "session_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Session Id"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "title": "Trial Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "evidence_id",
+    "run_id",
+    "trial_id",
+    "session_id",
+    "assertion_id",
+    "assertion_type",
+    "assertion_status",
+    "artifact_id",
+    "artifact_alias",
+    "artifact_content_sha256",
+    "effect_id",
+    "receipt_id",
+    "safe_sink_commitment_sha256",
+    "expected_value_commitment_sha256",
+    "observed_value_commitment_sha256",
+    "evaluator_id",
+    "evaluator_version",
+    "evidence_source",
+    "reason_code",
+    "created_at"
+  ],
+  "title": "TaskSuccessEvidence",
+  "type": "object"
+}

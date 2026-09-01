@@ -1,0 +1,326 @@
+{
+  "$defs": {
+    "LiveFailureCounts": {
+      "additionalProperties": false,
+      "description": "不与拒绝/no-call 混淆的失败子类计数。",
+      "properties": {
+        "gateway_crash": {
+          "minimum": 0,
+          "title": "Gateway Crash",
+          "type": "integer"
+        },
+        "no_call": {
+          "minimum": 0,
+          "title": "No Call",
+          "type": "integer"
+        },
+        "provider_error": {
+          "minimum": 0,
+          "title": "Provider Error",
+          "type": "integer"
+        },
+        "rate_limit": {
+          "minimum": 0,
+          "title": "Rate Limit",
+          "type": "integer"
+        },
+        "refusal": {
+          "minimum": 0,
+          "title": "Refusal",
+          "type": "integer"
+        },
+        "schema_rejection": {
+          "minimum": 0,
+          "title": "Schema Rejection",
+          "type": "integer"
+        },
+        "timeout": {
+          "minimum": 0,
+          "title": "Timeout",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "refusal",
+        "no_call",
+        "schema_rejection",
+        "timeout",
+        "rate_limit",
+        "provider_error",
+        "gateway_crash"
+      ],
+      "title": "LiveFailureCounts",
+      "type": "object"
+    },
+    "LivePhase": {
+      "description": "T16-C 只允许先 Smoke、再单模型完整矩阵。",
+      "enum": [
+        "smoke",
+        "model1"
+      ],
+      "title": "LivePhase",
+      "type": "string"
+    },
+    "LiveResultCounts": {
+      "additionalProperties": false,
+      "description": "互斥 Trial 三分类的原始计数。",
+      "properties": {
+        "completed_without_harm": {
+          "minimum": 0,
+          "title": "Completed Without Harm",
+          "type": "integer"
+        },
+        "harm": {
+          "minimum": 0,
+          "title": "Harm",
+          "type": "integer"
+        },
+        "invalid": {
+          "minimum": 0,
+          "title": "Invalid",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "harm",
+        "completed_without_harm",
+        "invalid"
+      ],
+      "title": "LiveResultCounts",
+      "type": "object"
+    },
+    "LiveStopReason": {
+      "description": "必须立即停止且保留既有证据的原因。",
+      "enum": [
+        "budget_limit",
+        "contract_mismatch",
+        "gateway_crash",
+        "infrastructure_failure"
+      ],
+      "title": "LiveStopReason",
+      "type": "string"
+    },
+    "TokenUsage": {
+      "additionalProperties": false,
+      "description": "TrialResult 所需的生成、缓存读写与推理 token 计数。",
+      "properties": {
+        "cache_write_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cache Write Tokens",
+          "type": "integer"
+        },
+        "cached_input_tokens": {
+          "minimum": 0,
+          "title": "Cached Input Tokens",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "reasoning_tokens": {
+          "minimum": 0,
+          "title": "Reasoning Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_tokens",
+        "cached_input_tokens",
+        "output_tokens",
+        "reasoning_tokens"
+      ],
+      "title": "TokenUsage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "一阶段真实模型运行的可恢复汇总，不把本地 Effect 写成外发。",
+  "properties": {
+    "actual_estimated_cost_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Actual Estimated Cost Usd"
+    },
+    "api_call_count": {
+      "minimum": 0,
+      "title": "Api Call Count",
+      "type": "integer"
+    },
+    "budget_journal_sha256": {
+      "minLength": 1,
+      "title": "Budget Journal Sha256",
+      "type": "string"
+    },
+    "completed_trial_count": {
+      "minimum": 0,
+      "title": "Completed Trial Count",
+      "type": "integer"
+    },
+    "conservative_reserved_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Conservative Reserved Usd"
+    },
+    "expected_trial_count": {
+      "minimum": 0,
+      "title": "Expected Trial Count",
+      "type": "integer"
+    },
+    "external_effects_simulated": {
+      "const": true,
+      "default": true,
+      "title": "External Effects Simulated",
+      "type": "boolean"
+    },
+    "failure_counts": {
+      "$ref": "#/$defs/LiveFailureCounts"
+    },
+    "live_gate_passed": {
+      "title": "Live Gate Passed",
+      "type": "boolean"
+    },
+    "live_model": {
+      "const": true,
+      "default": true,
+      "title": "Live Model",
+      "type": "boolean"
+    },
+    "matrix_id": {
+      "minLength": 1,
+      "title": "Matrix Id",
+      "type": "string"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "model_revision_config": {
+      "minLength": 1,
+      "title": "Model Revision Config",
+      "type": "string"
+    },
+    "new_trial_count": {
+      "minimum": 0,
+      "title": "New Trial Count",
+      "type": "integer"
+    },
+    "phase": {
+      "$ref": "#/$defs/LivePhase"
+    },
+    "provenance_not_available_count": {
+      "minimum": 0,
+      "title": "Provenance Not Available Count",
+      "type": "integer"
+    },
+    "result_counts": {
+      "$ref": "#/$defs/LiveResultCounts"
+    },
+    "resumed_trial_count": {
+      "minimum": 0,
+      "title": "Resumed Trial Count",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "simulation_only": {
+      "const": false,
+      "default": false,
+      "title": "Simulation Only",
+      "type": "boolean"
+    },
+    "stop_detail": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Stop Detail"
+    },
+    "stop_reason": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/LiveStopReason"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "stopped": {
+      "title": "Stopped",
+      "type": "boolean"
+    },
+    "token_usage": {
+      "$ref": "#/$defs/TokenUsage"
+    },
+    "trial_results_sha256": {
+      "minLength": 1,
+      "title": "Trial Results Sha256",
+      "type": "string"
+    },
+    "unique_trial_id_count": {
+      "minimum": 0,
+      "title": "Unique Trial Id Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "phase",
+    "model_id",
+    "model_revision_config",
+    "matrix_id",
+    "expected_trial_count",
+    "completed_trial_count",
+    "unique_trial_id_count",
+    "resumed_trial_count",
+    "new_trial_count",
+    "stopped",
+    "live_gate_passed",
+    "result_counts",
+    "failure_counts",
+    "token_usage",
+    "api_call_count",
+    "actual_estimated_cost_usd",
+    "conservative_reserved_usd",
+    "trial_results_sha256",
+    "budget_journal_sha256",
+    "provenance_not_available_count"
+  ],
+  "title": "LivePhaseSummary",
+  "type": "object"
+}

@@ -3,7 +3,9 @@ from pathlib import Path
 import pytest
 from pydantic import ValidationError
 
+from skillflow.experiment.t16 import preregistration as preregistration_module
 from skillflow.experiment.t16.preregistration import (
+    PreregistrationBindingError,
     load_preregistration,
     verify_scenario_bindings,
 )
@@ -14,9 +16,11 @@ from skillflow.experiment.t16.preregistration_models import (
     T16Preregistration,
 )
 from skillflow.models.matrix_design import HiaaCell
+from skillflow.models.scenario import Scenario
 
 PROJECT_ROOT = Path()
 PREREGISTRATION = Path("experiments/t16/preregistration.yaml")
+LIVE_PREREGISTRATION = Path("experiments/t16/preregistration_t16c_v2.yaml")
 
 
 def test_preregistration_has_exact_closed_design_and_real_bindings() -> None:
@@ -59,6 +63,30 @@ def test_c1_and_m2_bind_pre_registered_observations() -> None:
     assert cells == set(HiaaCell)
     assert len(selectors) == 1
     assert all(item.observation_sessions == (1, 3) for item in m2)
+
+
+def test_live_c1_hiaa_keeps_identical_payload_across_all_four_cells() -> None:
+    registration = load_preregistration(LIVE_PREREGISTRATION)
+    c1 = tuple(item for item in registration.conditions if item.hiaa_design_id is not None)
+
+    assert {item.capability.payload for item in c1} == {'{"send":"yes"}'}
+
+
+def test_hiaa_rejects_payload_as_an_unregistered_third_factor() -> None:
+    registration = load_preregistration(LIVE_PREREGISTRATION)
+    payload = registration.model_dump(mode="python")
+    conditions = list(registration.conditions)
+    index = next(
+        position for position, item in enumerate(conditions) if item.condition_id == "c1-p00"
+    )
+    condition = conditions[index]
+    conditions[index] = condition.model_copy(
+        update={"capability": condition.capability.model_copy(update={"payload": '{"send":"no "}'})}
+    )
+    payload["conditions"] = conditions
+
+    with pytest.raises(ValidationError, match="相同输入 payload"):
+        T16Preregistration.model_validate(payload)
 
 
 def test_target_neutral_pair_rejects_data_format_drift() -> None:
@@ -117,3 +145,102 @@ def test_authorization_neutralization_is_explicit_and_narrow() -> None:
     )
     assert conditions["a1-claim"].intervention is T16Intervention.NONE
     assert conditions["a2-structured-confirmation"].intervention is T16Intervention.NONE
+
+
+def test_binding_rejects_same_authorization_structure_id_with_different_real_grants(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    registration = load_preregistration(LIVE_PREREGISTRATION)
+    original_validate = preregistration_module.validate_yaml_document
+    target_path = Path("scenarios/attacks/m2_revoked_memory_residual.yaml")
+
+    def drifted_document(path: Path, model: type[object]) -> object:
+        document = original_validate(path, model)
+        if model is Scenario and path == target_path:
+            assert isinstance(document, Scenario)
+            return document.model_copy(update={"grants": document.grants[:-1]})
+        return document
+
+    monkeypatch.setattr(preregistration_module, "validate_yaml_document", drifted_document)
+
+    with pytest.raises(PreregistrationBindingError, match=r"Grant.*结构 ID"):
+        verify_scenario_bindings(registration, PROJECT_ROOT)
+
+
+def test_binding_rejects_harm_selector_missing_from_real_scenario(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    registration = load_preregistration(LIVE_PREREGISTRATION)
+    original_validate = preregistration_module.validate_yaml_document
+    target_path = Path("scenarios/attacks/c1_context_composition.yaml")
+
+    def drifted_document(path: Path, model: type[object]) -> object:
+        document = original_validate(path, model)
+        if model is Scenario and path == target_path:
+            assert isinstance(document, Scenario)
+            return document.model_copy(update={"effect_selectors": ()})
+        return document
+
+    monkeypatch.setattr(preregistration_module, "validate_yaml_document", drifted_document)
+
+    with pytest.raises(PreregistrationBindingError, match="harm_selector"):
+        verify_scenario_bindings(registration, PROJECT_ROOT)
+
+
+def test_binding_rejects_observation_session_outside_real_scenario() -> None:
+    registration = load_preregistration(LIVE_PREREGISTRATION)
+    conditions = tuple(
+        item.model_copy(update={"observation_sessions": (1, 4)})
+        if item.condition_id == "m2-target"
+        else item
+        for item in registration.conditions
+    )
+    drifted = registration.model_copy(update={"conditions": conditions})
+
+    with pytest.raises(PreregistrationBindingError, match="观察 Session"):
+        verify_scenario_bindings(drifted, PROJECT_ROOT)
+
+
+def test_binding_rejects_observation_session_id_drift(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    registration = load_preregistration(LIVE_PREREGISTRATION)
+    original_validate = preregistration_module.validate_yaml_document
+    target_path = Path("scenarios/attacks/m2_revoked_memory_residual.yaml")
+
+    def drifted_document(path: Path, model: type[object]) -> object:
+        document = original_validate(path, model)
+        if model is Scenario and path == target_path:
+            assert isinstance(document, Scenario)
+            sessions = tuple(
+                session.model_copy(update={"id": "renamed-observation"}) if index == 1 else session
+                for index, session in enumerate(document.sessions)
+            )
+            return document.model_copy(update={"sessions": sessions})
+        return document
+
+    monkeypatch.setattr(preregistration_module, "validate_yaml_document", drifted_document)
+
+    with pytest.raises(PreregistrationBindingError, match=r"session\.id"):
+        verify_scenario_bindings(registration, PROJECT_ROOT)
+
+
+def test_binding_rejects_harness_drift_within_a_matched_pair(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    registration = load_preregistration(LIVE_PREREGISTRATION)
+    original_validate = preregistration_module.validate_yaml_document
+    target_path = Path("scenarios/attacks/m2_revoked_memory_residual.yaml")
+
+    def drifted_document(path: Path, model: type[object]) -> object:
+        document = original_validate(path, model)
+        if model is Scenario and path == target_path:
+            assert isinstance(document, Scenario)
+            harness = document.harness.model_copy(update={"persistent_memory": False})
+            return document.model_copy(update={"harness": harness})
+        return document
+
+    monkeypatch.setattr(preregistration_module, "validate_yaml_document", drifted_document)
+
+    with pytest.raises(PreregistrationBindingError, match="Harness"):
+        verify_scenario_bindings(registration, PROJECT_ROOT)

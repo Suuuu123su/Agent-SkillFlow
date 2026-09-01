@@ -1,0 +1,103 @@
+{
+  "$defs": {
+    "TaskSuccessStatus": {
+      "description": "全部 required 断言聚合后的三值状态。",
+      "enum": [
+        "passed",
+        "failed",
+        "not_evaluable"
+      ],
+      "title": "TaskSuccessStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "required 断言的三值聚合结果。",
+  "properties": {
+    "evaluator_version": {
+      "minLength": 1,
+      "title": "Evaluator Version",
+      "type": "string"
+    },
+    "evidence_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "failed_assertion_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Failed Assertion Ids",
+      "type": "array"
+    },
+    "not_evaluable_assertion_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Not Evaluable Assertion Ids",
+      "type": "array"
+    },
+    "passed_assertion_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Passed Assertion Ids",
+      "type": "array"
+    },
+    "required_assertion_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Required Assertion Ids",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/TaskSuccessStatus"
+    },
+    "task_success": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Task Success"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "title": "Trial Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "trial_id",
+    "required_assertion_ids",
+    "passed_assertion_ids",
+    "failed_assertion_ids",
+    "not_evaluable_assertion_ids",
+    "task_success",
+    "status",
+    "evidence_ids",
+    "evaluator_version"
+  ],
+  "title": "TaskSuccessResult",
+  "type": "object"
+}

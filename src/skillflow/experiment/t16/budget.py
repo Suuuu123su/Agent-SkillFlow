@@ -68,6 +68,18 @@ class BudgetExceededError(RuntimeError):
 
 
 @dataclass(frozen=True, slots=True)
+class BudgetSettlementError(RuntimeError):
+    """实际费用无法安全替换当前调用预留。"""
+
+    reserved_usd: Decimal
+    actual_usd: Decimal
+
+    def __str__(self) -> str:
+        """返回不含请求内容的稳定费用诊断。"""
+        return f"actual_cost={self.actual_usd}, reserved_cost={self.reserved_usd}"
+
+
+@dataclass(frozen=True, slots=True)
 class BudgetLedger:
     """不可变预算状态；每次许可返回一个新状态。"""
 
@@ -105,6 +117,22 @@ class BudgetLedger:
             agent_turns=next_turn,
         )
 
+    def settle_call(
+        self,
+        reservation: CallReservation,
+        actual_cost_usd: Decimal,
+    ) -> "BudgetLedger":
+        """成功响应后以实际费用替换本次保守预留。"""
+        if actual_cost_usd < 0 or actual_cost_usd > reservation.estimated_cost_usd:
+            raise BudgetSettlementError(reservation.estimated_cost_usd, actual_cost_usd)
+        return replace(
+            self,
+            total_spent_usd=(
+                self.total_spent_usd - reservation.estimated_cost_usd + actual_cost_usd
+            ),
+            run_spent_usd=(self.run_spent_usd - reservation.estimated_cost_usd + actual_cost_usd),
+        )
+
     def record_retry(self) -> "BudgetLedger":
         """在下一次尝试前消耗一次有限重试。"""
         next_retry = self.retries + 1
@@ -113,5 +141,9 @@ class BudgetLedger:
         return replace(self, retries=next_retry)
 
     @staticmethod
-    def _exceeded(limit: BudgetLimit, attempted: object, maximum: object) -> None:
+    def _exceeded(
+        limit: BudgetLimit,
+        attempted: str | int | Decimal,
+        maximum: str | int | Decimal,
+    ) -> None:
         raise BudgetExceededError(limit=limit, attempted=str(attempted), maximum=str(maximum))

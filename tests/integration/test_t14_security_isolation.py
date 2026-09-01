@@ -11,8 +11,16 @@ EXECUTION_BOUNDARIES = (
     Path("src/skillflow/experiment"),
 )
 EXTERNAL_CAPABILITY_MODULES = frozenset(
-    {"httpx", "keyring", "requests", "socket", "subprocess", "urllib.request"}
+    {"httpx", "httpx2", "keyring", "requests", "socket", "subprocess", "urllib.request"}
 )
+T16C_APPROVED_EXTERNAL_IMPORTS = {
+    Path("src/skillflow/experiment/t16/httpx2_transport.py"): frozenset({"httpx2", "socket"})
+}
+T16C_APPROVED_SECRET_READERS = {
+    Path("src/skillflow/experiment/t16/live_cli.py"): frozenset({("getpass", "getpass")}),
+    Path("src/skillflow/experiment/t16/task_success_live_cli.py"): frozenset({("os", "environ")}),
+    Path("src/skillflow/experiment/t16/task_success_canary_cli.py"): frozenset({("os", "environ")}),
+}
 
 
 def test_runtime_and_policy_cannot_import_oracle() -> None:
@@ -48,24 +56,35 @@ def _oracle_imports(path: Path) -> tuple[str, ...]:
 
 def _external_imports(path: Path) -> tuple[str, ...]:
     tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+    approved = T16C_APPROVED_EXTERNAL_IMPORTS.get(path, frozenset())
     return tuple(
         f"{path}:{node.lineno}"
         for node in ast.walk(tree)
-        if any(_imports_module(node, module) for module in EXTERNAL_CAPABILITY_MODULES)
+        if any(
+            module not in approved and _imports_module(node, module)
+            for module in EXTERNAL_CAPABILITY_MODULES
+        )
     )
 
 
 def _credential_or_home_accesses(path: Path) -> tuple[str, ...]:
     tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+    approved = T16C_APPROVED_SECRET_READERS.get(path, frozenset())
     return tuple(
-        f"{path}:{node.lineno}" for node in ast.walk(tree) if _is_credential_or_home_access(node)
+        f"{path}:{node.lineno}"
+        for node in ast.walk(tree)
+        if _is_credential_or_home_access(node, approved)
     )
 
 
-def _is_credential_or_home_access(node: ast.AST) -> bool:
+def _is_credential_or_home_access(
+    node: ast.AST,
+    approved: frozenset[tuple[str, str]],
+) -> bool:
     if isinstance(node, ast.Attribute):
         if isinstance(node.value, ast.Name):
-            return (node.value.id, node.attr) in {
+            access = (node.value.id, node.attr)
+            return access not in approved and access in {
                 ("Path", "home"),
                 ("getpass", "getpass"),
                 ("os", "environ"),

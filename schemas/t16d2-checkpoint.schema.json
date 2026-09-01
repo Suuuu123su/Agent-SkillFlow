@@ -1,0 +1,114 @@
+{
+  "$defs": {
+    "TokenUsage": {
+      "additionalProperties": false,
+      "description": "TrialResult 所需的生成、缓存读写与推理 token 计数。",
+      "properties": {
+        "cache_write_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cache Write Tokens",
+          "type": "integer"
+        },
+        "cached_input_tokens": {
+          "minimum": 0,
+          "title": "Cached Input Tokens",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "reasoning_tokens": {
+          "minimum": 0,
+          "title": "Reasoning Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_tokens",
+        "cached_input_tokens",
+        "output_tokens",
+        "reasoning_tokens"
+      ],
+      "title": "TokenUsage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "阶段内不可变累计检查点。",
+  "properties": {
+    "actual_estimated_cost_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Actual Estimated Cost Usd"
+    },
+    "conservative_reserved_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Conservative Reserved Usd"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "observed": {
+      "minimum": 0,
+      "title": "Observed",
+      "type": "integer"
+    },
+    "raw_records_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Raw Records Sha256",
+      "type": "string"
+    },
+    "scheduled": {
+      "const": 48,
+      "default": 48,
+      "title": "Scheduled",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "token_usage": {
+      "$ref": "#/$defs/TokenUsage"
+    }
+  },
+  "required": [
+    "created_at",
+    "observed",
+    "conservative_reserved_usd",
+    "actual_estimated_cost_usd",
+    "token_usage",
+    "raw_records_sha256"
+  ],
+  "title": "T16D2Checkpoint",
+  "type": "object"
+}

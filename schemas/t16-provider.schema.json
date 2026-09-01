@@ -4,6 +4,20 @@
       "additionalProperties": false,
       "description": "每百万 token 的美元估算价格。",
       "properties": {
+        "cache_write_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Cache Write Per Million Usd"
+        },
         "cached_input_per_million_usd": {
           "anyOf": [
             {
@@ -130,10 +144,17 @@
       "type": "string"
     },
     "temperature": {
-      "maximum": 2,
-      "minimum": 0,
-      "title": "Temperature",
-      "type": "number"
+      "anyOf": [
+        {
+          "maximum": 2,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Temperature"
     }
   },
   "required": [

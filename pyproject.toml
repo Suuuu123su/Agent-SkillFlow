@@ -17,6 +17,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+live = [
+    "httpx2[http2,brotli,zstd]==2.12.0",
+]
 dev = [
     "mypy>=1.11,<2",
     "numpy>=1.26,<2.4",

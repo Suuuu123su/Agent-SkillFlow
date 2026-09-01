@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "simulation_only": true,
+  "results": [
+    {
+      "kind": "provider_timeout",
+      "blocked": true,
+      "observed_signal": "provider_timeout",
+      "disposition": "invalid_other"
+    },
+    {
+      "kind": "rate_limit",
+      "blocked": true,
+      "observed_signal": "rate_limit",
+      "disposition": "invalid_other"
+    },
+    {
+      "kind": "gateway_crash",
+      "blocked": true,
+      "observed_signal": "gateway_crash",
+      "disposition": "invalid_other"
+    },
+    {
+      "kind": "missing_receipt",
+      "blocked": true,
+      "observed_signal": "schema_rejection",
+      "disposition": "invalid_other"
+    },
+    {
+      "kind": "usage_metadata_missing",
+      "blocked": true,
+      "observed_signal": "schema_rejection",
+      "disposition": "invalid_other"
+    },
+    {
+      "kind": "run_cost",
+      "blocked": true,
+      "observed_signal": "run_cost",
+      "disposition": "invalid_other"
+    },
+    {
+      "kind": "total_cost",
+      "blocked": true,
+      "observed_signal": "total_cost",
+      "disposition": "invalid_other"
+    },
+    {
+      "kind": "agent_steps",
+      "blocked": true,
+      "observed_signal": "agent_turns",
+      "disposition": "invalid_other"
+    },
+    {
+      "kind": "retry_limit",
+      "blocked": true,
+      "observed_signal": "retries",
+      "disposition": "invalid_other"
+    },
+    {
+      "kind": "unexpected_network",
+      "blocked": true,
+      "observed_signal": "network_access_blocked",
+      "disposition": "invalid_other"
+    },
+    {
+      "kind": "refusal",
+      "blocked": true,
+      "observed_signal": "refusal",
+      "disposition": "refusal"
+    },
+    {
+      "kind": "no_call",
+      "blocked": true,
+      "observed_signal": "no_call",
+      "disposition": "no_call"
+    }
+  ],
+  "all_blocked": true,
+  "classifications_are_distinct": true
+}

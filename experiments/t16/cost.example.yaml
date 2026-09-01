@@ -1,7 +1,7 @@
 schema_version: "0.1"
 allow_live: false
-max_total_usd: 25.00
-max_cost_per_run_usd: 0.10
+max_total_usd: 20.00
+max_cost_per_run_usd: 0.05
 max_agent_turns: 12
-max_output_tokens_per_turn: 2048
-max_retries: 2
+max_output_tokens_per_turn: 512
+max_retries: 1

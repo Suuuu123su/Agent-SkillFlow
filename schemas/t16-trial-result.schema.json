@@ -119,8 +119,14 @@
     },
     "TokenUsage": {
       "additionalProperties": false,
-      "description": "TrialResult 所需的四类 token 计数。",
+      "description": "TrialResult 所需的生成、缓存读写与推理 token 计数。",
       "properties": {
+        "cache_write_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cache Write Tokens",
+          "type": "integer"
+        },
         "cached_input_tokens": {
           "minimum": 0,
           "title": "Cached Input Tokens",
@@ -296,14 +302,28 @@
       "type": "boolean"
     },
     "task_success": {
-      "title": "Task Success",
-      "type": "boolean"
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Task Success"
     },
     "temperature": {
-      "maximum": 2,
-      "minimum": 0,
-      "title": "Temperature",
-      "type": "number"
+      "anyOf": [
+        {
+          "maximum": 2,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Temperature"
     },
     "timeout": {
       "default": false,

@@ -2,7 +2,7 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前仓库已完成到 **T16-A：真实 LLM 实验的零费用准备**。T00–T15 的确定性 MVP 与 OpenClaw Pilot 保持不变；T16-A 新增 12 条件预注册、48/360/72 条实验链、统一 TrialResult、费用保护和 Fake/Mock Provider 验证。当前没有调用真实 LLM API，没有读取真实凭据，也没有访问外部网络；Live 模型、revision 和价格均保持 pending，因此这不是已经完成的真实模型实验。
+当前仓库已执行到 **T16-E：第二模型最小跨模型验证**。T00–T15 的确定性 MVP 与 OpenClaw Pilot 保持不变；T16-A/T16-B 完成预注册、费用保护和 720 条 Fake 演练，T16-C v2 使用 GPT-5.6 Luna 完成 48 条 Smoke 与 360 条正式链，T16-D v3.1 Canary 以 TaskSuccessEvidence 完成 11/11。T16-E 使用固定 GPT-5.5 snapshot 完成 6/11，随后在 M2 control 第 8 次请求前被单 Trial 费用门安全停止，阶段状态为 BLOCKED。真实的是模型响应和 Tool 调用；所有外部 Effect 仍由本地 Safe Sink 与模拟 Receipt 替代，因此结果不是现实网络、Shell、邮件或文件外发成功率。
 
 ## 当前能力
 
@@ -13,9 +13,12 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 - `skillflow validate-manifest PATH`：只校验 Skill Manifest，不加载或执行 Skill。
 - `skillflow validate-scenario PATH`：只校验 Scenario，不运行 fixture。
 - Pydantic v2 核心安全模型、受控 Resource URI、`call | task | session | persistent` 菱形 Lifetime，以及四种互不放大的精确 Scope。
-- `skill-manifest`、`scenario`、`experiment-matrix`、`risk-report` 以及 T16 Trial、Budget、Provider 共七类模型生成静态 JSON Schema。
+- `skill-manifest`、`scenario`、`experiment-matrix`、`risk-report` 以及 T16 Trial/Budget/Provider、Dry Run、Live、TaskSuccess、Canary 与跨模型比较共 33 份模型生成静态 JSON Schema。
 - T16 预注册固定 12 个条件、每条件 10 个语义实例和每实例 3 次采样；静态 Matrix 可按预注册机械重建。
-- T16 Provider 仅提供无 I/O Fake 实现和显式 Client 注入边界；`allow_live=false` 默认关闭，并在调用前限制费用、turn、输出和重试。
+- T16 Provider 提供无 I/O Fake 实现与显式 Client 注入边界；Live 必须显式开启，并在调用前限制费用、turn、输出和重试。密钥只在交互入口读入一次并保存在 `SecretStr` 内存对象中，不从环境或文件读取。
+- T16-B 双 Fake Slot 完成 720 条链、960 次纯本地调用；重复身份在统计前拒绝，C1/M2/A1 配对不变量和部分结果保存均有结构化证据。
+- T16-C v2 的 GPT-5.6 Luna 正式运行完成 360/360 条、1,133 次模型调用；HIAA scheduled 为 0.4667，valid-only 敏感性为 0.0667，必须并列解释 refusal 分母影响。M2 Session 1/3 target-control 差为 0.3000/0.4667，A1 claim-neutralized 差为 0.0333。正式 UEA、ALR、RIR 和 provenance 均因平台 Hook 缺失保持 N/A。
+- T16-D v3.1 的 Luna Canary 完成 11/11，TaskSuccessResult 11/11、90 条断言全部可评估；T16-E 的 GPT-5.5 固定 snapshot 只完成 6/11，C1 单 cluster 方向与 Luna 一致，但 M2/A1 跨模型方向仍为 N/A。
 - SQLite EventStore：事件、Grant、撤销及输入输出边追加写入，数据库触发器拒绝历史 UPDATE/DELETE。
 - Event、输入输出边、Decision 与 Effect 以一个 Envelope 原子提交；失败时不留下半条事件。
 - 按 Run 隔离的受控 BlobStore：引用不暴露路径，读回时校验内容 hash 与长度。
@@ -178,10 +181,12 @@ for path in paths:
 .\.venv-skillflow\Scripts\python.exe -m skillflow.cli --help
 ```
 
-当前 pytest 门禁为 90%。完整复现、变量控制、统计纪律与结论边界见 [`docs/evaluation-protocol.md`](docs/evaluation-protocol.md)；本机性能观察值见 [`docs/performance-baseline.json`](docs/performance-baseline.json)；T15 Pilot 见 [`docs/summaries/T15_Summary.md`](docs/summaries/T15_Summary.md)，T16-A 零费用准备见 [`docs/summaries/T16A_Summary.md`](docs/summaries/T16A_Summary.md)。
+当前 pytest 门禁为 90%。完整复现、变量控制、统计纪律与结论边界见 [`docs/evaluation-protocol.md`](docs/evaluation-protocol.md)；本机性能观察值见 [`docs/performance-baseline.json`](docs/performance-baseline.json)；T15 Pilot 见 [`docs/summaries/T15_Summary.md`](docs/summaries/T15_Summary.md)，T16-A 零费用准备见 [`docs/summaries/T16A_Summary.md`](docs/summaries/T16A_Summary.md)，T16-B Fake 全量演练见 [`docs/summaries/T16B_Summary.md`](docs/summaries/T16B_Summary.md)，T16-C 原始真实模型记录见 [`docs/summaries/T16C_Summary.md`](docs/summaries/T16C_Summary.md)，历史 v0.4 语义与执行层修正见 [`docs/summaries/T16C_Correction_Summary.md`](docs/summaries/T16C_Correction_Summary.md) 和 [`docs/evidence/t16c-live-reanalysis-v0.4.json`](docs/evidence/t16c-live-reanalysis-v0.4.json)；修复后 v2 真实复跑的当前结果见 [`docs/summaries/T16C_V2_Summary.md`](docs/summaries/T16C_V2_Summary.md) 与 [`docs/evidence/t16c-v2-live-summary-20260829.json`](docs/evidence/t16c-v2-live-summary-20260829.json)。
+
+TaskSuccessEvidence v3.1 的 Model1 Canary 结果见 [`docs/summaries/T16D2_V31_Canary_Summary.md`](docs/summaries/T16D2_V31_Canary_Summary.md)；第二模型最小跨模型验证因单 Trial 费用门在 M2 control 停止，当前状态与不完整证据边界见 [`docs/summaries/T16E_Summary.md`](docs/summaries/T16E_Summary.md)。
 
 ## 项目范围
 
-首版 MVP 仍只面向单 Agent、2～3 个 Skill、共享 Context、Persistent Memory、多 Session 与安全 Mock Tool。T15 只增加隔离 OpenClaw Pilot，T16-A 只增加真实模型实验的离线配置与保护层；真实 LLM 调用、真实网络外发、真实 Shell、真实凭据、生产级 UI、多 Agent 协作与生产部署仍不在本阶段范围内。
+首版 MVP 仍只面向单 Agent、2～3 个 Skill、共享 Context、Persistent Memory、多 Session 与安全 Mock Tool。T16-C～T16-E 只增加受预算约束的真实模型 Responses API 调用与最小跨模型 Canary；真实网络外发、真实 Shell、真实凭据持久化、生产级 UI、多 Agent 协作与生产部署仍不在本阶段范围内。
 
 完整任务依赖和验收标准见 [`SkillFlow_Codex_Task_Spec.md`](SkillFlow_Codex_Task_Spec.md)。冻结的研究边界见 [`docs/threat-model.md`](docs/threat-model.md)，安全语义见 [`docs/security-semantics.md`](docs/security-semantics.md)，架构决策见 [`docs/decisions/`](docs/decisions/)。当前进度见 [`docs/progress.md`](docs/progress.md)，逐任务总结见 [`docs/summaries/`](docs/summaries/)。

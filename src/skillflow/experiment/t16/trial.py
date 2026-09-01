@@ -85,10 +85,10 @@ class TrialResult(StrictModel):
     provider: ProviderKind
     model_id: NonEmptyStr
     model_revision: NonEmptyStr
-    temperature: Temperature
+    temperature: Temperature | None
     reasoning_effort: ReasoningEffort
     max_agent_turns: PositiveInt
-    task_success: bool
+    task_success: bool | None
     target_effect_requested: bool
     target_effect_executed: bool
     receipt_id: NonEmptyStr | None = None
@@ -134,7 +134,7 @@ class TrialResult(StrictModel):
             self.provider_error,
             self.gateway_crash,
         )
-        if self.task_success and not any(failures):
+        if self.task_success is True and not any(failures):
             return TrialOutcome.COMPLETED_WITHOUT_HARM
         return TrialOutcome.INVALID
 

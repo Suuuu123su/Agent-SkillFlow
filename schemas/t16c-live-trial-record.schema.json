@@ -1,0 +1,1361 @@
+{
+  "$defs": {
+    "AssertionStatus": {
+      "description": "一条任务成功断言的三值结果。",
+      "enum": [
+        "passed",
+        "failed",
+        "not_evaluable"
+      ],
+      "title": "AssertionStatus",
+      "type": "string"
+    },
+    "EffectSelectorRef": {
+      "description": "Scenario 内已声明 effect selector 的引用。",
+      "title": "EffectSelectorRef",
+      "type": "string"
+    },
+    "EvidenceReason": {
+      "description": "不包含正文的稳定判定原因。",
+      "enum": [
+        "assertion_passed",
+        "artifact_missing",
+        "artifact_registry_unavailable",
+        "alias_not_resolved",
+        "schema_not_valid",
+        "structured_field_missing",
+        "structured_field_mismatch",
+        "structured_set_missing",
+        "structured_set_mismatch",
+        "content_commitment_mismatch",
+        "receipt_missing",
+        "receipt_registry_unavailable",
+        "receipt_run_mismatch",
+        "receipt_session_mismatch",
+        "safe_sink_commitment_mismatch",
+        "session_not_reached",
+        "session_trace_unavailable",
+        "tool_sequence_mismatch"
+      ],
+      "title": "EvidenceReason",
+      "type": "string"
+    },
+    "EvidenceSource": {
+      "description": "可被任务成功 evaluator 信任的封闭证据入口。",
+      "enum": [
+        "platform_artifact_registry",
+        "platform_effect_receipt",
+        "platform_safe_sink",
+        "platform_session_trace",
+        "deterministic_evaluator"
+      ],
+      "title": "EvidenceSource",
+      "type": "string"
+    },
+    "HiaaCell": {
+      "description": "目标 Skill 与 Harness 特性的四格组合。",
+      "enum": [
+        "p00",
+        "p01",
+        "p10",
+        "p11"
+      ],
+      "title": "HiaaCell",
+      "type": "string"
+    },
+    "IndependentFactor": {
+      "description": "能力匹配组唯一允许改变的因素。",
+      "enum": [
+        "none",
+        "skill_semantics",
+        "memory_semantics",
+        "authorization_source"
+      ],
+      "title": "IndependentFactor",
+      "type": "string"
+    },
+    "LiveSessionRecord": {
+      "additionalProperties": false,
+      "description": "一条多 Session Trial 中的单 Session 程序执行结果。",
+      "properties": {
+        "api_call_count": {
+          "minimum": 0,
+          "title": "Api Call Count",
+          "type": "integer"
+        },
+        "estimated_cost_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Estimated Cost Usd"
+        },
+        "expected_target_effect_aliases": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Expected Target Effect Aliases",
+          "type": "array"
+        },
+        "final_summary": {
+          "default": "",
+          "title": "Final Summary",
+          "type": "string"
+        },
+        "latency_ms": {
+          "minimum": 0,
+          "title": "Latency Ms",
+          "type": "integer"
+        },
+        "no_call": {
+          "title": "No Call",
+          "type": "boolean"
+        },
+        "provider_error": {
+          "title": "Provider Error",
+          "type": "boolean"
+        },
+        "provider_error_code": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.\\-\\[\\]]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider Error Code"
+        },
+        "provider_error_param": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.\\-\\[\\]]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider Error Param"
+        },
+        "provider_error_type": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.\\-\\[\\]]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider Error Type"
+        },
+        "provider_status_code": {
+          "anyOf": [
+            {
+              "maximum": 599,
+              "minimum": 100,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider Status Code"
+        },
+        "rate_limit": {
+          "title": "Rate Limit",
+          "type": "boolean"
+        },
+        "refusal": {
+          "title": "Refusal",
+          "type": "boolean"
+        },
+        "schema_rejection": {
+          "title": "Schema Rejection",
+          "type": "boolean"
+        },
+        "session_index": {
+          "minimum": 0,
+          "title": "Session Index",
+          "type": "integer"
+        },
+        "task_success": {
+          "title": "Task Success",
+          "type": "boolean"
+        },
+        "timeout": {
+          "title": "Timeout",
+          "type": "boolean"
+        },
+        "token_usage": {
+          "$ref": "#/$defs/TokenUsage"
+        },
+        "tool_calls": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/LiveToolCallAudit"
+          },
+          "title": "Tool Calls",
+          "type": "array"
+        }
+      },
+      "required": [
+        "session_index",
+        "task_success",
+        "no_call",
+        "refusal",
+        "schema_rejection",
+        "timeout",
+        "rate_limit",
+        "provider_error",
+        "token_usage",
+        "api_call_count",
+        "latency_ms",
+        "estimated_cost_usd"
+      ],
+      "title": "LiveSessionRecord",
+      "type": "object"
+    },
+    "LiveToolCallAudit": {
+      "additionalProperties": false,
+      "description": "平台实际解析的一次 Tool 调用；模型来源声明不会进入此记录。",
+      "properties": {
+        "accepted": {
+          "title": "Accepted",
+          "type": "boolean"
+        },
+        "call_id": {
+          "minLength": 1,
+          "title": "Call Id",
+          "type": "string"
+        },
+        "effect_alias": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effect Alias"
+        },
+        "receipt_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Receipt Id"
+        },
+        "rejection_reason": {
+          "anyOf": [
+            {
+              "enum": [
+                "schema_error",
+                "lookup_error",
+                "unknown_effect_alias"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rejection Reason"
+        },
+        "session_index": {
+          "minimum": 0,
+          "title": "Session Index",
+          "type": "integer"
+        },
+        "tool_name": {
+          "minLength": 1,
+          "title": "Tool Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "session_index",
+        "call_id",
+        "tool_name",
+        "accepted"
+      ],
+      "title": "LiveToolCallAudit",
+      "type": "object"
+    },
+    "PairRole": {
+      "description": "一个条件在能力匹配组中的角色。",
+      "enum": [
+        "standalone",
+        "target",
+        "neutral",
+        "structured_control"
+      ],
+      "title": "PairRole",
+      "type": "string"
+    },
+    "ProvenanceRecord": {
+      "additionalProperties": false,
+      "description": "来源缺失时必须是结构化 N/A，不能伪记 0。",
+      "properties": {
+        "metric_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Metric Name"
+        },
+        "metric_value": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Metric Value"
+        },
+        "origin_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Origin Ids",
+          "type": "array"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ProvenanceSource"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "status": {
+          "$ref": "#/$defs/ProvenanceStatus"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "ProvenanceRecord",
+      "type": "object"
+    },
+    "ProvenanceSource": {
+      "description": "唯一可信的来源证据入口。",
+      "enum": [
+        "platform_hook",
+        "external_oracle"
+      ],
+      "title": "ProvenanceSource",
+      "type": "string"
+    },
+    "ProvenanceStatus": {
+      "description": "来源证据可用性。",
+      "enum": [
+        "available",
+        "not_available"
+      ],
+      "title": "ProvenanceStatus",
+      "type": "string"
+    },
+    "ProviderKind": {
+      "description": "T16 允许的 Provider 类型。",
+      "enum": [
+        "fake",
+        "live"
+      ],
+      "title": "ProviderKind",
+      "type": "string"
+    },
+    "ReasoningEffort": {
+      "description": "与具体厂商解耦的推理强度记录。",
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "ReasoningEffort",
+      "type": "string"
+    },
+    "ScenarioPath": {
+      "description": "Experiment Matrix 中受控的 Scenario 相对路径。",
+      "title": "ScenarioPath",
+      "type": "string"
+    },
+    "SessionEffectObservation": {
+      "additionalProperties": false,
+      "description": "M2 在一个预注册 Session 点的目标 Effect 结果。",
+      "properties": {
+        "receipt_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Receipt Id"
+        },
+        "session_index": {
+          "minimum": 1,
+          "title": "Session Index",
+          "type": "integer"
+        },
+        "target_effect_executed": {
+          "title": "Target Effect Executed",
+          "type": "boolean"
+        },
+        "target_effect_requested": {
+          "title": "Target Effect Requested",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "session_index",
+        "target_effect_requested",
+        "target_effect_executed"
+      ],
+      "title": "SessionEffectObservation",
+      "type": "object"
+    },
+    "T16Intervention": {
+      "description": "条件级预注册干预。",
+      "enum": [
+        "none",
+        "neutralize_authorization_claim"
+      ],
+      "title": "T16Intervention",
+      "type": "string"
+    },
+    "TaskSuccessAssertionType": {
+      "description": "允许进入确定性 evaluator 的封闭断言类型。",
+      "enum": [
+        "artifact_exists",
+        "artifact_alias_resolves",
+        "artifact_schema_valid",
+        "artifact_structured_field_equals",
+        "artifact_structured_set_equals",
+        "artifact_content_commitment_matches",
+        "required_receipt_exists",
+        "receipt_bound_to_run",
+        "receipt_bound_to_session",
+        "safe_sink_commitment_matches",
+        "required_session_reached",
+        "required_tool_sequence_observed"
+      ],
+      "title": "TaskSuccessAssertionType",
+      "type": "string"
+    },
+    "TaskSuccessEvidence": {
+      "additionalProperties": false,
+      "description": "一条断言的结构化、可复核且不保存正文的证据。",
+      "properties": {
+        "artifact_alias": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Artifact Alias"
+        },
+        "artifact_content_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Artifact Content Sha256"
+        },
+        "artifact_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Artifact Id"
+        },
+        "assertion_id": {
+          "minLength": 1,
+          "title": "Assertion Id",
+          "type": "string"
+        },
+        "assertion_status": {
+          "$ref": "#/$defs/AssertionStatus"
+        },
+        "assertion_type": {
+          "$ref": "#/$defs/TaskSuccessAssertionType"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "effect_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Effect Id"
+        },
+        "evaluator_id": {
+          "minLength": 1,
+          "title": "Evaluator Id",
+          "type": "string"
+        },
+        "evaluator_version": {
+          "minLength": 1,
+          "title": "Evaluator Version",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "evidence_source": {
+          "$ref": "#/$defs/EvidenceSource"
+        },
+        "expected_value_commitment_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected Value Commitment Sha256"
+        },
+        "observed_value_commitment_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Observed Value Commitment Sha256"
+        },
+        "reason_code": {
+          "$ref": "#/$defs/EvidenceReason"
+        },
+        "receipt_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Receipt Id"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "safe_sink_commitment_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Safe Sink Commitment Sha256"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "session_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Session Id"
+        },
+        "trial_id": {
+          "minLength": 1,
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "run_id",
+        "trial_id",
+        "session_id",
+        "assertion_id",
+        "assertion_type",
+        "assertion_status",
+        "artifact_id",
+        "artifact_alias",
+        "artifact_content_sha256",
+        "effect_id",
+        "receipt_id",
+        "safe_sink_commitment_sha256",
+        "expected_value_commitment_sha256",
+        "observed_value_commitment_sha256",
+        "evaluator_id",
+        "evaluator_version",
+        "evidence_source",
+        "reason_code",
+        "created_at"
+      ],
+      "title": "TaskSuccessEvidence",
+      "type": "object"
+    },
+    "TaskSuccessResult": {
+      "additionalProperties": false,
+      "description": "required 断言的三值聚合结果。",
+      "properties": {
+        "evaluator_version": {
+          "minLength": 1,
+          "title": "Evaluator Version",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "failed_assertion_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Failed Assertion Ids",
+          "type": "array"
+        },
+        "not_evaluable_assertion_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Not Evaluable Assertion Ids",
+          "type": "array"
+        },
+        "passed_assertion_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Passed Assertion Ids",
+          "type": "array"
+        },
+        "required_assertion_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Assertion Ids",
+          "type": "array"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/TaskSuccessStatus"
+        },
+        "task_success": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Task Success"
+        },
+        "trial_id": {
+          "minLength": 1,
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "trial_id",
+        "required_assertion_ids",
+        "passed_assertion_ids",
+        "failed_assertion_ids",
+        "not_evaluable_assertion_ids",
+        "task_success",
+        "status",
+        "evidence_ids",
+        "evaluator_version"
+      ],
+      "title": "TaskSuccessResult",
+      "type": "object"
+    },
+    "TaskSuccessStatus": {
+      "description": "全部 required 断言聚合后的三值状态。",
+      "enum": [
+        "passed",
+        "failed",
+        "not_evaluable"
+      ],
+      "title": "TaskSuccessStatus",
+      "type": "string"
+    },
+    "TokenUsage": {
+      "additionalProperties": false,
+      "description": "TrialResult 所需的生成、缓存读写与推理 token 计数。",
+      "properties": {
+        "cache_write_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cache Write Tokens",
+          "type": "integer"
+        },
+        "cached_input_tokens": {
+          "minimum": 0,
+          "title": "Cached Input Tokens",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "reasoning_tokens": {
+          "minimum": 0,
+          "title": "Reasoning Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_tokens",
+        "cached_input_tokens",
+        "output_tokens",
+        "reasoning_tokens"
+      ],
+      "title": "TokenUsage",
+      "type": "object"
+    },
+    "TrialOutcome": {
+      "description": "预注册的互斥三分类。",
+      "enum": [
+        "harm",
+        "completed_without_harm",
+        "invalid"
+      ],
+      "title": "TrialOutcome",
+      "type": "string"
+    },
+    "TrialResult": {
+      "additionalProperties": false,
+      "description": "真实模型实验的统一、可生成 Schema 的单链记录。",
+      "properties": {
+        "api_call_count": {
+          "minimum": 0,
+          "title": "Api Call Count",
+          "type": "integer"
+        },
+        "condition_id": {
+          "minLength": 1,
+          "title": "Condition Id",
+          "type": "string"
+        },
+        "estimated_cost_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Estimated Cost Usd"
+        },
+        "gateway_crash": {
+          "default": false,
+          "title": "Gateway Crash",
+          "type": "boolean"
+        },
+        "latency_ms": {
+          "minimum": 0,
+          "title": "Latency Ms",
+          "type": "integer"
+        },
+        "max_agent_turns": {
+          "minimum": 1,
+          "title": "Max Agent Turns",
+          "type": "integer"
+        },
+        "model_id": {
+          "minLength": 1,
+          "title": "Model Id",
+          "type": "string"
+        },
+        "model_revision": {
+          "minLength": 1,
+          "title": "Model Revision",
+          "type": "string"
+        },
+        "no_call": {
+          "default": false,
+          "title": "No Call",
+          "type": "boolean"
+        },
+        "outcome": {
+          "$ref": "#/$defs/TrialOutcome"
+        },
+        "pair_id": {
+          "minLength": 1,
+          "title": "Pair Id",
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/ProvenanceRecord"
+        },
+        "provider": {
+          "$ref": "#/$defs/ProviderKind"
+        },
+        "provider_error": {
+          "default": false,
+          "title": "Provider Error",
+          "type": "boolean"
+        },
+        "rate_limit": {
+          "default": false,
+          "title": "Rate Limit",
+          "type": "boolean"
+        },
+        "reasoning_effort": {
+          "$ref": "#/$defs/ReasoningEffort"
+        },
+        "receipt_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Receipt Id"
+        },
+        "refusal": {
+          "default": false,
+          "title": "Refusal",
+          "type": "boolean"
+        },
+        "repeat_index": {
+          "minimum": 1,
+          "title": "Repeat Index",
+          "type": "integer"
+        },
+        "scenario": {
+          "$ref": "#/$defs/ScenarioPath"
+        },
+        "schema_rejection": {
+          "default": false,
+          "title": "Schema Rejection",
+          "type": "boolean"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "semantic_instance_id": {
+          "minLength": 1,
+          "title": "Semantic Instance Id",
+          "type": "string"
+        },
+        "target_effect_executed": {
+          "title": "Target Effect Executed",
+          "type": "boolean"
+        },
+        "target_effect_requested": {
+          "title": "Target Effect Requested",
+          "type": "boolean"
+        },
+        "task_success": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Task Success"
+        },
+        "temperature": {
+          "anyOf": [
+            {
+              "maximum": 2,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Temperature"
+        },
+        "timeout": {
+          "default": false,
+          "title": "Timeout",
+          "type": "boolean"
+        },
+        "token_usage": {
+          "$ref": "#/$defs/TokenUsage"
+        },
+        "trial_id": {
+          "minLength": 1,
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "trial_id",
+        "scenario",
+        "condition_id",
+        "semantic_instance_id",
+        "pair_id",
+        "repeat_index",
+        "provider",
+        "model_id",
+        "model_revision",
+        "temperature",
+        "reasoning_effort",
+        "max_agent_turns",
+        "task_success",
+        "target_effect_requested",
+        "target_effect_executed",
+        "token_usage",
+        "api_call_count",
+        "latency_ms",
+        "estimated_cost_usd",
+        "provenance",
+        "outcome"
+      ],
+      "title": "TrialResult",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "0.3"
+          }
+        },
+        "required": [
+          "schema_version"
+        ]
+      },
+      "then": {
+        "properties": {
+          "phase_contract_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "run_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "task_success_evidence": {
+            "minItems": 1
+          },
+          "task_success_result": {
+            "not": {
+              "type": "null"
+            }
+          }
+        },
+        "required": [
+          "run_id",
+          "phase_contract_sha256",
+          "task_success_evidence",
+          "task_success_result"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "enum": [
+              "0.1",
+              "0.2"
+            ]
+          }
+        },
+        "required": [
+          "schema_version"
+        ]
+      },
+      "then": {
+        "properties": {
+          "run_id": {
+            "type": "null"
+          },
+          "task_success_evidence": {
+            "maxItems": 0
+          },
+          "task_success_result": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "0.2"
+          }
+        },
+        "required": [
+          "schema_version"
+        ]
+      },
+      "then": {
+        "properties": {
+          "phase_contract_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "phase_contract_sha256"
+        ]
+      }
+    }
+  ],
+  "description": "真实模型判断与模拟 Effect 明确分层的完整 Trial 证据。",
+  "properties": {
+    "authorization_request_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Authorization Request Id"
+    },
+    "baseline_reason": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Baseline Reason"
+    },
+    "decision_basis_artifact_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Decision Basis Artifact Ids",
+      "type": "array"
+    },
+    "expected_target_effect_aliases": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Expected Target Effect Aliases",
+      "type": "array"
+    },
+    "external_effects_simulated": {
+      "const": true,
+      "default": true,
+      "title": "External Effects Simulated",
+      "type": "boolean"
+    },
+    "harm_selector": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/EffectSelectorRef"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "hiaa_cell": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/HiaaCell"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "independent_factor": {
+      "$ref": "#/$defs/IndependentFactor"
+    },
+    "intervention": {
+      "$ref": "#/$defs/T16Intervention",
+      "default": "none"
+    },
+    "intervention_removed_fields": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Intervention Removed Fields",
+      "type": "array"
+    },
+    "live_model": {
+      "const": true,
+      "default": true,
+      "title": "Live Model",
+      "type": "boolean"
+    },
+    "matrix_trial_id": {
+      "minLength": 1,
+      "title": "Matrix Trial Id",
+      "type": "string"
+    },
+    "model_input_sha256": {
+      "minLength": 1,
+      "title": "Model Input Sha256",
+      "type": "string"
+    },
+    "pair_role": {
+      "$ref": "#/$defs/PairRole"
+    },
+    "phase_contract_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Phase Contract Sha256"
+    },
+    "result": {
+      "$ref": "#/$defs/TrialResult"
+    },
+    "retry_events": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Retry Events",
+      "type": "array"
+    },
+    "run_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Run Id"
+    },
+    "schema_version": {
+      "enum": [
+        "0.1",
+        "0.2",
+        "0.3"
+      ],
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "session_observations": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/SessionEffectObservation"
+      },
+      "title": "Session Observations",
+      "type": "array"
+    },
+    "sessions": {
+      "items": {
+        "$ref": "#/$defs/LiveSessionRecord"
+      },
+      "title": "Sessions",
+      "type": "array"
+    },
+    "simulation_only": {
+      "const": false,
+      "default": false,
+      "title": "Simulation Only",
+      "type": "boolean"
+    },
+    "structured_target_authorized": {
+      "default": false,
+      "title": "Structured Target Authorized",
+      "type": "boolean"
+    },
+    "task_success_evidence": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/TaskSuccessEvidence"
+      },
+      "title": "Task Success Evidence",
+      "type": "array"
+    },
+    "task_success_result": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TaskSuccessResult"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "unauthorized_effect_execution": {
+      "title": "Unauthorized Effect Execution",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "matrix_trial_id",
+    "pair_role",
+    "independent_factor",
+    "unauthorized_effect_execution",
+    "model_input_sha256",
+    "sessions",
+    "result"
+  ],
+  "title": "LiveTrialRecord",
+  "type": "object"
+}

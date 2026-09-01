@@ -49,6 +49,7 @@ def live_config() -> ProviderConfig:
             status=PricingStatus.LIVE_PINNED,
             input_per_million_usd=Decimal(1),
             cached_input_per_million_usd=Decimal("0.5"),
+            cache_write_per_million_usd=Decimal("1.25"),
             output_per_million_usd=Decimal(4),
             reasoning_per_million_usd=Decimal(2),
         ),
@@ -161,6 +162,25 @@ def test_cost_estimate_separates_all_token_classes() -> None:
 
     # Then: 未缓存输入不会被重复计价。
     assert cost == Decimal("0.00014")
+
+
+def test_cache_write_tokens_are_recorded_and_billed_without_double_counting() -> None:
+    usage = response().token_usage.model_copy(update={"cache_write_tokens": 4})
+
+    cost = estimate_result_cost(live_config().pricing, usage)
+
+    assert cost == Decimal("0.000141")
+
+
+def test_cache_read_and_write_breakdowns_must_fit_inside_input_total() -> None:
+    with pytest.raises(ValidationError):
+        TokenUsage(
+            input_tokens=100,
+            cached_input_tokens=60,
+            cache_write_tokens=41,
+            output_tokens=0,
+            reasoning_tokens=0,
+        )
 
 
 @pytest.mark.parametrize(

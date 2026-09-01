@@ -1,0 +1,188 @@
+{
+  "$defs": {
+    "T16D2StopReason": {
+      "description": "付费桥接阶段可能触发的封闭停止原因。",
+      "enum": [
+        "canary_gate_blocked",
+        "budget_limit",
+        "p95_budget_prediction",
+        "model_revision_changed",
+        "infrastructure_rate",
+        "technical_not_evaluable",
+        "evidence_binding",
+        "secret_scan",
+        "gateway_crash"
+      ],
+      "title": "T16D2StopReason",
+      "type": "string"
+    },
+    "TokenUsage": {
+      "additionalProperties": false,
+      "description": "TrialResult 所需的生成、缓存读写与推理 token 计数。",
+      "properties": {
+        "cache_write_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cache Write Tokens",
+          "type": "integer"
+        },
+        "cached_input_tokens": {
+          "minimum": 0,
+          "title": "Cached Input Tokens",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "reasoning_tokens": {
+          "minimum": 0,
+          "title": "Reasoning Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_tokens",
+        "cached_input_tokens",
+        "output_tokens",
+        "reasoning_tokens"
+      ],
+      "title": "TokenUsage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "D.2 执行状态；不包含 Prompt、响应或凭据。",
+  "properties": {
+    "actual_estimated_cost_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Actual Estimated Cost Usd"
+    },
+    "api_call_count": {
+      "minimum": 0,
+      "title": "Api Call Count",
+      "type": "integer"
+    },
+    "canary_gate_passed": {
+      "title": "Canary Gate Passed",
+      "type": "boolean"
+    },
+    "canary_observed": {
+      "minimum": 0,
+      "title": "Canary Observed",
+      "type": "integer"
+    },
+    "conservative_reserved_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Conservative Reserved Usd"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "final_gate_passed": {
+      "title": "Final Gate Passed",
+      "type": "boolean"
+    },
+    "infrastructure_invalid": {
+      "minimum": 0,
+      "title": "Infrastructure Invalid",
+      "type": "integer"
+    },
+    "observed": {
+      "minimum": 0,
+      "title": "Observed",
+      "type": "integer"
+    },
+    "raw_records_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Raw Records Sha256",
+      "type": "string"
+    },
+    "scheduled": {
+      "const": 48,
+      "default": 48,
+      "title": "Scheduled",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "stop_detail": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Stop Detail"
+    },
+    "stop_reason": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/T16D2StopReason"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "token_usage": {
+      "$ref": "#/$defs/TokenUsage"
+    },
+    "unrun": {
+      "minimum": 0,
+      "title": "Unrun",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "created_at",
+    "observed",
+    "unrun",
+    "canary_observed",
+    "canary_gate_passed",
+    "final_gate_passed",
+    "infrastructure_invalid",
+    "conservative_reserved_usd",
+    "actual_estimated_cost_usd",
+    "token_usage",
+    "api_call_count",
+    "raw_records_sha256"
+  ],
+  "title": "T16D2RunSummary",
+  "type": "object"
+}

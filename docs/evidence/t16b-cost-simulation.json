@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1",
+  "simulation_only": true,
+  "rates_are_hypothetical": true,
+  "pricing": {
+    "status": "live_pinned",
+    "input_per_million_usd": "2.0",
+    "cached_input_per_million_usd": "0.2",
+    "output_per_million_usd": "8.0",
+    "reasoning_per_million_usd": "4.0"
+  },
+  "cases": [
+    {
+      "profile": "short",
+      "mode": "normal",
+      "token_usage": {
+        "input_tokens": 400,
+        "cached_input_tokens": 100,
+        "output_tokens": 120,
+        "reasoning_tokens": 80
+      },
+      "api_call_count": 1,
+      "estimated_cost_usd": "0.0019"
+    },
+    {
+      "profile": "short",
+      "mode": "worst_case",
+      "token_usage": {
+        "input_tokens": 800,
+        "cached_input_tokens": 0,
+        "output_tokens": 500,
+        "reasoning_tokens": 500
+      },
+      "api_call_count": 2,
+      "estimated_cost_usd": "0.0076"
+    },
+    {
+      "profile": "normal",
+      "mode": "normal",
+      "token_usage": {
+        "input_tokens": 1000,
+        "cached_input_tokens": 250,
+        "output_tokens": 400,
+        "reasoning_tokens": 300
+      },
+      "api_call_count": 2,
+      "estimated_cost_usd": "0.00595"
+    },
+    {
+      "profile": "normal",
+      "mode": "worst_case",
+      "token_usage": {
+        "input_tokens": 2000,
+        "cached_input_tokens": 0,
+        "output_tokens": 1000,
+        "reasoning_tokens": 1200
+      },
+      "api_call_count": 4,
+      "estimated_cost_usd": "0.0168"
+    },
+    {
+      "profile": "m2_multi_session",
+      "mode": "normal",
+      "token_usage": {
+        "input_tokens": 4500,
+        "cached_input_tokens": 1200,
+        "output_tokens": 1600,
+        "reasoning_tokens": 2000
+      },
+      "api_call_count": 6,
+      "estimated_cost_usd": "0.02764"
+    },
+    {
+      "profile": "m2_multi_session",
+      "mode": "worst_case",
+      "token_usage": {
+        "input_tokens": 9000,
+        "cached_input_tokens": 0,
+        "output_tokens": 4500,
+        "reasoning_tokens": 6000
+      },
+      "api_call_count": 12,
+      "estimated_cost_usd": "0.078"
+    }
+  ],
+  "fake_provider_billed_cost_usd": "0",
+  "single_run_limit_blocked": true,
+  "total_limit_blocked": true,
+  "agent_step_limit_blocked": true,
+  "retry_limit_blocked": true,
+  "partial_save": {
+    "limit": "total_cost",
+    "attempted_result_count": 3,
+    "saved_result_count": 2,
+    "existing_results_saved": true,
+    "saved_results_sha256": "9e691c0bf47e819b60ab88826f116f389ff0fbe519b024c3a27ba74f67764c89"
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "$defs": {
+    "ActualUsageStatus": {
+      "description": "一条 Trial 的实际用量覆盖程度。",
+      "enum": [
+        "complete",
+        "partial",
+        "not_available"
+      ],
+      "title": "ActualUsageStatus",
+      "type": "string"
+    },
+    "LiveTrialTerminalStatus": {
+      "description": "v3.1 Trial 的持久化终态。",
+      "enum": [
+        "completed",
+        "step_limit_exhausted",
+        "partial"
+      ],
+      "title": "LiveTrialTerminalStatus",
+      "type": "string"
+    },
+    "TokenUsage": {
+      "additionalProperties": false,
+      "description": "TrialResult 所需的生成、缓存读写与推理 token 计数。",
+      "properties": {
+        "cache_write_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cache Write Tokens",
+          "type": "integer"
+        },
+        "cached_input_tokens": {
+          "minimum": 0,
+          "title": "Cached Input Tokens",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "reasoning_tokens": {
+          "minimum": 0,
+          "title": "Reasoning Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_tokens",
+        "cached_input_tokens",
+        "output_tokens",
+        "reasoning_tokens"
+      ],
+      "title": "TokenUsage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "不含 Prompt/响应正文的累计实际用量事件。",
+  "properties": {
+    "actual_usage_status": {
+      "$ref": "#/$defs/ActualUsageStatus"
+    },
+    "api_call_count": {
+      "minimum": 0,
+      "title": "Api Call Count",
+      "type": "integer"
+    },
+    "config_id": {
+      "minLength": 1,
+      "title": "Config Id",
+      "type": "string"
+    },
+    "config_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Config Sha256",
+      "type": "string"
+    },
+    "event_type": {
+      "enum": [
+        "response",
+        "terminal"
+      ],
+      "title": "Event Type",
+      "type": "string"
+    },
+    "observed_estimated_cost_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Observed Estimated Cost Usd"
+    },
+    "observed_token_usage": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TokenUsage"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "protocol_id": {
+      "minLength": 1,
+      "title": "Protocol Id",
+      "type": "string"
+    },
+    "response_count": {
+      "minimum": 0,
+      "title": "Response Count",
+      "type": "integer"
+    },
+    "run_reserved_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Run Reserved Usd"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "title": "Sequence",
+      "type": "integer"
+    },
+    "stop_detail": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Stop Detail"
+    },
+    "terminal_status": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/LiveTrialTerminalStatus"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "total_reserved_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Total Reserved Usd"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "title": "Trial Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "sequence",
+    "event_type",
+    "protocol_id",
+    "config_id",
+    "config_sha256",
+    "trial_id",
+    "api_call_count",
+    "response_count",
+    "total_reserved_usd",
+    "run_reserved_usd",
+    "actual_usage_status",
+    "observed_token_usage",
+    "observed_estimated_cost_usd"
+  ],
+  "title": "LiveUsageJournalEvent",
+  "type": "object"
+}

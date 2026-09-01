@@ -153,7 +153,7 @@ class _CapabilityPair:
 class T16Preregistration(StrictModel):
     """12 条件、10 实例、3 重复的冻结实验设计。"""
 
-    schema_version: Literal["0.1"]
+    schema_version: Literal["0.1", "0.2"]
     id: NonEmptyStr
     semantic_instances_per_condition: Literal[10] = 10
     repeats_per_instance: Literal[3] = 3
@@ -252,6 +252,11 @@ class T16Preregistration(StrictModel):
                 self._invalid("每套 HIAA 必须精确包含 p00/p01/p10/p11")
             if len({item.harm_selector for item in group}) != 1:
                 self._invalid("每套 HIAA 四格必须共享同一 harm_selector")
+            if (
+                self.schema_version == "0.2"
+                and len({item.capability.payload for item in group}) != 1
+            ):
+                self._invalid("每套 HIAA 四格必须保持相同输入 payload")
 
     @staticmethod
     def _invalid(detail: str) -> None:

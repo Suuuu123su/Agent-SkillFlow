@@ -1,0 +1,676 @@
+{
+  "$defs": {
+    "ArtifactAliasResolvesAssertion": {
+      "additionalProperties": false,
+      "description": "要求平台 alias 唯一解析到 Artifact ID。",
+      "properties": {
+        "artifact_alias": {
+          "minLength": 1,
+          "title": "Artifact Alias",
+          "type": "string"
+        },
+        "assertion_id": {
+          "minLength": 1,
+          "title": "Assertion Id",
+          "type": "string"
+        },
+        "assertion_type": {
+          "const": "artifact_alias_resolves",
+          "default": "artifact_alias_resolves",
+          "title": "Assertion Type",
+          "type": "string"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "assertion_id",
+        "artifact_alias"
+      ],
+      "title": "ArtifactAliasResolvesAssertion",
+      "type": "object"
+    },
+    "ArtifactContentCommitmentMatchesAssertion": {
+      "additionalProperties": false,
+      "description": "比较完整 Artifact 的平台内容 commitment。",
+      "properties": {
+        "artifact_alias": {
+          "minLength": 1,
+          "title": "Artifact Alias",
+          "type": "string"
+        },
+        "assertion_id": {
+          "minLength": 1,
+          "title": "Assertion Id",
+          "type": "string"
+        },
+        "assertion_type": {
+          "const": "artifact_content_commitment_matches",
+          "default": "artifact_content_commitment_matches",
+          "title": "Assertion Type",
+          "type": "string"
+        },
+        "expected_value_commitment_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Expected Value Commitment Sha256",
+          "type": "string"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "assertion_id",
+        "artifact_alias",
+        "expected_value_commitment_sha256"
+      ],
+      "title": "ArtifactContentCommitmentMatchesAssertion",
+      "type": "object"
+    },
+    "ArtifactExistsAssertion": {
+      "additionalProperties": false,
+      "description": "要求平台 registry 中存在指定 alias 的 Artifact。",
+      "properties": {
+        "artifact_alias": {
+          "minLength": 1,
+          "title": "Artifact Alias",
+          "type": "string"
+        },
+        "assertion_id": {
+          "minLength": 1,
+          "title": "Assertion Id",
+          "type": "string"
+        },
+        "assertion_type": {
+          "const": "artifact_exists",
+          "default": "artifact_exists",
+          "title": "Assertion Type",
+          "type": "string"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "assertion_id",
+        "artifact_alias"
+      ],
+      "title": "ArtifactExistsAssertion",
+      "type": "object"
+    },
+    "ArtifactSchemaValidAssertion": {
+      "additionalProperties": false,
+      "description": "要求平台已确认 Artifact 通过指定 Schema。",
+      "properties": {
+        "artifact_alias": {
+          "minLength": 1,
+          "title": "Artifact Alias",
+          "type": "string"
+        },
+        "assertion_id": {
+          "minLength": 1,
+          "title": "Assertion Id",
+          "type": "string"
+        },
+        "assertion_type": {
+          "const": "artifact_schema_valid",
+          "default": "artifact_schema_valid",
+          "title": "Assertion Type",
+          "type": "string"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "schema_id": {
+          "minLength": 1,
+          "title": "Schema Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "assertion_id",
+        "artifact_alias",
+        "schema_id"
+      ],
+      "title": "ArtifactSchemaValidAssertion",
+      "type": "object"
+    },
+    "ArtifactStructuredFieldEqualsAssertion": {
+      "additionalProperties": false,
+      "description": "比较结构化字段的平台 commitment。",
+      "properties": {
+        "artifact_alias": {
+          "minLength": 1,
+          "title": "Artifact Alias",
+          "type": "string"
+        },
+        "assertion_id": {
+          "minLength": 1,
+          "title": "Assertion Id",
+          "type": "string"
+        },
+        "assertion_type": {
+          "const": "artifact_structured_field_equals",
+          "default": "artifact_structured_field_equals",
+          "title": "Assertion Type",
+          "type": "string"
+        },
+        "expected_value_commitment_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Expected Value Commitment Sha256",
+          "type": "string"
+        },
+        "field_path": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Field Path",
+          "type": "array"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "assertion_id",
+        "artifact_alias",
+        "field_path",
+        "expected_value_commitment_sha256"
+      ],
+      "title": "ArtifactStructuredFieldEqualsAssertion",
+      "type": "object"
+    },
+    "ArtifactStructuredSetEqualsAssertion": {
+      "additionalProperties": false,
+      "description": "比较结构化集合的平台 commitment。",
+      "properties": {
+        "artifact_alias": {
+          "minLength": 1,
+          "title": "Artifact Alias",
+          "type": "string"
+        },
+        "assertion_id": {
+          "minLength": 1,
+          "title": "Assertion Id",
+          "type": "string"
+        },
+        "assertion_type": {
+          "const": "artifact_structured_set_equals",
+          "default": "artifact_structured_set_equals",
+          "title": "Assertion Type",
+          "type": "string"
+        },
+        "expected_value_commitment_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Expected Value Commitment Sha256",
+          "type": "string"
+        },
+        "field_path": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Field Path",
+          "type": "array"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "assertion_id",
+        "artifact_alias",
+        "field_path",
+        "expected_value_commitment_sha256"
+      ],
+      "title": "ArtifactStructuredSetEqualsAssertion",
+      "type": "object"
+    },
+    "ReceiptBoundToRunAssertion": {
+      "additionalProperties": false,
+      "description": "要求 Receipt 与当前 Run 绑定。",
+      "properties": {
+        "assertion_id": {
+          "minLength": 1,
+          "title": "Assertion Id",
+          "type": "string"
+        },
+        "assertion_type": {
+          "const": "receipt_bound_to_run",
+          "default": "receipt_bound_to_run",
+          "title": "Assertion Type",
+          "type": "string"
+        },
+        "effect_alias": {
+          "minLength": 1,
+          "title": "Effect Alias",
+          "type": "string"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "assertion_id",
+        "effect_alias"
+      ],
+      "title": "ReceiptBoundToRunAssertion",
+      "type": "object"
+    },
+    "ReceiptBoundToSessionAssertion": {
+      "additionalProperties": false,
+      "description": "要求 Receipt 与预注册 Session 绑定。",
+      "properties": {
+        "assertion_id": {
+          "minLength": 1,
+          "title": "Assertion Id",
+          "type": "string"
+        },
+        "assertion_type": {
+          "const": "receipt_bound_to_session",
+          "default": "receipt_bound_to_session",
+          "title": "Assertion Type",
+          "type": "string"
+        },
+        "effect_alias": {
+          "minLength": 1,
+          "title": "Effect Alias",
+          "type": "string"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "session_id": {
+          "minLength": 1,
+          "title": "Session Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "assertion_id",
+        "effect_alias",
+        "session_id"
+      ],
+      "title": "ReceiptBoundToSessionAssertion",
+      "type": "object"
+    },
+    "RequiredReceiptExistsAssertion": {
+      "additionalProperties": false,
+      "description": "要求指定合法 Effect 存在平台 Receipt。",
+      "properties": {
+        "assertion_id": {
+          "minLength": 1,
+          "title": "Assertion Id",
+          "type": "string"
+        },
+        "assertion_type": {
+          "const": "required_receipt_exists",
+          "default": "required_receipt_exists",
+          "title": "Assertion Type",
+          "type": "string"
+        },
+        "effect_alias": {
+          "minLength": 1,
+          "title": "Effect Alias",
+          "type": "string"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "session_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Session Id"
+        }
+      },
+      "required": [
+        "assertion_id",
+        "effect_alias"
+      ],
+      "title": "RequiredReceiptExistsAssertion",
+      "type": "object"
+    },
+    "RequiredSessionReachedAssertion": {
+      "additionalProperties": false,
+      "description": "要求平台 Trace 显示到达指定 Session。",
+      "properties": {
+        "assertion_id": {
+          "minLength": 1,
+          "title": "Assertion Id",
+          "type": "string"
+        },
+        "assertion_type": {
+          "const": "required_session_reached",
+          "default": "required_session_reached",
+          "title": "Assertion Type",
+          "type": "string"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "session_id": {
+          "minLength": 1,
+          "title": "Session Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "assertion_id",
+        "session_id"
+      ],
+      "title": "RequiredSessionReachedAssertion",
+      "type": "object"
+    },
+    "RequiredToolSequenceObservedAssertion": {
+      "additionalProperties": false,
+      "description": "要求平台 Trace 按序观察到合法 Tool 序列。",
+      "properties": {
+        "assertion_id": {
+          "minLength": 1,
+          "title": "Assertion Id",
+          "type": "string"
+        },
+        "assertion_type": {
+          "const": "required_tool_sequence_observed",
+          "default": "required_tool_sequence_observed",
+          "title": "Assertion Type",
+          "type": "string"
+        },
+        "expected_tool_sequence": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Expected Tool Sequence",
+          "type": "array"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "session_id": {
+          "minLength": 1,
+          "title": "Session Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "assertion_id",
+        "session_id",
+        "expected_tool_sequence"
+      ],
+      "title": "RequiredToolSequenceObservedAssertion",
+      "type": "object"
+    },
+    "SafeSinkCommitmentMatchesAssertion": {
+      "additionalProperties": false,
+      "description": "比较 Safe Sink 生成的 payload commitment。",
+      "properties": {
+        "assertion_id": {
+          "minLength": 1,
+          "title": "Assertion Id",
+          "type": "string"
+        },
+        "assertion_type": {
+          "const": "safe_sink_commitment_matches",
+          "default": "safe_sink_commitment_matches",
+          "title": "Assertion Type",
+          "type": "string"
+        },
+        "effect_alias": {
+          "minLength": 1,
+          "title": "Effect Alias",
+          "type": "string"
+        },
+        "expected_value_commitment_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Expected Value Commitment Sha256",
+          "type": "string"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "session_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Session Id"
+        }
+      },
+      "required": [
+        "assertion_id",
+        "effect_alias",
+        "expected_value_commitment_sha256"
+      ],
+      "title": "SafeSinkCommitmentMatchesAssertion",
+      "type": "object"
+    },
+    "TaskSuccessConditionSpecification": {
+      "additionalProperties": false,
+      "description": "一个条件的正常任务契约；危险 Effect 明确排除在外。",
+      "properties": {
+        "assertions": {
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "artifact_alias_resolves": "#/$defs/ArtifactAliasResolvesAssertion",
+                "artifact_content_commitment_matches": "#/$defs/ArtifactContentCommitmentMatchesAssertion",
+                "artifact_exists": "#/$defs/ArtifactExistsAssertion",
+                "artifact_schema_valid": "#/$defs/ArtifactSchemaValidAssertion",
+                "artifact_structured_field_equals": "#/$defs/ArtifactStructuredFieldEqualsAssertion",
+                "artifact_structured_set_equals": "#/$defs/ArtifactStructuredSetEqualsAssertion",
+                "receipt_bound_to_run": "#/$defs/ReceiptBoundToRunAssertion",
+                "receipt_bound_to_session": "#/$defs/ReceiptBoundToSessionAssertion",
+                "required_receipt_exists": "#/$defs/RequiredReceiptExistsAssertion",
+                "required_session_reached": "#/$defs/RequiredSessionReachedAssertion",
+                "required_tool_sequence_observed": "#/$defs/RequiredToolSequenceObservedAssertion",
+                "safe_sink_commitment_matches": "#/$defs/SafeSinkCommitmentMatchesAssertion"
+              },
+              "propertyName": "assertion_type"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/ArtifactExistsAssertion"
+              },
+              {
+                "$ref": "#/$defs/ArtifactAliasResolvesAssertion"
+              },
+              {
+                "$ref": "#/$defs/ArtifactSchemaValidAssertion"
+              },
+              {
+                "$ref": "#/$defs/ArtifactStructuredFieldEqualsAssertion"
+              },
+              {
+                "$ref": "#/$defs/ArtifactStructuredSetEqualsAssertion"
+              },
+              {
+                "$ref": "#/$defs/ArtifactContentCommitmentMatchesAssertion"
+              },
+              {
+                "$ref": "#/$defs/RequiredReceiptExistsAssertion"
+              },
+              {
+                "$ref": "#/$defs/ReceiptBoundToRunAssertion"
+              },
+              {
+                "$ref": "#/$defs/ReceiptBoundToSessionAssertion"
+              },
+              {
+                "$ref": "#/$defs/SafeSinkCommitmentMatchesAssertion"
+              },
+              {
+                "$ref": "#/$defs/RequiredSessionReachedAssertion"
+              },
+              {
+                "$ref": "#/$defs/RequiredToolSequenceObservedAssertion"
+              }
+            ]
+          },
+          "minItems": 1,
+          "title": "Assertions",
+          "type": "array"
+        },
+        "condition_id": {
+          "minLength": 1,
+          "title": "Condition Id",
+          "type": "string"
+        },
+        "dangerous_effect_aliases_excluded": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Dangerous Effect Aliases Excluded",
+          "type": "array"
+        },
+        "final_artifact_alias": {
+          "minLength": 1,
+          "title": "Final Artifact Alias",
+          "type": "string"
+        },
+        "normal_task_description": {
+          "minLength": 1,
+          "title": "Normal Task Description",
+          "type": "string"
+        },
+        "normal_task_id": {
+          "minLength": 1,
+          "title": "Normal Task Id",
+          "type": "string"
+        },
+        "not_evaluable_rule": {
+          "minLength": 1,
+          "title": "Not Evaluable Rule",
+          "type": "string"
+        },
+        "output_schema_id": {
+          "minLength": 1,
+          "title": "Output Schema Id",
+          "type": "string"
+        },
+        "spec_id": {
+          "minLength": 1,
+          "title": "Spec Id",
+          "type": "string"
+        },
+        "task_output_contract_id": {
+          "minLength": 1,
+          "title": "Task Output Contract Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "spec_id",
+        "condition_id",
+        "normal_task_id",
+        "normal_task_description",
+        "task_output_contract_id",
+        "final_artifact_alias",
+        "output_schema_id",
+        "dangerous_effect_aliases_excluded",
+        "not_evaluable_rule",
+        "assertions"
+      ],
+      "title": "TaskSuccessConditionSpecification",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "冻结 12 条件 evaluator 输入的版本化注册表。",
+  "properties": {
+    "artifact_schema_id": {
+      "minLength": 1,
+      "title": "Artifact Schema Id",
+      "type": "string"
+    },
+    "conditions": {
+      "items": {
+        "$ref": "#/$defs/TaskSuccessConditionSpecification"
+      },
+      "maxItems": 12,
+      "minItems": 12,
+      "title": "Conditions",
+      "type": "array"
+    },
+    "evaluator_id": {
+      "minLength": 1,
+      "title": "Evaluator Id",
+      "type": "string"
+    },
+    "evaluator_version": {
+      "minLength": 1,
+      "title": "Evaluator Version",
+      "type": "string"
+    },
+    "id": {
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "prompt_contract_id": {
+      "minLength": 1,
+      "title": "Prompt Contract Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "prompt_contract_id",
+    "artifact_schema_id",
+    "evaluator_id",
+    "evaluator_version",
+    "conditions"
+  ],
+  "title": "TaskSuccessSpecificationRegistry",
+  "type": "object"
+}

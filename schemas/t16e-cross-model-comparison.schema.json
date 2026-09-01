@@ -1,0 +1,518 @@
+{
+  "$defs": {
+    "T16EC1Direction": {
+      "additionalProperties": false,
+      "description": "C1 四格的两个 skill 对比和描述性交互对比。",
+      "properties": {
+        "consistent": {
+          "title": "Consistent",
+          "type": "boolean"
+        },
+        "model1_interaction_contrast": {
+          "title": "Model1 Interaction Contrast",
+          "type": "integer"
+        },
+        "model1_shared_off_delta": {
+          "title": "Model1 Shared Off Delta",
+          "type": "integer"
+        },
+        "model1_shared_on_delta": {
+          "title": "Model1 Shared On Delta",
+          "type": "integer"
+        },
+        "model2_interaction_contrast": {
+          "title": "Model2 Interaction Contrast",
+          "type": "integer"
+        },
+        "model2_shared_off_delta": {
+          "title": "Model2 Shared Off Delta",
+          "type": "integer"
+        },
+        "model2_shared_on_delta": {
+          "title": "Model2 Shared On Delta",
+          "type": "integer"
+        },
+        "shared_off_direction_model1": {
+          "enum": [
+            "negative",
+            "zero",
+            "positive"
+          ],
+          "title": "Shared Off Direction Model1",
+          "type": "string"
+        },
+        "shared_off_direction_model2": {
+          "enum": [
+            "negative",
+            "zero",
+            "positive"
+          ],
+          "title": "Shared Off Direction Model2",
+          "type": "string"
+        },
+        "shared_on_direction_model1": {
+          "enum": [
+            "negative",
+            "zero",
+            "positive"
+          ],
+          "title": "Shared On Direction Model1",
+          "type": "string"
+        },
+        "shared_on_direction_model2": {
+          "enum": [
+            "negative",
+            "zero",
+            "positive"
+          ],
+          "title": "Shared On Direction Model2",
+          "type": "string"
+        }
+      },
+      "required": [
+        "model1_shared_off_delta",
+        "model2_shared_off_delta",
+        "shared_off_direction_model1",
+        "shared_off_direction_model2",
+        "model1_shared_on_delta",
+        "model2_shared_on_delta",
+        "shared_on_direction_model1",
+        "shared_on_direction_model2",
+        "model1_interaction_contrast",
+        "model2_interaction_contrast",
+        "consistent"
+      ],
+      "title": "T16EC1Direction",
+      "type": "object"
+    },
+    "T16EConditionResult": {
+      "additionalProperties": false,
+      "description": "一个模型在一个 Canary 条件上的独立描述。",
+      "properties": {
+        "agent_steps": {
+          "minimum": 0,
+          "title": "Agent Steps",
+          "type": "integer"
+        },
+        "condition_id": {
+          "minLength": 1,
+          "title": "Condition Id",
+          "type": "string"
+        },
+        "estimated_cost_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Estimated Cost Usd"
+        },
+        "latency_ms": {
+          "minimum": 0,
+          "title": "Latency Ms",
+          "type": "integer"
+        },
+        "no_call": {
+          "title": "No Call",
+          "type": "boolean"
+        },
+        "refusal": {
+          "title": "Refusal",
+          "type": "boolean"
+        },
+        "schema_rejection": {
+          "title": "Schema Rejection",
+          "type": "boolean"
+        },
+        "target_effect_executed": {
+          "title": "Target Effect Executed",
+          "type": "boolean"
+        },
+        "target_effect_requested": {
+          "title": "Target Effect Requested",
+          "type": "boolean"
+        },
+        "task_success": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Task Success"
+        },
+        "token_usage": {
+          "$ref": "#/$defs/TokenUsage"
+        }
+      },
+      "required": [
+        "condition_id",
+        "agent_steps",
+        "task_success",
+        "target_effect_requested",
+        "target_effect_executed",
+        "refusal",
+        "no_call",
+        "schema_rejection",
+        "token_usage",
+        "estimated_cost_usd",
+        "latency_ms"
+      ],
+      "title": "T16EConditionResult",
+      "type": "object"
+    },
+    "T16EFormalMetrics": {
+      "additionalProperties": false,
+      "description": "本阶段明确不可计算的正式研究指标。",
+      "properties": {
+        "alr": {
+          "const": "not_available",
+          "default": "not_available",
+          "title": "Alr",
+          "type": "string"
+        },
+        "provenance": {
+          "const": "not_available",
+          "default": "not_available",
+          "title": "Provenance",
+          "type": "string"
+        },
+        "rir_1": {
+          "const": "not_available",
+          "default": "not_available",
+          "title": "Rir 1",
+          "type": "string"
+        },
+        "rir_3": {
+          "const": "not_available",
+          "default": "not_available",
+          "title": "Rir 3",
+          "type": "string"
+        },
+        "uea": {
+          "const": "not_available",
+          "default": "not_available",
+          "title": "Uea",
+          "type": "string"
+        }
+      },
+      "title": "T16EFormalMetrics",
+      "type": "object"
+    },
+    "T16EModelResult": {
+      "additionalProperties": false,
+      "description": "一个模型 11 条 Canary 的非合并统计。",
+      "properties": {
+        "api_calls": {
+          "minimum": 0,
+          "title": "Api Calls",
+          "type": "integer"
+        },
+        "conditions": {
+          "items": {
+            "$ref": "#/$defs/T16EConditionResult"
+          },
+          "title": "Conditions",
+          "type": "array"
+        },
+        "estimated_cost_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Estimated Cost Usd"
+        },
+        "latency_ms": {
+          "minimum": 0,
+          "title": "Latency Ms",
+          "type": "integer"
+        },
+        "model_id": {
+          "minLength": 1,
+          "title": "Model Id",
+          "type": "string"
+        },
+        "model_revisions": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Model Revisions",
+          "type": "array"
+        },
+        "no_call": {
+          "minimum": 0,
+          "title": "No Call",
+          "type": "integer"
+        },
+        "observed": {
+          "const": 11,
+          "default": 11,
+          "title": "Observed",
+          "type": "integer"
+        },
+        "provider": {
+          "const": "openai",
+          "default": "openai",
+          "title": "Provider",
+          "type": "string"
+        },
+        "refusal": {
+          "minimum": 0,
+          "title": "Refusal",
+          "type": "integer"
+        },
+        "schema_rejection": {
+          "minimum": 0,
+          "title": "Schema Rejection",
+          "type": "integer"
+        },
+        "target_effect_executed": {
+          "minimum": 0,
+          "title": "Target Effect Executed",
+          "type": "integer"
+        },
+        "target_effect_requested": {
+          "minimum": 0,
+          "title": "Target Effect Requested",
+          "type": "integer"
+        },
+        "task_success_false": {
+          "minimum": 0,
+          "title": "Task Success False",
+          "type": "integer"
+        },
+        "task_success_na": {
+          "minimum": 0,
+          "title": "Task Success Na",
+          "type": "integer"
+        },
+        "task_success_true": {
+          "minimum": 0,
+          "title": "Task Success True",
+          "type": "integer"
+        },
+        "token_usage": {
+          "$ref": "#/$defs/TokenUsage"
+        }
+      },
+      "required": [
+        "model_id",
+        "model_revisions",
+        "task_success_true",
+        "task_success_false",
+        "task_success_na",
+        "target_effect_requested",
+        "target_effect_executed",
+        "refusal",
+        "no_call",
+        "schema_rejection",
+        "api_calls",
+        "token_usage",
+        "estimated_cost_usd",
+        "latency_ms",
+        "conditions"
+      ],
+      "title": "T16EModelResult",
+      "type": "object"
+    },
+    "T16EPairedDirection": {
+      "additionalProperties": false,
+      "description": "一个 target/control 配对的二值差与方向一致性。",
+      "properties": {
+        "consistent": {
+          "title": "Consistent",
+          "type": "boolean"
+        },
+        "model1_delta": {
+          "title": "Model1 Delta",
+          "type": "integer"
+        },
+        "model1_direction": {
+          "enum": [
+            "negative",
+            "zero",
+            "positive"
+          ],
+          "title": "Model1 Direction",
+          "type": "string"
+        },
+        "model2_delta": {
+          "title": "Model2 Delta",
+          "type": "integer"
+        },
+        "model2_direction": {
+          "enum": [
+            "negative",
+            "zero",
+            "positive"
+          ],
+          "title": "Model2 Direction",
+          "type": "string"
+        }
+      },
+      "required": [
+        "model1_delta",
+        "model2_delta",
+        "model1_direction",
+        "model2_direction",
+        "consistent"
+      ],
+      "title": "T16EPairedDirection",
+      "type": "object"
+    },
+    "TokenUsage": {
+      "additionalProperties": false,
+      "description": "TrialResult 所需的生成、缓存读写与推理 token 计数。",
+      "properties": {
+        "cache_write_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cache Write Tokens",
+          "type": "integer"
+        },
+        "cached_input_tokens": {
+          "minimum": 0,
+          "title": "Cached Input Tokens",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "reasoning_tokens": {
+          "minimum": 0,
+          "title": "Reasoning Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_tokens",
+        "cached_input_tokens",
+        "output_tokens",
+        "reasoning_tokens"
+      ],
+      "title": "TokenUsage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "不合并模型、不做显著性推断的 T16-E 阶段证据。",
+  "properties": {
+    "a1_direction": {
+      "$ref": "#/$defs/T16EPairedDirection"
+    },
+    "analysis_scope": {
+      "const": "descriptive_two_model_single_cluster",
+      "default": "descriptive_two_model_single_cluster",
+      "title": "Analysis Scope",
+      "type": "string"
+    },
+    "bootstrap_ci": {
+      "default": null,
+      "title": "Bootstrap Ci",
+      "type": "null"
+    },
+    "c1_direction": {
+      "$ref": "#/$defs/T16EC1Direction"
+    },
+    "formal_metrics": {
+      "$ref": "#/$defs/T16EFormalMetrics",
+      "default": {
+        "alr": "not_available",
+        "provenance": "not_available",
+        "rir_1": "not_available",
+        "rir_3": "not_available",
+        "uea": "not_available"
+      }
+    },
+    "m2_direction": {
+      "$ref": "#/$defs/T16EPairedDirection"
+    },
+    "model1": {
+      "$ref": "#/$defs/T16EModelResult"
+    },
+    "model2": {
+      "$ref": "#/$defs/T16EModelResult"
+    },
+    "models_pooled": {
+      "const": false,
+      "default": false,
+      "title": "Models Pooled",
+      "type": "boolean"
+    },
+    "potential_model_difference_conditions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Potential Model Difference Conditions",
+      "type": "array"
+    },
+    "sample_expansion_recommended": {
+      "const": true,
+      "default": true,
+      "title": "Sample Expansion Recommended",
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "single_cluster_per_model": {
+      "const": true,
+      "default": true,
+      "title": "Single Cluster Per Model",
+      "type": "boolean"
+    },
+    "statistical_significance": {
+      "default": null,
+      "title": "Statistical Significance",
+      "type": "null"
+    },
+    "task_success_rate_delta": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Task Success Rate Delta"
+    }
+  },
+  "required": [
+    "model1",
+    "model2",
+    "task_success_rate_delta",
+    "c1_direction",
+    "m2_direction",
+    "a1_direction",
+    "potential_model_difference_conditions"
+  ],
+  "title": "T16ECrossModelComparison",
+  "type": "object"
+}

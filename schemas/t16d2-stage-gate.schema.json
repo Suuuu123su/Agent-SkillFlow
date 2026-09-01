@@ -1,0 +1,104 @@
+{
+  "additionalProperties": false,
+  "description": "Canary 或完整阶段的技术证据门禁。",
+  "properties": {
+    "artifact_binding_valid": {
+      "title": "Artifact Binding Valid",
+      "type": "boolean"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "evidence_count": {
+      "minimum": 0,
+      "title": "Evidence Count",
+      "type": "integer"
+    },
+    "expected": {
+      "minimum": 0,
+      "title": "Expected",
+      "type": "integer"
+    },
+    "infrastructure_invalid_count": {
+      "minimum": 0,
+      "title": "Infrastructure Invalid Count",
+      "type": "integer"
+    },
+    "not_evaluable_assertion_count": {
+      "minimum": 0,
+      "title": "Not Evaluable Assertion Count",
+      "type": "integer"
+    },
+    "observed": {
+      "minimum": 0,
+      "title": "Observed",
+      "type": "integer"
+    },
+    "passed": {
+      "title": "Passed",
+      "type": "boolean"
+    },
+    "provider_model_revisions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Provider Model Revisions",
+      "type": "array"
+    },
+    "reasons": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reasons",
+      "type": "array"
+    },
+    "receipt_binding_valid": {
+      "title": "Receipt Binding Valid",
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "secret_scan_passed": {
+      "title": "Secret Scan Passed",
+      "type": "boolean"
+    },
+    "session_binding_valid": {
+      "title": "Session Binding Valid",
+      "type": "boolean"
+    },
+    "stage": {
+      "enum": [
+        "canary",
+        "final"
+      ],
+      "title": "Stage",
+      "type": "string"
+    }
+  },
+  "required": [
+    "stage",
+    "created_at",
+    "expected",
+    "observed",
+    "passed",
+    "reasons",
+    "evidence_count",
+    "not_evaluable_assertion_count",
+    "infrastructure_invalid_count",
+    "provider_model_revisions",
+    "artifact_binding_valid",
+    "receipt_binding_valid",
+    "session_binding_valid",
+    "secret_scan_passed"
+  ],
+  "title": "T16D2StageGate",
+  "type": "object"
+}

@@ -1,0 +1,411 @@
+{
+  "$defs": {
+    "BootstrapEstimate": {
+      "additionalProperties": false,
+      "description": "点估计及以语义实例为 cluster 的区间。",
+      "properties": {
+        "cluster_count": {
+          "title": "Cluster Count",
+          "type": "integer"
+        },
+        "interval": {
+          "$ref": "#/$defs/ConfidenceInterval"
+        },
+        "point_estimate": {
+          "title": "Point Estimate",
+          "type": "number"
+        },
+        "resamples": {
+          "title": "Resamples",
+          "type": "integer"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "point_estimate",
+        "interval",
+        "cluster_count",
+        "resamples",
+        "seed"
+      ],
+      "title": "BootstrapEstimate",
+      "type": "object"
+    },
+    "BootstrapProtocol": {
+      "additionalProperties": false,
+      "description": "聚类 Bootstrap 的固定随机协议。",
+      "properties": {
+        "cluster_unit": {
+          "const": "semantic_instance_with_all_repeats",
+          "title": "Cluster Unit",
+          "type": "string"
+        },
+        "confidence_level": {
+          "default": 0.95,
+          "maximum": 0.95,
+          "minimum": 0.95,
+          "title": "Confidence Level",
+          "type": "number"
+        },
+        "repeat_independence_assumed": {
+          "const": false,
+          "default": false,
+          "title": "Repeat Independence Assumed",
+          "type": "boolean"
+        },
+        "resamples": {
+          "minimum": 10000,
+          "title": "Resamples",
+          "type": "integer"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "resamples",
+        "seed",
+        "cluster_unit"
+      ],
+      "title": "BootstrapProtocol",
+      "type": "object"
+    },
+    "ConditionWilsonEstimate": {
+      "additionalProperties": false,
+      "description": "单条件 target Effect 率的描述性 Wilson 区间。",
+      "properties": {
+        "condition_id": {
+          "minLength": 1,
+          "title": "Condition Id",
+          "type": "string"
+        },
+        "inference_note": {
+          "const": "descriptive_chain_level_not_cluster_adjusted",
+          "title": "Inference Note",
+          "type": "string"
+        },
+        "interval": {
+          "$ref": "#/$defs/ConfidenceInterval"
+        },
+        "successes": {
+          "minimum": 0,
+          "title": "Successes",
+          "type": "integer"
+        },
+        "total": {
+          "minimum": 0,
+          "title": "Total",
+          "type": "integer"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "condition_id",
+        "successes",
+        "total",
+        "value",
+        "interval",
+        "inference_note"
+      ],
+      "title": "ConditionWilsonEstimate",
+      "type": "object"
+    },
+    "ConfidenceInterval": {
+      "additionalProperties": false,
+      "description": "固定 95% 双侧区间。",
+      "properties": {
+        "confidence_level": {
+          "default": 0.95,
+          "maximum": 0.95,
+          "minimum": 0.95,
+          "title": "Confidence Level",
+          "type": "number"
+        },
+        "lower": {
+          "title": "Lower",
+          "type": "number"
+        },
+        "method": {
+          "enum": [
+            "cluster_percentile_bootstrap",
+            "wilson_score"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "upper": {
+          "title": "Upper",
+          "type": "number"
+        }
+      },
+      "required": [
+        "lower",
+        "upper",
+        "method"
+      ],
+      "title": "ConfidenceInterval",
+      "type": "object"
+    },
+    "CountRate": {
+      "additionalProperties": false,
+      "description": "分子、分母与点估计。",
+      "properties": {
+        "successes": {
+          "minimum": 0,
+          "title": "Successes",
+          "type": "integer"
+        },
+        "total": {
+          "minimum": 0,
+          "title": "Total",
+          "type": "integer"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "successes",
+        "total",
+        "value"
+      ],
+      "title": "CountRate",
+      "type": "object"
+    },
+    "HiaaAnalysis": {
+      "additionalProperties": false,
+      "description": "scheduled 或 valid-only 的 HIAA 分析。",
+      "properties": {
+        "cells": {
+          "items": {
+            "$ref": "#/$defs/HiaaCellEstimate"
+          },
+          "maxItems": 4,
+          "minItems": 4,
+          "title": "Cells",
+          "type": "array"
+        },
+        "denominator_policy": {
+          "enum": [
+            "scheduled",
+            "valid_only_sensitivity"
+          ],
+          "title": "Denominator Policy",
+          "type": "string"
+        },
+        "hiaa": {
+          "$ref": "#/$defs/BootstrapEstimate"
+        }
+      },
+      "required": [
+        "denominator_policy",
+        "cells",
+        "hiaa"
+      ],
+      "title": "HiaaAnalysis",
+      "type": "object"
+    },
+    "HiaaCell": {
+      "description": "目标 Skill 与 Harness 特性的四格组合。",
+      "enum": [
+        "p00",
+        "p01",
+        "p10",
+        "p11"
+      ],
+      "title": "HiaaCell",
+      "type": "string"
+    },
+    "HiaaCellEstimate": {
+      "additionalProperties": false,
+      "description": "一个 C1 四格的执行率。",
+      "properties": {
+        "cell": {
+          "$ref": "#/$defs/HiaaCell"
+        },
+        "execution": {
+          "$ref": "#/$defs/CountRate"
+        }
+      },
+      "required": [
+        "cell",
+        "execution"
+      ],
+      "title": "HiaaCellEstimate",
+      "type": "object"
+    },
+    "SourceEvidenceHash": {
+      "additionalProperties": false,
+      "description": "一个旧 v2 输入文件的固定 SHA-256。",
+      "properties": {
+        "path": {
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "title": "SourceEvidenceHash",
+      "type": "object"
+    },
+    "UnavailableMetric": {
+      "additionalProperties": false,
+      "description": "旧 v2 无法合法恢复的结构化 N/A。",
+      "properties": {
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        },
+        "status": {
+          "const": "not_available",
+          "default": "not_available",
+          "title": "Status",
+          "type": "string"
+        },
+        "value": {
+          "default": null,
+          "title": "Value",
+          "type": "null"
+        }
+      },
+      "required": [
+        "reason"
+      ],
+      "title": "UnavailableMetric",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "只包含旧 v2 可合法计算的聚合统计。",
+  "properties": {
+    "a1_claim_minus_neutralized": {
+      "$ref": "#/$defs/BootstrapEstimate"
+    },
+    "alr": {
+      "$ref": "#/$defs/UnavailableMetric"
+    },
+    "bootstrap": {
+      "$ref": "#/$defs/BootstrapProtocol"
+    },
+    "c1_scheduled": {
+      "$ref": "#/$defs/HiaaAnalysis"
+    },
+    "c1_valid_sensitivity": {
+      "$ref": "#/$defs/HiaaAnalysis"
+    },
+    "condition_wilson_intervals": {
+      "items": {
+        "$ref": "#/$defs/ConditionWilsonEstimate"
+      },
+      "maxItems": 12,
+      "minItems": 12,
+      "title": "Condition Wilson Intervals",
+      "type": "array"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "id": {
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "m2_session_1": {
+      "$ref": "#/$defs/BootstrapEstimate"
+    },
+    "m2_session_3": {
+      "$ref": "#/$defs/BootstrapEstimate"
+    },
+    "old_v2_records_modified": {
+      "const": false,
+      "default": false,
+      "title": "Old V2 Records Modified",
+      "type": "boolean"
+    },
+    "provenance": {
+      "$ref": "#/$defs/UnavailableMetric"
+    },
+    "record_count": {
+      "const": 360,
+      "title": "Record Count",
+      "type": "integer"
+    },
+    "rir": {
+      "$ref": "#/$defs/UnavailableMetric"
+    },
+    "schema_version": {
+      "const": "0.5-partial",
+      "default": "0.5-partial",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_hashes": {
+      "items": {
+        "$ref": "#/$defs/SourceEvidenceHash"
+      },
+      "minItems": 7,
+      "title": "Source Hashes",
+      "type": "array"
+    },
+    "t16d_evidence_acceptance": {
+      "const": "BLOCKED",
+      "title": "T16D Evidence Acceptance",
+      "type": "string"
+    },
+    "task_success": {
+      "$ref": "#/$defs/UnavailableMetric"
+    },
+    "uea": {
+      "$ref": "#/$defs/UnavailableMetric"
+    },
+    "warnings": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "generated_at",
+    "source_hashes",
+    "record_count",
+    "bootstrap",
+    "c1_scheduled",
+    "c1_valid_sensitivity",
+    "m2_session_1",
+    "m2_session_3",
+    "a1_claim_minus_neutralized",
+    "condition_wilson_intervals",
+    "task_success",
+    "uea",
+    "alr",
+    "rir",
+    "provenance",
+    "t16d_evidence_acceptance",
+    "warnings"
+  ],
+  "title": "T16D1PartialReanalysis",
+  "type": "object"
+}

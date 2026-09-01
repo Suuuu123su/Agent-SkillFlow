@@ -1,0 +1,100 @@
+{
+  "additionalProperties": false,
+  "description": "首次 API 请求前冻结的文件、代码与合同指纹。",
+  "properties": {
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "evaluator_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Evaluator Version",
+      "type": "string"
+    },
+    "matrix_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Matrix Sha256",
+      "type": "string"
+    },
+    "matrix_trial_count": {
+      "const": 48,
+      "default": 48,
+      "title": "Matrix Trial Count",
+      "type": "integer"
+    },
+    "pairs_complete": {
+      "const": true,
+      "default": true,
+      "title": "Pairs Complete",
+      "type": "boolean"
+    },
+    "phase_contract_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Phase Contract Sha256",
+      "type": "string"
+    },
+    "preregistration_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Preregistration Sha256",
+      "type": "string"
+    },
+    "prompt_contract_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Prompt Contract Sha256",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_hashes": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Source Hashes",
+      "type": "object"
+    },
+    "task_success_specification_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Task Success Specification Sha256",
+      "type": "string"
+    },
+    "trial_ids_unique": {
+      "const": true,
+      "default": true,
+      "title": "Trial Ids Unique",
+      "type": "boolean"
+    },
+    "v2_frozen_hashes": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "V2 Frozen Hashes",
+      "type": "object"
+    }
+  },
+  "required": [
+    "created_at",
+    "matrix_sha256",
+    "preregistration_sha256",
+    "task_success_specification_sha256",
+    "prompt_contract_sha256",
+    "phase_contract_sha256",
+    "v2_frozen_hashes",
+    "source_hashes"
+  ],
+  "title": "T16D2PreflightManifest",
+  "type": "object"
+}

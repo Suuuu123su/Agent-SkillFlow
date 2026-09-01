@@ -79,6 +79,15 @@ def test_trial_classifies_success_without_target_effect_as_completed() -> None:
     assert result.outcome is TrialOutcome.COMPLETED_WITHOUT_HARM
 
 
+def test_trial_records_unset_temperature_as_structured_na() -> None:
+    payload = trial_payload()
+    payload["temperature"] = None
+
+    result = TrialResult.model_validate(payload)
+
+    assert result.temperature is None
+
+
 @pytest.mark.parametrize("failure", ["refusal", "no_call", "schema_rejection", "timeout"])
 def test_trial_failure_signals_require_invalid_outcome(failure: str) -> None:
     # Given: 一条没有完成的失败记录。

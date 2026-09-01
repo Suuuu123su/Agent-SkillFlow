@@ -66,6 +66,7 @@ class PricingRates(StrictModel):
     cached_input_per_million_usd: NonNegativeMoney
     output_per_million_usd: NonNegativeMoney
     reasoning_per_million_usd: NonNegativeMoney
+    cache_write_per_million_usd: NonNegativeMoney = Decimal(0)
 
 
 class ProviderConfig(StrictModel):
@@ -75,7 +76,7 @@ class ProviderConfig(StrictModel):
     kind: ProviderKind
     model_id: NonEmptyStr
     model_revision: NonEmptyStr
-    temperature: Temperature
+    temperature: Temperature | None
     reasoning_effort: ReasoningEffort
     pricing: PricingRates
 
@@ -87,6 +88,7 @@ class ProviderConfig(StrictModel):
             self.pricing.cached_input_per_million_usd,
             self.pricing.output_per_million_usd,
             self.pricing.reasoning_per_million_usd,
+            self.pricing.cache_write_per_million_usd,
         )
         if self.kind is ProviderKind.FAKE:
             if self.pricing.status is not PricingStatus.FAKE_ZERO or any(rates):
@@ -115,18 +117,22 @@ class ProviderRequest(StrictModel):
 
 
 class TokenUsage(StrictModel):
-    """TrialResult 所需的四类 token 计数。"""
+    """TrialResult 所需的生成、缓存读写与推理 token 计数。"""
 
     input_tokens: NonNegativeInt
     cached_input_tokens: NonNegativeInt
     output_tokens: NonNegativeInt
     reasoning_tokens: NonNegativeInt
+    cache_write_tokens: NonNegativeInt = 0
 
     @model_validator(mode="after")
     def require_cached_subset(self) -> Self:
         """缓存输入必须包含在输入总数内。"""
-        if self.cached_input_tokens > self.input_tokens:
-            raise PydanticCustomError("t16_cached_usage_exceeds_input", "缓存用量不能大于输入")
+        if self.cached_input_tokens + self.cache_write_tokens > self.input_tokens:
+            raise PydanticCustomError(
+                "t16_cached_usage_exceeds_input",
+                "缓存读取与写入用量之和不能大于输入",
+            )
         return self
 
 
@@ -231,11 +237,12 @@ class LiveProvider:
 
 def estimate_result_cost(pricing: PricingRates, usage: TokenUsage) -> Decimal:
     """按实际 token 记录估算费用。"""
-    uncached = usage.input_tokens - usage.cached_input_tokens
+    uncached = usage.input_tokens - usage.cached_input_tokens - usage.cache_write_tokens
     million = Decimal(1_000_000)
     return (
         Decimal(uncached) * pricing.input_per_million_usd
         + Decimal(usage.cached_input_tokens) * pricing.cached_input_per_million_usd
+        + Decimal(usage.cache_write_tokens) * pricing.cache_write_per_million_usd
         + Decimal(usage.output_tokens) * pricing.output_per_million_usd
         + Decimal(usage.reasoning_tokens) * pricing.reasoning_per_million_usd
     ) / million
@@ -246,6 +253,7 @@ def estimate_reservation_cost(config: ProviderConfig, request: ProviderRequest) 
     input_rate = max(
         config.pricing.input_per_million_usd,
         config.pricing.cached_input_per_million_usd,
+        config.pricing.cache_write_per_million_usd,
     )
     output_rate = max(
         config.pricing.output_per_million_usd,

@@ -1,0 +1,31 @@
+schema_version: "0.3"
+id: t16e-v3.1-canary-gpt-5.5-2026-04-23
+provider:
+  schema_version: "0.1"
+  kind: live
+  model_id: gpt-5.5-2026-04-23
+  model_revision: gpt-5.5-2026-04-23
+  temperature: null
+  reasoning_effort: medium
+  pricing:
+    status: live_pinned
+    input_per_million_usd: 5.00
+    cached_input_per_million_usd: 0.50
+    output_per_million_usd: 30.00
+    reasoning_per_million_usd: 30.00
+    cache_write_per_million_usd: 0
+budget:
+  schema_version: "0.1"
+  allow_live: true
+  max_total_usd: 1.00
+  max_cost_per_run_usd: 0.10
+  max_agent_turns: 16
+  max_output_tokens_per_turn: 512
+  max_retries: 1
+smoke_max_total_usd: 1.00
+endpoint: https://api.openai.com/v1/responses
+store_responses: false
+prompt_cache_mode: automatic
+transport_retries: 0
+max_smoke_attempts: 3
+budget_settlement_mode: actual_reconciled
