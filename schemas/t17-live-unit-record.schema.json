@@ -150,6 +150,65 @@
       "title": "T17LiveUnitKind",
       "type": "string"
     },
+    "T17ProviderFailureDiagnostic": {
+      "additionalProperties": false,
+      "description": "Provider 错误的安全 status/type/code/param 白名单字段。",
+      "properties": {
+        "provider_code": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider Code"
+        },
+        "provider_param": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider Param"
+        },
+        "provider_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider Type"
+        },
+        "status_code": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Status Code"
+        }
+      },
+      "title": "T17ProviderFailureDiagnostic",
+      "type": "object"
+    },
     "TokenUsage": {
       "additionalProperties": false,
       "description": "TrialResult 所需的生成、缓存读写与推理 token 计数。",
@@ -224,6 +283,17 @@
       ],
       "default": null,
       "title": "Failure Detail"
+    },
+    "failure_diagnostic": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/T17ProviderFailureDiagnostic"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
     },
     "failure_kind": {
       "anyOf": [

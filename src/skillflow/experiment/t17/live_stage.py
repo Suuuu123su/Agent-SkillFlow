@@ -21,6 +21,7 @@ from skillflow.experiment.t17.live_journal import (
     T17LiveUsageTracker,
 )
 from skillflow.experiment.t17.live_journal_models import (
+    T17JournalTerminal,
     T17LiveJournalBinding,
     T17LiveJournalError,
     T17ModelRevisionDriftError,
@@ -211,7 +212,7 @@ def _execute_core(
         return None, failure
     telemetry = tracker.finalize(
         runtime.client.end_run(),
-        T17LiveTerminalStatus.COMPLETED,
+        T17JournalTerminal(T17LiveTerminalStatus.COMPLETED),
     )
     runtime.results.append(
         T17LiveUnitRecord(
@@ -273,7 +274,7 @@ def _execute_replay(
         return _record_failure(runtime, trial, unit_id, tracker, error)
     telemetry = tracker.finalize(
         runtime.client.end_run(),
-        T17LiveTerminalStatus.COMPLETED,
+        T17JournalTerminal(T17LiveTerminalStatus.COMPLETED),
     )
     runtime.results.append(
         T17LiveUnitRecord(
@@ -312,9 +313,12 @@ def _record_failure(
     failure = classify_live_failure(error)
     telemetry = tracker.finalize(
         end_run_or_zero(runtime.client),
-        failure.status,
-        failure.kind,
-        failure.detail,
+        T17JournalTerminal(
+            failure.status,
+            failure.kind,
+            failure.detail,
+            failure.diagnostic,
+        ),
     )
     unit_kind = T17LiveUnitKind.CORE if unit_id == trial.trial_id else T17LiveUnitKind.REPLAY
     runtime.results.append(
@@ -334,6 +338,7 @@ def _record_failure(
             terminal_status=failure.status,
             failure_kind=failure.kind,
             failure_detail=failure.detail,
+            failure_diagnostic=failure.diagnostic,
             telemetry=telemetry,
             run_ids=(),
             replay_ids=(),

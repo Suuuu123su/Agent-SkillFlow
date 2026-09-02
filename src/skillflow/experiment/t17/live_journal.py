@@ -15,11 +15,10 @@ from skillflow.experiment.t16.live_agent_calls import ActualResponseUsage
 from skillflow.experiment.t16.live_record_builders import add_usage, zero_usage
 from skillflow.experiment.t16.provider import TokenUsage
 from skillflow.experiment.t17.live_attempt_models import (
-    T17LiveFailureKind,
-    T17LiveTerminalStatus,
     T17LiveUnitKind,
 )
 from skillflow.experiment.t17.live_journal_models import (
+    T17JournalTerminal,
     T17LiveJournalBinding,
     T17LiveJournalError,
     T17LiveJournalErrorCode,
@@ -165,9 +164,7 @@ class T17LiveUsageTracker:
     def finalize(
         self,
         telemetry: ReferenceLiveTelemetry,
-        terminal_status: T17LiveTerminalStatus,
-        failure_kind: T17LiveFailureKind | None = None,
-        failure_detail: str | None = None,
+        terminal: T17JournalTerminal,
     ) -> ReferenceLiveTelemetry:
         """写入终态，并返回由即时日志收紧后的单元遥测。"""
         self._require_active()
@@ -184,9 +181,7 @@ class T17LiveUsageTracker:
             self._payload(
                 "terminal",
                 telemetry=observed,
-                terminal_status=terminal_status,
-                failure_kind=failure_kind,
-                failure_detail=failure_detail,
+                terminal=terminal,
             )
         )
         self._finalized = True
@@ -216,9 +211,7 @@ class T17LiveUsageTracker:
         event_type: Literal["attempt", "response", "terminal"],
         *,
         telemetry: ReferenceLiveTelemetry | None = None,
-        terminal_status: T17LiveTerminalStatus | None = None,
-        failure_kind: T17LiveFailureKind | None = None,
-        failure_detail: str | None = None,
+        terminal: T17JournalTerminal | None = None,
     ) -> dict[str, object]:
         return {
             "event_type": event_type,
@@ -243,9 +236,10 @@ class T17LiveUsageTracker:
             "retry_count": 0 if telemetry is None else telemetry.retry_count,
             "refusal_count": 0 if telemetry is None else telemetry.refusal_count,
             "no_call_count": 0 if telemetry is None else telemetry.no_call_count,
-            "terminal_status": terminal_status,
-            "failure_kind": failure_kind,
-            "failure_detail": failure_detail,
+            "terminal_status": None if terminal is None else terminal.status,
+            "failure_kind": (None if terminal is None else terminal.failure_kind),
+            "failure_detail": (None if terminal is None else terminal.failure_detail),
+            "failure_diagnostic": (None if terminal is None else terminal.failure_diagnostic),
         }
 
     def _require_active(self) -> None:
@@ -265,12 +259,16 @@ def load_live_journal(path: Path) -> tuple[T17LiveJournalEvent, ...]:
             T17LiveJournalErrorCode.READ_FAILED,
             path.name,
         ) from error
-    events = tuple(T17LiveJournalEvent.model_validate_json(line) for line in lines)
+    raw_events = tuple(json.loads(line) for line in lines)
+    events = tuple(T17LiveJournalEvent.model_validate(item) for item in raw_events)
     previous: str | None = None
-    for expected_sequence, event in enumerate(events, start=1):
+    for expected_sequence, (event, raw) in enumerate(
+        zip(events, raw_events, strict=True),
+        start=1,
+    ):
         if event.sequence != expected_sequence or event.previous_event_sha256 != previous:
             raise T17LiveJournalError(T17LiveJournalErrorCode.CHAIN_INVALID)
-        payload = event.model_dump(mode="json", exclude={"event_sha256"})
+        payload = {key: value for key, value in raw.items() if key != "event_sha256"}
         if _event_sha256(payload) != event.event_sha256:
             raise T17LiveJournalError(T17LiveJournalErrorCode.HASH_INVALID)
         previous = event.event_sha256

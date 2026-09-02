@@ -4,6 +4,9 @@ from pathlib import Path
 import pytest
 
 from skillflow.experiment.t16.budget import BudgetLedger
+from skillflow.experiment.t16.openai_output_schemas import (
+    reference_decision_v4_schema,
+)
 from skillflow.experiment.t16.openai_response_models import OpenAIResponsesCall
 from skillflow.experiment.t16.openai_responses import OpenAIResponsesTurn
 from skillflow.experiment.t16.provider import TokenUsage
@@ -137,3 +140,15 @@ def test_openai_reference_client_persists_before_call_and_returns_run_delta() ->
     assert telemetry.response_count == 1
     assert telemetry.no_call_count == 1
     assert telemetry.conservative_reserved_usd > 0
+
+
+def test_reference_output_schema_uses_openai_supported_array_subset() -> None:
+    schema = reference_decision_v4_schema()
+    body = schema["schema"]
+    assert isinstance(body, dict)
+    properties = body["properties"]
+    assert isinstance(properties, dict)
+    selected = properties["selected_action_ids"]
+    assert isinstance(selected, dict)
+
+    assert "uniqueItems" not in selected

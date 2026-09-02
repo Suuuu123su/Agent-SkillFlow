@@ -14,6 +14,7 @@ from skillflow.experiment.t17.live_attempt_models import (
     T17LiveFailureKind,
     T17LiveTerminalStatus,
     T17LiveUnitKind,
+    T17ProviderFailureDiagnostic,
 )
 from skillflow.experiment.t17.live_matrix import T17LiveStage
 from skillflow.models.base import NonEmptyStr, StrictModel
@@ -55,6 +56,7 @@ class T17LiveJournalEvent(StrictModel):
     terminal_status: T17LiveTerminalStatus | None = None
     failure_kind: T17LiveFailureKind | None = None
     failure_detail: NonEmptyStr | None = None
+    failure_diagnostic: T17ProviderFailureDiagnostic | None = None
     previous_event_sha256: Sha256Hex | None = None
     event_sha256: Sha256Hex
 
@@ -85,6 +87,7 @@ class T17LiveJournalEvent(StrictModel):
             self.terminal_status,
             self.failure_kind,
             self.failure_detail,
+            self.failure_diagnostic,
         )
         if self.event_type != "terminal":
             if any(value is not None for value in terminal_values):
@@ -95,6 +98,8 @@ class T17LiveJournalEvent(StrictModel):
         completed = self.terminal_status is T17LiveTerminalStatus.COMPLETED
         if completed is (self.failure_kind is not None):
             self._invalid("完成状态与 failure_kind 不一致")
+        if completed and self.failure_diagnostic is not None:
+            self._invalid("完成事件不得包含 Provider failure diagnostic")
 
     def _require_revision_contract(self) -> None:
         if self.event_type == "attempt" and self.actual_model_revision is not None:
@@ -116,6 +121,16 @@ class T17LiveJournalBinding:
     stage: T17LiveStage
     model_id: str
     model_revision: str
+
+
+@dataclass(frozen=True, slots=True)
+class T17JournalTerminal:
+    """Tracker 写入终态所需的状态与安全失败字段。"""
+
+    status: T17LiveTerminalStatus
+    failure_kind: T17LiveFailureKind | None = None
+    failure_detail: str | None = None
+    failure_diagnostic: T17ProviderFailureDiagnostic | None = None
 
 
 @unique

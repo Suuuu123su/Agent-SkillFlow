@@ -102,6 +102,15 @@ class T17ArtifactDigest(StrictModel):
     sha256: Sha256Hex
 
 
+class T17ProviderFailureDiagnostic(StrictModel):
+    """Provider 错误的安全 status/type/code/param 白名单字段。"""
+
+    status_code: int | None = None
+    provider_type: NonEmptyStr | None = None
+    provider_code: NonEmptyStr | None = None
+    provider_param: NonEmptyStr | None = None
+
+
 class T17LiveUnitRecord(StrictModel):
     """一条核心 Run 或 Replay pair 的不可变 Raw 索引。"""
 
@@ -121,6 +130,7 @@ class T17LiveUnitRecord(StrictModel):
     terminal_status: T17LiveTerminalStatus
     failure_kind: T17LiveFailureKind | None = None
     failure_detail: NonEmptyStr | None = None
+    failure_diagnostic: T17ProviderFailureDiagnostic | None = None
     telemetry: ReferenceLiveTelemetry
     run_ids: tuple[NonEmptyStr, ...]
     replay_ids: tuple[NonEmptyStr, ...]
@@ -135,6 +145,8 @@ class T17LiveUnitRecord(StrictModel):
         completed = self.terminal_status is T17LiveTerminalStatus.COMPLETED
         if completed and (self.failure_kind is not None or self.failure_detail is not None):
             self._invalid("完成单元不得包含 failure")
+        if completed and self.failure_diagnostic is not None:
+            self._invalid("完成单元不得包含 Provider failure diagnostic")
         if not completed and self.failure_kind is None:
             self._invalid("非完成单元必须声明 failure_kind")
         if completed and not self.artifacts:

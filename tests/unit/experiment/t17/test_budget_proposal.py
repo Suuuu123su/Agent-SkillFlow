@@ -1,8 +1,12 @@
 from decimal import Decimal
 from pathlib import Path
 
+import pytest
+from pydantic import ValidationError
+
 from skillflow.experiment.t16.provider import TokenUsage
 from skillflow.experiment.t17.budget_proposal import (
+    T17BudgetProposal,
     build_followup_budget_proposal,
     build_initial_budget_proposal,
 )
@@ -38,6 +42,23 @@ def test_initial_luna_budget_proposal_is_zero_call_and_conservatively_bounded() 
     assert proposal.conservative_projected_usd > proposal.projected_actual_usd
     assert proposal.requested_max_total_usd == Decimal("0.25")
     assert proposal.projection_kind == "engineering_upper_bound_not_statistical_p95"
+
+
+def test_retry_budget_proposal_cannot_exceed_campaign_total() -> None:
+    matrix = load_live_matrix(Path("experiments/t17/matrix_canary.yaml"))
+    proposal = build_initial_budget_proposal(
+        Path("runs/t16d2-v31-canary-live-20260830-01/attempt-01/run-summary.json"),
+        matrix,
+    )
+    values = proposal.model_dump()
+    values.update(
+        campaign_max_total_usd=Decimal("0.25"),
+        prior_attempt_conservative_reserved_usd=Decimal("0.0009499"),
+        requested_max_total_usd=Decimal("0.2490502"),
+    )
+
+    with pytest.raises(ValidationError, match="Campaign"):
+        T17BudgetProposal.model_validate(values)
 
 
 def test_followup_budget_proposal_uses_observed_unit_p95_and_target_prices(

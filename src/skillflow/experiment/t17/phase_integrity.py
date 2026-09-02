@@ -117,6 +117,7 @@ def _require_terminal_match(
         and event.terminal_status is record.terminal_status
         and event.failure_kind is record.failure_kind
         and event.failure_detail == record.failure_detail
+        and event.failure_diagnostic == record.failure_diagnostic
         and event.api_call_count == telemetry.api_call_count
         and event.response_count == telemetry.response_count
         and event.agent_step_count == telemetry.agent_step_count

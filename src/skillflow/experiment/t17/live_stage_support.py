@@ -11,6 +11,7 @@ from skillflow.experiment.t17.live_attempt_models import (
     T17LiveFailureKind,
     T17LivePreflightManifest,
     T17LiveTerminalStatus,
+    T17ProviderFailureDiagnostic,
 )
 from skillflow.experiment.t17.live_journal_models import (
     T17LiveJournalError,
@@ -47,6 +48,7 @@ class T17FailureClassification:
     kind: T17LiveFailureKind
     status: T17LiveTerminalStatus
     detail: str
+    diagnostic: T17ProviderFailureDiagnostic | None = None
 
 
 class T17LiveStageBindingError(RuntimeError):
@@ -83,6 +85,7 @@ def classify_live_failure(error: Exception) -> T17FailureClassification:
     kind = T17LiveFailureKind.INFRASTRUCTURE
     status = T17LiveTerminalStatus.INCOMPLETE
     detail = error.__class__.__name__
+    diagnostic = None
     if isinstance(error, BudgetExceededError):
         kind = T17LiveFailureKind.BUDGET
         detail = str(error)
@@ -109,6 +112,12 @@ def classify_live_failure(error: Exception) -> T17FailureClassification:
             else T17LiveFailureKind.INFRASTRUCTURE
         )
         detail = str(error)
+        diagnostic = T17ProviderFailureDiagnostic(
+            status_code=error.status_code,
+            provider_type=error.provider_type,
+            provider_code=error.provider_code,
+            provider_param=error.provider_param,
+        )
     elif isinstance(
         error,
         (
@@ -130,7 +139,7 @@ def classify_live_failure(error: Exception) -> T17FailureClassification:
         ),
     ):
         detail = error.__class__.__name__
-    return T17FailureClassification(kind, status, detail)
+    return T17FailureClassification(kind, status, detail, diagnostic)
 
 
 def end_run_or_zero(client: OpenAIReferenceModelClient) -> ReferenceLiveTelemetry:

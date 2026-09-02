@@ -105,7 +105,6 @@ def reference_decision_v4_schema() -> JsonObject:
                 "selected_action_ids": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "uniqueItems": True,
                 },
                 "output_text": {"type": "string"},
             },

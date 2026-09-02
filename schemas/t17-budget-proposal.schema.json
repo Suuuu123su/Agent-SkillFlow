@@ -28,6 +28,23 @@
       "title": "Authorization Status",
       "type": "string"
     },
+    "campaign_max_total_usd": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Campaign Max Total Usd"
+    },
     "conservative_projected_usd": {
       "anyOf": [
         {
@@ -109,6 +126,20 @@
       "minLength": 1,
       "title": "Model Revision",
       "type": "string"
+    },
+    "prior_attempt_conservative_reserved_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0",
+      "title": "Prior Attempt Conservative Reserved Usd"
     },
     "projected_actual_usd": {
       "anyOf": [

@@ -10,14 +10,17 @@ from skillflow.experiment.t16.budget import (
 from skillflow.experiment.t16.live_agent_calls import ActualResponseUsage
 from skillflow.experiment.t16.provider import TokenUsage
 from skillflow.experiment.t17.live_attempt_models import (
+    T17LiveFailureKind,
     T17LiveTerminalStatus,
     T17LiveUnitKind,
+    T17ProviderFailureDiagnostic,
 )
 from skillflow.experiment.t17.live_journal import (
     T17LiveUsageJournal,
     load_live_journal,
 )
 from skillflow.experiment.t17.live_journal_models import (
+    T17JournalTerminal,
     T17LiveJournalBinding,
     T17LiveJournalError,
     T17LiveJournalErrorCode,
@@ -103,7 +106,7 @@ def test_live_usage_journal_hash_chain_and_secret_exclusion(
             estimated_cost_usd=Decimal("0.001"),
             conservative_reserved_usd=Decimal("0.01"),
         ),
-        T17LiveTerminalStatus.COMPLETED,
+        T17JournalTerminal(T17LiveTerminalStatus.COMPLETED),
     )
 
     # Then: sequence and forward hashes verify, with no secret/prompt field.
@@ -165,3 +168,45 @@ def test_live_journal_errors_allow_runtime_traceback_binding() -> None:
     error.__traceback__ = None
 
     assert error.__traceback__ is None
+
+
+def test_live_journal_persists_safe_provider_diagnostics(tmp_path: Path) -> None:
+    path = tmp_path / "provider-error-journal.jsonl"
+    journal = T17LiveUsageJournal(path, _binding())
+    journal.open_new()
+    tracker = journal.start_unit("unit-1", "trial-1", T17LiveUnitKind.CORE)
+    tracker.record_attempt(_budget())
+    diagnostic = T17ProviderFailureDiagnostic(
+        status_code=400,
+        provider_type="invalid_request_error",
+        provider_code="invalid_json_schema",
+        provider_param="text.format.schema",
+    )
+
+    tracker.finalize(
+        ReferenceLiveTelemetry(
+            api_call_count=1,
+            response_count=0,
+            agent_step_count=1,
+            retry_count=0,
+            refusal_count=0,
+            no_call_count=0,
+            token_usage=TokenUsage(
+                input_tokens=0,
+                cached_input_tokens=0,
+                output_tokens=0,
+                reasoning_tokens=0,
+            ),
+            latency_ms=0,
+            estimated_cost_usd=Decimal(0),
+            conservative_reserved_usd=Decimal("0.01"),
+        ),
+        T17JournalTerminal(
+            T17LiveTerminalStatus.INCOMPLETE,
+            T17LiveFailureKind.PROVIDER_4XX,
+            "provider_error:status=400",
+            diagnostic,
+        ),
+    )
+
+    assert load_live_journal(path)[-1].failure_diagnostic == diagnostic
