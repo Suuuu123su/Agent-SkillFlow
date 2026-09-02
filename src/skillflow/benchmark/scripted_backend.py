@@ -1,8 +1,8 @@
 """只解释白名单动作的 Scripted Backend。"""
 
 from collections.abc import Mapping
-from dataclasses import dataclass
-from typing import assert_never
+from dataclasses import dataclass, field
+from typing import Protocol, assert_never
 
 from skillflow.instrumentation.errors import FixtureNotFoundError, HarnessStateError
 from skillflow.instrumentation.tool_proxy import (
@@ -89,6 +89,7 @@ class ScriptedInputArtifact:
     artifact_id: str
     content_hash: str
     content_length: int
+    content: bytes = field(default=b"", repr=False)
 
 
 @dataclass(frozen=True, slots=True)
@@ -99,6 +100,14 @@ class ScriptedInvocation:
     actor: ActorCall
     tool: InstrumentedTool
     inputs: tuple[ScriptedInputArtifact, ...] = ()
+
+
+class InvocationBackend(Protocol):
+    """Harness 可替换的 Skill 决策后端。"""
+
+    def invoke(self, invocation: ScriptedInvocation) -> ScriptedInvocationResult:
+        """返回一次 Skill 调用的受信 Tool 结果与输出。"""
+        ...
 
 
 class ScriptedBackend:

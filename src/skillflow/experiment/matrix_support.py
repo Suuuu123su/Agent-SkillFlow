@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Protocol
 
 from skillflow.analysis.facts import RunReportMetadata
 from skillflow.benchmark.runner import ScenarioRunResult
@@ -20,6 +21,14 @@ class ExecutedVariant:
     scenario_path: Path
     scenario: Scenario
     result: ScenarioRunResult
+
+
+class MatrixRunObserver(Protocol):
+    """Matrix 核心 Run 完成后的只写派生证据边界。"""
+
+    def __call__(self, item: ExecutedVariant) -> None:
+        """消费一个完整 Run，不改变执行结果。"""
+        ...
 
 
 def build_run_metadata(

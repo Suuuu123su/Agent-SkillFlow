@@ -9,6 +9,7 @@ from skillflow.benchmark.harness_factory import HarnessFactorySetup, create_scen
 from skillflow.benchmark.manifests import ManifestBinding
 from skillflow.benchmark.replay_models import ReplayBranchResult, ReplaySourceState
 from skillflow.benchmark.run_workspace import stage_assets
+from skillflow.benchmark.runner import ScenarioHarnessFactory
 from skillflow.benchmark.scenario_execution import ScenarioExecutor, ScenarioExecutorSetup
 from skillflow.benchmark.scripted_backend import FixtureScript
 from skillflow.instrumentation.artifact_intervention import ArtifactInterventionMode
@@ -27,6 +28,7 @@ class ReplayRuntimeConfig:
     decisions: Mapping[str, Decision]
     manifests: tuple[ManifestBinding, ...]
     seed: str
+    harness_factory: ScenarioHarnessFactory | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -70,7 +72,8 @@ def capture_replay_source(setup: ReplaySourceSetup) -> ReplaySourceState:
         SqliteEventStore(database) as store,
         RunBlobStore(setup.run_root, setup.run_id) as blobs,
     ):
-        harness = create_scenario_harness(
+        factory = setup.runtime.harness_factory or create_scenario_harness
+        harness = factory(
             _harness_setup(
                 ReplayBranchResources(setup.runtime, setup.run_id, workspace, store, blobs)
             )
@@ -91,7 +94,8 @@ def run_replay_branch(setup: ReplayBranchSetup) -> ReplayBranchResult:
         SqliteEventStore(database) as store,
         RunBlobStore(setup.run_root, setup.run_id) as blobs,
     ):
-        harness = create_scenario_harness(
+        factory = setup.runtime.harness_factory or create_scenario_harness
+        harness = factory(
             _harness_setup(
                 ReplayBranchResources(setup.runtime, setup.run_id, workspace, store, blobs)
             )

@@ -6,7 +6,11 @@ from pathlib import Path
 
 from skillflow.adapters.mock_harness import MockHarnessAdapter, MockHarnessConfig
 from skillflow.benchmark.manifests import ManifestBinding
-from skillflow.benchmark.scripted_backend import FixtureScript, ScriptedBackend
+from skillflow.benchmark.scripted_backend import (
+    FixtureScript,
+    InvocationBackend,
+    ScriptedBackend,
+)
 from skillflow.models.enums import Decision
 from skillflow.models.scenario import Scenario
 from skillflow.policy.runtime import RuntimePolicySetup, StoredPolicyDecisionProvider
@@ -33,6 +37,15 @@ class HarnessFactorySetup:
 
 def create_scenario_harness(setup: HarnessFactorySetup) -> MockHarnessAdapter:
     """为一个全新 Run 创建隔离 Harness 与正式策略适配器。"""
+    return create_harness_with_backend(setup, ScriptedBackend(setup.scripts))
+
+
+def create_harness_with_backend(
+    setup: HarnessFactorySetup,
+    backend: InvocationBackend,
+    adapter_type: type[MockHarnessAdapter] = MockHarnessAdapter,
+) -> MockHarnessAdapter:
+    """用指定决策后端装配同一套 Runtime、Policy 与 Safe Sink。"""
     scenario = setup.scenario
     dependencies = RuntimeDependencies(
         event_store=setup.event_store,
@@ -52,7 +65,7 @@ def create_scenario_harness(setup: HarnessFactorySetup) -> MockHarnessAdapter:
             implicit_text_authorization=scenario.harness.implicit_text_authorization,
         ),
     )
-    return MockHarnessAdapter(
+    return adapter_type(
         MockHarnessConfig(
             run_id=setup.run_id,
             task_id=scenario.task.id,
@@ -60,6 +73,6 @@ def create_scenario_harness(setup: HarnessFactorySetup) -> MockHarnessAdapter:
             dependencies=dependencies,
             initial_grants=scenario.grants,
         ),
-        ScriptedBackend(setup.scripts),
+        backend,
         policy,
     )

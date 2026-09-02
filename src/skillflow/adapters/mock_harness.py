@@ -26,7 +26,7 @@ from skillflow.adapters.mock_session import (
     create_mock_session,
 )
 from skillflow.benchmark.scripted_backend import (
-    ScriptedBackend,
+    InvocationBackend,
     ScriptedInputArtifact,
     ScriptedInvocation,
 )
@@ -73,7 +73,7 @@ class MockHarnessAdapter(MockBenchmarkStateMixin):
     def __init__(
         self,
         config: MockHarnessConfig,
-        backend: ScriptedBackend,
+        backend: InvocationBackend,
         decisions: DecisionProvider,
     ) -> None:
         """建立一个全新的 Run 级隔离状态。"""
@@ -146,6 +146,7 @@ class MockHarnessAdapter(MockBenchmarkStateMixin):
                 artifact_id=artifact_id,
                 content_hash=artifact.content_hash,
                 content_length=artifact.content_length,
+                content=runtime.recorder.read_content(artifact_id),
             )
             for artifact_id in invocation.input_artifact_ids
             for artifact in (runtime.recorder.require_artifact(artifact_id),)

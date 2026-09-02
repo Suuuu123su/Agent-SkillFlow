@@ -9,6 +9,7 @@ from typing import TYPE_CHECKING
 from skillflow.analysis.report_io import write_experiment_risk_report
 from skillflow.benchmark.replay import ReplayRunner
 from skillflow.benchmark.runner import (
+    ScenarioHarnessFactory,
     ScenarioRunner,
     ScenarioRunRequest,
 )
@@ -31,7 +32,11 @@ from skillflow.experiment.io import write_json_model, write_summary_csv
 from skillflow.experiment.layout import ExperimentLayout
 from skillflow.experiment.matrix_determinism import check_determinism
 from skillflow.experiment.matrix_replays import run_matrix_replays
-from skillflow.experiment.matrix_support import ExecutedVariant, build_run_metadata
+from skillflow.experiment.matrix_support import (
+    ExecutedVariant,
+    MatrixRunObserver,
+    build_run_metadata,
+)
 from skillflow.experiment.run_artifacts import (
     RunArtifactRequest,
     require_mock_only,
@@ -63,6 +68,8 @@ class MatrixExecutionRequest:
     redacted: bool
     kind: ExperimentKind = ExperimentKind.MATRIX
     source: str | None = None
+    harness_factory: ScenarioHarnessFactory | None = None
+    run_observer: MatrixRunObserver | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -90,14 +97,16 @@ def execute_matrix(request: MatrixExecutionRequest) -> MatrixExecutionOutcome:
     experiment_id = safe_output_id(root)
     layout = ExperimentLayout.create(root)
     scripts, decisions = t12_fixture_registry()
-    runner = ScenarioRunner(scripts, decisions)
-    replay_runner = ReplayRunner(scripts, decisions)
+    runner = ScenarioRunner(scripts, decisions, request.harness_factory)
+    replay_runner = ReplayRunner(scripts, decisions, request.harness_factory)
     executed: list[ExecutedVariant] = []
     run_reports: list[RunRiskReport] = []
     replay_reports: list[ReplayRiskReport] = []
     checks: list[DeterminismCheck] = []
     for variant in request.matrix.variants:
         item = _run_variant(layout, experiment_id, variant, request.redacted, runner)
+        if request.run_observer is not None:
+            request.run_observer(item)
         executed.append(item)
         run_reports.append(item.result.risk_report)
         checks.append(check_determinism(item, layout, experiment_id, repeats, runner))

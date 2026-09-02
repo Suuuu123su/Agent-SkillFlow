@@ -3,7 +3,9 @@
 from collections.abc import Mapping
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Protocol
 
+from skillflow.adapters.mock_harness import MockHarnessAdapter
 from skillflow.analysis.facts import RunReportMetadata
 from skillflow.analysis.run_reporting import RunTraceAnalysisInput, write_analyzed_run_report
 from skillflow.benchmark.harness_factory import HarnessFactorySetup, create_scenario_harness
@@ -77,6 +79,14 @@ class ScenarioRunRequest:
     report_metadata: RunReportMetadata = field(default_factory=RunReportMetadata)
 
 
+class ScenarioHarnessFactory(Protocol):
+    """ScenarioRunner 可替换的 Harness 装配边界。"""
+
+    def __call__(self, setup: HarnessFactorySetup) -> MockHarnessAdapter:
+        """为一个 Run 返回隔离 Harness。"""
+        ...
+
+
 class ScenarioRunner:
     """把已校验 Scenario 驱动到 Mock Harness。"""
 
@@ -84,10 +94,12 @@ class ScenarioRunner:
         self,
         scripts: Mapping[str, FixtureScript],
         decisions: Mapping[str, Decision],
+        harness_factory: ScenarioHarnessFactory | None = None,
     ) -> None:
         """复制白名单脚本和 Stub 决策，隔离调用方后续修改。"""
         self._scripts = dict(scripts)
         self._decisions = dict(decisions)
+        self._harness_factory = harness_factory or create_scenario_harness
 
     def run(self, scenario_path: Path, run_root: Path, seed: str) -> ScenarioRunResult:
         """从 YAML 启动一个独立、确定性的安全 Mock Run。"""
@@ -140,7 +152,7 @@ class ScenarioRunner:
             SqliteEventStore(database) as store,
             RunBlobStore(layout.experiment_root, run_id) as blobs,
         ):
-            harness = create_scenario_harness(
+            harness = self._harness_factory(
                 HarnessFactorySetup(
                     scenario=scenario,
                     run_id=run_id,
