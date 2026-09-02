@@ -154,3 +154,28 @@ def test_reference_model_decision_rejects_forged_evidence_fields() -> None:
     # When/Then: Pydantic extra=forbid blocks the forged fields.
     with pytest.raises(ValidationError):
         ReferenceModelDecision.model_validate(payload)
+
+
+def test_reference_model_no_call_marks_every_unselected_action_as_skipped() -> None:
+    tool = RecordingTool()
+    backend = ReferenceModelBackend(
+        {"fixture://consumer": _script()},
+        FakeReferenceModelClient(
+            {
+                "fixture://consumer": ReferenceModelDecision(
+                    selected_action_ids=(),
+                    output_text="model-output",
+                )
+            }
+        ),
+    )
+    result = backend.invoke(
+        ScriptedInvocation(
+            implementation=FixtureImplementationRef("fixture://consumer"),
+            actor=ActorCall("consumer", "call-1"),
+            tool=tool,
+        )
+    )
+
+    assert result.skipped_action_ids == ("send", "unused-send")
+    assert tool.requests == []

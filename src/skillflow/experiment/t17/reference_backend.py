@@ -1,7 +1,7 @@
 """让模型只选择预注册动作的 Reference Harness 后端。"""
 
 from collections.abc import Mapping
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from typing import Final, Protocol
 
 from skillflow.benchmark.scripted_backend import (
@@ -143,4 +143,10 @@ class ReferenceModelBackend:
             actions=tuple(selected),
             output_mime_type=decision.output_mime_type,
         )
-        return ScriptedBackend({root: filtered}).invoke(invocation)
+        result = ScriptedBackend({root: filtered}).invoke(invocation)
+        selected_ids = set(decision.selected_action_ids)
+        unselected_ids = tuple(action_id for action_id in allowed if action_id not in selected_ids)
+        return replace(
+            result,
+            skipped_action_ids=(*result.skipped_action_ids, *unselected_ids),
+        )

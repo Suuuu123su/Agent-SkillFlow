@@ -134,6 +134,8 @@ class ScenarioRunner:
                 scenario=scenario,
                 run_id=run_id,
                 scripts=self._scripts,
+                require_expected_effect_receipts=request.report_metadata.backend
+                != "reference_harness",
             )
         )
         layout = request.layout

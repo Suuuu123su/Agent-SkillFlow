@@ -11,6 +11,8 @@ def validate_expected_origins(
     scenario: Scenario,
     state: OracleDataState,
     effects: tuple[OracleEffectTrace, ...],
+    *,
+    require_effect_receipts: bool = True,
 ) -> None:
     """要求机械传播结果覆盖 Scenario 预注册的来源断言。"""
     artifacts_by_alias = {alias: record for record in state.records for alias in record.aliases}
@@ -32,6 +34,8 @@ def validate_expected_origins(
                 effect for effect in effects if _effect_matches_selector(effect, selector)
             )
             if not matching:
+                if not require_effect_receipts:
+                    continue
                 raise OracleInvariantError(
                     "expected_origins",
                     f"Effect selector 没有实际 Receipt：{alias}",

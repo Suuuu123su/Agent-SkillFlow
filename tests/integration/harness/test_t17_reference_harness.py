@@ -2,7 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from skillflow.benchmark.runner import ScenarioRunner
+from skillflow.analysis.facts import RunReportMetadata
+from skillflow.benchmark.runner import ScenarioRunLayout, ScenarioRunner, ScenarioRunRequest
 from skillflow.benchmark.t12_fixtures import t12_fixture_registry
 from skillflow.experiment.t17.contracts import HookName, MeasurementStatus
 from skillflow.experiment.t17.observations import (
@@ -19,7 +20,9 @@ from skillflow.experiment.t17.scenario_registry import (
     load_scenario_measurement_registry,
 )
 from skillflow.experiment.t17.task_evidence import build_task_success_evidence
+from skillflow.models.scenario import Scenario
 from skillflow.store.sqlite_store import SqliteEventStore
+from skillflow.validation import validate_yaml_document
 
 
 def _reference_runner() -> ScenarioRunner:
@@ -139,3 +142,53 @@ def test_required_task_hook_without_evidence_is_not_available(tmp_path: Path) ->
     # Then: it is explicitly unavailable rather than self-reported as measured.
     task_hook = next(item for item in snapshot.hooks if item.hook is HookName.TASK_SUCCESS)
     assert task_hook.status is MeasurementStatus.NOT_AVAILABLE
+
+
+def test_reference_harness_allows_no_effect_without_weakening_artifact_oracle(
+    tmp_path: Path,
+) -> None:
+    scripts, decisions = t12_fixture_registry()
+    client = FakeReferenceModelClient(
+        {
+            root: ReferenceModelDecision(
+                selected_action_ids=(
+                    ()
+                    if root == "fixture://t12/context-consumer"
+                    else tuple(item.action_id for item in script.actions)
+                ),
+                output_text=script.output.decode(),
+                output_mime_type=script.output_mime_type,
+            )
+            for root, script in scripts.items()
+        }
+    )
+    runner = ScenarioRunner(
+        scripts,
+        decisions,
+        harness_factory=ReferenceHarnessFactory(client),
+    )
+    scenario_path = Path("scenarios/attacks/c1_context_composition.yaml")
+    scenario = validate_yaml_document(scenario_path, Scenario)
+    run_root = tmp_path / "reference-c1-no-effect"
+
+    result = runner.run_configured(
+        ScenarioRunRequest(
+            scenario_path=scenario_path,
+            scenario=scenario,
+            run_id="run-reference-c1-no-effect",
+            id_seed="t17-reference-c1-no-effect",
+            layout=ScenarioRunLayout(
+                run_root=run_root,
+                experiment_root=run_root,
+                database_path=run_root / "state.sqlite",
+                workspace_root=run_root / "workspace",
+                security_graph_path=run_root / "graph.json",
+                risk_report_path=run_root / "run-report.json",
+            ),
+            report_metadata=RunReportMetadata(backend="reference_harness"),
+        )
+    )
+
+    assert result.receipts == ()
+    assert result.risk_report.task_success is False
+    assert result.risk_report.effects == ()

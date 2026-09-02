@@ -24,9 +24,14 @@ from skillflow.trace.contracts import ParentRelation, TraceParent
 class OracleSidecar:
     """运行决策只写 Observed；该 sidecar 单向接收最小事实投影。"""
 
-    def __init__(self, plan: OracleRunPlan) -> None:
+    def __init__(
+        self,
+        plan: OracleRunPlan,
+        require_expected_effect_receipts: bool = True,
+    ) -> None:
         """在运行前冻结 Scenario、Manifest 和 Scripted 动作。"""
         self._plan = plan
+        self._require_expected_effect_receipts = require_expected_effect_receipts
         self._state = OracleDataState(plan.run_id, plan.scenario.assets)
         self._resolver = OracleGrantResolver(plan.scenario.grants)
         self._grant_ids = {grant.grant_id for grant in plan.scenario.grants}
@@ -80,6 +85,7 @@ class OracleSidecar:
             self._plan.scenario,
             self._state,
             tuple(self._effects),
+            require_effect_receipts=self._require_expected_effect_receipts,
         )
         return (*self._state.records, *self._effects)
 

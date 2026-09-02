@@ -67,6 +67,7 @@ from skillflow.experiment.t17.task_evidence import (
 )
 from skillflow.models.matrix import ExperimentMatrix
 from skillflow.models.references import ArtifactAliasRef
+from skillflow.oracle.errors import OracleInvariantError
 from skillflow.validation import DocumentValidationError, validate_yaml_document
 
 
@@ -200,6 +201,7 @@ def _execute_core(
         ReferenceDecisionError,
         ReferenceProviderError,
         ObservationBindingError,
+        OracleInvariantError,
         TaskEvidenceBuildError,
         T17LiveUnitExecutionError,
         DocumentValidationError,
@@ -263,6 +265,7 @@ def _execute_replay(
         ReferenceDecisionError,
         ReferenceProviderError,
         ObservationBindingError,
+        OracleInvariantError,
         TaskEvidenceBuildError,
         T17LiveUnitExecutionError,
         DocumentValidationError,

@@ -28,6 +28,7 @@ from skillflow.experiment.t17.live_unit_execution import T17LiveUnitExecutionErr
 from skillflow.experiment.t17.observation_models import ObservationBindingError
 from skillflow.experiment.t17.reference_backend import ReferenceDecisionError
 from skillflow.experiment.t17.task_evidence import TaskEvidenceBuildError
+from skillflow.oracle.errors import OracleInvariantError
 
 
 def test_live_custom_errors_preserve_exception_runtime_state() -> None:
@@ -44,6 +45,7 @@ def test_live_custom_errors_preserve_exception_runtime_state() -> None:
         ReferenceDecisionError("fixture", "action", "invalid"),
         TaskEvidenceBuildError("run-1"),
         ObservationBindingError("decision-1", "missing"),
+        OracleInvariantError("expected_origins", "missing effect"),
     )
 
     for error in errors:
@@ -60,3 +62,11 @@ def test_incomplete_response_is_infrastructure_not_model_schema() -> None:
     assert classified.kind is T17LiveFailureKind.INFRASTRUCTURE
     assert classified.status is T17LiveTerminalStatus.INCOMPLETE
     assert classified.detail == "response_incomplete:max_output_tokens"
+
+
+def test_oracle_invariant_is_a_terminal_evidence_binding_failure() -> None:
+    classified = classify_live_failure(OracleInvariantError("expected_origins", "missing effect"))
+
+    assert classified.kind is T17LiveFailureKind.EVIDENCE_BINDING
+    assert classified.status is T17LiveTerminalStatus.FAILED
+    assert "expected_origins" in classified.detail
