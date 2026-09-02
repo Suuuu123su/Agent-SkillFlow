@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "t17-experiment-audit-incomplete-v1",
+  "generated_at": "2026-09-02T22:46:50.2135515+08:00",
+  "verdict": "WARN_INCOMPLETE",
+  "complete": false,
+  "reviewer_independence": "REVIEW_UNAVAILABLE",
+  "checks": [
+    {
+      "check": "raw_attempt_preservation",
+      "status": "PASS",
+      "evidence": "runs/t17-live-20260902-01..05 retained"
+    },
+    {
+      "check": "attempt_pooling",
+      "status": "PASS",
+      "evidence": "attempts reported separately"
+    },
+    {
+      "check": "scripted_golden_independence",
+      "status": "PASS",
+      "evidence": "independent Golden specification, not implementation-derived"
+    },
+    {
+      "check": "phantom_results",
+      "status": "PASS",
+      "evidence": "T17-F/G/H explicitly not_available"
+    },
+    {
+      "check": "score_normalization",
+      "status": "PASS",
+      "evidence": "raw numerators and denominators retained"
+    },
+    {
+      "check": "live_scope",
+      "status": "WARN",
+      "evidence": "T17-E scheduled denominator incomplete"
+    },
+    {
+      "check": "final_full_test",
+      "status": "WARN",
+      "evidence": "not rerun after final Live fixes per user instruction"
+    },
+    {
+      "check": "independent_final_reviewer",
+      "status": "REVIEW_UNAVAILABLE",
+      "evidence": "reviewer-model independence cannot be proven"
+    }
+  ],
+  "prohibited_claims": [
+    "T17 complete",
+    "Model1 formal result",
+    "Model2 result",
+    "cross-model agreement",
+    "Defense security gain"
+  ],
+  "obligations": [
+    "Report T17-E as incomplete",
+    "Keep F/G/H not_available",
+    "Do not pool Scripted and Live attempts",
+    "Describe costs as estimates, not billing"
+  ],
+  "source_sha256": {
+    "docs/evidence/t17-final-metrics.json": "185e371ea476f760456114bfe5dfebf4442379fab8d224a37cc276d6895afedf",
+    "docs/evidence/t17-final-summary.csv": "be6ab33371644c1c07b1642e91a00e839834eeb0183ff90329129973830cd474",
+    "docs/evidence/t17-e-canary-partial-audit.json": "2dc31aa358128dac75eaa5366b5a86b41b66ae35445e8953beddced89069bcdb",
+    "docs/evidence/t17-scripted-golden-summary-v2.json": "7be0cad325fb80daab6b528ebf23336b8a8bedabde95125a13a07fe7cc7b0927"
+  }
+}
