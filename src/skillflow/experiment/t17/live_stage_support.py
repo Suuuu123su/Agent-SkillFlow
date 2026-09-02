@@ -36,6 +36,7 @@ from skillflow.experiment.t17.live_unit_execution import T17LiveUnitExecutionErr
 from skillflow.experiment.t17.observation_models import ObservationBindingError
 from skillflow.experiment.t17.reference_backend import ReferenceDecisionError
 from skillflow.experiment.t17.task_evidence import TaskEvidenceBuildError
+from skillflow.instrumentation.errors import UnsupportedStepError
 from skillflow.oracle.errors import OracleInvariantError
 from skillflow.validation import DocumentValidationError
 
@@ -127,6 +128,7 @@ def classify_live_failure(error: Exception) -> T17FailureClassification:
         error,
         (
             ObservationBindingError,
+            UnsupportedStepError,
             OracleInvariantError,
             TaskEvidenceBuildError,
             T17LiveUnitExecutionError,

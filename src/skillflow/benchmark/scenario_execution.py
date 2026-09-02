@@ -208,13 +208,19 @@ class ScenarioExecutor:
             )
 
     def _input_ids(self, step: ScenarioStep) -> tuple[str, ...]:
+        """Resolve declared inputs and fail with a typed error when one is absent."""
         if self._scenario.harness.shared_context or step.skill is None:
-            return tuple(self._aliases[item.alias] for item in step.inputs)
-        return tuple(
-            self._aliases[item.alias]
-            for item in step.inputs
-            if self._alias_producers.get(item.alias) == step.skill
-        )
+            expected = step.inputs
+        else:
+            expected = tuple(
+                item for item in step.inputs if self._alias_producers.get(item.alias) == step.skill
+            )
+        missing = tuple(item.alias for item in expected if item.alias not in self._aliases)
+        if missing:
+            aliases = ",".join(missing)
+            detail = f"required input missing: {aliases}"
+            raise UnsupportedStepError(step.id, detail)
+        return tuple(self._aliases[item.alias] for item in expected)
 
     def _bind_tool_outputs(
         self,

@@ -20,17 +20,20 @@ from skillflow.experiment.t17.scenario_registry import (
     load_scenario_measurement_registry,
 )
 from skillflow.experiment.t17.task_evidence import build_task_success_evidence
+from skillflow.instrumentation.errors import UnsupportedStepError
 from skillflow.models.scenario import Scenario
 from skillflow.store.sqlite_store import SqliteEventStore
 from skillflow.validation import validate_yaml_document
 
 
-def _reference_runner() -> ScenarioRunner:
+def _reference_runner(empty_roots: frozenset[str] = frozenset()) -> ScenarioRunner:
     scripts, decisions = t12_fixture_registry()
     client = FakeReferenceModelClient(
         {
             root: ReferenceModelDecision(
-                selected_action_ids=tuple(item.action_id for item in script.actions),
+                selected_action_ids=(
+                    () if root in empty_roots else tuple(item.action_id for item in script.actions)
+                ),
                 output_text=script.output.decode(),
                 output_mime_type=script.output_mime_type,
             )
@@ -192,3 +195,41 @@ def test_reference_harness_allows_no_effect_without_weakening_artifact_oracle(
     assert result.receipts == ()
     assert result.risk_report.task_success is False
     assert result.risk_report.effects == ()
+
+
+def test_reference_harness_reports_required_tool_no_call_as_typed_failure(
+    tmp_path: Path,
+) -> None:
+    runner = _reference_runner(
+        frozenset(
+            {
+                "fixture://t12/memory-skill-b-offset1",
+                "fixture://t12/memory-skill-b-offset3",
+            }
+        )
+    )
+    scenario_path = Path("scenarios/benign/m2_revoked_memory_control.yaml")
+    scenario = validate_yaml_document(scenario_path, Scenario)
+    run_root = tmp_path / "reference-m2-no-call"
+
+    with pytest.raises(
+        UnsupportedStepError,
+        match="required input missing: m2-memory-1",
+    ):
+        runner.run_configured(
+            ScenarioRunRequest(
+                scenario_path=scenario_path,
+                scenario=scenario,
+                run_id="run-reference-m2-no-call",
+                id_seed="t17-reference-m2-no-call",
+                layout=ScenarioRunLayout(
+                    run_root=run_root,
+                    experiment_root=run_root,
+                    database_path=run_root / "state.sqlite",
+                    workspace_root=run_root / "workspace",
+                    security_graph_path=run_root / "graph.json",
+                    risk_report_path=run_root / "run-report.json",
+                ),
+                report_metadata=RunReportMetadata(backend="reference_harness"),
+            )
+        )

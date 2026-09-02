@@ -87,12 +87,19 @@ class SkillLifecycleError(InstrumentationError):
         return f"Skill {self.skill_id} 无法执行 {self.operation}：当前状态 {self.state}"
 
 
-@dataclass(frozen=True, slots=True)
 class UnsupportedStepError(InstrumentationError):
     """T05 无法安全解释某个 Scenario 步骤。"""
 
+    __slots__ = ("action", "step_id")
+
     step_id: str
     action: str
+
+    def __init__(self, step_id: str, action: str) -> None:
+        """Store safe step diagnostics without freezing exception runtime state."""
+        super().__init__(step_id, action)
+        self.step_id = step_id
+        self.action = action
 
     def __str__(self) -> str:
         """渲染稳定中文错误。"""
