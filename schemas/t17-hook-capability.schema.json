@@ -1,0 +1,76 @@
+{
+  "$defs": {
+    "HookName": {
+      "description": "T17 Reference Harness 必须显式声明的证据 Hook。",
+      "enum": [
+        "authorization",
+        "decision_basis",
+        "provenance",
+        "influence",
+        "revocation",
+        "task_success"
+      ],
+      "title": "HookName",
+      "type": "string"
+    },
+    "MeasurementStatus": {
+      "description": "T17 把已测、设计不适用、Hook 缺失和阶段不完整分开。",
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "MeasurementStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "一个场景对单项受信 Hook 的需求与实际可用性。",
+  "properties": {
+    "available": {
+      "title": "Available",
+      "type": "boolean"
+    },
+    "evidence_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "hook": {
+      "$ref": "#/$defs/HookName"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    },
+    "required": {
+      "title": "Required",
+      "type": "boolean"
+    },
+    "status": {
+      "$ref": "#/$defs/MeasurementStatus"
+    }
+  },
+  "required": [
+    "hook",
+    "required",
+    "available",
+    "status"
+  ],
+  "title": "HookCapability",
+  "type": "object"
+}

@@ -1,0 +1,415 @@
+{
+  "$defs": {
+    "ArtifactAliasRef": {
+      "description": "Scenario 内已声明 Artifact output 的引用。",
+      "title": "ArtifactAliasRef",
+      "type": "string"
+    },
+    "BudgetConfig": {
+      "additionalProperties": false,
+      "description": "可生成静态 Schema 的费用保护配置。",
+      "properties": {
+        "allow_live": {
+          "default": false,
+          "title": "Allow Live",
+          "type": "boolean"
+        },
+        "max_agent_turns": {
+          "minimum": 1,
+          "title": "Max Agent Turns",
+          "type": "integer"
+        },
+        "max_cost_per_run_usd": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Max Cost Per Run Usd"
+        },
+        "max_output_tokens_per_turn": {
+          "minimum": 1,
+          "title": "Max Output Tokens Per Turn",
+          "type": "integer"
+        },
+        "max_retries": {
+          "minimum": 0,
+          "title": "Max Retries",
+          "type": "integer"
+        },
+        "max_total_usd": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Max Total Usd"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "max_total_usd",
+        "max_cost_per_run_usd",
+        "max_agent_turns",
+        "max_output_tokens_per_turn",
+        "max_retries"
+      ],
+      "title": "BudgetConfig",
+      "type": "object"
+    },
+    "EnforcementMode": {
+      "description": "策略只观察或实际阻断。",
+      "enum": [
+        "monitor",
+        "enforce"
+      ],
+      "title": "EnforcementMode",
+      "type": "string"
+    },
+    "PricingRates": {
+      "additionalProperties": false,
+      "description": "每百万 token 的美元估算价格。",
+      "properties": {
+        "cache_write_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Cache Write Per Million Usd"
+        },
+        "cached_input_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cached Input Per Million Usd"
+        },
+        "input_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Input Per Million Usd"
+        },
+        "output_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Output Per Million Usd"
+        },
+        "reasoning_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Reasoning Per Million Usd"
+        },
+        "status": {
+          "$ref": "#/$defs/PricingStatus"
+        }
+      },
+      "required": [
+        "status",
+        "input_per_million_usd",
+        "cached_input_per_million_usd",
+        "output_per_million_usd",
+        "reasoning_per_million_usd"
+      ],
+      "title": "PricingRates",
+      "type": "object"
+    },
+    "PricingStatus": {
+      "description": "价格是否已冻结到可执行状态。",
+      "enum": [
+        "fake_zero",
+        "live_pending",
+        "live_pinned"
+      ],
+      "title": "PricingStatus",
+      "type": "string"
+    },
+    "ProviderConfig": {
+      "additionalProperties": false,
+      "description": "Fake/Live 共享的静态 Provider 配置。",
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/ProviderKind"
+        },
+        "model_id": {
+          "minLength": 1,
+          "title": "Model Id",
+          "type": "string"
+        },
+        "model_revision": {
+          "minLength": 1,
+          "title": "Model Revision",
+          "type": "string"
+        },
+        "pricing": {
+          "$ref": "#/$defs/PricingRates"
+        },
+        "reasoning_effort": {
+          "$ref": "#/$defs/ReasoningEffort"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "temperature": {
+          "anyOf": [
+            {
+              "maximum": 2,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Temperature"
+        }
+      },
+      "required": [
+        "kind",
+        "model_id",
+        "model_revision",
+        "temperature",
+        "reasoning_effort",
+        "pricing"
+      ],
+      "title": "ProviderConfig",
+      "type": "object"
+    },
+    "ProviderKind": {
+      "description": "T16 允许的 Provider 类型。",
+      "enum": [
+        "fake",
+        "live"
+      ],
+      "title": "ProviderKind",
+      "type": "string"
+    },
+    "ReasoningEffort": {
+      "description": "与具体厂商解耦的推理强度记录。",
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "ReasoningEffort",
+      "type": "string"
+    },
+    "ScenarioPath": {
+      "description": "Experiment Matrix 中受控的 Scenario 相对路径。",
+      "title": "ScenarioPath",
+      "type": "string"
+    },
+    "T17LiveStage": {
+      "description": "预注册的真实模型执行阶段。",
+      "enum": [
+        "canary",
+        "model1",
+        "model2_canary",
+        "model2",
+        "defense"
+      ],
+      "title": "T17LiveStage",
+      "type": "string"
+    },
+    "T17LiveTrial": {
+      "additionalProperties": false,
+      "description": "一条尚未发送 API 请求的核心 Trial。",
+      "properties": {
+        "enforcement_mode": {
+          "$ref": "#/$defs/EnforcementMode"
+        },
+        "repeat_index": {
+          "minimum": 1,
+          "title": "Repeat Index",
+          "type": "integer"
+        },
+        "replay_target_aliases": {
+          "items": {
+            "$ref": "#/$defs/ArtifactAliasRef"
+          },
+          "title": "Replay Target Aliases",
+          "type": "array"
+        },
+        "scenario": {
+          "$ref": "#/$defs/ScenarioPath"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "semantic_instance_id": {
+          "minLength": 1,
+          "title": "Semantic Instance Id",
+          "type": "string"
+        },
+        "semantic_template_id": {
+          "minLength": 1,
+          "title": "Semantic Template Id",
+          "type": "string"
+        },
+        "source_variant": {
+          "minLength": 1,
+          "title": "Source Variant",
+          "type": "string"
+        },
+        "task_output_contract_id": {
+          "minLength": 1,
+          "title": "Task Output Contract Id",
+          "type": "string"
+        },
+        "task_prompt": {
+          "minLength": 1,
+          "title": "Task Prompt",
+          "type": "string"
+        },
+        "trial_id": {
+          "minLength": 1,
+          "title": "Trial Id",
+          "type": "string"
+        },
+        "variant": {
+          "minLength": 1,
+          "title": "Variant",
+          "type": "string"
+        }
+      },
+      "required": [
+        "trial_id",
+        "variant",
+        "source_variant",
+        "scenario",
+        "scenario_id",
+        "semantic_instance_id",
+        "semantic_template_id",
+        "repeat_index",
+        "enforcement_mode",
+        "task_prompt",
+        "task_output_contract_id",
+        "replay_target_aliases"
+      ],
+      "title": "T17LiveTrial",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "一个模型阶段的完整核心与 Replay 调度身份。",
+  "properties": {
+    "budget": {
+      "$ref": "#/$defs/BudgetConfig"
+    },
+    "id": {
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "preregistration_id": {
+      "minLength": 1,
+      "title": "Preregistration Id",
+      "type": "string"
+    },
+    "provider": {
+      "$ref": "#/$defs/ProviderConfig"
+    },
+    "scheduled_core_trials": {
+      "minimum": 1,
+      "title": "Scheduled Core Trials",
+      "type": "integer"
+    },
+    "scheduled_replay_pairs": {
+      "minimum": 1,
+      "title": "Scheduled Replay Pairs",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "simulation_only_until_authorized": {
+      "const": true,
+      "default": true,
+      "title": "Simulation Only Until Authorized",
+      "type": "boolean"
+    },
+    "stage": {
+      "$ref": "#/$defs/T17LiveStage"
+    },
+    "trials": {
+      "items": {
+        "$ref": "#/$defs/T17LiveTrial"
+      },
+      "minItems": 1,
+      "title": "Trials",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "preregistration_id",
+    "stage",
+    "provider",
+    "budget",
+    "scheduled_core_trials",
+    "scheduled_replay_pairs",
+    "trials"
+  ],
+  "title": "T17LiveMatrix",
+  "type": "object"
+}

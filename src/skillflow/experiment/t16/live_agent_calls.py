@@ -5,8 +5,7 @@ from dataclasses import dataclass
 from decimal import Decimal
 from typing import Literal, Protocol, runtime_checkable
 
-from skillflow.experiment.t16.budget import BudgetLedger, CallReservation
-from skillflow.experiment.t16.live_config import T16CLiveConfig
+from skillflow.experiment.t16.budget import BudgetConfig, BudgetLedger, CallReservation
 from skillflow.experiment.t16.openai_response_models import OpenAIResponsesCall
 from skillflow.experiment.t16.openai_responses import (
     OpenAIResponsesError,
@@ -15,6 +14,7 @@ from skillflow.experiment.t16.openai_responses import (
     OpenAIResponsesTurn,
 )
 from skillflow.experiment.t16.provider import (
+    ProviderConfig,
     ProviderRequest,
     TokenUsage,
     estimate_reservation_cost,
@@ -22,6 +22,27 @@ from skillflow.experiment.t16.provider import (
 )
 
 HTTP_SERVER_ERROR_MIN = 500
+
+
+class LiveCallConfig(Protocol):
+    """单次 Responses 调用真正需要的配置能力。"""
+
+    provider: ProviderConfig
+    budget: BudgetConfig
+
+    def settle_call_budget(
+        self,
+        budget: BudgetLedger,
+        reservation: CallReservation,
+        actual_cost_usd: Decimal,
+    ) -> BudgetLedger:
+        """成功响应后结算本次调用。"""
+        ...
+
+    @property
+    def reuse_observed_input_tokens(self) -> bool:
+        """是否用已观察输入量收紧下一次调用上界。"""
+        ...
 
 
 class LiveAgentClient(Protocol):
@@ -91,7 +112,7 @@ class InputTokenBoundTracker:
 
     __slots__ = ("config", "previous_input_tokens", "previous_payload")
 
-    def __init__(self, config: T16CLiveConfig) -> None:
+    def __init__(self, config: LiveCallConfig) -> None:
         """初始化尚无 Provider 观察值的边界状态。"""
         self.config = config
         self.previous_payload: bytes | None = None
@@ -131,7 +152,7 @@ class CallPersistence:
 class _ResponseAccounting:
     """一次已返回响应的预算结算和持久化上下文。"""
 
-    config: T16CLiveConfig
+    config: LiveCallConfig
     budget: BudgetLedger
     reservation: CallReservation
     persistence: CallPersistence | None
@@ -157,7 +178,7 @@ class CallExecution:
 
 def invoke_with_retry(
     call: OpenAIResponsesCall,
-    config: T16CLiveConfig,
+    config: LiveCallConfig,
     client: LiveAgentClient,
     budget: BudgetLedger,
     persistence: CallPersistence | None = None,

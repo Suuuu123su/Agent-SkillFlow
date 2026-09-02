@@ -1,0 +1,365 @@
+{
+  "$defs": {
+    "EnforcementMode": {
+      "description": "策略只观察或实际阻断。",
+      "enum": [
+        "monitor",
+        "enforce"
+      ],
+      "title": "EnforcementMode",
+      "type": "string"
+    },
+    "ReferenceLiveTelemetry": {
+      "additionalProperties": false,
+      "description": "一条 Reference Trial 的实际调用、Token、延迟和费用。",
+      "properties": {
+        "agent_step_count": {
+          "title": "Agent Step Count",
+          "type": "integer"
+        },
+        "api_call_count": {
+          "title": "Api Call Count",
+          "type": "integer"
+        },
+        "conservative_reserved_usd": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Conservative Reserved Usd"
+        },
+        "estimated_cost_usd": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Estimated Cost Usd"
+        },
+        "latency_ms": {
+          "title": "Latency Ms",
+          "type": "integer"
+        },
+        "no_call_count": {
+          "title": "No Call Count",
+          "type": "integer"
+        },
+        "refusal_count": {
+          "title": "Refusal Count",
+          "type": "integer"
+        },
+        "response_count": {
+          "title": "Response Count",
+          "type": "integer"
+        },
+        "retry_count": {
+          "title": "Retry Count",
+          "type": "integer"
+        },
+        "token_usage": {
+          "$ref": "#/$defs/TokenUsage"
+        }
+      },
+      "required": [
+        "api_call_count",
+        "response_count",
+        "agent_step_count",
+        "retry_count",
+        "refusal_count",
+        "no_call_count",
+        "token_usage",
+        "latency_ms",
+        "estimated_cost_usd",
+        "conservative_reserved_usd"
+      ],
+      "title": "ReferenceLiveTelemetry",
+      "type": "object"
+    },
+    "T17ArtifactDigest": {
+      "additionalProperties": false,
+      "description": "Trial 结果绑定的项目内相对路径与字节哈希。",
+      "properties": {
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "relative_path",
+        "sha256"
+      ],
+      "title": "T17ArtifactDigest",
+      "type": "object"
+    },
+    "T17LiveFailureKind": {
+      "description": "不得混为一个 invalid 桶的封闭失败类型。",
+      "enum": [
+        "schema",
+        "provider_4xx",
+        "infrastructure",
+        "budget",
+        "model_revision",
+        "evidence_binding"
+      ],
+      "title": "T17LiveFailureKind",
+      "type": "string"
+    },
+    "T17LiveStage": {
+      "description": "预注册的真实模型执行阶段。",
+      "enum": [
+        "canary",
+        "model1",
+        "model2_canary",
+        "model2",
+        "defense"
+      ],
+      "title": "T17LiveStage",
+      "type": "string"
+    },
+    "T17LiveTerminalStatus": {
+      "description": "一条调度单元的持久化终态。",
+      "enum": [
+        "completed",
+        "incomplete",
+        "failed"
+      ],
+      "title": "T17LiveTerminalStatus",
+      "type": "string"
+    },
+    "T17LiveUnitKind": {
+      "description": "Live 调度中的核心 Run 或成对 Replay。",
+      "enum": [
+        "core",
+        "replay"
+      ],
+      "title": "T17LiveUnitKind",
+      "type": "string"
+    },
+    "TokenUsage": {
+      "additionalProperties": false,
+      "description": "TrialResult 所需的生成、缓存读写与推理 token 计数。",
+      "properties": {
+        "cache_write_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cache Write Tokens",
+          "type": "integer"
+        },
+        "cached_input_tokens": {
+          "minimum": 0,
+          "title": "Cached Input Tokens",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "reasoning_tokens": {
+          "minimum": 0,
+          "title": "Reasoning Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_tokens",
+        "cached_input_tokens",
+        "output_tokens",
+        "reasoning_tokens"
+      ],
+      "title": "TokenUsage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "一条核心 Run 或 Replay pair 的不可变 Raw 索引。",
+  "properties": {
+    "artifacts": {
+      "items": {
+        "$ref": "#/$defs/T17ArtifactDigest"
+      },
+      "title": "Artifacts",
+      "type": "array"
+    },
+    "enforcement_mode": {
+      "$ref": "#/$defs/EnforcementMode"
+    },
+    "evidence_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "failure_detail": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Failure Detail"
+    },
+    "failure_kind": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/T17LiveFailureKind"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "repeat_index": {
+      "minimum": 1,
+      "title": "Repeat Index",
+      "type": "integer"
+    },
+    "replay_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Replay Ids",
+      "type": "array"
+    },
+    "run_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Run Ids",
+      "type": "array"
+    },
+    "safe_task_success": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Safe Task Success"
+    },
+    "scenario_id": {
+      "minLength": 1,
+      "title": "Scenario Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "semantic_instance_id": {
+      "minLength": 1,
+      "title": "Semantic Instance Id",
+      "type": "string"
+    },
+    "semantic_template_id": {
+      "minLength": 1,
+      "title": "Semantic Template Id",
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "title": "Sequence",
+      "type": "integer"
+    },
+    "source_variant": {
+      "minLength": 1,
+      "title": "Source Variant",
+      "type": "string"
+    },
+    "stage": {
+      "$ref": "#/$defs/T17LiveStage"
+    },
+    "task_success": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Task Success"
+    },
+    "telemetry": {
+      "$ref": "#/$defs/ReferenceLiveTelemetry"
+    },
+    "terminal_status": {
+      "$ref": "#/$defs/T17LiveTerminalStatus"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "title": "Trial Id",
+      "type": "string"
+    },
+    "unit_id": {
+      "minLength": 1,
+      "title": "Unit Id",
+      "type": "string"
+    },
+    "unit_kind": {
+      "$ref": "#/$defs/T17LiveUnitKind"
+    },
+    "variant": {
+      "minLength": 1,
+      "title": "Variant",
+      "type": "string"
+    }
+  },
+  "required": [
+    "sequence",
+    "stage",
+    "unit_id",
+    "trial_id",
+    "unit_kind",
+    "variant",
+    "source_variant",
+    "enforcement_mode",
+    "scenario_id",
+    "semantic_instance_id",
+    "semantic_template_id",
+    "repeat_index",
+    "terminal_status",
+    "telemetry",
+    "run_ids",
+    "replay_ids",
+    "task_success",
+    "safe_task_success",
+    "evidence_ids",
+    "artifacts"
+  ],
+  "title": "T17LiveUnitRecord",
+  "type": "object"
+}

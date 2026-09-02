@@ -1,0 +1,114 @@
+{
+  "$defs": {
+    "BaselineArtifactKind": {
+      "description": "T17-A 冻结证据允许的文件角色。",
+      "enum": [
+        "matrix",
+        "preregistration",
+        "prompt_contract",
+        "raw_jsonl",
+        "summary",
+        "schema",
+        "manifest",
+        "report"
+      ],
+      "title": "BaselineArtifactKind",
+      "type": "string"
+    },
+    "BaselineArtifactRecord": {
+      "additionalProperties": false,
+      "description": "一个旧文件的路径、角色和字节级摘要。",
+      "properties": {
+        "byte_length": {
+          "minimum": 0,
+          "title": "Byte Length",
+          "type": "integer"
+        },
+        "evidence_domain": {
+          "$ref": "#/$defs/EvidenceDomainKind"
+        },
+        "kind": {
+          "$ref": "#/$defs/BaselineArtifactKind"
+        },
+        "path": {
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "kind",
+        "evidence_domain",
+        "sha256",
+        "byte_length"
+      ],
+      "title": "BaselineArtifactRecord",
+      "type": "object"
+    },
+    "EvidenceDomainKind": {
+      "description": "禁止直接 micro 聚合的实验执行域。",
+      "enum": [
+        "contract",
+        "scripted",
+        "fake_provider",
+        "direct_prompt",
+        "reference_harness",
+        "openclaw"
+      ],
+      "title": "EvidenceDomainKind",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "T12-T16 canonical 输入与结果的不可混域索引。",
+  "properties": {
+    "artifact_count": {
+      "minimum": 0,
+      "title": "Artifact Count",
+      "type": "integer"
+    },
+    "artifact_set_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Artifact Set Sha256",
+      "type": "string"
+    },
+    "artifacts": {
+      "items": {
+        "$ref": "#/$defs/BaselineArtifactRecord"
+      },
+      "title": "Artifacts",
+      "type": "array"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_revision": {
+      "minLength": 1,
+      "title": "Source Revision",
+      "type": "string"
+    }
+  },
+  "required": [
+    "created_at",
+    "source_revision",
+    "artifact_count",
+    "artifact_set_sha256",
+    "artifacts"
+  ],
+  "title": "T17BaselineAudit",
+  "type": "object"
+}

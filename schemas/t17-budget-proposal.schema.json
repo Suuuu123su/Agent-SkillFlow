@@ -1,0 +1,216 @@
+{
+  "$defs": {
+    "T17LiveStage": {
+      "description": "预注册的真实模型执行阶段。",
+      "enum": [
+        "canary",
+        "model1",
+        "model2_canary",
+        "model2",
+        "defense"
+      ],
+      "title": "T17LiveStage",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "历史实测外推、工程上界和待批准硬门。",
+  "properties": {
+    "api_calls_made": {
+      "const": 0,
+      "default": 0,
+      "title": "Api Calls Made",
+      "type": "integer"
+    },
+    "authorization_status": {
+      "const": "pending_user_approval",
+      "default": "pending_user_approval",
+      "title": "Authorization Status",
+      "type": "string"
+    },
+    "conservative_projected_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Conservative Projected Usd"
+    },
+    "historical_api_calls": {
+      "minimum": 0,
+      "title": "Historical Api Calls",
+      "type": "integer"
+    },
+    "historical_estimated_cost_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Historical Estimated Cost Usd"
+    },
+    "historical_observed_trials": {
+      "minimum": 0,
+      "title": "Historical Observed Trials",
+      "type": "integer"
+    },
+    "historical_source_kind": {
+      "default": "t16_canary",
+      "enum": [
+        "t16_canary",
+        "t17_live_stage"
+      ],
+      "title": "Historical Source Kind",
+      "type": "string"
+    },
+    "historical_summary_path": {
+      "minLength": 1,
+      "title": "Historical Summary Path",
+      "type": "string"
+    },
+    "historical_summary_sha256": {
+      "minLength": 1,
+      "title": "Historical Summary Sha256",
+      "type": "string"
+    },
+    "historical_unit_cost_p95_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Historical Unit Cost P95 Usd"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "model_revision": {
+      "minLength": 1,
+      "title": "Model Revision",
+      "type": "string"
+    },
+    "projected_actual_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Projected Actual Usd"
+    },
+    "projected_p95_total_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Projected P95 Total Usd"
+    },
+    "projection_kind": {
+      "default": "engineering_upper_bound_not_statistical_p95",
+      "enum": [
+        "engineering_upper_bound_not_statistical_p95",
+        "observed_unit_p95_repriced"
+      ],
+      "title": "Projection Kind",
+      "type": "string"
+    },
+    "requested_max_cost_per_run_usd": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Requested Max Cost Per Run Usd"
+    },
+    "requested_max_total_usd": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Requested Max Total Usd"
+    },
+    "scheduled_core_trials": {
+      "minimum": 0,
+      "title": "Scheduled Core Trials",
+      "type": "integer"
+    },
+    "scheduled_replay_pairs": {
+      "minimum": 0,
+      "title": "Scheduled Replay Pairs",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "stage": {
+      "$ref": "#/$defs/T17LiveStage"
+    }
+  },
+  "required": [
+    "stage",
+    "model_id",
+    "model_revision",
+    "scheduled_core_trials",
+    "scheduled_replay_pairs",
+    "historical_summary_path",
+    "historical_summary_sha256",
+    "historical_observed_trials",
+    "historical_api_calls",
+    "historical_estimated_cost_usd",
+    "projected_actual_usd",
+    "conservative_projected_usd",
+    "requested_max_total_usd",
+    "requested_max_cost_per_run_usd"
+  ],
+  "title": "T17BudgetProposal",
+  "type": "object"
+}

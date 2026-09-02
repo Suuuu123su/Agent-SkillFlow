@@ -1,0 +1,201 @@
+{
+  "$defs": {
+    "ArtifactAliasRef": {
+      "description": "Scenario 内已声明 Artifact output 的引用。",
+      "title": "ArtifactAliasRef",
+      "type": "string"
+    },
+    "EffectSelectorRef": {
+      "description": "Scenario 内已声明 effect selector 的引用。",
+      "title": "EffectSelectorRef",
+      "type": "string"
+    },
+    "HookName": {
+      "description": "T17 Reference Harness 必须显式声明的证据 Hook。",
+      "enum": [
+        "authorization",
+        "decision_basis",
+        "provenance",
+        "influence",
+        "revocation",
+        "task_success"
+      ],
+      "title": "HookName",
+      "type": "string"
+    },
+    "PolicyReasonCode": {
+      "description": "T08 冻结的授权、边界与来源失败原因。",
+      "enum": [
+        "MANIFEST_PERMISSION_MISSING",
+        "USER_GRANT_MISSING",
+        "RESOURCE_SCOPE_EXCEEDED",
+        "SINK_SCOPE_EXCEEDED",
+        "GRANT_EXPIRED",
+        "GRANT_REVOKED",
+        "ORIGIN_REVOKED",
+        "CROSS_CALL_USE",
+        "CROSS_TASK_USE",
+        "CROSS_SESSION_USE",
+        "UNTRUSTED_ORIGIN",
+        "PROVENANCE_INCOMPLETE",
+        "GRANT_NOT_YET_VALID"
+      ],
+      "title": "PolicyReasonCode",
+      "type": "string"
+    },
+    "ScenarioPath": {
+      "description": "Experiment Matrix 中受控的 Scenario 相对路径。",
+      "title": "ScenarioPath",
+      "type": "string"
+    },
+    "T17ConditionKind": {
+      "description": "良性控制与风险条件的预注册任务类别。",
+      "enum": [
+        "benign_control",
+        "risk"
+      ],
+      "title": "T17ConditionKind",
+      "type": "string"
+    },
+    "T17MetricName": {
+      "description": "场景可声明适用的 T17 指标。",
+      "enum": [
+        "task_success",
+        "safe_task_success",
+        "verified_target_effect",
+        "uea",
+        "provenance",
+        "causal_impact",
+        "hiaa",
+        "alr",
+        "rir_1",
+        "rir_3",
+        "efficiency"
+      ],
+      "title": "T17MetricName",
+      "type": "string"
+    },
+    "T17ScenarioMeasurement": {
+      "additionalProperties": false,
+      "description": "一个 T12 Scenario 的正常任务、风险 Effect 和证据合同。",
+      "properties": {
+        "applicable_metrics": {
+          "items": {
+            "$ref": "#/$defs/T17MetricName"
+          },
+          "minItems": 1,
+          "title": "Applicable Metrics",
+          "type": "array"
+        },
+        "condition_kind": {
+          "$ref": "#/$defs/T17ConditionKind"
+        },
+        "expected_reason_codes": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/PolicyReasonCode"
+          },
+          "title": "Expected Reason Codes",
+          "type": "array"
+        },
+        "legitimate_effect_aliases": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EffectSelectorRef"
+          },
+          "title": "Legitimate Effect Aliases",
+          "type": "array"
+        },
+        "required_hooks": {
+          "items": {
+            "$ref": "#/$defs/HookName"
+          },
+          "minItems": 1,
+          "title": "Required Hooks",
+          "type": "array"
+        },
+        "risk_effect_aliases": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EffectSelectorRef"
+          },
+          "title": "Risk Effect Aliases",
+          "type": "array"
+        },
+        "scenario": {
+          "$ref": "#/$defs/ScenarioPath"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "task_artifact_aliases": {
+          "items": {
+            "$ref": "#/$defs/ArtifactAliasRef"
+          },
+          "minItems": 1,
+          "title": "Task Artifact Aliases",
+          "type": "array"
+        },
+        "task_output_contract_id": {
+          "minLength": 1,
+          "title": "Task Output Contract Id",
+          "type": "string"
+        },
+        "task_required_effect_aliases": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EffectSelectorRef"
+          },
+          "title": "Task Required Effect Aliases",
+          "type": "array"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "scenario",
+        "condition_kind",
+        "task_output_contract_id",
+        "task_artifact_aliases",
+        "required_hooks",
+        "applicable_metrics"
+      ],
+      "title": "T17ScenarioMeasurement",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "16 个 T12 Scenario 与 24 个 Matrix variant 的绑定源。",
+  "properties": {
+    "id": {
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "matrix": {
+      "$ref": "#/$defs/ScenarioPath"
+    },
+    "scenarios": {
+      "items": {
+        "$ref": "#/$defs/T17ScenarioMeasurement"
+      },
+      "maxItems": 16,
+      "minItems": 16,
+      "title": "Scenarios",
+      "type": "array"
+    },
+    "schema_version": {
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "matrix",
+    "scenarios"
+  ],
+  "title": "T17ScenarioMeasurementRegistry",
+  "type": "object"
+}

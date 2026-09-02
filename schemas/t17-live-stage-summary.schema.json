@@ -1,0 +1,468 @@
+{
+  "$defs": {
+    "HookCapability": {
+      "additionalProperties": false,
+      "description": "一个场景对单项受信 Hook 的需求与实际可用性。",
+      "properties": {
+        "available": {
+          "title": "Available",
+          "type": "boolean"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "hook": {
+          "$ref": "#/$defs/HookName"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "required": {
+          "title": "Required",
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/$defs/MeasurementStatus"
+        }
+      },
+      "required": [
+        "hook",
+        "required",
+        "available",
+        "status"
+      ],
+      "title": "HookCapability",
+      "type": "object"
+    },
+    "HookName": {
+      "description": "T17 Reference Harness 必须显式声明的证据 Hook。",
+      "enum": [
+        "authorization",
+        "decision_basis",
+        "provenance",
+        "influence",
+        "revocation",
+        "task_success"
+      ],
+      "title": "HookName",
+      "type": "string"
+    },
+    "MeasurementStatus": {
+      "description": "T17 把已测、设计不适用、Hook 缺失和阶段不完整分开。",
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "MeasurementStatus",
+      "type": "string"
+    },
+    "RatioMeasurement": {
+      "additionalProperties": false,
+      "description": "保留 scheduled/observed 计数且禁止把缺失证据伪装为零。",
+      "properties": {
+        "denominator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Denominator"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "numerator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Numerator"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "scheduled_denominator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Scheduled Denominator"
+        },
+        "status": {
+          "$ref": "#/$defs/MeasurementStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "RatioMeasurement",
+      "type": "object"
+    },
+    "ReferenceLiveTelemetry": {
+      "additionalProperties": false,
+      "description": "一条 Reference Trial 的实际调用、Token、延迟和费用。",
+      "properties": {
+        "agent_step_count": {
+          "title": "Agent Step Count",
+          "type": "integer"
+        },
+        "api_call_count": {
+          "title": "Api Call Count",
+          "type": "integer"
+        },
+        "conservative_reserved_usd": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Conservative Reserved Usd"
+        },
+        "estimated_cost_usd": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Estimated Cost Usd"
+        },
+        "latency_ms": {
+          "title": "Latency Ms",
+          "type": "integer"
+        },
+        "no_call_count": {
+          "title": "No Call Count",
+          "type": "integer"
+        },
+        "refusal_count": {
+          "title": "Refusal Count",
+          "type": "integer"
+        },
+        "response_count": {
+          "title": "Response Count",
+          "type": "integer"
+        },
+        "retry_count": {
+          "title": "Retry Count",
+          "type": "integer"
+        },
+        "token_usage": {
+          "$ref": "#/$defs/TokenUsage"
+        }
+      },
+      "required": [
+        "api_call_count",
+        "response_count",
+        "agent_step_count",
+        "retry_count",
+        "refusal_count",
+        "no_call_count",
+        "token_usage",
+        "latency_ms",
+        "estimated_cost_usd",
+        "conservative_reserved_usd"
+      ],
+      "title": "ReferenceLiveTelemetry",
+      "type": "object"
+    },
+    "T17LiveStage": {
+      "description": "预注册的真实模型执行阶段。",
+      "enum": [
+        "canary",
+        "model1",
+        "model2_canary",
+        "model2",
+        "defense"
+      ],
+      "title": "T17LiveStage",
+      "type": "string"
+    },
+    "TokenUsage": {
+      "additionalProperties": false,
+      "description": "TrialResult 所需的生成、缓存读写与推理 token 计数。",
+      "properties": {
+        "cache_write_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cache Write Tokens",
+          "type": "integer"
+        },
+        "cached_input_tokens": {
+          "minimum": 0,
+          "title": "Cached Input Tokens",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "reasoning_tokens": {
+          "minimum": 0,
+          "title": "Reasoning Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_tokens",
+        "cached_input_tokens",
+        "output_tokens",
+        "reasoning_tokens"
+      ],
+      "title": "TokenUsage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "单模型单阶段的完整性、用量与阶段门摘要。",
+  "properties": {
+    "actual_usage_coverage": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "budget_stop_count": {
+      "minimum": 0,
+      "title": "Budget Stop Count",
+      "type": "integer"
+    },
+    "completed_core_trials": {
+      "minimum": 0,
+      "title": "Completed Core Trials",
+      "type": "integer"
+    },
+    "completed_replay_pairs": {
+      "minimum": 0,
+      "title": "Completed Replay Pairs",
+      "type": "integer"
+    },
+    "completion": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "evidence_binding_failure_count": {
+      "minimum": 0,
+      "title": "Evidence Binding Failure Count",
+      "type": "integer"
+    },
+    "hooks": {
+      "items": {
+        "$ref": "#/$defs/HookCapability"
+      },
+      "title": "Hooks",
+      "type": "array"
+    },
+    "infrastructure_failure_count": {
+      "minimum": 0,
+      "title": "Infrastructure Failure Count",
+      "type": "integer"
+    },
+    "live_gate_passed": {
+      "title": "Live Gate Passed",
+      "type": "boolean"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "model_revision": {
+      "minLength": 1,
+      "title": "Model Revision",
+      "type": "string"
+    },
+    "no_call_count": {
+      "minimum": 0,
+      "title": "No Call Count",
+      "type": "integer"
+    },
+    "preflight_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Preflight Sha256",
+      "type": "string"
+    },
+    "provider_4xx_count": {
+      "minimum": 0,
+      "title": "Provider 4Xx Count",
+      "type": "integer"
+    },
+    "receipt_coverage": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "refusal_count": {
+      "minimum": 0,
+      "title": "Refusal Count",
+      "type": "integer"
+    },
+    "replay_influence_coverage": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "required_hook_coverage": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "revision_drift_count": {
+      "minimum": 0,
+      "title": "Revision Drift Count",
+      "type": "integer"
+    },
+    "scheduled_core_trials": {
+      "minimum": 1,
+      "title": "Scheduled Core Trials",
+      "type": "integer"
+    },
+    "scheduled_replay_pairs": {
+      "minimum": 0,
+      "title": "Scheduled Replay Pairs",
+      "type": "integer"
+    },
+    "schema_failure_count": {
+      "minimum": 0,
+      "title": "Schema Failure Count",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "stage": {
+      "$ref": "#/$defs/T17LiveStage"
+    },
+    "stop_detail": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Stop Detail"
+    },
+    "task_success_evidence_coverage": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "telemetry": {
+      "$ref": "#/$defs/ReferenceLiveTelemetry"
+    },
+    "trial_results_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Trial Results Sha256",
+      "type": "string"
+    },
+    "usage_journal_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Usage Journal Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "stage",
+    "model_id",
+    "model_revision",
+    "scheduled_core_trials",
+    "scheduled_replay_pairs",
+    "completed_core_trials",
+    "completed_replay_pairs",
+    "completion",
+    "task_success_evidence_coverage",
+    "receipt_coverage",
+    "actual_usage_coverage",
+    "replay_influence_coverage",
+    "required_hook_coverage",
+    "hooks",
+    "telemetry",
+    "schema_failure_count",
+    "provider_4xx_count",
+    "infrastructure_failure_count",
+    "evidence_binding_failure_count",
+    "budget_stop_count",
+    "revision_drift_count",
+    "refusal_count",
+    "no_call_count",
+    "live_gate_passed",
+    "preflight_sha256",
+    "usage_journal_sha256",
+    "trial_results_sha256"
+  ],
+  "title": "T17LiveStageSummary",
+  "type": "object"
+}

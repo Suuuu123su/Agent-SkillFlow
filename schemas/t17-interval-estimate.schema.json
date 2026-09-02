@@ -1,0 +1,129 @@
+{
+  "$defs": {
+    "MeasurementStatus": {
+      "description": "T17 把已测、设计不适用、Hook 缺失和阶段不完整分开。",
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "MeasurementStatus",
+      "type": "string"
+    },
+    "T17IntervalMethod": {
+      "description": "T17 允许的两类 95% 区间。",
+      "enum": [
+        "wilson_chain_descriptive",
+        "cluster_bootstrap"
+      ],
+      "title": "T17IntervalMethod",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "带状态、方法、点估计和固定重采样元数据的区间。",
+  "properties": {
+    "confidence": {
+      "default": 0.95,
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Confidence",
+      "type": "number"
+    },
+    "evidence_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "lower": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Lower"
+    },
+    "method": {
+      "$ref": "#/$defs/T17IntervalMethod"
+    },
+    "point": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Point"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    },
+    "resamples": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Resamples"
+    },
+    "seed": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Seed"
+    },
+    "status": {
+      "$ref": "#/$defs/MeasurementStatus"
+    },
+    "upper": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Upper"
+    }
+  },
+  "required": [
+    "status",
+    "method"
+  ],
+  "title": "T17IntervalEstimate",
+  "type": "object"
+}

@@ -1,0 +1,968 @@
+{
+  "$defs": {
+    "AuthorizationGrant": {
+      "additionalProperties": false,
+      "description": "由用户或可信策略签发的能力授权。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "call_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Call Id"
+        },
+        "expires_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expires At"
+        },
+        "grant_id": {
+          "minLength": 1,
+          "title": "Grant Id",
+          "type": "string"
+        },
+        "grantee_id": {
+          "minLength": 1,
+          "title": "Grantee Id",
+          "type": "string"
+        },
+        "issuer_id": {
+          "minLength": 1,
+          "title": "Issuer Id",
+          "type": "string"
+        },
+        "issuer_type": {
+          "enum": [
+            "user",
+            "trusted_policy"
+          ],
+          "title": "Issuer Type",
+          "type": "string"
+        },
+        "lifetime": {
+          "$ref": "#/$defs/Lifetime"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "session_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Session Id"
+        },
+        "sink_pattern": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source_pattern": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "task_id": {
+          "minLength": 1,
+          "title": "Task Id",
+          "type": "string"
+        },
+        "valid_from": {
+          "format": "date-time",
+          "title": "Valid From",
+          "type": "string"
+        }
+      },
+      "required": [
+        "grant_id",
+        "issuer_id",
+        "issuer_type",
+        "grantee_id",
+        "action",
+        "source_pattern",
+        "sink_pattern",
+        "scope",
+        "lifetime",
+        "task_id",
+        "valid_from"
+      ],
+      "title": "AuthorizationGrant",
+      "type": "object"
+    },
+    "AuthorizationObservation": {
+      "additionalProperties": false,
+      "description": "结构化 Grant 及其签发/撤销事实。",
+      "properties": {
+        "grant": {
+          "$ref": "#/$defs/AuthorizationGrant"
+        },
+        "grant_event_id": {
+          "minLength": 1,
+          "title": "Grant Event Id",
+          "type": "string"
+        },
+        "revoke_event_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Revoke Event Id"
+        },
+        "revoked": {
+          "title": "Revoked",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "grant",
+        "grant_event_id",
+        "revoked"
+      ],
+      "title": "AuthorizationObservation",
+      "type": "object"
+    },
+    "CapabilityAction": {
+      "description": "MVP 固定支持的能力动作。",
+      "enum": [
+        "file.read",
+        "file.write",
+        "memory.read",
+        "memory.write",
+        "network.send",
+        "shell.execute",
+        "user.confirm"
+      ],
+      "title": "CapabilityAction",
+      "type": "string"
+    },
+    "CapabilityEffect": {
+      "additionalProperties": false,
+      "description": "可比较的结构化能力效果。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "lifetime": {
+          "$ref": "#/$defs/Lifetime"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "sensitivity": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Sensitivity",
+          "type": "integer"
+        },
+        "sink": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "action",
+        "sink",
+        "scope",
+        "lifetime",
+        "sensitivity"
+      ],
+      "title": "CapabilityEffect",
+      "type": "object"
+    },
+    "Decision": {
+      "description": "Harness 或策略的结构化决策。",
+      "enum": [
+        "allow",
+        "deny",
+        "confirm"
+      ],
+      "title": "Decision",
+      "type": "string"
+    },
+    "DecisionBasisObservation": {
+      "additionalProperties": false,
+      "description": "一次 Tool 决策真正读取的 Artifact 与授权事实。",
+      "properties": {
+        "authorized": {
+          "title": "Authorized",
+          "type": "boolean"
+        },
+        "baseline_result": {
+          "$ref": "#/$defs/Decision"
+        },
+        "decision_basis_artifact_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Decision Basis Artifact Ids",
+          "type": "array"
+        },
+        "decision_id": {
+          "minLength": 1,
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "enforcement_mode": {
+          "$ref": "#/$defs/EnforcementMode"
+        },
+        "executed": {
+          "title": "Executed",
+          "type": "boolean"
+        },
+        "matched_grant_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Matched Grant Ids",
+          "type": "array"
+        },
+        "policy_result": {
+          "$ref": "#/$defs/Decision"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "request_event_id": {
+          "minLength": 1,
+          "title": "Request Event Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "decision_id",
+        "request_event_id",
+        "enforcement_mode",
+        "baseline_result",
+        "policy_result",
+        "authorized",
+        "executed",
+        "decision_basis_artifact_ids",
+        "matched_grant_ids",
+        "reason_codes"
+      ],
+      "title": "DecisionBasisObservation",
+      "type": "object"
+    },
+    "EffectObservation": {
+      "additionalProperties": false,
+      "description": "结构化 Tool 请求、决策、执行和同 Run Receipt。",
+      "properties": {
+        "accepted": {
+          "const": true,
+          "default": true,
+          "title": "Accepted",
+          "type": "boolean"
+        },
+        "decision_id": {
+          "minLength": 1,
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "effect_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effect Id"
+        },
+        "executed": {
+          "title": "Executed",
+          "type": "boolean"
+        },
+        "receipt_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Receipt Id"
+        },
+        "request_event_id": {
+          "minLength": 1,
+          "title": "Request Event Id",
+          "type": "string"
+        },
+        "requested_effect": {
+          "$ref": "#/$defs/CapabilityEffect"
+        }
+      },
+      "required": [
+        "request_event_id",
+        "decision_id",
+        "requested_effect",
+        "executed"
+      ],
+      "title": "EffectObservation",
+      "type": "object"
+    },
+    "EnforcementMode": {
+      "description": "策略只观察或实际阻断。",
+      "enum": [
+        "monitor",
+        "enforce"
+      ],
+      "title": "EnforcementMode",
+      "type": "string"
+    },
+    "HookCapability": {
+      "additionalProperties": false,
+      "description": "一个场景对单项受信 Hook 的需求与实际可用性。",
+      "properties": {
+        "available": {
+          "title": "Available",
+          "type": "boolean"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "hook": {
+          "$ref": "#/$defs/HookName"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "required": {
+          "title": "Required",
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/$defs/MeasurementStatus"
+        }
+      },
+      "required": [
+        "hook",
+        "required",
+        "available",
+        "status"
+      ],
+      "title": "HookCapability",
+      "type": "object"
+    },
+    "HookName": {
+      "description": "T17 Reference Harness 必须显式声明的证据 Hook。",
+      "enum": [
+        "authorization",
+        "decision_basis",
+        "provenance",
+        "influence",
+        "revocation",
+        "task_success"
+      ],
+      "title": "HookName",
+      "type": "string"
+    },
+    "InfluenceObservation": {
+      "additionalProperties": false,
+      "description": "一对 original/neutral 分支的 CI 与确认影响边。",
+      "properties": {
+        "ci": {
+          "enum": [
+            -1,
+            0,
+            1
+          ],
+          "title": "Ci",
+          "type": "integer"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "replay_id": {
+          "minLength": 1,
+          "title": "Replay Id",
+          "type": "string"
+        },
+        "source_artifact_id": {
+          "minLength": 1,
+          "title": "Source Artifact Id",
+          "type": "string"
+        },
+        "target_effect_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Target Effect Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "replay_id",
+        "ci",
+        "source_artifact_id",
+        "target_effect_ids",
+        "evidence_ids"
+      ],
+      "title": "InfluenceObservation",
+      "type": "object"
+    },
+    "Lifetime": {
+      "description": "授权或效果的有效边界。",
+      "enum": [
+        "call",
+        "task",
+        "session",
+        "persistent"
+      ],
+      "title": "Lifetime",
+      "type": "string"
+    },
+    "MeasurementStatus": {
+      "description": "T17 把已测、设计不适用、Hook 缺失和阶段不完整分开。",
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "MeasurementStatus",
+      "type": "string"
+    },
+    "ProvenanceObservation": {
+      "additionalProperties": false,
+      "description": "一个 Runtime Artifact 的父边、来源与撤销来源。",
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "created_by_event_id": {
+          "minLength": 1,
+          "title": "Created By Event Id",
+          "type": "string"
+        },
+        "created_session_id": {
+          "minLength": 1,
+          "title": "Created Session Id",
+          "type": "string"
+        },
+        "origins": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Origins",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "parent_artifact_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Parent Artifact Ids",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "revoked_origins": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Revoked Origins",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "trust": {
+          "$ref": "#/$defs/TrustLevel"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "created_by_event_id",
+        "created_session_id",
+        "parent_artifact_ids",
+        "origins",
+        "revoked_origins",
+        "trust"
+      ],
+      "title": "ProvenanceObservation",
+      "type": "object"
+    },
+    "ResourceRef": {
+      "description": "一个已经校验并规范化的 Resource URI。",
+      "title": "ResourceRef",
+      "type": "string"
+    },
+    "RevocationObservation": {
+      "additionalProperties": false,
+      "description": "Grant 或 Principal 撤销的精确 Event 与时点。",
+      "properties": {
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "revocation_id": {
+          "minLength": 1,
+          "title": "Revocation Id",
+          "type": "string"
+        },
+        "target_id": {
+          "minLength": 1,
+          "title": "Target Id",
+          "type": "string"
+        },
+        "target_kind": {
+          "$ref": "#/$defs/RevocationTargetKind"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "revocation_id",
+        "target_kind",
+        "target_id",
+        "event_id",
+        "timestamp"
+      ],
+      "title": "RevocationObservation",
+      "type": "object"
+    },
+    "RevocationTargetKind": {
+      "description": "追加式撤销事实允许指向的对象类型。",
+      "enum": [
+        "grant",
+        "principal"
+      ],
+      "title": "RevocationTargetKind",
+      "type": "string"
+    },
+    "Scope": {
+      "description": "MVP 中互不放大的四种精确作用域。",
+      "enum": [
+        "exact-file",
+        "exact-key",
+        "exact-sink",
+        "command"
+      ],
+      "title": "Scope",
+      "type": "string"
+    },
+    "T17TaskSuccessEvidence": {
+      "additionalProperties": false,
+      "description": "确定性 evaluator 的完整任务证据，而不是调用方裸布尔值。",
+      "properties": {
+        "artifacts": {
+          "items": {
+            "$ref": "#/$defs/TaskArtifactEvidence"
+          },
+          "minItems": 1,
+          "title": "Artifacts",
+          "type": "array"
+        },
+        "effects": {
+          "items": {
+            "$ref": "#/$defs/TaskEffectEvidence"
+          },
+          "title": "Effects",
+          "type": "array"
+        },
+        "evaluator_id": {
+          "const": "skillflow-t17-task-success-evaluator",
+          "default": "skillflow-t17-task-success-evaluator",
+          "title": "Evaluator Id",
+          "type": "string"
+        },
+        "evaluator_version": {
+          "const": "1.0.0",
+          "default": "1.0.0",
+          "title": "Evaluator Version",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "reached_session_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Reached Session Ids",
+          "type": "array"
+        },
+        "required_artifact_aliases": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Artifact Aliases",
+          "type": "array"
+        },
+        "required_effect_aliases": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Required Effect Aliases",
+          "type": "array"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "task_success": {
+          "title": "Task Success",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "run_id",
+        "scenario_id",
+        "task_success",
+        "required_artifact_aliases",
+        "required_effect_aliases",
+        "artifacts",
+        "effects",
+        "reached_session_ids",
+        "evidence_ids"
+      ],
+      "title": "T17TaskSuccessEvidence",
+      "type": "object"
+    },
+    "TaskArtifactEvidence": {
+      "additionalProperties": false,
+      "description": "一个 required task alias 的存在性与内容 commitment。",
+      "properties": {
+        "alias": {
+          "minLength": 1,
+          "title": "Alias",
+          "type": "string"
+        },
+        "artifact_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Artifact Id"
+        },
+        "content_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Content Sha256"
+        },
+        "expected_content_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected Content Sha256"
+        },
+        "matches_expected": {
+          "title": "Matches Expected",
+          "type": "boolean"
+        },
+        "present": {
+          "title": "Present",
+          "type": "boolean"
+        },
+        "session_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Session Id"
+        }
+      },
+      "required": [
+        "alias",
+        "present",
+        "matches_expected"
+      ],
+      "title": "TaskArtifactEvidence",
+      "type": "object"
+    },
+    "TaskEffectEvidence": {
+      "additionalProperties": false,
+      "description": "一个 required task Effect 的执行与 Receipt 绑定。",
+      "properties": {
+        "effect_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effect Id"
+        },
+        "present": {
+          "title": "Present",
+          "type": "boolean"
+        },
+        "receipt_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Receipt Id"
+        },
+        "selector_alias": {
+          "minLength": 1,
+          "title": "Selector Alias",
+          "type": "string"
+        },
+        "session_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Session Id"
+        }
+      },
+      "required": [
+        "selector_alias",
+        "present"
+      ],
+      "title": "TaskEffectEvidence",
+      "type": "object"
+    },
+    "TrustLevel": {
+      "description": "数据来源的保守信任等级。",
+      "enum": [
+        "trusted",
+        "user",
+        "untrusted",
+        "unknown"
+      ],
+      "title": "TrustLevel",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "一条 Reference Harness Run 的六类 Hook 投影。",
+  "properties": {
+    "authorizations": {
+      "items": {
+        "$ref": "#/$defs/AuthorizationObservation"
+      },
+      "title": "Authorizations",
+      "type": "array"
+    },
+    "decisions": {
+      "items": {
+        "$ref": "#/$defs/DecisionBasisObservation"
+      },
+      "title": "Decisions",
+      "type": "array"
+    },
+    "effects": {
+      "items": {
+        "$ref": "#/$defs/EffectObservation"
+      },
+      "title": "Effects",
+      "type": "array"
+    },
+    "hooks": {
+      "items": {
+        "$ref": "#/$defs/HookCapability"
+      },
+      "maxItems": 6,
+      "minItems": 6,
+      "title": "Hooks",
+      "type": "array"
+    },
+    "influences": {
+      "items": {
+        "$ref": "#/$defs/InfluenceObservation"
+      },
+      "title": "Influences",
+      "type": "array"
+    },
+    "provenance": {
+      "items": {
+        "$ref": "#/$defs/ProvenanceObservation"
+      },
+      "title": "Provenance",
+      "type": "array"
+    },
+    "revocations": {
+      "items": {
+        "$ref": "#/$defs/RevocationObservation"
+      },
+      "title": "Revocations",
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "task_success": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/T17TaskSuccessEvidence"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "run_id",
+    "hooks",
+    "authorizations",
+    "decisions",
+    "provenance",
+    "effects",
+    "revocations",
+    "influences",
+    "task_success"
+  ],
+  "title": "ReferenceObservationSnapshot",
+  "type": "object"
+}

@@ -1,0 +1,90 @@
+{
+  "$defs": {
+    "EvidenceDomainKind": {
+      "description": "禁止直接 micro 聚合的实验执行域。",
+      "enum": [
+        "contract",
+        "scripted",
+        "fake_provider",
+        "direct_prompt",
+        "reference_harness",
+        "openclaw"
+      ],
+      "title": "EvidenceDomainKind",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "一次可聚合实验的协议、Harness 与模型身份。",
+  "properties": {
+    "domain_id": {
+      "minLength": 1,
+      "title": "Domain Id",
+      "type": "string"
+    },
+    "external_effects_simulated": {
+      "title": "External Effects Simulated",
+      "type": "boolean"
+    },
+    "kind": {
+      "$ref": "#/$defs/EvidenceDomainKind"
+    },
+    "model_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Model Id"
+    },
+    "model_revision": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Model Revision"
+    },
+    "protocol_id": {
+      "minLength": 1,
+      "title": "Protocol Id",
+      "type": "string"
+    },
+    "provider": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Provider"
+    },
+    "simulation_only": {
+      "title": "Simulation Only",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "domain_id",
+    "kind",
+    "protocol_id",
+    "simulation_only",
+    "external_effects_simulated"
+  ],
+  "title": "EvidenceDomain",
+  "type": "object"
+}

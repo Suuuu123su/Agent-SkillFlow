@@ -1,0 +1,80 @@
+{
+  "$defs": {
+    "T17LiveStage": {
+      "description": "预注册的真实模型执行阶段。",
+      "enum": [
+        "canary",
+        "model1",
+        "model2_canary",
+        "model2",
+        "defense"
+      ],
+      "title": "T17LiveStage",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "预算提案经用户非秘密确认后的单阶段授权。",
+  "properties": {
+    "approved_at": {
+      "format": "date-time",
+      "title": "Approved At",
+      "type": "string"
+    },
+    "approved_max_cost_per_run_usd": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Approved Max Cost Per Run Usd"
+    },
+    "approved_max_total_usd": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Approved Max Total Usd"
+    },
+    "authorization_status": {
+      "const": "approved_by_user",
+      "default": "approved_by_user",
+      "title": "Authorization Status",
+      "type": "string"
+    },
+    "proposal_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Proposal Sha256",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "stage": {
+      "$ref": "#/$defs/T17LiveStage"
+    }
+  },
+  "required": [
+    "stage",
+    "approved_at",
+    "proposal_sha256",
+    "approved_max_total_usd",
+    "approved_max_cost_per_run_usd"
+  ],
+  "title": "T17BudgetApproval",
+  "type": "object"
+}

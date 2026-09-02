@@ -1,0 +1,348 @@
+{
+  "$defs": {
+    "MeasurementStatus": {
+      "description": "T17 把已测、设计不适用、Hook 缺失和阶段不完整分开。",
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "MeasurementStatus",
+      "type": "string"
+    },
+    "T17LiveFailureKind": {
+      "description": "不得混为一个 invalid 桶的封闭失败类型。",
+      "enum": [
+        "schema",
+        "provider_4xx",
+        "infrastructure",
+        "budget",
+        "model_revision",
+        "evidence_binding"
+      ],
+      "title": "T17LiveFailureKind",
+      "type": "string"
+    },
+    "T17LiveStage": {
+      "description": "预注册的真实模型执行阶段。",
+      "enum": [
+        "canary",
+        "model1",
+        "model2_canary",
+        "model2",
+        "defense"
+      ],
+      "title": "T17LiveStage",
+      "type": "string"
+    },
+    "T17LiveTerminalStatus": {
+      "description": "一条调度单元的持久化终态。",
+      "enum": [
+        "completed",
+        "incomplete",
+        "failed"
+      ],
+      "title": "T17LiveTerminalStatus",
+      "type": "string"
+    },
+    "T17LiveUnitKind": {
+      "description": "Live 调度中的核心 Run 或成对 Replay。",
+      "enum": [
+        "core",
+        "replay"
+      ],
+      "title": "T17LiveUnitKind",
+      "type": "string"
+    },
+    "TokenUsage": {
+      "additionalProperties": false,
+      "description": "TrialResult 所需的生成、缓存读写与推理 token 计数。",
+      "properties": {
+        "cache_write_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cache Write Tokens",
+          "type": "integer"
+        },
+        "cached_input_tokens": {
+          "minimum": 0,
+          "title": "Cached Input Tokens",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "reasoning_tokens": {
+          "minimum": 0,
+          "title": "Reasoning Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_tokens",
+        "cached_input_tokens",
+        "output_tokens",
+        "reasoning_tokens"
+      ],
+      "title": "TokenUsage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "不含 Prompt、响应正文或凭据的一条追加式实际用量事件。",
+  "properties": {
+    "actual_model_revision": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Actual Model Revision"
+    },
+    "actual_usage_status": {
+      "$ref": "#/$defs/MeasurementStatus"
+    },
+    "agent_step_count": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Agent Step Count",
+      "type": "integer"
+    },
+    "api_call_count": {
+      "minimum": 0,
+      "title": "Api Call Count",
+      "type": "integer"
+    },
+    "approved_config_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Approved Config Sha256",
+      "type": "string"
+    },
+    "event_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Event Sha256",
+      "type": "string"
+    },
+    "event_type": {
+      "enum": [
+        "attempt",
+        "response",
+        "terminal"
+      ],
+      "title": "Event Type",
+      "type": "string"
+    },
+    "expected_model_id": {
+      "minLength": 1,
+      "title": "Expected Model Id",
+      "type": "string"
+    },
+    "expected_model_revision": {
+      "minLength": 1,
+      "title": "Expected Model Revision",
+      "type": "string"
+    },
+    "failure_detail": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Failure Detail"
+    },
+    "failure_kind": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/T17LiveFailureKind"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "latency_ms": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Latency Ms",
+      "type": "integer"
+    },
+    "no_call_count": {
+      "default": 0,
+      "minimum": 0,
+      "title": "No Call Count",
+      "type": "integer"
+    },
+    "observed_estimated_cost_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Observed Estimated Cost Usd"
+    },
+    "observed_token_usage": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TokenUsage"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "phase_contract_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Phase Contract Sha256",
+      "type": "string"
+    },
+    "previous_event_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Previous Event Sha256"
+    },
+    "provider": {
+      "const": "openai",
+      "title": "Provider",
+      "type": "string"
+    },
+    "refusal_count": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Refusal Count",
+      "type": "integer"
+    },
+    "response_count": {
+      "minimum": 0,
+      "title": "Response Count",
+      "type": "integer"
+    },
+    "retry_count": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Retry Count",
+      "type": "integer"
+    },
+    "run_reserved_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Run Reserved Usd"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "title": "Sequence",
+      "type": "integer"
+    },
+    "stage": {
+      "$ref": "#/$defs/T17LiveStage"
+    },
+    "terminal_status": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/T17LiveTerminalStatus"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "total_reserved_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Total Reserved Usd"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "title": "Trial Id",
+      "type": "string"
+    },
+    "unit_id": {
+      "minLength": 1,
+      "title": "Unit Id",
+      "type": "string"
+    },
+    "unit_kind": {
+      "$ref": "#/$defs/T17LiveUnitKind"
+    }
+  },
+  "required": [
+    "sequence",
+    "event_type",
+    "phase_contract_sha256",
+    "approved_config_sha256",
+    "stage",
+    "unit_id",
+    "trial_id",
+    "unit_kind",
+    "api_call_count",
+    "response_count",
+    "total_reserved_usd",
+    "run_reserved_usd",
+    "actual_usage_status",
+    "observed_token_usage",
+    "observed_estimated_cost_usd",
+    "provider",
+    "expected_model_id",
+    "expected_model_revision",
+    "event_sha256"
+  ],
+  "title": "T17LiveJournalEvent",
+  "type": "object"
+}

@@ -1,0 +1,1099 @@
+{
+  "$defs": {
+    "AuthorizationAttemptClass": {
+      "description": "不可信授权声明暴露的互斥分类。",
+      "enum": [
+        "authorization_laundering",
+        "plain_authorization_bypass",
+        "other_exposure",
+        "not_exposed"
+      ],
+      "title": "AuthorizationAttemptClass",
+      "type": "string"
+    },
+    "AuthorizationAttemptResult": {
+      "additionalProperties": false,
+      "description": "一次不可信授权声明暴露的分类证据。",
+      "properties": {
+        "authorization_request_id": {
+          "minLength": 1,
+          "title": "Authorization Request Id",
+          "type": "string"
+        },
+        "classification": {
+          "$ref": "#/$defs/AuthorizationAttemptClass"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "authorization_request_id",
+        "classification",
+        "evidence_ids"
+      ],
+      "title": "AuthorizationAttemptResult",
+      "type": "object"
+    },
+    "CanonicalEffectKey": {
+      "additionalProperties": false,
+      "description": "UEA 类型去重使用的规范化五元组。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "lifetime": {
+          "$ref": "#/$defs/Lifetime"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "sink": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "action",
+        "sink",
+        "scope",
+        "lifetime"
+      ],
+      "title": "CanonicalEffectKey",
+      "type": "object"
+    },
+    "CapabilityAction": {
+      "description": "MVP 固定支持的能力动作。",
+      "enum": [
+        "file.read",
+        "file.write",
+        "memory.read",
+        "memory.write",
+        "network.send",
+        "shell.execute",
+        "user.confirm"
+      ],
+      "title": "CapabilityAction",
+      "type": "string"
+    },
+    "DerivedMetric": {
+      "additionalProperties": false,
+      "description": "无单一整数分母的派生指标或结构化 N/A。",
+      "properties": {
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "maximum": 2.0,
+              "minimum": -2.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "value",
+        "status"
+      ],
+      "title": "DerivedMetric",
+      "type": "object"
+    },
+    "EffectSelector": {
+      "additionalProperties": false,
+      "description": "把运行期多个 EffectRecord 映射到稳定别名。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "alias": {
+          "minLength": 1,
+          "title": "Alias",
+          "type": "string"
+        },
+        "sink_pattern": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source_pattern": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "alias",
+        "action",
+        "source_pattern",
+        "sink_pattern"
+      ],
+      "title": "EffectSelector",
+      "type": "object"
+    },
+    "EnforcementMode": {
+      "description": "策略只观察或实际阻断。",
+      "enum": [
+        "monitor",
+        "enforce"
+      ],
+      "title": "EnforcementMode",
+      "type": "string"
+    },
+    "ExperimentRiskReport": {
+      "additionalProperties": false,
+      "description": "Experiment 层的原始四格、洗白和撤销残余聚合报告。",
+      "properties": {
+        "ALR": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "HIAA_pot": {
+          "$ref": "#/$defs/HiaaPotentialMetric"
+        },
+        "HIAA_run": {
+          "$ref": "#/$defs/DerivedMetric"
+        },
+        "RIR_1": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "RIR_3": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "authorization_attempts": {
+          "items": {
+            "$ref": "#/$defs/AuthorizationAttemptResult"
+          },
+          "title": "Authorization Attempts",
+          "type": "array"
+        },
+        "authorization_laundering_request_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Authorization Laundering Request Ids",
+          "type": "array"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "harm_selector": {
+          "$ref": "#/$defs/EffectSelector"
+        },
+        "hiaa_designs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/HiaaDesignResult"
+          },
+          "title": "Hiaa Designs",
+          "type": "array"
+        },
+        "p00": {
+          "$ref": "#/$defs/MatrixCellMetric"
+        },
+        "p01": {
+          "$ref": "#/$defs/MatrixCellMetric"
+        },
+        "p10": {
+          "$ref": "#/$defs/MatrixCellMetric"
+        },
+        "p11": {
+          "$ref": "#/$defs/MatrixCellMetric"
+        },
+        "plain_authorization_bypass_request_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Plain Authorization Bypass Request Ids",
+          "type": "array"
+        },
+        "raw_counts": {
+          "$ref": "#/$defs/RawCounts"
+        },
+        "replay_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Replay Ids",
+          "type": "array"
+        },
+        "report_scope": {
+          "const": "experiment",
+          "title": "Report Scope",
+          "type": "string"
+        },
+        "revocation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SkillRevocationRecord"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "run_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Run Ids",
+          "type": "array"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "report_scope",
+        "experiment_id",
+        "run_ids",
+        "replay_ids",
+        "raw_counts",
+        "harm_selector",
+        "p00",
+        "p01",
+        "p10",
+        "p11",
+        "HIAA_pot",
+        "HIAA_run",
+        "ALR",
+        "authorization_attempts",
+        "authorization_laundering_request_ids",
+        "plain_authorization_bypass_request_ids",
+        "revocation",
+        "RIR_1",
+        "RIR_3"
+      ],
+      "title": "ExperimentRiskReport",
+      "type": "object"
+    },
+    "HiaaCell": {
+      "description": "目标 Skill 与 Harness 特性的四格组合。",
+      "enum": [
+        "p00",
+        "p01",
+        "p10",
+        "p11"
+      ],
+      "title": "HiaaCell",
+      "type": "string"
+    },
+    "HiaaDesignResult": {
+      "additionalProperties": false,
+      "description": "一套绑定同一 harm_selector 的完整 HIAA 四格结果。",
+      "properties": {
+        "HIAA_pot": {
+          "$ref": "#/$defs/HiaaPotentialMetric"
+        },
+        "HIAA_run": {
+          "$ref": "#/$defs/DerivedMetric"
+        },
+        "design_id": {
+          "minLength": 1,
+          "title": "Design Id",
+          "type": "string"
+        },
+        "harm_selector": {
+          "$ref": "#/$defs/EffectSelector"
+        },
+        "p00": {
+          "$ref": "#/$defs/MatrixCellMetric"
+        },
+        "p01": {
+          "$ref": "#/$defs/MatrixCellMetric"
+        },
+        "p10": {
+          "$ref": "#/$defs/MatrixCellMetric"
+        },
+        "p11": {
+          "$ref": "#/$defs/MatrixCellMetric"
+        }
+      },
+      "required": [
+        "design_id",
+        "harm_selector",
+        "p00",
+        "p01",
+        "p10",
+        "p11",
+        "HIAA_pot",
+        "HIAA_run"
+      ],
+      "title": "HiaaDesignResult",
+      "type": "object"
+    },
+    "HiaaPotentialMetric": {
+      "additionalProperties": false,
+      "description": "Harness 开启后新增可达未授权 Effect 集合的权重。",
+      "properties": {
+        "added_effect_keys": {
+          "items": {
+            "$ref": "#/$defs/CanonicalEffectKey"
+          },
+          "title": "Added Effect Keys",
+          "type": "array"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "value": {
+          "minimum": 0.0,
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "value",
+        "added_effect_keys",
+        "evidence_ids"
+      ],
+      "title": "HiaaPotentialMetric",
+      "type": "object"
+    },
+    "Lifetime": {
+      "description": "授权或效果的有效边界。",
+      "enum": [
+        "call",
+        "task",
+        "session",
+        "persistent"
+      ],
+      "title": "Lifetime",
+      "type": "string"
+    },
+    "MatrixCellMetric": {
+      "additionalProperties": false,
+      "description": "一个 HIAA 单元格的原始 outcome、计数和发生率。",
+      "properties": {
+        "cell": {
+          "$ref": "#/$defs/HiaaCell"
+        },
+        "effect_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Effect Ids",
+          "type": "array"
+        },
+        "executed_count": {
+          "minimum": 0,
+          "title": "Executed Count",
+          "type": "integer"
+        },
+        "outcomes": {
+          "items": {
+            "type": "boolean"
+          },
+          "title": "Outcomes",
+          "type": "array"
+        },
+        "rate": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "receipt_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Receipt Ids",
+          "type": "array"
+        },
+        "run_count": {
+          "minimum": 0,
+          "title": "Run Count",
+          "type": "integer"
+        },
+        "run_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Run Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "cell",
+        "run_ids",
+        "outcomes",
+        "effect_ids",
+        "receipt_ids",
+        "executed_count",
+        "run_count",
+        "rate"
+      ],
+      "title": "MatrixCellMetric",
+      "type": "object"
+    },
+    "MeasurementStatus": {
+      "description": "T17 把已测、设计不适用、Hook 缺失和阶段不完整分开。",
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "MeasurementStatus",
+      "type": "string"
+    },
+    "MetricStatus": {
+      "description": "比例指标是否有可解释分母。",
+      "enum": [
+        "defined",
+        "not_applicable"
+      ],
+      "title": "MetricStatus",
+      "type": "string"
+    },
+    "RatioMeasurement": {
+      "additionalProperties": false,
+      "description": "保留 scheduled/observed 计数且禁止把缺失证据伪装为零。",
+      "properties": {
+        "denominator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Denominator"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "numerator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Numerator"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "scheduled_denominator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Scheduled Denominator"
+        },
+        "status": {
+          "$ref": "#/$defs/MeasurementStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "RatioMeasurement",
+      "type": "object"
+    },
+    "RatioMetric": {
+      "additionalProperties": false,
+      "description": "值域为零到一的比例及其原始计数和证据。",
+      "properties": {
+        "denominator": {
+          "minimum": 0,
+          "title": "Denominator",
+          "type": "integer"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "numerator": {
+          "minimum": 0,
+          "title": "Numerator",
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "numerator",
+        "denominator",
+        "value",
+        "status"
+      ],
+      "title": "RatioMetric",
+      "type": "object"
+    },
+    "RawCounts": {
+      "additionalProperties": false,
+      "description": "聚合指标的原始可复核计数。",
+      "properties": {
+        "implicit_authorization_liability_count": {
+          "minimum": 0,
+          "title": "Implicit Authorization Liability Count",
+          "type": "integer"
+        },
+        "replay_count": {
+          "minimum": 0,
+          "title": "Replay Count",
+          "type": "integer"
+        },
+        "run_count": {
+          "minimum": 0,
+          "title": "Run Count",
+          "type": "integer"
+        },
+        "unauthorized_executed_count": {
+          "minimum": 0,
+          "title": "Unauthorized Executed Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "run_count",
+        "replay_count",
+        "unauthorized_executed_count",
+        "implicit_authorization_liability_count"
+      ],
+      "title": "RawCounts",
+      "type": "object"
+    },
+    "ReferenceLiveTelemetry": {
+      "additionalProperties": false,
+      "description": "一条 Reference Trial 的实际调用、Token、延迟和费用。",
+      "properties": {
+        "agent_step_count": {
+          "title": "Agent Step Count",
+          "type": "integer"
+        },
+        "api_call_count": {
+          "title": "Api Call Count",
+          "type": "integer"
+        },
+        "conservative_reserved_usd": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Conservative Reserved Usd"
+        },
+        "estimated_cost_usd": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Estimated Cost Usd"
+        },
+        "latency_ms": {
+          "title": "Latency Ms",
+          "type": "integer"
+        },
+        "no_call_count": {
+          "title": "No Call Count",
+          "type": "integer"
+        },
+        "refusal_count": {
+          "title": "Refusal Count",
+          "type": "integer"
+        },
+        "response_count": {
+          "title": "Response Count",
+          "type": "integer"
+        },
+        "retry_count": {
+          "title": "Retry Count",
+          "type": "integer"
+        },
+        "token_usage": {
+          "$ref": "#/$defs/TokenUsage"
+        }
+      },
+      "required": [
+        "api_call_count",
+        "response_count",
+        "agent_step_count",
+        "retry_count",
+        "refusal_count",
+        "no_call_count",
+        "token_usage",
+        "latency_ms",
+        "estimated_cost_usd",
+        "conservative_reserved_usd"
+      ],
+      "title": "ReferenceLiveTelemetry",
+      "type": "object"
+    },
+    "ResourceRef": {
+      "description": "一个已经校验并规范化的 Resource URI。",
+      "title": "ResourceRef",
+      "type": "string"
+    },
+    "Scope": {
+      "description": "MVP 中互不放大的四种精确作用域。",
+      "enum": [
+        "exact-file",
+        "exact-key",
+        "exact-sink",
+        "command"
+      ],
+      "title": "Scope",
+      "type": "string"
+    },
+    "SkillRevocationRecord": {
+      "additionalProperties": false,
+      "description": "计算会话偏移所需的不可变 Skill 撤销时点。",
+      "properties": {
+        "revoke_event_id": {
+          "minLength": 1,
+          "title": "Revoke Event Id",
+          "type": "string"
+        },
+        "revoked_at": {
+          "format": "date-time",
+          "title": "Revoked At",
+          "type": "string"
+        },
+        "session_index": {
+          "minimum": 0,
+          "title": "Session Index",
+          "type": "integer"
+        },
+        "skill_id": {
+          "minLength": 1,
+          "title": "Skill Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "skill_id",
+        "revoke_event_id",
+        "session_index",
+        "revoked_at"
+      ],
+      "title": "SkillRevocationRecord",
+      "type": "object"
+    },
+    "T17DefenseModeMetrics": {
+      "additionalProperties": false,
+      "description": "一个模式下 21 基础配置的风险、任务与总用量。",
+      "properties": {
+        "benign_refusal_rate": {
+          "$ref": "#/$defs/RatioMeasurement"
+        },
+        "mode": {
+          "$ref": "#/$defs/EnforcementMode"
+        },
+        "risk_uea_affected_rate": {
+          "$ref": "#/$defs/RatioMeasurement"
+        },
+        "risk_vte_rate": {
+          "$ref": "#/$defs/RatioMeasurement"
+        },
+        "safe_task_success_rate": {
+          "$ref": "#/$defs/RatioMeasurement"
+        },
+        "scheduled_core_trials": {
+          "minimum": 0,
+          "title": "Scheduled Core Trials",
+          "type": "integer"
+        },
+        "scheduled_replay_pairs": {
+          "minimum": 0,
+          "title": "Scheduled Replay Pairs",
+          "type": "integer"
+        },
+        "standard_risk_report": {
+          "$ref": "#/$defs/ExperimentRiskReport"
+        },
+        "task_success_rate": {
+          "$ref": "#/$defs/RatioMeasurement"
+        },
+        "telemetry": {
+          "$ref": "#/$defs/ReferenceLiveTelemetry"
+        },
+        "uea_count": {
+          "minimum": 0,
+          "title": "Uea Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "mode",
+        "scheduled_core_trials",
+        "scheduled_replay_pairs",
+        "task_success_rate",
+        "safe_task_success_rate",
+        "benign_refusal_rate",
+        "risk_vte_rate",
+        "risk_uea_affected_rate",
+        "uea_count",
+        "standard_risk_report",
+        "telemetry"
+      ],
+      "title": "T17DefenseModeMetrics",
+      "type": "object"
+    },
+    "T17SecurityGain": {
+      "additionalProperties": false,
+      "description": "单个风险指标的 monitor-enforce，禁止加权合并。",
+      "properties": {
+        "enforce_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Enforce Value"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "metric": {
+          "minLength": 1,
+          "title": "Metric",
+          "type": "string"
+        },
+        "monitor_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Monitor Value"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "security_gain": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Security Gain"
+        },
+        "status": {
+          "$ref": "#/$defs/MeasurementStatus"
+        }
+      },
+      "required": [
+        "metric",
+        "status"
+      ],
+      "title": "T17SecurityGain",
+      "type": "object"
+    },
+    "TokenUsage": {
+      "additionalProperties": false,
+      "description": "TrialResult 所需的生成、缓存读写与推理 token 计数。",
+      "properties": {
+        "cache_write_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cache Write Tokens",
+          "type": "integer"
+        },
+        "cached_input_tokens": {
+          "minimum": 0,
+          "title": "Cached Input Tokens",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "reasoning_tokens": {
+          "minimum": 0,
+          "title": "Reasoning Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_tokens",
+        "cached_input_tokens",
+        "output_tokens",
+        "reasoning_tokens"
+      ],
+      "title": "TokenUsage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "630 core/540 Replay 的无加权安全—效用报告。",
+  "properties": {
+    "agent_step_delta_enforce_minus_monitor": {
+      "title": "Agent Step Delta Enforce Minus Monitor",
+      "type": "integer"
+    },
+    "api_call_delta_enforce_minus_monitor": {
+      "title": "Api Call Delta Enforce Minus Monitor",
+      "type": "integer"
+    },
+    "combined_core_trials": {
+      "const": 630,
+      "title": "Combined Core Trials",
+      "type": "integer"
+    },
+    "combined_replay_pairs": {
+      "const": 540,
+      "title": "Combined Replay Pairs",
+      "type": "integer"
+    },
+    "complete": {
+      "title": "Complete",
+      "type": "boolean"
+    },
+    "enforce": {
+      "$ref": "#/$defs/T17DefenseModeMetrics"
+    },
+    "estimated_cost_delta_enforce_minus_monitor_usd": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Estimated Cost Delta Enforce Minus Monitor Usd"
+    },
+    "latency_delta_enforce_minus_monitor_ms": {
+      "title": "Latency Delta Enforce Minus Monitor Ms",
+      "type": "integer"
+    },
+    "model_revision": {
+      "minLength": 1,
+      "title": "Model Revision",
+      "type": "string"
+    },
+    "monitor": {
+      "$ref": "#/$defs/T17DefenseModeMetrics"
+    },
+    "over_defense_rate": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "report_id": {
+      "minLength": 1,
+      "title": "Report Id",
+      "type": "string"
+    },
+    "report_scope": {
+      "const": "t17_defense",
+      "default": "t17_defense",
+      "title": "Report Scope",
+      "type": "string"
+    },
+    "safe_tsr_delta": {
+      "title": "Safe Tsr Delta",
+      "type": "number"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "security_gains": {
+      "items": {
+        "$ref": "#/$defs/T17SecurityGain"
+      },
+      "title": "Security Gains",
+      "type": "array"
+    },
+    "source_phase_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Source Phase Sha256",
+      "type": "object"
+    },
+    "token_delta_enforce_minus_monitor": {
+      "title": "Token Delta Enforce Minus Monitor",
+      "type": "integer"
+    },
+    "utility_loss": {
+      "title": "Utility Loss",
+      "type": "number"
+    },
+    "weighted_security_score": {
+      "default": null,
+      "title": "Weighted Security Score",
+      "type": "null"
+    }
+  },
+  "required": [
+    "report_id",
+    "model_revision",
+    "source_phase_sha256",
+    "combined_core_trials",
+    "combined_replay_pairs",
+    "monitor",
+    "enforce",
+    "security_gains",
+    "utility_loss",
+    "safe_tsr_delta",
+    "over_defense_rate",
+    "estimated_cost_delta_enforce_minus_monitor_usd",
+    "latency_delta_enforce_minus_monitor_ms",
+    "token_delta_enforce_minus_monitor",
+    "api_call_delta_enforce_minus_monitor",
+    "agent_step_delta_enforce_minus_monitor",
+    "complete"
+  ],
+  "title": "T17DefenseReport",
+  "type": "object"
+}

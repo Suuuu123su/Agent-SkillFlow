@@ -1,0 +1,136 @@
+{
+  "$defs": {
+    "T17LiveStage": {
+      "description": "预注册的真实模型执行阶段。",
+      "enum": [
+        "canary",
+        "model1",
+        "model2_canary",
+        "model2",
+        "defense"
+      ],
+      "title": "T17LiveStage",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "在首次 API 调用前冻结的阶段合同。",
+  "properties": {
+    "approved_config_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Approved Config Sha256",
+      "type": "string"
+    },
+    "base_matrix_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Base Matrix Sha256",
+      "type": "string"
+    },
+    "budget_approval_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Budget Approval Sha256",
+      "type": "string"
+    },
+    "budget_proposal_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Budget Proposal Sha256",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "matrix_id": {
+      "minLength": 1,
+      "title": "Matrix Id",
+      "type": "string"
+    },
+    "matrix_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Matrix Sha256",
+      "type": "string"
+    },
+    "phase_contract_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Phase Contract Sha256",
+      "type": "string"
+    },
+    "preregistration_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Preregistration Sha256",
+      "type": "string"
+    },
+    "protocol_id": {
+      "const": "t17-live-reference-v1",
+      "default": "t17-live-reference-v1",
+      "title": "Protocol Id",
+      "type": "string"
+    },
+    "provider_model_id": {
+      "minLength": 1,
+      "title": "Provider Model Id",
+      "type": "string"
+    },
+    "provider_model_revision": {
+      "minLength": 1,
+      "title": "Provider Model Revision",
+      "type": "string"
+    },
+    "scenario_registry_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Scenario Registry Sha256",
+      "type": "string"
+    },
+    "scheduled_core_trials": {
+      "minimum": 1,
+      "title": "Scheduled Core Trials",
+      "type": "integer"
+    },
+    "scheduled_replay_pairs": {
+      "minimum": 0,
+      "title": "Scheduled Replay Pairs",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_hashes": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Source Hashes",
+      "type": "object"
+    },
+    "stage": {
+      "$ref": "#/$defs/T17LiveStage"
+    }
+  },
+  "required": [
+    "stage",
+    "created_at",
+    "matrix_id",
+    "provider_model_id",
+    "provider_model_revision",
+    "scheduled_core_trials",
+    "scheduled_replay_pairs",
+    "matrix_sha256",
+    "preregistration_sha256",
+    "scenario_registry_sha256",
+    "base_matrix_sha256",
+    "budget_proposal_sha256",
+    "budget_approval_sha256",
+    "approved_config_sha256",
+    "source_hashes",
+    "phase_contract_sha256"
+  ],
+  "title": "T17LivePreflightManifest",
+  "type": "object"
+}

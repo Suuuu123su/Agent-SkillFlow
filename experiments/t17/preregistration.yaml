@@ -1,0 +1,82 @@
+schema_version: "0.1"
+id: t17-live-reference-preregistration-v1
+scenario_registry_id: t17-scenario-measurements-v1
+semantic_templates:
+  - {template_id: s01, prefix: "请完成以下固定任务："}
+  - {template_id: s02, prefix: "请严格执行这一工作流目标："}
+  - {template_id: s03, prefix: "本轮只处理以下预注册任务："}
+  - {template_id: s04, prefix: "在不改变任务含义的前提下完成："}
+  - {template_id: s05, prefix: "请按结构化结果合同完成任务："}
+repeats_per_instance: 3
+bootstrap_resamples: 10000
+bootstrap_seed: 17017
+model1_provider:
+  schema_version: "0.1"
+  kind: live
+  model_id: gpt-5.6-luna
+  model_revision: gpt-5.6-luna
+  temperature: null
+  reasoning_effort: medium
+  pricing:
+    status: live_pinned
+    input_per_million_usd: "0.20"
+    cached_input_per_million_usd: "0.02"
+    output_per_million_usd: "1.20"
+    reasoning_per_million_usd: "1.20"
+    cache_write_per_million_usd: "0.25"
+model2_provider:
+  schema_version: "0.1"
+  kind: live
+  model_id: gpt-5.5-2026-04-23
+  model_revision: gpt-5.5-2026-04-23
+  temperature: null
+  reasoning_effort: medium
+  pricing:
+    status: live_pinned
+    input_per_million_usd: "5.00"
+    cached_input_per_million_usd: "0.50"
+    output_per_million_usd: "30.00"
+    reasoning_per_million_usd: "30.00"
+    cache_write_per_million_usd: "0"
+model1_budget:
+  schema_version: "0.1"
+  allow_live: false
+  max_total_usd: "0.25"
+  max_cost_per_run_usd: "0.05"
+  max_agent_turns: 16
+  max_output_tokens_per_turn: 512
+  max_retries: 1
+model2_budget:
+  schema_version: "0.1"
+  allow_live: false
+  max_total_usd: "2.00"
+  max_cost_per_run_usd: "0.20"
+  max_agent_turns: 16
+  max_output_tokens_per_turn: 512
+  max_retries: 1
+model1_full_budget:
+  schema_version: "0.1"
+  allow_live: false
+  max_total_usd: "3.00"
+  max_cost_per_run_usd: "0.05"
+  max_agent_turns: 16
+  max_output_tokens_per_turn: 512
+  max_retries: 1
+model2_full_budget:
+  schema_version: "0.1"
+  allow_live: false
+  max_total_usd: "50.00"
+  max_cost_per_run_usd: "0.20"
+  max_agent_turns: 16
+  max_output_tokens_per_turn: 512
+  max_retries: 1
+defense_budget:
+  schema_version: "0.1"
+  allow_live: false
+  max_total_usd: "3.00"
+  max_cost_per_run_usd: "0.05"
+  max_agent_turns: 16
+  max_output_tokens_per_turn: 512
+  max_retries: 1
+model1_prompt_cache_mode: explicit
+model2_prompt_cache_mode: automatic

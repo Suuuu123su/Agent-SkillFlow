@@ -1,0 +1,486 @@
+{
+  "$defs": {
+    "EvidenceDomain": {
+      "additionalProperties": false,
+      "description": "一次可聚合实验的协议、Harness 与模型身份。",
+      "properties": {
+        "domain_id": {
+          "minLength": 1,
+          "title": "Domain Id",
+          "type": "string"
+        },
+        "external_effects_simulated": {
+          "title": "External Effects Simulated",
+          "type": "boolean"
+        },
+        "kind": {
+          "$ref": "#/$defs/EvidenceDomainKind"
+        },
+        "model_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Id"
+        },
+        "model_revision": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Revision"
+        },
+        "protocol_id": {
+          "minLength": 1,
+          "title": "Protocol Id",
+          "type": "string"
+        },
+        "provider": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider"
+        },
+        "simulation_only": {
+          "title": "Simulation Only",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "domain_id",
+        "kind",
+        "protocol_id",
+        "simulation_only",
+        "external_effects_simulated"
+      ],
+      "title": "EvidenceDomain",
+      "type": "object"
+    },
+    "EvidenceDomainKind": {
+      "description": "禁止直接 micro 聚合的实验执行域。",
+      "enum": [
+        "contract",
+        "scripted",
+        "fake_provider",
+        "direct_prompt",
+        "reference_harness",
+        "openclaw"
+      ],
+      "title": "EvidenceDomainKind",
+      "type": "string"
+    },
+    "MeasurementStatus": {
+      "description": "T17 把已测、设计不适用、Hook 缺失和阶段不完整分开。",
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "MeasurementStatus",
+      "type": "string"
+    },
+    "RatioMeasurement": {
+      "additionalProperties": false,
+      "description": "保留 scheduled/observed 计数且禁止把缺失证据伪装为零。",
+      "properties": {
+        "denominator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Denominator"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "numerator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Numerator"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "scheduled_denominator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Scheduled Denominator"
+        },
+        "status": {
+          "$ref": "#/$defs/MeasurementStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "RatioMeasurement",
+      "type": "object"
+    },
+    "T17Direction": {
+      "description": "点或区间相对零的封闭方向。",
+      "enum": [
+        "negative",
+        "zero",
+        "positive",
+        "indeterminate"
+      ],
+      "title": "T17Direction",
+      "type": "string"
+    },
+    "T17DirectionComparison": {
+      "additionalProperties": false,
+      "description": "同一有符号估计量的跨模型方向比较。",
+      "properties": {
+        "metric": {
+          "minLength": 1,
+          "title": "Metric",
+          "type": "string"
+        },
+        "model1": {
+          "$ref": "#/$defs/T17SignedModelEstimate"
+        },
+        "model2": {
+          "$ref": "#/$defs/T17SignedModelEstimate"
+        },
+        "point_direction_agreement": {
+          "title": "Point Direction Agreement",
+          "type": "boolean"
+        },
+        "robust_direction_agreement": {
+          "title": "Robust Direction Agreement",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "metric",
+        "model1",
+        "model2",
+        "point_direction_agreement",
+        "robust_direction_agreement"
+      ],
+      "title": "T17DirectionComparison",
+      "type": "object"
+    },
+    "T17IntervalEstimate": {
+      "additionalProperties": false,
+      "description": "带状态、方法、点估计和固定重采样元数据的区间。",
+      "properties": {
+        "confidence": {
+          "default": 0.95,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "lower": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lower"
+        },
+        "method": {
+          "$ref": "#/$defs/T17IntervalMethod"
+        },
+        "point": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Point"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "resamples": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resamples"
+        },
+        "seed": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Seed"
+        },
+        "status": {
+          "$ref": "#/$defs/MeasurementStatus"
+        },
+        "upper": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper"
+        }
+      },
+      "required": [
+        "status",
+        "method"
+      ],
+      "title": "T17IntervalEstimate",
+      "type": "object"
+    },
+    "T17IntervalMethod": {
+      "description": "T17 允许的两类 95% 区间。",
+      "enum": [
+        "wilson_chain_descriptive",
+        "cluster_bootstrap"
+      ],
+      "title": "T17IntervalMethod",
+      "type": "string"
+    },
+    "T17RatioSideBySide": {
+      "additionalProperties": false,
+      "description": "两个 Evidence Domain 的比例并排展示，禁止 pooled。",
+      "properties": {
+        "metric": {
+          "minLength": 1,
+          "title": "Metric",
+          "type": "string"
+        },
+        "model1": {
+          "$ref": "#/$defs/RatioMeasurement"
+        },
+        "model2": {
+          "$ref": "#/$defs/RatioMeasurement"
+        }
+      },
+      "required": [
+        "metric",
+        "model1",
+        "model2"
+      ],
+      "title": "T17RatioSideBySide",
+      "type": "object"
+    },
+    "T17SignedModelEstimate": {
+      "additionalProperties": false,
+      "description": "一个模型的有符号点估计、区间和两类方向。",
+      "properties": {
+        "interval": {
+          "$ref": "#/$defs/T17IntervalEstimate"
+        },
+        "interval_direction": {
+          "$ref": "#/$defs/T17Direction"
+        },
+        "model_revision": {
+          "minLength": 1,
+          "title": "Model Revision",
+          "type": "string"
+        },
+        "point_direction": {
+          "$ref": "#/$defs/T17Direction"
+        }
+      },
+      "required": [
+        "model_revision",
+        "interval",
+        "point_direction",
+        "interval_direction"
+      ],
+      "title": "T17SignedModelEstimate",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Model1/Model2 独立报告及非 pooled 方向结论。",
+  "properties": {
+    "complete": {
+      "title": "Complete",
+      "type": "boolean"
+    },
+    "model1_domain": {
+      "$ref": "#/$defs/EvidenceDomain"
+    },
+    "model2_domain": {
+      "$ref": "#/$defs/EvidenceDomain"
+    },
+    "point_direction_agreement": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "pooled": {
+      "const": false,
+      "default": false,
+      "title": "Pooled",
+      "type": "boolean"
+    },
+    "report_id": {
+      "minLength": 1,
+      "title": "Report Id",
+      "type": "string"
+    },
+    "report_scope": {
+      "const": "t17_cross_model",
+      "default": "t17_cross_model",
+      "title": "Report Scope",
+      "type": "string"
+    },
+    "robust_direction_agreement": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "side_by_side_ratios": {
+      "items": {
+        "$ref": "#/$defs/T17RatioSideBySide"
+      },
+      "title": "Side By Side Ratios",
+      "type": "array"
+    },
+    "signed_directions": {
+      "items": {
+        "$ref": "#/$defs/T17DirectionComparison"
+      },
+      "title": "Signed Directions",
+      "type": "array"
+    },
+    "source_phase_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Source Phase Sha256",
+      "type": "object"
+    }
+  },
+  "required": [
+    "report_id",
+    "model1_domain",
+    "model2_domain",
+    "source_phase_sha256",
+    "side_by_side_ratios",
+    "signed_directions",
+    "point_direction_agreement",
+    "robust_direction_agreement",
+    "complete"
+  ],
+  "title": "T17CrossModelReport",
+  "type": "object"
+}

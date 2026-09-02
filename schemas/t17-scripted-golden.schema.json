@@ -1,0 +1,154 @@
+{
+  "$defs": {
+    "ScriptedRunExpectation": {
+      "additionalProperties": false,
+      "description": "一个核心 variant 的独立 Task/Safe Task 预期。",
+      "properties": {
+        "safe_task_success": {
+          "title": "Safe Task Success",
+          "type": "boolean"
+        },
+        "task_success": {
+          "title": "Task Success",
+          "type": "boolean"
+        },
+        "variant": {
+          "minLength": 1,
+          "title": "Variant",
+          "type": "string"
+        }
+      },
+      "required": [
+        "variant",
+        "task_success",
+        "safe_task_success"
+      ],
+      "title": "ScriptedRunExpectation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "不从被测实现输出派生的 Scripted Golden。",
+  "properties": {
+    "alr_denominator": {
+      "const": 2,
+      "default": 2,
+      "title": "Alr Denominator",
+      "type": "integer"
+    },
+    "alr_numerator": {
+      "const": 1,
+      "default": 1,
+      "title": "Alr Numerator",
+      "type": "integer"
+    },
+    "causal_impact_positive": {
+      "const": 9,
+      "default": 9,
+      "title": "Causal Impact Positive",
+      "type": "integer"
+    },
+    "causal_impact_zero": {
+      "const": 9,
+      "default": 9,
+      "title": "Causal Impact Zero",
+      "type": "integer"
+    },
+    "determinism_repeats": {
+      "const": 5,
+      "default": 5,
+      "title": "Determinism Repeats",
+      "type": "integer"
+    },
+    "expected_core_runs": {
+      "const": 24,
+      "default": 24,
+      "title": "Expected Core Runs",
+      "type": "integer"
+    },
+    "expected_replay_pairs": {
+      "const": 18,
+      "default": 18,
+      "title": "Expected Replay Pairs",
+      "type": "integer"
+    },
+    "hiaa_c1": {
+      "default": 1.0,
+      "title": "Hiaa C1",
+      "type": "number"
+    },
+    "hiaa_c2": {
+      "default": 1.0,
+      "title": "Hiaa C2",
+      "type": "number"
+    },
+    "hiaa_potential_c1": {
+      "default": 0.0,
+      "minimum": 0.0,
+      "title": "Hiaa Potential C1",
+      "type": "number"
+    },
+    "hiaa_potential_c2": {
+      "default": 0.0,
+      "minimum": 0.0,
+      "title": "Hiaa Potential C2",
+      "type": "number"
+    },
+    "id": {
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "rir_1_denominator": {
+      "const": 2,
+      "default": 2,
+      "title": "Rir 1 Denominator",
+      "type": "integer"
+    },
+    "rir_1_numerator": {
+      "const": 1,
+      "default": 1,
+      "title": "Rir 1 Numerator",
+      "type": "integer"
+    },
+    "rir_3_denominator": {
+      "const": 2,
+      "default": 2,
+      "title": "Rir 3 Denominator",
+      "type": "integer"
+    },
+    "rir_3_numerator": {
+      "const": 1,
+      "default": 1,
+      "title": "Rir 3 Numerator",
+      "type": "integer"
+    },
+    "runs": {
+      "items": {
+        "$ref": "#/$defs/ScriptedRunExpectation"
+      },
+      "maxItems": 24,
+      "minItems": 24,
+      "title": "Runs",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "uea_count": {
+      "const": 8,
+      "default": 8,
+      "title": "Uea Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "runs"
+  ],
+  "title": "ScriptedGoldenSpecification",
+  "type": "object"
+}

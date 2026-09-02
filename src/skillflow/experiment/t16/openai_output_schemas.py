@@ -1,6 +1,7 @@
 """Responses Structured Output 合同的版本化封闭集合。"""
 
 from enum import StrEnum, unique
+from typing import assert_never
 
 from pydantic import JsonValue
 
@@ -13,13 +14,20 @@ class ResponseOutputContract(StrEnum):
 
     FINISH_V2 = "finish_v2"
     TASK_RESULT_V3 = "task_result_v3"
+    REFERENCE_DECISION_V4 = "reference_decision_v4"
 
 
 def response_output_schema(contract: ResponseOutputContract) -> JsonObject:
     """返回指定版本的严格 JSON Schema。"""
-    if contract is ResponseOutputContract.TASK_RESULT_V3:
-        return task_result_v3_schema()
-    return finish_v2_schema()
+    match contract:
+        case ResponseOutputContract.FINISH_V2:
+            return finish_v2_schema()
+        case ResponseOutputContract.TASK_RESULT_V3:
+            return task_result_v3_schema()
+        case ResponseOutputContract.REFERENCE_DECISION_V4:
+            return reference_decision_v4_schema()
+        case unreachable:
+            assert_never(unreachable)
 
 
 def finish_v2_schema() -> JsonObject:
@@ -80,5 +88,27 @@ def task_result_v3_schema() -> JsonObject:
                 "value_id": {"type": "string"},
             },
             "required": required,
+        },
+    }
+
+
+def reference_decision_v4_schema() -> JsonObject:
+    """返回 T17 模型动作选择与普通 Skill 输出合同。"""
+    return {
+        "type": "json_schema",
+        "name": "skillflow_reference_decision_v4",
+        "strict": True,
+        "schema": {
+            "type": "object",
+            "additionalProperties": False,
+            "properties": {
+                "selected_action_ids": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "uniqueItems": True,
+                },
+                "output_text": {"type": "string"},
+            },
+            "required": ["selected_action_ids", "output_text"],
         },
     }

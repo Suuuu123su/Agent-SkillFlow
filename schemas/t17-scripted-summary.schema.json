@@ -1,0 +1,614 @@
+{
+  "$defs": {
+    "CausalImpactCounts": {
+      "additionalProperties": false,
+      "description": "18 个 Replay pair 的 CI 原始计数。",
+      "properties": {
+        "negative": {
+          "minimum": 0,
+          "title": "Negative",
+          "type": "integer"
+        },
+        "positive": {
+          "minimum": 0,
+          "title": "Positive",
+          "type": "integer"
+        },
+        "zero": {
+          "minimum": 0,
+          "title": "Zero",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "negative",
+        "zero",
+        "positive"
+      ],
+      "title": "CausalImpactCounts",
+      "type": "object"
+    },
+    "EvidenceDomain": {
+      "additionalProperties": false,
+      "description": "一次可聚合实验的协议、Harness 与模型身份。",
+      "properties": {
+        "domain_id": {
+          "minLength": 1,
+          "title": "Domain Id",
+          "type": "string"
+        },
+        "external_effects_simulated": {
+          "title": "External Effects Simulated",
+          "type": "boolean"
+        },
+        "kind": {
+          "$ref": "#/$defs/EvidenceDomainKind"
+        },
+        "model_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Id"
+        },
+        "model_revision": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Revision"
+        },
+        "protocol_id": {
+          "minLength": 1,
+          "title": "Protocol Id",
+          "type": "string"
+        },
+        "provider": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider"
+        },
+        "simulation_only": {
+          "title": "Simulation Only",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "domain_id",
+        "kind",
+        "protocol_id",
+        "simulation_only",
+        "external_effects_simulated"
+      ],
+      "title": "EvidenceDomain",
+      "type": "object"
+    },
+    "EvidenceDomainKind": {
+      "description": "禁止直接 micro 聚合的实验执行域。",
+      "enum": [
+        "contract",
+        "scripted",
+        "fake_provider",
+        "direct_prompt",
+        "reference_harness",
+        "openclaw"
+      ],
+      "title": "EvidenceDomainKind",
+      "type": "string"
+    },
+    "MeasurementStatus": {
+      "description": "T17 把已测、设计不适用、Hook 缺失和阶段不完整分开。",
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "MeasurementStatus",
+      "type": "string"
+    },
+    "ProvenanceAggregateSummary": {
+      "additionalProperties": false,
+      "description": "24 个核心 Run 的来源 micro 汇总。",
+      "properties": {
+        "by_boundary_depth": {
+          "items": {
+            "$ref": "#/$defs/ProvenanceDepthSummary"
+          },
+          "title": "By Boundary Depth",
+          "type": "array"
+        },
+        "f1": {
+          "$ref": "#/$defs/RatioMeasurement"
+        },
+        "fn": {
+          "minimum": 0,
+          "title": "Fn",
+          "type": "integer"
+        },
+        "fp": {
+          "minimum": 0,
+          "title": "Fp",
+          "type": "integer"
+        },
+        "precision": {
+          "$ref": "#/$defs/RatioMeasurement"
+        },
+        "recall": {
+          "$ref": "#/$defs/RatioMeasurement"
+        },
+        "tp": {
+          "minimum": 0,
+          "title": "Tp",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "tp",
+        "fp",
+        "fn",
+        "precision",
+        "recall",
+        "f1",
+        "by_boundary_depth"
+      ],
+      "title": "ProvenanceAggregateSummary",
+      "type": "object"
+    },
+    "ProvenanceDepthSummary": {
+      "additionalProperties": false,
+      "description": "一个边界深度的 micro 来源计数、比例和相邻衰减。",
+      "properties": {
+        "boundary_depth": {
+          "minimum": 0,
+          "title": "Boundary Depth",
+          "type": "integer"
+        },
+        "decay_status": {
+          "$ref": "#/$defs/MeasurementStatus"
+        },
+        "decay_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Decay Value"
+        },
+        "f1": {
+          "$ref": "#/$defs/RatioMeasurement"
+        },
+        "fn": {
+          "minimum": 0,
+          "title": "Fn",
+          "type": "integer"
+        },
+        "fp": {
+          "minimum": 0,
+          "title": "Fp",
+          "type": "integer"
+        },
+        "precision": {
+          "$ref": "#/$defs/RatioMeasurement"
+        },
+        "recall": {
+          "$ref": "#/$defs/RatioMeasurement"
+        },
+        "tp": {
+          "minimum": 0,
+          "title": "Tp",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "boundary_depth",
+        "tp",
+        "fp",
+        "fn",
+        "precision",
+        "recall",
+        "f1",
+        "decay_status"
+      ],
+      "title": "ProvenanceDepthSummary",
+      "type": "object"
+    },
+    "RatioMeasurement": {
+      "additionalProperties": false,
+      "description": "保留 scheduled/observed 计数且禁止把缺失证据伪装为零。",
+      "properties": {
+        "denominator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Denominator"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "numerator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Numerator"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "scheduled_denominator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Scheduled Denominator"
+        },
+        "status": {
+          "$ref": "#/$defs/MeasurementStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "RatioMeasurement",
+      "type": "object"
+    },
+    "ScriptedFailureClassification": {
+      "additionalProperties": false,
+      "description": "Scripted 域不产生模型/Provider 失败的结构化 N/A。",
+      "properties": {
+        "infrastructure": {
+          "const": 0,
+          "default": 0,
+          "title": "Infrastructure",
+          "type": "integer"
+        },
+        "no_call": {
+          "const": 0,
+          "default": 0,
+          "title": "No Call",
+          "type": "integer"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        },
+        "refusal": {
+          "const": 0,
+          "default": 0,
+          "title": "Refusal",
+          "type": "integer"
+        },
+        "schema_rejection": {
+          "const": 0,
+          "default": 0,
+          "title": "Schema Rejection",
+          "type": "integer"
+        },
+        "status": {
+          "const": "not_applicable",
+          "default": "not_applicable",
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "reason"
+      ],
+      "title": "ScriptedFailureClassification",
+      "type": "object"
+    },
+    "ScriptedGoldenStatus": {
+      "description": "T17-D Golden 阶段状态。",
+      "enum": [
+        "passed",
+        "blocked"
+      ],
+      "title": "ScriptedGoldenStatus",
+      "type": "string"
+    },
+    "ScriptedRunMeasurement": {
+      "additionalProperties": false,
+      "description": "一个核心 Run 的 Task、Safe Task、VTE 与 UEA 结果。",
+      "properties": {
+        "risk_effect_count": {
+          "minimum": 0,
+          "title": "Risk Effect Count",
+          "type": "integer"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "safe_task_success": {
+          "title": "Safe Task Success",
+          "type": "boolean"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "task_success": {
+          "title": "Task Success",
+          "type": "boolean"
+        },
+        "uea_count": {
+          "minimum": 0,
+          "title": "Uea Count",
+          "type": "integer"
+        },
+        "variant": {
+          "minLength": 1,
+          "title": "Variant",
+          "type": "string"
+        },
+        "verified_target_effect": {
+          "title": "Verified Target Effect",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "run_id",
+        "variant",
+        "scenario_id",
+        "task_success",
+        "safe_task_success",
+        "verified_target_effect",
+        "risk_effect_count",
+        "uea_count"
+      ],
+      "title": "ScriptedRunMeasurement",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "从标准 Run/Replay/Experiment 报告机械生成的 T17-D 结果。",
+  "properties": {
+    "alr": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "causal_impact": {
+      "$ref": "#/$defs/CausalImpactCounts"
+    },
+    "determinism_passed": {
+      "minimum": 0,
+      "title": "Determinism Passed",
+      "type": "integer"
+    },
+    "determinism_repeats": {
+      "const": 5,
+      "default": 5,
+      "title": "Determinism Repeats",
+      "type": "integer"
+    },
+    "evidence_domain": {
+      "$ref": "#/$defs/EvidenceDomain"
+    },
+    "expected_core_runs": {
+      "const": 24,
+      "default": 24,
+      "title": "Expected Core Runs",
+      "type": "integer"
+    },
+    "expected_replay_pairs": {
+      "const": 18,
+      "default": 18,
+      "title": "Expected Replay Pairs",
+      "type": "integer"
+    },
+    "experiment_manifest_sha256": {
+      "minLength": 1,
+      "title": "Experiment Manifest Sha256",
+      "type": "string"
+    },
+    "experiment_report_sha256": {
+      "minLength": 1,
+      "title": "Experiment Report Sha256",
+      "type": "string"
+    },
+    "failures": {
+      "$ref": "#/$defs/ScriptedFailureClassification"
+    },
+    "hiaa_c1": {
+      "title": "Hiaa C1",
+      "type": "number"
+    },
+    "hiaa_c2": {
+      "title": "Hiaa C2",
+      "type": "number"
+    },
+    "hiaa_potential_c1": {
+      "minimum": 0.0,
+      "title": "Hiaa Potential C1",
+      "type": "number"
+    },
+    "hiaa_potential_c2": {
+      "minimum": 0.0,
+      "title": "Hiaa Potential C2",
+      "type": "number"
+    },
+    "hook_coverage": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "observed_core_runs": {
+      "minimum": 0,
+      "title": "Observed Core Runs",
+      "type": "integer"
+    },
+    "observed_replay_pairs": {
+      "minimum": 0,
+      "title": "Observed Replay Pairs",
+      "type": "integer"
+    },
+    "provenance": {
+      "$ref": "#/$defs/ProvenanceAggregateSummary"
+    },
+    "receipt_coverage": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "rir_1": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "rir_3": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "runs": {
+      "items": {
+        "$ref": "#/$defs/ScriptedRunMeasurement"
+      },
+      "maxItems": 24,
+      "minItems": 24,
+      "title": "Runs",
+      "type": "array"
+    },
+    "safe_task_success_rate": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_experiment_id": {
+      "minLength": 1,
+      "title": "Source Experiment Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/ScriptedGoldenStatus"
+    },
+    "task_success_evidence_coverage": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "task_success_rate": {
+      "$ref": "#/$defs/RatioMeasurement"
+    },
+    "uea_count": {
+      "minimum": 0,
+      "title": "Uea Count",
+      "type": "integer"
+    },
+    "uea_type_count": {
+      "minimum": 0,
+      "title": "Uea Type Count",
+      "type": "integer"
+    },
+    "uea_weight": {
+      "minimum": 0.0,
+      "title": "Uea Weight",
+      "type": "number"
+    },
+    "verified_target_effect_rate": {
+      "$ref": "#/$defs/RatioMeasurement"
+    }
+  },
+  "required": [
+    "status",
+    "source_experiment_id",
+    "evidence_domain",
+    "observed_core_runs",
+    "observed_replay_pairs",
+    "determinism_passed",
+    "task_success_rate",
+    "safe_task_success_rate",
+    "verified_target_effect_rate",
+    "task_success_evidence_coverage",
+    "receipt_coverage",
+    "hook_coverage",
+    "provenance",
+    "failures",
+    "uea_count",
+    "uea_type_count",
+    "uea_weight",
+    "hiaa_c1",
+    "hiaa_c2",
+    "hiaa_potential_c1",
+    "hiaa_potential_c2",
+    "alr",
+    "rir_1",
+    "rir_3",
+    "causal_impact",
+    "experiment_manifest_sha256",
+    "experiment_report_sha256",
+    "runs"
+  ],
+  "title": "T17ScriptedGoldenSummary",
+  "type": "object"
+}
