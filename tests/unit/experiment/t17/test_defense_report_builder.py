@@ -5,8 +5,13 @@ from types import SimpleNamespace
 import pytest
 
 from skillflow.experiment.t16.provider import TokenUsage
+from skillflow.experiment.t17 import defense_mode as mode_module
 from skillflow.experiment.t17 import defense_report as module
 from skillflow.experiment.t17.contracts import MeasurementStatus, RatioMeasurement
+from skillflow.experiment.t17.defense_mode import (
+    T17DefenseModeInput,
+    build_defense_mode_metrics,
+)
 from skillflow.experiment.t17.defense_models import (
     T17DefenseModeMetrics,
     T17SecurityGain,
@@ -16,13 +21,15 @@ from skillflow.experiment.t17.defense_report import (
     T17DefenseReportRequest,
     _build_mode,
     _ModeBuildRequest,
+    _over_defense_rate,
     _validated_phase,
     build_defense_report,
     write_defense_report,
 )
-from skillflow.experiment.t17.live_attempt_models import T17LiveUnitKind
+from skillflow.experiment.t17.live_attempt_models import T17LiveUnitKind, T17LiveUnitRecord
 from skillflow.experiment.t17.live_reference_client import ReferenceLiveTelemetry
 from skillflow.experiment.t17.metric_models import T17PhaseMetricsReport
+from skillflow.experiment.t17.scenario_registry import T17ConditionKind
 from skillflow.models.enums import EnforcementMode
 
 
@@ -255,3 +262,125 @@ def test_build_mode_routes_static_id_sets(
     assert captured[0].mode is EnforcementMode.MONITOR
     assert captured[0].scheduled_core_ids == frozenset()
     assert captured[0].scheduled_replay_ids == frozenset()
+
+
+def test_over_defense_rate_measures_complete_benign_cluster(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    records: list[T17LiveUnitRecord] = []
+    specifications: dict[str, SimpleNamespace] = {}
+    for mode, outcomes in (
+        (EnforcementMode.MONITOR, (True, True, True)),
+        (EnforcementMode.ENFORCE, (True, False, True)),
+    ):
+        for index, success in enumerate(outcomes):
+            trial_id = f"{mode.value}-{index}"
+            records.append(
+                T17LiveUnitRecord.model_construct(
+                    unit_kind=T17LiveUnitKind.CORE,
+                    trial_id=trial_id,
+                    source_variant="variant",
+                    semantic_template_id="s1",
+                    enforcement_mode=mode,
+                    task_success=success,
+                )
+            )
+            specifications[trial_id] = SimpleNamespace(
+                condition_kind=T17ConditionKind.BENIGN_CONTROL
+            )
+    records.append(
+        T17LiveUnitRecord.model_construct(
+            unit_kind=T17LiveUnitKind.REPLAY,
+            trial_id="replay",
+        )
+    )
+    specifications["replay"] = SimpleNamespace(condition_kind=T17ConditionKind.BENIGN_CONTROL)
+    monkeypatch.setattr(module, "defense_base_key", lambda _variant: "base")
+
+    measurement = _over_defense_rate(
+        tuple(records),
+        specifications,
+        {"variant": object()},
+    )
+
+    assert measurement.status is MeasurementStatus.MEASURED
+    assert measurement.value == 1.0
+
+
+def test_build_defense_mode_metrics_closes_mode_denominators(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def capture_mode(**values: object) -> SimpleNamespace:
+        return SimpleNamespace(**values)
+
+    telemetry = _telemetry("0.3", 30, 3)
+    risk_record = T17LiveUnitRecord.model_construct(
+        unit_kind=T17LiveUnitKind.CORE,
+        trial_id="risk",
+        unit_id="risk",
+        task_success=True,
+        safe_task_success=False,
+        telemetry=telemetry,
+    )
+    benign_record = T17LiveUnitRecord.model_construct(
+        unit_kind=T17LiveUnitKind.CORE,
+        trial_id="benign",
+        unit_id="benign",
+        task_success=True,
+        safe_task_success=True,
+        telemetry=telemetry,
+    )
+    replay_record = T17LiveUnitRecord.model_construct(
+        unit_kind=T17LiveUnitKind.REPLAY,
+        trial_id="risk",
+        unit_id="replay",
+        telemetry=telemetry,
+    )
+    risk_run = SimpleNamespace(
+        harm_effect_ids=("harm",),
+        uea=SimpleNamespace(uea_count=1),
+        unauthorized_effects=(SimpleNamespace(effect_id="uea"),),
+    )
+    benign_run = SimpleNamespace(
+        harm_effect_ids=(),
+        uea=SimpleNamespace(uea_count=0),
+        unauthorized_effects=(),
+    )
+    standard = object()
+    monkeypatch.setattr(
+        mode_module,
+        "T17DefenseModeMetrics",
+        capture_mode,
+    )
+    monkeypatch.setattr(
+        mode_module,
+        "aggregate_standard_results",
+        lambda _source: standard,
+    )
+    monkeypatch.setattr(
+        mode_module,
+        "aggregate_reference_telemetry",
+        lambda _records: telemetry,
+    )
+    source = T17DefenseModeInput(
+        mode=EnforcementMode.MONITOR,
+        records=(risk_record, benign_record, replay_record),
+        runs_by_trial={"risk": risk_run, "benign": benign_run},
+        replays_by_unit={"replay": object()},
+        specifications_by_trial={
+            "risk": SimpleNamespace(condition_kind=T17ConditionKind.RISK),
+            "benign": SimpleNamespace(condition_kind=T17ConditionKind.BENIGN_CONTROL),
+        },
+        scheduled_core_ids=frozenset({"risk", "benign"}),
+        scheduled_replay_ids=frozenset({"replay"}),
+        fallback_selector=object(),
+    )
+
+    result = build_defense_mode_metrics(source)
+
+    assert result.scheduled_core_trials == 2
+    assert result.scheduled_replay_pairs == 1
+    assert result.risk_vte_rate.value == 1.0
+    assert result.risk_uea_affected_rate.value == 1.0
+    assert result.uea_count == 1
+    assert result.telemetry is telemetry
