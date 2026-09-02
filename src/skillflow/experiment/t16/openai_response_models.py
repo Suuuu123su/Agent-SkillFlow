@@ -111,12 +111,19 @@ ApiOutputItem = Annotated[
 ]
 
 
+class ApiIncompleteDetails(ApiModel):
+    """Safe reason for a non-complete Responses terminal state."""
+
+    reason: NonEmptyStr
+
+
 class ApiResponse(ApiModel):
     """T16-C 需要解析的 Responses 成功响应闭包。"""
 
     id: NonEmptyStr
     model: NonEmptyStr
     status: NonEmptyStr
+    incomplete_details: ApiIncompleteDetails | None = None
     output: tuple[ApiOutputItem, ...]
     usage: ApiUsage
 

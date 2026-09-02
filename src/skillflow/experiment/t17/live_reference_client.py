@@ -304,6 +304,10 @@ class OpenAIReferenceModelClient:
         self._accounting.record_turn(turn)
         if turn.model_revision != self._config.provider.model_revision:
             raise ReferenceDecisionSchemaError("model_revision_changed")
+        if turn.status != "completed":
+            reason = turn.incomplete_reason or turn.status
+            detail = f"response_incomplete:{reason}"
+            raise ReferenceDecisionSchemaError(detail)
         if turn.refusal:
             decision = ReferenceModelDecision(selected_action_ids=(), output_text="")
             self._accounting.record_decision(decision)

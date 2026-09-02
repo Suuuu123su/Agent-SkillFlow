@@ -102,6 +102,7 @@ class OpenAIResponsesTurn:
     refusal: bool
     token_usage: TokenUsage
     latency_ms: int
+    incomplete_reason: str | None = None
 
 
 class OpenAIResponsesClient:
@@ -185,6 +186,9 @@ class OpenAIResponsesClient:
                 cache_write_tokens=parsed.usage.input_tokens_details.cache_write_tokens,
             ),
             latency_ms=response.latency_ms,
+            incomplete_reason=(
+                None if parsed.incomplete_details is None else parsed.incomplete_details.reason
+            ),
         )
 
 

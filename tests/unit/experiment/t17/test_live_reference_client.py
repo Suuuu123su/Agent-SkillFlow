@@ -46,6 +46,27 @@ class FixedTurnClient:
         )
 
 
+class IncompleteTurnClient:
+    def create(self, call: OpenAIResponsesCall) -> OpenAIResponsesTurn:
+        return OpenAIResponsesTurn(
+            response_id="response-incomplete",
+            model_revision="gpt-5.6-luna",
+            status="incomplete",
+            function_calls=(),
+            continuation_items=(),
+            output_text='{"selected_action_ids":',
+            refusal=False,
+            token_usage=TokenUsage(
+                input_tokens=147,
+                cached_input_tokens=0,
+                output_tokens=42,
+                reasoning_tokens=470,
+            ),
+            latency_ms=8121,
+            incomplete_reason="max_output_tokens",
+        )
+
+
 class RecordingUsageCheckpoint:
     def __init__(self) -> None:
         self.attempts: list[BudgetLedger] = []
@@ -152,3 +173,12 @@ def test_reference_output_schema_uses_openai_supported_array_subset() -> None:
     assert isinstance(selected, dict)
 
     assert "uniqueItems" not in selected
+
+
+def test_openai_reference_client_classifies_truncated_response_before_json() -> None:
+    client = OpenAIReferenceModelClient(_config(), IncompleteTurnClient())
+
+    with pytest.raises(ReferenceDecisionSchemaError) as captured:
+        client.decide(_request())
+
+    assert captured.value.detail == "response_incomplete:max_output_tokens"

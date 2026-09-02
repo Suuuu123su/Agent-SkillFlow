@@ -224,3 +224,15 @@ def test_missing_usage_breakdown_is_a_schema_error_not_zero(
 
     with pytest.raises(OpenAIResponsesSchemaError):
         OpenAIResponsesClient(SecretStr("masked"), transport).create(_call())
+
+
+def test_client_preserves_incomplete_reason_without_response_body() -> None:
+    response = _response()
+    response["status"] = "incomplete"
+    response["incomplete_details"] = {"reason": "max_output_tokens"}
+    transport = RecordingTransport(TransportResponse(200, response, 1))
+
+    turn = OpenAIResponsesClient(SecretStr("masked"), transport).create(_call())
+
+    assert turn.status == "incomplete"
+    assert turn.incomplete_reason == "max_output_tokens"

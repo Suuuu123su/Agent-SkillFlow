@@ -48,6 +48,7 @@ class T17BudgetProposal(StrictModel):
     requested_max_total_usd: PositiveMoney
     requested_max_cost_per_run_usd: PositiveMoney
     campaign_max_total_usd: PositiveMoney | None = None
+    prior_attempt_actual_estimated_usd: NonNegativeMoney = Decimal(0)
     prior_attempt_conservative_reserved_usd: NonNegativeMoney = Decimal(0)
 
     @model_validator(mode="after")
@@ -69,6 +70,11 @@ class T17BudgetProposal(StrictModel):
             raise PydanticCustomError(
                 "t17_budget_engineering_has_p95",
                 "初始工程上界不得伪装为 p95",
+            )
+        if self.prior_attempt_actual_estimated_usd > self.prior_attempt_conservative_reserved_usd:
+            raise PydanticCustomError(
+                "t17_budget_actual_exceeds_reserved",
+                "Prior actual cost cannot exceed conservative reservation",
             )
         if (
             self.campaign_max_total_usd is not None

@@ -93,6 +93,10 @@ def classify_live_failure(error: Exception) -> T17FailureClassification:
         kind = T17LiveFailureKind.MODEL_REVISION
         status = T17LiveTerminalStatus.FAILED
         detail = str(error)
+    elif isinstance(error, ReferenceDecisionSchemaError) and error.detail.startswith(
+        "response_incomplete:"
+    ):
+        detail = error.detail
     elif isinstance(error, ReferenceDecisionSchemaError):
         kind = (
             T17LiveFailureKind.MODEL_REVISION

@@ -61,6 +61,22 @@ def test_retry_budget_proposal_cannot_exceed_campaign_total() -> None:
         T17BudgetProposal.model_validate(values)
 
 
+def test_retry_budget_proposal_rejects_actual_cost_above_reservation() -> None:
+    matrix = load_live_matrix(Path("experiments/t17/matrix_canary.yaml"))
+    proposal = build_initial_budget_proposal(
+        Path("runs/t16d2-v31-canary-live-20260830-01/attempt-01/run-summary.json"),
+        matrix,
+    )
+    values = proposal.model_dump()
+    values.update(
+        prior_attempt_actual_estimated_usd=Decimal("0.02"),
+        prior_attempt_conservative_reserved_usd=Decimal("0.01"),
+    )
+
+    with pytest.raises(ValidationError, match="actual cost"):
+        T17BudgetProposal.model_validate(values)
+
+
 def test_followup_budget_proposal_uses_observed_unit_p95_and_target_prices(
     tmp_path: Path,
 ) -> None:

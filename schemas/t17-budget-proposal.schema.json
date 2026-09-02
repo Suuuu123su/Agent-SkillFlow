@@ -127,6 +127,20 @@
       "title": "Model Revision",
       "type": "string"
     },
+    "prior_attempt_actual_estimated_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0",
+      "title": "Prior Attempt Actual Estimated Usd"
+    },
     "prior_attempt_conservative_reserved_usd": {
       "anyOf": [
         {

@@ -44,7 +44,7 @@ model1_budget:
   max_total_usd: "0.25"
   max_cost_per_run_usd: "0.05"
   max_agent_turns: 16
-  max_output_tokens_per_turn: 512
+  max_output_tokens_per_turn: 2048
   max_retries: 1
 model2_budget:
   schema_version: "0.1"
@@ -52,7 +52,7 @@ model2_budget:
   max_total_usd: "2.00"
   max_cost_per_run_usd: "0.20"
   max_agent_turns: 16
-  max_output_tokens_per_turn: 512
+  max_output_tokens_per_turn: 2048
   max_retries: 1
 model1_full_budget:
   schema_version: "0.1"
@@ -60,7 +60,7 @@ model1_full_budget:
   max_total_usd: "3.00"
   max_cost_per_run_usd: "0.05"
   max_agent_turns: 16
-  max_output_tokens_per_turn: 512
+  max_output_tokens_per_turn: 2048
   max_retries: 1
 model2_full_budget:
   schema_version: "0.1"
@@ -68,7 +68,7 @@ model2_full_budget:
   max_total_usd: "50.00"
   max_cost_per_run_usd: "0.20"
   max_agent_turns: 16
-  max_output_tokens_per_turn: 512
+  max_output_tokens_per_turn: 2048
   max_retries: 1
 defense_budget:
   schema_version: "0.1"
@@ -76,7 +76,7 @@ defense_budget:
   max_total_usd: "3.00"
   max_cost_per_run_usd: "0.05"
   max_agent_turns: 16
-  max_output_tokens_per_turn: 512
+  max_output_tokens_per_turn: 2048
   max_retries: 1
 model1_prompt_cache_mode: explicit
 model2_prompt_cache_mode: automatic
