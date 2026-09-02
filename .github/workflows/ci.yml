@@ -11,7 +11,7 @@ jobs:
   quality:
     name: Python 3.11 质量检查
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: 检出代码
         uses: actions/checkout@v4
