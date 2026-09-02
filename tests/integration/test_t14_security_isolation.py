@@ -20,6 +20,7 @@ T16C_APPROVED_SECRET_READERS = {
     Path("src/skillflow/experiment/t16/live_cli.py"): frozenset({("getpass", "getpass")}),
     Path("src/skillflow/experiment/t16/task_success_live_cli.py"): frozenset({("os", "environ")}),
     Path("src/skillflow/experiment/t16/task_success_canary_cli.py"): frozenset({("os", "environ")}),
+    Path("src/skillflow/experiment/t17/live_supervisor.py"): frozenset({("getpass", "getpass")}),
 }
 
 

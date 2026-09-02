@@ -240,7 +240,11 @@ def canonical_baseline_selections(project_root: Path) -> tuple[BaselineArtifactS
         )
         for path in sorted((project_root / "schemas").glob("t16*.schema.json"))
     )
-    return tuple(selections)
+    return tuple(
+        item
+        for item in selections
+        if not item.path.as_posix().startswith("runs/") or (project_root / item.path).is_file()
+    )
 
 
 def _selection(
