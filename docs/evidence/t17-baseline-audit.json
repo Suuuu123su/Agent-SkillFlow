@@ -1,0 +1,380 @@
+{
+  "schema_version": "0.1",
+  "created_at": "2026-09-02T07:21:17.094250Z",
+  "source_revision": "c1d91cc89695485f428b20c34fde20c0a21f398a",
+  "artifact_count": 53,
+  "artifact_set_sha256": "f663b1bf154b912fbbd84eab093abeadfd5f67ed7624d2b03092886d21397949",
+  "artifacts": [
+    {
+      "path": "docs/evidence/t16b-fake-run-summary.json",
+      "kind": "summary",
+      "evidence_domain": "fake_provider",
+      "sha256": "3a6cebbb6f6d89e470d07cb4461f9dfdb689855a05f57dd1e4867367a0d62306",
+      "byte_length": 6106
+    },
+    {
+      "path": "docs/evidence/t16c-v2-live-summary-20260829.json",
+      "kind": "summary",
+      "evidence_domain": "direct_prompt",
+      "sha256": "17573f99bd8704c270a6e7f6ab7c3ccdc66a892d8aef0e6774c3dc49f68561d3",
+      "byte_length": 8561
+    },
+    {
+      "path": "docs/summaries/T16E_Summary.md",
+      "kind": "summary",
+      "evidence_domain": "reference_harness",
+      "sha256": "63a2fcc80aca95a1f8bedf76156a6d5b8c5015ed28066ee72ab34dbfa0d5061b",
+      "byte_length": 7816
+    },
+    {
+      "path": "experiments/t16/matrix_model1_t16c_v2.yaml",
+      "kind": "matrix",
+      "evidence_domain": "direct_prompt",
+      "sha256": "7efbcc31dc0d6792a80894e794b787bccd6f52de82df0c6c7e51fff276adb0b3",
+      "byte_length": 101892
+    },
+    {
+      "path": "experiments/t16/matrix_smoke_t16c_v2.yaml",
+      "kind": "matrix",
+      "evidence_domain": "direct_prompt",
+      "sha256": "e876392a07186f0c989ecfc1911a5f03a4fef11f48a8c37a1e5c76e7a1da0731",
+      "byte_length": 13682
+    },
+    {
+      "path": "experiments/t16/matrix_task_success_smoke_v3.yaml",
+      "kind": "matrix",
+      "evidence_domain": "reference_harness",
+      "sha256": "695560d3494ca037fa19b84b2bcb9daa5f4f74016da4396ac450f07538e54b56",
+      "byte_length": 47986
+    },
+    {
+      "path": "experiments/t16/preregistration.yaml",
+      "kind": "preregistration",
+      "evidence_domain": "fake_provider",
+      "sha256": "4e2cf026bdeeb7901a47eb43fe8a38cf6ae5f2307960795360104cd6501779e1",
+      "byte_length": 12481
+    },
+    {
+      "path": "experiments/t16/preregistration_t16c_v2.yaml",
+      "kind": "preregistration",
+      "evidence_domain": "direct_prompt",
+      "sha256": "f12f6fe08e0055ebf749f16adc4c104f8cb8271bf3c7cf8202f1c01767a5b907",
+      "byte_length": 12430
+    },
+    {
+      "path": "experiments/t16/preregistration_task_success_v3.yaml",
+      "kind": "preregistration",
+      "evidence_domain": "reference_harness",
+      "sha256": "167f7b8cda9e7beb0c3e34e41fcdbacaca4fe081ea2b76889800a552878a424f",
+      "byte_length": 7930
+    },
+    {
+      "path": "experiments/t16/preregistration_task_success_v3_1.yaml",
+      "kind": "preregistration",
+      "evidence_domain": "reference_harness",
+      "sha256": "9ad38f19e1e9ba87d6c863c988af14b4a6e145338a2f9a79ee4a0b2a489deca4",
+      "byte_length": 7961
+    },
+    {
+      "path": "experiments/t16/t16b_fake_dry_run.yaml",
+      "kind": "matrix",
+      "evidence_domain": "fake_provider",
+      "sha256": "e38ee02fed1814fbab85298b3dd96fd18240af4a8476692e93718d1da9bea772",
+      "byte_length": 2335
+    },
+    {
+      "path": "experiments/t16/t16e_second_model.yaml",
+      "kind": "preregistration",
+      "evidence_domain": "reference_harness",
+      "sha256": "ab892b5f2286b20cad9d24ad572fd4bf50591c912c3550e9f53de01e7a9dcf51",
+      "byte_length": 820
+    },
+    {
+      "path": "experiments/t16/task_success_assertions_v3.yaml",
+      "kind": "prompt_contract",
+      "evidence_domain": "reference_harness",
+      "sha256": "d28b200e638a75a459c7a06eba069dc49567bbeb86acdd50a0e78d01c98f1aec",
+      "byte_length": 12326
+    },
+    {
+      "path": "runs/mvp/experiment-manifest.json",
+      "kind": "manifest",
+      "evidence_domain": "scripted",
+      "sha256": "20a8fbd5e4965c5e5c2be6df6f391cd08ccc6af7ec17e9493c3b7cae428db8c2",
+      "byte_length": 6597
+    },
+    {
+      "path": "runs/mvp/experiment-report.json",
+      "kind": "report",
+      "evidence_domain": "scripted",
+      "sha256": "35f6f1570f994b3618bba36f91ad70244a6dee71bf06cd94e9ff394c8e2ad7c6",
+      "byte_length": 12038
+    },
+    {
+      "path": "runs/t16c-v2-live-20260829-01/attempt-01/model1/trial-results.jsonl",
+      "kind": "raw_jsonl",
+      "evidence_domain": "direct_prompt",
+      "sha256": "2538b342bff20799964392eac15f545c47e10f6f55e4c56c315b1a85d3618f04",
+      "byte_length": 1165825
+    },
+    {
+      "path": "runs/t16c-v2-live-20260829-01/attempt-01/smoke/trial-results.jsonl",
+      "kind": "raw_jsonl",
+      "evidence_domain": "direct_prompt",
+      "sha256": "89dcbc44ca4084ee41645f189df471353fbbbd99a7365c6346e8d99c058d6738",
+      "byte_length": 155125
+    },
+    {
+      "path": "runs/t16d2-v3-live-20260829-01/attempt-01/raw-trials.jsonl",
+      "kind": "raw_jsonl",
+      "evidence_domain": "reference_harness",
+      "sha256": "911158a920488c50cd9676ede396e30c8c88d90f05e882e7efce8025613c34d6",
+      "byte_length": 96596
+    },
+    {
+      "path": "runs/t16d2-v3-live-20260829-01/attempt-01/run-summary.json",
+      "kind": "summary",
+      "evidence_domain": "reference_harness",
+      "sha256": "a9b24ae89ba0a5abe17c8eff9948baeb7e9be4260332f4b8fae5e608e8595348",
+      "byte_length": 679
+    },
+    {
+      "path": "runs/t16d2-v31-canary-live-20260830-01/attempt-01/raw-trials.jsonl",
+      "kind": "raw_jsonl",
+      "evidence_domain": "reference_harness",
+      "sha256": "d3af168137c058541a230643bd76f8e8987ff94f1ff4f88bd774320f51f27ab9",
+      "byte_length": 148496
+    },
+    {
+      "path": "runs/t16d2-v31-canary-live-20260830-01/attempt-01/run-summary.json",
+      "kind": "summary",
+      "evidence_domain": "reference_harness",
+      "sha256": "2ddf8d5fbb30e283bd25deb8ed591332402755e423f786fcb820fcb10e1fccfb",
+      "byte_length": 10485
+    },
+    {
+      "path": "runs/t16e-model2-gpt55-live-20260831-01/attempt-01/raw-trials.jsonl",
+      "kind": "raw_jsonl",
+      "evidence_domain": "reference_harness",
+      "sha256": "e867b9e25e74a80bf95e78b8a501c099bb20217bbf1b344adf3b795f625d90c8",
+      "byte_length": 80712
+    },
+    {
+      "path": "runs/t16e-model2-gpt55-live-20260831-01/attempt-01/run-summary.json",
+      "kind": "summary",
+      "evidence_domain": "reference_harness",
+      "sha256": "358a35672aa4f757494cdeea49a448fe7671d2b4a0d67a6e87afb7b823b96fcb",
+      "byte_length": 7243
+    },
+    {
+      "path": "scenarios/matrix/mvp.yaml",
+      "kind": "matrix",
+      "evidence_domain": "scripted",
+      "sha256": "9b47a8e72b55a33d29a415b185d5c36b4ad626040b5a98287f32d5dcada101fb",
+      "byte_length": 11928
+    },
+    {
+      "path": "schemas/t16-budget.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "098d0af5167551480f6f26954d806946b8c7fbb21e4e32598f55328264f40c76",
+      "byte_length": 1530
+    },
+    {
+      "path": "schemas/t16-provider.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "894b6c3d43e3651008a7bc9e581c4004979ce2271dc4838bcfbd070a5ad156e2",
+      "byte_length": 4140
+    },
+    {
+      "path": "schemas/t16-task-result-v3.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "827c436b73ae02c01291177900693bc21f12f65344d0cb61b14776ca2c147265",
+      "byte_length": 1516
+    },
+    {
+      "path": "schemas/t16-task-success-evidence.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "8e33c2cd42d486807debe4ba6f25cb19cf63f5a06003d74921b88c872325e797",
+      "byte_length": 6172
+    },
+    {
+      "path": "schemas/t16-task-success-preregistration-v3.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "53d3a40fb98346a7ec40b101208b252f5a7be3f8a71126822692cbdc8227c1cf",
+      "byte_length": 15335
+    },
+    {
+      "path": "schemas/t16-task-success-result.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "ac3e2acc0f4c58953fa040f720fd72d7aee708dc922d37fba25853a4209d2dff",
+      "byte_length": 2276
+    },
+    {
+      "path": "schemas/t16-task-success-smoke-matrix-v3.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "49c5228e17f7be00a3f52dfd4396bfd8d273aefd4a40c166654491330c9bf914",
+      "byte_length": 11050
+    },
+    {
+      "path": "schemas/t16-task-success-specifications-v3.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "b376e0802f75021cfbbab16fc645c1c67bc74b93e095f36e294deb4266538e1c",
+      "byte_length": 19841
+    },
+    {
+      "path": "schemas/t16-trial-result.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "34927f47856275ecef4a9722b55ed0d3aea8e1f73ded591d37dc91d51c7f889a",
+      "byte_length": 8421
+    },
+    {
+      "path": "schemas/t16b-dry-run-summary.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "0e395cfbbfe297c1ddb836043c21d66ffc127c796945c8bc82e3573c570faead",
+      "byte_length": 18795
+    },
+    {
+      "path": "schemas/t16c-live-config.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "3195d60beaaa9941a35c2a3b1eb667632bf5f07f926a7db3509919a492a8f382",
+      "byte_length": 8044
+    },
+    {
+      "path": "schemas/t16c-live-metrics.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "9e05e874035ca2204a1df8a32655a5e33c61015a8bf2b795a21cf8114de167f8",
+      "byte_length": 9322
+    },
+    {
+      "path": "schemas/t16c-live-phase-summary.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "e5f2c9e4c1943138fcd798f76a7fef88d20c96b55a7f9df7af97d151ef4a8acc",
+      "byte_length": 7966
+    },
+    {
+      "path": "schemas/t16c-live-reanalysis-v0.3.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "e9f1521b1a402a9e3fd525456d9d5b841297d262450863ce84fce196de4fd086",
+      "byte_length": 28844
+    },
+    {
+      "path": "schemas/t16c-live-reanalysis-v0.4.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "3daa5c203e940c19d75d2a436fea809955418714aa3ac45b42982de726af0fbc",
+      "byte_length": 31024
+    },
+    {
+      "path": "schemas/t16c-live-reanalysis.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "e329ab006e7accb71b992bdea30baba0d957158949ea8510214101550a537aad",
+      "byte_length": 22804
+    },
+    {
+      "path": "schemas/t16c-live-trial-record.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "0f53c7ed5e88f6511e70959aa61eed4e03928fa9813eb2779b23e586c76135aa",
+      "byte_length": 33889
+    },
+    {
+      "path": "schemas/t16c-v2-partial-reanalysis-v0.5.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "bbf08de8e48c49094acdad854cf069f09bb356e92864b922624a6560c27d017b",
+      "byte_length": 10105
+    },
+    {
+      "path": "schemas/t16d2-bridge-report.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "b4e0530a587229cb10f701d29267b5d20c1e1887e2e1aa32f7b19ff8fcc8e4a3",
+      "byte_length": 13701
+    },
+    {
+      "path": "schemas/t16d2-checkpoint.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "3cd5baa32041b73fea88fb40ba9d0c29e8bf3fc78f0674816382c4ac6d45af44",
+      "byte_length": 2743
+    },
+    {
+      "path": "schemas/t16d2-preflight.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "f5483490b1637a4363500e0560d9f3915faad7434dd9570607222b75cdfbbe0c",
+      "byte_length": 2508
+    },
+    {
+      "path": "schemas/t16d2-raw-trial-record.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "58103dfe6473c60cc7beced3d1806f92bfe5d4e85f8b0f5c911679f655eb554b",
+      "byte_length": 41983
+    },
+    {
+      "path": "schemas/t16d2-run-summary.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "c4387252d435e97335a08705ab4067fa04755dcb287219196dcf2db0a3e27a3d",
+      "byte_length": 4465
+    },
+    {
+      "path": "schemas/t16d2-stage-gate.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "986c759ceda84bb4f24d3dae507881ca84d93278fa062d25c8f4927428daac2c",
+      "byte_length": 2378
+    },
+    {
+      "path": "schemas/t16d2-v31-canary-run-summary.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "a1aa1844f5414304e6f1f846bb1dfe1067ba7c4e79bfb7c6ed61146dede87fb2",
+      "byte_length": 12998
+    },
+    {
+      "path": "schemas/t16d2-v31-canary-usage-event.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "ce3d3dea4979e8fa86b51b7a0fa4119dc5740a7f57bdd4eb304899a1fd10c4d8",
+      "byte_length": 6895
+    },
+    {
+      "path": "schemas/t16d2r-usage-event.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "7b6b07f9885ceae5b227ea69d9dd082cc2e6a4da3f10b5517ad7a1d15be788ed",
+      "byte_length": 4856
+    },
+    {
+      "path": "schemas/t16e-cross-model-comparison.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "fbb205b9f9af74ae52400a825e7def3a59301312423b6003e7eba34ed397e909",
+      "byte_length": 13812
+    },
+    {
+      "path": "schemas/t16e-live-config.schema.json",
+      "kind": "schema",
+      "evidence_domain": "contract",
+      "sha256": "9de460dc0d1e4fea27547b8a1733a567625a673069f9d6255a3e4fa07ab51425",
+      "byte_length": 8223
+    }
+  ]
+}
