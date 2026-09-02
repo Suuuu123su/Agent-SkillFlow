@@ -4,6 +4,28 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 
 当前仓库已执行到 **T16-E：第二模型最小跨模型验证**。T00–T15 的确定性 MVP 与 OpenClaw Pilot 保持不变；T16-A/T16-B 完成预注册、费用保护和 720 条 Fake 演练，T16-C v2 使用 GPT-5.6 Luna 完成 48 条 Smoke 与 360 条正式链，T16-D v3.1 Canary 以 TaskSuccessEvidence 完成 11/11。T16-E 使用固定 GPT-5.5 snapshot 完成 6/11，随后在 M2 control 第 8 次请求前被单 Trial 费用门安全停止，阶段状态为 BLOCKED。真实的是模型响应和 Tool 调用；所有外部 Effect 仍由本地 Safe Sink 与模拟 Receipt 替代，因此结果不是现实网络、Shell、邮件或文件外发成功率。
 
+## 最新研究路线：T17 指标闭环 → SkillFlow-Rx
+
+当前最新设想是 **SkillFlow-Rx：基于量化攻击机制画像的自适应防御编排**。它不只判断“是否存在攻击”，而是从 SkillFlow 受信任的来源、授权、Effect/Receipt、跨 Session、撤销和反事实证据中形成支持多标签与 `abstain` 的攻击机制画像，再选择风险降低效果最好、正常任务损失最小的防御组合，并用同一证据链重新验证防御是否对症。
+
+```text
+运行证据 → 量化指标 → 攻击机制画像 → 最小防御组合 → 再运行/反事实验证
+```
+
+SkillFlow-Rx **目前只是研究设想，尚未实现，也没有进入现有实验结果分母**。原因是当前真实模型路径中的 UEA、ALR、RIR 和 provenance 仍因平台 Hook 不完整保持 `N/A`，T16-E 的第二模型验证也只有 6/11。直接扩大付费样本只会继续产生证据缺口。
+
+因此，下一阶段先执行 **T17：补全现有框架指标并完成实验闭环**：
+
+1. **T17-A～D（零费用）**：冻结指标登记表和证据域，建立带可信 Authorization、decision basis、provenance、influence 与 revocation Hook 的 Reference Harness，补齐全场景 TaskSuccess/Oracle 规格，并重跑 Scripted Golden 全指标实验。
+2. **T17-E～G（通过阶段门后才付费）**：依次运行 Model1 全指标 Canary、Model1 验证矩阵和第二模型验证；所有 Trial 必须保存 TaskSuccessEvidence、Receipt、Hook 可用性、Token、费用和 Partial 状态。
+3. **T17-H**：比较 Monitor、Enforce 与单项防御的安全收益、任务损失和成本，不构造任意加权“总安全分”。
+4. T17 全部闭环后，才进入 SkillFlow-Rx 的攻击诊断器与自适应防御选择实验。
+
+当前 T17 状态为 **计划已登记、尚未执行**；未调用新 API，也未修改或合并旧 T16 记录。完整文件：
+
+- [T17：补全现有框架指标并完成实验闭环](docs/plans/T17_metric_completion_experiment_plan.md)
+- [SkillFlow-Rx：基于量化攻击机制画像的自适应防御编排](docs/research/attack-diagnosis-adaptive-defense.md)
+
 ## 当前能力
 
 - 可安装的 Python `src` 布局包。
