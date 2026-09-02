@@ -33,11 +33,15 @@ class T16EModel1Baseline:
     records: tuple[T16D2RawTrialRecord, ...]
 
 
-@dataclass(frozen=True, slots=True)
 class T16EModel1IntegrityError(RuntimeError):
     """Model1 文件、身份或 11 条结果不再满足冻结基线。"""
 
-    detail: str
+    __slots__ = ("detail",)
+
+    def __init__(self, detail: str) -> None:
+        """保留稳定诊断，同时允许 Python 3.11 写入异常 traceback。"""
+        RuntimeError.__init__(self, detail)
+        self.detail = detail
 
     def __str__(self) -> str:
         """返回不包含模型内容的稳定诊断。"""

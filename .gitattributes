@@ -5,3 +5,19 @@
 *.yaml text eol=lf
 *.yml text eol=lf
 SkillFlow_Codex_Task_Spec.md whitespace=-blank-at-eol
+
+# 历史 Matrix 的冻结 SHA-256 基于生成时的精确 CRLF 字节。
+experiments/t16/matrix_smoke.yaml -text whitespace=cr-at-eol
+experiments/t16/matrix_model1.yaml -text whitespace=cr-at-eol
+experiments/t16/matrix_model2_subset.yaml -text whitespace=cr-at-eol
+experiments/t16/matrix_smoke_t16c_v2.yaml -text whitespace=cr-at-eol
+experiments/t16/matrix_model1_t16c_v2.yaml -text whitespace=cr-at-eol
+experiments/t16/matrix_model2_subset_t16c_v2.yaml -text whitespace=cr-at-eol
+
+# 仅这三组已冻结、已脱敏扫描的实验 Attempt 作为可复核证据入库。
+docs/evidence/t16c-v2-live-reanalysis-v0.4-20260829.json -text whitespace=cr-at-eol
+runs/t16c-v2-live-20260829-01/attempt-01/smoke/trial-results.jsonl -text whitespace=cr-at-eol
+runs/t16c-v2-live-20260829-01/attempt-01/model1/trial-results.jsonl -text whitespace=cr-at-eol
+runs/t16c-v2-live-20260829-01/attempt-01/model1/metrics-reanalysis-v0.4.json -text whitespace=cr-at-eol
+runs/t16d2-v3-live-20260829-01/attempt-01/** -text whitespace=cr-at-eol
+runs/t16d2-v31-canary-live-20260830-01/attempt-01/** -text whitespace=cr-at-eol

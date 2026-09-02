@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.1",
+  "stage": "canary",
+  "created_at": "2026-08-29T13:24:49.150462Z",
+  "expected": 11,
+  "observed": 7,
+  "passed": false,
+  "reasons": [
+    "observed_count_mismatch"
+  ],
+  "evidence_count": 62,
+  "not_evaluable_assertion_count": 0,
+  "infrastructure_invalid_count": 0,
+  "provider_model_revisions": [
+    "gpt-5.6-luna"
+  ],
+  "artifact_binding_valid": true,
+  "receipt_binding_valid": true,
+  "session_binding_valid": true,
+  "secret_scan_passed": true
+}

@@ -1,6 +1,6 @@
 import json
 import socket
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, is_dataclass
 from decimal import Decimal
 from pathlib import Path
 
@@ -10,6 +10,7 @@ from pydantic import SecretStr, ValidationError
 from skillflow.experiment.t16 import (
     live_agent_calls,
     live_config,
+    t16e_integrity,
     task_success_canary_cli,
     task_success_canary_preflight,
     task_success_canary_run,
@@ -178,6 +179,12 @@ def test_t16e_config_freezes_the_user_selected_snapshot_and_budget() -> None:
     assert task_success_live_config.T16E_CONFIG_SHA256 == (
         "e97aadc7bf5135f57ac64ad9e05e9726e12087f087618a577974e08febebe9ae"
     )
+
+
+def test_t16e_integrity_error_preserves_its_typed_exception_on_raise() -> None:
+    assert not is_dataclass(t16e_integrity.T16EModel1IntegrityError)
+    with pytest.raises(t16e_integrity.T16EModel1IntegrityError, match="probe"):
+        raise t16e_integrity.T16EModel1IntegrityError("probe")
 
 
 def test_t16e_environment_requires_the_explicit_second_model_names() -> None:
