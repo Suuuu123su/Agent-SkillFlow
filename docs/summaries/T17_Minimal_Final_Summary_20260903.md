@@ -43,6 +43,7 @@ Scripted 域 135 measured / 16 not_applicable；Fake Reference 域 138 measured 
 - [Fake Reference JSON](../evidence/t17-minimal-fake-reference-metrics-20260903.json) / [CSV](../evidence/t17-minimal-fake-reference-metrics-20260903.csv)。
 - [Raw/Phase/配置/报告哈希及记录数](../evidence/T17_MINIMAL_MANIFEST_20260903.md)。
 - [最终质量审计](../evidence/t17-minimal-quality-audit-20260903.json)。
+- [首次 GitHub CI 失败与测试目录修复审计](../evidence/t17-minimal-ci-portability-audit-20260903.json)：首次 CI 为 1 failed / 14 setup errors；只修复测试输出目录，20 项定向回归通过，生产代码和正式指标未改变。修复后远端 CI 需重新验证。
 
 本地完整 Raw：`runs/t17-minimal-scripted-20260903-01/execution`、`runs/t17-minimal-fake-reference-20260903-01/execution`。每域清单登记 1041 个文件、46 个 JSONL、521 条 JSONL 记录。Raw、开发失败记录和完整覆盖率只留本地；公开产物只含合同、Schema、汇总、审计和哈希。
 

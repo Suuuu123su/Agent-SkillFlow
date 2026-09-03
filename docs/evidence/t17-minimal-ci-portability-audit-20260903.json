@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "t17-minimal-ci-directory-portability-20260903",
+  "scope": "test_fixture_portability_only",
+  "failed_ci": {
+    "commit": "f0a28ed7b5f784b571714b378a8c977ab7d3fe39",
+    "run_id": 33743815190,
+    "job_id": 100611610929,
+    "url": "https://github.com/Suuuu123su/Agent-SkillFlow/actions/runs/33743815190",
+    "conclusion": "failure",
+    "passed": 1016,
+    "failed": 1,
+    "setup_errors": 14,
+    "seconds": 502.25,
+    "combined_coverage_percent": 88.06,
+    "cause": "CLI tests used the runner's system temporary directory outside the project; the unchanged project-output guard rejected it before freeze."
+  },
+  "fix": {
+    "changed_files": [
+      "tests/conftest.py",
+      "tests/unit/experiment/t17/test_minimal_schema_cli.py",
+      "tests/integration/experiment/test_t17_minimal_report.py"
+    ],
+    "method": "Unique retained output directories under the current project's .tmp, independent of pytest's system tmp_path.",
+    "production_path_guard_changed": false,
+    "runtime_source_changed": false,
+    "schema_changed": false,
+    "formal_configuration_changed": false,
+    "formal_raw_changed": false,
+    "metric_values_changed": false,
+    "new_formal_trials": 0,
+    "new_paid_calls": 0
+  },
+  "targeted_validation": {
+    "red": {
+      "path": ".tmp/t17-minimal-work-20260903-01/ci-directory-red-01.xml",
+      "errors": 1,
+      "reason": "new project-local fixture not yet implemented"
+    },
+    "green": {
+      "path": ".tmp/t17-minimal-work-20260903-01/ci-directory-green-01.xml",
+      "sha256": "6d948bf524b1a50d393329cc927c08e7a7404daf63c59ca7379f1a82b376121e",
+      "passed": 20,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "junit_seconds": 36.257
+    },
+    "ruff": "PASS",
+    "format": "PASS",
+    "local_full_suite_rerun": false
+  },
+  "followup_ci": "pending_new_commit_run",
+  "technical_acceptance_complete": false,
+  "remaining_gate": "Pure branch coverage 75.892857% from the final local full run remains below the literal 90% target; interpretation is pending user confirmation.",
+  "reviewer_independence": "REVIEW_UNAVAILABLE"
+}

@@ -33,7 +33,7 @@
 | T17-M0 | completed | 53/53 登记旧哈希与长度一致；合同修订获用户批准 | 完成离线审计与最小设计，未运行新实验。 |
 | T17-M1 | completed | 合同/反例单测 47 passed；集成及 Schema 复验 24 passed；mypy 353 files | 普通任务 v2、Raw 复算、16 Schema、CLI 与最小防御已完成定向验证；尚非最终验收。 |
 | T17-M2 | completed | 两域各 23/23 core、12/12 Replay；Raw 复算与 151+19 指标通过 | 普通任务 v2：TSR 20/23、Safe TSR 13/23；零 API，不与历史或其他域 pooling。 |
-| T17-M3 | blocked | 1031 tests PASS；综合 90.072519%，纯分支 75.892857%；静态/安全门通过 | 纯分支未达文字要求，等待覆盖率口径确认；独立终审 REVIEW_UNAVAILABLE。新最终 Summary/审计已输出，GitHub 交付另记回执。 |
+| T17-M3 | blocked | 本地 1031 tests PASS；综合 90.072519%，纯分支 75.892857%；CI 目录修复后 20 项定向回归 PASS | 首次 GitHub CI 因系统临时目录越出项目边界失败，已仅修复测试 fixture，待远端复验。纯分支口径仍待确认；独立终审 REVIEW_UNAVAILABLE。 |
 
 ## T00：仓库勘察与执行基线
 

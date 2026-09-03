@@ -18,12 +18,12 @@
 | strict mypy | PASS：353 source files | 包含本地现有草稿；不代表该草稿纳入交付 |
 | 静态 Schema | PASS：72 份 | 新增 16 份 minimal Schema；旧 56 份未变化；全量测试中的漂移与 JSON/JSONL 校验通过 |
 | doctor / pip check | PASS | Python 3.12.13、SQLite 3.53.1、运行依赖、项目内临时目录；无依赖冲突 |
-| 400 行上限 / no-excuse | PASS | 39 个新增/修改 Python 文件，最大 294 行；无新增 typing.Any、忽略标记、skip/xfail 或宽泛异常兜底 |
+| 400 行上限 / no-excuse | PASS | 原 39 个新增/修改 Python 文件最大 294 行；后续 CI 修复新增 14 行测试 fixture，累计 40 个文件；无新增 typing.Any、忽略标记、skip/xfail 或宽泛异常兜底 |
 | 禁网与边界测试 | PASS | 两域 23+12 E2E 在 socket 拒绝下完成；Runtime/Policy 等执行边界 AST 检查通过 |
 | 公开结果扫描 | PASS（有界扫描） | 4 个新 JSON/CSV；凭据格式、宿主路径、正文键及仓库实际 10 个 fixture marker 均未命中 |
 | 旧证据 | PASS（登记范围） | T17-A 登记的 53 份 canonical 文件、旧 T17 审计登记的 4 份公开指标哈希一致 |
 | 独立审查 | REVIEW_UNAVAILABLE | 未核实独立审查者模型身份，不把执行者自查写成独立审查 |
-| GitHub 交付 | 待单独回执 | 推送前重新 fetch；普通 fast-forward；实际 CI 结论另行登记 |
+| GitHub 交付 | 首轮失败，修复后待复验 | `f0a28ed` 已普通快进推送；首次 CI 的临时目录 fixture 失败已定位，仅修改测试并通过 20 项回归；生产代码与正式结果不变 |
 
 初次文本扫描把 Python 内置 `any()` 误匹配为 `Any`；改为大小写精确扫描后为 0 项，没有为消除误报修改源码或删测试。coverage JSON 的空字符串函数名也使首次 PowerShell 普通对象解析失败，改用标准 JSON 文档读取；没有改动原始覆盖率文件。
 
@@ -49,3 +49,9 @@
 纯分支 75.89% 不能写成 90%。已请用户选择沿用既有 CI 的“启用分支统计、综合覆盖率 ≥90%”口径，或继续补历史模块的分支测试；在得到答复前，不擅自降低门槛，也不为此无限扩大工作。所有能运行的最小实验已经完成，现有结果可单独交付。
 
 本阶段不修订模型/Provider、不申请 API Key、不补旧 Live Attempt、不运行论文级矩阵、不实现 SkillFlow-Rx。历史 T17-E 保持 incomplete，原 F/G/H 未运行；独立终审仍 `REVIEW_UNAVAILABLE`。技术验收没有标记 COMPLETED。
+
+## GitHub 首轮失败与最小修复
+
+[运行 33743815190](https://github.com/Suuuu123su/Agent-SkillFlow/actions/runs/33743815190) 为 1016 passed、1 failed、14 setup errors，综合覆盖率 88.06%。日志明确显示两处 CLI 测试使用仓库外系统临时目录，被 `_inside_project` 拒绝；14 个共享 fixture 用例因此未执行，并非正式实验 Raw 校验失败。
+
+新增项目内独占 `t17_cli_root` 测试 fixture，修正 freeze/run/report 和非法 domain 测试的输出位置。未放宽真实 CLI 边界，未修改生产源码、Schema、正式配置或 Raw，未新增正式 Trial/API。相关 20 项测试通过（JUnit 36.257 秒），Ruff 与格式检查通过；按用户要求不重复本地全量测试。失败 CI、RED 和定向 GREEN 均分别保留，见 [独立修复审计](../evidence/t17-minimal-ci-portability-audit-20260903.json)。

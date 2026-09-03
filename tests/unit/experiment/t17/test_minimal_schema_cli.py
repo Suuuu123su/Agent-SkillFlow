@@ -26,13 +26,13 @@ def test_minimal_static_schemas_cover_raw_and_reports() -> None:
     } <= names
 
 
-def test_cli_freeze_is_zero_api_and_non_overwriting(tmp_path: Path) -> None:
+def test_cli_freeze_is_zero_api_and_non_overwriting(t17_cli_root: Path) -> None:
     runner = CliRunner()
-    args = ["t17", "minimal", "freeze", "--output", str(tmp_path / "frozen")]
+    args = ["t17", "minimal", "freeze", "--output", str(t17_cli_root / "frozen")]
     result = runner.invoke(app, args)
     assert result.exit_code == 0, result.output
     assert "API=0" in result.output
-    assert (tmp_path / "frozen" / "preregistration.yaml").is_file()
+    assert (t17_cli_root / "frozen" / "preregistration.yaml").is_file()
     assert runner.invoke(app, args).exit_code == 2
 
 
@@ -69,3 +69,8 @@ def test_cli_rejects_output_outside_project_without_writes() -> None:
     result = CliRunner().invoke(app, ["t17", "minimal", "freeze", "--output", str(forbidden)])
     assert result.exit_code == 2
     assert not forbidden.exists()
+
+
+def test_cli_fixture_is_project_local(t17_cli_root: Path) -> None:
+    assert t17_cli_root.is_dir()
+    assert t17_cli_root.parent == Path.cwd() / ".tmp"

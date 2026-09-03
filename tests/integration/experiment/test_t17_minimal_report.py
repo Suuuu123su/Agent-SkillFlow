@@ -19,8 +19,8 @@ from skillflow.validation import validate_yaml_document
 
 
 @pytest.fixture(scope="module")
-def minimal_report_root(tmp_path_factory: pytest.TempPathFactory) -> Path:
-    root = tmp_path_factory.mktemp("minimal-report")
+def minimal_report_root(t17_cli_root: Path) -> Path:
+    root = t17_cli_root / "minimal-report"
     runner = CliRunner()
     frozen = runner.invoke(app, ["t17", "minimal", "freeze", "--output", str(root / "inputs")])
     assert frozen.exit_code == 0, frozen.output
@@ -80,9 +80,9 @@ def test_report_recomputes_all_metrics_from_raw(minimal_report_root: Path) -> No
 
 
 def test_cli_report_writes_static_valid_non_overwriting_json_csv(
-    minimal_report_root: Path, tmp_path: Path
+    minimal_report_root: Path, t17_cli_root: Path
 ) -> None:
-    output = tmp_path / "report.json"
+    output = t17_cli_root / "report.json"
     args = ["t17", "minimal", "report", "--raw", str(minimal_report_root), "--output", str(output)]
     runner = CliRunner()
     first = runner.invoke(app, args)
@@ -179,7 +179,7 @@ def test_raw_recompute_rejects_alias_forgery(
 
 
 def test_cli_invalid_domain_stops_without_creating_run(
-    minimal_report_root: Path, tmp_path: Path
+    minimal_report_root: Path, t17_cli_root: Path
 ) -> None:
     config = minimal_report_root.parent.parent / "inputs" / "preregistration.yaml"
     args = [
@@ -189,10 +189,10 @@ def test_cli_invalid_domain_stops_without_creating_run(
         "--configuration",
         str(config),
         "--output",
-        str(tmp_path / "not-created"),
+        str(t17_cli_root / "not-created"),
         "--domain",
         "live",
     ]
     result = CliRunner().invoke(app, args)
     assert result.exit_code == 2
-    assert not (tmp_path / "not-created").exists()
+    assert not (t17_cli_root / "not-created").exists()
