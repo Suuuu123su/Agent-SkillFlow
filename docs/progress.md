@@ -28,6 +28,12 @@
 | T16-A | completed | 496 tests；覆盖率 90.08%；Fake/Schema/禁网 PASS | 已完成 12 条件预注册、48/360/72 Matrix、Trial/Provider/Budget 合同与零费用准备。 |
 | T16-B | completed | 508 tests；覆盖率 90.25%；720 Fake 链/故障注入 PASS | 已完成双 Fake Slot 全量演练；结果明确标为 simulation only。 |
 | T16-C | completed | 723 tests；覆盖率 90.30%；v2 408 live 链/Schema/预算 PASS | 已完成 GPT-5.6 Luna v2 修复后复跑；历史 v1 保留，v2 的 HIAA、A1/A2、M2 与操作性授权计数按实际 alias/Receipt 重算，正式 UEA/ALR/RIR/provenance 仍按证据边界报告 N/A。 |
+| T17 v1 A～D | completed | 24 core / 18 Replay；24/24 配置 5 次确定性一致 | 历史 Scripted 技术验证；Task Success 沿用旧任务合同，不是本轮正常任务效用验收。 |
+| T17 v1 E | blocked | 最新 Attempt 16/24 core、12/18 Replay | Live Canary 为 incomplete；旧 Attempt 不续跑、不回填。F/G/H 未运行。 |
+| T17-M0 | completed | 53/53 登记旧哈希与长度一致；合同修订获用户批准 | 完成离线审计与最小设计，未运行新实验。 |
+| T17-M1 | completed | 合同/反例单测 47 passed；集成及 Schema 复验 24 passed；mypy 353 files | 普通任务 v2、Raw 复算、16 Schema、CLI 与最小防御已完成定向验证；尚非最终验收。 |
+| T17-M2 | completed | 两域各 23/23 core、12/12 Replay；Raw 复算与 151+19 指标通过 | 普通任务 v2：TSR 20/23、Safe TSR 13/23；零 API，不与历史或其他域 pooling。 |
+| T17-M3 | blocked | 1031 tests PASS；综合 90.072519%，纯分支 75.892857%；静态/安全门通过 | 纯分支未达文字要求，等待覆盖率口径确认；独立终审 REVIEW_UNAVAILABLE。新最终 Summary/审计已输出，GitHub 交付另记回执。 |
 
 ## T00：仓库勘察与执行基线
 
@@ -1346,3 +1352,33 @@ skillflow matrix scenarios\matrix\mvp.yaml --backend scripted --output runs\mvp
 - 全量 pytest 850 passed，分支覆盖率 90.22%；定向回归 94 passed；Ruff、mypy strict（277 源文件）、静态 Schema、`pip check`、no-excuse 和凭据扫描全部通过。
 - 中文完整总结见 `docs/summaries/T16E_Summary.md`。
 - T16-E：`BLOCKED`；当前不扩大样本。若继续，必须另建预注册配置和新 Attempt，由用户明确批准新的单 Trial 预算；本阶段没有自动重跑或 git push。
+
+## T17-M0：最小技术验收离线审计与合同修订决策
+
+- 状态：completed；日期：2026-09-03（Asia/Shanghai）。
+- GitHub main 基线为 `d5506e25e927c2eb4225ee54eab4c01069d408c0`，README 同步提交的 [CI 已通过](https://github.com/Suuuu123su/Agent-SkillFlow/actions/runs/33729711994)。本部分没有重新运行本地测试。
+- 新目标仅要求完整指标证据链与最小端到端技术验收，不运行论文级大矩阵，不进入 SkillFlow-Rx。原 T17 v1 A～D 已完成、E Partial、F/G/H 未运行的历史状态不改写。
+- 只读核对 T17-A 登记的 53 个 canonical 旧证据，SHA-256 与长度 53/53 一致；保证范围仅限登记清单。
+- 发现 C1/N0 的正常任务相同，但旧成功断言要求相反的风险 Effect 结果；旧 TSR 因而包含攻击 Golden 预期，不能直接作为正常任务效用。
+- 用户明确批准“按照你的最小修订来，后续summary的时候写进去”。后续新建正常任务合同版本，把任务断言与风险 Golden 分开，保留真正必需的合法 Effect/Receipt、Artifact commitment 和 Run/Session 绑定；旧 YAML、Raw、Golden 和版本化报告不回写。
+- 候选为每域 23 core + 12 Replay，Scripted 与 Fake Reference 分域运行，每条件 1 semantic instance × 1 repeat；B0/B1 的 Monitor/Enforce 复用为最小安全—效用对照。Matrix 尚未冻结或执行。
+- 修改文件：README、本进度记录、最小设计、M0 Summary、合同审计与批准 JSON。源码和冻结实验配置未改。
+- 新 Run、新真实模型调用与新增 API 费用均为 0；未生成新指标，不能把未运行写为 measured。独立审计仍为 REVIEW_UNAVAILABLE。
+- 证据及输入 SHA-256：[合同审计](evidence/t17-minimal-contract-audit-20260903.json)；[批准记录](evidence/t17-minimal-revision-approval-20260903.json)；[设计](plans/T17_minimal_technical_acceptance_20260903.md)；[Summary](summaries/T17M0_Summary.md)。
+- 下一步：连续进行 T17-M1 离线实现与定向测试；每个完成部分同步 README、progress、Summary。真实 API 调用仍需单独批准。
+
+## T17-M1：普通任务 v2 与最小完整执行链（进行中）
+
+- 日期：2026-09-03；按用户批准的最小修订实施，不改旧 YAML、Golden 或 Raw。
+- 已完成部分：独立正常任务 v2 合同；23 core / 12 Replay 的模型生成配置；单域 Phase Contract；Run/Session/Artifact/Effect/Receipt 绑定；Scripted/Fake Reference 分域执行和 Raw 哈希清单。
+- 普通任务 v2 不再将攻击触发当作任务成功条件；B1 仍要求实际读取，S1 使用授权文件目标，L1 使用授权 Session，M2 同时检查 Session 1 与 3。后续 Summary 必须保留此修订说明。
+- 定向 red→green：配置 3 passed、任务证据 10 passed、禁网两域全链 2 passed。后者每域完成 23 core / 12 Replay，独立任务 Golden 全部匹配；两域均为 simulation only，实际 API 调用与费用为 0。
+- 首轮 Matrix 测试因输入来源清单登记错误而失败，失败目录完整保留；修复后仅重跑两项定向测试，没有全量重测或补采模型数据。
+- 新增/修改文件、测试目录及输入/Raw 哈希见 [T17M1_Summary](summaries/T17M1_Summary.md)。M1 仍为 in_progress：尚需原始证据复算、完整指标报告和静态 Schema 接口，不能把开发测试写成最终验收通过。
+
+### M1 实现补充
+
+- Raw 复算、151 项域级指标与最小防御报告、16 个新静态 Schema、freeze/run/report CLI 和 Partial 保护均已实现；旧正常任务语义不回填。
+- 集中定向测试 58 passed / 1 failed（异常类型断言错误）；修正后新增合同/反例单测 47 passed。未以单测成功替代尚未完成的最终集成和全量门。
+- strict mypy 353 files 通过。新指标定义见 [最小域指标合同](metrics/t17-minimal-metric-registry.md)，实际 API 调用与费用仍为 0。
+- 核对 GitHub Actions 后确认历史 90.04% 为综合覆盖率，纯分支口径需明确；未擅自把综合值称为纯分支通过。

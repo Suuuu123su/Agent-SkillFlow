@@ -1,0 +1,14 @@
+{
+  "schema_version": "0.1",
+  "report_scope": "t17_minimal_revision_approval",
+  "date": "2026-09-03",
+  "status": "APPROVED_FOR_OFFLINE_IMPLEMENTATION",
+  "user_instruction": "按照你的最小修订来，后续summary的时候写进去",
+  "resolves": "TASK_RISK_CONTRACT_CONFLICT",
+  "audit_snapshot": "docs/evidence/t17-minimal-contract-audit-20260903.json",
+  "change": "Create a versioned ordinary-task contract separate from risk Golden assertions while retaining genuine task prerequisites and trusted evidence bindings.",
+  "preserve": ["legacy YAML", "Raw", "Attempts", "Golden", "versioned reports", "registered hashes"],
+  "matrix_status": "not_frozen_not_run",
+  "new_paid_api_authorization": false,
+  "summary_requirement": "Record this revision and its rationale in subsequent summaries; update README for every completed part."
+}

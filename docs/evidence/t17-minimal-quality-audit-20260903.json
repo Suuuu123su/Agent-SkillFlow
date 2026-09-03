@@ -1,0 +1,326 @@
+{
+  "baseline": {
+    "expected": 53,
+    "matched": 53,
+    "issues": [],
+    "source": "docs/evidence/t17-baseline-audit.json"
+  },
+  "legacy_t17_public": {
+    "expected": 4,
+    "issues": [],
+    "source": "EXPERIMENT_AUDIT.json"
+  },
+  "line_limit": {
+    "limit": 400,
+    "checked": 39,
+    "maximum": 294,
+    "over_limit": [],
+    "counts": [
+      {
+        "file": "src/skillflow/experiment/matrix.py",
+        "lines": 200
+      },
+      {
+        "file": "src/skillflow/experiment/t17/cli.py",
+        "lines": 252
+      },
+      {
+        "file": "src/skillflow/schemas.py",
+        "lines": 294
+      },
+      {
+        "file": "tests/unit/models/test_schema_contracts.py",
+        "lines": 254
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/__init__.py",
+        "lines": 1
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/artifacts.py",
+        "lines": 144
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/authorization_proof.py",
+        "lines": 158
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/causal_metrics.py",
+        "lines": 124
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/cli.py",
+        "lines": 80
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/configuration.py",
+        "lines": 228
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/contracts.py",
+        "lines": 124
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/core_metrics.py",
+        "lines": 135
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/defense_metrics.py",
+        "lines": 104
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/efficiency_metrics.py",
+        "lines": 89
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/measurements.py",
+        "lines": 69
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/observer.py",
+        "lines": 90
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/provenance_metrics.py",
+        "lines": 48
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/raw_bindings.py",
+        "lines": 62
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/raw_core.py",
+        "lines": 148
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/raw_loader.py",
+        "lines": 140
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/raw_replay.py",
+        "lines": 154
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/raw_validation.py",
+        "lines": 104
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/replay_prefix.py",
+        "lines": 38
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/report_models.py",
+        "lines": 168
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/reporting.py",
+        "lines": 156
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/run_models.py",
+        "lines": 136
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/runner.py",
+        "lines": 101
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/runtime.py",
+        "lines": 76
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/schema_models.py",
+        "lines": 81
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/task_evidence.py",
+        "lines": 206
+      },
+      {
+        "file": "src/skillflow/experiment/t17/minimal/task_models.py",
+        "lines": 110
+      },
+      {
+        "file": "tests/unit/experiment/t17/test_minimal_artifacts.py",
+        "lines": 71
+      },
+      {
+        "file": "tests/unit/experiment/t17/test_minimal_configuration.py",
+        "lines": 51
+      },
+      {
+        "file": "tests/unit/experiment/t17/test_minimal_contract_edges.py",
+        "lines": 165
+      },
+      {
+        "file": "tests/unit/experiment/t17/test_minimal_measurements.py",
+        "lines": 85
+      },
+      {
+        "file": "tests/unit/experiment/t17/test_minimal_schema_cli.py",
+        "lines": 71
+      },
+      {
+        "file": "tests/integration/experiment/test_t17_minimal_matrix.py",
+        "lines": 47
+      },
+      {
+        "file": "tests/integration/experiment/test_t17_minimal_report.py",
+        "lines": 198
+      },
+      {
+        "file": "tests/integration/experiment/test_t17_minimal_task_evidence.py",
+        "lines": 71
+      }
+    ]
+  },
+  "no_excuse": {
+    "checked": 39,
+    "findings": [],
+    "scope": "changed delivery Python source and tests; existing repository lint configuration unchanged",
+    "matching": "case-sensitive; Python any() is not typing.Any"
+  },
+  "public_result_scan": {
+    "files": 4,
+    "rules": [
+      "credential",
+      "host_path",
+      "body_key",
+      "fixture_marker"
+    ],
+    "findings": [],
+    "scope": "new domain JSON and CSV; patterns only, not a general proof of secrecy",
+    "actual_fixture_markers": 10,
+    "fixture_marker_source": "tests/e2e/test_t14_research_acceptance.py:18-28"
+  },
+  "schema_version": "1.0",
+  "audit_id": "t17-minimal-offline-quality-20260903",
+  "implementation_commit": "9c0d8bd8774ae17b673209eb462d85cb69eaed59",
+  "generated_date": "2026-09-03",
+  "verdict": "WARN_TECHNICAL_ACCEPTANCE_INCOMPLETE",
+  "technical_acceptance_complete": false,
+  "measurement_chain_complete": true,
+  "reviewer_independence": "REVIEW_UNAVAILABLE",
+  "real_api_calls": 0,
+  "test_suite": {
+    "status": "PASS",
+    "tests": 1031,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 411.751,
+    "junit": {
+      "path": ".tmp/t17-minimal-work-20260903-01/full-final-01.xml",
+      "sha256": "0e0ad067379ee72699a1dba8bc8aed16043f7145bd3161d2888effb8ef6b3506"
+    },
+    "coverage": {
+      "path": ".tmp/t17-minimal-work-20260903-01/full-final-coverage-01.json",
+      "sha256": "dfeaa711b31739974a1db85bcc982ac2c02968d851fd2dea0828f77afd41d35f"
+    }
+  },
+  "coverage": {
+    "combined": {
+      "covered": 23599,
+      "total": 26200,
+      "percent": 90.07251908396947,
+      "configured_ci_threshold": 90,
+      "status": "PASS"
+    },
+    "statements": {
+      "covered": 20369,
+      "total": 21944,
+      "percent": 92.8226394458622
+    },
+    "branches": {
+      "covered": 3230,
+      "total": 4256,
+      "percent": 75.89285714285714,
+      "missing": 1026,
+      "partial": 952,
+      "literal_target": 90,
+      "status": "FAIL"
+    },
+    "interpretation": "PENDING_USER_CONFIRMATION",
+    "note": "No reduction of the literal branch target is authorized. Test coverage and experiment sample counts are separate."
+  },
+  "commands": {
+    "ruff": {
+      "status": "PASS",
+      "exit_code": 0,
+      "output": "All checks passed!"
+    },
+    "format": {
+      "status": "PASS",
+      "exit_code": 0,
+      "output": "536 files already formatted"
+    },
+    "mypy": {
+      "status": "PASS",
+      "exit_code": 0,
+      "output": "Success: no issues found in 353 source files"
+    },
+    "pip_check": {
+      "status": "PASS",
+      "exit_code": 0,
+      "output": "No broken requirements found."
+    },
+    "doctor": {
+      "status": "PASS",
+      "exit_code": 0,
+      "output": "[通过] Python: 3.12.13（要求 >=3.11）\r\n[通过] SQLite: 3.53.1\r\n[通过] 依赖包: 已安装：jsonschema=4.26.0, networkx=3.6.1, pydantic=2.13.4, PyYAML=6.0.3, typer=0.27.1\r\n[通过] 临时目录: 可写：.tmp\\t17-minimal-work-20260903-01"
+    }
+  },
+  "static_schemas": {
+    "status": "PASS",
+    "count": 72,
+    "new_minimal": 16,
+    "old_unchanged": 56,
+    "evidence": "tests/unit/models/test_schema_contracts.py and tests/unit/experiment/t17/test_minimal_schema_cli.py in the full-final-01.xml suite"
+  },
+  "network_isolation": {
+    "status": "PASS",
+    "mechanism": "socket denial during both 23 core + 12 Replay domain integration tests; AST external import boundary test",
+    "test_evidence": [
+      "tests/integration/experiment/test_t17_minimal_matrix.py",
+      "tests/integration/test_t14_security_isolation.py"
+    ],
+    "scope": "offline Scripted/Fake only; no provider request"
+  },
+  "delivery_scope": {
+    "excluded_user_files": [
+      ".coverage-v3-tests",
+      ".coverage-v3-tests-expanded",
+      ".tmp/",
+      "docs/evidence/T17_MANIFEST.md",
+      "docs/evidence/t17-scripted-golden-summary.json",
+      "src/skillflow/experiment/t17/protocol.py"
+    ],
+    "unchanged_content_stat_noise": [
+      "src/skillflow/benchmark/scenario_execution.py",
+      "src/skillflow/experiment/t17/live_reference_client.py"
+    ],
+    "old_frozen_entrypoints_kept": [
+      "docs/summaries/T17_Summary.md",
+      "EXPERIMENT_AUDIT.md",
+      "EXPERIMENT_AUDIT.json"
+    ],
+    "new_summary": "docs/summaries/T17_Minimal_Final_Summary_20260903.md"
+  },
+  "open_items": [
+    {
+      "code": "COVERAGE_THRESHOLD_NOT_MET",
+      "status": "incomplete",
+      "detail": "Pure branch coverage is 75.892857%, below the literal 90% requirement; existing CI combined coverage passed. Await the user's choice before adding extensive historical branch tests or adopting the existing CI wording."
+    },
+    {
+      "code": "REVIEW_UNAVAILABLE",
+      "status": "REVIEW_UNAVAILABLE",
+      "detail": "No independent final reviewer model identity was verified; local implementation checks are not an independent review."
+    },
+    {
+      "code": "GITHUB_DELIVERY",
+      "status": "incomplete",
+      "detail": "Commit, fast-forward push and GitHub Actions verification are recorded in a subsequent delivery receipt."
+    }
+  ]
+}

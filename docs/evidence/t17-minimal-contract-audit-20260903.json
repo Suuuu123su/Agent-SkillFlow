@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "report_scope": "t17_minimal_contract_audit",
+  "date": "2026-09-03",
+  "status": "BLOCKED",
+  "audit_method": "executor_read_only_source_and_hash_check",
+  "independent_review": "REVIEW_UNAVAILABLE",
+  "source_revision": "d5506e25e927c2eb4225ee54eab4c01069d408c0",
+  "latest_main_ci": {
+    "run_id": 33729711994,
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/Suuuu123su/Agent-SkillFlow/actions/runs/33729711994"
+  },
+  "new_paid_model_calls": 0,
+  "new_experiment_runs": 0,
+  "new_api_cost_usd": "0",
+  "baseline_integrity": {
+    "expected": 53,
+    "matched": 53,
+    "mismatches": [],
+    "scope": "T17-A registered canonical artifacts only"
+  },
+  "blocking_findings": [
+    {
+      "id": "TASK_RISK_CONTRACT_CONFLICT",
+      "detail": "C1 and N0 share task-c1 and its prompt and output commitment, but their Scenario success_assertions require opposite context-harm outcomes. T17 v1 also requires context-harm for C1 task success. Legacy task success therefore mixes ordinary task output with attack-factor expectations.",
+      "source_lines": [
+        {
+          "path": "scenarios/attacks/c1_context_composition.yaml",
+          "line": 5
+        },
+        {
+          "path": "scenarios/attacks/c1_context_composition.yaml",
+          "line": 44
+        },
+        {
+          "path": "scenarios/benign/n0_irrelevant_text.yaml",
+          "line": 5
+        },
+        {
+          "path": "scenarios/benign/n0_irrelevant_text.yaml",
+          "line": 40
+        },
+        {
+          "path": "experiments/t17/scenario_measurements.yaml",
+          "line": 40
+        },
+        {
+          "path": "src/skillflow/experiment/t17/scenario_registry.py",
+          "line": 74
+        }
+      ],
+      "consequence": "Do not reuse v1 task success as the normal-task utility acceptance for the new minimal study, and do not silently redefine or recompute old results.",
+      "minimum_fix": "With user approval, freeze a new task-evaluation contract separating ordinary task assertions from risk Golden assertions; keep genuinely necessary legitimate task effects and all strict evidence bindings."
+    }
+  ],
+  "proposed_minimum": {
+    "status": "proposal_not_frozen_not_run",
+    "semantic_instances_per_condition": 1,
+    "primary_repeats": 1,
+    "core_conditions_per_domain": 23,
+    "replay_pairs_per_domain": 12,
+    "domains": [
+      "scripted",
+      "fake_reference_harness"
+    ],
+    "total_core_runs": 46,
+    "total_replay_pairs": 24,
+    "remove_core_variants": [
+      "g0-drop-memory",
+      "s1-enforce"
+    ],
+    "add_core_controls": [
+      "S1_CONTROL"
+    ],
+    "minimal_defense_pairs": [
+      "b0-monitor/b0-enforce",
+      "b1-monitor/b1-enforce"
+    ],
+    "replay_variants": [
+      "c1-context-grid-p01",
+      "c1-context-grid-p11",
+      "c2-tool-return-grid-p01",
+      "c2-tool-return-grid-p11",
+      "g0-preserve",
+      "m1-preserve",
+      "m2-control-normal",
+      "m2-target-revoked",
+      "a1-implicit-text",
+      "a2-structured-confirmation"
+    ],
+    "replay_note": "Each M2 variant contributes Session 1 and Session 3 pairs. Other selected variants contribute one pair.",
+    "excludes": [
+      "new paid API calls",
+      "large Model1/Model2 matrices",
+      "SkillFlow-Rx",
+      "cross-domain pooling",
+      "rewriting old evidence"
+    ]
+  },
+  "approval_needed": "Authorize a new versioned ordinary-task contract; do not modify the frozen v1 Scenario, registry, Golden, Raw or reports.",
+  "source_sha256": {
+    "docs/evidence/t17-baseline-audit.json": "aa2039a65eb3baee0e4a3650e7b84e2ab05298d371898279f239b8d223aa90e9",
+    "scenarios/matrix/mvp.yaml": "9b47a8e72b55a33d29a415b185d5c36b4ad626040b5a98287f32d5dcada101fb",
+    "scenarios/attacks/c1_context_composition.yaml": "362d224d0c8ae07be844c1549c15137bf2994f3663e43495f72235ed75d82912",
+    "scenarios/benign/n0_irrelevant_text.yaml": "e8a30c87a59331adf2cc94cf378a727d87cef54130e4d89d2f797cb061fba0ef",
+    "experiments/t17/scenario_measurements.yaml": "8ed1afbc7a5b2636533edcb2f08185eb2fc6fa1b8a0fad7427ba5010d2426864",
+    "experiments/t17/scripted_golden.yaml": "8b74cd30c6af3b977ce44b60a7d2f88cc39560210eb3a522c149977727685b44",
+    "src/skillflow/experiment/t17/task_evidence.py": "a6dc985d25ba5d421423b891b599e6a9034fc8c60e27a871f60229bcc7c48a97",
+    "src/skillflow/experiment/t17/scenario_registry.py": "49cb41a53a534f5309ba2a2d878720121eda9453b16d5d2af9fb993403c7c576",
+    "src/skillflow/experiment/t17/phase_advanced.py": "e881c8ad5668ad522e74311058fb248783414e65cba1a780d16b612ae0e7d275",
+    "src/skillflow/experiment/t17/defense_report.py": "9048d22aaf7bb11222d0855159aaa8e44d7f234ea49e573afd53f933f2a52a60"
+  }
+}

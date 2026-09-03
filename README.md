@@ -2,9 +2,29 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前仓库已执行到 **T17-E：全指标 Live Canary**。**T17-A～D 已完成，T17-E 未通过阶段门，T17-F～H 未运行；T17 总体状态为 INCOMPLETE，不能宣称全量指标闭环完成。** 真实模型实验中的响应和 Tool 调用是真实记录，但外部 Effect 仍由本地 Safe Sink 与模拟 Receipt 替代，结果不是现实网络、Shell、邮件或文件外发成功率。
+当前工作是 **T17 最小技术验收**：最小离线测量链已完成，最终技术验收仍为 **INCOMPLETE**（纯分支覆盖率 75.89%，文字要求 90%；独立终审 `REVIEW_UNAVAILABLE`）。历史 T17-A～D 已完成，T17-E Live Canary 仍 Partial，原 F～H 未运行。本轮没有新增真实模型请求；外部 Effect 均进入本地 Safe Sink，结果不是现实网络、Shell、邮件或文件外发成功率。
 
-## T17 当前进度（2026-09-03）
+## 当前工作：T17 最小技术验收（2026-09-03）
+
+用户已将后续目标收缩为“补齐指标证据链并完成最小端到端技术验收”，不再要求运行论文级大矩阵，也不进入 SkillFlow-Rx。已完成离线审计，并获准新建正常任务合同版本：正常任务成功与风险 Effect 判定分开，保留真正完成任务所需的合法 Effect/Receipt 和全部证据绑定。旧 YAML、Raw、Golden、版本化报告及其哈希不改写。
+
+- **T17-M0 已完成**：T17-A 登记的 53 个 canonical 旧证据哈希和长度均一致；发现并记录旧任务合同将风险触发预期混入 Task Success 的问题，用户已批准最小修订。
+- **T17-M1 已完成实现与定向验证**：普通任务 v2、Raw 独立复算、151 项域级指标、最小防御 JSON/CSV、16 个新增静态 Schema 与 `t17 minimal freeze/run/report` 已实现。最新合同/反例单测 47 passed，集成及 Schema 复验 24 passed；strict mypy 353 源文件通过。开发测试每域 23 core + 12 Replay，未充作正式实验。
+- **T17-M2 已完成离线测量链**：Scripted、Fake Reference 各 23/23 core + 12/12 Replay；两域分别 TSR=20/23、Safe TSR=13/23、UEA=8、ALR/RIR(1/3)=1/2。Receipt、TaskSuccessEvidence、必需 Hook 均 100%，没有 not_available 或 incomplete 指标；各自报告 151 项域级指标与 19 项最小防御条目。
+- **T17-M3 尚未完成最终验收**：1031 测试全部通过，Ruff/format/strict mypy、72 Schema、doctor/pip、禁网与有界泄漏扫描通过。综合覆盖率 90.072519%，纯分支覆盖率 75.892857%；后者未达文字要求，验收口径待用户确认，不能标成通过。最小运行 API 与费用均为 0，旧 Live Partial 不补跑。
+- **解释边界**：下方 v1 的 TSR/Safe TSR 是旧成功合同下的历史结果，不能当作本轮正常任务效用验收结论；技术验收完成与否另行报告，不能把历史 Live Partial 改成完成。
+
+详见 [最小验收设计](docs/plans/T17_minimal_technical_acceptance_20260903.md)、[M0 审计与修订记录](docs/summaries/T17M0_Summary.md)、[M1 实现与验证记录](docs/summaries/T17M1_Summary.md)、[合同冲突快照](docs/evidence/t17-minimal-contract-audit-20260903.json)和[用户修订批准](docs/evidence/t17-minimal-revision-approval-20260903.json)。
+
+新指标定义、分母与设计 N/A 见 [最小域指标合同](docs/metrics/t17-minimal-metric-registry.md)。正常任务修订及限制会在每次 Summary 中保留。
+
+正式离线结果：[M2 Summary](docs/summaries/T17M2_Summary.md)、[Scripted JSON](docs/evidence/t17-minimal-scripted-metrics-20260903.json) / [CSV](docs/evidence/t17-minimal-scripted-metrics-20260903.csv)、[Fake Reference JSON](docs/evidence/t17-minimal-fake-reference-metrics-20260903.json) / [CSV](docs/evidence/t17-minimal-fake-reference-metrics-20260903.csv)、[Raw 哈希清单](docs/evidence/T17_MINIMAL_MANIFEST_20260903.md)。这些是受控框架验证，不是新增真实模型结果；单实例不计算 cluster bootstrap。
+
+当前结论：[版本化最终 Summary](docs/summaries/T17_Minimal_Final_Summary_20260903.md)、[M3 质量门记录](docs/summaries/T17M3_Summary.md)、[质量审计 JSON](docs/evidence/t17-minimal-quality-audit-20260903.json)。旧 `T17_Summary.md` 与旧 `EXPERIMENT_AUDIT` 已被历史清单冻结，保持原样，不覆盖其哈希。
+
+仓库当前提交的自动检查可在 [GitHub Actions（main）](https://github.com/Suuuu123su/Agent-SkillFlow/actions/workflows/ci.yml?query=branch%3Amain) 查看；CI 的绿色状态只代表已配置的门槛通过，不能替代上方尚未满足的纯分支验收要求。
+
+## T17 v1 历史进度（2026-09-03）
 
 | 阶段 | 当前状态 | 已验证内容或阻塞点 |
 |---|---|---|
@@ -49,7 +69,7 @@ T17 原计划及当前执行边界如下；计划规模不等于已运行数量�
 1. **T17-A～D（已完成，零费用）**：冻结指标与证据域、建立可信 Reference Harness、补齐场景 TaskSuccess/Oracle 规格，并完成 Scripted Golden 验证。Influence 只能由成对 Replay 产生。
 2. **T17-E～G（当前止于 E Partial）**：Luna Canary 目标为 24 core + 18 Replay；原 F/G 正式矩阵各为 360 core + 270 Replay，G 另有 24 + 18 Canary。F/G 均未运行，不自动扩至更多 semantic instances。
 3. **T17-H（未运行）**：仅用 Luna 比较 Monitor/Enforce，不增加可选单项防御，不构造任意加权“总安全分”；原计划复用 F 并补齐缺失模式，合计 630 core、540 Replay。
-4. T17 全部闭环后，才进入 SkillFlow-Rx 的攻击诊断器与自适应防御选择实验。
+4. 当前改为先完成上方的最小技术验收；原大样本阶段不自动续跑。SkillFlow-Rx 仍是后续独立研究，不属于本轮实现范围。
 
 继续实验必须遵守阶段门和逐阶段预算批准；代码实现、离线验证、真实模型完成率分别报告。原始计划与后续研究设想见：
 
@@ -66,7 +86,7 @@ T17 原计划及当前执行边界如下；计划规模不等于已运行数量�
 - `skillflow validate-manifest PATH`：只校验 Skill Manifest，不加载或执行 Skill。
 - `skillflow validate-scenario PATH`：只校验 Scenario，不运行 fixture。
 - Pydantic v2 核心安全模型、受控 Resource URI、`call | task | session | persistent` 菱形 Lifetime，以及四种互不放大的精确 Scope。
-- `skill-manifest`、`scenario`、`experiment-matrix`、`risk-report`、T16 合同与 T17 Evidence/Hook/Observation/Trial/Phase/Comparison 等共 56 份模型生成静态 JSON Schema。
+- `skill-manifest`、`scenario`、`experiment-matrix`、`risk-report`、T16/T17 合同及新增最小验收模型共 72 份模型生成静态 JSON Schema；原 56 份保持不变。
 - T17 使用独立的 `measured | not_applicable | not_available | incomplete` 测量状态；不同 Evidence Domain、模型、协议与失败 Attempt 不混合统计，缺失证据不会被写成数值 0。
 - T16 预注册固定 12 个条件、每条件 10 个语义实例和每实例 3 次采样；静态 Matrix 可按预注册机械重建。
 - T16 Provider 提供无 I/O Fake 实现与显式 Client 注入边界；Live 必须显式开启，并在调用前限制费用、turn、输出和重试。密钥只在交互入口读入一次并保存在 `SecretStr` 内存对象中，不从环境或文件读取。
@@ -138,7 +158,7 @@ T17 原计划及当前执行边界如下；计划规模不等于已运行数量�
 - Runtime/Policy 的 Oracle 反向导入和执行边界的真实网络、进程、凭据模块导入均由 AST 门禁检查；MVP Matrix 另在临时网络/进程拦截器下运行。
 - 所有已执行 Sink 必须同时带来源路径、Decision 和 Receipt；风险报告接受 fixture 原文、Blob 字段与宿主绝对路径泄漏扫描。
 - EventStore append/get 与 PolicyEngine evaluate 有可复跑的本机观察性性能基线；没有把本机 p95 写成跨机器 SLA。
-- pytest、90% 分支覆盖率、ruff 与 mypy 质量门禁。
+- pytest、Ruff 与 mypy 质量门禁；现有 CI 的覆盖率配置是“启用分支统计，综合覆盖率 ≥90%”，不等于纯分支覆盖率 ≥90%。本轮两种口径分别公开。
 - GitHub Actions 自动执行同一组质量门禁。
 - OpenClaw Adapter 只位于 `skillflow.pilot` 与 `integrations/openclaw`；核心 Policy、SecurityGraph 和指标分析器没有平台专用分支。
 - OpenClaw 事件经过严格 JSONL/Pydantic 边界转换为统一 `SecurityEvent`；未知事件、空行、非连续序号和不完整 Receipt Effect 全部拒绝。

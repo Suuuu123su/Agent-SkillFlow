@@ -25,3 +25,7 @@ runs/t16d2-v31-canary-live-20260830-01/attempt-01/** -text whitespace=cr-at-eol
 # T17 静态证据与 Schema 使用生成器固定的 LF 字节，保证跨平台 SHA-256。
 docs/evidence/t17-*.json text eol=lf
 schemas/t17-*.json text eol=lf
+
+# 本轮最小实验 CSV 已按标准 CSV 的 CRLF 冻结；禁止 Git 改写其证据哈希。
+docs/evidence/t17-minimal-scripted-metrics-20260903.csv -text whitespace=cr-at-eol
+docs/evidence/t17-minimal-fake-reference-metrics-20260903.csv -text whitespace=cr-at-eol
