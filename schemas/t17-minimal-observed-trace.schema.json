@@ -1,0 +1,317 @@
+{
+  "$defs": {
+    "CapabilityAction": {
+      "description": "MVP 固定支持的能力动作。",
+      "enum": [
+        "file.read",
+        "file.write",
+        "memory.read",
+        "memory.write",
+        "network.send",
+        "shell.execute",
+        "user.confirm"
+      ],
+      "title": "CapabilityAction",
+      "type": "string"
+    },
+    "CapabilityEffect": {
+      "additionalProperties": false,
+      "description": "可比较的结构化能力效果。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "lifetime": {
+          "$ref": "#/$defs/Lifetime"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "sensitivity": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Sensitivity",
+          "type": "integer"
+        },
+        "sink": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "action",
+        "sink",
+        "scope",
+        "lifetime",
+        "sensitivity"
+      ],
+      "title": "CapabilityEffect",
+      "type": "object"
+    },
+    "Lifetime": {
+      "description": "授权或效果的有效边界。",
+      "enum": [
+        "call",
+        "task",
+        "session",
+        "persistent"
+      ],
+      "title": "Lifetime",
+      "type": "string"
+    },
+    "ObservedArtifactTrace": {
+      "additionalProperties": false,
+      "description": "Observed Plane 中一个不可变 Artifact 的脱敏投影。",
+      "properties": {
+        "aliases": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Aliases",
+          "type": "array"
+        },
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "observed_data": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Observed Data",
+          "type": "array"
+        },
+        "parents": {
+          "items": {
+            "$ref": "#/$defs/TraceParent"
+          },
+          "title": "Parents",
+          "type": "array"
+        },
+        "plane": {
+          "const": "observed",
+          "default": "observed",
+          "title": "Plane",
+          "type": "string"
+        },
+        "record_type": {
+          "const": "artifact",
+          "default": "artifact",
+          "title": "Record Type",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "value_type": {
+          "$ref": "#/$defs/TraceValueType"
+        }
+      },
+      "required": [
+        "run_id",
+        "artifact_id",
+        "value_type",
+        "event_id",
+        "observed_data",
+        "parents"
+      ],
+      "title": "ObservedArtifactTrace",
+      "type": "object"
+    },
+    "ObservedEffectTrace": {
+      "additionalProperties": false,
+      "description": "Observed Plane 对实际 Receipt Effect 的脱敏投影。",
+      "properties": {
+        "action_id": {
+          "minLength": 1,
+          "title": "Action Id",
+          "type": "string"
+        },
+        "actor_id": {
+          "minLength": 1,
+          "title": "Actor Id",
+          "type": "string"
+        },
+        "call_id": {
+          "minLength": 1,
+          "title": "Call Id",
+          "type": "string"
+        },
+        "decision_id": {
+          "minLength": 1,
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "effect": {
+          "$ref": "#/$defs/CapabilityEffect"
+        },
+        "effect_id": {
+          "minLength": 1,
+          "title": "Effect Id",
+          "type": "string"
+        },
+        "observed_auth": {
+          "title": "Observed Auth",
+          "type": "boolean"
+        },
+        "observed_effect": {
+          "title": "Observed Effect",
+          "type": "boolean"
+        },
+        "parents": {
+          "items": {
+            "$ref": "#/$defs/TraceParent"
+          },
+          "title": "Parents",
+          "type": "array"
+        },
+        "plane": {
+          "const": "observed",
+          "default": "observed",
+          "title": "Plane",
+          "type": "string"
+        },
+        "receipt_id": {
+          "minLength": 1,
+          "title": "Receipt Id",
+          "type": "string"
+        },
+        "record_type": {
+          "const": "effect",
+          "default": "effect",
+          "title": "Record Type",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "session_id": {
+          "minLength": 1,
+          "title": "Session Id",
+          "type": "string"
+        },
+        "task_id": {
+          "minLength": 1,
+          "title": "Task Id",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "effect_id",
+        "action_id",
+        "actor_id",
+        "task_id",
+        "session_id",
+        "call_id",
+        "timestamp",
+        "effect",
+        "observed_auth",
+        "observed_effect",
+        "decision_id",
+        "receipt_id",
+        "parents"
+      ],
+      "title": "ObservedEffectTrace",
+      "type": "object"
+    },
+    "ParentRelation": {
+      "description": "T06 固定记录的值与效果父关系。",
+      "enum": [
+        "copy",
+        "derive",
+        "write",
+        "load",
+        "invoke"
+      ],
+      "title": "ParentRelation",
+      "type": "string"
+    },
+    "ResourceRef": {
+      "description": "一个已经校验并规范化的 Resource URI。",
+      "title": "ResourceRef",
+      "type": "string"
+    },
+    "Scope": {
+      "description": "MVP 中互不放大的四种精确作用域。",
+      "enum": [
+        "exact-file",
+        "exact-key",
+        "exact-sink",
+        "command"
+      ],
+      "title": "Scope",
+      "type": "string"
+    },
+    "TraceParent": {
+      "additionalProperties": false,
+      "description": "一个稳定父 ID 及其机械关系。",
+      "properties": {
+        "parent_id": {
+          "minLength": 1,
+          "title": "Parent Id",
+          "type": "string"
+        },
+        "relation": {
+          "$ref": "#/$defs/ParentRelation"
+        }
+      },
+      "required": [
+        "parent_id",
+        "relation"
+      ],
+      "title": "TraceParent",
+      "type": "object"
+    },
+    "TraceValueType": {
+      "description": "可进入双轨 Trace 的值类别。",
+      "enum": [
+        "asset",
+        "context",
+        "memory",
+        "file",
+        "skill_output",
+        "tool_arg",
+        "tool_return"
+      ],
+      "title": "TraceValueType",
+      "type": "string"
+    }
+  },
+  "anyOf": [
+    {
+      "$ref": "#/$defs/ObservedArtifactTrace"
+    },
+    {
+      "$ref": "#/$defs/ObservedEffectTrace"
+    }
+  ]
+}

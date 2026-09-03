@@ -1,0 +1,97 @@
+{
+  "additionalProperties": false,
+  "description": "在第一次运行前冻结的零费用 Phase Contract。",
+  "properties": {
+    "actual_api_call_limit": {
+      "const": 0,
+      "default": 0,
+      "title": "Actual Api Call Limit",
+      "type": "integer"
+    },
+    "configuration_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Configuration Sha256",
+      "type": "string"
+    },
+    "domain": {
+      "enum": [
+        "scripted",
+        "fake_reference"
+      ],
+      "title": "Domain",
+      "type": "string"
+    },
+    "evaluator_version": {
+      "const": "2.0.0",
+      "default": "2.0.0",
+      "title": "Evaluator Version",
+      "type": "string"
+    },
+    "expected_core_runs": {
+      "const": 23,
+      "default": 23,
+      "title": "Expected Core Runs",
+      "type": "integer"
+    },
+    "expected_replay_pairs": {
+      "const": 12,
+      "default": 12,
+      "title": "Expected Replay Pairs",
+      "type": "integer"
+    },
+    "external_effects_simulated": {
+      "const": true,
+      "default": true,
+      "title": "External Effects Simulated",
+      "type": "boolean"
+    },
+    "matrix_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Matrix Sha256",
+      "type": "string"
+    },
+    "primary_repeats": {
+      "const": 1,
+      "default": 1,
+      "title": "Primary Repeats",
+      "type": "integer"
+    },
+    "protocol_id": {
+      "const": "t17-minimal-technical-v1",
+      "default": "t17-minimal-technical-v1",
+      "title": "Protocol Id",
+      "type": "string"
+    },
+    "runtime_source_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Runtime Source Sha256",
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "semantic_instances": {
+      "const": 1,
+      "default": 1,
+      "title": "Semantic Instances",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "domain",
+    "configuration_sha256",
+    "matrix_sha256",
+    "runtime_source_sha256"
+  ],
+  "title": "MinimalPhaseContract",
+  "type": "object"
+}

@@ -70,6 +70,7 @@ class MatrixExecutionRequest:
     source: str | None = None
     harness_factory: ScenarioHarnessFactory | None = None
     run_observer: MatrixRunObserver | None = None
+    replay_variants: frozenset[str] | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -84,6 +85,10 @@ class MatrixExecutionOutcome:
 
 def execute_matrix(request: MatrixExecutionRequest) -> MatrixExecutionOutcome:
     """执行核心 Run、确定性副本、反事实与标准报告聚合。"""
+    if request.replay_variants is not None and not request.replay_variants.issubset(
+        {item.variant for item in request.matrix.variants}
+    ):
+        raise ValueError("matrix_replay_variant_unknown")
     repeats = request.matrix.determinism_repeats
     if request.determinism_repeats is not None:
         repeats = request.determinism_repeats
@@ -110,9 +115,10 @@ def execute_matrix(request: MatrixExecutionRequest) -> MatrixExecutionOutcome:
         executed.append(item)
         run_reports.append(item.result.risk_report)
         checks.append(check_determinism(item, layout, experiment_id, repeats, runner))
-        replay_reports.extend(
-            run_matrix_replays(item, layout, experiment_id, request.redacted, replay_runner)
-        )
+        if request.replay_variants is None or variant.variant in request.replay_variants:
+            replay_reports.extend(
+                run_matrix_replays(item, layout, experiment_id, request.redacted, replay_runner)
+            )
     selector = _fallback_selector(request.matrix, tuple(executed))
     report = aggregate_standard_results(
         StandardAggregationInput(

@@ -1,0 +1,85 @@
+{
+  "additionalProperties": false,
+  "description": "零费用进程异常也留下显式 Partial，绝不恢复填充原目录。",
+  "properties": {
+    "actual_api_calls": {
+      "const": 0,
+      "default": 0,
+      "title": "Actual Api Calls",
+      "type": "integer"
+    },
+    "domain": {
+      "enum": [
+        "scripted",
+        "fake_reference"
+      ],
+      "title": "Domain",
+      "type": "string"
+    },
+    "expected_core_runs": {
+      "const": 23,
+      "default": 23,
+      "title": "Expected Core Runs",
+      "type": "integer"
+    },
+    "expected_replay_pairs": {
+      "const": 12,
+      "default": 12,
+      "title": "Expected Replay Pairs",
+      "type": "integer"
+    },
+    "observed_core_runs": {
+      "maximum": 23,
+      "minimum": 0,
+      "title": "Observed Core Runs",
+      "type": "integer"
+    },
+    "observed_replay_pairs": {
+      "maximum": 12,
+      "minimum": 0,
+      "title": "Observed Replay Pairs",
+      "type": "integer"
+    },
+    "phase_contract_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Phase Contract Sha256",
+      "type": "string"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "measured",
+        "incomplete"
+      ],
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "domain",
+    "phase_contract_sha256",
+    "status",
+    "observed_core_runs",
+    "observed_replay_pairs"
+  ],
+  "title": "MinimalExecutionStatus",
+  "type": "object"
+}

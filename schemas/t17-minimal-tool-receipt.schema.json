@@ -1,0 +1,91 @@
+{
+  "$defs": {
+    "MockToolName": {
+      "description": "安全 Mock Tool 白名单。",
+      "enum": [
+        "read_file",
+        "write_memory",
+        "read_memory",
+        "http_send",
+        "shell_exec"
+      ],
+      "title": "MockToolName",
+      "type": "string"
+    }
+  },
+  "description": "Mock Tool Adapter 内部使用的 Receipt 数据。",
+  "properties": {
+    "action_id": {
+      "title": "Action Id",
+      "type": "string"
+    },
+    "actor_id": {
+      "title": "Actor Id",
+      "type": "string"
+    },
+    "argument_artifact_id": {
+      "title": "Argument Artifact Id",
+      "type": "string"
+    },
+    "call_id": {
+      "title": "Call Id",
+      "type": "string"
+    },
+    "decision_id": {
+      "title": "Decision Id",
+      "type": "string"
+    },
+    "effect_id": {
+      "title": "Effect Id",
+      "type": "string"
+    },
+    "output_artifact_ids": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Output Artifact Ids",
+      "type": "array"
+    },
+    "receipt_artifact_id": {
+      "title": "Receipt Artifact Id",
+      "type": "string"
+    },
+    "receipt_id": {
+      "title": "Receipt Id",
+      "type": "string"
+    },
+    "request_event_id": {
+      "title": "Request Event Id",
+      "type": "string"
+    },
+    "result_event_id": {
+      "title": "Result Event Id",
+      "type": "string"
+    },
+    "timestamp": {
+      "format": "date-time",
+      "title": "Timestamp",
+      "type": "string"
+    },
+    "tool": {
+      "$ref": "#/$defs/MockToolName"
+    }
+  },
+  "required": [
+    "receipt_id",
+    "tool",
+    "effect_id",
+    "request_event_id",
+    "result_event_id",
+    "decision_id",
+    "actor_id",
+    "call_id",
+    "action_id",
+    "argument_artifact_id",
+    "receipt_artifact_id",
+    "timestamp"
+  ],
+  "title": "ToolReceiptDraft",
+  "type": "object"
+}

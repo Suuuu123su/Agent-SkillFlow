@@ -1,0 +1,812 @@
+{
+  "$defs": {
+    "AuthorizationCondition": {
+      "description": "实验中被暴露的授权来源条件。",
+      "enum": [
+        "none",
+        "implicit_text",
+        "structured_confirmation"
+      ],
+      "title": "AuthorizationCondition",
+      "type": "string"
+    },
+    "CapabilityAction": {
+      "description": "MVP 固定支持的能力动作。",
+      "enum": [
+        "file.read",
+        "file.write",
+        "memory.read",
+        "memory.write",
+        "network.send",
+        "shell.execute",
+        "user.confirm"
+      ],
+      "title": "CapabilityAction",
+      "type": "string"
+    },
+    "EffectSelector": {
+      "additionalProperties": false,
+      "description": "把运行期多个 EffectRecord 映射到稳定别名。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "alias": {
+          "minLength": 1,
+          "title": "Alias",
+          "type": "string"
+        },
+        "sink_pattern": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source_pattern": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "alias",
+        "action",
+        "source_pattern",
+        "sink_pattern"
+      ],
+      "title": "EffectSelector",
+      "type": "object"
+    },
+    "EnforcementMode": {
+      "description": "策略只观察或实际阻断。",
+      "enum": [
+        "monitor",
+        "enforce"
+      ],
+      "title": "EnforcementMode",
+      "type": "string"
+    },
+    "ExperimentMatrix": {
+      "additionalProperties": false,
+      "description": "一组 ID 唯一的实验配置。",
+      "properties": {
+        "determinism_repeats": {
+          "default": 1,
+          "minimum": 1,
+          "title": "Determinism Repeats",
+          "type": "integer"
+        },
+        "hiaa_design": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/HiaaDesign"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "hiaa_designs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/HiaaDesign"
+          },
+          "title": "Hiaa Designs",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "variants": {
+          "items": {
+            "$ref": "#/$defs/ExperimentVariant"
+          },
+          "minItems": 1,
+          "title": "Variants",
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "variants"
+      ],
+      "title": "ExperimentMatrix",
+      "type": "object"
+    },
+    "ExperimentVariant": {
+      "additionalProperties": false,
+      "description": "一个 Scenario 与受控 Harness 开关的确定性配置。",
+      "properties": {
+        "authorization_condition": {
+          "$ref": "#/$defs/AuthorizationCondition",
+          "default": "none"
+        },
+        "auto_approve_tools": {
+          "title": "Auto Approve Tools",
+          "type": "boolean"
+        },
+        "enforcement_mode": {
+          "$ref": "#/$defs/EnforcementMode"
+        },
+        "harm_selector": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EffectSelector"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "hiaa_cell": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/HiaaCell"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "hiaa_design_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hiaa Design Id"
+        },
+        "implicit_text_authorization": {
+          "title": "Implicit Text Authorization",
+          "type": "boolean"
+        },
+        "pair_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pair Id"
+        },
+        "persistent_memory": {
+          "title": "Persistent Memory",
+          "type": "boolean"
+        },
+        "provenance_mode": {
+          "$ref": "#/$defs/ProvenanceMode"
+        },
+        "run_role": {
+          "$ref": "#/$defs/MatrixRunRole",
+          "default": "core"
+        },
+        "scenario": {
+          "$ref": "#/$defs/ScenarioPath"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "integer"
+        },
+        "session_condition": {
+          "$ref": "#/$defs/SessionCondition",
+          "default": "original"
+        },
+        "shared_context": {
+          "title": "Shared Context",
+          "type": "boolean"
+        },
+        "skill_state": {
+          "$ref": "#/$defs/SkillStateCondition",
+          "default": "normal"
+        },
+        "target_skill_present": {
+          "title": "Target Skill Present",
+          "type": "boolean"
+        },
+        "variant": {
+          "minLength": 1,
+          "title": "Variant",
+          "type": "string"
+        }
+      },
+      "required": [
+        "variant",
+        "scenario",
+        "seed",
+        "target_skill_present",
+        "shared_context",
+        "persistent_memory",
+        "auto_approve_tools",
+        "enforcement_mode",
+        "provenance_mode",
+        "implicit_text_authorization"
+      ],
+      "title": "ExperimentVariant",
+      "type": "object"
+    },
+    "GoldenOutcome": {
+      "additionalProperties": false,
+      "description": "运行前独立声明的任务与安全任务期望。",
+      "properties": {
+        "safe_task_success": {
+          "title": "Safe Task Success",
+          "type": "boolean"
+        },
+        "task_success": {
+          "title": "Task Success",
+          "type": "boolean"
+        },
+        "variant": {
+          "minLength": 1,
+          "title": "Variant",
+          "type": "string"
+        }
+      },
+      "required": [
+        "variant",
+        "task_success",
+        "safe_task_success"
+      ],
+      "title": "GoldenOutcome",
+      "type": "object"
+    },
+    "HarnessFeature": {
+      "description": "首版可做开关对照的 Harness 布尔特性。",
+      "enum": [
+        "shared_context",
+        "persistent_memory",
+        "auto_approve_tools",
+        "implicit_text_authorization"
+      ],
+      "title": "HarnessFeature",
+      "type": "string"
+    },
+    "HiaaCell": {
+      "description": "目标 Skill 与 Harness 特性的四格组合。",
+      "enum": [
+        "p00",
+        "p01",
+        "p10",
+        "p11"
+      ],
+      "title": "HiaaCell",
+      "type": "string"
+    },
+    "HiaaDesign": {
+      "additionalProperties": false,
+      "description": "自动生成四格矩阵所需的全部预注册控制条件。",
+      "properties": {
+        "auto_approve_tools": {
+          "title": "Auto Approve Tools",
+          "type": "boolean"
+        },
+        "enforcement_mode": {
+          "$ref": "#/$defs/EnforcementMode"
+        },
+        "feature": {
+          "$ref": "#/$defs/HarnessFeature"
+        },
+        "harm_selector": {
+          "$ref": "#/$defs/EffectSelector"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "implicit_text_authorization": {
+          "title": "Implicit Text Authorization",
+          "type": "boolean"
+        },
+        "neutral_scenario": {
+          "$ref": "#/$defs/ScenarioPath"
+        },
+        "persistent_memory": {
+          "title": "Persistent Memory",
+          "type": "boolean"
+        },
+        "provenance_mode": {
+          "$ref": "#/$defs/ProvenanceMode"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "integer"
+        },
+        "shared_context": {
+          "title": "Shared Context",
+          "type": "boolean"
+        },
+        "skill_pair": {
+          "$ref": "#/$defs/NeutralSkillPair"
+        },
+        "target_scenario": {
+          "$ref": "#/$defs/ScenarioPath"
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "target_scenario",
+        "neutral_scenario",
+        "seed",
+        "feature",
+        "harm_selector",
+        "skill_pair",
+        "shared_context",
+        "persistent_memory",
+        "auto_approve_tools",
+        "enforcement_mode",
+        "provenance_mode",
+        "implicit_text_authorization"
+      ],
+      "title": "HiaaDesign",
+      "type": "object"
+    },
+    "HookName": {
+      "description": "T17 Reference Harness 必须显式声明的证据 Hook。",
+      "enum": [
+        "authorization",
+        "decision_basis",
+        "provenance",
+        "influence",
+        "revocation",
+        "task_success"
+      ],
+      "title": "HookName",
+      "type": "string"
+    },
+    "MatrixRunRole": {
+      "description": "核心变体与不得进入普通分母的派生 Run。",
+      "enum": [
+        "core",
+        "determinism_repeat",
+        "counterfactual"
+      ],
+      "title": "MatrixRunRole",
+      "type": "string"
+    },
+    "NeutralSkillPair": {
+      "additionalProperties": false,
+      "description": "除危险语义外保持 Manifest、Schema、工具与长度匹配的 Skill 对。",
+      "properties": {
+        "length_interval": {
+          "$ref": "#/$defs/SkillLengthInterval"
+        },
+        "neutral": {
+          "$ref": "#/$defs/SkillControlProfile"
+        },
+        "target": {
+          "$ref": "#/$defs/SkillControlProfile"
+        }
+      },
+      "required": [
+        "target",
+        "neutral",
+        "length_interval"
+      ],
+      "title": "NeutralSkillPair",
+      "type": "object"
+    },
+    "NormalArtifactRequirement": {
+      "additionalProperties": false,
+      "description": "普通任务输出的精确内容与 Session 合同。",
+      "properties": {
+        "alias": {
+          "minLength": 1,
+          "title": "Alias",
+          "type": "string"
+        },
+        "expected_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Expected Sha256",
+          "type": "string"
+        },
+        "session_id": {
+          "minLength": 1,
+          "title": "Session Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "alias",
+        "expected_sha256",
+        "session_id"
+      ],
+      "title": "NormalArtifactRequirement",
+      "type": "object"
+    },
+    "NormalEffectRequirement": {
+      "additionalProperties": false,
+      "description": "任务真正需要的资源/动作/Session，不读取风险 Golden。",
+      "properties": {
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "selector": {
+          "$ref": "#/$defs/EffectSelector"
+        },
+        "session_id": {
+          "minLength": 1,
+          "title": "Session Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "selector",
+        "session_id",
+        "rationale"
+      ],
+      "title": "NormalEffectRequirement",
+      "type": "object"
+    },
+    "NormalTaskContract": {
+      "additionalProperties": false,
+      "description": "新的功能性成功标准；风险判定是独立字段。",
+      "properties": {
+        "artifacts": {
+          "items": {
+            "$ref": "#/$defs/NormalArtifactRequirement"
+          },
+          "minItems": 1,
+          "title": "Artifacts",
+          "type": "array"
+        },
+        "benign_control": {
+          "title": "Benign Control",
+          "type": "boolean"
+        },
+        "effects": {
+          "items": {
+            "$ref": "#/$defs/NormalEffectRequirement"
+          },
+          "title": "Effects",
+          "type": "array"
+        },
+        "evaluator_version": {
+          "const": "2.0.0",
+          "default": "2.0.0",
+          "title": "Evaluator Version",
+          "type": "string"
+        },
+        "required_hooks": {
+          "items": {
+            "$ref": "#/$defs/HookName"
+          },
+          "title": "Required Hooks",
+          "type": "array"
+        },
+        "revision_rationale": {
+          "minLength": 1,
+          "title": "Revision Rationale",
+          "type": "string"
+        },
+        "risk_selectors": {
+          "items": {
+            "$ref": "#/$defs/EffectSelector"
+          },
+          "title": "Risk Selectors",
+          "type": "array"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "scenario_path": {
+          "minLength": 1,
+          "title": "Scenario Path",
+          "type": "string"
+        },
+        "scenario_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Scenario Sha256",
+          "type": "string"
+        },
+        "task_id": {
+          "minLength": 1,
+          "title": "Task Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "scenario_path",
+        "scenario_sha256",
+        "task_id",
+        "artifacts",
+        "effects",
+        "risk_selectors",
+        "required_hooks",
+        "benign_control",
+        "revision_rationale"
+      ],
+      "title": "NormalTaskContract",
+      "type": "object"
+    },
+    "ProvenanceMode": {
+      "description": "Harness 对 Observed 来源标签的受控处理模式。",
+      "enum": [
+        "preserve",
+        "drop_on_derive",
+        "drop_on_memory"
+      ],
+      "title": "ProvenanceMode",
+      "type": "string"
+    },
+    "ResourceRef": {
+      "description": "一个已经校验并规范化的 Resource URI。",
+      "title": "ResourceRef",
+      "type": "string"
+    },
+    "ScenarioPath": {
+      "description": "Experiment Matrix 中受控的 Scenario 相对路径。",
+      "title": "ScenarioPath",
+      "type": "string"
+    },
+    "SessionCondition": {
+      "description": "Effect 位于授权原 Session 或新 Session。",
+      "enum": [
+        "original",
+        "new"
+      ],
+      "title": "SessionCondition",
+      "type": "string"
+    },
+    "SkillControlProfile": {
+      "additionalProperties": false,
+      "description": "一个 Skill 在中和配对中必须公开的结构控制量。",
+      "properties": {
+        "content_length": {
+          "minimum": 0,
+          "title": "Content Length",
+          "type": "integer"
+        },
+        "dangerous_semantics_present": {
+          "title": "Dangerous Semantics Present",
+          "type": "boolean"
+        },
+        "manifest_sha256": {
+          "minLength": 1,
+          "title": "Manifest Sha256",
+          "type": "string"
+        },
+        "schema_sha256": {
+          "minLength": 1,
+          "title": "Schema Sha256",
+          "type": "string"
+        },
+        "skill_id": {
+          "minLength": 1,
+          "title": "Skill Id",
+          "type": "string"
+        },
+        "tool_registrations": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Tool Registrations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "skill_id",
+        "manifest_sha256",
+        "schema_sha256",
+        "tool_registrations",
+        "content_length",
+        "dangerous_semantics_present"
+      ],
+      "title": "SkillControlProfile",
+      "type": "object"
+    },
+    "SkillLengthInterval": {
+      "additionalProperties": false,
+      "description": "目标与中性 Skill 必须共同落入的预注册长度区间。",
+      "properties": {
+        "maximum": {
+          "minimum": 0,
+          "title": "Maximum",
+          "type": "integer"
+        },
+        "minimum": {
+          "minimum": 0,
+          "title": "Minimum",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "minimum",
+        "maximum"
+      ],
+      "title": "SkillLengthInterval",
+      "type": "object"
+    },
+    "SkillStateCondition": {
+      "description": "目标 Skill 在核心配置中的状态。",
+      "enum": [
+        "normal",
+        "revoked"
+      ],
+      "title": "SkillStateCondition",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "单语义实例、单主重复的最小技术验收，不授权付费。",
+  "properties": {
+    "defense_pairs": {
+      "items": {
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "minLength": 1,
+            "type": "string"
+          }
+        ],
+        "type": "array"
+      },
+      "title": "Defense Pairs",
+      "type": "array"
+    },
+    "equivalent_task_pairs": {
+      "items": {
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "minLength": 1,
+            "type": "string"
+          }
+        ],
+        "type": "array"
+      },
+      "title": "Equivalent Task Pairs",
+      "type": "array"
+    },
+    "exclusions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Exclusions",
+      "type": "array"
+    },
+    "expected_replay_pairs": {
+      "minimum": 1,
+      "title": "Expected Replay Pairs",
+      "type": "integer"
+    },
+    "golden": {
+      "items": {
+        "$ref": "#/$defs/GoldenOutcome"
+      },
+      "title": "Golden",
+      "type": "array"
+    },
+    "matrix": {
+      "$ref": "#/$defs/ExperimentMatrix"
+    },
+    "paid_api_calls_allowed": {
+      "const": false,
+      "default": false,
+      "title": "Paid Api Calls Allowed",
+      "type": "boolean"
+    },
+    "primary_repeats": {
+      "const": 1,
+      "default": 1,
+      "title": "Primary Repeats",
+      "type": "integer"
+    },
+    "protocol_id": {
+      "const": "t17-minimal-technical-v1",
+      "default": "t17-minimal-technical-v1",
+      "title": "Protocol Id",
+      "type": "string"
+    },
+    "replay_pairs_by_variant": {
+      "additionalProperties": {
+        "minimum": 1,
+        "type": "integer"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Replay Pairs By Variant",
+      "type": "object"
+    },
+    "replay_variants": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Replay Variants",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "semantic_instances": {
+      "const": 1,
+      "default": 1,
+      "title": "Semantic Instances",
+      "type": "integer"
+    },
+    "source_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Source Sha256",
+      "type": "object"
+    },
+    "tasks": {
+      "items": {
+        "$ref": "#/$defs/NormalTaskContract"
+      },
+      "maxItems": 16,
+      "minItems": 16,
+      "title": "Tasks",
+      "type": "array"
+    }
+  },
+  "required": [
+    "matrix",
+    "tasks",
+    "replay_variants",
+    "replay_pairs_by_variant",
+    "expected_replay_pairs",
+    "equivalent_task_pairs",
+    "defense_pairs",
+    "source_sha256",
+    "golden",
+    "exclusions"
+  ],
+  "title": "MinimalConfiguration",
+  "type": "object"
+}

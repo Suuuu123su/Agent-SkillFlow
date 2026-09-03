@@ -1,0 +1,1300 @@
+{
+  "$defs": {
+    "ArtifactAliasEvidence": {
+      "additionalProperties": false,
+      "description": "反事实目标 alias 与当前 Run Artifact 的脱敏绑定。",
+      "properties": {
+        "alias": {
+          "minLength": 1,
+          "title": "Alias",
+          "type": "string"
+        },
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "trust": {
+          "$ref": "#/$defs/TrustLevel"
+        }
+      },
+      "required": [
+        "alias",
+        "artifact_id",
+        "trust"
+      ],
+      "title": "ArtifactAliasEvidence",
+      "type": "object"
+    },
+    "AuthorizationCondition": {
+      "description": "实验中被暴露的授权来源条件。",
+      "enum": [
+        "none",
+        "implicit_text",
+        "structured_confirmation"
+      ],
+      "title": "AuthorizationCondition",
+      "type": "string"
+    },
+    "BoundaryDepth": {
+      "additionalProperties": false,
+      "description": "五类边界及总深度计数。",
+      "properties": {
+        "context": {
+          "minimum": 0,
+          "title": "Context",
+          "type": "integer"
+        },
+        "memory": {
+          "minimum": 0,
+          "title": "Memory",
+          "type": "integer"
+        },
+        "session": {
+          "minimum": 0,
+          "title": "Session",
+          "type": "integer"
+        },
+        "skill": {
+          "minimum": 0,
+          "title": "Skill",
+          "type": "integer"
+        },
+        "tool": {
+          "minimum": 0,
+          "title": "Tool",
+          "type": "integer"
+        },
+        "total": {
+          "minimum": 0,
+          "title": "Total",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "context",
+        "memory",
+        "session",
+        "skill",
+        "tool",
+        "total"
+      ],
+      "title": "BoundaryDepth",
+      "type": "object"
+    },
+    "CanonicalEffectKey": {
+      "additionalProperties": false,
+      "description": "UEA 类型去重使用的规范化五元组。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "lifetime": {
+          "$ref": "#/$defs/Lifetime"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "sink": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "action",
+        "sink",
+        "scope",
+        "lifetime"
+      ],
+      "title": "CanonicalEffectKey",
+      "type": "object"
+    },
+    "CapabilityAction": {
+      "description": "MVP 固定支持的能力动作。",
+      "enum": [
+        "file.read",
+        "file.write",
+        "memory.read",
+        "memory.write",
+        "network.send",
+        "shell.execute",
+        "user.confirm"
+      ],
+      "title": "CapabilityAction",
+      "type": "string"
+    },
+    "CapabilityEffect": {
+      "additionalProperties": false,
+      "description": "可比较的结构化能力效果。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "lifetime": {
+          "$ref": "#/$defs/Lifetime"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "sensitivity": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Sensitivity",
+          "type": "integer"
+        },
+        "sink": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "action",
+        "sink",
+        "scope",
+        "lifetime",
+        "sensitivity"
+      ],
+      "title": "CapabilityEffect",
+      "type": "object"
+    },
+    "Decision": {
+      "description": "Harness 或策略的结构化决策。",
+      "enum": [
+        "allow",
+        "deny",
+        "confirm"
+      ],
+      "title": "Decision",
+      "type": "string"
+    },
+    "DecisionBasisArtifact": {
+      "additionalProperties": false,
+      "description": "一个进入 Decision 依据的脱敏 Artifact。",
+      "properties": {
+        "aliases": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Aliases",
+          "type": "array"
+        },
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "trust": {
+          "$ref": "#/$defs/TrustLevel"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "trust"
+      ],
+      "title": "DecisionBasisArtifact",
+      "type": "object"
+    },
+    "EffectPathEvidence": {
+      "additionalProperties": false,
+      "description": "一个来源节点到 Effect 节点的脱敏可审计路径。",
+      "properties": {
+        "boundary_depth": {
+          "$ref": "#/$defs/BoundaryDepth"
+        },
+        "evidence_event_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Event Ids",
+          "type": "array"
+        },
+        "node_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Node Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "node_ids",
+        "evidence_event_ids",
+        "boundary_depth"
+      ],
+      "title": "EffectPathEvidence",
+      "type": "object"
+    },
+    "EffectSelector": {
+      "additionalProperties": false,
+      "description": "把运行期多个 EffectRecord 映射到稳定别名。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "alias": {
+          "minLength": 1,
+          "title": "Alias",
+          "type": "string"
+        },
+        "sink_pattern": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source_pattern": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "alias",
+        "action",
+        "source_pattern",
+        "sink_pattern"
+      ],
+      "title": "EffectSelector",
+      "type": "object"
+    },
+    "EnforcementMode": {
+      "description": "策略只观察或实际阻断。",
+      "enum": [
+        "monitor",
+        "enforce"
+      ],
+      "title": "EnforcementMode",
+      "type": "string"
+    },
+    "HiaaCell": {
+      "description": "目标 Skill 与 Harness 特性的四格组合。",
+      "enum": [
+        "p00",
+        "p01",
+        "p10",
+        "p11"
+      ],
+      "title": "HiaaCell",
+      "type": "string"
+    },
+    "Lifetime": {
+      "description": "授权或效果的有效边界。",
+      "enum": [
+        "call",
+        "task",
+        "session",
+        "persistent"
+      ],
+      "title": "Lifetime",
+      "type": "string"
+    },
+    "MatrixRunRole": {
+      "description": "核心变体与不得进入普通分母的派生 Run。",
+      "enum": [
+        "core",
+        "determinism_repeat",
+        "counterfactual"
+      ],
+      "title": "MatrixRunRole",
+      "type": "string"
+    },
+    "MetricStatus": {
+      "description": "比例指标是否有可解释分母。",
+      "enum": [
+        "defined",
+        "not_applicable"
+      ],
+      "title": "MetricStatus",
+      "type": "string"
+    },
+    "PolicyReasonCode": {
+      "description": "T08 冻结的授权、边界与来源失败原因。",
+      "enum": [
+        "MANIFEST_PERMISSION_MISSING",
+        "USER_GRANT_MISSING",
+        "RESOURCE_SCOPE_EXCEEDED",
+        "SINK_SCOPE_EXCEEDED",
+        "GRANT_EXPIRED",
+        "GRANT_REVOKED",
+        "ORIGIN_REVOKED",
+        "CROSS_CALL_USE",
+        "CROSS_TASK_USE",
+        "CROSS_SESSION_USE",
+        "UNTRUSTED_ORIGIN",
+        "PROVENANCE_INCOMPLETE",
+        "GRANT_NOT_YET_VALID"
+      ],
+      "title": "PolicyReasonCode",
+      "type": "string"
+    },
+    "ProvenanceCounts": {
+      "additionalProperties": false,
+      "description": "来源集合比较的 TP、FP、FN 原始计数。",
+      "properties": {
+        "artifact_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Artifact Ids",
+          "type": "array"
+        },
+        "fn": {
+          "minimum": 0,
+          "title": "Fn",
+          "type": "integer"
+        },
+        "fp": {
+          "minimum": 0,
+          "title": "Fp",
+          "type": "integer"
+        },
+        "tp": {
+          "minimum": 0,
+          "title": "Tp",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "tp",
+        "fp",
+        "fn",
+        "artifact_ids"
+      ],
+      "title": "ProvenanceCounts",
+      "type": "object"
+    },
+    "ProvenanceDepthMetrics": {
+      "additionalProperties": false,
+      "description": "一个边界总深度上的来源指标和相邻深度衰减。",
+      "properties": {
+        "boundary_depth": {
+          "minimum": 0,
+          "title": "Boundary Depth",
+          "type": "integer"
+        },
+        "decay": {
+          "$ref": "#/$defs/SignedRatioMetric"
+        },
+        "metrics": {
+          "$ref": "#/$defs/ProvenanceMetricSet"
+        }
+      },
+      "required": [
+        "boundary_depth",
+        "metrics",
+        "decay"
+      ],
+      "title": "ProvenanceDepthMetrics",
+      "type": "object"
+    },
+    "ProvenanceMetricSet": {
+      "additionalProperties": false,
+      "description": "同一聚合范围内的来源混淆计数与三类比例。",
+      "properties": {
+        "counts": {
+          "$ref": "#/$defs/ProvenanceCounts"
+        },
+        "f1": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "precision": {
+          "$ref": "#/$defs/RatioMetric"
+        },
+        "recall": {
+          "$ref": "#/$defs/RatioMetric"
+        }
+      },
+      "required": [
+        "counts",
+        "precision",
+        "recall",
+        "f1"
+      ],
+      "title": "ProvenanceMetricSet",
+      "type": "object"
+    },
+    "ProvenanceMetricSummary": {
+      "additionalProperties": false,
+      "description": "单场景或 micro 范围的总体与逐深度来源指标。",
+      "properties": {
+        "by_boundary_depth": {
+          "items": {
+            "$ref": "#/$defs/ProvenanceDepthMetrics"
+          },
+          "title": "By Boundary Depth",
+          "type": "array"
+        },
+        "overall": {
+          "$ref": "#/$defs/ProvenanceMetricSet"
+        }
+      },
+      "required": [
+        "overall",
+        "by_boundary_depth"
+      ],
+      "title": "ProvenanceMetricSummary",
+      "type": "object"
+    },
+    "ProvenanceMode": {
+      "description": "Harness 对 Observed 来源标签的受控处理模式。",
+      "enum": [
+        "preserve",
+        "drop_on_derive",
+        "drop_on_memory"
+      ],
+      "title": "ProvenanceMode",
+      "type": "string"
+    },
+    "RatioMetric": {
+      "additionalProperties": false,
+      "description": "值域为零到一的比例及其原始计数和证据。",
+      "properties": {
+        "denominator": {
+          "minimum": 0,
+          "title": "Denominator",
+          "type": "integer"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "numerator": {
+          "minimum": 0,
+          "title": "Numerator",
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "numerator",
+        "denominator",
+        "value",
+        "status"
+      ],
+      "title": "RatioMetric",
+      "type": "object"
+    },
+    "ResourceRef": {
+      "description": "一个已经校验并规范化的 Resource URI。",
+      "title": "ResourceRef",
+      "type": "string"
+    },
+    "RunEffectResult": {
+      "additionalProperties": false,
+      "description": "一个 Receipt 锚定 Effect 的决策、会话与授权事实。",
+      "properties": {
+        "action_id": {
+          "minLength": 1,
+          "title": "Action Id",
+          "type": "string"
+        },
+        "actor_id": {
+          "minLength": 1,
+          "title": "Actor Id",
+          "type": "string"
+        },
+        "authorized": {
+          "title": "Authorized",
+          "type": "boolean"
+        },
+        "baseline_result": {
+          "$ref": "#/$defs/Decision"
+        },
+        "decision_basis_artifacts": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DecisionBasisArtifact"
+          },
+          "title": "Decision Basis Artifacts",
+          "type": "array"
+        },
+        "decision_id": {
+          "minLength": 1,
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "effect": {
+          "$ref": "#/$defs/CapabilityEffect"
+        },
+        "effect_alias": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effect Alias"
+        },
+        "effect_id": {
+          "minLength": 1,
+          "title": "Effect Id",
+          "type": "string"
+        },
+        "executed": {
+          "title": "Executed",
+          "type": "boolean"
+        },
+        "matched_grant_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Matched Grant Ids",
+          "type": "array"
+        },
+        "policy_result": {
+          "$ref": "#/$defs/Decision"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "receipt_id": {
+          "minLength": 1,
+          "title": "Receipt Id",
+          "type": "string"
+        },
+        "request_event_id": {
+          "minLength": 1,
+          "title": "Request Event Id",
+          "type": "string"
+        },
+        "selector_aliases": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Selector Aliases",
+          "type": "array"
+        },
+        "session_id": {
+          "minLength": 1,
+          "title": "Session Id",
+          "type": "string"
+        },
+        "session_index": {
+          "minimum": 0,
+          "title": "Session Index",
+          "type": "integer"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "effect_id",
+        "action_id",
+        "request_event_id",
+        "decision_id",
+        "actor_id",
+        "session_id",
+        "session_index",
+        "timestamp",
+        "effect",
+        "authorized",
+        "baseline_result",
+        "policy_result",
+        "executed",
+        "receipt_id"
+      ],
+      "title": "RunEffectResult",
+      "type": "object"
+    },
+    "RunRevocationEvidence": {
+      "additionalProperties": false,
+      "description": "一个 Skill 撤销事件及其 Scenario Session 索引。",
+      "properties": {
+        "revoke_event_id": {
+          "minLength": 1,
+          "title": "Revoke Event Id",
+          "type": "string"
+        },
+        "revoked_at": {
+          "format": "date-time",
+          "title": "Revoked At",
+          "type": "string"
+        },
+        "session_index": {
+          "minimum": 0,
+          "title": "Session Index",
+          "type": "integer"
+        },
+        "skill_id": {
+          "minLength": 1,
+          "title": "Skill Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "skill_id",
+        "revoke_event_id",
+        "session_index",
+        "revoked_at"
+      ],
+      "title": "RunRevocationEvidence",
+      "type": "object"
+    },
+    "ScenarioPath": {
+      "description": "Experiment Matrix 中受控的 Scenario 相对路径。",
+      "title": "ScenarioPath",
+      "type": "string"
+    },
+    "Scope": {
+      "description": "MVP 中互不放大的四种精确作用域。",
+      "enum": [
+        "exact-file",
+        "exact-key",
+        "exact-sink",
+        "command"
+      ],
+      "title": "Scope",
+      "type": "string"
+    },
+    "SessionCondition": {
+      "description": "Effect 位于授权原 Session 或新 Session。",
+      "enum": [
+        "original",
+        "new"
+      ],
+      "title": "SessionCondition",
+      "type": "string"
+    },
+    "SignedRatioMetric": {
+      "additionalProperties": false,
+      "description": "允许为负的比例差及其精确整数分子、分母。",
+      "properties": {
+        "denominator": {
+          "minimum": 0,
+          "title": "Denominator",
+          "type": "integer"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "numerator": {
+          "title": "Numerator",
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": -1.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "numerator",
+        "denominator",
+        "value",
+        "status"
+      ],
+      "title": "SignedRatioMetric",
+      "type": "object"
+    },
+    "SkillStateCondition": {
+      "description": "目标 Skill 在核心配置中的状态。",
+      "enum": [
+        "normal",
+        "revoked"
+      ],
+      "title": "SkillStateCondition",
+      "type": "string"
+    },
+    "TrustLevel": {
+      "description": "数据来源的保守信任等级。",
+      "enum": [
+        "trusted",
+        "user",
+        "untrusted",
+        "unknown"
+      ],
+      "title": "TrustLevel",
+      "type": "string"
+    },
+    "UeaMetricSummary": {
+      "additionalProperties": false,
+      "description": "UEA 实例数、全局类型数、主权重及其全部证据。",
+      "properties": {
+        "canonical_effect_keys": {
+          "items": {
+            "$ref": "#/$defs/CanonicalEffectKey"
+          },
+          "title": "Canonical Effect Keys",
+          "type": "array"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "uea_count": {
+          "minimum": 0,
+          "title": "Uea Count",
+          "type": "integer"
+        },
+        "uea_type_count": {
+          "minimum": 0,
+          "title": "Uea Type Count",
+          "type": "integer"
+        },
+        "uea_weight": {
+          "minimum": 0.0,
+          "title": "Uea Weight",
+          "type": "number"
+        }
+      },
+      "required": [
+        "uea_count",
+        "uea_type_count",
+        "uea_weight",
+        "evidence_ids",
+        "canonical_effect_keys"
+      ],
+      "title": "UeaMetricSummary",
+      "type": "object"
+    },
+    "UnauthorizedEffectEvidence": {
+      "additionalProperties": false,
+      "description": "一个未授权且已执行 Effect 的理由、路径与稳定 ID。",
+      "properties": {
+        "canonical_key": {
+          "$ref": "#/$defs/CanonicalEffectKey"
+        },
+        "decision_id": {
+          "minLength": 1,
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "effect_id": {
+          "minLength": 1,
+          "title": "Effect Id",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "paths": {
+          "items": {
+            "$ref": "#/$defs/EffectPathEvidence"
+          },
+          "minItems": 1,
+          "title": "Paths",
+          "type": "array"
+        },
+        "reason_codes": {
+          "items": {
+            "$ref": "#/$defs/PolicyReasonCode"
+          },
+          "minItems": 1,
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "receipt_id": {
+          "minLength": 1,
+          "title": "Receipt Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "effect_id",
+        "receipt_id",
+        "decision_id",
+        "reason_codes",
+        "canonical_key",
+        "paths",
+        "evidence_ids"
+      ],
+      "title": "UnauthorizedEffectEvidence",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "单次 Run 的结果与可审计证据索引。",
+  "properties": {
+    "authorization_condition": {
+      "$ref": "#/$defs/AuthorizationCondition",
+      "default": "none"
+    },
+    "authorized_flags": {
+      "default": [],
+      "items": {
+        "type": "boolean"
+      },
+      "title": "Authorized Flags",
+      "type": "array"
+    },
+    "auto_approve_tools": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Auto Approve Tools"
+    },
+    "backend": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Backend"
+    },
+    "baseline_decisions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Decision"
+      },
+      "title": "Baseline Decisions",
+      "type": "array"
+    },
+    "counterfactual_artifacts": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ArtifactAliasEvidence"
+      },
+      "title": "Counterfactual Artifacts",
+      "type": "array"
+    },
+    "effect_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Effect Ids",
+      "type": "array"
+    },
+    "effects": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/RunEffectResult"
+      },
+      "title": "Effects",
+      "type": "array"
+    },
+    "enforcement_mode": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/EnforcementMode"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "evidence_event_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Evidence Event Ids",
+      "type": "array"
+    },
+    "executed_decisions": {
+      "default": [],
+      "items": {
+        "type": "boolean"
+      },
+      "title": "Executed Decisions",
+      "type": "array"
+    },
+    "experiment_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Experiment Id"
+    },
+    "harm": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Harm"
+    },
+    "harm_effect_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Harm Effect Ids",
+      "type": "array"
+    },
+    "harm_receipt_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Harm Receipt Ids",
+      "type": "array"
+    },
+    "harm_selector": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/EffectSelector"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "hiaa_cell": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/HiaaCell"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "hiaa_design_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Hiaa Design Id"
+    },
+    "implicit_text_authorization": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Implicit Text Authorization"
+    },
+    "latency_ms": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Latency Ms"
+    },
+    "pair_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Pair Id"
+    },
+    "persistent_memory": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Persistent Memory"
+    },
+    "policy_decisions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Decision"
+      },
+      "title": "Policy Decisions",
+      "type": "array"
+    },
+    "provenance": {
+      "$ref": "#/$defs/ProvenanceMetricSummary"
+    },
+    "provenance_mode": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ProvenanceMode"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "receipt_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Receipt Ids",
+      "type": "array"
+    },
+    "redacted": {
+      "default": true,
+      "title": "Redacted",
+      "type": "boolean"
+    },
+    "report_scope": {
+      "const": "run",
+      "title": "Report Scope",
+      "type": "string"
+    },
+    "revocations": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/RunRevocationEvidence"
+      },
+      "title": "Revocations",
+      "type": "array"
+    },
+    "rir_check_offsets": {
+      "default": [],
+      "items": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "title": "Rir Check Offsets",
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "run_role": {
+      "$ref": "#/$defs/MatrixRunRole",
+      "default": "core"
+    },
+    "scenario": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ScenarioPath"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "scenario_id": {
+      "minLength": 1,
+      "title": "Scenario Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "seed": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Seed"
+    },
+    "session_condition": {
+      "$ref": "#/$defs/SessionCondition",
+      "default": "original"
+    },
+    "shared_context": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Shared Context"
+    },
+    "skill_state": {
+      "$ref": "#/$defs/SkillStateCondition",
+      "default": "normal"
+    },
+    "source_to_sink_paths": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/EffectPathEvidence"
+      },
+      "title": "Source To Sink Paths",
+      "type": "array"
+    },
+    "task_success": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Task Success"
+    },
+    "uea": {
+      "$ref": "#/$defs/UeaMetricSummary"
+    },
+    "unauthorized_effects": {
+      "items": {
+        "$ref": "#/$defs/UnauthorizedEffectEvidence"
+      },
+      "title": "Unauthorized Effects",
+      "type": "array"
+    },
+    "variant": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Variant"
+    }
+  },
+  "required": [
+    "schema_version",
+    "report_scope",
+    "run_id",
+    "scenario_id",
+    "uea",
+    "provenance",
+    "unauthorized_effects"
+  ],
+  "title": "RunRiskReport",
+  "type": "object"
+}

@@ -1,0 +1,83 @@
+{
+  "$defs": {
+    "FileDigest": {
+      "additionalProperties": false,
+      "description": "相对路径与字节哈希，不记录宿主路径或正文。",
+      "properties": {
+        "jsonl_records": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Jsonl Records"
+        },
+        "path": {
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "FileDigest",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "一个域的不可变 Raw 文件集合；报告不进入 Raw 分母。",
+  "properties": {
+    "domain": {
+      "enum": [
+        "scripted",
+        "fake_reference"
+      ],
+      "title": "Domain",
+      "type": "string"
+    },
+    "files": {
+      "items": {
+        "$ref": "#/$defs/FileDigest"
+      },
+      "minItems": 1,
+      "title": "Files",
+      "type": "array"
+    },
+    "phase_contract_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Phase Contract Sha256",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "domain",
+    "phase_contract_sha256",
+    "files"
+  ],
+  "title": "RawManifest",
+  "type": "object"
+}

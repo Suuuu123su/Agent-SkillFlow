@@ -1,0 +1,291 @@
+{
+  "$defs": {
+    "ArtifactType": {
+      "description": "不可变数据版本的类别。",
+      "enum": [
+        "context",
+        "memory",
+        "file",
+        "skill_output",
+        "tool_arg",
+        "tool_return"
+      ],
+      "title": "ArtifactType",
+      "type": "string"
+    },
+    "ReplayControlEvidence": {
+      "additionalProperties": false,
+      "description": "证明两分支共享运行条件的一组规范化摘要。",
+      "properties": {
+        "checkpoint_state_hash": {
+          "minLength": 1,
+          "title": "Checkpoint State Hash",
+          "type": "string"
+        },
+        "clock_start": {
+          "minLength": 1,
+          "title": "Clock Start",
+          "type": "string"
+        },
+        "decisions_hash": {
+          "minLength": 1,
+          "title": "Decisions Hash",
+          "type": "string"
+        },
+        "grants_hash": {
+          "minLength": 1,
+          "title": "Grants Hash",
+          "type": "string"
+        },
+        "manifests_hash": {
+          "minLength": 1,
+          "title": "Manifests Hash",
+          "type": "string"
+        },
+        "same_other_inputs": {
+          "const": true,
+          "default": true,
+          "title": "Same Other Inputs",
+          "type": "boolean"
+        },
+        "same_permissions": {
+          "const": true,
+          "default": true,
+          "title": "Same Permissions",
+          "type": "boolean"
+        },
+        "same_seed": {
+          "const": true,
+          "default": true,
+          "title": "Same Seed",
+          "type": "boolean"
+        },
+        "same_time": {
+          "const": true,
+          "default": true,
+          "title": "Same Time",
+          "type": "boolean"
+        },
+        "same_tool_returns": {
+          "const": true,
+          "default": true,
+          "title": "Same Tool Returns",
+          "type": "boolean"
+        },
+        "same_tool_set": {
+          "const": true,
+          "default": true,
+          "title": "Same Tool Set",
+          "type": "boolean"
+        },
+        "scripts_hash": {
+          "minLength": 1,
+          "title": "Scripts Hash",
+          "type": "string"
+        },
+        "seed_hash": {
+          "minLength": 1,
+          "title": "Seed Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "seed_hash",
+        "scripts_hash",
+        "decisions_hash",
+        "manifests_hash",
+        "grants_hash",
+        "clock_start",
+        "checkpoint_state_hash"
+      ],
+      "title": "ReplayControlEvidence",
+      "type": "object"
+    },
+    "ReplayInterventionEvidence": {
+      "additionalProperties": false,
+      "description": "不包含正文或宿主路径的 Artifact 干预证据。",
+      "properties": {
+        "artifact_type": {
+          "$ref": "#/$defs/ArtifactType"
+        },
+        "content_hash": {
+          "minLength": 1,
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "content_length": {
+          "minimum": 0,
+          "title": "Content Length",
+          "type": "integer"
+        },
+        "derived_artifact_id": {
+          "minLength": 1,
+          "title": "Derived Artifact Id",
+          "type": "string"
+        },
+        "mime_type": {
+          "minLength": 1,
+          "title": "Mime Type",
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "identity",
+            "neutral"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "schema_preserved": {
+          "title": "Schema Preserved",
+          "type": "boolean"
+        },
+        "source_artifact_id": {
+          "minLength": 1,
+          "title": "Source Artifact Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "mode",
+        "source_artifact_id",
+        "derived_artifact_id",
+        "artifact_type",
+        "mime_type",
+        "content_hash",
+        "content_length",
+        "schema_preserved"
+      ],
+      "title": "ReplayInterventionEvidence",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "一对恢复分支的确定性、隔离性与结构守恒清单。",
+  "properties": {
+    "added_effect_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Added Effect Ids",
+      "type": "array"
+    },
+    "checkpoint_id": {
+      "minLength": 1,
+      "title": "Checkpoint Id",
+      "type": "string"
+    },
+    "checkpoint_prefix_hash": {
+      "minLength": 1,
+      "title": "Checkpoint Prefix Hash",
+      "type": "string"
+    },
+    "checkpoint_state_hash": {
+      "minLength": 1,
+      "title": "Checkpoint State Hash",
+      "type": "string"
+    },
+    "controls": {
+      "$ref": "#/$defs/ReplayControlEvidence"
+    },
+    "neutral_effect_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Neutral Effect Ids",
+      "type": "array"
+    },
+    "neutral_intervention": {
+      "$ref": "#/$defs/ReplayInterventionEvidence"
+    },
+    "neutral_prefix_hash": {
+      "minLength": 1,
+      "title": "Neutral Prefix Hash",
+      "type": "string"
+    },
+    "neutral_restore_state_hash": {
+      "minLength": 1,
+      "title": "Neutral Restore State Hash",
+      "type": "string"
+    },
+    "neutral_run_id": {
+      "minLength": 1,
+      "title": "Neutral Run Id",
+      "type": "string"
+    },
+    "original_effect_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Original Effect Ids",
+      "type": "array"
+    },
+    "original_intervention": {
+      "$ref": "#/$defs/ReplayInterventionEvidence"
+    },
+    "original_prefix_hash": {
+      "minLength": 1,
+      "title": "Original Prefix Hash",
+      "type": "string"
+    },
+    "original_restore_state_hash": {
+      "minLength": 1,
+      "title": "Original Restore State Hash",
+      "type": "string"
+    },
+    "original_run_id": {
+      "minLength": 1,
+      "title": "Original Run Id",
+      "type": "string"
+    },
+    "removed_effect_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Removed Effect Ids",
+      "type": "array"
+    },
+    "replay_id": {
+      "minLength": 1,
+      "title": "Replay Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "target_alias": {
+      "minLength": 1,
+      "title": "Target Alias",
+      "type": "string"
+    }
+  },
+  "required": [
+    "replay_id",
+    "target_alias",
+    "checkpoint_id",
+    "checkpoint_prefix_hash",
+    "checkpoint_state_hash",
+    "original_run_id",
+    "neutral_run_id",
+    "original_restore_state_hash",
+    "neutral_restore_state_hash",
+    "original_prefix_hash",
+    "neutral_prefix_hash",
+    "controls",
+    "original_intervention",
+    "neutral_intervention",
+    "original_effect_ids",
+    "neutral_effect_ids",
+    "removed_effect_ids",
+    "added_effect_ids"
+  ],
+  "title": "ReplayPairManifest",
+  "type": "object"
+}

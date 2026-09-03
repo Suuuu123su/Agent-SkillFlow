@@ -22,6 +22,7 @@ from skillflow.experiment.t17.live_supervisor import (
     T17EmptyApiKeyError,
 )
 from skillflow.experiment.t17.live_supervisor_cli import run_live_supervisor_cli
+from skillflow.experiment.t17.minimal.cli import minimal_app
 from skillflow.experiment.t17.phase_integrity import T17PhaseIntegrityError
 from skillflow.experiment.t17.phase_report import (
     T17PhaseReportRequest,
@@ -36,6 +37,7 @@ from skillflow.experiment.t17.scripted_runner import (
 from skillflow.validation import DocumentValidationError
 
 t17_app = typer.Typer(help="T17 指标、证据 Hook 与实验闭环。", no_args_is_help=True)
+t17_app.add_typer(minimal_app, name="minimal")
 
 
 def register_t17_commands(root: typer.Typer) -> None:

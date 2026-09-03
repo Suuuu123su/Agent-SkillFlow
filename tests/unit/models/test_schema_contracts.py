@@ -169,6 +169,22 @@ def test_static_schemas_equal_model_generated_schemas() -> None:
         "t17-defense-report.schema.json",
         "t17-final-metrics.schema.json",
         "t17-task-success-evidence.schema.json",
+        "t17-minimal-configuration.schema.json",
+        "t17-minimal-normal-task-contract.schema.json",
+        "t17-minimal-normal-task-evidence.schema.json",
+        "t17-minimal-phase-contract.schema.json",
+        "t17-minimal-run-record.schema.json",
+        "t17-minimal-raw-manifest.schema.json",
+        "t17-minimal-execution-status.schema.json",
+        "t17-minimal-measurement.schema.json",
+        "t17-minimal-domain-report.schema.json",
+        "t17-minimal-graph.schema.json",
+        "t17-minimal-replay-pair.schema.json",
+        "t17-minimal-run-risk.schema.json",
+        "t17-minimal-replay-risk.schema.json",
+        "t17-minimal-observed-trace.schema.json",
+        "t17-minimal-oracle-trace.schema.json",
+        "t17-minimal-tool-receipt.schema.json",
     }
     for document in documents:
         static_schema = json.loads((SCHEMA_DIR / document.filename).read_text(encoding="utf-8"))

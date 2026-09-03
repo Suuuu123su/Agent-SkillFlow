@@ -1,0 +1,538 @@
+{
+  "$defs": {
+    "ArtifactGraphNode": {
+      "additionalProperties": false,
+      "description": "脱敏 Artifact 节点。",
+      "properties": {
+        "artifact_type": {
+          "$ref": "#/$defs/ArtifactType"
+        },
+        "created_session_id": {
+          "minLength": 1,
+          "title": "Created Session Id",
+          "type": "string"
+        },
+        "kind": {
+          "const": "artifact",
+          "default": "artifact",
+          "title": "Kind",
+          "type": "string"
+        },
+        "node_id": {
+          "minLength": 1,
+          "title": "Node Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "trust": {
+          "$ref": "#/$defs/TrustLevel"
+        }
+      },
+      "required": [
+        "node_id",
+        "run_id",
+        "artifact_type",
+        "trust",
+        "created_session_id"
+      ],
+      "title": "ArtifactGraphNode",
+      "type": "object"
+    },
+    "ArtifactType": {
+      "description": "不可变数据版本的类别。",
+      "enum": [
+        "context",
+        "memory",
+        "file",
+        "skill_output",
+        "tool_arg",
+        "tool_return"
+      ],
+      "title": "ArtifactType",
+      "type": "string"
+    },
+    "BoundaryKind": {
+      "description": "路径深度需要分别累计的五类边界。",
+      "enum": [
+        "context",
+        "memory",
+        "session",
+        "skill",
+        "tool"
+      ],
+      "title": "BoundaryKind",
+      "type": "string"
+    },
+    "CapabilityAction": {
+      "description": "MVP 固定支持的能力动作。",
+      "enum": [
+        "file.read",
+        "file.write",
+        "memory.read",
+        "memory.write",
+        "network.send",
+        "shell.execute",
+        "user.confirm"
+      ],
+      "title": "CapabilityAction",
+      "type": "string"
+    },
+    "DecisionGraphNode": {
+      "additionalProperties": false,
+      "description": "不复制理由正文的 Decision 节点。",
+      "properties": {
+        "authorized": {
+          "title": "Authorized",
+          "type": "boolean"
+        },
+        "executed": {
+          "title": "Executed",
+          "type": "boolean"
+        },
+        "kind": {
+          "const": "decision",
+          "default": "decision",
+          "title": "Kind",
+          "type": "string"
+        },
+        "node_id": {
+          "minLength": 1,
+          "title": "Node Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node_id",
+        "run_id",
+        "authorized",
+        "executed"
+      ],
+      "title": "DecisionGraphNode",
+      "type": "object"
+    },
+    "EffectGraphNode": {
+      "additionalProperties": false,
+      "description": "可作为查询端点的 Effect 节点。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "executed": {
+          "title": "Executed",
+          "type": "boolean"
+        },
+        "kind": {
+          "const": "effect",
+          "default": "effect",
+          "title": "Kind",
+          "type": "string"
+        },
+        "node_id": {
+          "minLength": 1,
+          "title": "Node Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node_id",
+        "run_id",
+        "action",
+        "executed"
+      ],
+      "title": "EffectGraphNode",
+      "type": "object"
+    },
+    "EventGraphNode": {
+      "additionalProperties": false,
+      "description": "保留会话和时间证据的 Event 节点。",
+      "properties": {
+        "event_type": {
+          "$ref": "#/$defs/EventType"
+        },
+        "kind": {
+          "const": "event",
+          "default": "event",
+          "title": "Kind",
+          "type": "string"
+        },
+        "node_id": {
+          "minLength": 1,
+          "title": "Node Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "session_id": {
+          "minLength": 1,
+          "title": "Session Id",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node_id",
+        "run_id",
+        "event_type",
+        "session_id",
+        "timestamp"
+      ],
+      "title": "EventGraphNode",
+      "type": "object"
+    },
+    "EventType": {
+      "description": "追加式安全事件类别。",
+      "enum": [
+        "run_start",
+        "run_end",
+        "session_start",
+        "session_end",
+        "skill_install",
+        "skill_load",
+        "skill_invoke",
+        "skill_return",
+        "skill_revoke",
+        "skill_unload",
+        "context_add",
+        "context_read",
+        "context_summarize",
+        "memory_write",
+        "memory_read",
+        "memory_delete",
+        "file_read",
+        "file_write",
+        "tool_call_request",
+        "tool_call_allow",
+        "tool_call_deny",
+        "tool_call_result",
+        "auth_claim_observed",
+        "auth_grant",
+        "auth_revoke",
+        "artifact_register",
+        "artifact_derive",
+        "sensitive_effect"
+      ],
+      "title": "EventType",
+      "type": "string"
+    },
+    "GrantGraphNode": {
+      "additionalProperties": false,
+      "description": "由签发事件或 Decision 引用建立的 Grant 节点。",
+      "properties": {
+        "kind": {
+          "const": "grant",
+          "default": "grant",
+          "title": "Kind",
+          "type": "string"
+        },
+        "node_id": {
+          "minLength": 1,
+          "title": "Node Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node_id",
+        "run_id"
+      ],
+      "title": "GrantGraphNode",
+      "type": "object"
+    },
+    "GraphNodeKind": {
+      "description": "SecurityGraph 固定支持的节点类型。",
+      "enum": [
+        "artifact",
+        "event",
+        "principal",
+        "grant",
+        "decision",
+        "effect"
+      ],
+      "title": "GraphNodeKind",
+      "type": "string"
+    },
+    "GraphNodeRef": {
+      "additionalProperties": false,
+      "description": "避免不同节点类型的原始 ID 相撞。",
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/GraphNodeKind"
+        },
+        "node_id": {
+          "minLength": 1,
+          "title": "Node Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "node_id"
+      ],
+      "title": "GraphNodeRef",
+      "type": "object"
+    },
+    "PrincipalGraphNode": {
+      "additionalProperties": false,
+      "description": "保守类型化的主体节点。",
+      "properties": {
+        "kind": {
+          "const": "principal",
+          "default": "principal",
+          "title": "Kind",
+          "type": "string"
+        },
+        "node_id": {
+          "minLength": 1,
+          "title": "Node Id",
+          "type": "string"
+        },
+        "principal_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PrincipalType"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node_id",
+        "run_id",
+        "principal_type"
+      ],
+      "title": "PrincipalGraphNode",
+      "type": "object"
+    },
+    "PrincipalType": {
+      "description": "能够产生事件或签发授权的主体类别。",
+      "enum": [
+        "user",
+        "trusted_policy",
+        "harness",
+        "skill",
+        "tool"
+      ],
+      "title": "PrincipalType",
+      "type": "string"
+    },
+    "ProvenanceEdge": {
+      "additionalProperties": false,
+      "description": "Artifact-Event 二部边及其唯一证据。",
+      "properties": {
+        "evidence_event_id": {
+          "minLength": 1,
+          "title": "Evidence Event Id",
+          "type": "string"
+        },
+        "relation": {
+          "$ref": "#/$defs/ProvenanceRelation"
+        },
+        "session_id": {
+          "minLength": 1,
+          "title": "Session Id",
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/GraphNodeRef"
+        },
+        "target": {
+          "$ref": "#/$defs/GraphNodeRef"
+        }
+      },
+      "required": [
+        "source",
+        "target",
+        "relation",
+        "session_id",
+        "evidence_event_id"
+      ],
+      "title": "ProvenanceEdge",
+      "type": "object"
+    },
+    "ProvenanceRelation": {
+      "description": "Artifact-Event 二部图的两类核心边。",
+      "enum": [
+        "USED",
+        "GENERATED"
+      ],
+      "title": "ProvenanceRelation",
+      "type": "string"
+    },
+    "SecurityEdge": {
+      "additionalProperties": false,
+      "description": "带会话、Event 证据和边界类型的语义边。",
+      "properties": {
+        "boundaries": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/BoundaryKind"
+          },
+          "title": "Boundaries",
+          "type": "array"
+        },
+        "evidence_event_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Event Ids",
+          "type": "array"
+        },
+        "relation": {
+          "$ref": "#/$defs/SecurityRelation"
+        },
+        "session_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Session Ids",
+          "type": "array"
+        },
+        "source": {
+          "$ref": "#/$defs/GraphNodeRef"
+        },
+        "target": {
+          "$ref": "#/$defs/GraphNodeRef"
+        }
+      },
+      "required": [
+        "source",
+        "target",
+        "relation",
+        "session_ids",
+        "evidence_event_ids"
+      ],
+      "title": "SecurityEdge",
+      "type": "object"
+    },
+    "SecurityRelation": {
+      "description": "任务书固定的安全语义边。",
+      "enum": [
+        "READ",
+        "WRITE",
+        "LOAD",
+        "INVOKE",
+        "DERIVE",
+        "PERSIST",
+        "AUTHORIZE",
+        "INFLUENCE_CANDIDATE",
+        "INFLUENCE_CONFIRMED",
+        "REVOKE"
+      ],
+      "title": "SecurityRelation",
+      "type": "string"
+    },
+    "TrustLevel": {
+      "description": "数据来源的保守信任等级。",
+      "enum": [
+        "trusted",
+        "user",
+        "untrusted",
+        "unknown"
+      ],
+      "title": "TrustLevel",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "不包含 Blob、正文或任意 Event metadata 的 JSON 投影。",
+  "properties": {
+    "nodes": {
+      "items": {
+        "discriminator": {
+          "mapping": {
+            "artifact": "#/$defs/ArtifactGraphNode",
+            "decision": "#/$defs/DecisionGraphNode",
+            "effect": "#/$defs/EffectGraphNode",
+            "event": "#/$defs/EventGraphNode",
+            "grant": "#/$defs/GrantGraphNode",
+            "principal": "#/$defs/PrincipalGraphNode"
+          },
+          "propertyName": "kind"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/$defs/ArtifactGraphNode"
+          },
+          {
+            "$ref": "#/$defs/EventGraphNode"
+          },
+          {
+            "$ref": "#/$defs/PrincipalGraphNode"
+          },
+          {
+            "$ref": "#/$defs/GrantGraphNode"
+          },
+          {
+            "$ref": "#/$defs/DecisionGraphNode"
+          },
+          {
+            "$ref": "#/$defs/EffectGraphNode"
+          }
+        ]
+      },
+      "title": "Nodes",
+      "type": "array"
+    },
+    "provenance_edges": {
+      "items": {
+        "$ref": "#/$defs/ProvenanceEdge"
+      },
+      "title": "Provenance Edges",
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "security_edges": {
+      "items": {
+        "$ref": "#/$defs/SecurityEdge"
+      },
+      "title": "Security Edges",
+      "type": "array"
+    }
+  },
+  "required": [
+    "run_id",
+    "nodes",
+    "provenance_edges",
+    "security_edges"
+  ],
+  "title": "SecurityGraphExport",
+  "type": "object"
+}

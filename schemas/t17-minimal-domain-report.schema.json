@@ -1,0 +1,418 @@
+{
+  "$defs": {
+    "MeasurementStatus": {
+      "description": "T17 把已测、设计不适用、Hook 缺失和阶段不完整分开。",
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "MeasurementStatus",
+      "type": "string"
+    },
+    "MinimalMeasurement": {
+      "additionalProperties": false,
+      "description": "率、计数或差值统一保留可复算分子/分母；N/A 不是零。",
+      "properties": {
+        "denominator": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Denominator"
+        },
+        "denominator_scope": {
+          "minLength": 1,
+          "title": "Denominator Scope",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "numerator": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Numerator"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "scheduled_denominator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Scheduled Denominator"
+        },
+        "status": {
+          "$ref": "#/$defs/MeasurementStatus"
+        },
+        "unit": {
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        }
+      },
+      "required": [
+        "status",
+        "unit",
+        "denominator_scope"
+      ],
+      "title": "MinimalMeasurement",
+      "type": "object"
+    },
+    "T17IntervalEstimate": {
+      "additionalProperties": false,
+      "description": "带状态、方法、点估计和固定重采样元数据的区间。",
+      "properties": {
+        "confidence": {
+          "default": 0.95,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "lower": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lower"
+        },
+        "method": {
+          "$ref": "#/$defs/T17IntervalMethod"
+        },
+        "point": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Point"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "resamples": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resamples"
+        },
+        "seed": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Seed"
+        },
+        "status": {
+          "$ref": "#/$defs/MeasurementStatus"
+        },
+        "upper": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper"
+        }
+      },
+      "required": [
+        "status",
+        "method"
+      ],
+      "title": "T17IntervalEstimate",
+      "type": "object"
+    },
+    "T17IntervalMethod": {
+      "description": "T17 允许的两类 95% 区间。",
+      "enum": [
+        "wilson_chain_descriptive",
+        "cluster_bootstrap"
+      ],
+      "title": "T17IntervalMethod",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "单一执行域的测量链阶段门，不等同于项目全量技术验收。",
+  "properties": {
+    "configuration_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Configuration Sha256",
+      "type": "string"
+    },
+    "defense": {
+      "additionalProperties": {
+        "$ref": "#/$defs/MinimalMeasurement"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Defense",
+      "type": "object"
+    },
+    "domain": {
+      "enum": [
+        "scripted",
+        "fake_reference"
+      ],
+      "title": "Domain",
+      "type": "string"
+    },
+    "evaluator_version": {
+      "const": "2.0.0",
+      "default": "2.0.0",
+      "title": "Evaluator Version",
+      "type": "string"
+    },
+    "expected_core_runs": {
+      "const": 23,
+      "default": 23,
+      "title": "Expected Core Runs",
+      "type": "integer"
+    },
+    "expected_replay_pairs": {
+      "const": 12,
+      "default": 12,
+      "title": "Expected Replay Pairs",
+      "type": "integer"
+    },
+    "gate_scope": {
+      "const": "domain_measurement_chain_only",
+      "default": "domain_measurement_chain_only",
+      "title": "Gate Scope",
+      "type": "string"
+    },
+    "matrix_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Matrix Sha256",
+      "type": "string"
+    },
+    "metrics": {
+      "additionalProperties": {
+        "$ref": "#/$defs/MinimalMeasurement"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Metrics",
+      "type": "object"
+    },
+    "observed_core_runs": {
+      "minimum": 0,
+      "title": "Observed Core Runs",
+      "type": "integer"
+    },
+    "observed_replay_pairs": {
+      "minimum": 0,
+      "title": "Observed Replay Pairs",
+      "type": "integer"
+    },
+    "per_run": {
+      "additionalProperties": {
+        "additionalProperties": {
+          "$ref": "#/$defs/MinimalMeasurement"
+        },
+        "propertyNames": {
+          "minLength": 1
+        },
+        "type": "object"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Per Run",
+      "type": "object"
+    },
+    "phase_contract_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Phase Contract Sha256",
+      "type": "string"
+    },
+    "protocol_id": {
+      "const": "t17-minimal-technical-v1",
+      "default": "t17-minimal-technical-v1",
+      "title": "Protocol Id",
+      "type": "string"
+    },
+    "qualifications": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Qualifications",
+      "type": "array"
+    },
+    "raw_manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Raw Manifest Sha256",
+      "type": "string"
+    },
+    "replay_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Replay Ids",
+      "type": "array"
+    },
+    "report_scope": {
+      "const": "minimal_domain",
+      "default": "minimal_domain",
+      "title": "Report Scope",
+      "type": "string"
+    },
+    "run_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Run Ids",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "simulation_only": {
+      "const": true,
+      "default": true,
+      "title": "Simulation Only",
+      "type": "boolean"
+    },
+    "technical_gate_passed": {
+      "title": "Technical Gate Passed",
+      "type": "boolean"
+    },
+    "wilson_intervals": {
+      "additionalProperties": {
+        "$ref": "#/$defs/T17IntervalEstimate"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Wilson Intervals",
+      "type": "object"
+    }
+  },
+  "required": [
+    "domain",
+    "technical_gate_passed",
+    "observed_core_runs",
+    "observed_replay_pairs",
+    "phase_contract_sha256",
+    "raw_manifest_sha256",
+    "configuration_sha256",
+    "matrix_sha256",
+    "run_ids",
+    "replay_ids",
+    "metrics",
+    "defense",
+    "per_run",
+    "wilson_intervals",
+    "qualifications"
+  ],
+  "title": "MinimalDomainReport",
+  "type": "object"
+}

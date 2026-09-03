@@ -63,6 +63,7 @@ from skillflow.experiment.t17.metric_models import (
     T17IntervalEstimate,
     T17PhaseMetricsReport,
 )
+from skillflow.experiment.t17.minimal.schema_models import minimal_schema_documents
 from skillflow.experiment.t17.observations import ReferenceObservationSnapshot
 from skillflow.experiment.t17.scenario_registry import T17ScenarioMeasurementRegistry
 from skillflow.experiment.t17.scripted_models import (
@@ -276,6 +277,7 @@ def schema_documents() -> tuple[SchemaDocument, ...]:
             "t17-task-success-evidence.schema.json",
             T17TaskSuccessEvidence.model_json_schema(),
         ),
+        *(SchemaDocument(name, document) for name, document in minimal_schema_documents()),
     )
 
 

@@ -1,0 +1,289 @@
+{
+  "$defs": {
+    "ConfirmedInfluenceEdge": {
+      "additionalProperties": false,
+      "description": "仅由成对反事实证据确认的 Artifact→Effect 影响边。",
+      "properties": {
+        "relation": {
+          "const": "INFLUENCE_CONFIRMED",
+          "default": "INFLUENCE_CONFIRMED",
+          "title": "Relation",
+          "type": "string"
+        },
+        "source_artifact_id": {
+          "minLength": 1,
+          "title": "Source Artifact Id",
+          "type": "string"
+        },
+        "target_effect_id": {
+          "minLength": 1,
+          "title": "Target Effect Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_artifact_id",
+        "target_effect_id"
+      ],
+      "title": "ConfirmedInfluenceEdge",
+      "type": "object"
+    },
+    "Decision": {
+      "description": "Harness 或策略的结构化决策。",
+      "enum": [
+        "allow",
+        "deny",
+        "confirm"
+      ],
+      "title": "Decision",
+      "type": "string"
+    },
+    "ScenarioPath": {
+      "description": "Experiment Matrix 中受控的 Scenario 相对路径。",
+      "title": "ScenarioPath",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "一次原始/中和 Run 配对的因果影响报告。",
+  "properties": {
+    "added_effect_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Added Effect Ids",
+      "type": "array"
+    },
+    "ci": {
+      "enum": [
+        -1,
+        0,
+        1
+      ],
+      "title": "Ci",
+      "type": "integer"
+    },
+    "confirmed_influence_edges": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ConfirmedInfluenceEdge"
+      },
+      "title": "Confirmed Influence Edges",
+      "type": "array"
+    },
+    "experiment_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Experiment Id"
+    },
+    "intervention_artifact_id": {
+      "minLength": 1,
+      "title": "Intervention Artifact Id",
+      "type": "string"
+    },
+    "neutral_baseline_result": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Decision"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "neutral_effect_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Neutral Effect Ids",
+      "type": "array"
+    },
+    "neutral_intervention_artifact_id": {
+      "minLength": 1,
+      "title": "Neutral Intervention Artifact Id",
+      "type": "string"
+    },
+    "neutral_receipt_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Neutral Receipt Ids",
+      "type": "array"
+    },
+    "neutral_run_id": {
+      "minLength": 1,
+      "title": "Neutral Run Id",
+      "type": "string"
+    },
+    "neutralization_preserves_other_inputs": {
+      "default": false,
+      "title": "Neutralization Preserves Other Inputs",
+      "type": "boolean"
+    },
+    "observed_effect_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Observed Effect Ids",
+      "type": "array"
+    },
+    "original_baseline_result": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Decision"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "original_effect_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Original Effect Ids",
+      "type": "array"
+    },
+    "original_intervention_artifact_id": {
+      "minLength": 1,
+      "title": "Original Intervention Artifact Id",
+      "type": "string"
+    },
+    "original_receipt_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Original Receipt Ids",
+      "type": "array"
+    },
+    "original_run_id": {
+      "minLength": 1,
+      "title": "Original Run Id",
+      "type": "string"
+    },
+    "redacted": {
+      "default": true,
+      "title": "Redacted",
+      "type": "boolean"
+    },
+    "removed_effect_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Removed Effect Ids",
+      "type": "array"
+    },
+    "replay_id": {
+      "minLength": 1,
+      "title": "Replay Id",
+      "type": "string"
+    },
+    "report_scope": {
+      "const": "replay",
+      "title": "Report Scope",
+      "type": "string"
+    },
+    "scenario": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ScenarioPath"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "schema_version": {
+      "minLength": 1,
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "selector_alias": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Selector Alias"
+    },
+    "source_run_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Run Id"
+    },
+    "target_alias": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Target Alias"
+    },
+    "y_neutral": {
+      "title": "Y Neutral",
+      "type": "boolean"
+    },
+    "y_original": {
+      "title": "Y Original",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "report_scope",
+    "replay_id",
+    "original_run_id",
+    "neutral_run_id",
+    "intervention_artifact_id",
+    "original_intervention_artifact_id",
+    "neutral_intervention_artifact_id",
+    "y_original",
+    "y_neutral",
+    "ci"
+  ],
+  "title": "ReplayRiskReport",
+  "type": "object"
+}

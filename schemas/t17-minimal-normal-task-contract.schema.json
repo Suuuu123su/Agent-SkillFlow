@@ -1,0 +1,207 @@
+{
+  "$defs": {
+    "CapabilityAction": {
+      "description": "MVP 固定支持的能力动作。",
+      "enum": [
+        "file.read",
+        "file.write",
+        "memory.read",
+        "memory.write",
+        "network.send",
+        "shell.execute",
+        "user.confirm"
+      ],
+      "title": "CapabilityAction",
+      "type": "string"
+    },
+    "EffectSelector": {
+      "additionalProperties": false,
+      "description": "把运行期多个 EffectRecord 映射到稳定别名。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "alias": {
+          "minLength": 1,
+          "title": "Alias",
+          "type": "string"
+        },
+        "sink_pattern": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source_pattern": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "alias",
+        "action",
+        "source_pattern",
+        "sink_pattern"
+      ],
+      "title": "EffectSelector",
+      "type": "object"
+    },
+    "HookName": {
+      "description": "T17 Reference Harness 必须显式声明的证据 Hook。",
+      "enum": [
+        "authorization",
+        "decision_basis",
+        "provenance",
+        "influence",
+        "revocation",
+        "task_success"
+      ],
+      "title": "HookName",
+      "type": "string"
+    },
+    "NormalArtifactRequirement": {
+      "additionalProperties": false,
+      "description": "普通任务输出的精确内容与 Session 合同。",
+      "properties": {
+        "alias": {
+          "minLength": 1,
+          "title": "Alias",
+          "type": "string"
+        },
+        "expected_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Expected Sha256",
+          "type": "string"
+        },
+        "session_id": {
+          "minLength": 1,
+          "title": "Session Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "alias",
+        "expected_sha256",
+        "session_id"
+      ],
+      "title": "NormalArtifactRequirement",
+      "type": "object"
+    },
+    "NormalEffectRequirement": {
+      "additionalProperties": false,
+      "description": "任务真正需要的资源/动作/Session，不读取风险 Golden。",
+      "properties": {
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "selector": {
+          "$ref": "#/$defs/EffectSelector"
+        },
+        "session_id": {
+          "minLength": 1,
+          "title": "Session Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "selector",
+        "session_id",
+        "rationale"
+      ],
+      "title": "NormalEffectRequirement",
+      "type": "object"
+    },
+    "ResourceRef": {
+      "description": "一个已经校验并规范化的 Resource URI。",
+      "title": "ResourceRef",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "新的功能性成功标准；风险判定是独立字段。",
+  "properties": {
+    "artifacts": {
+      "items": {
+        "$ref": "#/$defs/NormalArtifactRequirement"
+      },
+      "minItems": 1,
+      "title": "Artifacts",
+      "type": "array"
+    },
+    "benign_control": {
+      "title": "Benign Control",
+      "type": "boolean"
+    },
+    "effects": {
+      "items": {
+        "$ref": "#/$defs/NormalEffectRequirement"
+      },
+      "title": "Effects",
+      "type": "array"
+    },
+    "evaluator_version": {
+      "const": "2.0.0",
+      "default": "2.0.0",
+      "title": "Evaluator Version",
+      "type": "string"
+    },
+    "required_hooks": {
+      "items": {
+        "$ref": "#/$defs/HookName"
+      },
+      "title": "Required Hooks",
+      "type": "array"
+    },
+    "revision_rationale": {
+      "minLength": 1,
+      "title": "Revision Rationale",
+      "type": "string"
+    },
+    "risk_selectors": {
+      "items": {
+        "$ref": "#/$defs/EffectSelector"
+      },
+      "title": "Risk Selectors",
+      "type": "array"
+    },
+    "scenario_id": {
+      "minLength": 1,
+      "title": "Scenario Id",
+      "type": "string"
+    },
+    "scenario_path": {
+      "minLength": 1,
+      "title": "Scenario Path",
+      "type": "string"
+    },
+    "scenario_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Scenario Sha256",
+      "type": "string"
+    },
+    "task_id": {
+      "minLength": 1,
+      "title": "Task Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "scenario_id",
+    "scenario_path",
+    "scenario_sha256",
+    "task_id",
+    "artifacts",
+    "effects",
+    "risk_selectors",
+    "required_hooks",
+    "benign_control",
+    "revision_rationale"
+  ],
+  "title": "NormalTaskContract",
+  "type": "object"
+}
