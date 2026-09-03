@@ -33,7 +33,7 @@
 | T17-M0 | completed | 53/53 登记旧哈希与长度一致；合同修订获用户批准 | 完成离线审计与最小设计，未运行新实验。 |
 | T17-M1 | completed | 合同/反例单测 47 passed；集成及 Schema 复验 24 passed；mypy 353 files | 普通任务 v2、Raw 复算、16 Schema、CLI 与最小防御已完成定向验证；尚非最终验收。 |
 | T17-M2 | completed | 两域各 23/23 core、12/12 Replay；Raw 复算与 151+19 指标通过 | 普通任务 v2：TSR 20/23、Safe TSR 13/23；零 API，不与历史或其他域 pooling。 |
-| T17-M3 | blocked | 本地 1031 tests PASS；综合 90.072519%，纯分支 75.892857%；CI 目录修复后 20 项定向回归 PASS | 首次 GitHub CI 因系统临时目录越出项目边界失败，已仅修复测试 fixture，待远端复验。纯分支口径仍待确认；独立终审 REVIEW_UNAVAILABLE。 |
+| T17-M3 | completed | 本地 1031 tests PASS；修复后 GitHub CI 1032 passed、综合 90.13%；本地综合 90.072519%、纯分支 75.892857% 分列 | 用户已批准采用既有综合 ≥90% 门，最小离线技术验收完成；独立终审仍 REVIEW_UNAVAILABLE，旧 Live Partial 不变。 |
 
 ## T00：仓库勘察与执行基线
 
@@ -1382,3 +1382,14 @@ skillflow matrix scenarios\matrix\mvp.yaml --backend scripted --output runs\mvp
 - 集中定向测试 58 passed / 1 failed（异常类型断言错误）；修正后新增合同/反例单测 47 passed。未以单测成功替代尚未完成的最终集成和全量门。
 - strict mypy 353 files 通过。新指标定义见 [最小域指标合同](metrics/t17-minimal-metric-registry.md)，实际 API 调用与费用仍为 0。
 - 核对 GitHub Actions 后确认历史 90.04% 为综合覆盖率，纯分支口径需明确；未擅自把综合值称为纯分支通过。
+
+## T17-M3：最小技术验收完成与口径确认
+
+- 状态：completed；日期：2026-09-03；范围仅为最小离线框架技术验收，保留独立审查警告。
+- 用户针对“是否同意沿用现有 CI 的综合覆盖率 ≥90% 作为验收口径”明确回复“同意”。本地综合 23599/26200 = 90.072519%，纯分支 3230/4256 = 75.892857%；后者不满足原纯分支 90% 要求，但已不作为本轮验收门，不改写原始计数或覆盖率配置。
+- [GitHub CI 33745413298](https://github.com/Suuuu123su/Agent-SkillFlow/actions/runs/33745413298) 对代码提交 `5392c18` 验证成功：1032 passed，综合 90.13%，Ruff/format/strict mypy/CLI 全通过。之前的系统临时目录失败仅修改测试 fixture；20 项本地定向回归通过，没有再次运行本地全量测试。
+- 两域各 23/23 core、12/12 Replay，域级指标和最小防御均只有 measured 或设计 not_applicable。逐域 1041 个 Raw 登记文件的哈希/长度、46 个 JSONL 的 521 条记录，以及 424 个冻结源码/Schema 哈希只读复核一致；没有重新执行 Matrix。
+- 全部 15 项技术完成条件及批准范围见 [验收补充 JSON](evidence/t17-minimal-acceptance-addendum-20260903.json)；旧 53 个 canonical、4 个旧 T17 公开指标及冻结 Summary/审计均保持一致。原质量审计与首轮 CI 修复审计保留当时状态，不回写为成功。
+- 修改文件仅为 README、progress、[M3 Summary](summaries/T17M3_Summary.md)、[版本化最终 Summary](summaries/T17_Minimal_Final_Summary_20260903.md)及新增验收补充 JSON。Matrix/配置/Raw/报告哈希仍见 [M2 清单](evidence/T17_MINIMAL_MANIFEST_20260903.md)。
+- 新 API 调用与费用为 0；M2 后未追加正式样本。独立审查 `REVIEW_UNAVAILABLE` 不改成 PASS；旧 T17-E 仍 16/24 core、12/18 Replay incomplete，原 F/G/H 未运行，SkillFlow-Rx 未实现。
+- 本轮到此停止；只完成当前文档的普通快进交付及远端检查，不自动进入新实验。最终提交与 CI 结果保存在新的本地交付回执，旧回执保留。

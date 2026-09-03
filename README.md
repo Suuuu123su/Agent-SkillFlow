@@ -2,7 +2,7 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前工作是 **T17 最小技术验收**：最小离线测量链已完成，最终技术验收仍为 **INCOMPLETE**（纯分支覆盖率 75.89%，文字要求 90%；独立终审 `REVIEW_UNAVAILABLE`）。历史 T17-A～D 已完成，T17-E Live Canary 仍 Partial，原 F～H 未运行。本轮没有新增真实模型请求；外部 Effect 均进入本地 Safe Sink，结果不是现实网络、Shell、邮件或文件外发成功率。
+当前 **T17 最小离线技术验收已完成（COMPLETED，保留独立审查警告）**。用户已明确采用现有 CI 的“综合覆盖率 ≥90%”验收口径；修复后的 CI 为 1032 passed、综合覆盖率 90.13%。纯分支覆盖率 75.89% 单独披露，独立终审仍为 `REVIEW_UNAVAILABLE`，不是 PASS。历史 T17-A～D 已完成，T17-E Live Canary 仍 Partial，原 F～H 未运行。本轮没有新增真实模型请求；外部 Effect 均进入本地 Safe Sink，结果不是现实网络、Shell、邮件或文件外发成功率。
 
 ## 当前工作：T17 最小技术验收（2026-09-03）
 
@@ -11,7 +11,7 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 - **T17-M0 已完成**：T17-A 登记的 53 个 canonical 旧证据哈希和长度均一致；发现并记录旧任务合同将风险触发预期混入 Task Success 的问题，用户已批准最小修订。
 - **T17-M1 已完成实现与定向验证**：普通任务 v2、Raw 独立复算、151 项域级指标、最小防御 JSON/CSV、16 个新增静态 Schema 与 `t17 minimal freeze/run/report` 已实现。最新合同/反例单测 47 passed，集成及 Schema 复验 24 passed；strict mypy 353 源文件通过。开发测试每域 23 core + 12 Replay，未充作正式实验。
 - **T17-M2 已完成离线测量链**：Scripted、Fake Reference 各 23/23 core + 12/12 Replay；两域分别 TSR=20/23、Safe TSR=13/23、UEA=8、ALR/RIR(1/3)=1/2。Receipt、TaskSuccessEvidence、必需 Hook 均 100%，没有 not_available 或 incomplete 指标；各自报告 151 项域级指标与 19 项最小防御条目。
-- **T17-M3 尚未完成最终验收**：本地最终全量 1031 测试通过，Ruff/format/strict mypy、72 Schema、doctor/pip、禁网与有界泄漏扫描通过。综合覆盖率 90.072519%，纯分支覆盖率 75.892857%；后者未达文字要求，验收口径待用户确认，不能标成通过。最小运行 API 与费用均为 0，旧 Live Partial 不补跑。
+- **T17-M3 已完成最小技术验收，保留审查警告**：本地最终全量 1031 测试通过；测试目录最小修复后，GitHub CI 1032 测试全通过，Ruff/format/strict mypy、72 Schema、doctor/pip、禁网与有界泄漏扫描均通过。用户回复“同意”，批准采用综合覆盖率 ≥90%：本地为 90.072519%，CI 显示为 90.13%；纯分支 75.892857% 不改写为达标。独立审查仍不可用；最小运行 API 与费用均为 0，旧 Live Partial 不补跑。
 - **解释边界**：下方 v1 的 TSR/Safe TSR 是旧成功合同下的历史结果，不能当作本轮正常任务效用验收结论；技术验收完成与否另行报告，不能把历史 Live Partial 改成完成。
 
 详见 [最小验收设计](docs/plans/T17_minimal_technical_acceptance_20260903.md)、[M0 审计与修订记录](docs/summaries/T17M0_Summary.md)、[M1 实现与验证记录](docs/summaries/T17M1_Summary.md)、[合同冲突快照](docs/evidence/t17-minimal-contract-audit-20260903.json)和[用户修订批准](docs/evidence/t17-minimal-revision-approval-20260903.json)。
@@ -20,11 +20,11 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 
 正式离线结果：[M2 Summary](docs/summaries/T17M2_Summary.md)、[Scripted JSON](docs/evidence/t17-minimal-scripted-metrics-20260903.json) / [CSV](docs/evidence/t17-minimal-scripted-metrics-20260903.csv)、[Fake Reference JSON](docs/evidence/t17-minimal-fake-reference-metrics-20260903.json) / [CSV](docs/evidence/t17-minimal-fake-reference-metrics-20260903.csv)、[Raw 哈希清单](docs/evidence/T17_MINIMAL_MANIFEST_20260903.md)。这些是受控框架验证，不是新增真实模型结果；单实例不计算 cluster bootstrap。
 
-当前结论：[版本化最终 Summary](docs/summaries/T17_Minimal_Final_Summary_20260903.md)、[M3 质量门记录](docs/summaries/T17M3_Summary.md)、[质量审计 JSON](docs/evidence/t17-minimal-quality-audit-20260903.json)。旧 `T17_Summary.md` 与旧 `EXPERIMENT_AUDIT` 已被历史清单冻结，保持原样，不覆盖其哈希。
+当前结论：[版本化最终 Summary](docs/summaries/T17_Minimal_Final_Summary_20260903.md)、[M3 质量门记录](docs/summaries/T17M3_Summary.md)、[验收确认与逐项补充记录](docs/evidence/t17-minimal-acceptance-addendum-20260903.json)。[批准前质量审计 JSON](docs/evidence/t17-minimal-quality-audit-20260903.json)保留当时的 incomplete 状态，由新补充记录说明解除项。旧 `T17_Summary.md` 与旧 `EXPERIMENT_AUDIT` 已被历史清单冻结，保持原样，不覆盖其哈希。
 
-仓库当前提交的自动检查可在 [GitHub Actions（main）](https://github.com/Suuuu123su/Agent-SkillFlow/actions/workflows/ci.yml?query=branch%3Amain) 查看；CI 的绿色状态只代表已配置的门槛通过，不能替代上方尚未满足的纯分支验收要求。
+仓库当前提交的自动检查可在 [GitHub Actions（main）](https://github.com/Suuuu123su/Agent-SkillFlow/actions/workflows/ci.yml?query=branch%3Amain) 查看。已核实代码提交 `5392c18` 的 [CI 33745413298](https://github.com/Suuuu123su/Agent-SkillFlow/actions/runs/33745413298) 成功；综合与纯分支统计严格分开。本次口径确认不修改覆盖率配置、源码、Matrix、Raw 或指标，不追加本地全量测试和正式实验。
 
-首次推送的 [CI 33743815190](https://github.com/Suuuu123su/Agent-SkillFlow/actions/runs/33743815190) 因测试输出落到仓库外的系统临时目录而失败（1 failed、14 setup errors）。已仅修复测试目录安排，相关 20 项回归通过，生产路径保护和全部正式证据不变；未再次运行本地全量测试。[失败与修复审计](docs/evidence/t17-minimal-ci-portability-audit-20260903.json)保留该事实，新提交的远端检查另行验证。
+首次推送的 [CI 33743815190](https://github.com/Suuuu123su/Agent-SkillFlow/actions/runs/33743815190) 因测试输出落到仓库外的系统临时目录而失败（1 failed、14 setup errors）。已仅修复测试目录安排，相关 20 项回归通过，随后远端 CI 1032 项全通过；生产路径保护和全部正式证据不变，未再次运行本地全量测试。[失败与修复审计](docs/evidence/t17-minimal-ci-portability-audit-20260903.json)保留原始失败和当时待复验的快照，不以成功结果覆盖它。当前最小技术验收到此停止，不自动扩展实验或进入 SkillFlow-Rx。
 
 ## T17 v1 历史进度（2026-09-03）
 

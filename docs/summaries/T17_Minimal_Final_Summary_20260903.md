@@ -1,8 +1,8 @@
 # T17 最小技术验收总结（2026-09-03）
 
-**结论：最小离线测量链已完成；最终技术验收仍 INCOMPLETE。**
+**结论：最小离线框架技术验收已 COMPLETED，保留独立审查警告。**
 
-阻塞不是实验缺样：Scripted 与 Fake Reference 已各完成 23 core、12 Replay，并从 Raw 复算完整指标。当前纯分支覆盖率为 75.892857%，未达到文字要求的 90%；现有 CI 使用的综合覆盖率为 90.072519%。两种口径不可互换，待用户确认。独立终审为 `REVIEW_UNAVAILABLE`，不是 PASS。
+Scripted 与 Fake Reference 已各完成 23 core、12 Replay，并从 Raw 复算完整指标。用户明确回复“同意”，批准采用现有 CI 的“综合覆盖率 ≥90%”验收口径：本地为 90.072519%，已成功的 GitHub CI 显示为 90.13%。纯分支覆盖率仍为 75.892857%，不满足原纯分支 90% 要求；这是用户批准的验收规则修订，不是原始计数变化。独立终审仍为 `REVIEW_UNAVAILABLE`，不是 PASS。
 
 ## 最小修订与证据边界
 
@@ -17,7 +17,7 @@
 | [M0](T17M0_Summary.md) | completed | 旧证据审计、合同冲突识别、最小修订获准 |
 | [M1](T17M1_Summary.md) | completed | 新正常任务合同、可信证据/复算接口、16 新 Schema、CLI、定向拒绝与绑定测试 |
 | [M2](T17M2_Summary.md) | completed | 两个独立离线域各 23/23 core、12/12 Replay；151 项域级指标 + 19 项最小防御条目 |
-| [M3](T17M3_Summary.md) | incomplete | 1031 测试全通过、静态/安全门通过；纯分支覆盖率未达 90%，独立审查不可用；GitHub 交付另记回执 |
+| [M3](T17M3_Summary.md) | completed，保留审查警告 | 本地 1031 测试全通过；测试目录修复后 CI 1032 passed、综合 90.13%，其余静态/安全门通过；用户批准验收口径，独立审查仍不可用 |
 
 ## 已测指标
 
@@ -32,7 +32,7 @@
 - 最小 B0/B1 防御：风险配对各项安全差值为 1，良性 Utility Loss 0/1、Over-defense 0/1；全部两配对 TSR delta -1/2，Safe TSR delta 0/2。不存在普遍无代价的防御改善结论。
 - 每域 core Step 56；Fake Reference core decision calls 56。实际 API、API 费用和预算占用均为 0；本机单次 Harness latency 有实测，不当作 Provider 性能。
 
-Scripted 域 135 measured / 16 not_applicable；Fake Reference 域 138 measured / 13 not_applicable；每域另有防御 14 measured / 5 not_applicable。没有因缺少 Hook 而标成 not_available 的本轮指标，也没有 incomplete 的域级测量项；这不覆盖项目级的覆盖率验收缺口。
+Scripted 域 135 measured / 16 not_applicable；Fake Reference 域 138 measured / 13 not_applicable；每域另有防御 14 measured / 5 not_applicable。没有因缺少 Hook 而标成 not_available 的本轮指标，也没有 incomplete 的域级测量项。域级测量门、用户批准的项目质量门与独立审查状态分别记录，不用其中一项替代另一项。
 
 无真实 Provider：Token、Provider latency/refusal 等为结构化设计 N/A。单实例不估计 cluster bootstrap、跨簇稳定性或跨模型方向。Wilson 95% 区间明确为链级描述性区间，不是泛化置信区间。
 
@@ -42,16 +42,17 @@ Scripted 域 135 measured / 16 not_applicable；Fake Reference 域 138 measured 
 - [Scripted JSON](../evidence/t17-minimal-scripted-metrics-20260903.json) / [CSV](../evidence/t17-minimal-scripted-metrics-20260903.csv)。
 - [Fake Reference JSON](../evidence/t17-minimal-fake-reference-metrics-20260903.json) / [CSV](../evidence/t17-minimal-fake-reference-metrics-20260903.csv)。
 - [Raw/Phase/配置/报告哈希及记录数](../evidence/T17_MINIMAL_MANIFEST_20260903.md)。
-- [最终质量审计](../evidence/t17-minimal-quality-audit-20260903.json)。
-- [首次 GitHub CI 失败与测试目录修复审计](../evidence/t17-minimal-ci-portability-audit-20260903.json)：首次 CI 为 1 failed / 14 setup errors；只修复测试输出目录，20 项定向回归通过，生产代码和正式指标未改变。修复后远端 CI 需重新验证。
+- [验收确认与完整逐项补充记录](../evidence/t17-minimal-acceptance-addendum-20260903.json)：15 项条件、用户批准的覆盖率规则、CI 成功与保留警告。
+- [批准前质量审计快照](../evidence/t17-minimal-quality-audit-20260903.json)：保留当时未确认口径的 incomplete，不回写旧状态。
+- [首次 GitHub CI 失败与测试目录修复审计](../evidence/t17-minimal-ci-portability-audit-20260903.json)：首次 CI 为 1 failed / 14 setup errors；只修复测试输出目录，20 项定向回归通过，生产代码和正式指标未改变。[修复后 CI 33745413298](https://github.com/Suuuu123su/Agent-SkillFlow/actions/runs/33745413298) 已验证成功：1032 passed、综合 90.13%；没有重复本地全量测试。
 
 本地完整 Raw：`runs/t17-minimal-scripted-20260903-01/execution`、`runs/t17-minimal-fake-reference-20260903-01/execution`。每域清单登记 1041 个文件、46 个 JSONL、521 条 JSONL 记录。Raw、开发失败记录和完整覆盖率只留本地；公开产物只含合同、Schema、汇总、审计和哈希。
 
 ## 严格区分四种结论
 
-1. **框架技术验证**：完整最小测量链已跑通；项目最终验收因纯分支门未满足仍 incomplete。
+1. **框架技术验证**：完整最小测量链和用户批准的质量门均通过，最小技术验收 completed；独立审查仍 REVIEW_UNAVAILABLE，不能声称独立审查通过。
 2. **最小真实模型观察**：本轮没有新增。历史 T17-E 仍为 16/24 core、12/18 Replay 的 Partial，不续跑、不补采、不回填。
 3. **论文级大样本实验**：原 F/G/H 没有运行；本轮 Fake/Scripted 不能替代真实模型、多模型或统计显著性结果。
 4. **SkillFlow-Rx**：仍是后续独立研究设想，未实现攻击诊断或自适应防御编排。
 
-下一步只需处理覆盖率口径或补充对应历史分支测试；不自动增加实验或任何费用。独立终审不可用和历史 Live incomplete 均保留原状。
+本轮最小技术验收到此完成。仅继续当前文档的普通快进交付及远端检查，最终提交与 CI 另记新本地回执；不自动增加实验、分支测试或任何费用。独立终审不可用、历史 Live incomplete、论文级矩阵未运行和 SkillFlow-Rx 未实现均保留原状。

@@ -1,0 +1,270 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "t17-minimal-acceptance-addendum-20260903",
+  "generated_date": "2026-09-03",
+  "protocol_id": "t17-minimal-technical-v1",
+  "verification_kind": "executor_mechanical_completion_check",
+  "verdict": "COMPLETED_WITH_REVIEW_WARNING",
+  "technical_acceptance_complete": true,
+  "measurement_chain_complete": true,
+  "integrity_review_verdict": "REVIEW_UNAVAILABLE",
+  "scope": "仅关闭用户批准的最小离线框架技术验收；不关闭原 T17 v1 A-H 真实模型实验。",
+  "approval": {
+    "source": "current_task_user_reply",
+    "date": "2026-09-03",
+    "question": "你是否同意沿用现有 CI 的“综合覆盖率 ≥90%”作为覆盖率验收口径？",
+    "user_reply": "同意",
+    "decision": "ADOPT_EXISTING_CI_COMBINED_COVERAGE_GATE",
+    "previous_requirement": "纯分支覆盖率 >=90%",
+    "approved_requirement": "启用分支统计，语句与分支机会合计的综合覆盖率 >=90%",
+    "scope": "只修订覆盖率验收口径，不改变实验预注册、分母、指标、Raw 或独立审查状态。",
+    "coverage_configuration_changed": false,
+    "additional_branch_tests": false,
+    "local_full_suite_rerun": false
+  },
+  "coverage": {
+    "accepted_gate_status": "PASS",
+    "threshold_percent": 90,
+    "local_combined": {
+      "covered": 23599,
+      "total": 26200,
+      "percent": 90.07251908396947
+    },
+    "local_statements": {
+      "covered": 20369,
+      "total": 21944,
+      "percent": 92.8226394458622
+    },
+    "local_branches": {
+      "covered": 3230,
+      "total": 4256,
+      "percent": 75.89285714285714,
+      "missing": 1026,
+      "partial": 952,
+      "satisfies_original_90_percent_target": false,
+      "acceptance_gate": false
+    },
+    "ci_combined_percent_display": 90.13,
+    "interpretation": "本地和 CI 分别记录；不合并覆盖率，不把综合值改称纯分支值。CI 的 90.13% 为日志显示精度。",
+    "local_source": {
+      "path": ".tmp/t17-minimal-work-20260903-01/full-final-coverage-01.json",
+      "sha256": "dfeaa711b31739974a1db85bcc982ac2c02968d851fd2dea0828f77afd41d35f"
+    }
+  },
+  "verified_code_delivery": {
+    "commit": "5392c18a5d376fee1c76bfa1be7a6481e2fcfe9f",
+    "ci_run_id": 33745413298,
+    "ci_job_id": 100616628394,
+    "ci_url": "https://github.com/Suuuu123su/Agent-SkillFlow/actions/runs/33745413298",
+    "status": "completed",
+    "conclusion": "success",
+    "updated_at": "2026-09-03T10:48:58Z",
+    "passed_tests": 1032,
+    "seconds": 581.84,
+    "ruff": "PASS",
+    "format_checked_files": 605,
+    "strict_mypy_source_files": 352,
+    "cli": "PASS",
+    "local_full_suite_passed": 1031,
+    "local_after_fix_targeted_passed": 20,
+    "previous_failed_ci_run": 33743815190,
+    "previous_failed_ci_preserved": true,
+    "note": "1032 相比本地最终全量的 1031 多一个项目内临时目录边界回归；后续修复仅涉及测试，不改变冻结运行源码或指标。"
+  },
+  "domains": [
+    {
+      "domain": "scripted",
+      "simulation_only": true,
+      "completed_core": 23,
+      "scheduled_core": 23,
+      "completed_replay": 12,
+      "scheduled_replay": 12,
+      "metrics": {
+        "measured": 135,
+        "not_applicable": 16,
+        "not_available": 0,
+        "incomplete": 0
+      },
+      "defense": {
+        "measured": 14,
+        "not_applicable": 5,
+        "not_available": 0,
+        "incomplete": 0
+      },
+      "raw_root": "runs/t17-minimal-scripted-20260903-01/execution",
+      "raw_manifest_sha256": "4dbd835c780a2a4cca5e88709d1be50cfb6e4570b56812678a2ecce23b7aa65c",
+      "phase_contract_sha256": "096f9ae0bf0a3aa7116bce57ff0f23108a79a4b05c27bfd68124320797c0ef1b",
+      "metrics_path": "docs/evidence/t17-minimal-scripted-metrics-20260903.json",
+      "metrics_sha256": "9c396c56e0d81a6bd0c9ec2e0c317429d0f5a5b7022431c324b3af6a06269ead"
+    },
+    {
+      "domain": "fake_reference",
+      "simulation_only": true,
+      "completed_core": 23,
+      "scheduled_core": 23,
+      "completed_replay": 12,
+      "scheduled_replay": 12,
+      "metrics": {
+        "measured": 138,
+        "not_applicable": 13,
+        "not_available": 0,
+        "incomplete": 0
+      },
+      "defense": {
+        "measured": 14,
+        "not_applicable": 5,
+        "not_available": 0,
+        "incomplete": 0
+      },
+      "raw_root": "runs/t17-minimal-fake-reference-20260903-01/execution",
+      "raw_manifest_sha256": "b5809b9594398e75b664d21953b60c4dcb16084cb7207b1339e40243ab984d94",
+      "phase_contract_sha256": "55611bff4be9be4840930cc4ff7dee6cbf2539748a5eaf3ce5717578d0fa50a8",
+      "metrics_path": "docs/evidence/t17-minimal-fake-reference-metrics-20260903.json",
+      "metrics_sha256": "7922159f45829d504a2fb25f5d7ad45c79500cca537de61ab776c0b83b55c5e9"
+    }
+  ],
+  "post_approval_read_only_checks": {
+    "per_domain_registered_raw_files": 1041,
+    "per_domain_actual_files_including_manifest": 1042,
+    "per_domain_jsonl_files": 46,
+    "per_domain_jsonl_records": 521,
+    "raw_hash_size_or_record_mismatches": 0,
+    "per_domain_frozen_runtime_and_schema_files": 424,
+    "frozen_source_hash_mismatches": 0,
+    "canonical_legacy_files_matched": 53,
+    "canonical_legacy_files_expected": 53,
+    "legacy_t17_metric_files_matched": 4,
+    "legacy_t17_metric_files_expected": 4,
+    "frozen_legacy_summary_and_audit_files_matched": 3,
+    "scope": "只读哈希、长度、记录数及已有报告状态核对；没有重新执行 Matrix 或全量测试。"
+  },
+  "acceptance_checklist": [
+    {
+      "id": 1,
+      "result": "satisfied",
+      "evidence": "两域 Raw 复算得到全部现有核心指标；完整值、分母和证据 ID 见域级 JSON。"
+    },
+    {
+      "id": 2,
+      "result": "satisfied",
+      "evidence": "两域域级及防御指标的 not_available/incomplete 均为 0；设计 N/A 保留原因。"
+    },
+    {
+      "id": 3,
+      "result": "satisfied",
+      "evidence": "冻结 23-core Matrix 覆盖 12 类场景及能力匹配对照；N0 为 C1 中性格。"
+    },
+    {
+      "id": 4,
+      "result": "satisfied",
+      "evidence": "Scripted 与 Fake Reference 各 23/23 core、12/12 Replay，分别完成。"
+    },
+    {
+      "id": 5,
+      "result": "satisfied",
+      "evidence": "Raw loader 重新绑定 Trace/Graph/Artifact/Receipt 与成对 Replay，复算 Task/UEA/provenance/HIAA/ALR/RIR；反例和拒绝测试通过。"
+    },
+    {
+      "id": 6,
+      "result": "satisfied",
+      "evidence": "预注册 B0/B1 Monitor/Enforce 最小安全-效用对照，复用已有 Run，各域 19 个防御条目。"
+    },
+    {
+      "id": 7,
+      "result": "satisfied",
+      "evidence": "每域 core Effect/Receipt 与 binding 均 49/49；Replay 分支的 Effect/Receipt 由 Raw 绑定复验，不混入 core 分母。"
+    },
+    {
+      "id": 8,
+      "result": "satisfied",
+      "evidence": "每域 TaskSuccessEvidence 23/23；普通任务 evaluator 2.0.0 验证 Artifact 内容、合法 Effect/Receipt 与 Session。"
+    },
+    {
+      "id": 9,
+      "result": "satisfied",
+      "evidence": "Pydantic/静态 Schema 与漂移检查通过：72 份 Schema，新增 16 份，旧 56 份不变。"
+    },
+    {
+      "id": 10,
+      "result": "satisfied",
+      "evidence": "每域 151 项指标及 19 项防御条目保存 numerator/denominator/value/status/evidence_ids 和 N/A 原因；Wilson 仅链级描述。"
+    },
+    {
+      "id": 11,
+      "result": "satisfied_under_user_approved_revision",
+      "evidence": "用户明确采用既有综合 >=90% 门；CI 1032 passed、综合 90.13%；纯分支 75.892857% 单独披露，不再作为验收门。"
+    },
+    {
+      "id": 12,
+      "result": "satisfied",
+      "evidence": "Ruff/format/strict mypy、Schema、doctor、pip check、400 行/no-excuse、禁网与有界凭据/正文/路径扫描通过；范围见原质量审计及 CI。"
+    },
+    {
+      "id": 13,
+      "result": "satisfied",
+      "evidence": "两个新 Raw 根与独立 Phase；每域 1041 条文件清单、424 个源码/Schema 哈希全部复核一致。"
+    },
+    {
+      "id": 14,
+      "result": "satisfied_with_registered_scope",
+      "evidence": "53 个登记旧 canonical 文件和 4 个旧 T17 公开指标一致；旧 Raw/Attempt 不续跑、覆盖、拼接或删除。"
+    },
+    {
+      "id": 15,
+      "result": "satisfied_under_approved_version_boundary",
+      "evidence": "为遵守不改写冻结 Summary 的已批准设计，使用 T17_Minimal_Final_Summary_20260903.md 及 README 当前入口；四类结论明确区分，旧 T17_Summary.md 原样保留。"
+    }
+  ],
+  "review": {
+    "status": "REVIEW_UNAVAILABLE",
+    "independent_reviewer_model_verified": false,
+    "independent_review_pass": false,
+    "reason": "没有可核实的独立外部审查接口与模型身份；实验审计 skill 引用的共享参考文件也不可读，未用执行者自查或同族模型代替独立审查。",
+    "blocking_for_this_advisory_review": false,
+    "warning_retained": true
+  },
+  "preserved_snapshots": [
+    {
+      "path": "docs/evidence/t17-minimal-quality-audit-20260903.json",
+      "sha256": "6b11d6fc45ac9e135b5d2f13e6a3d4b9c5a05015215f2bdd6bb4c02c1add8b53",
+      "note": "批准前质量快照保持原样；本补充记录只解决 COVERAGE_THRESHOLD_NOT_MET 与代码交付待核验项。"
+    },
+    {
+      "path": "docs/evidence/t17-minimal-ci-portability-audit-20260903.json",
+      "sha256": "466d09b82e2395a3111a847a63b0dd5a9069fc79c8057dce552b9584d8750c34",
+      "note": "保留首轮 CI 失败及修复后待远端验证的当时状态；新成功运行另行登记。"
+    },
+    {
+      "path": "docs/summaries/T17_Summary.md",
+      "sha256": "bb4f711368a81611ab41dd1567bce147800a9335f0b46ecb81ee1c9e24a2d742"
+    },
+    {
+      "path": "EXPERIMENT_AUDIT.json",
+      "sha256": "02de1bdfa9065b4538ea92a95aac7d5af9e6d8408ee1fe13e3ed1acec5c3edad"
+    },
+    {
+      "path": "EXPERIMENT_AUDIT.md",
+      "sha256": "25c1a2c8c2e6707e6262b22d5d049e825930d12ca7b31e874b5c7d3b585daf3f"
+    },
+    {
+      "path": "runs/t17-minimal-delivery-20260903-01/receipt.json",
+      "sha256": "c7978ab38ac45705b205b5b383c52f1161e1f27cafb4eb1a698680d6e8876171"
+    }
+  ],
+  "scope_boundaries": {
+    "domain_pooling": false,
+    "new_real_api_calls": 0,
+    "new_api_cost_usd": 0,
+    "additional_formal_trials_after_m2": 0,
+    "original_t17_v1_live_complete": false,
+    "old_t17_e_core": "16/24",
+    "old_t17_e_replay": "12/18",
+    "old_t17_e_status": "incomplete",
+    "original_t17_f_g_h_run": false,
+    "paper_scale_experiments_run": false,
+    "skillflow_rx_implemented": false,
+    "production_platform_equivalence_claimed": false
+  },
+  "current_summary": "docs/summaries/T17_Minimal_Final_Summary_20260903.md",
+  "documentation_delivery": "本次仅同步验收补充记录、README、progress 和当前版本 Summary；最终文档提交及 CI 另记新本地交付回执，不回写旧回执。"
+}
