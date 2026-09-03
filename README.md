@@ -2,7 +2,37 @@
 
 SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用于追踪 Skill 的影响如何经过共享上下文、持久记忆、其他 Skill 与工具传播，并区分数据来源、决策影响和真实授权。
 
-当前仓库已执行到 **T16-E：第二模型最小跨模型验证**。T00–T15 的确定性 MVP 与 OpenClaw Pilot 保持不变；T16-A/T16-B 完成预注册、费用保护和 720 条 Fake 演练，T16-C v2 使用 GPT-5.6 Luna 完成 48 条 Smoke 与 360 条正式链，T16-D v3.1 Canary 以 TaskSuccessEvidence 完成 11/11。T16-E 使用固定 GPT-5.5 snapshot 完成 6/11，随后在 M2 control 第 8 次请求前被单 Trial 费用门安全停止，阶段状态为 BLOCKED。真实的是模型响应和 Tool 调用；所有外部 Effect 仍由本地 Safe Sink 与模拟 Receipt 替代，因此结果不是现实网络、Shell、邮件或文件外发成功率。
+当前仓库已执行到 **T17-E：全指标 Live Canary**。**T17-A～D 已完成，T17-E 未通过阶段门，T17-F～H 未运行；T17 总体状态为 INCOMPLETE，不能宣称全量指标闭环完成。** 真实模型实验中的响应和 Tool 调用是真实记录，但外部 Effect 仍由本地 Safe Sink 与模拟 Receipt 替代，结果不是现实网络、Shell、邮件或文件外发成功率。
+
+## T17 当前进度（2026-09-03）
+
+| 阶段 | 当前状态 | 已验证内容或阻塞点 |
+|---|---|---|
+| [T17-A：基线冻结](docs/summaries/T17A_Summary.md) | 已完成 | 指标登记、四态测量合同、Evidence Domain 与旧证据哈希冻结。 |
+| [T17-B：Reference Harness](docs/summaries/T17B_Summary.md) | 已完成 | 可信 Hook、伪造拒绝、Checkpoint/Replay 与 Fake Client 技术验证；不代表真实平台 Hook 已补齐。 |
+| [T17-C：场景测量规格](docs/summaries/T17C_Summary.md) | 已完成 | 注册 16 个 Scenario；现有 Matrix 引用其中 15 个，展开为 24 core 变体及 18 Replay 规格。 |
+| [T17-D：Scripted Golden](docs/summaries/T17D_Summary.md) | 已完成 | 24/24 core、18/18 Replay；24 个配置均通过 5 次确定性指纹检查，API 调用为 0。 |
+| [T17-E：Luna Canary](docs/summaries/T17E_Summary.md) | incomplete | 最新 Attempt 完成 16/24 core、12/18 Replay；另 1 core 有完整用量但缺少终态，scheduled 分母未闭合。 |
+| [T17-F：Model1 正式矩阵](docs/summaries/T17F_Summary.md) | not_available | 未运行；不能用 Canary 或 Scripted 结果替代。 |
+| [T17-G：Model2 / 跨模型](docs/summaries/T17G_Summary.md) | not_available | 未运行；没有 T17 GPT-5.5 或跨模型比较结果。 |
+| [T17-H：Monitor / Enforce](docs/summaries/T17H_Summary.md) | not_available | 未运行；Security Gain、Utility Loss 等防御比较指标不可用。 |
+
+### 已有结果及证据边界
+
+- **Scripted Golden（本地模拟）**：TSR 为 20/24，Safe TSR 为 11/24，Verified Target Effect 为 15/24；TaskSuccessEvidence、Receipt、必需 Hook 覆盖率分别为 24/24、54/54、89/89。UEA count/type/weight 为 8/7/8；Provenance Precision/Recall/F1 为 1.0/0.954198/0.9765625；C1/C2 HIAA_run 均为 1.0；ALR、RIR(1)、RIR(3) 均为 1/2。这些是框架及合成 Oracle 的验证结果，不是现实 LLM 攻击成功率。
+- **Luna Canary（最新 Partial Attempt）**：已完成 core 的 observed-only TSR 为 12/16 = 0.75，Safe TSR 为 7/16 = 0.4375。二者正式 scheduled 值仍为 `null`；模型拒绝为 0，良性任务失败为 1，二者不能混用。
+- **全部 T17 Live Attempt 的累计用量**：182 次请求、181 次响应；输入/缓存输入/可见输出/推理 Token 为 26,253/0/6,319/15,902。实际费用估算为 $0.0319158，保守占用为 $0.0328657；均不是已确认账单。只累计调用及费用，不跨 Attempt 聚合实验指标。
+- **当前停止点**：M2 模型未产生后续步骤必需的 Tool 结果。代码已将此类缺失转为可审计的失败终态，但没有重写旧 Attempt，也没有通过补采或改 Prompt 消除失败。后续恢复须先明确协议修订并重新确认预算；当前不扩大付费实验。
+- **审计边界**：保留既有 `WARN_INCOMPLETE` 与独立终审 `REVIEW_UNAVAILABLE`；Canary 单 cluster 的 bootstrap 为 `not_applicable`，不能把未运行阶段改写为设计不适用。
+
+完整结果入口：
+
+- [T17 总结](docs/summaries/T17_Summary.md)、[指标登记表](docs/metrics/metric-registry.md)。
+- [已测及缺失指标 JSON](docs/evidence/t17-final-metrics.json)、[汇总 CSV](docs/evidence/t17-final-summary.csv)；文件名中的 `final` 不表示 T17 已完成，JSON 明确保存 `complete: false`。
+- [Canary Partial 审计](docs/evidence/t17-e-canary-partial-audit.json)、[有效 Scripted Golden 汇总](docs/evidence/t17-scripted-golden-summary-v2.json)、[基线审计](docs/evidence/t17-baseline-audit.json)。
+- [Raw 哈希与产物清单](docs/evidence/T17_FINAL_MANIFEST.md)、[实验审计](EXPERIMENT_AUDIT.md)。完整 Raw 与失败 Attempt 仅保留在本地 `runs/t17-*`，不上传、不合并、不改写、不删除。
+
+历史 T16 结果保持独立：T16-C v2 完成 Luna 48 条 Smoke 与 360 条正式链，T16-D v3.1 Canary 完成 11/11，T16-E 固定 GPT-5.5 snapshot 完成 6/11 后被单 Trial 费用门停止。上述历史记录没有并入 T17 分母。
 
 ## 最新研究路线：T17 指标闭环 → SkillFlow-Rx
 
@@ -12,16 +42,16 @@ SkillFlow 是一个面向 Agent Skill 安全研究的确定性测量原型，用
 运行证据 → 量化指标 → 攻击机制画像 → 最小防御组合 → 再运行/反事实验证
 ```
 
-SkillFlow-Rx **目前只是研究设想，尚未实现，也没有进入现有实验结果分母**。原因是当前真实模型路径中的 UEA、ALR、RIR 和 provenance 仍因平台 Hook 不完整保持 `N/A`，T16-E 的第二模型验证也只有 6/11。直接扩大付费样本只会继续产生证据缺口。
+SkillFlow-Rx **目前只是研究设想，尚未实现，也没有进入现有实验结果分母**。T16 真实模型路径的 UEA、ALR、RIR 和 provenance 仍受平台 Hook 缺失限制；T17 已建立独立 Reference Harness 并完成 Scripted 全指标验证，但 Live Canary 分母尚未闭合，不能据此宣称真实平台或全量模型指标已完成。
 
-因此，下一阶段先执行 **T17：补全现有框架指标并完成实验闭环**：
+T17 原计划及当前执行边界如下；计划规模不等于已运行数量：
 
-1. **T17-A～D（零费用）**：冻结指标登记表和证据域，建立带可信 Authorization、decision basis、provenance、influence 与 revocation Hook 的 Reference Harness，补齐全场景 TaskSuccess/Oracle 规格，并重跑 Scripted Golden 全指标实验。
-2. **T17-E～G（通过阶段门后才付费）**：依次运行 Model1 全指标 Canary、Model1 验证矩阵和第二模型验证；所有 Trial 必须保存 TaskSuccessEvidence、Receipt、Hook 可用性、Token、费用和 Partial 状态。
-3. **T17-H**：比较 Monitor、Enforce 与单项防御的安全收益、任务损失和成本，不构造任意加权“总安全分”。
+1. **T17-A～D（已完成，零费用）**：冻结指标与证据域、建立可信 Reference Harness、补齐场景 TaskSuccess/Oracle 规格，并完成 Scripted Golden 验证。Influence 只能由成对 Replay 产生。
+2. **T17-E～G（当前止于 E Partial）**：Luna Canary 目标为 24 core + 18 Replay；原 F/G 正式矩阵各为 360 core + 270 Replay，G 另有 24 + 18 Canary。F/G 均未运行，不自动扩至更多 semantic instances。
+3. **T17-H（未运行）**：仅用 Luna 比较 Monitor/Enforce，不增加可选单项防御，不构造任意加权“总安全分”；原计划复用 F 并补齐缺失模式，合计 630 core、540 Replay。
 4. T17 全部闭环后，才进入 SkillFlow-Rx 的攻击诊断器与自适应防御选择实验。
 
-当前 T17 状态为 **计划已登记、尚未执行**；未调用新 API，也未修改或合并旧 T16 记录。完整文件：
+继续实验必须遵守阶段门和逐阶段预算批准；代码实现、离线验证、真实模型完成率分别报告。原始计划与后续研究设想见：
 
 - [T17：补全现有框架指标并完成实验闭环](docs/plans/T17_metric_completion_experiment_plan.md)
 - [SkillFlow-Rx：基于量化攻击机制画像的自适应防御编排](docs/research/attack-diagnosis-adaptive-defense.md)
@@ -31,11 +61,13 @@ SkillFlow-Rx **目前只是研究设想，尚未实现，也没有进入现有�
 - 可安装的 Python `src` 布局包。
 - `skillflow version`：输出当前版本。
 - `skillflow doctor`：离线检查 Python、SQLite、运行依赖和临时目录可写性。
+- `skillflow t17 audit-baseline | run-scripted | run-live | report`：基线冻结、Scripted Golden、受预算约束的 Live Supervisor 与证据报告；命令可用不代表相应 Live 阶段已完成。
 - `skillflow-pilot`：在固定 OpenClaw revision 上运行 B0、G0、M2 的 Mock/OpenClaw 双 Adapter Pilot。
 - `skillflow validate-manifest PATH`：只校验 Skill Manifest，不加载或执行 Skill。
 - `skillflow validate-scenario PATH`：只校验 Scenario，不运行 fixture。
 - Pydantic v2 核心安全模型、受控 Resource URI、`call | task | session | persistent` 菱形 Lifetime，以及四种互不放大的精确 Scope。
-- `skill-manifest`、`scenario`、`experiment-matrix`、`risk-report` 以及 T16 Trial/Budget/Provider、Dry Run、Live、TaskSuccess、Canary 与跨模型比较共 33 份模型生成静态 JSON Schema。
+- `skill-manifest`、`scenario`、`experiment-matrix`、`risk-report`、T16 合同与 T17 Evidence/Hook/Observation/Trial/Phase/Comparison 等共 56 份模型生成静态 JSON Schema。
+- T17 使用独立的 `measured | not_applicable | not_available | incomplete` 测量状态；不同 Evidence Domain、模型、协议与失败 Attempt 不混合统计，缺失证据不会被写成数值 0。
 - T16 预注册固定 12 个条件、每条件 10 个语义实例和每实例 3 次采样；静态 Matrix 可按预注册机械重建。
 - T16 Provider 提供无 I/O Fake 实现与显式 Client 注入边界；Live 必须显式开启，并在调用前限制费用、turn、输出和重试。密钥只在交互入口读入一次并保存在 `SecretStr` 内存对象中，不从环境或文件读取。
 - T16-B 双 Fake Slot 完成 720 条链、960 次纯本地调用；重复身份在统计前拒绝，C1/M2/A1 配对不变量和部分结果保存均有结构化证据。
@@ -120,7 +152,8 @@ SkillFlow-Rx **目前只是研究设想，尚未实现，也没有进入现有�
 ## 环境要求
 
 - Python 3.11 或更高版本。
-- 测试和 CLI 不访问外网，不需要 API Key 或用户账号。
+- 离线测试、Scripted 与普通分析命令不访问外网，不需要 API Key 或用户账号；显式 Live 命令需要已批准预算、模型 API 网络访问与交互式密钥输入。
+- Live 密钥只在同一 Supervisor 进程内隐藏输入一次并保留于内存，不从环境或文件加载，也不写入磁盘；进程退出后恢复才需重新输入。
 - 仅运行 T15 Pilot 时，还需要 Node.js、已构建且精确固定 revision 的 OpenClaw checkout；仍不需要真实模型凭据。
 
 Windows 本地安装：
@@ -163,6 +196,7 @@ python -m venv .venv-skillflow
 
 ```powershell
 .\.venv-skillflow\Scripts\skillflow.exe --help
+.\.venv-skillflow\Scripts\skillflow.exe t17 --help
 ```
 
 ## T15 OpenClaw Pilot
@@ -171,7 +205,7 @@ python -m venv .venv-skillflow
 
 ```powershell
 .\.venv-skillflow\Scripts\skillflow-pilot.exe `
-  --openclaw-root C:\path\to\openclaw `
+  --openclaw-root E:\path\to\openclaw `
   --output runs\t15-pilot
 ```
 
@@ -196,6 +230,8 @@ for path in paths:
 
 ## 质量检查
 
+最近已完成的代码质量检查对应提交 [`a652526`](https://github.com/Suuuu123su/Agent-SkillFlow/commit/a652526187eef096fdb46f41c01b01cd5c5b7ddb)：[GitHub Actions 通过](https://github.com/Suuuu123su/Agent-SkillFlow/actions/runs/33652065313)，955 项测试通过，启用分支统计的总覆盖率为 90.04%，Ruff 检查/格式、mypy 与 CLI 检查均通过。这是工程质量证据，不会消除 T17-E 的实验缺口或替代独立终审；阶段总结中的较早测试数字保留其原时点含义。
+
 ```powershell
 .\.venv-skillflow\Scripts\python.exe -m pytest -q
 .\.venv-skillflow\Scripts\python.exe -m ruff check .
@@ -209,6 +245,10 @@ TaskSuccessEvidence v3.1 的 Model1 Canary 结果见 [`docs/summaries/T16D2_V31_
 
 ## 项目范围
 
-首版 MVP 仍只面向单 Agent、2～3 个 Skill、共享 Context、Persistent Memory、多 Session 与安全 Mock Tool。T16-C～T16-E 只增加受预算约束的真实模型 Responses API 调用与最小跨模型 Canary；真实网络外发、真实 Shell、真实凭据持久化、生产级 UI、多 Agent 协作与生产部署仍不在本阶段范围内。
+首版 MVP 仍只面向单 Agent、2～3 个 Skill、共享 Context、Persistent Memory、多 Session 与安全 Mock Tool。T16-C～T16-E 增加受预算约束的 Responses API 调用与最小跨模型 Canary；T17 增加可信 Reference Harness、测量合同与全指标阶段门，当前 Live 仍停在 E Partial。除批准的模型 API 请求外，真实网络外发、真实 Shell、真实凭据持久化、生产级 UI、多 Agent 协作与生产部署仍不在本阶段范围内。
 
-完整任务依赖和验收标准见 [`SkillFlow_Codex_Task_Spec.md`](SkillFlow_Codex_Task_Spec.md)。冻结的研究边界见 [`docs/threat-model.md`](docs/threat-model.md)，安全语义见 [`docs/security-semantics.md`](docs/security-semantics.md)，架构决策见 [`docs/decisions/`](docs/decisions/)。当前进度见 [`docs/progress.md`](docs/progress.md)，逐任务总结见 [`docs/summaries/`](docs/summaries/)。
+完整任务依赖和验收标准见 [`SkillFlow_Codex_Task_Spec.md`](SkillFlow_Codex_Task_Spec.md)。冻结的研究边界见 [`docs/threat-model.md`](docs/threat-model.md)，安全语义见 [`docs/security-semantics.md`](docs/security-semantics.md)，架构决策见 [`docs/decisions/`](docs/decisions/)。当前 T17 状态以本文进度表和 [T17 总结](docs/summaries/T17_Summary.md) 为准；历史过程见 [`docs/progress.md`](docs/progress.md)，逐任务总结见 [`docs/summaries/`](docs/summaries/)。
+
+## 进度同步约定
+
+每完成一个任务或阶段部分，都必须在同一交付中同步更新 README：当前状态、实际验证范围、结果及证据链接、遗留问题和下一步边界。若部分完成、失败或暂停，也要记录真实状态；不得等全部实验结束后再更新，更不能把计划、代码已实现或局部通过写成实验完成。提交或推送前检查 README 与对应 Summary/JSON 一致。该约定同时写入项目 [AGENTS.md](AGENTS.md)，供后续协作持续执行。
