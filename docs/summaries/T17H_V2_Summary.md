@@ -1,6 +1,6 @@
 # T17-H 第二版：监测／强制防御比较
 
-状态：H 的既定实验与完整防御指标已完成：630 个任务、540 组重放，监测／强制模式各 315 个任务；全部 21 个基础配置完整配对。用户允许与 G 并行，H 未等待第二模型。完整 T17 和项目最终质量验收仍未完成。见[阶段通过记录](../evidence/t17-v2-luna-defense-pass-20260904.json)和[完整总体指标 JSON](../evidence/t17-v2-defense-metrics-20260904.json)。
+状态：H 的既定实验与完整防御指标已完成：630 个任务、540 组重放，监测／强制模式各 315 个任务；全部 21 个基础配置完整配对。用户允许与 G 并行，H 未等待第二模型。完整 T17、公开数据复算及最终质量验收现已完成，独立审查警告保留。见[阶段通过记录](../evidence/t17-v2-luna-defense-pass-20260904.json)、[完整总体指标 JSON](../evidence/t17-v2-defense-metrics-20260904.json)和[总总结](T17_Complete_Summary_V2.md)。
 
 ## 固定范围与预算
 
@@ -98,7 +98,7 @@ H 保持原 3 美元阶段上限，全程仍为 58.25 美元；为 G 尚未使�
 
 统计使用 5 种等义表述为重抽样簇，每簇 3 次重复；10,000 次簇重抽样、固定种子 17017。条件比例另有明确标注的链级 Wilson 区间。撤销残留配对比较只有 4 个共同有效簇，按实记录；缺少对应来源深度的比较为不适用，不填零。各项原始分子、分母、区间、证据编号和四格结果均在完整 JSON 中。
 
-完整可复算数据位于 `runs/t17-v2-defense-joined-20260904-01/`。`reports.json` 索引全部报告，总体比较为 `reports/comparison-0009.json`，21 个配置比较为其后各卷。CSV 为 `defense-comparison.csv` 及 `defense-comparison.part-0002.csv`～`part-0004.csv`；必须读取全部四卷。数据目录同时保存逐任务、逐重放、回执、来源、用量、格式、记录数和文件清单；完整脱敏数据将在 G 结束后的统一数据集中交付。
+完整可复算数据位于 `runs/t17-v2-defense-joined-20260904-01/`。`reports.json` 索引全部报告，总体比较为 `reports/comparison-0009.json`，21 个配置比较为其后各卷。CSV 为 `defense-comparison.csv` 及 `defense-comparison.part-0002.csv`～`part-0004.csv`；必须读取全部四卷。数据目录同时保存逐任务、逐重放、回执、来源、用量、格式、记录数和文件清单；完整脱敏数据已纳入[公开总集合](../../datasets/t17-v2/README.md)，并从公开事实独立复算通过。
 
 复算命令：`skillflow t17 v2 report --dataset runs/t17-v2-defense-joined-20260904-01 --output runs/t17-v2-defense-recomputed-01`。输出需为新目录，不需要密钥，不发起模型请求。本次完成 H 分析的新增 API 为 0。
 

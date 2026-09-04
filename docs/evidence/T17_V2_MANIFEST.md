@@ -1,10 +1,11 @@
 # T17 第二版交付清单
 
-更新日期：2026-09-04。实验已完成，完整交付验收进行中；不覆盖旧 `T17_MANIFEST.md` 或其他冻结清单。
+更新日期：2026-09-04。完整 T17 第二版已完成（COMPLETED），保留独立审查 `REVIEW_UNAVAILABLE` 和运行前 `WARN`；不覆盖旧 `T17_MANIFEST.md` 或其他冻结清单。数据提交 `c0672a7` 已发布，代码 `ef122e7` 的完整 CI 已通过。
 
 ## 已生成的公开结果
 
 - [总结果与当前状态](../summaries/T17_Complete_Summary_V2.md)。
+- [最终质量验收](t17-v2-quality-pass-20260904.json)：1,258 项测试通过，综合覆盖 90.10589733%，纯分支 76.26112760%，其他远端质量步骤全部通过。
 - [E 总结](../summaries/T17E_V2_Summary.md)、[F 总结](../summaries/T17F_V2_Summary.md)、[G 总结](../summaries/T17G_V2_Summary.md)、[H 总结](../summaries/T17H_V2_Summary.md)。
 - [Luna 正式指标](t17-v2-luna-formal-metrics-20260904.json)、[DeepSeek 正式指标](t17-v2-deepseek-formal-metrics-20260904.json)、[防御完整比较](t17-v2-defense-metrics-20260904.json)。
 - [全程费用](t17-v2-full-costs.json)：包括撤回及失败尝试，历史未知响应保持不完整。
@@ -24,7 +25,7 @@
 | 旧 G 可恢复隔离记录 | `runs/t17-withdrawn-model2-20260904-01/` |
 | 完整 H 脱敏配对数据 | `runs/t17-v2-defense-joined-20260904-01/` |
 
-各通过阶段的 `dataset/` 含逐任务、重放、任务证据、回执、来源、用量及完整指标。[完整公开总集合](../../datasets/t17-v2/README.md)经用户明确授权随本次提交发布：770 文件、645.23 MiB，所有 JSON、CSV 与独立重算结果一致；私有正文不在其中。[发布批准](t17-v2-data-publication-approval-20260904.json)限定这一脱敏目录，不授权上传私有原始记录。独立复算输出留在 `runs/t17-v2-recomputed-01/`，没有新增 API。
+各通过阶段的 `dataset/` 含逐任务、重放、任务证据、回执、来源、用量及完整指标。[完整公开总集合](../../datasets/t17-v2/README.md)已在用户明确授权后发布：770 文件、645.23 MiB，所有 JSON、CSV 与独立重算结果一致；私有正文不在其中。[发布批准](t17-v2-data-publication-approval-20260904.json)限定这一脱敏目录，不授权上传私有原始记录。独立复算输出留在 `runs/t17-v2-recomputed-01/`，没有新增 API。
 
 复算入口：`skillflow t17 v2 report --dataset <阶段目录> --output <新目录>`；总集合使用 `python scripts/t17_delivery/t17_collection.py --from-collection datasets/t17-v2 --output runs/t17-v2-recomputed-02`。必须选择尚不存在的新输出目录；本轮已使用 `recomputed-01`。无需密钥或私有正文；不同模型与预检不合并比例。
 
