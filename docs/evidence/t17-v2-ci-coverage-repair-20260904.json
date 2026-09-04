@@ -1,0 +1,43 @@
+{
+  "schema_version": "t17-v2-ci-coverage-repair/1.0",
+  "recorded_date": "2026-09-04",
+  "status": "targeted_checks_passed_full_ci_pending",
+  "baseline_commit": "c0672a726f0b2c789ebb0f987b6b08c1b15d8c92",
+  "baseline_ci_run_id": 33877523839,
+  "baseline_ci_job_id": 101037950920,
+  "baseline_tests_passed": 1158,
+  "baseline_tests_failed": 0,
+  "baseline_combined_coverage_percent": 88.54072854880283,
+  "baseline_branch_only_coverage_percent": 73.92433234421365,
+  "required_combined_coverage_percent": 90,
+  "production_source_files_changed": 0,
+  "experiment_results_changed": false,
+  "new_paid_api_calls": 0,
+  "local_full_suite_rerun": false,
+  "targeted_tests_passed": 101,
+  "targeted_tests_failed": 0,
+  "targeted_test_seconds": 63.93,
+  "targeted_junit": ".tmp/t17-deepseek-20260904-01/coverage-controls-04.xml",
+  "targeted_coverage": ".tmp/t17-deepseek-20260904-01/coverage-controls-04.json",
+  "earlier_diagnostic_outputs_preserved": [
+    ".tmp/t17-deepseek-20260904-01/coverage-controls-01.xml",
+    ".tmp/t17-deepseek-20260904-01/coverage-controls-02.xml",
+    ".tmp/t17-deepseek-20260904-01/coverage-controls-03.xml"
+  ],
+  "earlier_test_fixture_corrections": [
+    "expect_existing_output_exists_domain_error_on_reused_approval",
+    "give_synthetic_retry_its_actual_distinct_attempt_path"
+  ],
+  "lint_and_format_files_passed": 6,
+  "maximum_new_python_file_lines": 331,
+  "new_any_ignore_skip_xfail_no_cover_noqa_matches": 0,
+  "coverage_exclusions_changed": false,
+  "coverage_threshold_changed": false,
+  "subprocess_measurement": {
+    "pytest_cov_minimum_major": 7,
+    "coverage_patch": ["subprocess"],
+    "source": "https://pytest-cov.readthedocs.io/en/latest/subprocess-support.html",
+    "purpose": "measure_existing_fresh_process_cli_tests"
+  },
+  "full_project_gate_passed": false
+}
