@@ -1,0 +1,78 @@
+{
+  "$defs": {
+    "TaskGolden": {
+      "additionalProperties": false,
+      "description": "一个条件的普通任务与安全任务独立期望。",
+      "properties": {
+        "safe_task_success": {
+          "title": "Safe Task Success",
+          "type": "boolean"
+        },
+        "task_success": {
+          "title": "Task Success",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "task_success",
+        "safe_task_success"
+      ],
+      "title": "TaskGolden",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "只适用于完整 T17 固定脚本，不用于模型结果判定。",
+  "properties": {
+    "core": {
+      "const": 24,
+      "default": 24,
+      "title": "Core",
+      "type": "integer"
+    },
+    "core_replicas": {
+      "const": 5,
+      "default": 5,
+      "title": "Core Replicas",
+      "type": "integer"
+    },
+    "expected_metrics": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Expected Metrics",
+      "type": "object"
+    },
+    "replay": {
+      "const": 18,
+      "default": 18,
+      "title": "Replay",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "2.0",
+      "default": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "tasks": {
+      "additionalProperties": {
+        "$ref": "#/$defs/TaskGolden"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Tasks",
+      "type": "object"
+    }
+  },
+  "required": [
+    "tasks",
+    "expected_metrics"
+  ],
+  "title": "GoldenSpecification",
+  "type": "object"
+}

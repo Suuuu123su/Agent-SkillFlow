@@ -1,0 +1,13 @@
+{
+  "schema_version": "2.0",
+  "date": "2026-09-03",
+  "question": "是否按复用 F 的数据，只新增防御配置缺少的部分，最终合计 630 个任务、540 组重放冻结 T17-H？",
+  "user_answer": "是",
+  "decision": "reuse_current_v2_model1_and_run_only_missing_defense_modes",
+  "reused_from_current_v2_F": {"core": 360, "replay_pairs": 270},
+  "new_H_units": {"core": 270, "replay_pairs": 270},
+  "final_H_denominators": {"core": 630, "replay_pairs": 540},
+  "reuse_historical_attempts": false,
+  "paid_calls_authorized": false,
+  "baseline_commit": "3aaff297077dcfe9c052a038af0bfb548b8f2f65"
+}

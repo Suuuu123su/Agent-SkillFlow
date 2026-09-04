@@ -1,0 +1,451 @@
+{
+  "$defs": {
+    "Artifact": {
+      "additionalProperties": false,
+      "description": "一个不可变的数据版本。",
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "$ref": "#/$defs/ArtifactType"
+        },
+        "content_hash": {
+          "minLength": 1,
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "content_length": {
+          "minimum": 0,
+          "title": "Content Length",
+          "type": "integer"
+        },
+        "created_by_event_id": {
+          "minLength": 1,
+          "title": "Created By Event Id",
+          "type": "string"
+        },
+        "mime_type": {
+          "minLength": 1,
+          "title": "Mime Type",
+          "type": "string"
+        },
+        "observed_label": {
+          "$ref": "#/$defs/SecurityLabel"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "content_hash",
+        "content_length",
+        "mime_type",
+        "created_by_event_id",
+        "observed_label"
+      ],
+      "title": "Artifact",
+      "type": "object"
+    },
+    "ArtifactType": {
+      "description": "不可变数据版本的类别。",
+      "enum": [
+        "context",
+        "memory",
+        "file",
+        "skill_output",
+        "tool_arg",
+        "tool_return"
+      ],
+      "title": "ArtifactType",
+      "type": "string"
+    },
+    "EnforcementMode": {
+      "description": "策略只观察或实际阻断。",
+      "enum": [
+        "monitor",
+        "enforce"
+      ],
+      "title": "EnforcementMode",
+      "type": "string"
+    },
+    "OracleArtifactTrace": {
+      "additionalProperties": false,
+      "description": "Oracle Plane 中一个值的独立 GT_data。",
+      "properties": {
+        "aliases": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Aliases",
+          "type": "array"
+        },
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "gt_data": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Gt Data",
+          "type": "array"
+        },
+        "parents": {
+          "items": {
+            "$ref": "#/$defs/TraceParent"
+          },
+          "title": "Parents",
+          "type": "array"
+        },
+        "plane": {
+          "const": "oracle",
+          "default": "oracle",
+          "title": "Plane",
+          "type": "string"
+        },
+        "record_type": {
+          "const": "artifact",
+          "default": "artifact",
+          "title": "Record Type",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "value_type": {
+          "$ref": "#/$defs/TraceValueType"
+        }
+      },
+      "required": [
+        "run_id",
+        "artifact_id",
+        "value_type",
+        "gt_data",
+        "parents"
+      ],
+      "title": "OracleArtifactTrace",
+      "type": "object"
+    },
+    "ParentRelation": {
+      "description": "T06 固定记录的值与效果父关系。",
+      "enum": [
+        "copy",
+        "derive",
+        "write",
+        "load",
+        "invoke"
+      ],
+      "title": "ParentRelation",
+      "type": "string"
+    },
+    "SecurityLabel": {
+      "additionalProperties": false,
+      "description": "只描述数据来源、不表达授权的标签。",
+      "properties": {
+        "created_session_id": {
+          "minLength": 1,
+          "title": "Created Session Id",
+          "type": "string"
+        },
+        "expiry": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expiry"
+        },
+        "origins": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Origins",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "parent_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Parent Artifact Ids",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "revoked_origins": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Revoked Origins",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "task_id": {
+          "minLength": 1,
+          "title": "Task Id",
+          "type": "string"
+        },
+        "trust": {
+          "$ref": "#/$defs/TrustLevel"
+        }
+      },
+      "required": [
+        "origins",
+        "trust",
+        "task_id",
+        "created_session_id"
+      ],
+      "title": "SecurityLabel",
+      "type": "object"
+    },
+    "T17LiveStage": {
+      "description": "预注册的真实模型执行阶段。",
+      "enum": [
+        "canary",
+        "model1",
+        "model2_canary",
+        "model2",
+        "defense"
+      ],
+      "title": "T17LiveStage",
+      "type": "string"
+    },
+    "TraceParent": {
+      "additionalProperties": false,
+      "description": "一个稳定父 ID 及其机械关系。",
+      "properties": {
+        "parent_id": {
+          "minLength": 1,
+          "title": "Parent Id",
+          "type": "string"
+        },
+        "relation": {
+          "$ref": "#/$defs/ParentRelation"
+        }
+      },
+      "required": [
+        "parent_id",
+        "relation"
+      ],
+      "title": "TraceParent",
+      "type": "object"
+    },
+    "TraceValueType": {
+      "description": "可进入双轨 Trace 的值类别。",
+      "enum": [
+        "asset",
+        "context",
+        "memory",
+        "file",
+        "skill_output",
+        "tool_arg",
+        "tool_return"
+      ],
+      "title": "TraceValueType",
+      "type": "string"
+    },
+    "TrustLevel": {
+      "description": "数据来源的保守信任等级。",
+      "enum": [
+        "trusted",
+        "user",
+        "untrusted",
+        "unknown"
+      ],
+      "title": "TrustLevel",
+      "type": "string"
+    },
+    "UnitIdentity": {
+      "additionalProperties": false,
+      "description": "每条公开记录的任务、技能、模型、防御与统计簇身份。",
+      "properties": {
+        "condition_id": {
+          "minLength": 1,
+          "title": "Condition Id",
+          "type": "string"
+        },
+        "defense_base_id": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Defense Base Id",
+          "type": "string"
+        },
+        "domain": {
+          "enum": [
+            "scripted",
+            "fake_reference",
+            "live_reference"
+          ],
+          "title": "Domain",
+          "type": "string"
+        },
+        "enforcement_mode": {
+          "$ref": "#/$defs/EnforcementMode"
+        },
+        "manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Manifest Sha256",
+          "type": "string"
+        },
+        "matrix_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Matrix Sha256",
+          "type": "string"
+        },
+        "model_revision": {
+          "minLength": 1,
+          "title": "Model Revision",
+          "type": "string"
+        },
+        "phase_contract_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Phase Contract Sha256",
+          "type": "string"
+        },
+        "protocol_id": {
+          "minLength": 1,
+          "title": "Protocol Id",
+          "type": "string"
+        },
+        "repeat_index": {
+          "minimum": 1,
+          "title": "Repeat Index",
+          "type": "integer"
+        },
+        "requested_model": {
+          "minLength": 1,
+          "title": "Requested Model",
+          "type": "string"
+        },
+        "semantic_instance_id": {
+          "minLength": 1,
+          "title": "Semantic Instance Id",
+          "type": "string"
+        },
+        "semantic_template_id": {
+          "minLength": 1,
+          "title": "Semantic Template Id",
+          "type": "string"
+        },
+        "skill_content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Skill Content Sha256",
+          "type": "string"
+        },
+        "skill_variant_id": {
+          "minLength": 1,
+          "title": "Skill Variant Id",
+          "type": "string"
+        },
+        "source_variant": {
+          "minLength": 1,
+          "title": "Source Variant",
+          "type": "string"
+        },
+        "stage": {
+          "$ref": "#/$defs/T17LiveStage"
+        },
+        "task_contract_id": {
+          "minLength": 1,
+          "title": "Task Contract Id",
+          "type": "string"
+        },
+        "task_contract_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Task Contract Sha256",
+          "type": "string"
+        },
+        "trial_id": {
+          "minLength": 1,
+          "title": "Trial Id",
+          "type": "string"
+        },
+        "unit_id": {
+          "minLength": 1,
+          "title": "Unit Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "protocol_id",
+        "stage",
+        "domain",
+        "phase_contract_sha256",
+        "matrix_sha256",
+        "unit_id",
+        "trial_id",
+        "condition_id",
+        "source_variant",
+        "skill_variant_id",
+        "skill_content_sha256",
+        "manifest_sha256",
+        "task_contract_id",
+        "task_contract_sha256",
+        "semantic_template_id",
+        "semantic_instance_id",
+        "repeat_index",
+        "defense_base_id",
+        "enforcement_mode",
+        "requested_model",
+        "model_revision"
+      ],
+      "title": "UnitIdentity",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "按输出值保存其观察父边与真实父边，可直接比较丢失的来源。",
+  "properties": {
+    "artifact": {
+      "$ref": "#/$defs/Artifact"
+    },
+    "identity": {
+      "$ref": "#/$defs/UnitIdentity"
+    },
+    "oracle": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/OracleArtifactTrace"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "session_id": {
+      "minLength": 1,
+      "title": "Session Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "identity",
+    "run_id",
+    "session_id",
+    "artifact"
+  ],
+  "title": "ProvenanceRow",
+  "type": "object"
+}

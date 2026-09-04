@@ -1,0 +1,464 @@
+{
+  "$defs": {
+    "BudgetConfig": {
+      "additionalProperties": false,
+      "description": "可生成静态 Schema 的费用保护配置。",
+      "properties": {
+        "allow_live": {
+          "default": false,
+          "title": "Allow Live",
+          "type": "boolean"
+        },
+        "max_agent_turns": {
+          "minimum": 1,
+          "title": "Max Agent Turns",
+          "type": "integer"
+        },
+        "max_cost_per_run_usd": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Max Cost Per Run Usd"
+        },
+        "max_output_tokens_per_turn": {
+          "minimum": 1,
+          "title": "Max Output Tokens Per Turn",
+          "type": "integer"
+        },
+        "max_retries": {
+          "minimum": 0,
+          "title": "Max Retries",
+          "type": "integer"
+        },
+        "max_total_usd": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Max Total Usd"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "max_total_usd",
+        "max_cost_per_run_usd",
+        "max_agent_turns",
+        "max_output_tokens_per_turn",
+        "max_retries"
+      ],
+      "title": "BudgetConfig",
+      "type": "object"
+    },
+    "PricingRates": {
+      "additionalProperties": false,
+      "description": "每百万 token 的美元估算价格。",
+      "properties": {
+        "cache_write_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Cache Write Per Million Usd"
+        },
+        "cached_input_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cached Input Per Million Usd"
+        },
+        "input_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Input Per Million Usd"
+        },
+        "output_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Output Per Million Usd"
+        },
+        "reasoning_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Reasoning Per Million Usd"
+        },
+        "status": {
+          "$ref": "#/$defs/PricingStatus"
+        }
+      },
+      "required": [
+        "status",
+        "input_per_million_usd",
+        "cached_input_per_million_usd",
+        "output_per_million_usd",
+        "reasoning_per_million_usd"
+      ],
+      "title": "PricingRates",
+      "type": "object"
+    },
+    "PricingStatus": {
+      "description": "价格是否已冻结到可执行状态。",
+      "enum": [
+        "fake_zero",
+        "live_pending",
+        "live_pinned"
+      ],
+      "title": "PricingStatus",
+      "type": "string"
+    },
+    "StageCost": {
+      "additionalProperties": false,
+      "description": "执行图的调用上界、保守 Token 和明确阶段及单元预算。",
+      "properties": {
+        "budget": {
+          "$ref": "#/$defs/BudgetConfig"
+        },
+        "count_scope": {
+          "const": "one_complete_attempt_including_bounded_request_retries",
+          "default": "one_complete_attempt_including_bounded_request_retries",
+          "title": "Count Scope",
+          "type": "string"
+        },
+        "expected_estimated_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Expected Estimated Usd"
+        },
+        "historical_p95_projected_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Historical P95 Projected Usd"
+        },
+        "matrix_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Matrix Sha256",
+          "type": "string"
+        },
+        "max_input_bytes_per_call": {
+          "const": 100000,
+          "default": 100000,
+          "title": "Max Input Bytes Per Call",
+          "type": "integer"
+        },
+        "max_network_attempts": {
+          "minimum": 0,
+          "title": "Max Network Attempts",
+          "type": "integer"
+        },
+        "model_id": {
+          "minLength": 1,
+          "title": "Model Id",
+          "type": "string"
+        },
+        "no_failure_api_calls": {
+          "minimum": 0,
+          "title": "No Failure Api Calls",
+          "type": "integer"
+        },
+        "projection_kind": {
+          "const": "historical_per_response_with_prompt_allowance_not_guarantee",
+          "default": "historical_per_response_with_prompt_allowance_not_guarantee",
+          "title": "Projection Kind",
+          "type": "string"
+        },
+        "rate_source": {
+          "minLength": 1,
+          "title": "Rate Source",
+          "type": "string"
+        },
+        "rates": {
+          "$ref": "#/$defs/PricingRates"
+        },
+        "scheduled_core": {
+          "minimum": 0,
+          "title": "Scheduled Core",
+          "type": "integer"
+        },
+        "scheduled_replay": {
+          "minimum": 0,
+          "title": "Scheduled Replay",
+          "type": "integer"
+        },
+        "stage": {
+          "$ref": "#/$defs/T17LiveStage"
+        },
+        "uncapped_token_upper_cost_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Uncapped Token Upper Cost Usd"
+        },
+        "whole_stage_restart": {
+          "const": "explicit_control_new_attempt_shared_original_dollar_caps",
+          "default": "explicit_control_new_attempt_shared_original_dollar_caps",
+          "title": "Whole Stage Restart",
+          "type": "string"
+        },
+        "worst_input_tokens": {
+          "minimum": 0,
+          "title": "Worst Input Tokens",
+          "type": "integer"
+        },
+        "worst_output_including_reasoning_tokens": {
+          "minimum": 0,
+          "title": "Worst Output Including Reasoning Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "stage",
+        "matrix_sha256",
+        "model_id",
+        "scheduled_core",
+        "scheduled_replay",
+        "no_failure_api_calls",
+        "max_network_attempts",
+        "worst_input_tokens",
+        "worst_output_including_reasoning_tokens",
+        "expected_estimated_usd",
+        "historical_p95_projected_usd",
+        "uncapped_token_upper_cost_usd",
+        "budget",
+        "rates",
+        "rate_source"
+      ],
+      "title": "StageCost",
+      "type": "object"
+    },
+    "T17LiveStage": {
+      "description": "预注册的真实模型执行阶段。",
+      "enum": [
+        "canary",
+        "model1",
+        "model2_canary",
+        "model2",
+        "defense"
+      ],
+      "title": "T17LiveStage",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "阶段请求前保存的已批分配、历史估算和当前剩余上限。",
+  "properties": {
+    "approval_id": {
+      "minLength": 1,
+      "title": "Approval Id",
+      "type": "string"
+    },
+    "approved_total_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Approved Total Usd"
+    },
+    "attempt_budget": {
+      "$ref": "#/$defs/BudgetConfig"
+    },
+    "attempt_number": {
+      "default": 1,
+      "minimum": 1,
+      "title": "Attempt Number",
+      "type": "integer"
+    },
+    "cost_plan_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Cost Plan Sha256",
+      "type": "string"
+    },
+    "expected_estimated_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Expected Estimated Usd"
+    },
+    "failed_attempt_count": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Failed Attempt Count",
+      "type": "integer"
+    },
+    "observed_responses": {
+      "minimum": 0,
+      "title": "Observed Responses",
+      "type": "integer"
+    },
+    "p95_projected_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "P95 Projected Usd"
+    },
+    "previous_estimated_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Previous Estimated Usd"
+    },
+    "previous_reserved_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Previous Reserved Usd"
+    },
+    "projected_from": {
+      "enum": [
+        "historical_planning_only",
+        "prior_same_model_responses"
+      ],
+      "title": "Projected From",
+      "type": "string"
+    },
+    "remaining_approved_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Remaining Approved Usd"
+    },
+    "retry_rule": {
+      "const": "timeout_rate_limit_stateless_connect_5xx_only",
+      "default": "timeout_rate_limit_stateless_connect_5xx_only",
+      "title": "Retry Rule",
+      "type": "string"
+    },
+    "stage_cost": {
+      "$ref": "#/$defs/StageCost"
+    }
+  },
+  "required": [
+    "stage_cost",
+    "attempt_budget",
+    "cost_plan_sha256",
+    "approval_id",
+    "approved_total_usd",
+    "previous_estimated_usd",
+    "previous_reserved_usd",
+    "remaining_approved_usd",
+    "projected_from",
+    "observed_responses",
+    "expected_estimated_usd",
+    "p95_projected_usd"
+  ],
+  "title": "StageBudgetProposal",
+  "type": "object"
+}

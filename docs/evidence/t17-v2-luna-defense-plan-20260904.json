@@ -1,0 +1,64 @@
+{
+  "approved_prefix": null,
+  "usage_reference": "runs/t17-v2-live-20260904-02/model1/attempt-01/raw/api-usage.jsonl",
+  "prerequisite_outcomes": [
+    "runs/t17-v2-live-20260904-02/model1/attempt-01/stage-result.json"
+  ],
+  "parallel_with_second_model": true,
+  "parallel_unspent_stage_cap_usd": "5.9661016488",
+  "protocol": "experiments/t17/v2-luna-defense-20260904",
+  "output": "runs/t17-v2-luna-defense-20260904-01",
+  "source_snapshot": "runs/t17-v2-live-20260904-02/campaign-after-attempt-007.json",
+  "original_approved_usd": "58.25",
+  "historical_estimated_usd": "14.7274780512",
+  "historical_reserved_usd": "14.9381907512",
+  "remaining_approved_usd": "43.3118092488",
+  "allocated_usd": "3.00",
+  "stages": [
+    {
+      "stage": "defense",
+      "matrix_sha256": "3e07225e6857c217d252a25cb43764904fbb764fffe42556ad775cd84f1c0b5d",
+      "model_id": "gpt-5.6-luna",
+      "scheduled_core": 270,
+      "scheduled_replay": 270,
+      "no_failure_api_calls": 1530,
+      "max_network_attempts": 2070,
+      "worst_input_tokens": 207529920,
+      "worst_output_including_reasoning_tokens": 4239360,
+      "max_input_bytes_per_call": 100000,
+      "expected_estimated_usd": "0.6602959886685552407932011331",
+      "historical_p95_projected_usd": "1.072530",
+      "uncapped_token_upper_cost_usd": "56.9697120",
+      "budget": {
+        "schema_version": "0.1",
+        "allow_live": false,
+        "max_total_usd": "3.00",
+        "max_cost_per_run_usd": "0.05",
+        "max_agent_turns": 16,
+        "max_output_tokens_per_turn": 2048,
+        "max_retries": 1
+      },
+      "rates": {
+        "status": "live_pinned",
+        "input_per_million_usd": "0.20",
+        "cached_input_per_million_usd": "0.02",
+        "output_per_million_usd": "1.20",
+        "reasoning_per_million_usd": "1.20",
+        "cache_write_per_million_usd": "0.25"
+      },
+      "rate_source": "https://developers.openai.com/api/docs/models/gpt-5.6-luna",
+      "projection_kind": "historical_per_response_with_prompt_allowance_not_guarantee",
+      "count_scope": "one_complete_attempt_including_bounded_request_retries",
+      "whole_stage_restart": "explicit_control_new_attempt_shared_original_dollar_caps"
+    }
+  ],
+  "model": "gpt-5.6-luna",
+  "endpoint": "https://api.openai.com/v1/responses",
+  "requested_reasoning": "medium",
+  "provider_effective_reasoning": "medium",
+  "instruction_role": "developer",
+  "model_version_limit": "返回模型标识必须保持 gpt-5.6-luna，与 F 一致。",
+  "price_policy": "使用切换时已有费率作估算，不重新查询价格，不代表供应商账单。",
+  "comparison_limit": "H 与已通过 F 使用同一 Luna 配置，只改变监测／强制模式。",
+  "scope": "只新增 H 的 270/270，与已完成 F 的 360/270 合为 630/540；不重跑 E/F。"
+}

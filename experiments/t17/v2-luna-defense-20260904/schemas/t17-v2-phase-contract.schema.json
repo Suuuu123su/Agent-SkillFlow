@@ -1,0 +1,144 @@
+{
+  "$defs": {
+    "FrozenFile": {
+      "additionalProperties": false,
+      "description": "单个已存在文件的哈希、长度及可选逐行记录数。",
+      "properties": {
+        "records": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Records"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "FrozenFile",
+      "type": "object"
+    },
+    "T17LiveStage": {
+      "description": "预注册的真实模型执行阶段。",
+      "enum": [
+        "canary",
+        "model1",
+        "model2_canary",
+        "model2",
+        "defense"
+      ],
+      "title": "T17LiveStage",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "请求前冻结的阶段合同；运行中不准调整配置、脚本或统计。",
+  "properties": {
+    "catalog_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Catalog Sha256",
+      "type": "string"
+    },
+    "configuration_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Configuration Sha256",
+      "type": "string"
+    },
+    "domain": {
+      "enum": [
+        "scripted",
+        "fake_reference",
+        "live_reference"
+      ],
+      "title": "Domain",
+      "type": "string"
+    },
+    "evaluator_version": {
+      "const": "2.0.0",
+      "default": "2.0.0",
+      "title": "Evaluator Version",
+      "type": "string"
+    },
+    "external_effects_simulated": {
+      "const": true,
+      "default": true,
+      "title": "External Effects Simulated",
+      "type": "boolean"
+    },
+    "independent_review": {
+      "const": "REVIEW_UNAVAILABLE",
+      "default": "REVIEW_UNAVAILABLE",
+      "title": "Independent Review",
+      "type": "string"
+    },
+    "matrix_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Matrix Sha256",
+      "type": "string"
+    },
+    "protocol_id": {
+      "minLength": 1,
+      "title": "Protocol Id",
+      "type": "string"
+    },
+    "runtime_files": {
+      "additionalProperties": {
+        "$ref": "#/$defs/FrozenFile"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Runtime Files",
+      "type": "object"
+    },
+    "scheduled_core": {
+      "minimum": 0,
+      "title": "Scheduled Core",
+      "type": "integer"
+    },
+    "scheduled_replay": {
+      "minimum": 0,
+      "title": "Scheduled Replay",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "2.0",
+      "default": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "stage": {
+      "$ref": "#/$defs/T17LiveStage"
+    }
+  },
+  "required": [
+    "protocol_id",
+    "stage",
+    "domain",
+    "configuration_sha256",
+    "matrix_sha256",
+    "catalog_sha256",
+    "runtime_files",
+    "scheduled_core",
+    "scheduled_replay"
+  ],
+  "title": "PhaseContract",
+  "type": "object"
+}
