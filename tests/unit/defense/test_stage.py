@@ -21,8 +21,8 @@ def test_stage_resumes_without_repeating_core(t17_cli_root: Path) -> None:
     assert terminal.stat().st_mtime_ns == first_time
 
 
-def test_stage_rejects_oversized_batch_and_unsafe_output(tmp_path: Path) -> None:
+def test_stage_rejects_oversized_batch_and_unsafe_output(t17_cli_root: Path) -> None:
     with pytest.raises(ValueError, match="short_batch"):
-        run_batch(ROOT, tmp_path / "t18-no-run", "scripted", 49)
+        run_batch(ROOT, t17_cli_root / "t18-no-run", "scripted", 49)
     with pytest.raises(ValueError, match="new_project_directory"):
         run_batch(ROOT, ROOT, "scripted", 1)
