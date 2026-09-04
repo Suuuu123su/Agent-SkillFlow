@@ -1,0 +1,240 @@
+{
+  "schema_version": "2.0",
+  "protocol_id": "t17-live-reference-v2",
+  "protocol_relative_path": "experiments/t17/v2",
+  "configuration_sha256": "6a0e9e9d6c5f468bcecc421f14df00a54219ebf4fe389dffc8a5ec0e7d0abc93",
+  "protocol_manifest": {
+    "sha256": "fda53b05d5b2141e2ca9e480c46c9bcd2da20edb59c0aaf5c771fe95987718b1",
+    "size_bytes": 14063,
+    "records": null
+  },
+  "created_at": "2026-09-03T17:27:43.520472Z",
+  "price_basis_date": "2026-09-03",
+  "price_policy": "reuse_frozen_rates_no_lookup",
+  "historical": {
+    "source_path": "runs/t17-live-20260902-05/canary/attempt-01/actual-usage-journal.jsonl",
+    "source_file": {
+      "sha256": "b0c9bf3cf5b76c95f2c26e7bf4f9945a3bfe24abc57c880c863478948f1913ef",
+      "size_bytes": 227070,
+      "records": 194
+    },
+    "observed_responses": 83,
+    "observed_input_tokens": 12156,
+    "observed_generated_tokens": 11127,
+    "historical_estimated_cost_usd": "0.0157836",
+    "new_prompt_allowance_tokens": 1024,
+    "interpretation": "planning_only_not_new_experiment_evidence"
+  },
+  "offline_evidence": {
+    "runs/t17-v2-offline-20260904-01/golden/golden-report.json": {
+      "sha256": "4431c8350122ee3f3f3b448527efbbfd593c3fad78be90f772d92510c418cb19",
+      "size_bytes": 494990,
+      "records": null
+    },
+    "runs/t17-v2-offline-20260904-01/golden/reference/raw-manifest.json": {
+      "sha256": "d00b4a4f96e7afcf6b0ab0435964dd676d5b0517f10ad7160477605394585f34",
+      "size_bytes": 270935,
+      "records": null
+    },
+    "runs/t17-v2-offline-20260904-01/fake-all/raw-manifest.json": {
+      "sha256": "58936b1409912ec5668c59fda99f1ae729b37b16bfb1f7114d0ca6fa8552aa44",
+      "size_bytes": 270935,
+      "records": null
+    },
+    "runs/t17-v2-offline-20260904-01/fake-none/raw-manifest.json": {
+      "sha256": "154951115df9c71adee2dd3b93fc517656db7036c3e1afd5e71ba52c1ef18f8e",
+      "size_bytes": 73264,
+      "records": null
+    }
+  },
+  "offline_relative_path": "runs/t17-v2-offline-20260904-01",
+  "stages": [
+    {
+      "stage": "canary",
+      "matrix_sha256": "c41b38cc17854caee98268cf7ce935309d3c9d523e4428b25cbeb08c01fd6db7",
+      "model_id": "gpt-5.6-luna",
+      "scheduled_core": 24,
+      "scheduled_replay": 18,
+      "no_failure_api_calls": 108,
+      "max_network_attempts": 150,
+      "worst_input_tokens": 15038400,
+      "worst_output_including_reasoning_tokens": 307200,
+      "max_input_bytes_per_call": 100000,
+      "expected_estimated_usd": "0.04265609638554216867469879518",
+      "historical_p95_projected_usd": "0.0517752",
+      "uncapped_token_upper_cost_usd": "4.1282400",
+      "budget": {
+        "schema_version": "0.1",
+        "allow_live": false,
+        "max_total_usd": "0.2471624",
+        "max_cost_per_run_usd": "0.05",
+        "max_agent_turns": 16,
+        "max_output_tokens_per_turn": 2048,
+        "max_retries": 1
+      },
+      "rates": {
+        "status": "live_pinned",
+        "input_per_million_usd": "0.20",
+        "cached_input_per_million_usd": "0.02",
+        "output_per_million_usd": "1.20",
+        "reasoning_per_million_usd": "1.20",
+        "cache_write_per_million_usd": "0.25"
+      },
+      "rate_source": "https://developers.openai.com/api/docs/models/gpt-5.6-luna",
+      "projection_kind": "historical_per_response_with_prompt_allowance_not_guarantee",
+      "count_scope": "one_complete_attempt_including_bounded_request_retries",
+      "whole_stage_restart": "explicit_control_new_attempt_shared_original_dollar_caps"
+    },
+    {
+      "stage": "model1",
+      "matrix_sha256": "3761636d4120410ebbdc97b666ba1af2047d3fcc2d0386a7cfeba895c37881e6",
+      "model_id": "gpt-5.6-luna",
+      "scheduled_core": 360,
+      "scheduled_replay": 270,
+      "no_failure_api_calls": 1620,
+      "max_network_attempts": 2250,
+      "worst_input_tokens": 225576000,
+      "worst_output_including_reasoning_tokens": 4608000,
+      "max_input_bytes_per_call": 100000,
+      "expected_estimated_usd": "0.6398414457831325301204819277",
+      "historical_p95_projected_usd": "0.7766280",
+      "uncapped_token_upper_cost_usd": "61.9236000",
+      "budget": {
+        "schema_version": "0.1",
+        "allow_live": false,
+        "max_total_usd": "3.00",
+        "max_cost_per_run_usd": "0.05",
+        "max_agent_turns": 16,
+        "max_output_tokens_per_turn": 2048,
+        "max_retries": 1
+      },
+      "rates": {
+        "status": "live_pinned",
+        "input_per_million_usd": "0.20",
+        "cached_input_per_million_usd": "0.02",
+        "output_per_million_usd": "1.20",
+        "reasoning_per_million_usd": "1.20",
+        "cache_write_per_million_usd": "0.25"
+      },
+      "rate_source": "https://developers.openai.com/api/docs/models/gpt-5.6-luna",
+      "projection_kind": "historical_per_response_with_prompt_allowance_not_guarantee",
+      "count_scope": "one_complete_attempt_including_bounded_request_retries",
+      "whole_stage_restart": "explicit_control_new_attempt_shared_original_dollar_caps"
+    },
+    {
+      "stage": "model2_canary",
+      "matrix_sha256": "13a3ae226063d221ac4455812914a6b468791767d0080187db134d4294000895",
+      "model_id": "gpt-5.5-2026-04-23",
+      "scheduled_core": 24,
+      "scheduled_replay": 18,
+      "no_failure_api_calls": 108,
+      "max_network_attempts": 150,
+      "worst_input_tokens": 15038400,
+      "worst_output_including_reasoning_tokens": 307200,
+      "max_input_bytes_per_call": 100000,
+      "expected_estimated_usd": "1.066402409638554216867469880",
+      "historical_p95_projected_usd": "1.294380",
+      "uncapped_token_upper_cost_usd": "84.40800",
+      "budget": {
+        "schema_version": "0.1",
+        "allow_live": false,
+        "max_total_usd": "2.00",
+        "max_cost_per_run_usd": "0.20",
+        "max_agent_turns": 16,
+        "max_output_tokens_per_turn": 2048,
+        "max_retries": 1
+      },
+      "rates": {
+        "status": "live_pinned",
+        "input_per_million_usd": "5.00",
+        "cached_input_per_million_usd": "0.50",
+        "output_per_million_usd": "30.00",
+        "reasoning_per_million_usd": "30.00",
+        "cache_write_per_million_usd": "0"
+      },
+      "rate_source": "https://developers.openai.com/api/docs/models/gpt-5.5",
+      "projection_kind": "historical_per_response_with_prompt_allowance_not_guarantee",
+      "count_scope": "one_complete_attempt_including_bounded_request_retries",
+      "whole_stage_restart": "explicit_control_new_attempt_shared_original_dollar_caps"
+    },
+    {
+      "stage": "model2",
+      "matrix_sha256": "fa6be7179e06688e8b6eb05f32f04c61c6df39a770a4d5053f5506634245b904",
+      "model_id": "gpt-5.5-2026-04-23",
+      "scheduled_core": 360,
+      "scheduled_replay": 270,
+      "no_failure_api_calls": 1620,
+      "max_network_attempts": 2250,
+      "worst_input_tokens": 225576000,
+      "worst_output_including_reasoning_tokens": 4608000,
+      "max_input_bytes_per_call": 100000,
+      "expected_estimated_usd": "15.99603614457831325301204819",
+      "historical_p95_projected_usd": "19.415700",
+      "uncapped_token_upper_cost_usd": "1266.12000",
+      "budget": {
+        "schema_version": "0.1",
+        "allow_live": false,
+        "max_total_usd": "50.00",
+        "max_cost_per_run_usd": "0.20",
+        "max_agent_turns": 16,
+        "max_output_tokens_per_turn": 2048,
+        "max_retries": 1
+      },
+      "rates": {
+        "status": "live_pinned",
+        "input_per_million_usd": "5.00",
+        "cached_input_per_million_usd": "0.50",
+        "output_per_million_usd": "30.00",
+        "reasoning_per_million_usd": "30.00",
+        "cache_write_per_million_usd": "0"
+      },
+      "rate_source": "https://developers.openai.com/api/docs/models/gpt-5.5",
+      "projection_kind": "historical_per_response_with_prompt_allowance_not_guarantee",
+      "count_scope": "one_complete_attempt_including_bounded_request_retries",
+      "whole_stage_restart": "explicit_control_new_attempt_shared_original_dollar_caps"
+    },
+    {
+      "stage": "defense",
+      "matrix_sha256": "3e07225e6857c217d252a25cb43764904fbb764fffe42556ad775cd84f1c0b5d",
+      "model_id": "gpt-5.6-luna",
+      "scheduled_core": 270,
+      "scheduled_replay": 270,
+      "no_failure_api_calls": 1530,
+      "max_network_attempts": 2070,
+      "worst_input_tokens": 207529920,
+      "worst_output_including_reasoning_tokens": 4239360,
+      "max_input_bytes_per_call": 100000,
+      "expected_estimated_usd": "0.6042946987951807228915662650",
+      "historical_p95_projected_usd": "0.7334820",
+      "uncapped_token_upper_cost_usd": "56.9697120",
+      "budget": {
+        "schema_version": "0.1",
+        "allow_live": false,
+        "max_total_usd": "3.00",
+        "max_cost_per_run_usd": "0.05",
+        "max_agent_turns": 16,
+        "max_output_tokens_per_turn": 2048,
+        "max_retries": 1
+      },
+      "rates": {
+        "status": "live_pinned",
+        "input_per_million_usd": "0.20",
+        "cached_input_per_million_usd": "0.02",
+        "output_per_million_usd": "1.20",
+        "reasoning_per_million_usd": "1.20",
+        "cache_write_per_million_usd": "0.25"
+      },
+      "rate_source": "https://developers.openai.com/api/docs/models/gpt-5.6-luna",
+      "projection_kind": "historical_per_response_with_prompt_allowance_not_guarantee",
+      "count_scope": "one_complete_attempt_including_bounded_request_retries",
+      "whole_stage_restart": "explicit_control_new_attempt_shared_original_dollar_caps"
+    }
+  ],
+  "requested_max_total_usd": "58.2471624",
+  "used_in_new_protocol_usd": "0",
+  "remaining_requested_usd": "58.2471624",
+  "api_calls_made": 0,
+  "authorization_status": "pending_explicit_total_approval",
+  "independent_review": "REVIEW_UNAVAILABLE",
+  "budget_can_stop_incomplete_stage": true
+}
