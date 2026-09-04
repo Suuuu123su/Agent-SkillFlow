@@ -1,0 +1,257 @@
+{
+  "$defs": {
+    "AttackDiagnosis": {
+      "additionalProperties": false,
+      "description": "置信等级是规则的证据充分性，不是假造的概率。",
+      "properties": {
+        "abstain": {
+          "title": "Abstain",
+          "type": "boolean"
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "title": "Confidence",
+          "type": "string"
+        },
+        "diagnosis_id": {
+          "minLength": 1,
+          "title": "Diagnosis Id",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "mechanisms": {
+          "items": {
+            "enum": [
+              "privilege",
+              "context-tool",
+              "memory",
+              "authorization"
+            ],
+            "type": "string"
+          },
+          "title": "Mechanisms",
+          "type": "array"
+        },
+        "missing_evidence": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Missing Evidence",
+          "type": "array"
+        },
+        "schema_version": {
+          "const": "18.0",
+          "default": "18.0",
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "diagnosis_id",
+        "mechanisms",
+        "confidence",
+        "abstain",
+        "evidence_ids",
+        "missing_evidence"
+      ],
+      "title": "AttackDiagnosis",
+      "type": "object"
+    },
+    "AttackSignalVector": {
+      "additionalProperties": false,
+      "description": "一次工具请求的可信事实；模式、文件名与攻击标签均不在输入面。",
+      "properties": {
+        "authorization_claim_in_basis": {
+          "title": "Authorization Claim In Basis",
+          "type": "boolean"
+        },
+        "candidate_influence": {
+          "title": "Candidate Influence",
+          "type": "boolean"
+        },
+        "confirmed_influence": {
+          "title": "Confirmed Influence",
+          "type": "boolean"
+        },
+        "cross_session_memory_path": {
+          "title": "Cross Session Memory Path",
+          "type": "boolean"
+        },
+        "evidence_availability": {
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "propertyNames": {
+            "minLength": 1
+          },
+          "title": "Evidence Availability",
+          "type": "object"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "grant_missing": {
+          "title": "Grant Missing",
+          "type": "boolean"
+        },
+        "lifetime_mismatch": {
+          "title": "Lifetime Mismatch",
+          "type": "boolean"
+        },
+        "receipt_present": {
+          "title": "Receipt Present",
+          "type": "boolean"
+        },
+        "request_event_id": {
+          "minLength": 1,
+          "title": "Request Event Id",
+          "type": "string"
+        },
+        "revoked_origin": {
+          "title": "Revoked Origin",
+          "type": "boolean"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "18.0",
+          "default": "18.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "scope_mismatch": {
+          "title": "Scope Mismatch",
+          "type": "boolean"
+        },
+        "session_id": {
+          "minLength": 1,
+          "title": "Session Id",
+          "type": "string"
+        },
+        "signal_evidence": {
+          "additionalProperties": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "propertyNames": {
+            "minLength": 1
+          },
+          "title": "Signal Evidence",
+          "type": "object"
+        },
+        "sink_severity": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Sink Severity",
+          "type": "integer"
+        },
+        "target_effect_executed": {
+          "title": "Target Effect Executed",
+          "type": "boolean"
+        },
+        "target_effect_requested": {
+          "title": "Target Effect Requested",
+          "type": "boolean"
+        },
+        "untrusted_context_in_basis": {
+          "title": "Untrusted Context In Basis",
+          "type": "boolean"
+        },
+        "untrusted_tool_return_in_basis": {
+          "title": "Untrusted Tool Return In Basis",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "run_id",
+        "session_id",
+        "request_event_id",
+        "grant_missing",
+        "scope_mismatch",
+        "lifetime_mismatch",
+        "revoked_origin",
+        "untrusted_context_in_basis",
+        "untrusted_tool_return_in_basis",
+        "cross_session_memory_path",
+        "authorization_claim_in_basis",
+        "candidate_influence",
+        "confirmed_influence",
+        "target_effect_requested",
+        "target_effect_executed",
+        "receipt_present",
+        "sink_severity",
+        "evidence_availability",
+        "evidence_ids"
+      ],
+      "title": "AttackSignalVector",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "绑定实际请求的信号与诊断，不把标签作为运行时输入。",
+  "properties": {
+    "diagnosis": {
+      "$ref": "#/$defs/AttackDiagnosis"
+    },
+    "domain": {
+      "enum": [
+        "scripted",
+        "fake_reference"
+      ],
+      "title": "Domain",
+      "type": "string"
+    },
+    "request_event_id": {
+      "minLength": 1,
+      "title": "Request Event Id",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "signals": {
+      "$ref": "#/$defs/AttackSignalVector"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "title": "Trial Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "domain",
+    "trial_id",
+    "run_id",
+    "request_event_id",
+    "signals",
+    "diagnosis"
+  ],
+  "title": "DiagnosisRow",
+  "type": "object"
+}

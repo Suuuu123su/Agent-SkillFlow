@@ -1,0 +1,58 @@
+{
+  "schema_version": "18.0",
+  "domains": [
+    "fake_reference",
+    "scripted"
+  ],
+  "source_phase_contracts": {
+    "fake_reference": "f0b5d2a762b90983bc701baa63433b261e61e2f102b187eb53e38cb7acd7c91a",
+    "scripted": "0fd9383c8afbc0f3a834bc9f30b733839f44315164797388483c520b09296219"
+  },
+  "files": {
+    "core-trials.jsonl": {
+      "sha256": "6d065be8988ddc0da58c38cc5f85f74070ff049351cf80ca8331b5bb44c87283",
+      "bytes": 15657005,
+      "records": 308
+    },
+    "replay-pairs.jsonl": {
+      "sha256": "0c0829e84494f03360a0ea76ac55acf6a39166ceb2eacb9beacd5b702f5c2631",
+      "bytes": 1847613,
+      "records": 21
+    },
+    "diagnoses.jsonl": {
+      "sha256": "db3700e5ea5686c1b790d9bf93b4919ff3d31255ffe2f12de6bccd6a560c3c0f",
+      "bytes": 924453,
+      "records": 672
+    },
+    "defense-plans.jsonl": {
+      "sha256": "10c2f306c957837a3b47c03134f8048bd82c0ed58d8759a50624ea8855a99e20",
+      "bytes": 391691,
+      "records": 672
+    },
+    "defense-outcomes.jsonl": {
+      "sha256": "96bfb14cb448c7afa507cac718ccc231c5f4911f29f39be24644abc2c55299e7",
+      "bytes": 282059,
+      "records": 258
+    },
+    "diagnosis-metrics.json": {
+      "sha256": "a4af218597a63ed61a32ccb7078594fb3e18138d62c6381f357d4c8a3c57bfc5",
+      "bytes": 5834189,
+      "records": 9999
+    },
+    "defense-specificity.csv": {
+      "sha256": "4ac100b7f5caf34f6719aed31ec3261790f1a40537d11dc9507e48bc546ebf9e",
+      "bytes": 177677,
+      "records": 768
+    },
+    "router-comparison.csv": {
+      "sha256": "2970ba032b7287ea80a82d9adda66628b96e244b405a66cc7708262cff28631d",
+      "bytes": 404942,
+      "records": 210
+    },
+    "skill-metrics.csv": {
+      "sha256": "50648ef9a935c87c2fc7cf1e2038fab18af86407523c687b04c6ff1108c20a79",
+      "bytes": 3716902,
+      "records": 18744
+    }
+  }
+}

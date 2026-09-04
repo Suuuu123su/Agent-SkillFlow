@@ -1,0 +1,145 @@
+{
+  "$defs": {
+    "DefensePlan": {
+      "additionalProperties": false,
+      "description": "防御选择只可收紧执行，不签发或修改授权。",
+      "properties": {
+        "action": {
+          "enum": [
+            "allow",
+            "deny",
+            "confirm",
+            "quarantine",
+            "replay_then_decide"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "estimated_extra_steps": {
+          "minimum": 0,
+          "title": "Estimated Extra Steps",
+          "type": "integer"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "plan_id": {
+          "minLength": 1,
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "18.0",
+          "default": "18.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "selected_defense_ids": {
+          "items": {
+            "enum": [
+              "task-alignment",
+              "tdg",
+              "drift-isolation",
+              "causal"
+            ],
+            "type": "string"
+          },
+          "title": "Selected Defense Ids",
+          "type": "array"
+        },
+        "selection_reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Selection Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "plan_id",
+        "selected_defense_ids",
+        "action",
+        "evidence_ids",
+        "selection_reason_codes",
+        "estimated_extra_steps"
+      ],
+      "title": "DefensePlan",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "建议与实际选择分别保存，授权真值沿用原始决策。",
+  "properties": {
+    "actual_defense_ids": {
+      "items": {
+        "enum": [
+          "task-alignment",
+          "tdg",
+          "drift-isolation",
+          "causal"
+        ],
+        "type": "string"
+      },
+      "title": "Actual Defense Ids",
+      "type": "array"
+    },
+    "actual_extra_steps": {
+      "minimum": 0,
+      "title": "Actual Extra Steps",
+      "type": "integer"
+    },
+    "authorized": {
+      "title": "Authorized",
+      "type": "boolean"
+    },
+    "domain": {
+      "enum": [
+        "scripted",
+        "fake_reference"
+      ],
+      "title": "Domain",
+      "type": "string"
+    },
+    "executed": {
+      "title": "Executed",
+      "type": "boolean"
+    },
+    "proposed_plan": {
+      "$ref": "#/$defs/DefensePlan"
+    },
+    "request_event_id": {
+      "minLength": 1,
+      "title": "Request Event Id",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "title": "Trial Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "domain",
+    "trial_id",
+    "run_id",
+    "request_event_id",
+    "proposed_plan",
+    "actual_defense_ids",
+    "authorized",
+    "executed",
+    "actual_extra_steps"
+  ],
+  "title": "PlanRow",
+  "type": "object"
+}

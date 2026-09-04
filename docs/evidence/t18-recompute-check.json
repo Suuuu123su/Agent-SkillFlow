@@ -35,5 +35,17 @@
         "hiaa.csv": "1b687c674b9a1f603d321a56ac665a8d2b9e6c3e6cb035479c32880b1df741b2"
       }
     }
-  ]
+  ],
+  "complete_collection": {
+    "input": "datasets/t18-local",
+    "output": "runs/t18-recomputed-02",
+    "status": "pass",
+    "domains": 2,
+    "core_count": 308,
+    "replay_pairs": 21,
+    "compared_files": 16,
+    "new_core_runs": 0,
+    "api_calls": 0,
+    "table_manifest_sha256": "a4a6092a1b052921c6494830ab42d4b18846e95ac7085bc745c9df99f3aa7233"
+  }
 }

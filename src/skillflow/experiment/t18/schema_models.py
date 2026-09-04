@@ -22,6 +22,7 @@ from skillflow.experiment.t18.preregistration import Preregistration
 from skillflow.experiment.t18.replay import LocalReplay
 from skillflow.experiment.t18.reporting import LocalReport
 from skillflow.experiment.t18.run_models import LocalCore, LocalPhase
+from skillflow.experiment.t18.table_models import DiagnosisRow, OutcomeRow, PlanRow, TableManifest
 
 
 def t18_schema_documents() -> tuple[tuple[str, dict[str, JsonValue]], ...]:
@@ -45,6 +46,10 @@ def t18_schema_documents() -> tuple[tuple[str, dict[str, JsonValue]], ...]:
             ("measure", Measure),
             ("report", LocalReport),
             ("dataset-manifest", DatasetManifest),
+            ("diagnosis-row", DiagnosisRow),
+            ("plan-row", PlanRow),
+            ("outcome-row", OutcomeRow),
+            ("table-manifest", TableManifest),
         )
     )
 

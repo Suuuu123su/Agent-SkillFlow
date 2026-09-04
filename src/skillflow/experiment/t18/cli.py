@@ -11,6 +11,7 @@ from skillflow.defense.router import EvidenceDefenseRouter
 from skillflow.experiment.t18.dataset import export_dataset, recompute_dataset
 from skillflow.experiment.t18.report_data import load_run
 from skillflow.experiment.t18.stage import load_inputs, run_batch
+from skillflow.experiment.t18.tables import recompute_collection
 from skillflow.validation import DocumentValidationError
 
 app = typer.Typer(help="本地多技能诊断、防御与可复算实验。", no_args_is_help=True)
@@ -89,7 +90,12 @@ def report_command(
         raise typer.BadParameter("t18_choose_dataset_or_run_with_root")
     try:
         if dataset is not None:
-            typer.echo(json.dumps(recompute_dataset(dataset, output), ensure_ascii=False))
+            recompute = (
+                recompute_collection
+                if (dataset / "sha256-manifest.json").is_file()
+                else recompute_dataset
+            )
+            typer.echo(json.dumps(recompute(dataset, output), ensure_ascii=False))
         elif root is not None and run is not None:
             result = export_dataset(load_run(root, run), output)
             typer.echo(

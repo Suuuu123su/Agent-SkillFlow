@@ -123,7 +123,7 @@ def test_report_writes_complete_tables_without_overwrite(
 def test_schemas_are_typed_and_drift_is_rejected(tmp_path: Path) -> None:
     write_t18_schemas(tmp_path)
     write_t18_schemas(tmp_path)
-    assert len(t18_schema_documents()) == 16
+    assert len(t18_schema_documents()) == 20
     for name, schema in t18_schema_documents():
         assert json.loads((ROOT / "schemas" / name).read_text(encoding="utf-8")) == schema
     (tmp_path / "t18-matrix.schema.json").write_text("{}", encoding="utf-8")

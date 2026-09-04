@@ -1,0 +1,83 @@
+{
+  "$defs": {
+    "TableFile": {
+      "additionalProperties": false,
+      "description": "一个交付文件的字节数、摘要和数据行数（不含表头）。",
+      "properties": {
+        "bytes": {
+          "title": "Bytes",
+          "type": "integer"
+        },
+        "records": {
+          "minimum": 0,
+          "title": "Records",
+          "type": "integer"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sha256",
+        "bytes",
+        "records"
+      ],
+      "title": "TableFile",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "登记派生明细的来源域，禁止跨域汇总指标。",
+  "properties": {
+    "domains": {
+      "items": {
+        "enum": [
+          "scripted",
+          "fake_reference"
+        ],
+        "type": "string"
+      },
+      "title": "Domains",
+      "type": "array"
+    },
+    "files": {
+      "additionalProperties": {
+        "$ref": "#/$defs/TableFile"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Files",
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "18.0",
+      "default": "18.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_phase_contracts": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "propertyNames": {
+        "enum": [
+          "scripted",
+          "fake_reference"
+        ]
+      },
+      "title": "Source Phase Contracts",
+      "type": "object"
+    }
+  },
+  "required": [
+    "domains",
+    "source_phase_contracts",
+    "files"
+  ],
+  "title": "TableManifest",
+  "type": "object"
+}

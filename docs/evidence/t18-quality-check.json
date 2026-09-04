@@ -23,33 +23,44 @@
     "formal_experiments_rerun": false,
     "coverage_accumulation": "完整测试与定向修复覆盖数据取并集，未丢弃原始失败记录。"
   },
+  "table_delivery": {
+    "tests": 13,
+    "passed": 13,
+    "failed": 0,
+    "record": ".tmp/t18-20260904-01/tables-repaired-tests.xml",
+    "new_core_runs": 0,
+    "api_calls": 0,
+    "independent_compared_files": 16,
+    "independent_recompute": "pass",
+    "authorization_projection": "directly_bound_to_original_decisions"
+  },
   "coverage": {
     "required_combined_percent": 90,
-    "combined_percent": 90.10398613518197,
-    "branch_only_percent": 76.73905666779775,
-    "covered_lines": 26671,
-    "num_statements": 28726,
-    "covered_branches": 4523,
-    "num_branches": 5894,
+    "combined_percent": 90.13396193871098,
+    "branch_only_percent": 76.78029024637192,
+    "covered_lines": 26804,
+    "num_statements": 28860,
+    "covered_branches": 4550,
+    "num_branches": 5926,
     "excluded_lines": 219,
     "new_exclusions": 0,
-    "record": ".tmp/t18-20260904-01/repaired-coverage.json"
+    "record": ".tmp/t18-20260904-01/tables-repaired-coverage.json"
   },
   "project_checks": {
     "ruff_check": "pass",
     "ruff_format": "pass",
     "strict_mypy": "pass",
-    "strict_source_files": 484,
-    "static_schemas": 136,
-    "t18_schemas": 16,
+    "strict_source_files": 486,
+    "static_schemas": 140,
+    "t18_schemas": 20,
     "pip_check": "pass",
     "offline_doctor": "pass",
     "new_python_line_limit": 400,
     "new_ignore_any_skip_or_coverage_bypass_matches": 0,
     "new_runtime_network_or_environment_access_matches": 0,
     "public_data_credential_or_host_path_matches": 0,
-    "public_files": 346,
-    "public_bytes": 45186795,
+    "public_files": 356,
+    "public_bytes": 74426015,
     "scope_note": "静态检查针对项目 src/tests/scripts；保留的用户旧临时目录和未提交 protocol.py 草稿不作为交付代码修改。覆盖率未新增排除。"
   },
   "t17_preservation": {
@@ -63,5 +74,11 @@
     "worktree_user_content_preserved": true,
     "next_action": "需要用户明确批准仅提交 T18 段落，T12 原文继续保留本地且不变。"
   },
-  "github_ci": {"status": "pending"}
+  "github_ci": {
+    "previous_delivery_status": "pass",
+    "run": 33901511581,
+    "tests": 1350,
+    "combined_coverage_percent": 90.13091350460942,
+    "current_table_delivery_status": "remote_check_pending"
+  }
 }

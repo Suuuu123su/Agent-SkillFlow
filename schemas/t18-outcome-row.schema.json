@@ -1,0 +1,159 @@
+{
+  "$defs": {
+    "DefenseOutcome": {
+      "additionalProperties": false,
+      "description": "同任务配对后的效果与效用；不能用模型自报完成填充。",
+      "properties": {
+        "actual_extra_steps": {
+          "minimum": 0,
+          "title": "Actual Extra Steps",
+          "type": "integer"
+        },
+        "actual_latency_ms": {
+          "minimum": 0,
+          "title": "Actual Latency Ms",
+          "type": "number"
+        },
+        "after_authorization": {
+          "items": {
+            "type": "boolean"
+          },
+          "title": "After Authorization",
+          "type": "array"
+        },
+        "after_effect_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "After Effect Ids",
+          "type": "array"
+        },
+        "after_run_id": {
+          "minLength": 1,
+          "title": "After Run Id",
+          "type": "string"
+        },
+        "before_authorization": {
+          "items": {
+            "type": "boolean"
+          },
+          "title": "Before Authorization",
+          "type": "array"
+        },
+        "before_effect_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Before Effect Ids",
+          "type": "array"
+        },
+        "before_run_id": {
+          "minLength": 1,
+          "title": "Before Run Id",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "outcome_id": {
+          "minLength": 1,
+          "title": "Outcome Id",
+          "type": "string"
+        },
+        "over_defense": {
+          "title": "Over Defense",
+          "type": "boolean"
+        },
+        "residual_risk": {
+          "title": "Residual Risk",
+          "type": "boolean"
+        },
+        "safe_task_success": {
+          "title": "Safe Task Success",
+          "type": "boolean"
+        },
+        "schema_version": {
+          "const": "18.0",
+          "default": "18.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "task_success": {
+          "title": "Task Success",
+          "type": "boolean"
+        },
+        "utility_loss": {
+          "maximum": 1,
+          "minimum": -1,
+          "title": "Utility Loss",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "outcome_id",
+        "before_run_id",
+        "after_run_id",
+        "before_effect_ids",
+        "after_effect_ids",
+        "before_authorization",
+        "after_authorization",
+        "task_success",
+        "safe_task_success",
+        "utility_loss",
+        "over_defense",
+        "residual_risk",
+        "actual_extra_steps",
+        "actual_latency_ms",
+        "evidence_ids"
+      ],
+      "title": "DefenseOutcome",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "一次既定配对的输出行，不代表额外实验或独立样本。",
+  "properties": {
+    "after_trial_id": {
+      "minLength": 1,
+      "title": "After Trial Id",
+      "type": "string"
+    },
+    "before_trial_id": {
+      "minLength": 1,
+      "title": "Before Trial Id",
+      "type": "string"
+    },
+    "comparison_id": {
+      "minLength": 1,
+      "title": "Comparison Id",
+      "type": "string"
+    },
+    "domain": {
+      "enum": [
+        "scripted",
+        "fake_reference"
+      ],
+      "title": "Domain",
+      "type": "string"
+    },
+    "outcome": {
+      "$ref": "#/$defs/DefenseOutcome"
+    }
+  },
+  "required": [
+    "domain",
+    "comparison_id",
+    "before_trial_id",
+    "after_trial_id",
+    "outcome"
+  ],
+  "title": "OutcomeRow",
+  "type": "object"
+}
