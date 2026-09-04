@@ -29,3 +29,5 @@
 复算入口：`skillflow t17 v2 report --dataset <阶段目录> --output <新目录>`；总集合完成后使用 `scripts/t17_delivery/t17_collection.py --from-collection datasets/t17-v2 --output runs/t17-v2-recomputed-01`。无需密钥或私有正文；不同模型与预检不合并比例。
 
 提交边界：只提交本轮实现、协议、脱敏结构化事实、报告和清单。用户的 `src/skillflow/experiment/t17/protocol.py` 草稿、`.coverage-v3-*` 与 `.tmp/` 保留不提交。旧 T16、旧 T17、M0～M3 的冻结数据和总结保持原状。
+
+跨平台字节规则：第二版协议、公开总集合和本地记录清单禁止 Git 自动替换换行，防止 Windows 检出改变冻结文件。此规则只覆盖新第二版目录，不重写历史文件或重算旧记录。

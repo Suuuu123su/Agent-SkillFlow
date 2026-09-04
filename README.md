@@ -38,6 +38,7 @@ H 复用 F 的 360/270，只新增 270/270；不能再将 F 与完整 H 相加�
 - 完整阶段指标：[Luna](docs/evidence/t17-v2-luna-formal-metrics-20260904.json)、[DeepSeek](docs/evidence/t17-v2-deepseek-formal-metrics-20260904.json)、[防御比较](docs/evidence/t17-v2-defense-metrics-20260904.json)。JSON 保留分子、分母、状态、区间和证据编号。
 - 通过记录：[DeepSeek 正式](docs/evidence/t17-v2-deepseek-formal-pass-20260904.json)、[H 新增部分](docs/evidence/t17-v2-luna-defense-pass-20260904.json)。完整逐任务数据已在各阶段本地 `dataset/` 目录生成，公开总集合与独立复算待完成。
 - [本地记录清单](docs/evidence/t17-v2-local-raw-inventory/inventory-summary.json)登记 59,739 个文件：复用 56,722 项已有哈希，仅首次补登 3,017 项。未改写原始记录；私有正文不上传。旧 G 已按用户批准移入可恢复隔离目录，保留费用但不进入新 G 分母。
+- 第二版冻结协议与公开数据保留原始换行字节，避免 Windows 检出改变已登记文件；历史目录不受影响。
 - 质量检查：451 个源文件及 4 个交付脚本的严格类型检查通过；静态与格式检查通过，120 个静态格式与模型一致。按要求未重跑本地全量测试。历史 1032 项、综合覆盖率 90.13%／纯分支 75.89% 不是本版验收结果；当前远端 CI 待运行。独立审查保留 `REVIEW_UNAVAILABLE`，运行前审查保留 `WARN`。
 
 G 第 13 个任务使用原两次响应恢复，没有重采；H 网络中断后从第 34 个接续。空目标和超限空响应只采用[用户批准的最小修订](docs/evidence/t17-v2-deepseek-output-rule-approval-20260904.json)，输出请求上限仍为 2048，失败、原响应和费用均保留。DeepSeek 使用 `system` 控制角色，请求中等推理对应服务高档推理；返回 `deepseek-v4-flash` 别名不等于已验证不可变快照。G 的恢复任务整体耗时不用于线上速度排名。

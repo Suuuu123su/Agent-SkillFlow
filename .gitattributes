@@ -29,3 +29,12 @@ schemas/t17-*.json text eol=lf
 # 本轮最小实验 CSV 已按标准 CSV 的 CRLF 冻结；禁止 Git 改写其证据哈希。
 docs/evidence/t17-minimal-scripted-metrics-20260903.csv -text whitespace=cr-at-eol
 docs/evidence/t17-minimal-fake-reference-metrics-20260903.csv -text whitespace=cr-at-eol
+
+# 第二版公开数据与协议按生成字节冻结，禁止 Windows 检出时改写换行。
+datasets/t17-v2/** -text whitespace=cr-at-eol
+docs/evidence/t17-v2-local-raw-inventory/** -text
+experiments/t17/v2/** -text
+experiments/t17/v2-deepseek-20260904/** -text
+experiments/t17/v2-deepseek-empty-rule-20260904/** -text
+experiments/t17/v2-deepseek-output-rule-20260904/** -text
+experiments/t17/v2-luna-defense-20260904/** -text
