@@ -1,0 +1,40 @@
+{
+  "additionalProperties": false,
+  "description": "只确认控制文件已读；不冒充费用批准或实验完成。",
+  "properties": {
+    "command_id": {
+      "minLength": 1,
+      "title": "Command Id",
+      "type": "string"
+    },
+    "grants_api_authorization": {
+      "const": false,
+      "default": false,
+      "title": "Grants Api Authorization",
+      "type": "boolean"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    },
+    "schema_valid": {
+      "title": "Schema Valid",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "command_id",
+    "schema_valid"
+  ],
+  "title": "SessionCommandReceipt",
+  "type": "object"
+}

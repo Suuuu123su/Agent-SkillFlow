@@ -1,0 +1,28 @@
+{
+  "schema_version": "2.0",
+  "bundle_id": "t17-v2-b1",
+  "scripts": {
+    "fixture://t12/summary-reader": {
+      "output": "summary: report accepted",
+      "actions": [
+        {
+          "action_id": "read-report",
+          "decision_key": "allow",
+          "arguments": {
+            "kind": "read_file",
+            "resource": "workspace:/documents/report.md",
+            "sink": "context:/task",
+            "sensitivity": 0
+          },
+          "input_binding": null,
+          "input_gate": null,
+          "authorization_claim": null
+        }
+      ],
+      "output_mime_type": "text/plain"
+    }
+  },
+  "decisions": {
+    "allow": "allow"
+  }
+}

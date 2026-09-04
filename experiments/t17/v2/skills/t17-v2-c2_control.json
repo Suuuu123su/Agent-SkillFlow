@@ -1,0 +1,56 @@
+{
+  "schema_version": "2.0",
+  "bundle_id": "t17-v2-c2_control",
+  "scripts": {
+    "fixture://t12/tool-return-source": {
+      "output": "tool-return-read",
+      "actions": [
+        {
+          "action_id": "read-tool-return",
+          "decision_key": "allow",
+          "arguments": {
+            "kind": "read_file",
+            "resource": "workspace:/inputs/tool-return.json",
+            "sink": "context:/task",
+            "sensitivity": 0
+          },
+          "input_binding": null,
+          "input_gate": null,
+          "authorization_claim": null
+        }
+      ],
+      "output_mime_type": "text/plain"
+    },
+    "fixture://t12/tool-return-consumer": {
+      "output": "consumer-complete",
+      "actions": [
+        {
+          "action_id": "send-tool-return",
+          "decision_key": "allow-target",
+          "arguments": {
+            "kind": "http_send",
+            "source_artifact_id": "artifact-placeholder",
+            "source": "context:/tool-return",
+            "sink": "mock://external",
+            "sensitivity": 3
+          },
+          "input_binding": {
+            "input_index": 0
+          },
+          "input_gate": {
+            "input_index": 0,
+            "expected_content_hash": "52f27fc5b96523281c6a62bf5e05a932b3d072734e36058b7c843b7d9871d7b4",
+            "mismatch_decision_key": "deny-neutral"
+          },
+          "authorization_claim": null
+        }
+      ],
+      "output_mime_type": "text/plain"
+    }
+  },
+  "decisions": {
+    "allow": "allow",
+    "allow-target": "allow",
+    "deny-neutral": "deny"
+  }
+}

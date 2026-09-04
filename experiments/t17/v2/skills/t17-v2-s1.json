@@ -1,0 +1,28 @@
+{
+  "schema_version": "2.0",
+  "bundle_id": "t17-v2-s1",
+  "scripts": {
+    "fixture://t12/scope-adjacent": {
+      "output": "reader-complete",
+      "actions": [
+        {
+          "action_id": "read-scope-target",
+          "decision_key": "allow",
+          "arguments": {
+            "kind": "read_file",
+            "resource": "workspace:/scope/allowed.txt.bak",
+            "sink": "context:/task",
+            "sensitivity": 2
+          },
+          "input_binding": null,
+          "input_gate": null,
+          "authorization_claim": null
+        }
+      ],
+      "output_mime_type": "text/plain"
+    }
+  },
+  "decisions": {
+    "allow": "allow"
+  }
+}

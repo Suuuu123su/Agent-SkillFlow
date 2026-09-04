@@ -1,0 +1,300 @@
+{
+  "$defs": {
+    "BudgetConfig": {
+      "additionalProperties": false,
+      "description": "可生成静态 Schema 的费用保护配置。",
+      "properties": {
+        "allow_live": {
+          "default": false,
+          "title": "Allow Live",
+          "type": "boolean"
+        },
+        "max_agent_turns": {
+          "minimum": 1,
+          "title": "Max Agent Turns",
+          "type": "integer"
+        },
+        "max_cost_per_run_usd": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Max Cost Per Run Usd"
+        },
+        "max_output_tokens_per_turn": {
+          "minimum": 1,
+          "title": "Max Output Tokens Per Turn",
+          "type": "integer"
+        },
+        "max_retries": {
+          "minimum": 0,
+          "title": "Max Retries",
+          "type": "integer"
+        },
+        "max_total_usd": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Max Total Usd"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "max_total_usd",
+        "max_cost_per_run_usd",
+        "max_agent_turns",
+        "max_output_tokens_per_turn",
+        "max_retries"
+      ],
+      "title": "BudgetConfig",
+      "type": "object"
+    },
+    "PricingRates": {
+      "additionalProperties": false,
+      "description": "每百万 token 的美元估算价格。",
+      "properties": {
+        "cache_write_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Cache Write Per Million Usd"
+        },
+        "cached_input_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cached Input Per Million Usd"
+        },
+        "input_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Input Per Million Usd"
+        },
+        "output_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Output Per Million Usd"
+        },
+        "reasoning_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Reasoning Per Million Usd"
+        },
+        "status": {
+          "$ref": "#/$defs/PricingStatus"
+        }
+      },
+      "required": [
+        "status",
+        "input_per_million_usd",
+        "cached_input_per_million_usd",
+        "output_per_million_usd",
+        "reasoning_per_million_usd"
+      ],
+      "title": "PricingRates",
+      "type": "object"
+    },
+    "PricingStatus": {
+      "description": "价格是否已冻结到可执行状态。",
+      "enum": [
+        "fake_zero",
+        "live_pending",
+        "live_pinned"
+      ],
+      "title": "PricingStatus",
+      "type": "string"
+    },
+    "ProviderConfig": {
+      "additionalProperties": false,
+      "description": "Fake/Live 共享的静态 Provider 配置。",
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/ProviderKind"
+        },
+        "model_id": {
+          "minLength": 1,
+          "title": "Model Id",
+          "type": "string"
+        },
+        "model_revision": {
+          "minLength": 1,
+          "title": "Model Revision",
+          "type": "string"
+        },
+        "pricing": {
+          "$ref": "#/$defs/PricingRates"
+        },
+        "reasoning_effort": {
+          "$ref": "#/$defs/ReasoningEffort"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "temperature": {
+          "anyOf": [
+            {
+              "maximum": 2,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Temperature"
+        }
+      },
+      "required": [
+        "kind",
+        "model_id",
+        "model_revision",
+        "temperature",
+        "reasoning_effort",
+        "pricing"
+      ],
+      "title": "ProviderConfig",
+      "type": "object"
+    },
+    "ProviderKind": {
+      "description": "T16 允许的 Provider 类型。",
+      "enum": [
+        "fake",
+        "live"
+      ],
+      "title": "ProviderKind",
+      "type": "string"
+    },
+    "ReasoningEffort": {
+      "description": "与具体厂商解耦的推理强度记录。",
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "ReasoningEffort",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "一次总预算批准分配出的阶段配置，不保存密钥。",
+  "properties": {
+    "approval_id": {
+      "minLength": 1,
+      "title": "Approval Id",
+      "type": "string"
+    },
+    "budget": {
+      "$ref": "#/$defs/BudgetConfig"
+    },
+    "cost_plan_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Cost Plan Sha256",
+      "type": "string"
+    },
+    "endpoint": {
+      "const": "https://api.openai.com/v1/responses",
+      "default": "https://api.openai.com/v1/responses",
+      "title": "Endpoint",
+      "type": "string"
+    },
+    "matrix_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Matrix Sha256",
+      "type": "string"
+    },
+    "max_input_bytes": {
+      "default": 100000,
+      "minimum": 1024,
+      "title": "Max Input Bytes",
+      "type": "integer"
+    },
+    "prompt_cache_mode": {
+      "enum": [
+        "explicit",
+        "automatic"
+      ],
+      "title": "Prompt Cache Mode",
+      "type": "string"
+    },
+    "provider": {
+      "$ref": "#/$defs/ProviderConfig"
+    },
+    "schema_version": {
+      "const": "2.0",
+      "default": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "provider",
+    "budget",
+    "matrix_sha256",
+    "cost_plan_sha256",
+    "approval_id",
+    "prompt_cache_mode"
+  ],
+  "title": "V2LiveConfig",
+  "type": "object"
+}

@@ -1,0 +1,608 @@
+{
+  "$defs": {
+    "AuthorizationCondition": {
+      "description": "实验中被暴露的授权来源条件。",
+      "enum": [
+        "none",
+        "implicit_text",
+        "structured_confirmation"
+      ],
+      "title": "AuthorizationCondition",
+      "type": "string"
+    },
+    "CapabilityAction": {
+      "description": "MVP 固定支持的能力动作。",
+      "enum": [
+        "file.read",
+        "file.write",
+        "memory.read",
+        "memory.write",
+        "network.send",
+        "shell.execute",
+        "user.confirm"
+      ],
+      "title": "CapabilityAction",
+      "type": "string"
+    },
+    "EffectSelector": {
+      "additionalProperties": false,
+      "description": "把运行期多个 EffectRecord 映射到稳定别名。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "alias": {
+          "minLength": 1,
+          "title": "Alias",
+          "type": "string"
+        },
+        "sink_pattern": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source_pattern": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "alias",
+        "action",
+        "source_pattern",
+        "sink_pattern"
+      ],
+      "title": "EffectSelector",
+      "type": "object"
+    },
+    "EnforcementMode": {
+      "description": "策略只观察或实际阻断。",
+      "enum": [
+        "monitor",
+        "enforce"
+      ],
+      "title": "EnforcementMode",
+      "type": "string"
+    },
+    "ExperimentVariant": {
+      "additionalProperties": false,
+      "description": "一个 Scenario 与受控 Harness 开关的确定性配置。",
+      "properties": {
+        "authorization_condition": {
+          "$ref": "#/$defs/AuthorizationCondition",
+          "default": "none"
+        },
+        "auto_approve_tools": {
+          "title": "Auto Approve Tools",
+          "type": "boolean"
+        },
+        "enforcement_mode": {
+          "$ref": "#/$defs/EnforcementMode"
+        },
+        "harm_selector": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EffectSelector"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "hiaa_cell": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/HiaaCell"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "hiaa_design_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hiaa Design Id"
+        },
+        "implicit_text_authorization": {
+          "title": "Implicit Text Authorization",
+          "type": "boolean"
+        },
+        "pair_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pair Id"
+        },
+        "persistent_memory": {
+          "title": "Persistent Memory",
+          "type": "boolean"
+        },
+        "provenance_mode": {
+          "$ref": "#/$defs/ProvenanceMode"
+        },
+        "run_role": {
+          "$ref": "#/$defs/MatrixRunRole",
+          "default": "core"
+        },
+        "scenario": {
+          "$ref": "#/$defs/ScenarioPath"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "integer"
+        },
+        "session_condition": {
+          "$ref": "#/$defs/SessionCondition",
+          "default": "original"
+        },
+        "shared_context": {
+          "title": "Shared Context",
+          "type": "boolean"
+        },
+        "skill_state": {
+          "$ref": "#/$defs/SkillStateCondition",
+          "default": "normal"
+        },
+        "target_skill_present": {
+          "title": "Target Skill Present",
+          "type": "boolean"
+        },
+        "variant": {
+          "minLength": 1,
+          "title": "Variant",
+          "type": "string"
+        }
+      },
+      "required": [
+        "variant",
+        "scenario",
+        "seed",
+        "target_skill_present",
+        "shared_context",
+        "persistent_memory",
+        "auto_approve_tools",
+        "enforcement_mode",
+        "provenance_mode",
+        "implicit_text_authorization"
+      ],
+      "title": "ExperimentVariant",
+      "type": "object"
+    },
+    "HiaaCell": {
+      "description": "目标 Skill 与 Harness 特性的四格组合。",
+      "enum": [
+        "p00",
+        "p01",
+        "p10",
+        "p11"
+      ],
+      "title": "HiaaCell",
+      "type": "string"
+    },
+    "MatrixRunRole": {
+      "description": "核心变体与不得进入普通分母的派生 Run。",
+      "enum": [
+        "core",
+        "determinism_repeat",
+        "counterfactual"
+      ],
+      "title": "MatrixRunRole",
+      "type": "string"
+    },
+    "PricingRates": {
+      "additionalProperties": false,
+      "description": "每百万 token 的美元估算价格。",
+      "properties": {
+        "cache_write_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Cache Write Per Million Usd"
+        },
+        "cached_input_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cached Input Per Million Usd"
+        },
+        "input_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Input Per Million Usd"
+        },
+        "output_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Output Per Million Usd"
+        },
+        "reasoning_per_million_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Reasoning Per Million Usd"
+        },
+        "status": {
+          "$ref": "#/$defs/PricingStatus"
+        }
+      },
+      "required": [
+        "status",
+        "input_per_million_usd",
+        "cached_input_per_million_usd",
+        "output_per_million_usd",
+        "reasoning_per_million_usd"
+      ],
+      "title": "PricingRates",
+      "type": "object"
+    },
+    "PricingStatus": {
+      "description": "价格是否已冻结到可执行状态。",
+      "enum": [
+        "fake_zero",
+        "live_pending",
+        "live_pinned"
+      ],
+      "title": "PricingStatus",
+      "type": "string"
+    },
+    "ProvenanceMode": {
+      "description": "Harness 对 Observed 来源标签的受控处理模式。",
+      "enum": [
+        "preserve",
+        "drop_on_derive",
+        "drop_on_memory"
+      ],
+      "title": "ProvenanceMode",
+      "type": "string"
+    },
+    "ProviderConfig": {
+      "additionalProperties": false,
+      "description": "Fake/Live 共享的静态 Provider 配置。",
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/ProviderKind"
+        },
+        "model_id": {
+          "minLength": 1,
+          "title": "Model Id",
+          "type": "string"
+        },
+        "model_revision": {
+          "minLength": 1,
+          "title": "Model Revision",
+          "type": "string"
+        },
+        "pricing": {
+          "$ref": "#/$defs/PricingRates"
+        },
+        "reasoning_effort": {
+          "$ref": "#/$defs/ReasoningEffort"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "temperature": {
+          "anyOf": [
+            {
+              "maximum": 2,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Temperature"
+        }
+      },
+      "required": [
+        "kind",
+        "model_id",
+        "model_revision",
+        "temperature",
+        "reasoning_effort",
+        "pricing"
+      ],
+      "title": "ProviderConfig",
+      "type": "object"
+    },
+    "ProviderKind": {
+      "description": "T16 允许的 Provider 类型。",
+      "enum": [
+        "fake",
+        "live"
+      ],
+      "title": "ProviderKind",
+      "type": "string"
+    },
+    "ReasoningEffort": {
+      "description": "与具体厂商解耦的推理强度记录。",
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "ReasoningEffort",
+      "type": "string"
+    },
+    "ResourceRef": {
+      "description": "一个已经校验并规范化的 Resource URI。",
+      "title": "ResourceRef",
+      "type": "string"
+    },
+    "ScenarioPath": {
+      "description": "Experiment Matrix 中受控的 Scenario 相对路径。",
+      "title": "ScenarioPath",
+      "type": "string"
+    },
+    "SessionCondition": {
+      "description": "Effect 位于授权原 Session 或新 Session。",
+      "enum": [
+        "original",
+        "new"
+      ],
+      "title": "SessionCondition",
+      "type": "string"
+    },
+    "SkillStateCondition": {
+      "description": "目标 Skill 在核心配置中的状态。",
+      "enum": [
+        "normal",
+        "revoked"
+      ],
+      "title": "SkillStateCondition",
+      "type": "string"
+    },
+    "T17LiveStage": {
+      "description": "预注册的真实模型执行阶段。",
+      "enum": [
+        "canary",
+        "model1",
+        "model2_canary",
+        "model2",
+        "defense"
+      ],
+      "title": "T17LiveStage",
+      "type": "string"
+    },
+    "V2Trial": {
+      "additionalProperties": false,
+      "description": "每条任务完整保存可比较的技能和运行条件身份。",
+      "properties": {
+        "condition_id": {
+          "minLength": 1,
+          "title": "Condition Id",
+          "type": "string"
+        },
+        "configuration": {
+          "$ref": "#/$defs/ExperimentVariant"
+        },
+        "defense_base_id": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Defense Base Id",
+          "type": "string"
+        },
+        "enforcement_mode": {
+          "$ref": "#/$defs/EnforcementMode"
+        },
+        "manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Manifest Sha256",
+          "type": "string"
+        },
+        "repeat_index": {
+          "minimum": 1,
+          "title": "Repeat Index",
+          "type": "integer"
+        },
+        "replay_pair_ids": {
+          "additionalProperties": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "propertyNames": {
+            "minLength": 1
+          },
+          "title": "Replay Pair Ids",
+          "type": "object"
+        },
+        "semantic_instance_id": {
+          "minLength": 1,
+          "title": "Semantic Instance Id",
+          "type": "string"
+        },
+        "semantic_template_id": {
+          "minLength": 1,
+          "title": "Semantic Template Id",
+          "type": "string"
+        },
+        "skill_content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Skill Content Sha256",
+          "type": "string"
+        },
+        "skill_variant_id": {
+          "minLength": 1,
+          "title": "Skill Variant Id",
+          "type": "string"
+        },
+        "source_variant": {
+          "minLength": 1,
+          "title": "Source Variant",
+          "type": "string"
+        },
+        "task_contract_id": {
+          "minLength": 1,
+          "title": "Task Contract Id",
+          "type": "string"
+        },
+        "task_contract_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Task Contract Sha256",
+          "type": "string"
+        },
+        "task_prompt": {
+          "minLength": 1,
+          "title": "Task Prompt",
+          "type": "string"
+        },
+        "trial_id": {
+          "minLength": 1,
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "trial_id",
+        "condition_id",
+        "source_variant",
+        "configuration",
+        "skill_variant_id",
+        "skill_content_sha256",
+        "manifest_sha256",
+        "task_contract_id",
+        "task_contract_sha256",
+        "semantic_instance_id",
+        "semantic_template_id",
+        "repeat_index",
+        "task_prompt",
+        "defense_base_id",
+        "enforcement_mode",
+        "replay_pair_ids"
+      ],
+      "title": "V2Trial",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "一个模型阶段的完整调度，与旧 T17 格式不能混用。",
+  "properties": {
+    "catalog_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Catalog Sha256",
+      "type": "string"
+    },
+    "configuration_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Configuration Sha256",
+      "type": "string"
+    },
+    "matrix_id": {
+      "minLength": 1,
+      "title": "Matrix Id",
+      "type": "string"
+    },
+    "protocol_id": {
+      "minLength": 1,
+      "title": "Protocol Id",
+      "type": "string"
+    },
+    "provider": {
+      "$ref": "#/$defs/ProviderConfig"
+    },
+    "scheduled_core_trials": {
+      "minimum": 1,
+      "title": "Scheduled Core Trials",
+      "type": "integer"
+    },
+    "scheduled_replay_pairs": {
+      "minimum": 0,
+      "title": "Scheduled Replay Pairs",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "2.0",
+      "default": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "stage": {
+      "$ref": "#/$defs/T17LiveStage"
+    },
+    "trials": {
+      "items": {
+        "$ref": "#/$defs/V2Trial"
+      },
+      "minItems": 1,
+      "title": "Trials",
+      "type": "array"
+    }
+  },
+  "required": [
+    "protocol_id",
+    "matrix_id",
+    "stage",
+    "configuration_sha256",
+    "catalog_sha256",
+    "provider",
+    "scheduled_core_trials",
+    "scheduled_replay_pairs",
+    "trials"
+  ],
+  "title": "V2Matrix",
+  "type": "object"
+}

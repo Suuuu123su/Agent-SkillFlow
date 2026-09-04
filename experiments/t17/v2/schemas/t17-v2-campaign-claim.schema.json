@@ -1,0 +1,54 @@
+{
+  "additionalProperties": false,
+  "description": "一次明确批准只能启动一个监督流程，不能重复消费同一上限。",
+  "properties": {
+    "approval_id": {
+      "minLength": 1,
+      "title": "Approval Id",
+      "type": "string"
+    },
+    "approval_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Approval Sha256",
+      "type": "string"
+    },
+    "approved_total_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Approved Total Usd"
+    },
+    "cost_plan_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Cost Plan Sha256",
+      "type": "string"
+    },
+    "output_relative_path": {
+      "minLength": 1,
+      "title": "Output Relative Path",
+      "type": "string"
+    },
+    "started_at": {
+      "format": "date-time",
+      "title": "Started At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "approval_id",
+    "approval_sha256",
+    "cost_plan_sha256",
+    "approved_total_usd",
+    "output_relative_path",
+    "started_at"
+  ],
+  "title": "CampaignClaim",
+  "type": "object"
+}

@@ -1,0 +1,1836 @@
+{
+  "$defs": {
+    "Artifact": {
+      "additionalProperties": false,
+      "description": "一个不可变的数据版本。",
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "$ref": "#/$defs/ArtifactType"
+        },
+        "content_hash": {
+          "minLength": 1,
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "content_length": {
+          "minimum": 0,
+          "title": "Content Length",
+          "type": "integer"
+        },
+        "created_by_event_id": {
+          "minLength": 1,
+          "title": "Created By Event Id",
+          "type": "string"
+        },
+        "mime_type": {
+          "minLength": 1,
+          "title": "Mime Type",
+          "type": "string"
+        },
+        "observed_label": {
+          "$ref": "#/$defs/SecurityLabel"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "content_hash",
+        "content_length",
+        "mime_type",
+        "created_by_event_id",
+        "observed_label"
+      ],
+      "title": "Artifact",
+      "type": "object"
+    },
+    "ArtifactType": {
+      "description": "不可变数据版本的类别。",
+      "enum": [
+        "context",
+        "memory",
+        "file",
+        "skill_output",
+        "tool_arg",
+        "tool_return"
+      ],
+      "title": "ArtifactType",
+      "type": "string"
+    },
+    "AuthorizationGrant": {
+      "additionalProperties": false,
+      "description": "由用户或可信策略签发的能力授权。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "call_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Call Id"
+        },
+        "expires_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expires At"
+        },
+        "grant_id": {
+          "minLength": 1,
+          "title": "Grant Id",
+          "type": "string"
+        },
+        "grantee_id": {
+          "minLength": 1,
+          "title": "Grantee Id",
+          "type": "string"
+        },
+        "issuer_id": {
+          "minLength": 1,
+          "title": "Issuer Id",
+          "type": "string"
+        },
+        "issuer_type": {
+          "enum": [
+            "user",
+            "trusted_policy"
+          ],
+          "title": "Issuer Type",
+          "type": "string"
+        },
+        "lifetime": {
+          "$ref": "#/$defs/Lifetime"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "session_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Session Id"
+        },
+        "sink_pattern": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source_pattern": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "task_id": {
+          "minLength": 1,
+          "title": "Task Id",
+          "type": "string"
+        },
+        "valid_from": {
+          "format": "date-time",
+          "title": "Valid From",
+          "type": "string"
+        }
+      },
+      "required": [
+        "grant_id",
+        "issuer_id",
+        "issuer_type",
+        "grantee_id",
+        "action",
+        "source_pattern",
+        "sink_pattern",
+        "scope",
+        "lifetime",
+        "task_id",
+        "valid_from"
+      ],
+      "title": "AuthorizationGrant",
+      "type": "object"
+    },
+    "CapabilityAction": {
+      "description": "MVP 固定支持的能力动作。",
+      "enum": [
+        "file.read",
+        "file.write",
+        "memory.read",
+        "memory.write",
+        "network.send",
+        "shell.execute",
+        "user.confirm"
+      ],
+      "title": "CapabilityAction",
+      "type": "string"
+    },
+    "CapabilityEffect": {
+      "additionalProperties": false,
+      "description": "可比较的结构化能力效果。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "lifetime": {
+          "$ref": "#/$defs/Lifetime"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "sensitivity": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Sensitivity",
+          "type": "integer"
+        },
+        "sink": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "action",
+        "sink",
+        "scope",
+        "lifetime",
+        "sensitivity"
+      ],
+      "title": "CapabilityEffect",
+      "type": "object"
+    },
+    "Decision": {
+      "description": "Harness 或策略的结构化决策。",
+      "enum": [
+        "allow",
+        "deny",
+        "confirm"
+      ],
+      "title": "Decision",
+      "type": "string"
+    },
+    "DecisionFact": {
+      "additionalProperties": false,
+      "description": "动作选择记录；没有权限、来源和回执自报字段。",
+      "properties": {
+        "allowed_action_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Allowed Action Ids",
+          "type": "array"
+        },
+        "behavior": {
+          "enum": [
+            "normal",
+            "refusal",
+            "no_call",
+            "schema_rejection"
+          ],
+          "title": "Behavior",
+          "type": "string"
+        },
+        "call_id": {
+          "minLength": 1,
+          "title": "Call Id",
+          "type": "string"
+        },
+        "implementation": {
+          "minLength": 1,
+          "title": "Implementation",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "schema_valid": {
+          "title": "Schema Valid",
+          "type": "boolean"
+        },
+        "selected_action_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Selected Action Ids",
+          "type": "array"
+        },
+        "session_id": {
+          "minLength": 1,
+          "title": "Session Id",
+          "type": "string"
+        },
+        "step_id": {
+          "minLength": 1,
+          "title": "Step Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "session_id",
+        "step_id",
+        "call_id",
+        "implementation",
+        "allowed_action_ids",
+        "selected_action_ids",
+        "behavior",
+        "schema_valid"
+      ],
+      "title": "DecisionFact",
+      "type": "object"
+    },
+    "DecisionRecord": {
+      "additionalProperties": false,
+      "description": "同时保留基线、策略、授权和执行四个事实。",
+      "properties": {
+        "authorized": {
+          "title": "Authorized",
+          "type": "boolean"
+        },
+        "baseline_result": {
+          "$ref": "#/$defs/Decision"
+        },
+        "decision_basis_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Decision Basis Artifact Ids",
+          "type": "array"
+        },
+        "decision_id": {
+          "minLength": 1,
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "enforcement_mode": {
+          "$ref": "#/$defs/EnforcementMode"
+        },
+        "executed": {
+          "title": "Executed",
+          "type": "boolean"
+        },
+        "manifest_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Manifest Id"
+        },
+        "matched_grant_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Matched Grant Ids",
+          "type": "array"
+        },
+        "policy_result": {
+          "$ref": "#/$defs/Decision"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "request_event_id": {
+          "minLength": 1,
+          "title": "Request Event Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "decision_id",
+        "request_event_id",
+        "enforcement_mode",
+        "baseline_result",
+        "policy_result",
+        "authorized",
+        "executed"
+      ],
+      "title": "DecisionRecord",
+      "type": "object"
+    },
+    "EffectRecord": {
+      "additionalProperties": false,
+      "description": "一次运行中的效果请求与执行结果。",
+      "properties": {
+        "decision_id": {
+          "minLength": 1,
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "effect": {
+          "$ref": "#/$defs/CapabilityEffect"
+        },
+        "effect_alias": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effect Alias"
+        },
+        "effect_id": {
+          "minLength": 1,
+          "title": "Effect Id",
+          "type": "string"
+        },
+        "executed": {
+          "title": "Executed",
+          "type": "boolean"
+        },
+        "request_event_id": {
+          "minLength": 1,
+          "title": "Request Event Id",
+          "type": "string"
+        },
+        "result_event_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Result Event Id"
+        },
+        "tool_receipt_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tool Receipt Id"
+        }
+      },
+      "required": [
+        "effect_id",
+        "effect",
+        "request_event_id",
+        "decision_id",
+        "executed"
+      ],
+      "title": "EffectRecord",
+      "type": "object"
+    },
+    "EffectSelector": {
+      "additionalProperties": false,
+      "description": "把运行期多个 EffectRecord 映射到稳定别名。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "alias": {
+          "minLength": 1,
+          "title": "Alias",
+          "type": "string"
+        },
+        "sink_pattern": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source_pattern": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "alias",
+        "action",
+        "source_pattern",
+        "sink_pattern"
+      ],
+      "title": "EffectSelector",
+      "type": "object"
+    },
+    "EnforcementMode": {
+      "description": "策略只观察或实际阻断。",
+      "enum": [
+        "monitor",
+        "enforce"
+      ],
+      "title": "EnforcementMode",
+      "type": "string"
+    },
+    "EventType": {
+      "description": "追加式安全事件类别。",
+      "enum": [
+        "run_start",
+        "run_end",
+        "session_start",
+        "session_end",
+        "skill_install",
+        "skill_load",
+        "skill_invoke",
+        "skill_return",
+        "skill_revoke",
+        "skill_unload",
+        "context_add",
+        "context_read",
+        "context_summarize",
+        "memory_write",
+        "memory_read",
+        "memory_delete",
+        "file_read",
+        "file_write",
+        "tool_call_request",
+        "tool_call_allow",
+        "tool_call_deny",
+        "tool_call_result",
+        "auth_claim_observed",
+        "auth_grant",
+        "auth_revoke",
+        "artifact_register",
+        "artifact_derive",
+        "sensitive_effect"
+      ],
+      "title": "EventType",
+      "type": "string"
+    },
+    "ExecutionIssue": {
+      "additionalProperties": false,
+      "description": "受信步骤编排器记录的输入缺失，不冒充基础设施错误。",
+      "properties": {
+        "reason": {
+          "enum": [
+            "missing_input",
+            "memory_not_present"
+          ],
+          "title": "Reason",
+          "type": "string"
+        },
+        "references": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "References",
+          "type": "array"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "session_id": {
+          "minLength": 1,
+          "title": "Session Id",
+          "type": "string"
+        },
+        "step_id": {
+          "minLength": 1,
+          "title": "Step Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "session_id",
+        "step_id",
+        "reason",
+        "references"
+      ],
+      "title": "ExecutionIssue",
+      "type": "object"
+    },
+    "FrozenFile": {
+      "additionalProperties": false,
+      "description": "单个已存在文件的哈希、长度及可选逐行记录数。",
+      "properties": {
+        "records": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Records"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "FrozenFile",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "Lifetime": {
+      "description": "授权或效果的有效边界。",
+      "enum": [
+        "call",
+        "task",
+        "session",
+        "persistent"
+      ],
+      "title": "Lifetime",
+      "type": "string"
+    },
+    "MockToolName": {
+      "description": "安全 Mock Tool 白名单。",
+      "enum": [
+        "read_file",
+        "write_memory",
+        "read_memory",
+        "http_send",
+        "shell_exec"
+      ],
+      "title": "MockToolName",
+      "type": "string"
+    },
+    "PortableRun": {
+      "additionalProperties": false,
+      "description": "从一个运行的事件库和回执恢复；不含 Blob 内容。",
+      "properties": {
+        "artifacts": {
+          "items": {
+            "$ref": "#/$defs/Artifact"
+          },
+          "title": "Artifacts",
+          "type": "array"
+        },
+        "decisions": {
+          "items": {
+            "$ref": "#/$defs/DecisionRecord"
+          },
+          "title": "Decisions",
+          "type": "array"
+        },
+        "effects": {
+          "items": {
+            "$ref": "#/$defs/EffectRecord"
+          },
+          "title": "Effects",
+          "type": "array"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/$defs/SecurityEvent"
+          },
+          "title": "Events",
+          "type": "array"
+        },
+        "grants": {
+          "items": {
+            "$ref": "#/$defs/AuthorizationGrant"
+          },
+          "title": "Grants",
+          "type": "array"
+        },
+        "receipts": {
+          "items": {
+            "$ref": "#/$defs/ToolReceiptDraft"
+          },
+          "title": "Receipts",
+          "type": "array"
+        },
+        "revocations": {
+          "items": {
+            "$ref": "#/$defs/RevocationRecord"
+          },
+          "title": "Revocations",
+          "type": "array"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "2.0",
+          "default": "2.0",
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "events",
+        "artifacts",
+        "decisions",
+        "effects",
+        "grants",
+        "revocations",
+        "receipts"
+      ],
+      "title": "PortableRun",
+      "type": "object"
+    },
+    "ReplayControlEvidence": {
+      "additionalProperties": false,
+      "description": "证明两分支共享运行条件的一组规范化摘要。",
+      "properties": {
+        "checkpoint_state_hash": {
+          "minLength": 1,
+          "title": "Checkpoint State Hash",
+          "type": "string"
+        },
+        "clock_start": {
+          "minLength": 1,
+          "title": "Clock Start",
+          "type": "string"
+        },
+        "decisions_hash": {
+          "minLength": 1,
+          "title": "Decisions Hash",
+          "type": "string"
+        },
+        "grants_hash": {
+          "minLength": 1,
+          "title": "Grants Hash",
+          "type": "string"
+        },
+        "manifests_hash": {
+          "minLength": 1,
+          "title": "Manifests Hash",
+          "type": "string"
+        },
+        "same_other_inputs": {
+          "const": true,
+          "default": true,
+          "title": "Same Other Inputs",
+          "type": "boolean"
+        },
+        "same_permissions": {
+          "const": true,
+          "default": true,
+          "title": "Same Permissions",
+          "type": "boolean"
+        },
+        "same_seed": {
+          "const": true,
+          "default": true,
+          "title": "Same Seed",
+          "type": "boolean"
+        },
+        "same_time": {
+          "const": true,
+          "default": true,
+          "title": "Same Time",
+          "type": "boolean"
+        },
+        "same_tool_returns": {
+          "const": true,
+          "default": true,
+          "title": "Same Tool Returns",
+          "type": "boolean"
+        },
+        "same_tool_set": {
+          "const": true,
+          "default": true,
+          "title": "Same Tool Set",
+          "type": "boolean"
+        },
+        "scripts_hash": {
+          "minLength": 1,
+          "title": "Scripts Hash",
+          "type": "string"
+        },
+        "seed_hash": {
+          "minLength": 1,
+          "title": "Seed Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "seed_hash",
+        "scripts_hash",
+        "decisions_hash",
+        "manifests_hash",
+        "grants_hash",
+        "clock_start",
+        "checkpoint_state_hash"
+      ],
+      "title": "ReplayControlEvidence",
+      "type": "object"
+    },
+    "ReplayInterventionEvidence": {
+      "additionalProperties": false,
+      "description": "不包含正文或宿主路径的 Artifact 干预证据。",
+      "properties": {
+        "artifact_type": {
+          "$ref": "#/$defs/ArtifactType"
+        },
+        "content_hash": {
+          "minLength": 1,
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "content_length": {
+          "minimum": 0,
+          "title": "Content Length",
+          "type": "integer"
+        },
+        "derived_artifact_id": {
+          "minLength": 1,
+          "title": "Derived Artifact Id",
+          "type": "string"
+        },
+        "mime_type": {
+          "minLength": 1,
+          "title": "Mime Type",
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "identity",
+            "neutral"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "schema_preserved": {
+          "title": "Schema Preserved",
+          "type": "boolean"
+        },
+        "source_artifact_id": {
+          "minLength": 1,
+          "title": "Source Artifact Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "mode",
+        "source_artifact_id",
+        "derived_artifact_id",
+        "artifact_type",
+        "mime_type",
+        "content_hash",
+        "content_length",
+        "schema_preserved"
+      ],
+      "title": "ReplayInterventionEvidence",
+      "type": "object"
+    },
+    "ReplayPairManifest": {
+      "additionalProperties": false,
+      "description": "一对恢复分支的确定性、隔离性与结构守恒清单。",
+      "properties": {
+        "added_effect_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Added Effect Ids",
+          "type": "array"
+        },
+        "checkpoint_id": {
+          "minLength": 1,
+          "title": "Checkpoint Id",
+          "type": "string"
+        },
+        "checkpoint_prefix_hash": {
+          "minLength": 1,
+          "title": "Checkpoint Prefix Hash",
+          "type": "string"
+        },
+        "checkpoint_state_hash": {
+          "minLength": 1,
+          "title": "Checkpoint State Hash",
+          "type": "string"
+        },
+        "controls": {
+          "$ref": "#/$defs/ReplayControlEvidence"
+        },
+        "neutral_effect_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Neutral Effect Ids",
+          "type": "array"
+        },
+        "neutral_intervention": {
+          "$ref": "#/$defs/ReplayInterventionEvidence"
+        },
+        "neutral_prefix_hash": {
+          "minLength": 1,
+          "title": "Neutral Prefix Hash",
+          "type": "string"
+        },
+        "neutral_restore_state_hash": {
+          "minLength": 1,
+          "title": "Neutral Restore State Hash",
+          "type": "string"
+        },
+        "neutral_run_id": {
+          "minLength": 1,
+          "title": "Neutral Run Id",
+          "type": "string"
+        },
+        "original_effect_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Original Effect Ids",
+          "type": "array"
+        },
+        "original_intervention": {
+          "$ref": "#/$defs/ReplayInterventionEvidence"
+        },
+        "original_prefix_hash": {
+          "minLength": 1,
+          "title": "Original Prefix Hash",
+          "type": "string"
+        },
+        "original_restore_state_hash": {
+          "minLength": 1,
+          "title": "Original Restore State Hash",
+          "type": "string"
+        },
+        "original_run_id": {
+          "minLength": 1,
+          "title": "Original Run Id",
+          "type": "string"
+        },
+        "removed_effect_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Removed Effect Ids",
+          "type": "array"
+        },
+        "replay_id": {
+          "minLength": 1,
+          "title": "Replay Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "target_alias": {
+          "minLength": 1,
+          "title": "Target Alias",
+          "type": "string"
+        }
+      },
+      "required": [
+        "replay_id",
+        "target_alias",
+        "checkpoint_id",
+        "checkpoint_prefix_hash",
+        "checkpoint_state_hash",
+        "original_run_id",
+        "neutral_run_id",
+        "original_restore_state_hash",
+        "neutral_restore_state_hash",
+        "original_prefix_hash",
+        "neutral_prefix_hash",
+        "controls",
+        "original_intervention",
+        "neutral_intervention",
+        "original_effect_ids",
+        "neutral_effect_ids",
+        "removed_effect_ids",
+        "added_effect_ids"
+      ],
+      "title": "ReplayPairManifest",
+      "type": "object"
+    },
+    "ReplayProof": {
+      "additionalProperties": false,
+      "description": "只比较选择器命中且有回执的分支后缀操作。",
+      "properties": {
+        "ci": {
+          "enum": [
+            -1,
+            0,
+            1
+          ],
+          "title": "Ci",
+          "type": "integer"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "manifest": {
+          "$ref": "#/$defs/ReplayPairManifest"
+        },
+        "neutral": {
+          "$ref": "#/$defs/PortableRun"
+        },
+        "neutral_baseline": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Decision"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "neutral_effect_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Neutral Effect Ids",
+          "type": "array"
+        },
+        "original": {
+          "$ref": "#/$defs/PortableRun"
+        },
+        "original_baseline": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Decision"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "original_effect_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Original Effect Ids",
+          "type": "array"
+        },
+        "selector": {
+          "$ref": "#/$defs/EffectSelector"
+        },
+        "source": {
+          "$ref": "#/$defs/PortableRun"
+        },
+        "y_neutral": {
+          "title": "Y Neutral",
+          "type": "boolean"
+        },
+        "y_original": {
+          "title": "Y Original",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "selector",
+        "source",
+        "original",
+        "neutral",
+        "manifest",
+        "y_original",
+        "y_neutral",
+        "ci",
+        "original_effect_ids",
+        "neutral_effect_ids",
+        "original_baseline",
+        "neutral_baseline",
+        "evidence_ids"
+      ],
+      "title": "ReplayProof",
+      "type": "object"
+    },
+    "ResourceRef": {
+      "description": "一个已经校验并规范化的 Resource URI。",
+      "title": "ResourceRef",
+      "type": "string"
+    },
+    "RevocationRecord": {
+      "description": "AUTH_REVOKE 或 SKILL_REVOKE 的不可变存储投影。",
+      "properties": {
+        "event_id": {
+          "title": "Event Id",
+          "type": "string"
+        },
+        "revocation_id": {
+          "title": "Revocation Id",
+          "type": "string"
+        },
+        "target_id": {
+          "title": "Target Id",
+          "type": "string"
+        },
+        "target_kind": {
+          "$ref": "#/$defs/RevocationTargetKind"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "revocation_id",
+        "target_kind",
+        "target_id",
+        "event_id",
+        "timestamp"
+      ],
+      "title": "RevocationRecord",
+      "type": "object"
+    },
+    "RevocationTargetKind": {
+      "description": "追加式撤销事实允许指向的对象类型。",
+      "enum": [
+        "grant",
+        "principal"
+      ],
+      "title": "RevocationTargetKind",
+      "type": "string"
+    },
+    "Scope": {
+      "description": "MVP 中互不放大的四种精确作用域。",
+      "enum": [
+        "exact-file",
+        "exact-key",
+        "exact-sink",
+        "command"
+      ],
+      "title": "Scope",
+      "type": "string"
+    },
+    "SecurityEvent": {
+      "additionalProperties": false,
+      "description": "一次不可原地修改的安全事件。",
+      "properties": {
+        "actor_id": {
+          "minLength": 1,
+          "title": "Actor Id",
+          "type": "string"
+        },
+        "call_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Call Id"
+        },
+        "decision_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Decision Id"
+        },
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "event_type": {
+          "$ref": "#/$defs/EventType"
+        },
+        "input_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Input Artifact Ids",
+          "type": "array"
+        },
+        "metadata": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Metadata",
+          "type": "object"
+        },
+        "output_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Output Artifact Ids",
+          "type": "array"
+        },
+        "requested_effect": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CapabilityEffect"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "session_id": {
+          "minLength": 1,
+          "title": "Session Id",
+          "type": "string"
+        },
+        "task_id": {
+          "minLength": 1,
+          "title": "Task Id",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "run_id",
+        "task_id",
+        "session_id",
+        "timestamp",
+        "event_type",
+        "actor_id"
+      ],
+      "title": "SecurityEvent",
+      "type": "object"
+    },
+    "SecurityLabel": {
+      "additionalProperties": false,
+      "description": "只描述数据来源、不表达授权的标签。",
+      "properties": {
+        "created_session_id": {
+          "minLength": 1,
+          "title": "Created Session Id",
+          "type": "string"
+        },
+        "expiry": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expiry"
+        },
+        "origins": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Origins",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "parent_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Parent Artifact Ids",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "revoked_origins": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Revoked Origins",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "task_id": {
+          "minLength": 1,
+          "title": "Task Id",
+          "type": "string"
+        },
+        "trust": {
+          "$ref": "#/$defs/TrustLevel"
+        }
+      },
+      "required": [
+        "origins",
+        "trust",
+        "task_id",
+        "created_session_id"
+      ],
+      "title": "SecurityLabel",
+      "type": "object"
+    },
+    "T17LiveStage": {
+      "description": "预注册的真实模型执行阶段。",
+      "enum": [
+        "canary",
+        "model1",
+        "model2_canary",
+        "model2",
+        "defense"
+      ],
+      "title": "T17LiveStage",
+      "type": "string"
+    },
+    "ToolReceiptDraft": {
+      "description": "Mock Tool Adapter 内部使用的 Receipt 数据。",
+      "properties": {
+        "action_id": {
+          "title": "Action Id",
+          "type": "string"
+        },
+        "actor_id": {
+          "title": "Actor Id",
+          "type": "string"
+        },
+        "argument_artifact_id": {
+          "title": "Argument Artifact Id",
+          "type": "string"
+        },
+        "call_id": {
+          "title": "Call Id",
+          "type": "string"
+        },
+        "decision_id": {
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "effect_id": {
+          "title": "Effect Id",
+          "type": "string"
+        },
+        "output_artifact_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Output Artifact Ids",
+          "type": "array"
+        },
+        "receipt_artifact_id": {
+          "title": "Receipt Artifact Id",
+          "type": "string"
+        },
+        "receipt_id": {
+          "title": "Receipt Id",
+          "type": "string"
+        },
+        "request_event_id": {
+          "title": "Request Event Id",
+          "type": "string"
+        },
+        "result_event_id": {
+          "title": "Result Event Id",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        },
+        "tool": {
+          "$ref": "#/$defs/MockToolName"
+        }
+      },
+      "required": [
+        "receipt_id",
+        "tool",
+        "effect_id",
+        "request_event_id",
+        "result_event_id",
+        "decision_id",
+        "actor_id",
+        "call_id",
+        "action_id",
+        "argument_artifact_id",
+        "receipt_artifact_id",
+        "timestamp"
+      ],
+      "title": "ToolReceiptDraft",
+      "type": "object"
+    },
+    "TrustLevel": {
+      "description": "数据来源的保守信任等级。",
+      "enum": [
+        "trusted",
+        "user",
+        "untrusted",
+        "unknown"
+      ],
+      "title": "TrustLevel",
+      "type": "string"
+    },
+    "UnitIdentity": {
+      "additionalProperties": false,
+      "description": "每条公开记录的任务、技能、模型、防御与统计簇身份。",
+      "properties": {
+        "condition_id": {
+          "minLength": 1,
+          "title": "Condition Id",
+          "type": "string"
+        },
+        "defense_base_id": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Defense Base Id",
+          "type": "string"
+        },
+        "domain": {
+          "enum": [
+            "scripted",
+            "fake_reference",
+            "live_reference"
+          ],
+          "title": "Domain",
+          "type": "string"
+        },
+        "enforcement_mode": {
+          "$ref": "#/$defs/EnforcementMode"
+        },
+        "manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Manifest Sha256",
+          "type": "string"
+        },
+        "matrix_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Matrix Sha256",
+          "type": "string"
+        },
+        "model_revision": {
+          "minLength": 1,
+          "title": "Model Revision",
+          "type": "string"
+        },
+        "phase_contract_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Phase Contract Sha256",
+          "type": "string"
+        },
+        "protocol_id": {
+          "minLength": 1,
+          "title": "Protocol Id",
+          "type": "string"
+        },
+        "repeat_index": {
+          "minimum": 1,
+          "title": "Repeat Index",
+          "type": "integer"
+        },
+        "requested_model": {
+          "minLength": 1,
+          "title": "Requested Model",
+          "type": "string"
+        },
+        "semantic_instance_id": {
+          "minLength": 1,
+          "title": "Semantic Instance Id",
+          "type": "string"
+        },
+        "semantic_template_id": {
+          "minLength": 1,
+          "title": "Semantic Template Id",
+          "type": "string"
+        },
+        "skill_content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Skill Content Sha256",
+          "type": "string"
+        },
+        "skill_variant_id": {
+          "minLength": 1,
+          "title": "Skill Variant Id",
+          "type": "string"
+        },
+        "source_variant": {
+          "minLength": 1,
+          "title": "Source Variant",
+          "type": "string"
+        },
+        "stage": {
+          "$ref": "#/$defs/T17LiveStage"
+        },
+        "task_contract_id": {
+          "minLength": 1,
+          "title": "Task Contract Id",
+          "type": "string"
+        },
+        "task_contract_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Task Contract Sha256",
+          "type": "string"
+        },
+        "trial_id": {
+          "minLength": 1,
+          "title": "Trial Id",
+          "type": "string"
+        },
+        "unit_id": {
+          "minLength": 1,
+          "title": "Unit Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "protocol_id",
+        "stage",
+        "domain",
+        "phase_contract_sha256",
+        "matrix_sha256",
+        "unit_id",
+        "trial_id",
+        "condition_id",
+        "source_variant",
+        "skill_variant_id",
+        "skill_content_sha256",
+        "manifest_sha256",
+        "task_contract_id",
+        "task_contract_sha256",
+        "semantic_template_id",
+        "semantic_instance_id",
+        "repeat_index",
+        "defense_base_id",
+        "enforcement_mode",
+        "requested_model",
+        "model_revision"
+      ],
+      "title": "UnitIdentity",
+      "type": "object"
+    },
+    "UnitUsage": {
+      "additionalProperties": false,
+      "description": "实际返回用量与保守占用分开；费用始终是估算，不冒充账单。",
+      "properties": {
+        "api_calls": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Api Calls",
+          "type": "integer"
+        },
+        "cache_write_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cache Write Tokens",
+          "type": "integer"
+        },
+        "cached_input_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cached Input Tokens",
+          "type": "integer"
+        },
+        "complete": {
+          "default": true,
+          "title": "Complete",
+          "type": "boolean"
+        },
+        "estimated_cost_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Estimated Cost Usd"
+        },
+        "input_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "latency_ms": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Latency Ms",
+          "type": "number"
+        },
+        "missing_reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Missing Reason"
+        },
+        "output_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "reasoning_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Reasoning Tokens",
+          "type": "integer"
+        },
+        "reserved_cost_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Reserved Cost Usd"
+        },
+        "response_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Response Ids",
+          "type": "array"
+        },
+        "responses": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Responses",
+          "type": "integer"
+        }
+      },
+      "title": "UnitUsage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "未产生干预目标以有来源证据的不适用终态保留，不能填 CI=0。",
+  "properties": {
+    "absent_source": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PortableRun"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "decisions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/DecisionFact"
+      },
+      "title": "Decisions",
+      "type": "array"
+    },
+    "identity": {
+      "$ref": "#/$defs/UnitIdentity"
+    },
+    "issues": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ExecutionIssue"
+      },
+      "title": "Issues",
+      "type": "array"
+    },
+    "proof": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ReplayProof"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "raw_files": {
+      "additionalProperties": {
+        "$ref": "#/$defs/FrozenFile"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Raw Files",
+      "type": "object"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    },
+    "schema_version": {
+      "const": "2.0",
+      "default": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_core_run_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Source Core Run Id"
+    },
+    "status": {
+      "enum": [
+        "completed",
+        "not_applicable",
+        "evidence_binding_failure",
+        "infrastructure_invalid",
+        "protocol_error",
+        "budget_exhausted",
+        "not_run"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "target_alias": {
+      "minLength": 1,
+      "title": "Target Alias",
+      "type": "string"
+    },
+    "usage": {
+      "$ref": "#/$defs/UnitUsage",
+      "default": {
+        "api_calls": 0,
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 0,
+        "complete": true,
+        "estimated_cost_usd": "0",
+        "input_tokens": 0,
+        "latency_ms": 0.0,
+        "missing_reason": null,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "reserved_cost_usd": "0",
+        "response_ids": [],
+        "responses": 0
+      }
+    }
+  },
+  "required": [
+    "identity",
+    "source_core_run_id",
+    "target_alias",
+    "status"
+  ],
+  "title": "ReplayTerminal",
+  "type": "object"
+}

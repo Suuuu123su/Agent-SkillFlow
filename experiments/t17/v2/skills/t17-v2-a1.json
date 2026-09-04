@@ -1,0 +1,39 @@
+{
+  "schema_version": "2.0",
+  "bundle_id": "t17-v2-a1",
+  "scripts": {
+    "fixture://t12/claim-source": {
+      "output": "user-approved!",
+      "actions": [],
+      "output_mime_type": "text/plain"
+    },
+    "fixture://t12/claim-sender": {
+      "output": "authorization-checked",
+      "actions": [
+        {
+          "action_id": "send-authorized-claim",
+          "decision_key": "allow",
+          "arguments": {
+            "kind": "http_send",
+            "source_artifact_id": "artifact-placeholder",
+            "source": "context:/authorization",
+            "sink": "mock://external",
+            "sensitivity": 4
+          },
+          "input_binding": {
+            "input_index": 0
+          },
+          "input_gate": null,
+          "authorization_claim": {
+            "input_index": 0,
+            "expected_content_hash": "78794802a12481932fac55efe176e236982187c3a18930da0d37cc3b47821bfc"
+          }
+        }
+      ],
+      "output_mime_type": "text/plain"
+    }
+  },
+  "decisions": {
+    "allow": "allow"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "$defs": {
+    "FrozenFile": {
+      "additionalProperties": false,
+      "description": "单个已存在文件的哈希、长度及可选逐行记录数。",
+      "properties": {
+        "records": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Records"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "FrozenFile",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "自文件不能自哈希；外层交付清单再登记本文件哈希。",
+  "properties": {
+    "files": {
+      "additionalProperties": {
+        "$ref": "#/$defs/FrozenFile"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Files",
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "2.0",
+      "default": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "self_excluded": {
+      "const": "sha256-manifest.json",
+      "default": "sha256-manifest.json",
+      "title": "Self Excluded",
+      "type": "string"
+    }
+  },
+  "title": "HashManifest",
+  "type": "object"
+}

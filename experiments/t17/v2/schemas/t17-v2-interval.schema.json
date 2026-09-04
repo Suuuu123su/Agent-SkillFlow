@@ -1,0 +1,124 @@
+{
+  "$defs": {
+    "MeasurementStatus": {
+      "description": "T17 把已测、设计不适用、Hook 缺失和阶段不完整分开。",
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "MeasurementStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "百分位区间只要求下界不大于上界，不强迫包住点估计。",
+  "properties": {
+    "complete_clusters": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Complete Clusters",
+      "type": "integer"
+    },
+    "confidence": {
+      "default": 0.95,
+      "maximum": 0.95,
+      "minimum": 0.95,
+      "title": "Confidence",
+      "type": "number"
+    },
+    "lower": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Lower"
+    },
+    "method": {
+      "enum": [
+        "wilson_chain_descriptive",
+        "cluster_bootstrap"
+      ],
+      "title": "Method",
+      "type": "string"
+    },
+    "point": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Point"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    },
+    "resamples": {
+      "anyOf": [
+        {
+          "const": 10000,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Resamples"
+    },
+    "seed": {
+      "anyOf": [
+        {
+          "const": 17017,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Seed"
+    },
+    "status": {
+      "$ref": "#/$defs/MeasurementStatus"
+    },
+    "upper": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Upper"
+    }
+  },
+  "required": [
+    "status",
+    "method"
+  ],
+  "title": "StatisticalInterval",
+  "type": "object"
+}

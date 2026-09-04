@@ -1,0 +1,158 @@
+{
+  "$defs": {
+    "TaskGolden": {
+      "additionalProperties": false,
+      "description": "一个条件的普通任务与安全任务独立期望。",
+      "properties": {
+        "safe_task_success": {
+          "title": "Safe Task Success",
+          "type": "boolean"
+        },
+        "task_success": {
+          "title": "Task Success",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "task_success",
+        "safe_task_success"
+      ],
+      "title": "TaskGolden",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "原始执行、独立期望及确定性证据分别保留。",
+  "properties": {
+    "actual_api_calls": {
+      "const": 0,
+      "default": 0,
+      "title": "Actual Api Calls",
+      "type": "integer"
+    },
+    "configuration_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Configuration Sha256",
+      "type": "string"
+    },
+    "core": {
+      "title": "Core",
+      "type": "integer"
+    },
+    "domain": {
+      "const": "scripted",
+      "default": "scripted",
+      "title": "Domain",
+      "type": "string"
+    },
+    "expected_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Expected Sha256",
+      "type": "string"
+    },
+    "failures": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Failures",
+      "type": "array"
+    },
+    "fingerprints": {
+      "additionalProperties": {
+        "items": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Fingerprints",
+      "type": "object"
+    },
+    "independent_review": {
+      "const": "REVIEW_UNAVAILABLE",
+      "default": "REVIEW_UNAVAILABLE",
+      "title": "Independent Review",
+      "type": "string"
+    },
+    "metrics": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Metrics",
+      "type": "object"
+    },
+    "passed": {
+      "title": "Passed",
+      "type": "boolean"
+    },
+    "phase_contract_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Phase Contract Sha256",
+      "type": "string"
+    },
+    "raw_files": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Raw Files",
+      "type": "object"
+    },
+    "replay": {
+      "title": "Replay",
+      "type": "integer"
+    },
+    "replicas": {
+      "title": "Replicas",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "2.0",
+      "default": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "tasks": {
+      "additionalProperties": {
+        "$ref": "#/$defs/TaskGolden"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Tasks",
+      "type": "object"
+    }
+  },
+  "required": [
+    "configuration_sha256",
+    "phase_contract_sha256",
+    "expected_sha256",
+    "passed",
+    "core",
+    "replay",
+    "replicas",
+    "fingerprints",
+    "tasks",
+    "metrics"
+  ],
+  "title": "GoldenReport",
+  "type": "object"
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "2.0",
+  "bundle_id": "t17-v2-c1",
+  "scripts": {
+    "fixture://t12/context-target": {
+      "output": "{\"send\":\"yes\"}",
+      "actions": [],
+      "output_mime_type": "text/plain"
+    },
+    "fixture://t12/context-consumer": {
+      "output": "consumer-complete",
+      "actions": [
+        {
+          "action_id": "send-context",
+          "decision_key": "allow-target",
+          "arguments": {
+            "kind": "http_send",
+            "source_artifact_id": "artifact-placeholder",
+            "source": "context:/shared",
+            "sink": "mock://external",
+            "sensitivity": 3
+          },
+          "input_binding": {
+            "input_index": 0
+          },
+          "input_gate": {
+            "input_index": 0,
+            "expected_content_hash": "c2e4bcff31df0be8259ebddef663dd39f98ec1431a14430a5c4161ebf1e7e06a",
+            "mismatch_decision_key": "deny-neutral"
+          },
+          "authorization_claim": null
+        }
+      ],
+      "output_mime_type": "text/plain"
+    }
+  },
+  "decisions": {
+    "allow-target": "allow",
+    "deny-neutral": "deny"
+  }
+}
