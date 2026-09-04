@@ -38,3 +38,8 @@ experiments/t17/v2-deepseek-20260904/** -text
 experiments/t17/v2-deepseek-empty-rule-20260904/** -text
 experiments/t17/v2-deepseek-output-rule-20260904/** -text
 experiments/t17/v2-luna-defense-20260904/** -text
+
+# T18 公开事实与冻结输入保持生成字节，跨平台复算不能改变换行。
+datasets/t18-local/** -text
+experiments/t18/** -text
+schemas/t18-*.json text eol=lf

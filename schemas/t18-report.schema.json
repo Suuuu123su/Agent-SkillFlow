@@ -1,0 +1,502 @@
+{
+  "$defs": {
+    "CellRate": {
+      "additionalProperties": false,
+      "description": "比例原始计数；零分母是不可估计，不填零。",
+      "properties": {
+        "denominator": {
+          "minimum": 0,
+          "title": "Denominator",
+          "type": "integer"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "numerator": {
+          "minimum": 0,
+          "title": "Numerator",
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "measured",
+            "incomplete"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "status",
+        "numerator",
+        "denominator",
+        "value",
+        "evidence_ids"
+      ],
+      "title": "CellRate",
+      "type": "object"
+    },
+    "Contrast": {
+      "additionalProperties": false,
+      "description": "差中差不是一个单独的比例，原始分母在四格中逐项保留。",
+      "properties": {
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "interval_reason": {
+          "const": "single_deterministic_cluster",
+          "default": "single_deterministic_cluster",
+          "title": "Interval Reason",
+          "type": "string"
+        },
+        "interval_status": {
+          "const": "not_applicable",
+          "default": "not_applicable",
+          "title": "Interval Status",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "measured",
+            "incomplete"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "status",
+        "value",
+        "evidence_ids"
+      ],
+      "title": "Contrast",
+      "type": "object"
+    },
+    "DefenseComparison": {
+      "additionalProperties": false,
+      "description": "只比较双方均有调度的同条件配对；缺结果时仍保留配对分母。",
+      "properties": {
+        "baseline": {
+          "enum": [
+            "monitor",
+            "universal_enforce",
+            "task_alignment_only",
+            "tdg_only",
+            "drift_isolation_only",
+            "causal_only",
+            "all_defenses",
+            "oracle_router",
+            "evidence_router"
+          ],
+          "title": "Baseline",
+          "type": "string"
+        },
+        "comparison_id": {
+          "minLength": 1,
+          "title": "Comparison Id",
+          "type": "string"
+        },
+        "defense": {
+          "enum": [
+            "monitor",
+            "universal_enforce",
+            "task_alignment_only",
+            "tdg_only",
+            "drift_isolation_only",
+            "causal_only",
+            "all_defenses",
+            "oracle_router",
+            "evidence_router"
+          ],
+          "title": "Defense",
+          "type": "string"
+        },
+        "metrics": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Measure"
+          },
+          "propertyNames": {
+            "minLength": 1
+          },
+          "title": "Metrics",
+          "type": "object"
+        },
+        "pair_run_ids": {
+          "items": {
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "minLength": 1,
+                "type": "string"
+              }
+            ],
+            "type": "array"
+          },
+          "title": "Pair Run Ids",
+          "type": "array"
+        },
+        "scheduled_pairs": {
+          "title": "Scheduled Pairs",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "comparison_id",
+        "baseline",
+        "defense",
+        "scheduled_pairs",
+        "pair_run_ids",
+        "metrics"
+      ],
+      "title": "DefenseComparison",
+      "type": "object"
+    },
+    "HiaaCellReport": {
+      "additionalProperties": false,
+      "description": "一个处理单元的两种分母与失败分布。",
+      "properties": {
+        "failures": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "propertyNames": {
+            "minLength": 1
+          },
+          "title": "Failures",
+          "type": "object"
+        },
+        "scheduled": {
+          "$ref": "#/$defs/CellRate"
+        },
+        "trial_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Trial Ids",
+          "type": "array"
+        },
+        "valid_only": {
+          "$ref": "#/$defs/CellRate"
+        }
+      },
+      "required": [
+        "trial_ids",
+        "scheduled",
+        "valid_only",
+        "failures"
+      ],
+      "title": "HiaaCellReport",
+      "type": "object"
+    },
+    "HiaaReport": {
+      "additionalProperties": false,
+      "description": "同域同模式完整四格及相对监测模式变化。",
+      "properties": {
+        "base_id": {
+          "minLength": 1,
+          "title": "Base Id",
+          "type": "string"
+        },
+        "cells": {
+          "additionalProperties": {
+            "$ref": "#/$defs/HiaaCellReport"
+          },
+          "propertyNames": {
+            "enum": [
+              "p00",
+              "p01",
+              "p10",
+              "p11"
+            ]
+          },
+          "title": "Cells",
+          "type": "object"
+        },
+        "delta_hiaa": {
+          "$ref": "#/$defs/Contrast"
+        },
+        "delta_hiaa_valid_only": {
+          "$ref": "#/$defs/Contrast"
+        },
+        "design_id": {
+          "minLength": 1,
+          "title": "Design Id",
+          "type": "string"
+        },
+        "domain": {
+          "minLength": 1,
+          "title": "Domain",
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "monitor",
+            "universal_enforce",
+            "task_alignment_only",
+            "tdg_only",
+            "drift_isolation_only",
+            "causal_only",
+            "all_defenses",
+            "oracle_router",
+            "evidence_router"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "scheduled": {
+          "$ref": "#/$defs/Contrast"
+        },
+        "schema_version": {
+          "const": "18.0",
+          "default": "18.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "measured",
+            "incomplete"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "valid_only": {
+          "$ref": "#/$defs/Contrast"
+        }
+      },
+      "required": [
+        "domain",
+        "design_id",
+        "base_id",
+        "mode",
+        "status",
+        "cells",
+        "scheduled",
+        "valid_only",
+        "delta_hiaa",
+        "delta_hiaa_valid_only"
+      ],
+      "title": "HiaaReport",
+      "type": "object"
+    },
+    "Measure": {
+      "additionalProperties": false,
+      "description": "所有点估计保留原始分子分母及所属运行证据。",
+      "properties": {
+        "denominator": {
+          "title": "Denominator",
+          "type": "integer"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "interval_reason": {
+          "const": "single_deterministic_cluster",
+          "default": "single_deterministic_cluster",
+          "title": "Interval Reason",
+          "type": "string"
+        },
+        "interval_status": {
+          "const": "not_applicable",
+          "default": "not_applicable",
+          "title": "Interval Status",
+          "type": "string"
+        },
+        "numerator": {
+          "title": "Numerator",
+          "type": "number"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "measured",
+            "not_applicable",
+            "not_available",
+            "incomplete"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "status",
+        "value",
+        "numerator",
+        "denominator",
+        "evidence_ids",
+        "reason"
+      ],
+      "title": "Measure",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "不同域从不合并；单簇点值不附会总体显著性。",
+  "properties": {
+    "comparisons": {
+      "items": {
+        "$ref": "#/$defs/DefenseComparison"
+      },
+      "title": "Comparisons",
+      "type": "array"
+    },
+    "completed_core": {
+      "title": "Completed Core",
+      "type": "integer"
+    },
+    "domain": {
+      "minLength": 1,
+      "title": "Domain",
+      "type": "string"
+    },
+    "hiaa": {
+      "items": {
+        "$ref": "#/$defs/HiaaReport"
+      },
+      "title": "Hiaa",
+      "type": "array"
+    },
+    "population_note": {
+      "default": "全部调度单列；主比较限桥梁开启，四格补充单元只进入对应四格与全部调度表。模拟域各模式样本不齐时只做交集配对。",
+      "title": "Population Note",
+      "type": "string"
+    },
+    "regret_weights": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Regret Weights",
+      "type": "object"
+    },
+    "replay_pairs": {
+      "title": "Replay Pairs",
+      "type": "integer"
+    },
+    "scheduled_core": {
+      "title": "Scheduled Core",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "18.0",
+      "default": "18.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "specificity": {
+      "additionalProperties": {
+        "additionalProperties": {
+          "$ref": "#/$defs/Measure"
+        },
+        "propertyNames": {
+          "minLength": 1
+        },
+        "type": "object"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Specificity",
+      "type": "object"
+    },
+    "status": {
+      "enum": [
+        "measured",
+        "incomplete"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "vectors": {
+      "additionalProperties": {
+        "additionalProperties": {
+          "$ref": "#/$defs/Measure"
+        },
+        "propertyNames": {
+          "minLength": 1
+        },
+        "type": "object"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Vectors",
+      "type": "object"
+    }
+  },
+  "required": [
+    "domain",
+    "status",
+    "scheduled_core",
+    "completed_core",
+    "replay_pairs",
+    "vectors",
+    "hiaa",
+    "comparisons",
+    "specificity",
+    "regret_weights"
+  ],
+  "title": "LocalReport",
+  "type": "object"
+}

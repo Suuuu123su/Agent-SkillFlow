@@ -1,0 +1,70 @@
+{
+  "additionalProperties": false,
+  "description": "所有点估计保留原始分子分母及所属运行证据。",
+  "properties": {
+    "denominator": {
+      "title": "Denominator",
+      "type": "integer"
+    },
+    "evidence_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "interval_reason": {
+      "const": "single_deterministic_cluster",
+      "default": "single_deterministic_cluster",
+      "title": "Interval Reason",
+      "type": "string"
+    },
+    "interval_status": {
+      "const": "not_applicable",
+      "default": "not_applicable",
+      "title": "Interval Status",
+      "type": "string"
+    },
+    "numerator": {
+      "title": "Numerator",
+      "type": "number"
+    },
+    "reason": {
+      "minLength": 1,
+      "title": "Reason",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Value"
+    }
+  },
+  "required": [
+    "status",
+    "value",
+    "numerator",
+    "denominator",
+    "evidence_ids",
+    "reason"
+  ],
+  "title": "Measure",
+  "type": "object"
+}

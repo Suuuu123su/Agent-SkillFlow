@@ -1,0 +1,69 @@
+{
+  "$defs": {
+    "FileDigest": {
+      "additionalProperties": false,
+      "description": "公开文件的精确字节承诺。",
+      "properties": {
+        "bytes": {
+          "title": "Bytes",
+          "type": "integer"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sha256",
+        "bytes"
+      ],
+      "title": "FileDigest",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "只登记本域文件，不把两种执行域合并为一次实验。",
+  "properties": {
+    "core_count": {
+      "title": "Core Count",
+      "type": "integer"
+    },
+    "domain": {
+      "enum": [
+        "scripted",
+        "fake_reference"
+      ],
+      "title": "Domain",
+      "type": "string"
+    },
+    "files": {
+      "additionalProperties": {
+        "$ref": "#/$defs/FileDigest"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Files",
+      "type": "object"
+    },
+    "replay_count": {
+      "title": "Replay Count",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "18.0",
+      "default": "18.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "domain",
+    "core_count",
+    "replay_count",
+    "files"
+  ],
+  "title": "DatasetManifest",
+  "type": "object"
+}

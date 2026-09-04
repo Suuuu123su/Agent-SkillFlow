@@ -1,0 +1,79 @@
+{
+  "additionalProperties": false,
+  "description": "同协议域的固定调度；每条记录都必须绑定此合同。",
+  "properties": {
+    "catalog_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Catalog Sha256",
+      "type": "string"
+    },
+    "domain": {
+      "enum": [
+        "scripted",
+        "fake_reference"
+      ],
+      "title": "Domain",
+      "type": "string"
+    },
+    "matrix_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Matrix Sha256",
+      "type": "string"
+    },
+    "max_replay_pairs": {
+      "minimum": 0,
+      "title": "Max Replay Pairs",
+      "type": "integer"
+    },
+    "paid_api_calls": {
+      "const": 0,
+      "default": 0,
+      "title": "Paid Api Calls",
+      "type": "integer"
+    },
+    "preregistration_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Preregistration Sha256",
+      "type": "string"
+    },
+    "protocol_id": {
+      "const": "t18-local-hiaa-v1",
+      "default": "t18-local-hiaa-v1",
+      "title": "Protocol Id",
+      "type": "string"
+    },
+    "runtime_sources": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Runtime Sources",
+      "type": "object"
+    },
+    "scheduled_core": {
+      "exclusiveMinimum": 0,
+      "title": "Scheduled Core",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "18.0",
+      "default": "18.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "domain",
+    "matrix_sha256",
+    "catalog_sha256",
+    "preregistration_sha256",
+    "runtime_sources",
+    "scheduled_core",
+    "max_replay_pairs"
+  ],
+  "title": "LocalPhase",
+  "type": "object"
+}

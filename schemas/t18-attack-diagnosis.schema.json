@@ -1,0 +1,69 @@
+{
+  "additionalProperties": false,
+  "description": "置信等级是规则的证据充分性，不是假造的概率。",
+  "properties": {
+    "abstain": {
+      "title": "Abstain",
+      "type": "boolean"
+    },
+    "confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "title": "Confidence",
+      "type": "string"
+    },
+    "diagnosis_id": {
+      "minLength": 1,
+      "title": "Diagnosis Id",
+      "type": "string"
+    },
+    "evidence_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "mechanisms": {
+      "items": {
+        "enum": [
+          "privilege",
+          "context-tool",
+          "memory",
+          "authorization"
+        ],
+        "type": "string"
+      },
+      "title": "Mechanisms",
+      "type": "array"
+    },
+    "missing_evidence": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Missing Evidence",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "18.0",
+      "default": "18.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "diagnosis_id",
+    "mechanisms",
+    "confidence",
+    "abstain",
+    "evidence_ids",
+    "missing_evidence"
+  ],
+  "title": "AttackDiagnosis",
+  "type": "object"
+}

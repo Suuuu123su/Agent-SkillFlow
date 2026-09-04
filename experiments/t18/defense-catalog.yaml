@@ -1,0 +1,11 @@
+causal: 实际检查点成对重放，高风险动作在中和后消失则拒绝；未实现论文随机模糊阈值。
+drift-isolation: 可信规则更新、授权偏离检查及不可信/撤销记忆隔离，不删除历史。
+high_severity: 3
+order:
+- task-alignment
+- tdg
+- drift-isolation
+- causal
+schema_version: '18.0'
+task-alignment: 正常任务精确动作与原授权检查；未使用额外模型裁判。
+tdg: 执行前编译正常任务依赖图；工具返回不能新增节点。

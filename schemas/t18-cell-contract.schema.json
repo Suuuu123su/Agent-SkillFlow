@@ -1,0 +1,57 @@
+{
+  "additionalProperties": false,
+  "description": "每个四格成员的内容、共享控制和完整执行身份。",
+  "properties": {
+    "cell": {
+      "enum": [
+        "p00",
+        "p01",
+        "p10",
+        "p11"
+      ],
+      "title": "Cell",
+      "type": "string"
+    },
+    "design_id": {
+      "minLength": 1,
+      "title": "Design Id",
+      "type": "string"
+    },
+    "run_contract_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Run Contract Sha256",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "18.0",
+      "default": "18.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "shared_contract_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Shared Contract Sha256",
+      "type": "string"
+    },
+    "skill_content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Skill Content Sha256",
+      "type": "string"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "title": "Trial Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "design_id",
+    "cell",
+    "trial_id",
+    "shared_contract_sha256",
+    "skill_content_sha256",
+    "run_contract_sha256"
+  ],
+  "title": "CellContract",
+  "type": "object"
+}

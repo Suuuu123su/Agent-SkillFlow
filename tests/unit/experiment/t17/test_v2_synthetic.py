@@ -106,7 +106,12 @@ def test_two_new_held_out_skills_compare_through_real_facts_and_fresh_process(
     dataset = t17_cli_root / "synthetic-dataset"
     export_dataset(root, dataset, (loaded,))
     comparison = t17_cli_root / "synthetic-comparison"
-    environment = {**os.environ, "PYTHONHASHSEED": "2", "PYTHONDONTWRITEBYTECODE": "1"}
+    environment = {
+        **os.environ,
+        "PYTHONHASHSEED": "2",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONIOENCODING": "utf-8",
+    }
     checked = subprocess.run(
         [
             sys.executable,

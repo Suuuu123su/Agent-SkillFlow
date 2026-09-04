@@ -1,0 +1,226 @@
+{
+  "$defs": {
+    "CoreCell": {
+      "additionalProperties": false,
+      "description": "任务身份独立于结果；桥梁关闭是显式实验因素，不生成隐含子运行。",
+      "properties": {
+        "base_id": {
+          "minLength": 1,
+          "title": "Base Id",
+          "type": "string"
+        },
+        "bridge_enabled": {
+          "title": "Bridge Enabled",
+          "type": "boolean"
+        },
+        "mode": {
+          "enum": [
+            "monitor",
+            "universal_enforce",
+            "task_alignment_only",
+            "tdg_only",
+            "drift_isolation_only",
+            "causal_only",
+            "all_defenses",
+            "oracle_router",
+            "evidence_router"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "repeat": {
+          "const": 1,
+          "default": 1,
+          "title": "Repeat",
+          "type": "integer"
+        },
+        "role": {
+          "enum": [
+            "attack",
+            "neutral",
+            "benign-control"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "seed": {
+          "minLength": 1,
+          "title": "Seed",
+          "type": "string"
+        },
+        "semantic_instance": {
+          "const": "local-01",
+          "default": "local-01",
+          "title": "Semantic Instance",
+          "type": "string"
+        },
+        "skill_variant_id": {
+          "minLength": 1,
+          "title": "Skill Variant Id",
+          "type": "string"
+        },
+        "split": {
+          "enum": [
+            "development",
+            "held-out",
+            "control"
+          ],
+          "title": "Split",
+          "type": "string"
+        },
+        "trial_id": {
+          "minLength": 1,
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "trial_id",
+        "skill_variant_id",
+        "base_id",
+        "role",
+        "split",
+        "mode",
+        "bridge_enabled",
+        "seed"
+      ],
+      "title": "CoreCell",
+      "type": "object"
+    },
+    "HiaaGroup": {
+      "additionalProperties": false,
+      "description": "同防御、同能力、同任务的四格引用，指标计算无需读取场景标签。",
+      "properties": {
+        "base_id": {
+          "minLength": 1,
+          "title": "Base Id",
+          "type": "string"
+        },
+        "cells": {
+          "additionalProperties": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "propertyNames": {
+            "enum": [
+              "p00",
+              "p01",
+              "p10",
+              "p11"
+            ]
+          },
+          "title": "Cells",
+          "type": "object"
+        },
+        "design_id": {
+          "minLength": 1,
+          "title": "Design Id",
+          "type": "string"
+        },
+        "feature": {
+          "enum": [
+            "shared-context",
+            "tool-return-propagation"
+          ],
+          "title": "Feature",
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "monitor",
+            "universal_enforce",
+            "task_alignment_only",
+            "tdg_only",
+            "drift_isolation_only",
+            "causal_only",
+            "all_defenses",
+            "oracle_router",
+            "evidence_router"
+          ],
+          "title": "Mode",
+          "type": "string"
+        }
+      },
+      "required": [
+        "design_id",
+        "base_id",
+        "mode",
+        "feature",
+        "cells"
+      ],
+      "title": "HiaaGroup",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "本次获准规模；阶段执行器不得在此之外自动增加条件。",
+  "properties": {
+    "added_core_count": {
+      "title": "Added Core Count",
+      "type": "integer"
+    },
+    "cores": {
+      "items": {
+        "$ref": "#/$defs/CoreCell"
+      },
+      "title": "Cores",
+      "type": "array"
+    },
+    "domain": {
+      "enum": [
+        "scripted",
+        "fake_reference"
+      ],
+      "title": "Domain",
+      "type": "string"
+    },
+    "hiaa_groups": {
+      "items": {
+        "$ref": "#/$defs/HiaaGroup"
+      },
+      "title": "Hiaa Groups",
+      "type": "array"
+    },
+    "max_replay_pairs": {
+      "title": "Max Replay Pairs",
+      "type": "integer"
+    },
+    "original_core_count": {
+      "title": "Original Core Count",
+      "type": "integer"
+    },
+    "paid_api_calls_allowed": {
+      "const": false,
+      "default": false,
+      "title": "Paid Api Calls Allowed",
+      "type": "boolean"
+    },
+    "protocol_id": {
+      "const": "t18-local-hiaa-v1",
+      "default": "t18-local-hiaa-v1",
+      "title": "Protocol Id",
+      "type": "string"
+    },
+    "reused_hiaa_cells": {
+      "title": "Reused Hiaa Cells",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "18.0",
+      "default": "18.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "domain",
+    "original_core_count",
+    "reused_hiaa_cells",
+    "added_core_count",
+    "max_replay_pairs",
+    "cores",
+    "hiaa_groups"
+  ],
+  "title": "LocalMatrix",
+  "type": "object"
+}
