@@ -1,0 +1,16 @@
+{
+  "schema_version": "t17-v2-data-publication-approval/1.0",
+  "recorded_date": "2026-09-04",
+  "approval_status": "explicitly_approved",
+  "user_answer": "允许发布完整脱敏数据",
+  "destination": "https://github.com/Suuuu123su/Agent-SkillFlow",
+  "branch": "main",
+  "approved_directory": "datasets/t17-v2",
+  "file_count": 770,
+  "total_bytes": 676576043,
+  "contains": ["per_task_structured_facts", "complete_metrics", "schemas", "manifests", "reproduction_instructions"],
+  "excludes": ["api_keys", "private_raw_model_text", "host_absolute_paths", "unrelated_user_files"],
+  "prior_safety_rejections_preserved": true,
+  "authorizes_new_experiments": false,
+  "authorizes_private_raw_publication": false
+}

@@ -24,7 +24,7 @@
 | 旧 G 可恢复隔离记录 | `runs/t17-withdrawn-model2-20260904-01/` |
 | 完整 H 脱敏配对数据 | `runs/t17-v2-defense-joined-20260904-01/` |
 
-各通过阶段的 `dataset/` 含逐任务、重放、任务证据、回执、来源、用量及完整指标。本地 `datasets/t17-v2/` 总集合现已生成并独立复算通过：770 文件、645.23 MiB，所有 JSON、CSV 与重算结果一致；私有正文不在其中。上传被自动安全检查拦截，正在等待明确发布确认；不能把本地完成写成 GitHub 已交付。独立复算输出留在 `runs/t17-v2-recomputed-01/`，没有新增 API。
+各通过阶段的 `dataset/` 含逐任务、重放、任务证据、回执、来源、用量及完整指标。[完整公开总集合](../../datasets/t17-v2/README.md)经用户明确授权随本次提交发布：770 文件、645.23 MiB，所有 JSON、CSV 与独立重算结果一致；私有正文不在其中。[发布批准](t17-v2-data-publication-approval-20260904.json)限定这一脱敏目录，不授权上传私有原始记录。独立复算输出留在 `runs/t17-v2-recomputed-01/`，没有新增 API。
 
 复算入口：`skillflow t17 v2 report --dataset <阶段目录> --output <新目录>`；总集合使用 `python scripts/t17_delivery/t17_collection.py --from-collection datasets/t17-v2 --output runs/t17-v2-recomputed-02`。必须选择尚不存在的新输出目录；本轮已使用 `recomputed-01`。无需密钥或私有正文；不同模型与预检不合并比例。
 

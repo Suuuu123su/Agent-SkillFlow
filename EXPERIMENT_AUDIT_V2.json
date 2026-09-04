@@ -1,12 +1,13 @@
 {
   "schema_version": "t17-v2-delivery-status/1.0",
   "recorded_date": "2026-09-04",
-  "status": "WARN_PUBLICATION_AND_CI_PENDING",
+  "status": "WARN_CI_PENDING",
   "full_t17_complete": false,
   "live_stages_complete": true,
   "public_data_recalculation_complete": true,
-  "full_structured_dataset_published": false,
-  "publication_status": "explicit_confirmation_requested_after_automatic_safety_rejection",
+  "full_structured_dataset_published": true,
+  "publication_status": "explicitly_authorized_included_in_this_commit",
+  "publication_approval": "docs/evidence/t17-v2-data-publication-approval-20260904.json",
   "pooling_across_models_allowed": false,
   "selected_core_count": 1038,
   "selected_replay_terminal_count": 846,
@@ -46,7 +47,9 @@
     "first_ci_reason": "15_minute_job_timeout_and_one_boundary_registration_failure",
     "boundary_failure_locally_fixed": true,
     "ci_timeout_minutes_after_fix": 45,
-    "new_ci_status": "pending"
+    "new_ci_run_id": 33876963736,
+    "new_ci_commit": "e8dd62fee1c14fceacc5507e0644d68e247ac83f",
+    "new_ci_status": "in_progress"
   },
   "independent_review": "REVIEW_UNAVAILABLE",
   "prelive_review_verdict": "WARN",
