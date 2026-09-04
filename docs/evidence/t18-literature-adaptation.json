@@ -1,0 +1,55 @@
+{
+  "schema_version": "t18-literature-adaptation/1.0",
+  "scope": "本地确定性机制适配；不下载作者代码，不调用额外模型裁判。",
+  "methods": [
+    {
+      "paper": "Task Shield",
+      "venue": "ACL",
+      "year": 2025,
+      "source": "https://aclanthology.org/2025.acl-long.1435/",
+      "source_kind": "ACL Anthology 正式会议论文页面",
+      "adopted_mechanism": "工具动作必须服务于可信用户任务。",
+      "local_implementation": "TaskAlignmentGate 用预注册任务、必要动作、资源和原授权进行精确检查。",
+      "omitted_components": ["原论文模型化任务对齐判断", "原论文完整数据与提示流程"],
+      "reproduction_claim": false
+    },
+    {
+      "paper": "IPIGuard",
+      "venue": "EMNLP",
+      "year": 2025,
+      "source": "https://aclanthology.org/2025.emnlp-main.53/",
+      "source_kind": "ACL Anthology 正式会议论文页面",
+      "adopted_mechanism": "执行前建立工具依赖计划，工具返回不能扩展动作与权限。",
+      "local_implementation": "ToolDependencyGuard 从正常任务机械编译依赖图，检查动作、资源与已完成前驱。",
+      "omitted_components": ["开放任务的模型化计划生成", "原论文完整基准环境"],
+      "reproduction_claim": false
+    },
+    {
+      "paper": "DRIFT",
+      "venue": "NeurIPS",
+      "year": 2025,
+      "source": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/77f3b26c7907aa27b207df9b9d43f29a-Abstract-Conference.html",
+      "source_kind": "NeurIPS 正式论文集页面",
+      "adopted_mechanism": "可信动态规则、权限偏离检查与记忆隔离。",
+      "local_implementation": "DynamicRuleMemoryIsolator 仅接受用户或可信策略更新；隔离低可信或撤销来源的记忆读取，保留历史写入。",
+      "omitted_components": ["原论文完整策略生成及模型驱动适配流程", "原论文基准和模型"],
+      "reproduction_claim": false
+    },
+    {
+      "paper": "AttriGuard",
+      "venue": "USENIX Security",
+      "year": 2026,
+      "source": "https://www.usenix.org/conference/usenixsecurity26/presentation/he-yu",
+      "source_kind": "USENIX 正式会议论文页面",
+      "adopted_mechanism": "对高风险且有可疑来源的动作，通过中和来源判断其因果影响。",
+      "local_implementation": "CausalAttributionGate 使用同一实际检查点的原样和中和分支；目标效果中和后消失则拒绝；不可评估则请求确认，不填影响为零。",
+      "omitted_components": ["原论文随机模糊阈值", "分层多通道衰减", "原论文完整在线环境"],
+      "reproduction_claim": false
+    }
+  ],
+  "excluded": [{
+    "paper": "StruQ",
+    "source": "https://www.usenix.org/conference/usenixsecurity25/presentation/chen-sizhe",
+    "reason": "完整方法依赖专门训练，本轮不实现，不以简单分隔符冒充复现。"
+  }]
+}

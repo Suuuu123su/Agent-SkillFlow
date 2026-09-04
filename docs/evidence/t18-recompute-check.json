@@ -1,0 +1,39 @@
+{
+  "schema_version": "t18-recompute-check/1.0",
+  "date": "2026-09-05",
+  "status": "pass",
+  "method": "每域独立新进程，仅从公开集合读取；验证文件、阶段、任务和重放绑定，从事实重新计算所有正式 JSON/CSV，逐字节相等。",
+  "new_core_runs": 0,
+  "api_calls": 0,
+  "private_run_access_required": false,
+  "domains": [
+    {
+      "domain": "scripted",
+      "input": "datasets/t18-local/scripted",
+      "output": "runs/t18-recomputed-01/scripted",
+      "core_count": 264,
+      "replay_pairs": 16,
+      "compared_files": 3,
+      "source_phase_sha256": "8de95526d828df75d6d19904e508a6a8c618fa32f1e266c2b7b1d9461a257102",
+      "sha256": {
+        "metrics.json": "a306e444b44d40779d0ca41eee6dcc44027f30bea8b913e569bf101ae7e5a14a",
+        "summary.csv": "63379f5cc9f9b7eeced276490766ee8354f0f0cb8067993754653709b43dbbc1",
+        "hiaa.csv": "c7d2a8aa7c69bd089b4ba18cf9e625bf4c3bd90b226e5854a910b457f151c8db"
+      }
+    },
+    {
+      "domain": "fake_reference",
+      "input": "datasets/t18-local/fake_reference",
+      "output": "runs/t18-recomputed-01/fake_reference",
+      "core_count": 44,
+      "replay_pairs": 5,
+      "compared_files": 3,
+      "source_phase_sha256": "8d0e159f91f4a5828148897e5ca0c0c4683bd5855d4f97dbaa124e68b52708c1",
+      "sha256": {
+        "metrics.json": "25ad09a542c8dc684ba0b52207c40f797a40129c0a64e9e18c27aa3d3e2ce7c3",
+        "summary.csv": "1315528f7cce2e3e7ec35af346f8fde250a3a2ce79fabd54e1df7384c33bdec1",
+        "hiaa.csv": "1b687c674b9a1f603d321a56ac665a8d2b9e6c3e6cb035479c32880b1df741b2"
+      }
+    }
+  ]
+}

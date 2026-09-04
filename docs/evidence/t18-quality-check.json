@@ -1,0 +1,67 @@
+{
+  "schema_version": "t18-quality-check/1.0",
+  "date": "2026-09-05",
+  "status": "local_pass_remote_pending",
+  "full_suite": {
+    "runs": 1,
+    "tests": 1335,
+    "passed": 1334,
+    "failed": 1,
+    "seconds": 914.25,
+    "record": ".tmp/t18-20260904-01/final-suite.xml",
+    "initial_combined_coverage_percent": 89.99133448873484,
+    "failure": "旧测试将 Windows 子进程的本地编码输出按 UTF-8 读取，产生读取线程解码异常。"
+  },
+  "targeted_repair": {
+    "tests": 16,
+    "passed": 16,
+    "failed": 0,
+    "seconds": 17.18,
+    "record": ".tmp/t18-20260904-01/targeted-repair.xml",
+    "changes": ["仅在旧测试的子进程环境固定 UTF-8", "补充 15 项 T18 授权、证据与四格状态失败分支测试"],
+    "full_suite_rerun": false,
+    "formal_experiments_rerun": false,
+    "coverage_accumulation": "完整测试与定向修复覆盖数据取并集，未丢弃原始失败记录。"
+  },
+  "coverage": {
+    "required_combined_percent": 90,
+    "combined_percent": 90.10398613518197,
+    "branch_only_percent": 76.73905666779775,
+    "covered_lines": 26671,
+    "num_statements": 28726,
+    "covered_branches": 4523,
+    "num_branches": 5894,
+    "excluded_lines": 219,
+    "new_exclusions": 0,
+    "record": ".tmp/t18-20260904-01/repaired-coverage.json"
+  },
+  "project_checks": {
+    "ruff_check": "pass",
+    "ruff_format": "pass",
+    "strict_mypy": "pass",
+    "strict_source_files": 484,
+    "static_schemas": 136,
+    "t18_schemas": 16,
+    "pip_check": "pass",
+    "offline_doctor": "pass",
+    "new_python_line_limit": 400,
+    "new_ignore_any_skip_or_coverage_bypass_matches": 0,
+    "new_runtime_network_or_environment_access_matches": 0,
+    "public_data_credential_or_host_path_matches": 0,
+    "public_files": 346,
+    "public_bytes": 45186795,
+    "scope_note": "静态检查针对项目 src/tests/scripts；保留的用户旧临时目录和未提交 protocol.py 草稿不作为交付代码修改。覆盖率未新增排除。"
+  },
+  "t17_preservation": {
+    "tracked_frozen_artifact_diff": "empty_against_e54f7d0",
+    "private_raw_rewritten": false,
+    "historical_sha256_recalculated": false
+  },
+  "readme_staging": {
+    "status": "blocked_by_automatic_safety_check",
+    "reason": "自动检查拒绝仅暂存 T18 新增段落，担心影响本地未提交 T12 段落；即使只读补丁统计为 8 新增、0 删除仍被拦截。",
+    "worktree_user_content_preserved": true,
+    "next_action": "需要用户明确批准仅提交 T18 段落，T12 原文继续保留本地且不变。"
+  },
+  "github_ci": {"status": "pending"}
+}

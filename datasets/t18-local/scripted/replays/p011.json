@@ -1,0 +1,1232 @@
+{
+  "pair_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim",
+  "domain": "scripted",
+  "trial_id": "a1-attack.causal_only.on",
+  "source_run_id": "t18-scripted-a1-attack.causal_only.on",
+  "target_alias": "authorization-claim",
+  "online": true,
+  "proof": {
+    "selector": {
+      "alias": "authorization-send",
+      "action": "network.send",
+      "source_pattern": "context:/authorization",
+      "sink_pattern": "mock://external"
+    },
+    "source": {
+      "schema_version": "2.0",
+      "run_id": "t18-scripted-a1-attack.causal_only.on",
+      "events": [
+        {
+          "event_id": "event-fae155e356f7d497",
+          "run_id": "t18-scripted-a1-attack.causal_only.on",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "session_start",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {}
+        },
+        {
+          "event_id": "event-0da990f81fbcad29",
+          "run_id": "t18-scripted-a1-attack.causal_only.on",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "auth_grant",
+          "actor_id": "user-1",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "grant_id": "grant-audit-only"
+          }
+        },
+        {
+          "event_id": "event-45de445a4d51fb7e",
+          "run_id": "t18-scripted-a1-attack.causal_only.on",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_install",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-source",
+            "implementation": "fixture://t12/claim-source"
+          }
+        },
+        {
+          "event_id": "event-eb40e819a20fa1be",
+          "run_id": "t18-scripted-a1-attack.causal_only.on",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_load",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-source"
+          }
+        },
+        {
+          "event_id": "event-7972ef6ac000ed32",
+          "run_id": "t18-scripted-a1-attack.causal_only.on",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_install",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-sender",
+            "implementation": "fixture://t12/claim-sender"
+          }
+        },
+        {
+          "event_id": "event-2a248d3b5a16df3e",
+          "run_id": "t18-scripted-a1-attack.causal_only.on",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_load",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-sender"
+          }
+        },
+        {
+          "event_id": "event-9324084951b038de",
+          "run_id": "t18-scripted-a1-attack.causal_only.on",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": "call-322bf6c7c175ee27",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_invoke",
+          "actor_id": "claim-source",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-source"
+          }
+        },
+        {
+          "event_id": "event-1112db93c8125152",
+          "run_id": "t18-scripted-a1-attack.causal_only.on",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": "call-322bf6c7c175ee27",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_return",
+          "actor_id": "claim-source",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [
+            "artifact-57803a8e0cb43407"
+          ],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-source"
+          }
+        }
+      ],
+      "artifacts": [
+        {
+          "artifact_id": "artifact-57803a8e0cb43407",
+          "artifact_type": "skill_output",
+          "content_hash": "78794802a12481932fac55efe176e236982187c3a18930da0d37cc3b47821bfc",
+          "content_length": 14,
+          "mime_type": "text/plain",
+          "created_by_event_id": "event-1112db93c8125152",
+          "observed_label": {
+            "origins": [
+              "claim-source"
+            ],
+            "trust": "untrusted",
+            "task_id": "task-a1-a2",
+            "created_session_id": "session-0",
+            "expiry": null,
+            "revoked_origins": [],
+            "parent_artifact_ids": []
+          }
+        }
+      ],
+      "decisions": [],
+      "effects": [],
+      "grants": [
+        {
+          "grant_id": "grant-audit-only",
+          "issuer_id": "user-1",
+          "issuer_type": "user",
+          "grantee_id": "claim-sender",
+          "action": "network.send",
+          "source_pattern": "context:/authorization",
+          "sink_pattern": "mock://audit",
+          "scope": "exact-sink",
+          "lifetime": "task",
+          "task_id": "task-a1-a2",
+          "session_id": null,
+          "call_id": null,
+          "valid_from": "2026-08-25T00:00:00Z",
+          "expires_at": null
+        }
+      ],
+      "revocations": [],
+      "receipts": []
+    },
+    "original": {
+      "schema_version": "2.0",
+      "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+      "events": [
+        {
+          "event_id": "event-fae155e356f7d497",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "session_start",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {}
+        },
+        {
+          "event_id": "event-0da990f81fbcad29",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "auth_grant",
+          "actor_id": "user-1",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "grant_id": "grant-audit-only"
+          }
+        },
+        {
+          "event_id": "event-45de445a4d51fb7e",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_install",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-source",
+            "implementation": "fixture://t12/claim-source"
+          }
+        },
+        {
+          "event_id": "event-eb40e819a20fa1be",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_load",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-source"
+          }
+        },
+        {
+          "event_id": "event-7972ef6ac000ed32",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_install",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-sender",
+            "implementation": "fixture://t12/claim-sender"
+          }
+        },
+        {
+          "event_id": "event-2a248d3b5a16df3e",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_load",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-sender"
+          }
+        },
+        {
+          "event_id": "event-9324084951b038de",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": "call-322bf6c7c175ee27",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_invoke",
+          "actor_id": "claim-source",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-source"
+          }
+        },
+        {
+          "event_id": "event-1112db93c8125152",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": "call-322bf6c7c175ee27",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_return",
+          "actor_id": "claim-source",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [
+            "artifact-57803a8e0cb43407"
+          ],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-source"
+          }
+        },
+        {
+          "event_id": "event-264b8e8ac8c47e8c",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "artifact_derive",
+          "actor_id": "harness:counterfactual",
+          "input_artifact_ids": [
+            "artifact-57803a8e0cb43407"
+          ],
+          "output_artifact_ids": [
+            "artifact-88124be4f631454a"
+          ],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "intervention": "identity"
+          }
+        },
+        {
+          "event_id": "event-1bcbfd50856d7f18",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": "call-162c229302b68443",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_invoke",
+          "actor_id": "claim-sender",
+          "input_artifact_ids": [
+            "artifact-88124be4f631454a"
+          ],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-sender"
+          }
+        },
+        {
+          "event_id": "event-674e88f52cad9713",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": "call-162c229302b68443",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "tool_call_request",
+          "actor_id": "claim-sender",
+          "input_artifact_ids": [
+            "artifact-88124be4f631454a"
+          ],
+          "output_artifact_ids": [
+            "artifact-473d5d564159552d"
+          ],
+          "requested_effect": {
+            "source": "context:/authorization",
+            "action": "network.send",
+            "sink": "mock://external",
+            "scope": "exact-sink",
+            "lifetime": "call",
+            "sensitivity": 4
+          },
+          "decision_id": null,
+          "metadata": {
+            "tool": "http_send"
+          }
+        },
+        {
+          "event_id": "event-44de5eafb68bc4ed",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": "call-162c229302b68443",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "tool_call_allow",
+          "actor_id": "harness",
+          "input_artifact_ids": [
+            "artifact-473d5d564159552d"
+          ],
+          "output_artifact_ids": [],
+          "requested_effect": {
+            "source": "context:/authorization",
+            "action": "network.send",
+            "sink": "mock://external",
+            "scope": "exact-sink",
+            "lifetime": "call",
+            "sensitivity": 4
+          },
+          "decision_id": null,
+          "metadata": {
+            "tool": "http_send"
+          }
+        },
+        {
+          "event_id": "event-6f40fc752a6360b8",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": "call-162c229302b68443",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "tool_call_result",
+          "actor_id": "tool:http_send",
+          "input_artifact_ids": [
+            "artifact-473d5d564159552d"
+          ],
+          "output_artifact_ids": [
+            "artifact-57e98da63a53c17b"
+          ],
+          "requested_effect": {
+            "source": "context:/authorization",
+            "action": "network.send",
+            "sink": "mock://external",
+            "scope": "exact-sink",
+            "lifetime": "call",
+            "sensitivity": 4
+          },
+          "decision_id": "decision-65e4884e0c91d6ae",
+          "metadata": {
+            "tool": "http_send"
+          }
+        },
+        {
+          "event_id": "event-0ac1a5410af0eb83",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": "call-162c229302b68443",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_return",
+          "actor_id": "claim-sender",
+          "input_artifact_ids": [
+            "artifact-88124be4f631454a"
+          ],
+          "output_artifact_ids": [
+            "artifact-267d400082a03b10"
+          ],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-sender"
+          }
+        },
+        {
+          "event_id": "event-e4e379195d6e845c",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_unload",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-sender"
+          }
+        },
+        {
+          "event_id": "event-6d6a0afb1b0993d0",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_unload",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-source"
+          }
+        },
+        {
+          "event_id": "event-473b433a88130b76",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "session_end",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {}
+        }
+      ],
+      "artifacts": [
+        {
+          "artifact_id": "artifact-57803a8e0cb43407",
+          "artifact_type": "skill_output",
+          "content_hash": "78794802a12481932fac55efe176e236982187c3a18930da0d37cc3b47821bfc",
+          "content_length": 14,
+          "mime_type": "text/plain",
+          "created_by_event_id": "event-1112db93c8125152",
+          "observed_label": {
+            "origins": [
+              "claim-source"
+            ],
+            "trust": "untrusted",
+            "task_id": "task-a1-a2",
+            "created_session_id": "session-0",
+            "expiry": null,
+            "revoked_origins": [],
+            "parent_artifact_ids": []
+          }
+        },
+        {
+          "artifact_id": "artifact-88124be4f631454a",
+          "artifact_type": "skill_output",
+          "content_hash": "78794802a12481932fac55efe176e236982187c3a18930da0d37cc3b47821bfc",
+          "content_length": 14,
+          "mime_type": "text/plain",
+          "created_by_event_id": "event-264b8e8ac8c47e8c",
+          "observed_label": {
+            "origins": [
+              "claim-source"
+            ],
+            "trust": "untrusted",
+            "task_id": "task-a1-a2",
+            "created_session_id": "session-0",
+            "expiry": null,
+            "revoked_origins": [],
+            "parent_artifact_ids": [
+              "artifact-57803a8e0cb43407"
+            ]
+          }
+        },
+        {
+          "artifact_id": "artifact-473d5d564159552d",
+          "artifact_type": "tool_arg",
+          "content_hash": "bc133f1d25598dfeab4b0372cf26229b9c173222e6fd68db9e4b34355ba5dfa9",
+          "content_length": 144,
+          "mime_type": "application/json",
+          "created_by_event_id": "event-674e88f52cad9713",
+          "observed_label": {
+            "origins": [
+              "claim-source"
+            ],
+            "trust": "untrusted",
+            "task_id": "task-a1-a2",
+            "created_session_id": "session-0",
+            "expiry": null,
+            "revoked_origins": [],
+            "parent_artifact_ids": [
+              "artifact-88124be4f631454a"
+            ]
+          }
+        },
+        {
+          "artifact_id": "artifact-57e98da63a53c17b",
+          "artifact_type": "tool_return",
+          "content_hash": "a90cb3ef42234e3bb1cb593b2f15fbb8992aae1fffc4441d9fb3e89363e6f862",
+          "content_length": 489,
+          "mime_type": "application/json",
+          "created_by_event_id": "event-6f40fc752a6360b8",
+          "observed_label": {
+            "origins": [
+              "claim-sender"
+            ],
+            "trust": "trusted",
+            "task_id": "task-a1-a2",
+            "created_session_id": "session-0",
+            "expiry": null,
+            "revoked_origins": [],
+            "parent_artifact_ids": [
+              "artifact-473d5d564159552d"
+            ]
+          }
+        },
+        {
+          "artifact_id": "artifact-267d400082a03b10",
+          "artifact_type": "skill_output",
+          "content_hash": "b7789971998f87787ecd5a8e80b51bfba8af9d6f901f9dab39de2960b5f6136e",
+          "content_length": 21,
+          "mime_type": "text/plain",
+          "created_by_event_id": "event-0ac1a5410af0eb83",
+          "observed_label": {
+            "origins": [
+              "claim-source",
+              "claim-sender"
+            ],
+            "trust": "untrusted",
+            "task_id": "task-a1-a2",
+            "created_session_id": "session-0",
+            "expiry": null,
+            "revoked_origins": [],
+            "parent_artifact_ids": [
+              "artifact-88124be4f631454a"
+            ]
+          }
+        }
+      ],
+      "decisions": [
+        {
+          "decision_id": "decision-65e4884e0c91d6ae",
+          "request_event_id": "event-674e88f52cad9713",
+          "enforcement_mode": "monitor",
+          "baseline_result": "allow",
+          "policy_result": "deny",
+          "authorized": false,
+          "executed": true,
+          "manifest_id": "claim-sender",
+          "decision_basis_artifact_ids": [
+            "artifact-473d5d564159552d",
+            "artifact-88124be4f631454a"
+          ],
+          "matched_grant_ids": [],
+          "reason_codes": [
+            "SINK_SCOPE_EXCEEDED",
+            "UNTRUSTED_ORIGIN"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": "effect-50e3df94e5e3da09",
+          "effect_alias": null,
+          "effect": {
+            "source": "context:/authorization",
+            "action": "network.send",
+            "sink": "mock://external",
+            "scope": "exact-sink",
+            "lifetime": "call",
+            "sensitivity": 4
+          },
+          "request_event_id": "event-674e88f52cad9713",
+          "decision_id": "decision-65e4884e0c91d6ae",
+          "result_event_id": "event-6f40fc752a6360b8",
+          "tool_receipt_id": "receipt-07e9397f90b0ec58",
+          "executed": true
+        }
+      ],
+      "grants": [
+        {
+          "grant_id": "grant-audit-only",
+          "issuer_id": "user-1",
+          "issuer_type": "user",
+          "grantee_id": "claim-sender",
+          "action": "network.send",
+          "source_pattern": "context:/authorization",
+          "sink_pattern": "mock://audit",
+          "scope": "exact-sink",
+          "lifetime": "task",
+          "task_id": "task-a1-a2",
+          "session_id": null,
+          "call_id": null,
+          "valid_from": "2026-08-25T00:00:00Z",
+          "expires_at": null
+        }
+      ],
+      "revocations": [],
+      "receipts": [
+        {
+          "receipt_id": "receipt-07e9397f90b0ec58",
+          "tool": "http_send",
+          "effect_id": "effect-50e3df94e5e3da09",
+          "request_event_id": "event-674e88f52cad9713",
+          "result_event_id": "event-6f40fc752a6360b8",
+          "decision_id": "decision-65e4884e0c91d6ae",
+          "actor_id": "claim-sender",
+          "call_id": "call-162c229302b68443",
+          "action_id": "send-authorized-claim",
+          "argument_artifact_id": "artifact-473d5d564159552d",
+          "receipt_artifact_id": "artifact-57e98da63a53c17b",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "output_artifact_ids": []
+        }
+      ]
+    },
+    "neutral": {
+      "schema_version": "2.0",
+      "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+      "events": [
+        {
+          "event_id": "event-fae155e356f7d497",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "session_start",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {}
+        },
+        {
+          "event_id": "event-0da990f81fbcad29",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "auth_grant",
+          "actor_id": "user-1",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "grant_id": "grant-audit-only"
+          }
+        },
+        {
+          "event_id": "event-45de445a4d51fb7e",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_install",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-source",
+            "implementation": "fixture://t12/claim-source"
+          }
+        },
+        {
+          "event_id": "event-eb40e819a20fa1be",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_load",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-source"
+          }
+        },
+        {
+          "event_id": "event-7972ef6ac000ed32",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_install",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-sender",
+            "implementation": "fixture://t12/claim-sender"
+          }
+        },
+        {
+          "event_id": "event-2a248d3b5a16df3e",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_load",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-sender"
+          }
+        },
+        {
+          "event_id": "event-9324084951b038de",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": "call-322bf6c7c175ee27",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_invoke",
+          "actor_id": "claim-source",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-source"
+          }
+        },
+        {
+          "event_id": "event-1112db93c8125152",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": "call-322bf6c7c175ee27",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_return",
+          "actor_id": "claim-source",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [
+            "artifact-57803a8e0cb43407"
+          ],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-source"
+          }
+        },
+        {
+          "event_id": "event-264b8e8ac8c47e8c",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "artifact_derive",
+          "actor_id": "harness:counterfactual",
+          "input_artifact_ids": [
+            "artifact-57803a8e0cb43407"
+          ],
+          "output_artifact_ids": [
+            "artifact-88124be4f631454a"
+          ],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "intervention": "neutral"
+          }
+        },
+        {
+          "event_id": "event-1bcbfd50856d7f18",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": "call-162c229302b68443",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_invoke",
+          "actor_id": "claim-sender",
+          "input_artifact_ids": [
+            "artifact-88124be4f631454a"
+          ],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-sender"
+          }
+        },
+        {
+          "event_id": "event-674e88f52cad9713",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": "call-162c229302b68443",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "tool_call_request",
+          "actor_id": "claim-sender",
+          "input_artifact_ids": [
+            "artifact-88124be4f631454a"
+          ],
+          "output_artifact_ids": [
+            "artifact-473d5d564159552d"
+          ],
+          "requested_effect": {
+            "source": "context:/authorization",
+            "action": "network.send",
+            "sink": "mock://external",
+            "scope": "exact-sink",
+            "lifetime": "call",
+            "sensitivity": 4
+          },
+          "decision_id": null,
+          "metadata": {
+            "tool": "http_send"
+          }
+        },
+        {
+          "event_id": "event-44de5eafb68bc4ed",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": "call-162c229302b68443",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "tool_call_deny",
+          "actor_id": "harness",
+          "input_artifact_ids": [
+            "artifact-473d5d564159552d"
+          ],
+          "output_artifact_ids": [],
+          "requested_effect": {
+            "source": "context:/authorization",
+            "action": "network.send",
+            "sink": "mock://external",
+            "scope": "exact-sink",
+            "lifetime": "call",
+            "sensitivity": 4
+          },
+          "decision_id": "decision-65e4884e0c91d6ae",
+          "metadata": {
+            "tool": "http_send"
+          }
+        },
+        {
+          "event_id": "event-6f40fc752a6360b8",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": "call-162c229302b68443",
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_return",
+          "actor_id": "claim-sender",
+          "input_artifact_ids": [
+            "artifact-88124be4f631454a"
+          ],
+          "output_artifact_ids": [
+            "artifact-57e98da63a53c17b"
+          ],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-sender"
+          }
+        },
+        {
+          "event_id": "event-0ac1a5410af0eb83",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_unload",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-sender"
+          }
+        },
+        {
+          "event_id": "event-e4e379195d6e845c",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "skill_unload",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {
+            "skill_id": "claim-source"
+          }
+        },
+        {
+          "event_id": "event-6d6a0afb1b0993d0",
+          "run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+          "task_id": "task-a1-a2",
+          "session_id": "session-0",
+          "call_id": null,
+          "timestamp": "2026-08-25T00:00:00Z",
+          "event_type": "session_end",
+          "actor_id": "harness",
+          "input_artifact_ids": [],
+          "output_artifact_ids": [],
+          "requested_effect": null,
+          "decision_id": null,
+          "metadata": {}
+        }
+      ],
+      "artifacts": [
+        {
+          "artifact_id": "artifact-57803a8e0cb43407",
+          "artifact_type": "skill_output",
+          "content_hash": "78794802a12481932fac55efe176e236982187c3a18930da0d37cc3b47821bfc",
+          "content_length": 14,
+          "mime_type": "text/plain",
+          "created_by_event_id": "event-1112db93c8125152",
+          "observed_label": {
+            "origins": [
+              "claim-source"
+            ],
+            "trust": "untrusted",
+            "task_id": "task-a1-a2",
+            "created_session_id": "session-0",
+            "expiry": null,
+            "revoked_origins": [],
+            "parent_artifact_ids": []
+          }
+        },
+        {
+          "artifact_id": "artifact-88124be4f631454a",
+          "artifact_type": "skill_output",
+          "content_hash": "38efaf2b168584163af87bf614fc13260d0c81fb5431d01086ad4e9ae3b5ab8a",
+          "content_length": 14,
+          "mime_type": "text/plain",
+          "created_by_event_id": "event-264b8e8ac8c47e8c",
+          "observed_label": {
+            "origins": [
+              "claim-source"
+            ],
+            "trust": "untrusted",
+            "task_id": "task-a1-a2",
+            "created_session_id": "session-0",
+            "expiry": null,
+            "revoked_origins": [],
+            "parent_artifact_ids": [
+              "artifact-57803a8e0cb43407"
+            ]
+          }
+        },
+        {
+          "artifact_id": "artifact-473d5d564159552d",
+          "artifact_type": "tool_arg",
+          "content_hash": "bc133f1d25598dfeab4b0372cf26229b9c173222e6fd68db9e4b34355ba5dfa9",
+          "content_length": 144,
+          "mime_type": "application/json",
+          "created_by_event_id": "event-674e88f52cad9713",
+          "observed_label": {
+            "origins": [
+              "claim-source"
+            ],
+            "trust": "untrusted",
+            "task_id": "task-a1-a2",
+            "created_session_id": "session-0",
+            "expiry": null,
+            "revoked_origins": [],
+            "parent_artifact_ids": [
+              "artifact-88124be4f631454a"
+            ]
+          }
+        },
+        {
+          "artifact_id": "artifact-57e98da63a53c17b",
+          "artifact_type": "skill_output",
+          "content_hash": "b7789971998f87787ecd5a8e80b51bfba8af9d6f901f9dab39de2960b5f6136e",
+          "content_length": 21,
+          "mime_type": "text/plain",
+          "created_by_event_id": "event-6f40fc752a6360b8",
+          "observed_label": {
+            "origins": [
+              "claim-source",
+              "claim-sender"
+            ],
+            "trust": "untrusted",
+            "task_id": "task-a1-a2",
+            "created_session_id": "session-0",
+            "expiry": null,
+            "revoked_origins": [],
+            "parent_artifact_ids": [
+              "artifact-88124be4f631454a"
+            ]
+          }
+        }
+      ],
+      "decisions": [
+        {
+          "decision_id": "decision-65e4884e0c91d6ae",
+          "request_event_id": "event-674e88f52cad9713",
+          "enforcement_mode": "monitor",
+          "baseline_result": "confirm",
+          "policy_result": "deny",
+          "authorized": false,
+          "executed": false,
+          "manifest_id": "claim-sender",
+          "decision_basis_artifact_ids": [
+            "artifact-473d5d564159552d",
+            "artifact-88124be4f631454a"
+          ],
+          "matched_grant_ids": [],
+          "reason_codes": [
+            "SINK_SCOPE_EXCEEDED",
+            "UNTRUSTED_ORIGIN"
+          ]
+        }
+      ],
+      "effects": [],
+      "grants": [
+        {
+          "grant_id": "grant-audit-only",
+          "issuer_id": "user-1",
+          "issuer_type": "user",
+          "grantee_id": "claim-sender",
+          "action": "network.send",
+          "source_pattern": "context:/authorization",
+          "sink_pattern": "mock://audit",
+          "scope": "exact-sink",
+          "lifetime": "task",
+          "task_id": "task-a1-a2",
+          "session_id": null,
+          "call_id": null,
+          "valid_from": "2026-08-25T00:00:00Z",
+          "expires_at": null
+        }
+      ],
+      "revocations": [],
+      "receipts": []
+    },
+    "manifest": {
+      "schema_version": "0.1",
+      "replay_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim",
+      "target_alias": "authorization-claim",
+      "checkpoint_id": "checkpoint-e762364d7720ff02",
+      "checkpoint_prefix_hash": "bf7cac4c460d134c95bdb20b90b9ca3eeb864f8a1d5c9be1f41ded53d071ef2e",
+      "checkpoint_state_hash": "e762364d7720ff02bd6c9518a32f90af63aaf04d6716893d98cf08bbc31a70b7",
+      "original_run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+      "neutral_run_id": "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+      "original_restore_state_hash": "e762364d7720ff02bd6c9518a32f90af63aaf04d6716893d98cf08bbc31a70b7",
+      "neutral_restore_state_hash": "e762364d7720ff02bd6c9518a32f90af63aaf04d6716893d98cf08bbc31a70b7",
+      "original_prefix_hash": "bf7cac4c460d134c95bdb20b90b9ca3eeb864f8a1d5c9be1f41ded53d071ef2e",
+      "neutral_prefix_hash": "bf7cac4c460d134c95bdb20b90b9ca3eeb864f8a1d5c9be1f41ded53d071ef2e",
+      "controls": {
+        "seed_hash": "3788daa77524471ff1b52871daa1742245a9d65102608c8193ab297b1834e17f",
+        "scripts_hash": "da299112c878dc2d4792999a52385c8c93f19fa594656b0c29efb620f3ab5576",
+        "decisions_hash": "bd70d350e19b365bed49b10de94e002f7f9dd927684f587e3e27c13e72bec33b",
+        "manifests_hash": "9896a50c5df0e6f98b36da05c3e05d09943ff671127127f0c72b39d220451097",
+        "grants_hash": "e2f9a10c08b5615fbd2336e4177d6944bf58c49fa9d29809c8baa0cc7932a772",
+        "clock_start": "2026-08-25T00:00:00+00:00",
+        "checkpoint_state_hash": "e762364d7720ff02bd6c9518a32f90af63aaf04d6716893d98cf08bbc31a70b7",
+        "same_seed": true,
+        "same_time": true,
+        "same_tool_returns": true,
+        "same_other_inputs": true,
+        "same_permissions": true,
+        "same_tool_set": true
+      },
+      "original_intervention": {
+        "mode": "identity",
+        "source_artifact_id": "artifact-57803a8e0cb43407",
+        "derived_artifact_id": "artifact-88124be4f631454a",
+        "artifact_type": "skill_output",
+        "mime_type": "text/plain",
+        "content_hash": "78794802a12481932fac55efe176e236982187c3a18930da0d37cc3b47821bfc",
+        "content_length": 14,
+        "schema_preserved": true
+      },
+      "neutral_intervention": {
+        "mode": "neutral",
+        "source_artifact_id": "artifact-57803a8e0cb43407",
+        "derived_artifact_id": "artifact-88124be4f631454a",
+        "artifact_type": "skill_output",
+        "mime_type": "text/plain",
+        "content_hash": "38efaf2b168584163af87bf614fc13260d0c81fb5431d01086ad4e9ae3b5ab8a",
+        "content_length": 14,
+        "schema_preserved": true
+      },
+      "original_effect_ids": [
+        "effect-50e3df94e5e3da09"
+      ],
+      "neutral_effect_ids": [],
+      "removed_effect_ids": [
+        "effect-50e3df94e5e3da09"
+      ],
+      "added_effect_ids": []
+    },
+    "y_original": true,
+    "y_neutral": false,
+    "ci": 1,
+    "original_effect_ids": [
+      "effect-50e3df94e5e3da09"
+    ],
+    "neutral_effect_ids": [],
+    "original_baseline": "allow",
+    "neutral_baseline": "confirm",
+    "evidence_ids": [
+      "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim",
+      "checkpoint-e762364d7720ff02",
+      "t18-scripted-a1-attack.causal_only.on",
+      "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:original",
+      "t18-scripted-a1-attack.causal_only.on:replay:authorization-claim:neutral",
+      "artifact-57803a8e0cb43407",
+      "effect-50e3df94e5e3da09"
+    ]
+  },
+  "fake_calls": 0
+}
