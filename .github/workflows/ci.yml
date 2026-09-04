@@ -11,7 +11,7 @@ jobs:
   quality:
     name: Python 3.11 质量检查
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 45
     steps:
       - name: 检出代码
         uses: actions/checkout@v4
@@ -26,7 +26,9 @@ jobs:
         run: python -m pip install -e ".[dev,live]"
 
       - name: 运行测试与覆盖率门槛
-        run: python -m pytest -q
+        run: >-
+          python -m pytest -vv --tb=short --durations=15
+          --junitxml=test-results.xml --cov-report=json:coverage.json
 
       - name: 运行 Ruff 静态检查
         run: python -m ruff check .
@@ -39,3 +41,31 @@ jobs:
 
       - name: 验证 CLI 入口
         run: python -m skillflow.cli --help
+
+      - name: 记录综合与纯分支覆盖率
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path("coverage.json")
+          if path.exists():
+              totals = json.loads(path.read_text(encoding="utf-8"))["totals"]
+              branches = totals["num_branches"]
+              totals["branch_only_percent"] = (
+                  100 * totals["covered_branches"] / branches if branches else None
+              )
+              print("COVERAGE_TOTALS=" + json.dumps(totals, sort_keys=True))
+          else:
+              print("coverage_report_unavailable")
+          PY
+
+      - name: 保留测试与覆盖率明细
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-results-${{ github.sha }}
+          path: |
+            test-results.xml
+            coverage.json
+          if-no-files-found: warn

@@ -1,6 +1,8 @@
 import ast
 from pathlib import Path
 
+import pytest
+
 RUNTIME_BOUNDARIES = (Path("src/skillflow/runtime"), Path("src/skillflow/policy"))
 EXECUTION_BOUNDARIES = (
     Path("src/skillflow/runtime"),
@@ -14,13 +16,15 @@ EXTERNAL_CAPABILITY_MODULES = frozenset(
     {"httpx", "httpx2", "keyring", "requests", "socket", "subprocess", "urllib.request"}
 )
 T16C_APPROVED_EXTERNAL_IMPORTS = {
-    Path("src/skillflow/experiment/t16/httpx2_transport.py"): frozenset({"httpx2", "socket"})
+    Path("src/skillflow/experiment/t16/httpx2_transport.py"): frozenset({"httpx2", "socket"}),
+    Path("src/skillflow/experiment/t17/v2/network.py"): frozenset({"httpx2"}),
 }
 T16C_APPROVED_SECRET_READERS = {
     Path("src/skillflow/experiment/t16/live_cli.py"): frozenset({("getpass", "getpass")}),
     Path("src/skillflow/experiment/t16/task_success_live_cli.py"): frozenset({("os", "environ")}),
     Path("src/skillflow/experiment/t16/task_success_canary_cli.py"): frozenset({("os", "environ")}),
     Path("src/skillflow/experiment/t17/live_supervisor.py"): frozenset({("getpass", "getpass")}),
+    Path("src/skillflow/experiment/t17/v2/campaign.py"): frozenset({("getpass", "getpass")}),
 }
 
 
@@ -44,6 +48,35 @@ def test_execution_boundaries_have_no_real_external_capability_imports() -> None
     )
 
     assert violations == ()
+
+
+@pytest.mark.parametrize(
+    ("relative", "source", "expected_counts"),
+    [
+        ("experiment/t17/v2/network.py", "import httpx2\nimport socket\n", (1, 0)),
+        (
+            "experiment/t17/v2/campaign.py",
+            "import getpass\nimport os\ngetpass.getpass()\nos.environ.get('API_KEY')\n",
+            (0, 1),
+        ),
+        ("runtime/not_approved.py", "import httpx2\nimport getpass\ngetpass.getpass()\n", (1, 1)),
+    ],
+)
+def test_v2_entry_exceptions_do_not_allow_other_capabilities(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    relative: str,
+    source: str,
+    expected_counts: tuple[int, int],
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    path = Path("src/skillflow") / relative
+    path.parent.mkdir(parents=True)
+    path.write_text(source, encoding="utf-8")
+    assert (
+        len(_external_imports(path)),
+        len(_credential_or_home_accesses(path)),
+    ) == expected_counts
 
 
 def _oracle_imports(path: Path) -> tuple[str, ...]:
