@@ -1,0 +1,182 @@
+{
+  "$defs": {
+    "MeasurementStatus": {
+      "description": "T17 把已测、设计不适用、Hook 缺失和阶段不完整分开。",
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "MeasurementStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "每个指标一行，保留数值、状态、分母、证据与来源合同。",
+  "properties": {
+    "cluster_terms_json": {
+      "title": "Cluster Terms Json",
+      "type": "string"
+    },
+    "complete_clusters": {
+      "title": "Complete Clusters",
+      "type": "integer"
+    },
+    "conditions_json": {
+      "title": "Conditions Json",
+      "type": "string"
+    },
+    "contrast_signs_json": {
+      "title": "Contrast Signs Json",
+      "type": "string"
+    },
+    "defense_modes_json": {
+      "title": "Defense Modes Json",
+      "type": "string"
+    },
+    "denominator": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Denominator"
+    },
+    "denominator_scope": {
+      "title": "Denominator Scope",
+      "type": "string"
+    },
+    "domain": {
+      "title": "Domain",
+      "type": "string"
+    },
+    "evidence_ids_json": {
+      "title": "Evidence Ids Json",
+      "type": "string"
+    },
+    "intervals_json": {
+      "title": "Intervals Json",
+      "type": "string"
+    },
+    "matrices_json": {
+      "title": "Matrices Json",
+      "type": "string"
+    },
+    "metric": {
+      "title": "Metric",
+      "type": "string"
+    },
+    "model_revision": {
+      "title": "Model Revision",
+      "type": "string"
+    },
+    "numerator": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Numerator"
+    },
+    "phase_contracts_json": {
+      "title": "Phase Contracts Json",
+      "type": "string"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Reason"
+    },
+    "report_id": {
+      "title": "Report Id",
+      "type": "string"
+    },
+    "report_kind": {
+      "title": "Report Kind",
+      "type": "string"
+    },
+    "requested_model": {
+      "title": "Requested Model",
+      "type": "string"
+    },
+    "scheduled_denominator": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Scheduled Denominator"
+    },
+    "skills_json": {
+      "title": "Skills Json",
+      "type": "string"
+    },
+    "stages_json": {
+      "title": "Stages Json",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/MeasurementStatus"
+    },
+    "unit": {
+      "title": "Unit",
+      "type": "string"
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Value"
+    }
+  },
+  "required": [
+    "report_id",
+    "report_kind",
+    "domain",
+    "requested_model",
+    "model_revision",
+    "stages_json",
+    "conditions_json",
+    "skills_json",
+    "defense_modes_json",
+    "phase_contracts_json",
+    "matrices_json",
+    "metric",
+    "status",
+    "numerator",
+    "denominator",
+    "value",
+    "scheduled_denominator",
+    "unit",
+    "denominator_scope",
+    "complete_clusters",
+    "intervals_json",
+    "evidence_ids_json",
+    "cluster_terms_json",
+    "contrast_signs_json",
+    "reason"
+  ],
+  "title": "MetricCsvRow",
+  "type": "object"
+}

@@ -1,0 +1,395 @@
+{
+  "$defs": {
+    "AuthorizationClaimBinding": {
+      "description": "仅当固定输入摘要匹配时，把其 ID 声明为低可信授权文本。",
+      "properties": {
+        "expected_content_hash": {
+          "title": "Expected Content Hash",
+          "type": "string"
+        },
+        "input_index": {
+          "title": "Input Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_index",
+        "expected_content_hash"
+      ],
+      "title": "AuthorizationClaimBinding",
+      "type": "object"
+    },
+    "Decision": {
+      "description": "Harness 或策略的结构化决策。",
+      "enum": [
+        "allow",
+        "deny",
+        "confirm"
+      ],
+      "title": "Decision",
+      "type": "string"
+    },
+    "FixtureScript": {
+      "description": "一个固定 fixture 的动作与返回值。",
+      "properties": {
+        "actions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ToolScriptAction"
+          },
+          "title": "Actions",
+          "type": "array"
+        },
+        "output": {
+          "format": "binary",
+          "title": "Output",
+          "type": "string"
+        },
+        "output_mime_type": {
+          "default": "text/plain",
+          "title": "Output Mime Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "output"
+      ],
+      "title": "FixtureScript",
+      "type": "object"
+    },
+    "HttpSendArgs": {
+      "additionalProperties": false,
+      "description": "http_send 参数。",
+      "properties": {
+        "kind": {
+          "const": "http_send",
+          "default": "http_send",
+          "title": "Kind",
+          "type": "string"
+        },
+        "sensitivity": {
+          "default": 0,
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Sensitivity",
+          "type": "integer"
+        },
+        "sink": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source_artifact_id": {
+          "minLength": 1,
+          "title": "Source Artifact Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_artifact_id",
+        "source",
+        "sink"
+      ],
+      "title": "HttpSendArgs",
+      "type": "object"
+    },
+    "InputArtifactBinding": {
+      "description": "把一个 Tool 参数的 source Artifact 绑定到调用输入。",
+      "properties": {
+        "input_index": {
+          "title": "Input Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_index"
+      ],
+      "title": "InputArtifactBinding",
+      "type": "object"
+    },
+    "InputArtifactGate": {
+      "description": "按调用输入内容哈希选择结构基线决策键。",
+      "properties": {
+        "expected_content_hash": {
+          "title": "Expected Content Hash",
+          "type": "string"
+        },
+        "input_index": {
+          "title": "Input Index",
+          "type": "integer"
+        },
+        "mismatch_decision_key": {
+          "title": "Mismatch Decision Key",
+          "type": "string"
+        }
+      },
+      "required": [
+        "input_index",
+        "expected_content_hash",
+        "mismatch_decision_key"
+      ],
+      "title": "InputArtifactGate",
+      "type": "object"
+    },
+    "ReadFileArgs": {
+      "additionalProperties": false,
+      "description": "read_file 参数。",
+      "properties": {
+        "kind": {
+          "const": "read_file",
+          "default": "read_file",
+          "title": "Kind",
+          "type": "string"
+        },
+        "resource": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "sensitivity": {
+          "default": 0,
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Sensitivity",
+          "type": "integer"
+        },
+        "sink": {
+          "$ref": "#/$defs/ResourceRef",
+          "default": "context:/task"
+        }
+      },
+      "required": [
+        "resource"
+      ],
+      "title": "ReadFileArgs",
+      "type": "object"
+    },
+    "ReadMemoryArgs": {
+      "additionalProperties": false,
+      "description": "read_memory 参数。",
+      "properties": {
+        "key": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$",
+          "title": "Key",
+          "type": "string"
+        },
+        "kind": {
+          "const": "read_memory",
+          "default": "read_memory",
+          "title": "Kind",
+          "type": "string"
+        },
+        "sensitivity": {
+          "default": 0,
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Sensitivity",
+          "type": "integer"
+        },
+        "sink": {
+          "$ref": "#/$defs/ResourceRef",
+          "default": "context:/task"
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "title": "ReadMemoryArgs",
+      "type": "object"
+    },
+    "ResourceRef": {
+      "description": "一个已经校验并规范化的 Resource URI。",
+      "title": "ResourceRef",
+      "type": "string"
+    },
+    "ShellExecArgs": {
+      "additionalProperties": false,
+      "description": "shell_exec 参数。",
+      "properties": {
+        "command": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Command",
+          "type": "array"
+        },
+        "kind": {
+          "const": "shell_exec",
+          "default": "shell_exec",
+          "title": "Kind",
+          "type": "string"
+        },
+        "sensitivity": {
+          "default": 0,
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Sensitivity",
+          "type": "integer"
+        },
+        "sink": {
+          "$ref": "#/$defs/ResourceRef",
+          "default": "mock://shell"
+        }
+      },
+      "required": [
+        "command"
+      ],
+      "title": "ShellExecArgs",
+      "type": "object"
+    },
+    "ToolScriptAction": {
+      "description": "一个声明式 Mock Tool 动作。",
+      "properties": {
+        "action_id": {
+          "title": "Action Id",
+          "type": "string"
+        },
+        "arguments": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ReadFileArgs"
+            },
+            {
+              "$ref": "#/$defs/WriteMemoryArgs"
+            },
+            {
+              "$ref": "#/$defs/ReadMemoryArgs"
+            },
+            {
+              "$ref": "#/$defs/HttpSendArgs"
+            },
+            {
+              "$ref": "#/$defs/ShellExecArgs"
+            }
+          ],
+          "title": "Arguments"
+        },
+        "authorization_claim": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AuthorizationClaimBinding"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "decision_key": {
+          "title": "Decision Key",
+          "type": "string"
+        },
+        "input_binding": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InputArtifactBinding"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "input_gate": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InputArtifactGate"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "action_id",
+        "decision_key",
+        "arguments"
+      ],
+      "title": "ToolScriptAction",
+      "type": "object"
+    },
+    "WriteMemoryArgs": {
+      "additionalProperties": false,
+      "description": "write_memory 参数。",
+      "properties": {
+        "key": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$",
+          "title": "Key",
+          "type": "string"
+        },
+        "kind": {
+          "const": "write_memory",
+          "default": "write_memory",
+          "title": "Kind",
+          "type": "string"
+        },
+        "sensitivity": {
+          "default": 0,
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Sensitivity",
+          "type": "integer"
+        },
+        "source": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source_artifact_id": {
+          "minLength": 1,
+          "title": "Source Artifact Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "source_artifact_id",
+        "source"
+      ],
+      "title": "WriteMemoryArgs",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "声明式技能文件；只能调用已登记工具，不能导入或执行代码。",
+  "properties": {
+    "bundle_id": {
+      "minLength": 1,
+      "title": "Bundle Id",
+      "type": "string"
+    },
+    "decisions": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Decision"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Decisions",
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "2.0",
+      "default": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "scripts": {
+      "additionalProperties": {
+        "$ref": "#/$defs/FixtureScript"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Scripts",
+      "type": "object"
+    }
+  },
+  "required": [
+    "bundle_id",
+    "scripts"
+  ],
+  "title": "SkillBundle",
+  "type": "object"
+}

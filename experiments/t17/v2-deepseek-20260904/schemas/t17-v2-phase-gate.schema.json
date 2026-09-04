@@ -1,0 +1,140 @@
+{
+  "$defs": {
+    "MeasurementStatus": {
+      "description": "T17 把已测、设计不适用、Hook 缺失和阶段不完整分开。",
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "MeasurementStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "只以预先冻结的调度和可信证据覆盖判断阶段是否完整。",
+  "properties": {
+    "binding_coverage": {
+      "default": 0,
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Binding Coverage",
+      "type": "number"
+    },
+    "binding_failures": {
+      "minimum": 0,
+      "title": "Binding Failures",
+      "type": "integer"
+    },
+    "completed_core": {
+      "minimum": 0,
+      "title": "Completed Core",
+      "type": "integer"
+    },
+    "evaluated_replay": {
+      "minimum": 0,
+      "title": "Evaluated Replay",
+      "type": "integer"
+    },
+    "failures": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Failures",
+      "type": "array"
+    },
+    "infrastructure_invalid": {
+      "minimum": 0,
+      "title": "Infrastructure Invalid",
+      "type": "integer"
+    },
+    "metric_statuses": {
+      "additionalProperties": {
+        "$ref": "#/$defs/MeasurementStatus"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Metric Statuses",
+      "type": "object"
+    },
+    "not_applicable_replay": {
+      "minimum": 0,
+      "title": "Not Applicable Replay",
+      "type": "integer"
+    },
+    "passed": {
+      "title": "Passed",
+      "type": "boolean"
+    },
+    "protocol_errors": {
+      "minimum": 0,
+      "title": "Protocol Errors",
+      "type": "integer"
+    },
+    "receipt_coverage": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Receipt Coverage",
+      "type": "number"
+    },
+    "required_hook_coverage": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Required Hook Coverage",
+      "type": "number"
+    },
+    "scheduled_core": {
+      "minimum": 0,
+      "title": "Scheduled Core",
+      "type": "integer"
+    },
+    "scheduled_replay": {
+      "minimum": 0,
+      "title": "Scheduled Replay",
+      "type": "integer"
+    },
+    "task_evidence_coverage": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Task Evidence Coverage",
+      "type": "number"
+    },
+    "terminal_core": {
+      "minimum": 0,
+      "title": "Terminal Core",
+      "type": "integer"
+    },
+    "terminal_replay": {
+      "minimum": 0,
+      "title": "Terminal Replay",
+      "type": "integer"
+    },
+    "usage_complete": {
+      "default": false,
+      "title": "Usage Complete",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "passed",
+    "scheduled_core",
+    "scheduled_replay",
+    "terminal_core",
+    "terminal_replay",
+    "completed_core",
+    "evaluated_replay",
+    "not_applicable_replay",
+    "infrastructure_invalid",
+    "protocol_errors",
+    "binding_failures",
+    "task_evidence_coverage",
+    "receipt_coverage",
+    "required_hook_coverage",
+    "failures"
+  ],
+  "title": "PhaseGate",
+  "type": "object"
+}

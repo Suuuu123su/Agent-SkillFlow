@@ -1,0 +1,93 @@
+{
+  "protocol": "experiments/t17/v2-deepseek-20260904",
+  "output": "runs/t17-v2-deepseek-20260904-01",
+  "source_snapshot": "runs/t17-v2-live-20260904-02/campaign-after-attempt-007.json",
+  "original_approved_usd": "58.25",
+  "historical_estimated_usd": "14.6937498",
+  "historical_reserved_usd": "14.90429240",
+  "remaining_approved_usd": "43.34570760",
+  "allocated_usd": "6",
+  "stages": [
+    {
+      "stage": "model2_canary",
+      "matrix_sha256": "9ad15e38d4f5966b6d252b5a9fe0b8cc06bd8c9b51d1e97c81ed03b3fab15075",
+      "model_id": "deepseek-v4-flash",
+      "scheduled_core": 24,
+      "scheduled_replay": 18,
+      "no_failure_api_calls": 108,
+      "max_network_attempts": 150,
+      "worst_input_tokens": 15038400,
+      "worst_output_including_reasoning_tokens": 307200,
+      "max_input_bytes_per_call": 100000,
+      "expected_estimated_usd": "0.02312396260623229461756373937",
+      "historical_p95_projected_usd": "0.0300132",
+      "uncapped_token_upper_cost_usd": "2.19139200",
+      "budget": {
+        "schema_version": "0.1",
+        "allow_live": false,
+        "max_total_usd": "1",
+        "max_cost_per_run_usd": "0.20",
+        "max_agent_turns": 16,
+        "max_output_tokens_per_turn": 2048,
+        "max_retries": 1
+      },
+      "rates": {
+        "status": "live_pinned",
+        "input_per_million_usd": "0.14",
+        "cached_input_per_million_usd": "0.0028",
+        "output_per_million_usd": "0.28",
+        "reasoning_per_million_usd": "0.28",
+        "cache_write_per_million_usd": "0"
+      },
+      "rate_source": "已有 DeepSeek 切换资料中的估算费率；本轮不重新核价",
+      "projection_kind": "historical_per_response_with_prompt_allowance_not_guarantee",
+      "count_scope": "one_complete_attempt_including_bounded_request_retries",
+      "whole_stage_restart": "explicit_control_new_attempt_shared_original_dollar_caps"
+    },
+    {
+      "stage": "model2",
+      "matrix_sha256": "1df4c46a99f2dbd8b43948364e13a962fae7534e6e58d79bf3a28c025ed763bb",
+      "model_id": "deepseek-v4-flash",
+      "scheduled_core": 360,
+      "scheduled_replay": 270,
+      "no_failure_api_calls": 1620,
+      "max_network_attempts": 2250,
+      "worst_input_tokens": 225576000,
+      "worst_output_including_reasoning_tokens": 4608000,
+      "max_input_bytes_per_call": 100000,
+      "expected_estimated_usd": "0.3468594390934844192634560906",
+      "historical_p95_projected_usd": "0.4501980",
+      "uncapped_token_upper_cost_usd": "32.87088000",
+      "budget": {
+        "schema_version": "0.1",
+        "allow_live": false,
+        "max_total_usd": "5",
+        "max_cost_per_run_usd": "0.20",
+        "max_agent_turns": 16,
+        "max_output_tokens_per_turn": 2048,
+        "max_retries": 1
+      },
+      "rates": {
+        "status": "live_pinned",
+        "input_per_million_usd": "0.14",
+        "cached_input_per_million_usd": "0.0028",
+        "output_per_million_usd": "0.28",
+        "reasoning_per_million_usd": "0.28",
+        "cache_write_per_million_usd": "0"
+      },
+      "rate_source": "已有 DeepSeek 切换资料中的估算费率；本轮不重新核价",
+      "projection_kind": "historical_per_response_with_prompt_allowance_not_guarantee",
+      "count_scope": "one_complete_attempt_including_bounded_request_retries",
+      "whole_stage_restart": "explicit_control_new_attempt_shared_original_dollar_caps"
+    }
+  ],
+  "model": "deepseek-v4-flash",
+  "endpoint": "https://api.deepseek.com/responses",
+  "requested_reasoning": "medium",
+  "provider_effective_reasoning": "high",
+  "instruction_role": "system",
+  "model_version_limit": "服务返回的模型标识必须固定；别名不等于可验证的不可变快照。",
+  "price_policy": "使用切换时已有费率作估算，不重新查询价格，不代表供应商账单。",
+  "comparison_limit": "控制指令正文相同；角色和推理档位按接口映射，须在跨模型解释中注明。",
+  "scope": "仅替换 G：24/18 预检通过后 360/270；E/F 不重跑，H 仍用 Luna。"
+}

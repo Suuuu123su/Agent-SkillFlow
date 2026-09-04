@@ -1,0 +1,14 @@
+{
+  "source_raw": "runs/t17-v2-live-20260904-02/model2/attempt-03/raw",
+  "output_relative_path": "runs/t17-v2-live-20260904-02/model2/continuation-01",
+  "snapshot_relative_path": "runs/t17-v2-live-20260904-02/campaign-after-attempt-006.json",
+  "first_ordinal": 116,
+  "first_trial_id": "t17-live-reference-v2-model2-c2-tool-return-grid-p11-s04-r2",
+  "user_instruction": "从第116个开始重跑；之后如果也出错也这样从断点续跑",
+  "previous_selection": null,
+  "automatic_infrastructure_continuation": true,
+  "max_consecutive_no_progress": 3,
+  "selection_rule": "retain_fixed_prefix_rerun_inclusive_suffix",
+  "previous_failures_preserved": true,
+  "expense_scope": "new_api_calls_only_previous_costs_already_accounted"
+}

@@ -1,0 +1,182 @@
+{
+  "$defs": {
+    "MeasurementStatus": {
+      "description": "T17 把已测、设计不适用、Hook 缺失和阶段不完整分开。",
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "MeasurementStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "两侧独立测量及差值，不提供池化总体率。",
+  "properties": {
+    "comparison_kind": {
+      "enum": [
+        "model",
+        "defense",
+        "skill"
+      ],
+      "title": "Comparison Kind",
+      "type": "string"
+    },
+    "complete_clusters": {
+      "title": "Complete Clusters",
+      "type": "integer"
+    },
+    "delta_measurement_json": {
+      "title": "Delta Measurement Json",
+      "type": "string"
+    },
+    "delta_status": {
+      "$ref": "#/$defs/MeasurementStatus"
+    },
+    "delta_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Delta Value"
+    },
+    "interval_agreement": {
+      "enum": [
+        "agreement",
+        "disagreement",
+        "indeterminate"
+      ],
+      "title": "Interval Agreement",
+      "type": "string"
+    },
+    "left_identity_json": {
+      "title": "Left Identity Json",
+      "type": "string"
+    },
+    "left_interval_direction": {
+      "enum": [
+        "negative",
+        "zero",
+        "positive",
+        "indeterminate"
+      ],
+      "title": "Left Interval Direction",
+      "type": "string"
+    },
+    "left_measurement_json": {
+      "title": "Left Measurement Json",
+      "type": "string"
+    },
+    "left_point_direction": {
+      "enum": [
+        "negative",
+        "zero",
+        "positive",
+        "indeterminate"
+      ],
+      "title": "Left Point Direction",
+      "type": "string"
+    },
+    "left_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Left Value"
+    },
+    "metric": {
+      "title": "Metric",
+      "type": "string"
+    },
+    "named_deltas_json": {
+      "title": "Named Deltas Json",
+      "type": "string"
+    },
+    "point_agreement": {
+      "enum": [
+        "agreement",
+        "disagreement",
+        "indeterminate"
+      ],
+      "title": "Point Agreement",
+      "type": "string"
+    },
+    "report_id": {
+      "title": "Report Id",
+      "type": "string"
+    },
+    "right_identity_json": {
+      "title": "Right Identity Json",
+      "type": "string"
+    },
+    "right_interval_direction": {
+      "enum": [
+        "negative",
+        "zero",
+        "positive",
+        "indeterminate"
+      ],
+      "title": "Right Interval Direction",
+      "type": "string"
+    },
+    "right_measurement_json": {
+      "title": "Right Measurement Json",
+      "type": "string"
+    },
+    "right_point_direction": {
+      "enum": [
+        "negative",
+        "zero",
+        "positive",
+        "indeterminate"
+      ],
+      "title": "Right Point Direction",
+      "type": "string"
+    },
+    "right_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Right Value"
+    }
+  },
+  "required": [
+    "report_id",
+    "comparison_kind",
+    "metric",
+    "left_identity_json",
+    "right_identity_json",
+    "left_value",
+    "right_value",
+    "delta_value",
+    "delta_status",
+    "left_measurement_json",
+    "right_measurement_json",
+    "delta_measurement_json",
+    "left_point_direction",
+    "right_point_direction",
+    "left_interval_direction",
+    "right_interval_direction",
+    "point_agreement",
+    "interval_agreement",
+    "complete_clusters",
+    "named_deltas_json"
+  ],
+  "title": "ComparisonCsvRow",
+  "type": "object"
+}

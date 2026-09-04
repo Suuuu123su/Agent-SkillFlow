@@ -1,0 +1,2276 @@
+{
+  "schema_version": "2.0",
+  "protocol_id": "t17-live-reference-v2",
+  "stage": "model1",
+  "domain": "live_reference",
+  "configuration_sha256": "d00e9237861fb00543a004a30ce17c1e1dc3b3b7e1a16a2da6d047d27b39782a",
+  "matrix_sha256": "39d84856b06a9e2d5aad7f3ceeb24df0d6df896fc601a28abc56ac9dede3e127",
+  "catalog_sha256": "c542795299c5fddae9ff3e8957133c70346e2843dddf03a87af5e2a325a73f16",
+  "runtime_files": {
+    "src/skillflow/__init__.py": {
+      "sha256": "f948c263ff36bc6c1743c48551ec34c75b9f1449f8706c7e24a6273688ddea23",
+      "size_bytes": 91,
+      "records": null
+    },
+    "src/skillflow/adapters/__init__.py": {
+      "sha256": "2cb167f16ff5a7b7f03971361d047a7e8cfd618aa64ebd40fa6dfd552739ca70",
+      "size_bytes": 53,
+      "records": null
+    },
+    "src/skillflow/adapters/base.py": {
+      "sha256": "fe769d14d47744215638c05c6ba590af9e16fff43a61d82513cc5539f17c5de9",
+      "size_bytes": 2293,
+      "records": null
+    },
+    "src/skillflow/adapters/benchmark_controller.py": {
+      "sha256": "5a88580ac398b2bc994213ec7270bad8d3cd86da4003f59002337f8ea776332c",
+      "size_bytes": 4074,
+      "records": null
+    },
+    "src/skillflow/adapters/checkpoint.py": {
+      "sha256": "801f719cbd5fa42ae09405f5595a2de59bd349472074cb227a9c1f44a4b49144",
+      "size_bytes": 10058,
+      "records": null
+    },
+    "src/skillflow/adapters/live_reference_harness.py": {
+      "sha256": "c2e182d18a7c90ce4152f100761b147476c10e53742b815813d4cc3541b0fa6e",
+      "size_bytes": 274,
+      "records": null
+    },
+    "src/skillflow/adapters/mock_benchmark_state.py": {
+      "sha256": "3e575669c95dc1fa157ac7640572272f9cc8c5893242809520bbcab19f9dcaa3",
+      "size_bytes": 2712,
+      "records": null
+    },
+    "src/skillflow/adapters/mock_checkpoint.py": {
+      "sha256": "f4e1a63a5a5c5cab560782839d597bcbca51506377d8be720a05bc574a896a5d",
+      "size_bytes": 4212,
+      "records": null
+    },
+    "src/skillflow/adapters/mock_harness.py": {
+      "sha256": "98aaa18170d0d17f77cf4ebb62c49ce9e2fb63a1129f959c92c96e059da8abae",
+      "size_bytes": 9461,
+      "records": null
+    },
+    "src/skillflow/adapters/mock_session.py": {
+      "sha256": "1318b81ab1eec92e5e2bca53f84d923ca633bd8b8d6824c3d37a86e2fdb27f12",
+      "size_bytes": 2301,
+      "records": null
+    },
+    "src/skillflow/analysis/__init__.py": {
+      "sha256": "42e565572cf4f5558566eb0c4b08eca39243439caa482e4bfa98be72943222a7",
+      "size_bytes": 58,
+      "records": null
+    },
+    "src/skillflow/analysis/authorization_laundering.py": {
+      "sha256": "ecbeb12509756599236f4d0d45a9ef136a18489dee1ac568a215c2db8c93e1fc",
+      "size_bytes": 7532,
+      "records": null
+    },
+    "src/skillflow/analysis/counterfactual.py": {
+      "sha256": "38e222c627ce36bd158f41837053e2005f21816d74d1bfed9ffea8ede3f51834",
+      "size_bytes": 368,
+      "records": null
+    },
+    "src/skillflow/analysis/effect_projection.py": {
+      "sha256": "19683c397998c17d8b78df9adaa4b604fceef2d84ccf5707eea950be931e9cc3",
+      "size_bytes": 6836,
+      "records": null
+    },
+    "src/skillflow/analysis/effect_selection.py": {
+      "sha256": "e7d2989292fa6ee0536e3c19178d367c0eca440405a054d8288f0bfadac89fbc",
+      "size_bytes": 3139,
+      "records": null
+    },
+    "src/skillflow/analysis/effective_authority.py": {
+      "sha256": "54efb14049ac7bbcff269bd8fe5abc989532dc4b4b2856f042da06cd26aa16b7",
+      "size_bytes": 5242,
+      "records": null
+    },
+    "src/skillflow/analysis/errors.py": {
+      "sha256": "a41b1201d3aff5b46cbe078f899bfa4e5a317ecb9c339508ba838c02976c0364",
+      "size_bytes": 1092,
+      "records": null
+    },
+    "src/skillflow/analysis/experiment_reporting.py": {
+      "sha256": "ba3f6be0cf732084ad210649f3ab823943d4d130408ccf26b47e1f2f54d6fb2a",
+      "size_bytes": 3682,
+      "records": null
+    },
+    "src/skillflow/analysis/facts.py": {
+      "sha256": "d2eb83df6e8a6a6c741939e2e9d5205283fd6129344d70abdf34e453218e9582",
+      "size_bytes": 4255,
+      "records": null
+    },
+    "src/skillflow/analysis/hiaa.py": {
+      "sha256": "59235a402ab626ef6e79e648032c10a82d6c81a4fdec474454237255eee23ff0",
+      "size_bytes": 7012,
+      "records": null
+    },
+    "src/skillflow/analysis/metric_helpers.py": {
+      "sha256": "95942281fd153e31df3f82515445e3c32216f62b72853f441287df9ef4cdd15e",
+      "size_bytes": 714,
+      "records": null
+    },
+    "src/skillflow/analysis/projection.py": {
+      "sha256": "cc7474376ead709572198a23f1cc26e1044346b9c8076ec13c60b67c19e7107e",
+      "size_bytes": 8126,
+      "records": null
+    },
+    "src/skillflow/analysis/provenance_metrics.py": {
+      "sha256": "74bb49fe3ff54fc2a0c23803cef8a068cf50f4ceac48718ddcc11289ce00946a",
+      "size_bytes": 7616,
+      "records": null
+    },
+    "src/skillflow/analysis/report_io.py": {
+      "sha256": "80f3ae5b254b4abf35d89265ba309084fd078b7f61e4419d08809f8b082c1476",
+      "size_bytes": 1817,
+      "records": null
+    },
+    "src/skillflow/analysis/reporting.py": {
+      "sha256": "dd8c659dc85a0dbdf1cd1d4787969e1cd5fd5bb32c07c710a424b2824617a0f9",
+      "size_bytes": 6655,
+      "records": null
+    },
+    "src/skillflow/analysis/residual_influence.py": {
+      "sha256": "1f4e8251c0e4c27a5bd0c2a89587652de1e7747ea789ec0a196e4140488a929d",
+      "size_bytes": 3231,
+      "records": null
+    },
+    "src/skillflow/analysis/run_reporting.py": {
+      "sha256": "8d1e5f55b5e82627acebc9633a0b7e849c1859ce5ed2a6626a3842a9c806fc3a",
+      "size_bytes": 731,
+      "records": null
+    },
+    "src/skillflow/benchmark/__init__.py": {
+      "sha256": "98e7894a8c9b1cc92e601a362c9f8af3b6d379a92088b1708b7937d532ebc43f",
+      "size_bytes": 57,
+      "records": null
+    },
+    "src/skillflow/benchmark/execution_policy.py": {
+      "sha256": "3fdb333efc7fd03d19a87f1f9fc4dcd1e0abe445cd4ca27e71e7810ff19fa7d3",
+      "size_bytes": 616,
+      "records": null
+    },
+    "src/skillflow/benchmark/harness_factory.py": {
+      "sha256": "3054c86f5b473ed812a705005b8cee6208e7093960bc0bdec3971f1b3736c26c",
+      "size_bytes": 2842,
+      "records": null
+    },
+    "src/skillflow/benchmark/manifests.py": {
+      "sha256": "2a8beb714d97055d2de6b8707768de5f01e636ab847a22c337bc6efcd5526519",
+      "size_bytes": 2521,
+      "records": null
+    },
+    "src/skillflow/benchmark/oracle_bridge.py": {
+      "sha256": "55909cdd88d1528f5b89a38c2acc2112e9e6802a2fcc7df335842f641c9f12c5",
+      "size_bytes": 4721,
+      "records": null
+    },
+    "src/skillflow/benchmark/performance.py": {
+      "sha256": "779e5d87d1b3020041c50c7468787cf5cd43722ced6c76425f4d2706ce3dc039",
+      "size_bytes": 8112,
+      "records": null
+    },
+    "src/skillflow/benchmark/replay.py": {
+      "sha256": "d87ffe462b77973d9334ec4934c6efca8e4db56c4aa8db254d7b94931fcced00",
+      "size_bytes": 9199,
+      "records": null
+    },
+    "src/skillflow/benchmark/replay_analysis.py": {
+      "sha256": "fe8a5592894f0a2fe72b8a01355a880ee3c58e0bf830a671ee5da00b3c658007",
+      "size_bytes": 6503,
+      "records": null
+    },
+    "src/skillflow/benchmark/replay_branch.py": {
+      "sha256": "26972de1716c72c060e6b91ed0bf7dc68ead33063e1ad3048904c33c427dcf60",
+      "size_bytes": 6408,
+      "records": null
+    },
+    "src/skillflow/benchmark/replay_fingerprint.py": {
+      "sha256": "5a79e1dbac647e31a4252b3dd0dc8c80a51bc2056fad41f1b5148fe72894ab26",
+      "size_bytes": 3050,
+      "records": null
+    },
+    "src/skillflow/benchmark/replay_models.py": {
+      "sha256": "80d2cfcf96c882e23e017a0ed2be5870a582150dccb52dbf5cd0970a4015f508",
+      "size_bytes": 5898,
+      "records": null
+    },
+    "src/skillflow/benchmark/replay_output.py": {
+      "sha256": "064b76bb04a8612c89ce923e8b0ae6e4c50092f2743d1a35a54fcd8182fd71ef",
+      "size_bytes": 1166,
+      "records": null
+    },
+    "src/skillflow/benchmark/run_facts.py": {
+      "sha256": "129c040b06c6e3543f6c769a345c6f9de84260cbe3e1a35777bd5f7fb71d492b",
+      "size_bytes": 2348,
+      "records": null
+    },
+    "src/skillflow/benchmark/run_workspace.py": {
+      "sha256": "75a16dedda1325691225ad4fcc47af262947191ed5088497406c983f005022f2",
+      "size_bytes": 917,
+      "records": null
+    },
+    "src/skillflow/benchmark/runner.py": {
+      "sha256": "620ac0a24dd62a0cedc632b1976d799f31c3db225502cefa8c2db0558d62ec02",
+      "size_bytes": 9924,
+      "records": null
+    },
+    "src/skillflow/benchmark/scenario_execution.py": {
+      "sha256": "5757b67250551cfe1c569713fc3b0e70058280531f3579cd450f4c992b1cd56f",
+      "size_bytes": 11621,
+      "records": null
+    },
+    "src/skillflow/benchmark/scripted_backend.py": {
+      "sha256": "f783cec30f8d93f9f95cd025d7917d673c52a87d95e9a9b2295d579d6ee15833",
+      "size_bytes": 9196,
+      "records": null
+    },
+    "src/skillflow/benchmark/success.py": {
+      "sha256": "c221afded4bbc522bfb0d0ab4cc8e46ff606031a502d9fed8aba6730e0358f45",
+      "size_bytes": 2204,
+      "records": null
+    },
+    "src/skillflow/benchmark/t12_fixtures.py": {
+      "sha256": "401682d47410c4cf5136097e52e55ac1a314cc153b6a017f999b5523f7b7231a",
+      "size_bytes": 6958,
+      "records": null
+    },
+    "src/skillflow/cli.py": {
+      "sha256": "7cd99072087ae789ed5ef9c5b905083c90e46d5db9e9ac773bdb56dd9c39a30e",
+      "size_bytes": 4705,
+      "records": null
+    },
+    "src/skillflow/experiment/__init__.py": {
+      "sha256": "3c6bc5ba49d6c8484c2b91c4694b3c25ef3eea61491eb7e7b86fe3abd1a539d7",
+      "size_bytes": 58,
+      "records": null
+    },
+    "src/skillflow/experiment/aggregate.py": {
+      "sha256": "8f595ad35e3a7f18c9ed9f54c9457492934123993c31e8162734b0f7b1844296",
+      "size_bytes": 4370,
+      "records": null
+    },
+    "src/skillflow/experiment/aggregate_alr.py": {
+      "sha256": "b5be6480a291d8dda5954647c2e00afb7f13df7fcd79cdc9a828a818d527d449",
+      "size_bytes": 3132,
+      "records": null
+    },
+    "src/skillflow/experiment/aggregate_hiaa.py": {
+      "sha256": "e492693c0b5a4d1eb604fb3f41925c0943eb413c2103c7b30c83a4f6f1e99ed6",
+      "size_bytes": 4435,
+      "records": null
+    },
+    "src/skillflow/experiment/aggregate_rir.py": {
+      "sha256": "99b5e91229c02c42dd84d2b23ff08cf6f04c143d14861c6aec62d49ea1e64477",
+      "size_bytes": 2493,
+      "records": null
+    },
+    "src/skillflow/experiment/aggregation.py": {
+      "sha256": "e25dfbf603f21d321d0ad6fd1d21af6c159b39777a59d79240569c92e8b3c134",
+      "size_bytes": 2559,
+      "records": null
+    },
+    "src/skillflow/experiment/analyze.py": {
+      "sha256": "cd44067c41a6debbcc91019482c36392bff1fb6d376448593a4684edc42d78f0",
+      "size_bytes": 6063,
+      "records": null
+    },
+    "src/skillflow/experiment/cli.py": {
+      "sha256": "7233a8eec67df19ef5d09f10f03612cba09d91d15a2ef5cdaf0f493c6507d74d",
+      "size_bytes": 9413,
+      "records": null
+    },
+    "src/skillflow/experiment/errors.py": {
+      "sha256": "1a2cf59b7915a25b09bee7e84491a1a0bff5f74770c1978715ab698e99162335",
+      "size_bytes": 1089,
+      "records": null
+    },
+    "src/skillflow/experiment/exporting.py": {
+      "sha256": "a4085bf0ab93b8c284b9cf2d39fcb9b5ec5749c70e801cf824a4d20459fb3428",
+      "size_bytes": 1966,
+      "records": null
+    },
+    "src/skillflow/experiment/factorial.py": {
+      "sha256": "6db38fb6b08282849f039c805a18f83518609baaf6f10069ef571f0c0f798455",
+      "size_bytes": 3563,
+      "records": null
+    },
+    "src/skillflow/experiment/graphing.py": {
+      "sha256": "5bdfa95f59b18e522adbecb2488cd304f2370029f309142916bcae9cde60f484",
+      "size_bytes": 590,
+      "records": null
+    },
+    "src/skillflow/experiment/inputs.py": {
+      "sha256": "b99d3fac4cc16f209220185ab1291e08940c380cfa5d568df18319eeefa04c7c",
+      "size_bytes": 5390,
+      "records": null
+    },
+    "src/skillflow/experiment/io.py": {
+      "sha256": "2053fb51268a58bf257b27f6619afd7afa1abec96f43aa03249780538513f8e1",
+      "size_bytes": 5770,
+      "records": null
+    },
+    "src/skillflow/experiment/layout.py": {
+      "sha256": "f73df5a5c88fa5f5baab93c7ba4181b58fa9ba1df2c2c6af343c453d4c4fdf07",
+      "size_bytes": 1980,
+      "records": null
+    },
+    "src/skillflow/experiment/locations.py": {
+      "sha256": "3d1f16a3cfcc229eef9bc804662206121185a61faadeb0105d7d7ae56da2dd10",
+      "size_bytes": 1780,
+      "records": null
+    },
+    "src/skillflow/experiment/matrix.py": {
+      "sha256": "5ba554736f3a0b7f7496f7d4ec0268aff9f1a15025327901023a1a409207ef50",
+      "size_bytes": 7321,
+      "records": null
+    },
+    "src/skillflow/experiment/matrix_determinism.py": {
+      "sha256": "8ad24f2a1861a7eb56fe9ca2a6a8dbc8df6dfa6b29e27f2cdafa0a0982ae9402",
+      "size_bytes": 2953,
+      "records": null
+    },
+    "src/skillflow/experiment/matrix_replays.py": {
+      "sha256": "d48fc6704648f81e003a45b06489be73b454c483d0568e47bc3eb2d3024d0f44",
+      "size_bytes": 2005,
+      "records": null
+    },
+    "src/skillflow/experiment/matrix_support.py": {
+      "sha256": "c692a7afef2b8bad97ceb2da8eedef39d9a1897fcc37c75f2828cc939807234c",
+      "size_bytes": 2230,
+      "records": null
+    },
+    "src/skillflow/experiment/replay.py": {
+      "sha256": "e7259f9088ff2ffa736f534dca0cdf6d19dc342b94d6ae1f2306b382dd881ebd",
+      "size_bytes": 5544,
+      "records": null
+    },
+    "src/skillflow/experiment/report_store.py": {
+      "sha256": "c4632031a0b4d43bb77dd371133890edd7716607f5e283b3c045d955eff49b60",
+      "size_bytes": 1616,
+      "records": null
+    },
+    "src/skillflow/experiment/run_artifacts.py": {
+      "sha256": "97f05735d180f044d04d80fe0ddcf2e7fda940bb69b2e6846846629f677a7373",
+      "size_bytes": 2328,
+      "records": null
+    },
+    "src/skillflow/experiment/single.py": {
+      "sha256": "6aa400eb4eda078f2f29e16df63dbb98a49f4baf5f4017146e69eaa145cd225d",
+      "size_bytes": 5158,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/__init__.py": {
+      "sha256": "70750409104bce308f7b9c9f6c57ef0a082783b7f0ba994f9d4012aeb9c7382f",
+      "size_bytes": 67,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/budget.py": {
+      "sha256": "2a27969f6363fdd7af497319691dd17c8e1a64c6623861cb13f02a6fb4823ea6",
+      "size_bytes": 5305,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/dry_run.py": {
+      "sha256": "210b6149283a4f4fb2605ddd2650d4c4619f91d93d51e346548f28a1d74a1640",
+      "size_bytes": 3312,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/dry_run_checks.py": {
+      "sha256": "b8e2ac74850599d8f98b5756d247ebbb360a9d0b237d9b9d7c1617927e08a5e8",
+      "size_bytes": 731,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/dry_run_costs.py": {
+      "sha256": "5848e781892c2c272acc7ea17dca2647c5d85b2b44fc17543a637e6e6c398bd8",
+      "size_bytes": 4497,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/dry_run_errors.py": {
+      "sha256": "cbd5e16efaf2398def00385ad18d09165222ac7f4f4a3e7cfd41f26b857678cb",
+      "size_bytes": 2062,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/dry_run_execution.py": {
+      "sha256": "1f7316a6ced6e80cf51d56497bbce5aa1800f4b568120553b3c6538d65708a62",
+      "size_bytes": 9464,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/dry_run_failures.py": {
+      "sha256": "6a0d9636376216717901320595411414611cbff7b1d0d65c8bcc3ba555c16926",
+      "size_bytes": 10064,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/dry_run_integrity.py": {
+      "sha256": "76838eb3878333a8813064eb7470ce73de133cf978aebc1b65115afb7e9f1539",
+      "size_bytes": 7044,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/dry_run_io.py": {
+      "sha256": "248f734064af7d79537eb3f16cdc59e18122f6e8a91ebbd3c70ea34ef14ee9c1",
+      "size_bytes": 3078,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/dry_run_records.py": {
+      "sha256": "5af1f7fc33832fee7ea8e68bf3a14c6d3a17616ba1db9a96ef40d122858746ae",
+      "size_bytes": 7057,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/dry_run_reports.py": {
+      "sha256": "8580dbc89e3c1cd533e2492e116afc81f803b487241703b4047a332ea9e64362",
+      "size_bytes": 8582,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/httpx2_transport.py": {
+      "sha256": "0cca60c940dcc1a64c79ac787ef2a7755146e904c20fc29ab2e167e403a7877f",
+      "size_bytes": 3096,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_agent.py": {
+      "sha256": "3c99608a663e02709672162e9a9fdb46ec1e4491d14b87f582d7cb8e39b1496a",
+      "size_bytes": 3743,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_agent_calls.py": {
+      "sha256": "c4e32f54d112f80dcfc4e5f47741bdc2890d52a22da91e75524c7fccd0dce342",
+      "size_bytes": 10885,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_agent_session.py": {
+      "sha256": "4bdda0ab5482e35d5e9c19f80b95c2ff8263d0e4e1f217398eda6f53139006eb",
+      "size_bytes": 6311,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_agent_tool_loop.py": {
+      "sha256": "d35f5251be593c7a08187e4b74f912cd84d06603bc564f52f25b236d82651c2c",
+      "size_bytes": 3652,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_campaign_report.py": {
+      "sha256": "f9da81ede77881e114aa106ad93fc13134ba1dcffa915bc16fac48556c1fb905",
+      "size_bytes": 5514,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_canary_usage.py": {
+      "sha256": "f80d7a1f146cf578c525340634644652e6fd26da6909f5fd505dc8c8f7060d97",
+      "size_bytes": 6901,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_canary_usage_models.py": {
+      "sha256": "7e0b5f26a5b610c527976e870fd7c54771403d1c8d8ebeb5a73742f66fb730d6",
+      "size_bytes": 6628,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_canary_usage_tracker.py": {
+      "sha256": "a63d053e7dd0a0930c952e330b6591e8e569b3d9df4042463b42882906935d5c",
+      "size_bytes": 7569,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_cli.py": {
+      "sha256": "a92d551b240df413369479767e153a484ca5774e73a4f9a1a3c29e98b95b5817",
+      "size_bytes": 9559,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_config.py": {
+      "sha256": "366de974b74d0aca87f82bfe6093f4cfc47fd8ca27db915f384312a5d10be7ef",
+      "size_bytes": 8613,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_design.py": {
+      "sha256": "baa050b3ccb8a14d603a2c6ba4aaaea2f8d2123e1b395732b9751da85f0b771e",
+      "size_bytes": 10861,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_design_base.py": {
+      "sha256": "e99af9a17c1a0973fc5c1e66943f5dec174ca5c2f3d48c53fb0b12272aa684ab",
+      "size_bytes": 1393,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_design_context.py": {
+      "sha256": "7073ee61b7cdee9e32b1b3b680fd149acacf266d4aa454f53c7e82ca3e2bef43",
+      "size_bytes": 9196,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_design_models.py": {
+      "sha256": "f9c9b059a862799cf5901ed6dcbd9c2d1eb0b9cd5362e6bd75d41ef43a3c3340",
+      "size_bytes": 8231,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_metric_models.py": {
+      "sha256": "8ab066f816279ea39337901acd4dd6c2fbafc50472b7fa93bc58f617de031939",
+      "size_bytes": 3968,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_metrics.py": {
+      "sha256": "c5402ed628d5d5a365622612822526f3be1905848499ae158378e0f6c85b2def",
+      "size_bytes": 6987,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_phase_contract.py": {
+      "sha256": "6fe0695bd7609cf24596874da078a6f8ceb937359329e2232eeaf5f6193d632f",
+      "size_bytes": 4517,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_prompt_text.py": {
+      "sha256": "43935b3693d869d45a01216cb894fedf0a80b81c691182f43178000432969a39",
+      "size_bytes": 1251,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_reanalysis.py": {
+      "sha256": "d95680cff054ee3bf2b18a9e45e8cc1613d20c59d6467b3dfc8e78720bb57eba",
+      "size_bytes": 18141,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_reanalysis_models.py": {
+      "sha256": "ffd2d985d3444485c26a358b896a6821183f322863457c01014c8e1027af3c6d",
+      "size_bytes": 16949,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_reanalysis_v3.py": {
+      "sha256": "64ee5df5d709b5b1ad82a86354da3017e4d5d7413a80efc76c66002ab7f8a98a",
+      "size_bytes": 11888,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_reanalysis_v3_metrics.py": {
+      "sha256": "7b83437ab6bdb3f165090e00f34af015ca3d159c24cad7bcb76f6a9ecaf11602",
+      "size_bytes": 20601,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_reanalysis_v3_models.py": {
+      "sha256": "4e9ce4b7ef742385a37e4377215ab59e8b7cd412a8cefb6fa91dee6c076ce041",
+      "size_bytes": 7509,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_reanalysis_v4.py": {
+      "sha256": "5c0be62373ebb121250fd9427597aa4537c196f4a0729420ba0d9aee8b58db73",
+      "size_bytes": 5984,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_reanalysis_v4_evidence.py": {
+      "sha256": "310a7cef8808ba4f03f183492dcbe4b9501cd40e3ebb2e0c226416491edd2966",
+      "size_bytes": 7498,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_reanalysis_v4_models.py": {
+      "sha256": "5d0c57557f99e210dc6e1744cecc4270358968e756ffb4f46f5dcab12783ea0e",
+      "size_bytes": 7895,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_record_builders.py": {
+      "sha256": "ae0af2955d12a9f858a5d1666bba9c56457f054dbbb929a89116e4093fe75a63",
+      "size_bytes": 8219,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_record_schema.py": {
+      "sha256": "3839554a8b8e953389a279daaec98a3beaaa0c3cecd5db6c75a2900618c766d0",
+      "size_bytes": 1915,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_records.py": {
+      "sha256": "1761d23ffb57b1338722099d908733e1ea353f872f0e214ff9da0b9be17b1534",
+      "size_bytes": 11066,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_run.py": {
+      "sha256": "674511485326699b5c1aa6aa716e3881df0452b9c44554a9bd41b82c33e1139a",
+      "size_bytes": 20977,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_run_models.py": {
+      "sha256": "6a10f8d1aefdb1a02bc407a9498efa586366bbb8d75742aef85abb1cb5848f0b",
+      "size_bytes": 5044,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_session_finish.py": {
+      "sha256": "1b9541611ea843d3f3d0b810af339f4f9347020dd86c726f43458dfe6a647a98",
+      "size_bytes": 3712,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_session_models.py": {
+      "sha256": "dd5cf7789dbc9da92e72d8cf248950278e1b508edc4b69228f8b60ccac64a1fa",
+      "size_bytes": 5425,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_session_records.py": {
+      "sha256": "2375afd454b0c33788e3d1c89d48c9b5bc28d9e2b2a24f7d5a7793d40332f008",
+      "size_bytes": 2470,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_store.py": {
+      "sha256": "279595683d2a31f6cafb68d62fa69ed93979ba1416c88721bc1adc31bcefa3ed",
+      "size_bytes": 8425,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_task_success_binding.py": {
+      "sha256": "d0753632a15475c3f8a2225d9d31c66914b0a625a056af0d7dea35dde4249924",
+      "size_bytes": 3968,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_tools.py": {
+      "sha256": "764102618b577fd3f31e288d61d6df7aa1020c295ef04560b412a85048f15266",
+      "size_bytes": 10303,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/live_usage_store.py": {
+      "sha256": "8f70f8c68c5f68ad50c195bb60552bc3adc2b6031a97448291f9ce3305e7cc7b",
+      "size_bytes": 11963,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/matrix.py": {
+      "sha256": "b0f95591827ceae9859d54c71192c7b0b09de9529893fa1ff146c7c48ce4fbe9",
+      "size_bytes": 5856,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/openai_output_schemas.py": {
+      "sha256": "09e367c00c58700579e764a77c9e40f6418d2843d66c4d9ac89f1a33bbc7451e",
+      "size_bytes": 3521,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/openai_response_models.py": {
+      "sha256": "0b36645e48f800fc2cf0faad026f932321d55d496d3eccfb10cfabb5ed648213",
+      "size_bytes": 5174,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/openai_responses.py": {
+      "sha256": "de1dc2c2169ce63714725558cd322bfd5f2ac62e89195b7546bcb3d27aafddf0",
+      "size_bytes": 7130,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/preregistration.py": {
+      "sha256": "8c3966b08b7ee5ead053ac098a9a44efe4d7f48069a8c97c60ba3a4a0052d3f6",
+      "size_bytes": 8303,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/preregistration_models.py": {
+      "sha256": "a70c149f43ae9e50d9b3520ba02a758d8520c8e61efcdf9430f4f4a8ca97e37d",
+      "size_bytes": 11360,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/provider.py": {
+      "sha256": "a39d0179c67666e62ae41f5478e40884c1948fc5330c0892610c0feb8e4b52e1",
+      "size_bytes": 9593,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/t16e_analysis.py": {
+      "sha256": "296c377abc63b26df9361b8cb6d23aeb1488563080d4349a7205aa3116ca001f",
+      "size_bytes": 7665,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/t16e_cli.py": {
+      "sha256": "943ee112e5cd9682f7b17c50772c45c2e00028624dc2886c96fc15a35e3739b5",
+      "size_bytes": 194,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/t16e_integrity.py": {
+      "sha256": "b5894242075bd3de91f7cd9f0b2aac72f53b74ceeb2c54b1e00fa7b7f3e9fd92",
+      "size_bytes": 2994,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/t16e_models.py": {
+      "sha256": "bd080008812740dd3eb26831873802e139bb671bcb53807223bb435d656afb71",
+      "size_bytes": 3514,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_artifact_checks.py": {
+      "sha256": "b97ae13dbe88427299df8549a125211201986811b2f07663013ca9af54faf39b",
+      "size_bytes": 6513,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_assertions.py": {
+      "sha256": "c13f9cb087e5ccb178717ac8dd36e5b648afebaaaae3e5ddc2aae0888d245008",
+      "size_bytes": 5376,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_canary_cli.py": {
+      "sha256": "df2750ccf70868c648452b1dc8258d06a6968e91c0d417bdf3f3c553ecfb9b15",
+      "size_bytes": 5999,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_canary_engine.py": {
+      "sha256": "fc0dbbdfb47edf78c2d2b7af4838ccaee6c4403985099df053050100ff89ec88",
+      "size_bytes": 8449,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_canary_engine_support.py": {
+      "sha256": "17488fd9d20cfafc414dca52f6e5e2ca70867686c0d5d9bd239fb09929dc6ad3",
+      "size_bytes": 3534,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_canary_models.py": {
+      "sha256": "f80eaea84b485befba21dbddbd21032c9af3e763a65c468cd4a647bc0eefd18c",
+      "size_bytes": 5677,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_canary_preflight.py": {
+      "sha256": "fee227ec1173b8a5545a59526886117e22e7bbd3d75ff8fad9abcd0546bc8d51",
+      "size_bytes": 5498,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_canary_run.py": {
+      "sha256": "828267321e3b578389535780f86032f6693f5c75f09816c044970ee503c914c3",
+      "size_bytes": 2603,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_canary_summary.py": {
+      "sha256": "033e2136851d9f73f947741240fd8a628da53709d28c18f0697d0ff1417ddbef",
+      "size_bytes": 8210,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_evaluator.py": {
+      "sha256": "132ee22ed99e635cdaf3d8e16ebd0ab8a5a11a363a3f5430365c619fc8493d21",
+      "size_bytes": 5345,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_evidence.py": {
+      "sha256": "1236d24df8354d8109c0b0a8e92c60594276088e9e4703e2dc24be9f23f8fe49",
+      "size_bytes": 8214,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_facts.py": {
+      "sha256": "c5bdca8c0490c33742ddeeab9a0ae380a9c209372a36b29a5291e78b09eb1fef",
+      "size_bytes": 6754,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_fake_flow.py": {
+      "sha256": "8deabf02943dfc48550b33432fdea1310dc3501f146918468bae56c84fe58025",
+      "size_bytes": 7917,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_agent.py": {
+      "sha256": "dc34f7d00329f940a41be28ea858bb12c0ba6bcbf54710d203d9c45b36a59531",
+      "size_bytes": 8088,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_cli.py": {
+      "sha256": "41e8f639151f830ece1f23c82382ad626d7483f6112b052931237cf8393f2b71",
+      "size_bytes": 3008,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_config.py": {
+      "sha256": "83c011e8ee5ec0ba76a9414b0c4902888850bd33cb15a1dd6109ae11e1c0fb30",
+      "size_bytes": 6985,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_contracts.py": {
+      "sha256": "db95f438657990b5878573336d591da1ceb5d679be37bf191b94c184520219d2",
+      "size_bytes": 4465,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_design.py": {
+      "sha256": "a4ddb91d89a40f2b58ae80b1c9d9ffa340974bc7a94e667b4114d906c1bd19b3",
+      "size_bytes": 8247,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_integrity.py": {
+      "sha256": "ce5bf3d2142b14082f47e85f9c67ccf02dd5b0a1f46abcbebb2eed7de0f99b3c",
+      "size_bytes": 7846,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_mock.py": {
+      "sha256": "533e44e9b4e67d3653476df2ec3f26dbb0d3b04c288b4b73f8cd48039ab462d0",
+      "size_bytes": 7245,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_models.py": {
+      "sha256": "50132b7a3dc66290031a7bb40150ddce5d1784f32883f2505bcb0f4dbe863a59",
+      "size_bytes": 5629,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_preflight.py": {
+      "sha256": "c96b5148e225c48555114d30a6d18cfc99820927a249a54612642956b49fcbb7",
+      "size_bytes": 5929,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_report.py": {
+      "sha256": "47d7a47673b23a92a582e7d46df3d3d88def670ff34d42eb58b8f2a9e38e1ec5",
+      "size_bytes": 5448,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_report_models.py": {
+      "sha256": "e60de1d0c4bc45f2c6f0b6cd0a4aaf305c5d0c443c45dec4807735df3c24af25",
+      "size_bytes": 3142,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_report_statistics.py": {
+      "sha256": "cf1672ea224006f9f69fe9091fdcdc66967079a0c41f5b418235048c0370a9d5",
+      "size_bytes": 5648,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_run.py": {
+      "sha256": "19555e36cd4de7be9624130a1f0ba89918723cd7f29989a6f2566e1876e69a9b",
+      "size_bytes": 10649,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_run_support.py": {
+      "sha256": "82f1624359d6272f9ff14c82bfebd81b7f15a1290ba7048a4b4ea4e7535a7cce",
+      "size_bytes": 6230,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_stage.py": {
+      "sha256": "90b7b585aff5a3217939bacbcaab77a210c1349f31dee75addf9fd73c50d136d",
+      "size_bytes": 5474,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_live_store.py": {
+      "sha256": "7e5c1441d53bdd7cac7bbc17e4da4e5e2dc976e8587e0aa6e93a45ef3495df9b",
+      "size_bytes": 3400,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_matrix.py": {
+      "sha256": "799938191f7c0ce7f4deab78e3b43d2a1108f9bda9e9a0a81d371eb4e9b0d403",
+      "size_bytes": 5907,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_observations.py": {
+      "sha256": "d04887aecd2e69a38c9d6576f760c49a298146cca1b71814265ab6be23a3ead3",
+      "size_bytes": 828,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_output.py": {
+      "sha256": "91c71a7d5f6f3e0113dc9adc864c8e5e01b6e4ac1e46436db4ff79ab5f59f556",
+      "size_bytes": 1463,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_partial_data.py": {
+      "sha256": "38738828c120b5a59e6a5ca67e1b29d10bdb157d4a57da4a9f3d5cf3c586ad30",
+      "size_bytes": 8180,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_partial_reanalysis.py": {
+      "sha256": "9a9b2d37b7578c499be0aefc671ee241f90749f02441342242a14e13a26e2983",
+      "size_bytes": 6720,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_prereg_models.py": {
+      "sha256": "deaf6b1bf0f97229ed3a5939c869793bf2fc283dae286859e24cc26062bb62c2",
+      "size_bytes": 5742,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_registration.py": {
+      "sha256": "34f88b2425eceec9a511838636240eca4bf4825b938de1bb8b953ddfbcd13ee5",
+      "size_bytes": 3211,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_runtime_checks.py": {
+      "sha256": "7d5a15d8a0c09cef29cb44e94ece313eaf42238b9afa5ce60995413df4a6f997",
+      "size_bytes": 7473,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_spec_models.py": {
+      "sha256": "a03fcf76a69400edc28fb01773db716e91af636f2c74e54fd4fd2f3ef0d68d09",
+      "size_bytes": 4042,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_statistics.py": {
+      "sha256": "72f081fd6ed1b733142458ac0c47346257747b8e5ce925b562211238a7f1364c",
+      "size_bytes": 6990,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/task_success_statistics_models.py": {
+      "sha256": "0d6f6829b6a188001ae2adfc658afa24710131d7a6f4ea265816bf773d5d054b",
+      "size_bytes": 3029,
+      "records": null
+    },
+    "src/skillflow/experiment/t16/trial.py": {
+      "sha256": "fb18755a1639d5b61fee3cc4f601608b64c0328c658a58c60d088bfd08cdddd9",
+      "size_bytes": 5095,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/__init__.py": {
+      "sha256": "667b76e8994b864a352bae248e3154c3132b779fe131749b147e4cdb3db18b15",
+      "size_bytes": 62,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/baseline_audit.py": {
+      "sha256": "66338da4170dfd6df28b9048aa6cc05cbcbd8d3b27154f0222052a1390a9c0f3",
+      "size_bytes": 9057,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/budget_proposal.py": {
+      "sha256": "dd46a76cf57775ee296aa18be4ae2db5275bda7b5b12814863a71fa1d208a7b5",
+      "size_bytes": 9568,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/campaign_reporting.py": {
+      "sha256": "4750a5e21e3b5fba5d6313860e2a3d69dbd1247baed2ddd51d39109ec15d4999",
+      "size_bytes": 4034,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/cli.py": {
+      "sha256": "db49b44dc12ec3cda9f62b433ff3e383cc58567548493d9db78055de5c7da6b3",
+      "size_bytes": 8526,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/cluster_metrics.py": {
+      "sha256": "2cc078317e9074fd17d43b00289296536a23644e852c40c85f03023389bfca07",
+      "size_bytes": 7383,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/comparison_models.py": {
+      "sha256": "1a0b9a9b3fafe070f695f443801197a856bc97d751f9e41612f06f9e46642599",
+      "size_bytes": 1978,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/contracts.py": {
+      "sha256": "d1e5af6e93ff65ec7a0ee468df59a157d943c92bcfe73cea5e86f53bd0512a77",
+      "size_bytes": 7289,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/cross_model_report.py": {
+      "sha256": "927a768afaf48be5b96aa10b685f81ec3e288f0c3823a17212061d23ec0c54d9",
+      "size_bytes": 6497,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/defense_mode.py": {
+      "sha256": "48fa353df6227e85dc575860bfb6d94a9af242c256cd9e986d70d6b1342da4b5",
+      "size_bytes": 5201,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/defense_models.py": {
+      "sha256": "d9c417fbc46b8a43d7921721daa698dc31db986188ec69ee7ed356d9b9bb1222",
+      "size_bytes": 3405,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/defense_report.py": {
+      "sha256": "9048d22aaf7bb11222d0855159aaa8e44d7f234ea49e573afd53f933f2a52a60",
+      "size_bytes": 13230,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/final_models.py": {
+      "sha256": "eaf9246629650d39838ae1803f247d3c5086ab5c3bc16e95343b40197c86fa2e",
+      "size_bytes": 918,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/final_report.py": {
+      "sha256": "88e27cf37155a0bbe9ae0b1f7fb765129ba7299f482b6bb396c4e141d1c7a457",
+      "size_bytes": 4471,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/live_attempt_models.py": {
+      "sha256": "ec04f57f4c67aa47183bf7ac7ae3235cc76e19f7e11d6a396b33b83b90cf9b6b",
+      "size_bytes": 7342,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/live_journal.py": {
+      "sha256": "7462d6f4842bf74d4f5575288aa1d4ef421e0a1cf7a45dc77e57dc02447572c8",
+      "size_bytes": 11146,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/live_journal_models.py": {
+      "sha256": "350fe5ae1a261c7cebb386caf6081669f7f92aded1679e42853732f0ab1852e9",
+      "size_bytes": 7173,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/live_matrix.py": {
+      "sha256": "8b251bae2f0be8fcf713895c6da7c5dd238060c80fddb63d0630fdaddd11b2b3",
+      "size_bytes": 12344,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/live_preflight.py": {
+      "sha256": "223121f19ee7c571f27432aa7677a345f7022f0021c67454a5da303327f9a3a4",
+      "size_bytes": 10770,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/live_reference_client.py": {
+      "sha256": "e67bf8e045aceab4ebf4b67bb95cd66516e66ededf90e8127a7c2ca30a7095db",
+      "size_bytes": 14435,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/live_result_store.py": {
+      "sha256": "562f7c69137a8834a67079fb77c5a0892f657318f7d8bbd0a93b652e8279d51b",
+      "size_bytes": 4332,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/live_stage.py": {
+      "sha256": "b7fab37d4b3e65899d0043f3b075932975a9355640031ba151b628b7b9f3f728",
+      "size_bytes": 12634,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/live_stage_support.py": {
+      "sha256": "182c136a226d1b4d1df375419a4dd5c14d582fd50b7d0504ee7829b9c39618ef",
+      "size_bytes": 7980,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/live_summary.py": {
+      "sha256": "dd026e80d8acef56d23938f547d672d854b26d7a3923a0e8e0a508deabe94ccf",
+      "size_bytes": 12447,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/live_supervisor.py": {
+      "sha256": "460d53a9fc39e6b7dad92727c64af6bc1ebda47ff4a8c24c53e2130e387072a6",
+      "size_bytes": 11655,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/live_supervisor_cli.py": {
+      "sha256": "67d1902eb92b70a0ef99796067e46119084eff1c0d5fa9787605aae7834fc90d",
+      "size_bytes": 5611,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/live_unit_execution.py": {
+      "sha256": "266797d9b46e7b414f68a3199ffe15d24bce9a4bae7cc29cdf08807c8aacdd0d",
+      "size_bytes": 10726,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/metric_models.py": {
+      "sha256": "163c456671e48b1b3edf624756bd6ebeb7ac86537f6698d885ed25c400031ed8",
+      "size_bytes": 6323,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/metric_statistics.py": {
+      "sha256": "9febeb0de17dd52c8015169f465405f3a51d35de3b48c2634388cd1253a4a2a7",
+      "size_bytes": 5503,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/__init__.py": {
+      "sha256": "d2796a3206de0743a0edf8cf8a77e11636940f28124219d59483be85141d9fd5",
+      "size_bytes": 75,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/artifacts.py": {
+      "sha256": "e5bcc99e750f29c5d57fb0bf3d4b4a5943c3e9e96d43b53f6802c130e6d3cd89",
+      "size_bytes": 6272,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/authorization_proof.py": {
+      "sha256": "43e324449f4021795bd050ec9b980a7dee31a16298de1af8015fc178b86b7ef6",
+      "size_bytes": 7033,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/causal_metrics.py": {
+      "sha256": "ad1f27b7ec3024b0b5c033fe7509361a0aab9c127d11727e89c447f69ae4f544",
+      "size_bytes": 4793,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/cli.py": {
+      "sha256": "7d045bb1792f58769ff792037771be36f1cb2eb09c3ab2dc9deaa7cd7535492a",
+      "size_bytes": 3357,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/configuration.py": {
+      "sha256": "66083a3654bfdb03b74033699eec03fb58209dc9f3b96ec2d9a76bc37f815bf3",
+      "size_bytes": 8360,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/contracts.py": {
+      "sha256": "121da901b6196e42029852f6ef1e71b6465da7da14c96669cf5a3c6ee4a70a1d",
+      "size_bytes": 5351,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/core_metrics.py": {
+      "sha256": "c85fcfa52befb266facb6944dacec11d9676a85a710ff6066266400b30d100b9",
+      "size_bytes": 6083,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/defense_metrics.py": {
+      "sha256": "00f9879375133bb98211c9c77c19cf706cafec07d6a0430da355e0a4be1e87de",
+      "size_bytes": 4168,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/efficiency_metrics.py": {
+      "sha256": "132f085742a495fa2c5f5d25d650f0f7503a66bfd7d92f568c926c9f402989d8",
+      "size_bytes": 3750,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/measurements.py": {
+      "sha256": "bf3e9466924f31ca4a79a91212bc97ecc0e08f9244b5cf1c10ce83769ee1c5fa",
+      "size_bytes": 2429,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/observer.py": {
+      "sha256": "abc6a538cca58b02895c796e97c3a93ce58bec71ba18c2fe874c4ed4899b4ca7",
+      "size_bytes": 3986,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/provenance_metrics.py": {
+      "sha256": "f826f2d7432d797e56746ed4c4e1262f6393e52c2767710b83649506511a0e1b",
+      "size_bytes": 1826,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/raw_bindings.py": {
+      "sha256": "e6d92c231e381c76eacbc4768c1cc482964a1185e681bfdba5a6f597c205e0d6",
+      "size_bytes": 2987,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/raw_core.py": {
+      "sha256": "865ddcc251013da9845428e54411ac46f9b34dbccd6f003220a5ed2091399e7c",
+      "size_bytes": 6395,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/raw_loader.py": {
+      "sha256": "5681208a587645b8cf2a9a8a0e4e974674fd41f70807f90bed925d4ddc9afb59",
+      "size_bytes": 5954,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/raw_replay.py": {
+      "sha256": "7c5b63b038d1e91104f2f624ee5c60ff892e8d92f30f83f35a25e6b89ef7e187",
+      "size_bytes": 6523,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/raw_validation.py": {
+      "sha256": "62ed7937eb5f21892691264779bdaa7fc766823f3803b4dd1b6ba0c9bf9f98bf",
+      "size_bytes": 4355,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/replay_prefix.py": {
+      "sha256": "125a34aa1e08fc9a6775ee53f6598564db0805317a7ef4a954c5c775a934ac84",
+      "size_bytes": 2040,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/report_models.py": {
+      "sha256": "33f7e6fe9e0a7585e46941afdff0cf75eb5daddcc266583c453260ca35595d89",
+      "size_bytes": 6689,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/reporting.py": {
+      "sha256": "6434c4f7205f2703f0ce74e9fba286eca5f38079d80165bf509e8dfa4e9d0f3c",
+      "size_bytes": 6643,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/run_models.py": {
+      "sha256": "b29ee43c588db3dd488e152a696468a1db8ca2b0215a2de486176a0919f719f1",
+      "size_bytes": 5516,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/runner.py": {
+      "sha256": "924dbface17ea064e9173460cab61d84336665ed3d3907e247fcbdf66050b9b9",
+      "size_bytes": 4388,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/runtime.py": {
+      "sha256": "2dd8f3645d742eb37b1e8244e4be25aa30433d0235efd1f76713d3a7262a204a",
+      "size_bytes": 2904,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/schema_models.py": {
+      "sha256": "ff0b7980761e3cb7ef896f00a6f43fd9aa4d3d47f3920ac27ffe6b27448cf605",
+      "size_bytes": 3662,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/task_evidence.py": {
+      "sha256": "a92aed5b4dda5d9f85ac336c620d261c2f17fb8ed57ffe5e335857da6ecb5c06",
+      "size_bytes": 7638,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/minimal/task_models.py": {
+      "sha256": "9f199e4cf155a1fe85427e20e106c39b2e3ed07c27a8d1c7a67be846f5c254dc",
+      "size_bytes": 4552,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/observation_hooks.py": {
+      "sha256": "cfde488a12cf799dbc2b41e19057e1fa84cf6370b6e95fe22899d72996c783ef",
+      "size_bytes": 3120,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/observation_models.py": {
+      "sha256": "8cee89811d8b9cde4125887c5423b6bae2a6495c68419ebabe3b4d57b7e8d434",
+      "size_bytes": 4235,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/observations.py": {
+      "sha256": "628253cd2ad4431206e7c53035616d6cb236add2b5f85f87e9b0cf0f00a6671c",
+      "size_bytes": 7480,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/phase_advanced.py": {
+      "sha256": "e881c8ad5668ad522e74311058fb248783414e65cba1a780d16b612ae0e7d275",
+      "size_bytes": 1505,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/phase_efficiency.py": {
+      "sha256": "dc6e686b249abe4bcb0791636c840008469932e265b80260fa4ae1a35ff02305",
+      "size_bytes": 4486,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/phase_integrity.py": {
+      "sha256": "92193c317551ed1df9cead6f0d3cdb36e3fe8f152a24579ab393f386d4b326c8",
+      "size_bytes": 8471,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/phase_report.py": {
+      "sha256": "9053098eef1cd39ccf5878992d404499dfad9cd84a49544530f97e94e9da46f4",
+      "size_bytes": 14020,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/phase_report_loader.py": {
+      "sha256": "a2ec7a527ff0c11faae8d7a69e1d82d41ac5f2deb96e16e33bc803c8c6524e49",
+      "size_bytes": 4857,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/reference_backend.py": {
+      "sha256": "8cffe420192857acdb60dd2d0a60938df40d643e2414bb5edf3f249aa65c96f0",
+      "size_bytes": 5447,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/reference_harness.py": {
+      "sha256": "e9e2b80abdbadd88e9b5955e0c6b0af6c7ba7552683f7bbad037fbd6668a2e69",
+      "size_bytes": 1243,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/run_observer.py": {
+      "sha256": "3928d995ae745a231b26e534dd8572cf3d95a220343091c94957eb2d34f0a110",
+      "size_bytes": 3010,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/scenario_registry.py": {
+      "sha256": "49cb41a53a534f5309ba2a2d878720121eda9453b16d5d2af9fb993403c7c576",
+      "size_bytes": 8046,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/scripted_evidence.py": {
+      "sha256": "81744b00d5edbf7c5faa778e12d8c04baa4e181d94a0f1281be364bf5f40db25",
+      "size_bytes": 3358,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/scripted_golden.py": {
+      "sha256": "529246ca2c70b5572133ca162d3c0b14f5b5d0785d8a04bdbb3c0a04181c4148",
+      "size_bytes": 11384,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/scripted_models.py": {
+      "sha256": "69b4e213aebe0056e73dc06402b0e453626ad64bfcf0c1c5bbfd77cf9d94868c",
+      "size_bytes": 5108,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/scripted_provenance.py": {
+      "sha256": "1b5362496661092aac28385dacbc334772cc56a8dee79d0a585bfaa52ca076af",
+      "size_bytes": 3958,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/scripted_runner.py": {
+      "sha256": "8f952262fb475f18ac8b571695b3c5621695ab5a6025f02b9caf77df6b2a996e",
+      "size_bytes": 2422,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/task_evidence.py": {
+      "sha256": "a6dc985d25ba5d421423b891b599e6a9034fc8c60e27a871f60229bcc7c48a97",
+      "size_bytes": 9338,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/__init__.py": {
+      "sha256": "be12d06796294b2a0419d26aed42b5a6bb571e41ffa4482fde364a6b573057f1",
+      "size_bytes": 84,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/analysis_context.py": {
+      "sha256": "3e70b45cfffac644efb4cd52883ee57b6ec28a1f603ae9550df08cc4b4391396",
+      "size_bytes": 4317,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/api_models.py": {
+      "sha256": "6f67df084c231d4d937c368c63259167b34734647d3f9cb57bee84785a60ffc4",
+      "size_bytes": 6338,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/audited_transport.py": {
+      "sha256": "64339b5271898b76338199326bca0ea3e18a47b895b6553ca42f31ebfe09686c",
+      "size_bytes": 7014,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/authorization_metrics.py": {
+      "sha256": "fccd3b9a0fc6cadc42845fc09ef0cb149d234fe256c82efeef62b706cc5f26a9",
+      "size_bytes": 7301,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/backend.py": {
+      "sha256": "8255822dd17f48ae977f36293414b04b434800107dafea46aaaf5bd3411f207b",
+      "size_bytes": 5780,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/binding.py": {
+      "sha256": "5db485ea448e01fc81ba94c4f393ca8d65e90e8b11292b047d72ed361a04e64a",
+      "size_bytes": 6742,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/campaign.py": {
+      "sha256": "22d85b4b965ee1efbd1cb13d515170dc512fcd498636d48af4deb671a0fc8d40",
+      "size_bytes": 11352,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/campaign_cli.py": {
+      "sha256": "a73f625f44062dacb3ee9cce2d051fd36990d3667aba39e20733b9c90f2caf6d",
+      "size_bytes": 3516,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/campaign_limits.py": {
+      "sha256": "b73f06241225f2b5281384c518bb2d3a8b8722f5a49a0ef9614816004e2fb1d4",
+      "size_bytes": 2217,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/campaign_models.py": {
+      "sha256": "1c2f6e5cf6be927da8981ed16c9d52813d194548d7c3cdacb4fd44a518688440",
+      "size_bytes": 3487,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/campaign_setup.py": {
+      "sha256": "3cc326dd9aba284ba9c373f4fe69e3892a807862fae1c031afe6ec319b07e743",
+      "size_bytes": 5137,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/campaign_usage.py": {
+      "sha256": "2a6c952490056f1c96985b9fa6aa426ae76fa7f79fbaafc299593328f407148f",
+      "size_bytes": 1961,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/canonical.py": {
+      "sha256": "67c6969e01becab35475faa91e449757960c83d9a21178b0b4fbf02b1773d40d",
+      "size_bytes": 1523,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/catalog_models.py": {
+      "sha256": "e9e0669e7b54bdf11b041b5aaa82cc0aacacc86441a6a5f32db7ce6b4c2a5a0a",
+      "size_bytes": 5853,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/causal_metrics.py": {
+      "sha256": "073c22fd14cd70ca102c258f2f6042f584144aec64e2f4c627b7aabf9b0d8301",
+      "size_bytes": 5679,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/claim_models.py": {
+      "sha256": "27adfad2b05d956fa93535f17f15028bbbb97ae53c7c4ff92c5ca68dff1f2b59",
+      "size_bytes": 621,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/claim_setup.py": {
+      "sha256": "a9a162ddacd455ead8e4fb4ec4ab48527f4164f980156bd0d73414efcd2940b2",
+      "size_bytes": 1026,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/cli.py": {
+      "sha256": "107e59eb4b20091d3ac340d96925b0adf5af8a18aff08473e0471b5694486300",
+      "size_bytes": 7923,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/comparison_statistics.py": {
+      "sha256": "a32c51a70e4f11e1f6159a555273027b4ff8b294a0657d541ce76580d0dad454",
+      "size_bytes": 4457,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/comparisons.py": {
+      "sha256": "b87495b02a0d85f03c41ffa204884ec5a533c5d8715d754613f718dc17476bcb",
+      "size_bytes": 6402,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/config_models.py": {
+      "sha256": "2dda973b69d928ca488e355464afe26b87c919ff83c2f1e9beb47cb517678d22",
+      "size_bytes": 5260,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/configuration.py": {
+      "sha256": "6ad5a977c0ef63c9bae565e627ed14a02a10c1dbe507b55ba47210cdf27bf5b4",
+      "size_bytes": 8523,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/core_metrics.py": {
+      "sha256": "c31fc96fd7ff2741be428a5874c0542c1c6c747120296e9726b6d03bb76258fe",
+      "size_bytes": 6680,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/cost_history.py": {
+      "sha256": "5c7ccf3e542fbe83bf56bb901a738073d7650f63ffb9871ea38c7241a137eb5d",
+      "size_bytes": 2368,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/cost_models.py": {
+      "sha256": "f88f13c7adb6dc26a66461634ed517fb441718504838ae05e778c95a1a93ecae",
+      "size_bytes": 4367,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/cost_plan.py": {
+      "sha256": "13d17e643178ce4aca1415572ea4411b8223f7b87c7fcbb5c372ab983fd1a9a9",
+      "size_bytes": 5640,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/csv_export.py": {
+      "sha256": "ca881535e15bdd47a2930f76daca8ba07a1ed3cb15eae4530e39d2082c400be6",
+      "size_bytes": 5889,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/csv_models.py": {
+      "sha256": "1010c1197a94e850d76523c2fc8198ec219f6900f953251644fa41fbc322d34f",
+      "size_bytes": 1790,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/dataset_analysis.py": {
+      "sha256": "0ac658ced344e108f47ffb59378e24de5ef5f06d2aef2ee690a04850052bfad9",
+      "size_bytes": 3596,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/dataset_integrity.py": {
+      "sha256": "ed0a551ee828c2239e730d4b18a65d9dcd814c43d349b19653f806cd8f35e78c",
+      "size_bytes": 3759,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/dataset_io.py": {
+      "sha256": "eb982758cf326a9228add202cbc3880117958914da7893fc416239750b2c0f9b",
+      "size_bytes": 6695,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/dataset_models.py": {
+      "sha256": "546b678729a0e83b442c8bf9619204b8644df88602f373f5dfe95e67353458ac",
+      "size_bytes": 2379,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/dataset_projection.py": {
+      "sha256": "9ca402bb347165289425674b9a3ae9a6bd81dd2ba000d3175006385299000c01",
+      "size_bytes": 3841,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/dataset_reading.py": {
+      "sha256": "efb572bffaf98e1fb0b959d0d4905edc81733ed2ef8b5f977a13f4f8549fe905",
+      "size_bytes": 6914,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/dataset_reports_io.py": {
+      "sha256": "6fcf9ce03be29fcbe37ed6574da78845df5204b332b383044cde45e67bba5384",
+      "size_bytes": 1691,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/dataset_rows.py": {
+      "sha256": "b739ee7f4195adacd051d30f537203531147323a478f5aac51ba67e5bce32c58",
+      "size_bytes": 5718,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/dataset_tables.py": {
+      "sha256": "389a7f6e90ffa0382fb86be0ed8d8d54f1ef47f781b141ec27edf8b28c1302d2",
+      "size_bytes": 2144,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/dataset_writing.py": {
+      "sha256": "27b6e1ce2bb619551be2bd86a6ef33516945c974974674a0e9fb6d42fa2cac9a",
+      "size_bytes": 5985,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/efficiency_metrics.py": {
+      "sha256": "dcd827f2b579aa1bd3e2959eefa92e21a52f2fccf7d2543b2c4cd05ddf3677a9",
+      "size_bytes": 2637,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/fact_store.py": {
+      "sha256": "29add0dbd61e229ba0c560c9cb1abcee02b18972e748c51cc094793f26a79832",
+      "size_bytes": 5430,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/fake_client.py": {
+      "sha256": "ccae3db9a2d95386438cd46a30594a180ead0c92220187a32f0ca2eabffc398c",
+      "size_bytes": 824,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/formal_scope.py": {
+      "sha256": "56dbd3d3ebef9b0eed315d39b2a14b107b74420ecc2271c051f33de35c447d22",
+      "size_bytes": 2213,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/frozen.py": {
+      "sha256": "4c3f3621ad3194f75a7ee68b9c5727f416ed420bb68c6a563d4dcdf0d0a876e9",
+      "size_bytes": 4350,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/gate_checks.py": {
+      "sha256": "d43f52ef8a49d667ab1baee91206a172f4dbfcdd3a6f9c532529e28dc75f92d1",
+      "size_bytes": 3231,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/golden.py": {
+      "sha256": "b6a7f7e755ade9acd9e76ec55df869d7550e19ed9610674f11568b002190492b",
+      "size_bytes": 4099,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/golden_models.py": {
+      "sha256": "b8424d90487e8c41a8e75205313c80a4a026165db75853d2929254c735973cc3",
+      "size_bytes": 3069,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/hiaa_metrics.py": {
+      "sha256": "1535005c0085384692629e93b7648c92bddfce74ec8570b4969aacf7b9f75440",
+      "size_bytes": 5162,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/hooks.py": {
+      "sha256": "f405c8ad13c1dca47ab5869cbdf89342361457892dea15039a8c8b99873aeaaf",
+      "size_bytes": 1964,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/interruption.py": {
+      "sha256": "8e09d7200fb3a602dff14905635725ffb364f98532a40673cdb4fede69228abc",
+      "size_bytes": 2799,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/interruption_records.py": {
+      "sha256": "c1f946b611f68c23a024db5a8a82e1a64c4e89491d98eafa5fd01036f9b76c4c",
+      "size_bytes": 3827,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/journal.py": {
+      "sha256": "6d720a3f5ff7db514a30a9f30bcc8bba6ce3f7c94281aecec0bde87905e642f5",
+      "size_bytes": 6613,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/journal_order.py": {
+      "sha256": "cef7379f19eda7d84fc0cd71fdf440d3b23160d47000517d2de913002788964d",
+      "size_bytes": 3217,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/keeper_session.py": {
+      "sha256": "8d0f1addbeda9ebd195f395a6b0ae639b2b7223c23176d687eb9d501a5c20218",
+      "size_bytes": 2980,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/key_keeper.py": {
+      "sha256": "56a05e3a44e5a1657725ef65bbfbcfd0dcb83e19dd5664810ec92b0067ef00f7",
+      "size_bytes": 3099,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/live_client.py": {
+      "sha256": "fca29bf2e589ba413a5320a388ad0c02222b1d76e899de78194e247eabbc716e",
+      "size_bytes": 8552,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/loaded_models.py": {
+      "sha256": "011018994f04e615d35093eb0d82fd9be3b57a69fe175bfcd821a9dbd784e40c",
+      "size_bytes": 1071,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/loading.py": {
+      "sha256": "592277ba79eff230a48521c574010962658ff9b13fa9de096a230725d727b83c",
+      "size_bytes": 5100,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/matrix.py": {
+      "sha256": "63427345b01e73d80f2a8e853f7568cf8cf06608060575de3f0baee9b6627ea6",
+      "size_bytes": 6825,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/measurements.py": {
+      "sha256": "c6f037a259130ee47aaad797e55b6a4cb0554f71f7627bf2b8881b1093cdadbe",
+      "size_bytes": 3235,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/metrics.py": {
+      "sha256": "77309ecc14ccd76bd3a16bad6010495d0b54d053d9c84d34affa3d331519c965",
+      "size_bytes": 1827,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/network.py": {
+      "sha256": "d416dc402dd28df338b7ad456e4f70cdd14262d6276b4aed71128655154d64e6",
+      "size_bytes": 3201,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/paired_metrics.py": {
+      "sha256": "31a82250e60001cbf76e6a72ae02fa719df219617b72454c93f6adbda9efcef6",
+      "size_bytes": 6022,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/paired_models.py": {
+      "sha256": "1fc9bf8557658fade67bd847c14a020d181f8627da791a7b60f78a7524949198",
+      "size_bytes": 1058,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/paired_setup.py": {
+      "sha256": "828cf9a0e0f8d1723f856e8974564b7db4b4b3835e29f916cf106001897d4de9",
+      "size_bytes": 1733,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/phase_gate.py": {
+      "sha256": "afcf9505c776ed0ec56bcabe350e0b62a797c968923f32d42497326dda1b5aed",
+      "size_bytes": 4639,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/phase_sources.py": {
+      "sha256": "3facdddd1242978e438bc417c251a62a0d48cb84e685e6b418a8383fa69e89f3",
+      "size_bytes": 1860,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/phase_validation.py": {
+      "sha256": "7fc6e578de7efe8a522fcba216adc07f0528d74278b037187dcc414c32a37d6d",
+      "size_bytes": 2698,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/portable.py": {
+      "sha256": "27c47729d9ddf8e7d2bd229709eddad9b7f5ac3607df14c1e3b98155727b4199",
+      "size_bytes": 7530,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/portable_models.py": {
+      "sha256": "2aa75eb44bc213e99de43d999f69208f24ce7cf7d32d2abb57476ac08a5306e8",
+      "size_bytes": 2577,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/prompt_contract.py": {
+      "sha256": "0cecc4cb996f53ebb17a094f9993a16ce47f4fa6535ac70516491447ee27b739",
+      "size_bytes": 2444,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/provenance_metrics.py": {
+      "sha256": "1a0c5e94f25c8366289384e92de75c24400723ecbac6f3cfc3389f553423a316",
+      "size_bytes": 2241,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/readiness.py": {
+      "sha256": "cd575edced684152a7f8eef7df1897f0264251d389e7c91955d74e04fe14b8cd",
+      "size_bytes": 4316,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/replay_execution.py": {
+      "sha256": "4c2227a31933633649df59a094733aef78d27750822081497fe0bcf03db11fbe",
+      "size_bytes": 5625,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/replay_proof.py": {
+      "sha256": "22d9e36169c1ad602e62643a5a1af757ab4174dbeb7e59d9f927868254e8746d",
+      "size_bytes": 6466,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/report_models.py": {
+      "sha256": "27356c0580549e5c213f84da7559dd1d5914070305b4249309541ec2691430aa",
+      "size_bytes": 3024,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/reporting.py": {
+      "sha256": "da182705c40a26e46bfb8588c3c5582b70aadc41d0e380813fa80e726705dd63",
+      "size_bytes": 2808,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/run_models.py": {
+      "sha256": "69fc36a5cd29e207cc6567c3a46eb7e8751598b8992e74e6f9d9602a8cde97c5",
+      "size_bytes": 7381,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/runtime.py": {
+      "sha256": "2240e893a1c42c232b65791517bec9a737b6be704bc5debd7af5cdafb3888414",
+      "size_bytes": 5098,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/runtime_models.py": {
+      "sha256": "1e6d1a6c855af6fe9a8f5010ba903092eb21b9ef497109df37ee66b2f57fe54a",
+      "size_bytes": 1802,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/schema_models.py": {
+      "sha256": "2366a8befef4f6eeffb30b58b8ffa3f76303fea9746fcae591f8ed4bcf48e2dc",
+      "size_bytes": 4967,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/session_commands.py": {
+      "sha256": "7660386bdcdbde7723959f8680421d98bae31274a4fc6642c61c32adf1167843",
+      "size_bytes": 1956,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/session_models.py": {
+      "sha256": "c94ec18f69d207369e664e01ef66de7131356a87ef86d0f3034b1c40d20d8ab6",
+      "size_bytes": 2640,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/skill_comparison.py": {
+      "sha256": "8039e55b4854d375818089f3b13620995d88270a29c44f4500cdf557729befdd",
+      "size_bytes": 2623,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/stage.py": {
+      "sha256": "a5b96aa79367f3c6eaf73e9c2fdcf312693b44629abe0435bceba81c2575c3fa",
+      "size_bytes": 5916,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/stage_contract.py": {
+      "sha256": "3d36f513254bc11078d08b5e9dc140b464a6ef339abe8fb881acd625306e6fe8",
+      "size_bytes": 2632,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/stage_units.py": {
+      "sha256": "f698896a32b4b4dfe4aba4719727c459fc12f83d708b795fd08421f994d1c1f0",
+      "size_bytes": 5778,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/stage_worker.py": {
+      "sha256": "8887ecc77597296d9110cdafdd7a394b2eae65d83cdb3325bfd0648ff28219cb",
+      "size_bytes": 1830,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/static_protocol.py": {
+      "sha256": "cf726c167a5c74023291d35959ab81183255b73a21faf0832825a2ed59590da9",
+      "size_bytes": 4075,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/statistic_enrichment.py": {
+      "sha256": "63e306c1d3383b993e5f44baf4b1c2bbb39a7b99a68bf6e37cb1bdd050a929eb",
+      "size_bytes": 3416,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/statistics.py": {
+      "sha256": "e558e58e7600061ef99abd1b4a35e7c57bd584c967c48f5a3b93c9040873fcad",
+      "size_bytes": 4885,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/statistics_models.py": {
+      "sha256": "2f9b8dbbad05075a2ecde55843a1bfd5308b6d1fe104549bac5e9f91b9140991",
+      "size_bytes": 3040,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/supervisor.py": {
+      "sha256": "eba6877059fa377f4e4b01c944b03d48690a7e8928cbee40ec6f38ee0f150f9c",
+      "size_bytes": 4275,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/supervisor_control.py": {
+      "sha256": "5d3b319b549d31904cb942a8c73931c29ee2b7b62c27e4c5c54909e189ae8cc7",
+      "size_bytes": 3154,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/unit_execution.py": {
+      "sha256": "337956195b809cd486b08345f5bce25a773dfa0ce7e4dd4d500c373316a6a03e",
+      "size_bytes": 6395,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/usage_summary.py": {
+      "sha256": "d329eea3a404e479d9375898c4210ba1a1d569533956209b1c3ec3b222b031ef",
+      "size_bytes": 2074,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/usage_validation.py": {
+      "sha256": "42da3c15fd2f2e5b3777d0252fe575910a5c96d7bfca0f2f1a2513a71d6e9dee",
+      "size_bytes": 3572,
+      "records": null
+    },
+    "src/skillflow/experiment/t17/v2/worker_models.py": {
+      "sha256": "7ebd80dc3e90b56b6c142db6723fda9f23243c4546cc30117d61b478d183ed9b",
+      "size_bytes": 1899,
+      "records": null
+    },
+    "src/skillflow/graph/__init__.py": {
+      "sha256": "d908be7939bf7c1e17886fc460d7c57af22252c4ff6aa9fdcf859cb8176af49d",
+      "size_bytes": 122,
+      "records": null
+    },
+    "src/skillflow/graph/assembly.py": {
+      "sha256": "cb25f8827eb4ec73d33fe4089f4db37e600df1617395d65bb07254193528eebf",
+      "size_bytes": 3234,
+      "records": null
+    },
+    "src/skillflow/graph/builder.py": {
+      "sha256": "aee8aaca29426602514979265e6a710b0c76814a0e5f1479a58734e72d725a73",
+      "size_bytes": 723,
+      "records": null
+    },
+    "src/skillflow/graph/enums.py": {
+      "sha256": "57d0176ee8f7e6b3656a8d160d561720298a2e18ae16fd3c880d724a32331d8a",
+      "size_bytes": 1041,
+      "records": null
+    },
+    "src/skillflow/graph/errors.py": {
+      "sha256": "f48cedb906cfc72e136f551f0218dd0c1ae3b71241ce752ec2e780002eac009c",
+      "size_bytes": 2348,
+      "records": null
+    },
+    "src/skillflow/graph/event_projection.py": {
+      "sha256": "ebfaa205818b386379ab51bd2881245104d2b6f1c304649cb5d96354ead6dafc",
+      "size_bytes": 5203,
+      "records": null
+    },
+    "src/skillflow/graph/facts.py": {
+      "sha256": "85b432538776e53e5db80fe42debe3642745bca17ca401a6af0e1a75ea792471",
+      "size_bytes": 1934,
+      "records": null
+    },
+    "src/skillflow/graph/models.py": {
+      "sha256": "f44770c7649f0eacae5a6ee35ddb34fbe5be261f98682236176092fe845cc50f",
+      "size_bytes": 5204,
+      "records": null
+    },
+    "src/skillflow/graph/path_analysis.py": {
+      "sha256": "263046b207db4bb30e3e2828ec9e7ad23a97e31c86e991b2419509f48cce3024",
+      "size_bytes": 4457,
+      "records": null
+    },
+    "src/skillflow/graph/pathing.py": {
+      "sha256": "7a295e733ba9672812936167c12c45b01f720e29cab23600c5ed62bf437c4609",
+      "size_bytes": 9146,
+      "records": null
+    },
+    "src/skillflow/graph/record_projection.py": {
+      "sha256": "209dca37e0fddb1a9368ffc15c7d14942a0c77429540087c46c9f1ce4a43fa57",
+      "size_bytes": 4594,
+      "records": null
+    },
+    "src/skillflow/graph/security.py": {
+      "sha256": "841c01635e8110c90692b94f21c257490197fa81b251c70af401d6a7351b0799",
+      "size_bytes": 6613,
+      "records": null
+    },
+    "src/skillflow/graph/semantics.py": {
+      "sha256": "bf97b17bd228879382f18b9c0091c49625680e1cb2ca5a57ef7e350f0ede9c8e",
+      "size_bytes": 8819,
+      "records": null
+    },
+    "src/skillflow/graph/special_event_projection.py": {
+      "sha256": "16187c26f1ba80aa2f83bd9f8c10e24a2b3b26ccf2db6062c453872bb25858bd",
+      "size_bytes": 6962,
+      "records": null
+    },
+    "src/skillflow/instrumentation/__init__.py": {
+      "sha256": "9843a6b77f1641cee5ed9dece311a4876f682efde3352a5b12f5a15a199f8013",
+      "size_bytes": 63,
+      "records": null
+    },
+    "src/skillflow/instrumentation/artifact_intervention.py": {
+      "sha256": "a56af9e821fa1a8391c0ce01db2e095cd8e8f38f3e21b24f8578d8c4b49c9ed9",
+      "size_bytes": 4818,
+      "records": null
+    },
+    "src/skillflow/instrumentation/context_proxy.py": {
+      "sha256": "d0ca58b26a04f82d08bbd10fe42c1dfd15a20cf03f36e678910f5bd9ebaa5c8a",
+      "size_bytes": 3725,
+      "records": null
+    },
+    "src/skillflow/instrumentation/decision_stub.py": {
+      "sha256": "88bad5f8422650aea7c59c5668b3e8488a5b71de579e24ae66ca76def282fef6",
+      "size_bytes": 2134,
+      "records": null
+    },
+    "src/skillflow/instrumentation/errors.py": {
+      "sha256": "11ed33b81f96c47ad77134e1b8aac5fe802a380824a55ea2d9e035778a8c9e47",
+      "size_bytes": 3722,
+      "records": null
+    },
+    "src/skillflow/instrumentation/file_proxy.py": {
+      "sha256": "a0f86b207d24b642bbe5e95fe407d30fd2fb1e8a9b293758199bc35558ac6382",
+      "size_bytes": 3009,
+      "records": null
+    },
+    "src/skillflow/instrumentation/memory_proxy.py": {
+      "sha256": "067e987a6e43691166d2e811abf7ec6f797447673e1f6c12e281a2303606239e",
+      "size_bytes": 4188,
+      "records": null
+    },
+    "src/skillflow/instrumentation/mock_tools.py": {
+      "sha256": "b157baa7d1bb4c540109af86bdec8b5abb1db6c41a839b4319ac4f89a6efde2f",
+      "size_bytes": 5849,
+      "records": null
+    },
+    "src/skillflow/instrumentation/skill_proxy.py": {
+      "sha256": "6d195df6e1532e144917653bb04a8d02681912dacf4f6d4e8768534a57bd07ba",
+      "size_bytes": 8692,
+      "records": null
+    },
+    "src/skillflow/instrumentation/tool_effects.py": {
+      "sha256": "295fffff4107db660bcf438ee893a335fed4a2f46d99c005d78107b0e6f08892",
+      "size_bytes": 2615,
+      "records": null
+    },
+    "src/skillflow/instrumentation/tool_proxy.py": {
+      "sha256": "44d93f35aa8d85fd9b9f5afff6580e08d4db240bda42494d0aa48f0a0e3412f8",
+      "size_bytes": 10446,
+      "records": null
+    },
+    "src/skillflow/instrumentation/tool_receipt.py": {
+      "sha256": "83ed9cc808586bfda946c69b636fda7a30f73c8727e9493c69fbf6bd3df34ddb",
+      "size_bytes": 3443,
+      "records": null
+    },
+    "src/skillflow/instrumentation/tool_types.py": {
+      "sha256": "8339a66957ed1e32b5e76694c5d10dcc2f629ab08cabd12b62c27dc0cf5d8e4c",
+      "size_bytes": 535,
+      "records": null
+    },
+    "src/skillflow/models/__init__.py": {
+      "sha256": "8542505d8378e36d910645dbc30e6fdf52d234a523151a5b8071a7b78a2139bf",
+      "size_bytes": 1042,
+      "records": null
+    },
+    "src/skillflow/models/advanced_metrics.py": {
+      "sha256": "be40ff4354b592cf4e06ef62b38f111cb4ab4267bb9d0e9e055d4917ab1c9e03",
+      "size_bytes": 5648,
+      "records": null
+    },
+    "src/skillflow/models/authorization.py": {
+      "sha256": "2097375c446a36705619d1fb628c3f6d69c41923d52b80340a816dad57ae558c",
+      "size_bytes": 2076,
+      "records": null
+    },
+    "src/skillflow/models/base.py": {
+      "sha256": "60acc5863e11695b570f675bd41b028c15bedaf8db8e18f2adab5ee9c5e16d59",
+      "size_bytes": 447,
+      "records": null
+    },
+    "src/skillflow/models/effects.py": {
+      "sha256": "7b24c128abe1988602d6843b9152d1391d9f52511be5632f98eae91dd59e2cf1",
+      "size_bytes": 1449,
+      "records": null
+    },
+    "src/skillflow/models/enums.py": {
+      "sha256": "d2b68130611fa185cedd87fce4f9845133da10c25ce8a3c25b4dd62a013f5a7b",
+      "size_bytes": 3750,
+      "records": null
+    },
+    "src/skillflow/models/events.py": {
+      "sha256": "05a458f8b429712957d787ee34b61ddc58abab8cb3b17be9e3e70d421b62691a",
+      "size_bytes": 1384,
+      "records": null
+    },
+    "src/skillflow/models/execution.py": {
+      "sha256": "329e1f0b183940371603528657bfded57ac2bd0a71c247d6be4413babca06840",
+      "size_bytes": 2110,
+      "records": null
+    },
+    "src/skillflow/models/experiment_reports.py": {
+      "sha256": "fcf9eea864155bf43a7e6c69641629067c953c8256e14626688548a8ff5cb40b",
+      "size_bytes": 9179,
+      "records": null
+    },
+    "src/skillflow/models/manifest.py": {
+      "sha256": "ab8dea79e21a60d4f19d5c56af117e2aa30d966840c24bf318b9f4c5d2a2deb6",
+      "size_bytes": 1142,
+      "records": null
+    },
+    "src/skillflow/models/matrix.py": {
+      "sha256": "16b8475fbc83ece8aae76db69ecd36ba34c14ae86bc9150da1b43dfd0bfcf09b",
+      "size_bytes": 7728,
+      "records": null
+    },
+    "src/skillflow/models/matrix_axes.py": {
+      "sha256": "d0108f7628aefbc6224a99f3c63ca38bd1f773b983dfdd7e737de9a64161e19e",
+      "size_bytes": 791,
+      "records": null
+    },
+    "src/skillflow/models/matrix_design.py": {
+      "sha256": "99868e0b87a9b6ae01a8b84db5b364fdb34ee1be1501e3ccaf66a5e269ceca2e",
+      "size_bytes": 4499,
+      "records": null
+    },
+    "src/skillflow/models/metrics.py": {
+      "sha256": "46dc7a3aa2aa2251289f17116a074c3a0e30de46188b6d2f384271a351e05c05",
+      "size_bytes": 6115,
+      "records": null
+    },
+    "src/skillflow/models/provenance.py": {
+      "sha256": "7b9a2b273e8230579f0f92bd7d83d1bd9cb358554b819b6d4d938e76eccbf5ae",
+      "size_bytes": 928,
+      "records": null
+    },
+    "src/skillflow/models/references.py": {
+      "sha256": "e063608a557290851adfad46a69d7b12a4a524fea4bf04d23189257eca629b87",
+      "size_bytes": 6027,
+      "records": null
+    },
+    "src/skillflow/models/replay_reports.py": {
+      "sha256": "b829495cc1f27b05d57be5d712b3752b011a43eb065114103680a28aa5b86168",
+      "size_bytes": 4910,
+      "records": null
+    },
+    "src/skillflow/models/reports.py": {
+      "sha256": "0d36eddf0392d92609c9324308424e6a42ffc86d6d6f705c382e46027d18f5fa",
+      "size_bytes": 806,
+      "records": null
+    },
+    "src/skillflow/models/residual_metrics.py": {
+      "sha256": "b69bd5e05dc487763e572d5dc5125f87f149460575e263997b2aacbd433dba4e",
+      "size_bytes": 3570,
+      "records": null
+    },
+    "src/skillflow/models/resources.py": {
+      "sha256": "98a6e51d2e54cf9c1b27b0c93e7a37a35670adfdff148c7de52b0c121ca3ccc5",
+      "size_bytes": 2825,
+      "records": null
+    },
+    "src/skillflow/models/run_reports.py": {
+      "sha256": "15efbd3929b35c70d945aaae6a0d42bd3249af1e5d4edf0a188f5e60aeedc56e",
+      "size_bytes": 4629,
+      "records": null
+    },
+    "src/skillflow/models/run_results.py": {
+      "sha256": "00383255ca412fb1347418faa0ff194f33597927e08785f55af1e600748e334d",
+      "size_bytes": 2204,
+      "records": null
+    },
+    "src/skillflow/models/scenario.py": {
+      "sha256": "f3a7418cd97dbf1b96b07b0ff05c7809f48901a8d18f394e0fe74c6c4845a71d",
+      "size_bytes": 10648,
+      "records": null
+    },
+    "src/skillflow/models/scenario_parts.py": {
+      "sha256": "e99d15cd95c5c712816039a4d91682c51b743f98d24c8abe69cffa8018af99e9",
+      "size_bytes": 7233,
+      "records": null
+    },
+    "src/skillflow/models/scenario_research.py": {
+      "sha256": "78b36a5d748df6f7018f99e0c4d11d6aa4e4aefa45e43b75683f8b177996bbe9",
+      "size_bytes": 3744,
+      "records": null
+    },
+    "src/skillflow/models/tool_calls.py": {
+      "sha256": "b3e3f54a24b637878ce556b0e3daab03ed602cad34b59bb7ab931ae6d228d238",
+      "size_bytes": 2741,
+      "records": null
+    },
+    "src/skillflow/oracle/__init__.py": {
+      "sha256": "da02167ae19845b28de3c96d466bbb3aa86f426efbbd2fcff1069e4e57368f97",
+      "size_bytes": 60,
+      "records": null
+    },
+    "src/skillflow/oracle/bindings.py": {
+      "sha256": "a229b1db66641f87e1f7f64c02f1cd1e8da96dc80eaabcd3ef71814c5f2e1a55",
+      "size_bytes": 3990,
+      "records": null
+    },
+    "src/skillflow/oracle/data_helpers.py": {
+      "sha256": "9cb3cd392c538dc53ff2f7e6c733937a83b51b531c4b340f5b642512a72a37b7",
+      "size_bytes": 1496,
+      "records": null
+    },
+    "src/skillflow/oracle/effects.py": {
+      "sha256": "9cc8c30264e2996f3af005e3b19c58320f6b340b62fa6496020f3f6de730b958",
+      "size_bytes": 2584,
+      "records": null
+    },
+    "src/skillflow/oracle/errors.py": {
+      "sha256": "aef1923a57b8c88bd2a902a177d4ac15c0b236e7559c42f019b2cb5aa4d210d4",
+      "size_bytes": 654,
+      "records": null
+    },
+    "src/skillflow/oracle/expectations.py": {
+      "sha256": "503918d79d5a843b91f3315a651838fee20c8ce34f98c9876453febd9c645307",
+      "size_bytes": 2873,
+      "records": null
+    },
+    "src/skillflow/oracle/grants.py": {
+      "sha256": "fa5a9741f359a20d4dd301c22e883baaa01ec3c1beeff624d58cbb0e58fbb629",
+      "size_bytes": 4262,
+      "records": null
+    },
+    "src/skillflow/oracle/models.py": {
+      "sha256": "21abcd783f4acbd429f5071949042cfd2cb0e515c3dcb253974f8047037a8007",
+      "size_bytes": 3562,
+      "records": null
+    },
+    "src/skillflow/oracle/sidecar.py": {
+      "sha256": "cdfb76b237b01d3af48e6fcd8cc763f6e5d9f1acdd0d41f9683eda631ed5d586",
+      "size_bytes": 9994,
+      "records": null
+    },
+    "src/skillflow/oracle/state.py": {
+      "sha256": "e89b7b651d36448465b731aa033c07c41b9042d59efda54bae0f5b452f7ca236",
+      "size_bytes": 9640,
+      "records": null
+    },
+    "src/skillflow/oracle/writer.py": {
+      "sha256": "2023e2cabb890223efb00bb3b341d91345775d0332140d71ebba52be257b5f8a",
+      "size_bytes": 595,
+      "records": null
+    },
+    "src/skillflow/pilot/__init__.py": {
+      "sha256": "81b06cdf45e8220fec97ffd3901e46ec954c93d9ba2d1455af0ea3e5c491a8cf",
+      "size_bytes": 50,
+      "records": null
+    },
+    "src/skillflow/pilot/cli.py": {
+      "sha256": "f6adabc9c732455dd88b138e2058b064cf57b04fbbacdc28555db53197fabbc0",
+      "size_bytes": 1828,
+      "records": null
+    },
+    "src/skillflow/pilot/comparison.py": {
+      "sha256": "fb46e330ae8074bf23c5c78dc1fbfe0cbaa361a754612f114064be5a20bda4c3",
+      "size_bytes": 1700,
+      "records": null
+    },
+    "src/skillflow/pilot/errors.py": {
+      "sha256": "65635740d636385d096b20e48c911d04fcadfb2245703a58811b857fcaa3ea2c",
+      "size_bytes": 5091,
+      "records": null
+    },
+    "src/skillflow/pilot/mock_adapter.py": {
+      "sha256": "3d2fc4f978bc8ee8e21dd7e79396d1718a5505a0b1f43ea4c10efc57458cd1e2",
+      "size_bytes": 2392,
+      "records": null
+    },
+    "src/skillflow/pilot/models.py": {
+      "sha256": "aaabfef6fcf0937a4be7c33bd3f8541a79ba7800b4b533be1d6843dbbc30404f",
+      "size_bytes": 5879,
+      "records": null
+    },
+    "src/skillflow/pilot/openclaw_adapter.py": {
+      "sha256": "d1514cc14eda288f117e8d084089dc25f64e8ea492cd514fc4e44522009ce65b",
+      "size_bytes": 5865,
+      "records": null
+    },
+    "src/skillflow/pilot/openclaw_events.py": {
+      "sha256": "47f43238a13c125b7a0bd8b6844e10348c73e1c1f77a54423070bac2069a77bc",
+      "size_bytes": 3983,
+      "records": null
+    },
+    "src/skillflow/pilot/openclaw_plan.py": {
+      "sha256": "375efc933aa9186111e0ef98f8b968718224c73e9b2cffa1ae29417c2899c0de",
+      "size_bytes": 9646,
+      "records": null
+    },
+    "src/skillflow/pilot/openclaw_plan_models.py": {
+      "sha256": "ac2bb7be28f973b9fb109b5d2d692f589834a0596acb8d9eb17adc5d8bfd4ae6",
+      "size_bytes": 2741,
+      "records": null
+    },
+    "src/skillflow/pilot/orchestrator.py": {
+      "sha256": "5ad6fcf2a310a417ecda3cbfb332a6db63057d9588f291a5ce2b4c80d438964a",
+      "size_bytes": 965,
+      "records": null
+    },
+    "src/skillflow/pilot/runner.py": {
+      "sha256": "9f83190738cc1fa99dedd6867035cbf5f308d2cd8324c07661c0962bcb003cdf",
+      "size_bytes": 3343,
+      "records": null
+    },
+    "src/skillflow/policy/__init__.py": {
+      "sha256": "84b7c3c91a33e6224ed52dcfe668cc9910736cf6123bbd5b69e52b8e9313edf6",
+      "size_bytes": 989,
+      "records": null
+    },
+    "src/skillflow/policy/baseline.py": {
+      "sha256": "7ec0540ff161a46a6fc8de9cc535785b87308f5ad63103660f4cb8266481ec6e",
+      "size_bytes": 1851,
+      "records": null
+    },
+    "src/skillflow/policy/engine.py": {
+      "sha256": "ccd6e942a1c605a42b277656ee29e0deae40fea8be2538f26b7c9168fcf02ace",
+      "size_bytes": 2286,
+      "records": null
+    },
+    "src/skillflow/policy/errors.py": {
+      "sha256": "9146dac40debd5962a8c99d987dbd5d21cb66fd52216153b82a31a62d2003be0",
+      "size_bytes": 408,
+      "records": null
+    },
+    "src/skillflow/policy/matchers.py": {
+      "sha256": "7b729dd7548f32932901fc6c4a56e728bf10422adcd7ed4b864e23399c2e9f88",
+      "size_bytes": 5242,
+      "records": null
+    },
+    "src/skillflow/policy/models.py": {
+      "sha256": "3267ba1c5101fdbef4bdf4f8cac2b9a25fc35cf6b2fcc73e1e24d0a35daf1e08",
+      "size_bytes": 3827,
+      "records": null
+    },
+    "src/skillflow/policy/reasons.py": {
+      "sha256": "f0f325843a94c9f2b09a3c451b72a3b9fa72ab1953a6c881ed2c5f37448b3a55",
+      "size_bytes": 780,
+      "records": null
+    },
+    "src/skillflow/policy/runtime.py": {
+      "sha256": "d6e4cd14735d67c13af15635c1d41dea288236c71890578eb1e01d0636e188a6",
+      "size_bytes": 6581,
+      "records": null
+    },
+    "src/skillflow/runtime/__init__.py": {
+      "sha256": "c83680232f678b80e9e1318ad496d707b1e623f0953639aa99a23fe206e2ea2d",
+      "size_bytes": 53,
+      "records": null
+    },
+    "src/skillflow/runtime/contracts.py": {
+      "sha256": "de781cc384965e8c7d90383acfd080599b2970888e78190bf89cc34e8dcfb2b5",
+      "size_bytes": 2402,
+      "records": null
+    },
+    "src/skillflow/runtime/determinism.py": {
+      "sha256": "8799940afa37a4396edd6abf4ae2480e6441d147074e1101f31cbc1282056720",
+      "size_bytes": 2678,
+      "records": null
+    },
+    "src/skillflow/runtime/provenance.py": {
+      "sha256": "a3369650e768b4064907d9d4eba1688e8357a92ce7a0ab23c6d0f4101724a55d",
+      "size_bytes": 1164,
+      "records": null
+    },
+    "src/skillflow/runtime/session.py": {
+      "sha256": "0393caeb9e661076c63b4fc9681d9e383d90a9971955ec6f22aeff196d493f70",
+      "size_bytes": 9708,
+      "records": null
+    },
+    "src/skillflow/runtime/workspace_checkpoint.py": {
+      "sha256": "67309e0ec91ce1e27a42c38beab7a4b1480073857f8f8388e5360d087121cc81",
+      "size_bytes": 2482,
+      "records": null
+    },
+    "src/skillflow/schemas.py": {
+      "sha256": "a9abc33dd1584d80de536daa8d9ffb6facb834a9fad0836cf4103206330f30db",
+      "size_bytes": 11976,
+      "records": null
+    },
+    "src/skillflow/store/__init__.py": {
+      "sha256": "d6a27f7ff028f3c41923eca8e7d7f1fc2804c5c14e40aab41f0d86d89eff6614",
+      "size_bytes": 50,
+      "records": null
+    },
+    "src/skillflow/store/blob_store.py": {
+      "sha256": "be7ca9d762a64f3fe59074e8181c62ee32667acd5d2f33602ad973ec0b926c57",
+      "size_bytes": 3650,
+      "records": null
+    },
+    "src/skillflow/store/checkpoint.py": {
+      "sha256": "2e9586faead0539b98dbf941ebc1163ba1231228ee43acebd139d7521f52fc49",
+      "size_bytes": 5692,
+      "records": null
+    },
+    "src/skillflow/store/envelope_validation.py": {
+      "sha256": "5a956947205800db1ae3a24380c6efa443881d63adbd977743fbee4330a6523f",
+      "size_bytes": 3005,
+      "records": null
+    },
+    "src/skillflow/store/errors.py": {
+      "sha256": "c4f654c387309fb2a4bcb8cae758757541c654eafbe39c054c3909d9a0829535",
+      "size_bytes": 1676,
+      "records": null
+    },
+    "src/skillflow/store/event_store.py": {
+      "sha256": "964bca9cde74efd38f6ae2cafaf51c178f4bb0cdd4e632252a45b7bb051d952d",
+      "size_bytes": 3921,
+      "records": null
+    },
+    "src/skillflow/store/schema.sql": {
+      "sha256": "29ef7e7ac7b1d2766818333f2d54856c7fecc8a821d37507f6a6bb1105957b91",
+      "size_bytes": 6364,
+      "records": null
+    },
+    "src/skillflow/store/sqlite_store.py": {
+      "sha256": "0e0cea020ed655852bf02ed981c19d008a4998824a4743debe6cfba624234d0f",
+      "size_bytes": 8580,
+      "records": null
+    },
+    "src/skillflow/store/sqlite_writer.py": {
+      "sha256": "eba227072fdaa83e67f7021a00c62a7fcf15886d6505d44a10b4c34fe7e315f4",
+      "size_bytes": 8246,
+      "records": null
+    },
+    "src/skillflow/store/trace.py": {
+      "sha256": "01110e89afe4de55a9fdf216f03a45bb862cf9a1ffad8b6b0ffb32ed0b319742",
+      "size_bytes": 3351,
+      "records": null
+    },
+    "src/skillflow/trace/__init__.py": {
+      "sha256": "c23144a5b35f3aef1cdffaf9328347aa0026d3a67cae03d4e5d869b934a8518f",
+      "size_bytes": 54,
+      "records": null
+    },
+    "src/skillflow/trace/contracts.py": {
+      "sha256": "de332f3134bff4be9c527f373c98df1ee12d1824ae37b1eb8e1625965472a0b8",
+      "size_bytes": 758,
+      "records": null
+    },
+    "src/skillflow/trace/jsonl.py": {
+      "sha256": "84138dbacbc9dc143ddfadcdc18ba4166a9867c2065b82030354cc6acfd46ade",
+      "size_bytes": 1201,
+      "records": null
+    },
+    "src/skillflow/trace/observed.py": {
+      "sha256": "7de5eca2cde20c68c81b796f60d6e734a029a18a2e0a82d1edfdc95d40e299d9",
+      "size_bytes": 7025,
+      "records": null
+    },
+    "src/skillflow/validation.py": {
+      "sha256": "bad2c2b14e4617bc589a32996f97c5ecb0f931d4080621094c88092cc9b9ed6d",
+      "size_bytes": 2561,
+      "records": null
+    }
+  },
+  "scheduled_core": 360,
+  "scheduled_replay": 270,
+  "evaluator_version": "2.0.0",
+  "external_effects_simulated": true,
+  "independent_review": "REVIEW_UNAVAILABLE"
+}

@@ -1,0 +1,34 @@
+{
+  "additionalProperties": false,
+  "description": "保留指令原件与接受结果，不通过删除消费指令。",
+  "properties": {
+    "accepted": {
+      "title": "Accepted",
+      "type": "boolean"
+    },
+    "command_id": {
+      "minLength": 1,
+      "title": "Command Id",
+      "type": "string"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    }
+  },
+  "required": [
+    "command_id",
+    "accepted"
+  ],
+  "title": "CommandReceipt",
+  "type": "object"
+}

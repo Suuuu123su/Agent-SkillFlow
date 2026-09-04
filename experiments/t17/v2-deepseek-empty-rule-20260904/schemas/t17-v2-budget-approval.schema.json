@@ -1,0 +1,60 @@
+{
+  "additionalProperties": false,
+  "description": "金额、提案字节和用户明确批准相绑定，密钥不属于批准文件。",
+  "properties": {
+    "approval_basis": {
+      "minLength": 1,
+      "title": "Approval Basis",
+      "type": "string"
+    },
+    "approval_id": {
+      "minLength": 1,
+      "title": "Approval Id",
+      "type": "string"
+    },
+    "approved_at": {
+      "format": "date-time",
+      "title": "Approved At",
+      "type": "string"
+    },
+    "approved_max_total_usd": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Approved Max Total Usd"
+    },
+    "cost_plan_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Cost Plan Sha256",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "2.0",
+      "default": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "user_explicit_approval": {
+      "const": true,
+      "title": "User Explicit Approval",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "approval_id",
+    "cost_plan_sha256",
+    "approved_at",
+    "approved_max_total_usd",
+    "user_explicit_approval",
+    "approval_basis"
+  ],
+  "title": "BudgetApproval",
+  "type": "object"
+}

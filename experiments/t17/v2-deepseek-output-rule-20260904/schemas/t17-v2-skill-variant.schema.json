@@ -1,0 +1,312 @@
+{
+  "$defs": {
+    "CapabilityAction": {
+      "description": "MVP 固定支持的能力动作。",
+      "enum": [
+        "file.read",
+        "file.write",
+        "memory.read",
+        "memory.write",
+        "network.send",
+        "shell.execute",
+        "user.confirm"
+      ],
+      "title": "CapabilityAction",
+      "type": "string"
+    },
+    "CapabilityEffect": {
+      "additionalProperties": false,
+      "description": "可比较的结构化能力效果。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "lifetime": {
+          "$ref": "#/$defs/Lifetime"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "sensitivity": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Sensitivity",
+          "type": "integer"
+        },
+        "sink": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "action",
+        "sink",
+        "scope",
+        "lifetime",
+        "sensitivity"
+      ],
+      "title": "CapabilityEffect",
+      "type": "object"
+    },
+    "EffectSelector": {
+      "additionalProperties": false,
+      "description": "把运行期多个 EffectRecord 映射到稳定别名。",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/CapabilityAction"
+        },
+        "alias": {
+          "minLength": 1,
+          "title": "Alias",
+          "type": "string"
+        },
+        "sink_pattern": {
+          "$ref": "#/$defs/ResourceRef"
+        },
+        "source_pattern": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResourceRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "alias",
+        "action",
+        "source_pattern",
+        "sink_pattern"
+      ],
+      "title": "EffectSelector",
+      "type": "object"
+    },
+    "Lifetime": {
+      "description": "授权或效果的有效边界。",
+      "enum": [
+        "call",
+        "task",
+        "session",
+        "persistent"
+      ],
+      "title": "Lifetime",
+      "type": "string"
+    },
+    "ResourceRef": {
+      "description": "一个已经校验并规范化的 Resource URI。",
+      "title": "ResourceRef",
+      "type": "string"
+    },
+    "Scope": {
+      "description": "MVP 中互不放大的四种精确作用域。",
+      "enum": [
+        "exact-file",
+        "exact-key",
+        "exact-sink",
+        "command"
+      ],
+      "title": "Scope",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "足以固定运行输入并支持后续留出技能比较的身份。",
+  "properties": {
+    "attack_family": {
+      "minLength": 1,
+      "title": "Attack Family",
+      "type": "string"
+    },
+    "capability_fingerprint": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Capability Fingerprint",
+      "type": "string"
+    },
+    "harness_factor": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Harness Factor",
+      "type": "array"
+    },
+    "input_schema_fingerprint": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Input Schema Fingerprint",
+      "type": "string"
+    },
+    "lifetime_requirements": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Lifetime Requirements",
+      "type": "array"
+    },
+    "manifest_paths": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Manifest Paths",
+      "type": "array"
+    },
+    "manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Manifest Sha256",
+      "type": "string"
+    },
+    "neutral_pair_skill_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Neutral Pair Skill Id"
+    },
+    "output_schema_fingerprint": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Output Schema Fingerprint",
+      "type": "string"
+    },
+    "pair_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Pair Id"
+    },
+    "risk_effect_selector": {
+      "items": {
+        "$ref": "#/$defs/EffectSelector"
+      },
+      "title": "Risk Effect Selector",
+      "type": "array"
+    },
+    "scenario_path": {
+      "minLength": 1,
+      "title": "Scenario Path",
+      "type": "string"
+    },
+    "scenario_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Scenario Sha256",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "2.0",
+      "default": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "scope_requirements": {
+      "items": {
+        "$ref": "#/$defs/CapabilityEffect"
+      },
+      "title": "Scope Requirements",
+      "type": "array"
+    },
+    "skill_content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Skill Content Sha256",
+      "type": "string"
+    },
+    "skill_family": {
+      "minLength": 1,
+      "title": "Skill Family",
+      "type": "string"
+    },
+    "skill_variant_id": {
+      "minLength": 1,
+      "title": "Skill Variant Id",
+      "type": "string"
+    },
+    "skill_version": {
+      "minLength": 1,
+      "title": "Skill Version",
+      "type": "string"
+    },
+    "source_path": {
+      "minLength": 1,
+      "title": "Source Path",
+      "type": "string"
+    },
+    "split": {
+      "enum": [
+        "development",
+        "validation",
+        "held-out"
+      ],
+      "title": "Split",
+      "type": "string"
+    },
+    "task_contract_id": {
+      "minLength": 1,
+      "title": "Task Contract Id",
+      "type": "string"
+    },
+    "tool_registry_fingerprint": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Tool Registry Fingerprint",
+      "type": "string"
+    },
+    "variant_role": {
+      "enum": [
+        "attack",
+        "neutral",
+        "benign-control"
+      ],
+      "title": "Variant Role",
+      "type": "string"
+    }
+  },
+  "required": [
+    "skill_variant_id",
+    "skill_family",
+    "attack_family",
+    "variant_role",
+    "skill_version",
+    "source_path",
+    "scenario_path",
+    "scenario_sha256",
+    "skill_content_sha256",
+    "manifest_paths",
+    "manifest_sha256",
+    "capability_fingerprint",
+    "tool_registry_fingerprint",
+    "input_schema_fingerprint",
+    "output_schema_fingerprint",
+    "task_contract_id",
+    "neutral_pair_skill_id",
+    "pair_id",
+    "risk_effect_selector",
+    "harness_factor",
+    "scope_requirements",
+    "lifetime_requirements",
+    "split"
+  ],
+  "title": "SkillVariant",
+  "type": "object"
+}
