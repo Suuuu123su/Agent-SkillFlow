@@ -1,0 +1,31 @@
+{
+  "additionalProperties": false,
+  "description": "绑定失败目录，不能用陈旧指令恢复后来失败或重采样模型结果。",
+  "properties": {
+    "action": {
+      "enum": [
+        "retry_interrupted_stage",
+        "stop_keep_evidence"
+      ],
+      "title": "Action",
+      "type": "string"
+    },
+    "command_id": {
+      "minLength": 1,
+      "title": "Command Id",
+      "type": "string"
+    },
+    "raw_relative_path": {
+      "minLength": 1,
+      "title": "Raw Relative Path",
+      "type": "string"
+    }
+  },
+  "required": [
+    "command_id",
+    "action",
+    "raw_relative_path"
+  ],
+  "title": "ResumeCommand",
+  "type": "object"
+}

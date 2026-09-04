@@ -6,6 +6,7 @@ from jsonschema import Draft202012Validator
 from jsonschema import ValidationError as JsonSchemaValidationError
 from pydantic import JsonValue, ValidationError
 
+from skillflow.experiment.t17.v2.schema_models import v2_schema_documents
 from skillflow.models import ExperimentMatrix, SkillManifest
 from skillflow.models.reports import RISK_REPORT_ADAPTER
 from skillflow.schemas import schema_documents
@@ -185,7 +186,7 @@ def test_static_schemas_equal_model_generated_schemas() -> None:
         "t17-minimal-observed-trace.schema.json",
         "t17-minimal-oracle-trace.schema.json",
         "t17-minimal-tool-receipt.schema.json",
-    }
+    } | {name for name, _ in v2_schema_documents()}
     for document in documents:
         static_schema = json.loads((SCHEMA_DIR / document.filename).read_text(encoding="utf-8"))
         Draft202012Validator.check_schema(static_schema)

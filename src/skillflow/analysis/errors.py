@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(slots=True)
 class AnalysisInvariantError(Exception):
     """双轨或重复投影无法形成唯一结构化事实。"""
 

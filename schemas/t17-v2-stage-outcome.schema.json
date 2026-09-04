@@ -1,0 +1,408 @@
+{
+  "$defs": {
+    "FrozenFile": {
+      "additionalProperties": false,
+      "description": "单个已存在文件的哈希、长度及可选逐行记录数。",
+      "properties": {
+        "records": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Records"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "FrozenFile",
+      "type": "object"
+    },
+    "MeasurementStatus": {
+      "description": "T17 把已测、设计不适用、Hook 缺失和阶段不完整分开。",
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "MeasurementStatus",
+      "type": "string"
+    },
+    "PhaseGate": {
+      "additionalProperties": false,
+      "description": "只以预先冻结的调度和可信证据覆盖判断阶段是否完整。",
+      "properties": {
+        "binding_coverage": {
+          "default": 0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Binding Coverage",
+          "type": "number"
+        },
+        "binding_failures": {
+          "minimum": 0,
+          "title": "Binding Failures",
+          "type": "integer"
+        },
+        "completed_core": {
+          "minimum": 0,
+          "title": "Completed Core",
+          "type": "integer"
+        },
+        "evaluated_replay": {
+          "minimum": 0,
+          "title": "Evaluated Replay",
+          "type": "integer"
+        },
+        "failures": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Failures",
+          "type": "array"
+        },
+        "infrastructure_invalid": {
+          "minimum": 0,
+          "title": "Infrastructure Invalid",
+          "type": "integer"
+        },
+        "metric_statuses": {
+          "additionalProperties": {
+            "$ref": "#/$defs/MeasurementStatus"
+          },
+          "propertyNames": {
+            "minLength": 1
+          },
+          "title": "Metric Statuses",
+          "type": "object"
+        },
+        "not_applicable_replay": {
+          "minimum": 0,
+          "title": "Not Applicable Replay",
+          "type": "integer"
+        },
+        "passed": {
+          "title": "Passed",
+          "type": "boolean"
+        },
+        "protocol_errors": {
+          "minimum": 0,
+          "title": "Protocol Errors",
+          "type": "integer"
+        },
+        "receipt_coverage": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Receipt Coverage",
+          "type": "number"
+        },
+        "required_hook_coverage": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Required Hook Coverage",
+          "type": "number"
+        },
+        "scheduled_core": {
+          "minimum": 0,
+          "title": "Scheduled Core",
+          "type": "integer"
+        },
+        "scheduled_replay": {
+          "minimum": 0,
+          "title": "Scheduled Replay",
+          "type": "integer"
+        },
+        "task_evidence_coverage": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Task Evidence Coverage",
+          "type": "number"
+        },
+        "terminal_core": {
+          "minimum": 0,
+          "title": "Terminal Core",
+          "type": "integer"
+        },
+        "terminal_replay": {
+          "minimum": 0,
+          "title": "Terminal Replay",
+          "type": "integer"
+        },
+        "usage_complete": {
+          "default": false,
+          "title": "Usage Complete",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "passed",
+        "scheduled_core",
+        "scheduled_replay",
+        "terminal_core",
+        "terminal_replay",
+        "completed_core",
+        "evaluated_replay",
+        "not_applicable_replay",
+        "infrastructure_invalid",
+        "protocol_errors",
+        "binding_failures",
+        "task_evidence_coverage",
+        "receipt_coverage",
+        "required_hook_coverage",
+        "failures"
+      ],
+      "title": "PhaseGate",
+      "type": "object"
+    },
+    "T17LiveStage": {
+      "description": "预注册的真实模型执行阶段。",
+      "enum": [
+        "canary",
+        "model1",
+        "model2_canary",
+        "model2",
+        "defense"
+      ],
+      "title": "T17LiveStage",
+      "type": "string"
+    },
+    "UnitUsage": {
+      "additionalProperties": false,
+      "description": "实际返回用量与保守占用分开；费用始终是估算，不冒充账单。",
+      "properties": {
+        "api_calls": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Api Calls",
+          "type": "integer"
+        },
+        "cache_write_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cache Write Tokens",
+          "type": "integer"
+        },
+        "cached_input_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Cached Input Tokens",
+          "type": "integer"
+        },
+        "complete": {
+          "default": true,
+          "title": "Complete",
+          "type": "boolean"
+        },
+        "estimated_cost_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Estimated Cost Usd"
+        },
+        "input_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "latency_ms": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Latency Ms",
+          "type": "number"
+        },
+        "missing_reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Missing Reason"
+        },
+        "output_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "reasoning_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Reasoning Tokens",
+          "type": "integer"
+        },
+        "reserved_cost_usd": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Reserved Cost Usd"
+        },
+        "response_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Response Ids",
+          "type": "array"
+        },
+        "responses": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Responses",
+          "type": "integer"
+        }
+      },
+      "title": "UnitUsage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "执行通过与报告导出通过同时成立，才可进入下一阶段。",
+  "properties": {
+    "attempt_number": {
+      "default": 1,
+      "minimum": 1,
+      "title": "Attempt Number",
+      "type": "integer"
+    },
+    "dataset_manifest": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/FrozenFile"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "dataset_relative_path": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Dataset Relative Path"
+    },
+    "gate": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PhaseGate"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "interruption_manifest": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/FrozenFile"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "raw_manifest": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/FrozenFile"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "raw_relative_path": {
+      "minLength": 1,
+      "title": "Raw Relative Path",
+      "type": "string"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    },
+    "stage": {
+      "$ref": "#/$defs/T17LiveStage"
+    },
+    "status": {
+      "enum": [
+        "passed",
+        "failed",
+        "postprocessing_failed"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "usage": {
+      "$ref": "#/$defs/UnitUsage"
+    }
+  },
+  "required": [
+    "stage",
+    "status",
+    "raw_relative_path",
+    "usage"
+  ],
+  "title": "StageOutcome",
+  "type": "object"
+}

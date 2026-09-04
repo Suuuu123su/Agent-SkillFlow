@@ -4,6 +4,7 @@ from collections.abc import Mapping
 from dataclasses import dataclass
 from pathlib import Path
 
+from skillflow.benchmark.execution_policy import ScenarioExecutorFactory
 from skillflow.benchmark.manifests import load_manifests
 from skillflow.benchmark.replay_analysis import ReplayAnalysisSetup, analyze_replay_pair
 from skillflow.benchmark.replay_branch import (
@@ -20,6 +21,7 @@ from skillflow.benchmark.replay_fingerprint import (
 from skillflow.benchmark.replay_models import ReplayBatchResult, ReplayPairResult
 from skillflow.benchmark.replay_output import write_replay_outputs
 from skillflow.benchmark.runner import ScenarioHarnessFactory
+from skillflow.benchmark.scenario_execution import ScenarioExecutor
 from skillflow.benchmark.scripted_backend import FixtureScript
 from skillflow.instrumentation.artifact_intervention import ArtifactInterventionMode
 from skillflow.models.enums import Decision
@@ -70,11 +72,14 @@ class ReplayRunner:
         scripts: Mapping[str, FixtureScript],
         decisions: Mapping[str, Decision],
         harness_factory: ScenarioHarnessFactory | None = None,
+        *,
+        executor_factory: ScenarioExecutorFactory = ScenarioExecutor,
     ) -> None:
         """复制白名单 Script 与结构决策，避免调用方运行中修改。"""
         self._scripts = dict(scripts)
         self._decisions = dict(decisions)
         self._harness_factory = harness_factory
+        self._executor_factory = executor_factory
 
     def run(self, scenario_path: Path, replay_root: Path, seed: str) -> ReplayBatchResult:
         """验证 Scenario，并按声明顺序执行全部成对反事实。"""
@@ -108,6 +113,7 @@ class ReplayRunner:
             manifests=manifests,
             seed=seed,
             harness_factory=self._harness_factory,
+            executor_factory=self._executor_factory,
         )
         selectors = {selector.alias: selector for selector in scenario.effect_selectors}
         selected = tuple(

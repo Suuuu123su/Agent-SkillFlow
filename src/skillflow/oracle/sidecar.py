@@ -28,10 +28,13 @@ class OracleSidecar:
         self,
         plan: OracleRunPlan,
         require_expected_effect_receipts: bool = True,
+        *,
+        validate_scripted_expectations: bool = True,
     ) -> None:
         """在运行前冻结 Scenario、Manifest 和 Scripted 动作。"""
         self._plan = plan
         self._require_expected_effect_receipts = require_expected_effect_receipts
+        self._validate_scripted_expectations = validate_scripted_expectations
         self._state = OracleDataState(plan.run_id, plan.scenario.assets)
         self._resolver = OracleGrantResolver(plan.scenario.grants)
         self._grant_ids = {grant.grant_id for grant in plan.scenario.grants}
@@ -81,13 +84,22 @@ class OracleSidecar:
                 "finalize",
                 f"Oracle 缺少 invoke step：{','.join(missing)}",
             )
-        validate_expected_origins(
-            self._plan.scenario,
-            self._state,
-            tuple(self._effects),
-            require_effect_receipts=self._require_expected_effect_receipts,
-        )
+        if self._validate_scripted_expectations:
+            validate_expected_origins(
+                self._plan.scenario,
+                self._state,
+                tuple(self._effects),
+                require_effect_receipts=self._require_expected_effect_receipts,
+            )
         return (*self._state.records, *self._effects)
+
+    def record_unexecuted_step(self, step_id: str, session_id: str, skill_id: str) -> None:
+        """显式记录模型路径未执行的步骤，不生成 Artifact 或来源真值。"""
+        if self._validate_scripted_expectations:
+            raise OracleInvariantError("invocation_binding", "确定性路径不允许跳过步骤")
+        if self._steps.get(step_id) != (session_id, skill_id) or step_id in self._recorded_steps:
+            raise OracleInvariantError("invocation_binding", "未执行步骤绑定错误")
+        self._recorded_steps.add(step_id)
 
     def _record_action(
         self,

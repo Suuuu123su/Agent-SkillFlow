@@ -1,0 +1,302 @@
+{
+  "$defs": {
+    "ClusterTerm": {
+      "additionalProperties": false,
+      "description": "一个统计项在某簇的分子分母，可按簇内重复直接相加。",
+      "properties": {
+        "cluster": {
+          "minLength": 1,
+          "title": "Cluster",
+          "type": "string"
+        },
+        "denominator": {
+          "minimum": 0,
+          "title": "Denominator",
+          "type": "number"
+        },
+        "numerator": {
+          "title": "Numerator",
+          "type": "number"
+        },
+        "term": {
+          "minLength": 1,
+          "title": "Term",
+          "type": "string"
+        }
+      },
+      "required": [
+        "cluster",
+        "term",
+        "numerator",
+        "denominator"
+      ],
+      "title": "ClusterTerm",
+      "type": "object"
+    },
+    "MeasurementStatus": {
+      "description": "T17 把已测、设计不适用、Hook 缺失和阶段不完整分开。",
+      "enum": [
+        "measured",
+        "not_applicable",
+        "not_available",
+        "incomplete"
+      ],
+      "title": "MeasurementStatus",
+      "type": "string"
+    },
+    "StatisticalInterval": {
+      "additionalProperties": false,
+      "description": "百分位区间只要求下界不大于上界，不强迫包住点估计。",
+      "properties": {
+        "complete_clusters": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Complete Clusters",
+          "type": "integer"
+        },
+        "confidence": {
+          "default": 0.95,
+          "maximum": 0.95,
+          "minimum": 0.95,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "lower": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lower"
+        },
+        "method": {
+          "enum": [
+            "wilson_chain_descriptive",
+            "cluster_bootstrap"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "point": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Point"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "resamples": {
+          "anyOf": [
+            {
+              "const": 10000,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resamples"
+        },
+        "seed": {
+          "anyOf": [
+            {
+              "const": 17017,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Seed"
+        },
+        "status": {
+          "$ref": "#/$defs/MeasurementStatus"
+        },
+        "upper": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper"
+        }
+      },
+      "required": [
+        "status",
+        "method"
+      ],
+      "title": "StatisticalInterval",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "沿用四态及分子分母约束，并附该项适用的区间和完整簇数。",
+  "properties": {
+    "cluster_terms": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ClusterTerm"
+      },
+      "title": "Cluster Terms",
+      "type": "array"
+    },
+    "complete_clusters": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Complete Clusters",
+      "type": "integer"
+    },
+    "contrast_signs": {
+      "additionalProperties": {
+        "enum": [
+          -1,
+          1
+        ],
+        "type": "integer"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Contrast Signs",
+      "type": "object"
+    },
+    "denominator": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Denominator"
+    },
+    "denominator_scope": {
+      "minLength": 1,
+      "title": "Denominator Scope",
+      "type": "string"
+    },
+    "evidence_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "intervals": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/StatisticalInterval"
+      },
+      "title": "Intervals",
+      "type": "array"
+    },
+    "numerator": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Numerator"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    },
+    "scheduled_denominator": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Scheduled Denominator"
+    },
+    "schema_version": {
+      "const": "2.0",
+      "default": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/MeasurementStatus"
+    },
+    "unit": {
+      "minLength": 1,
+      "title": "Unit",
+      "type": "string"
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Value"
+    }
+  },
+  "required": [
+    "status",
+    "unit",
+    "denominator_scope"
+  ],
+  "title": "Measurement",
+  "type": "object"
+}

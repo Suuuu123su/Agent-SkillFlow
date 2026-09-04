@@ -8,6 +8,7 @@ from typing import Protocol
 from skillflow.adapters.mock_harness import MockHarnessAdapter
 from skillflow.analysis.facts import RunReportMetadata
 from skillflow.analysis.run_reporting import RunTraceAnalysisInput, write_analyzed_run_report
+from skillflow.benchmark.execution_policy import ScenarioExecutionPolicy
 from skillflow.benchmark.harness_factory import HarnessFactorySetup, create_scenario_harness
 from skillflow.benchmark.manifests import load_manifests
 from skillflow.benchmark.oracle_bridge import OracleSetup, build_oracle_sidecar
@@ -16,7 +17,7 @@ from skillflow.benchmark.run_facts import (
     load_run_revocations,
 )
 from skillflow.benchmark.run_workspace import stage_assets
-from skillflow.benchmark.scenario_execution import execute_scenario_sessions
+from skillflow.benchmark.scenario_execution import ScenarioExecutorSetup
 from skillflow.benchmark.scripted_backend import FixtureScript
 from skillflow.benchmark.success import TaskSuccessFacts, evaluate_task_success
 from skillflow.graph.security import SecurityGraph
@@ -95,11 +96,14 @@ class ScenarioRunner:
         scripts: Mapping[str, FixtureScript],
         decisions: Mapping[str, Decision],
         harness_factory: ScenarioHarnessFactory | None = None,
+        *,
+        execution_policy: ScenarioExecutionPolicy | None = None,
     ) -> None:
         """复制白名单脚本和 Stub 决策，隔离调用方后续修改。"""
         self._scripts = dict(scripts)
         self._decisions = dict(decisions)
         self._harness_factory = harness_factory or create_scenario_harness
+        self._execution_policy = execution_policy or ScenarioExecutionPolicy()
 
     def run(self, scenario_path: Path, run_root: Path, seed: str) -> ScenarioRunResult:
         """从 YAML 启动一个独立、确定性的安全 Mock Run。"""
@@ -136,6 +140,7 @@ class ScenarioRunner:
                 scripts=self._scripts,
                 require_expected_effect_receipts=request.report_metadata.backend
                 != "reference_harness",
+                validate_scripted_expectations=self._execution_policy.validate_scripted_expectations,
             )
         )
         layout = request.layout
@@ -167,7 +172,9 @@ class ScenarioRunner:
                     seed=request.id_seed,
                 )
             )
-            execution = execute_scenario_sessions(scenario, harness, oracle)
+            execution = self._execution_policy.factory(
+                ScenarioExecutorSetup(scenario, harness, oracle)
+            ).run_all()
             alias_artifacts = tuple(
                 artifact
                 for artifact_id in execution.artifact_ids_by_alias.values()
@@ -210,6 +217,9 @@ class ScenarioRunner:
                     effect_evidence=load_effect_analysis_evidence(store, effects),
                     runtime_artifacts=alias_artifacts,
                     revocations=load_run_revocations(store, scenario, run_id),
+                    allow_absent_counterfactuals=(
+                        not self._execution_policy.validate_scripted_expectations
+                    ),
                 ),
             )
             network_records = harness.network_records

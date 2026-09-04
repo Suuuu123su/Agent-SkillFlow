@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from skillflow.adapters.benchmark_controller import BenchmarkController
+from skillflow.benchmark.execution_policy import ScenarioExecutorFactory
 from skillflow.benchmark.harness_factory import HarnessFactorySetup, create_scenario_harness
 from skillflow.benchmark.manifests import ManifestBinding
 from skillflow.benchmark.replay_models import ReplayBranchResult, ReplaySourceState
@@ -29,6 +30,7 @@ class ReplayRuntimeConfig:
     manifests: tuple[ManifestBinding, ...]
     seed: str
     harness_factory: ScenarioHarnessFactory | None = None
+    executor_factory: ScenarioExecutorFactory = ScenarioExecutor
 
 
 @dataclass(frozen=True, slots=True)
@@ -78,7 +80,7 @@ def capture_replay_source(setup: ReplaySourceSetup) -> ReplaySourceState:
                 ReplayBranchResources(setup.runtime, setup.run_id, workspace, store, blobs)
             )
         )
-        executor = ScenarioExecutor(
+        executor = setup.runtime.executor_factory(
             ScenarioExecutorSetup(scenario=setup.runtime.scenario, harness=harness)
         )
         execution = executor.run_until_alias(setup.target_alias)
@@ -106,7 +108,7 @@ def run_replay_branch(setup: ReplayBranchSetup) -> ReplayBranchResult:
             setup.source.source_artifact_id,
             setup.mode,
         )
-        executor = ScenarioExecutor(
+        executor = setup.runtime.executor_factory(
             ScenarioExecutorSetup(
                 scenario=setup.runtime.scenario,
                 harness=harness,

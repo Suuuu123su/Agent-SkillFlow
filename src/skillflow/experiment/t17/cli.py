@@ -34,15 +34,18 @@ from skillflow.experiment.t17.scripted_runner import (
     T17ScriptedRunRequest,
     execute_t17_scripted,
 )
+from skillflow.experiment.t17.v2.cli import compare_skills_command, v2_app
 from skillflow.validation import DocumentValidationError
 
 t17_app = typer.Typer(help="T17 指标、证据 Hook 与实验闭环。", no_args_is_help=True)
 t17_app.add_typer(minimal_app, name="minimal")
+t17_app.add_typer(v2_app, name="v2")
 
 
 def register_t17_commands(root: typer.Typer) -> None:
     """把 T17 子应用注册到 SkillFlow 根 CLI。"""
     root.add_typer(t17_app, name="t17")
+    root.command("compare-skills")(compare_skills_command)
 
 
 @t17_app.command("audit-baseline")

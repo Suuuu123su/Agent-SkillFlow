@@ -5,12 +5,11 @@ from skillflow.models.effects import EffectRecord
 from skillflow.models.run_results import RunRevocationEvidence
 from skillflow.models.scenario import Scenario
 from skillflow.store.errors import StoreIntegrityError
-from skillflow.store.event_store import RevocationTargetKind
-from skillflow.store.sqlite_store import SqliteEventStore
+from skillflow.store.event_store import EventStore, RevocationTargetKind
 
 
 def load_effect_analysis_evidence(
-    store: SqliteEventStore,
+    store: EventStore,
     effects: tuple[EffectRecord, ...],
 ) -> tuple[EffectAnalysisEvidence, ...]:
     """恢复每个 Effect 的 Decision 与依据 Artifact。"""
@@ -32,7 +31,7 @@ def load_effect_analysis_evidence(
 
 
 def load_run_revocations(
-    store: SqliteEventStore,
+    store: EventStore,
     scenario: Scenario,
     run_id: str,
 ) -> tuple[RunRevocationEvidence, ...]:

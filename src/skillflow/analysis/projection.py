@@ -51,6 +51,7 @@ class RunTraceAnalysisInput:
     effect_evidence: tuple[EffectAnalysisEvidence, ...] = ()
     runtime_artifacts: tuple[Artifact, ...] = ()
     revocations: tuple[RunRevocationEvidence, ...] = ()
+    allow_absent_counterfactuals: bool = False
 
 
 def project_scenario_facts(run: RunTraceAnalysisInput) -> ScenarioMetricFacts:
@@ -154,6 +155,8 @@ def _counterfactual_artifacts(
     for counterfactual in scenario.counterfactuals:
         alias = counterfactual.target.alias
         artifact_id = by_alias.get(alias)
+        if artifact_id is None and run.allow_absent_counterfactuals:
+            continue
         if artifact_id is None or artifact_id not in runtime:
             raise AnalysisInvariantError(
                 "project_counterfactual",

@@ -1,0 +1,110 @@
+{
+  "$defs": {
+    "FrozenFile": {
+      "additionalProperties": false,
+      "description": "单个已存在文件的哈希、长度及可选逐行记录数。",
+      "properties": {
+        "records": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Records"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "FrozenFile",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "已有终态与新增中断记录分别登记，不能用于宣称阶段完成。",
+  "properties": {
+    "files": {
+      "additionalProperties": {
+        "$ref": "#/$defs/FrozenFile"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Files",
+      "type": "object"
+    },
+    "interrupted_terminals": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Interrupted Terminals",
+      "type": "array"
+    },
+    "phase_contract_sha256": {
+      "minLength": 1,
+      "title": "Phase Contract Sha256",
+      "type": "string"
+    },
+    "preserved_terminals": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Preserved Terminals",
+      "type": "array"
+    },
+    "reason": {
+      "minLength": 1,
+      "title": "Reason",
+      "type": "string"
+    },
+    "scheduled_core": {
+      "title": "Scheduled Core",
+      "type": "integer"
+    },
+    "scheduled_replay": {
+      "title": "Scheduled Replay",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "2.0",
+      "default": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "stage_passed": {
+      "const": false,
+      "default": false,
+      "title": "Stage Passed",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase_contract_sha256",
+    "reason",
+    "scheduled_core",
+    "scheduled_replay",
+    "preserved_terminals",
+    "interrupted_terminals",
+    "files"
+  ],
+  "title": "InterruptionManifest",
+  "type": "object"
+}

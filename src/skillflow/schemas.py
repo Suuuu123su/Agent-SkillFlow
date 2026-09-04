@@ -71,6 +71,7 @@ from skillflow.experiment.t17.scripted_models import (
     T17ScriptedGoldenSummary,
 )
 from skillflow.experiment.t17.task_evidence import T17TaskSuccessEvidence
+from skillflow.experiment.t17.v2.schema_models import v2_schema_documents
 from skillflow.models.manifest import SkillManifest
 from skillflow.models.matrix import ExperimentMatrix
 from skillflow.models.reports import RISK_REPORT_ADAPTER
@@ -278,6 +279,7 @@ def schema_documents() -> tuple[SchemaDocument, ...]:
             T17TaskSuccessEvidence.model_json_schema(),
         ),
         *(SchemaDocument(name, document) for name, document in minimal_schema_documents()),
+        *(SchemaDocument(name, document) for name, document in v2_schema_documents()),
     )
 
 

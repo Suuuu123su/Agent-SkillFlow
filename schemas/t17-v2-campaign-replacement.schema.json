@@ -1,0 +1,34 @@
+{
+  "additionalProperties": false,
+  "description": "协议修订必须指向全新的已批准配置，旧批准不能重复消费。",
+  "properties": {
+    "approval": {
+      "minLength": 1,
+      "title": "Approval",
+      "type": "string"
+    },
+    "cost_plan": {
+      "minLength": 1,
+      "title": "Cost Plan",
+      "type": "string"
+    },
+    "output": {
+      "minLength": 1,
+      "title": "Output",
+      "type": "string"
+    },
+    "protocol": {
+      "minLength": 1,
+      "title": "Protocol",
+      "type": "string"
+    }
+  },
+  "required": [
+    "protocol",
+    "cost_plan",
+    "approval",
+    "output"
+  ],
+  "title": "CampaignReplacement",
+  "type": "object"
+}

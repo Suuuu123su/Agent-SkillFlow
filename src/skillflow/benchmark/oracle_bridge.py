@@ -31,6 +31,7 @@ class OracleSetup:
     run_id: str
     scripts: Mapping[str, FixtureScript]
     require_expected_effect_receipts: bool = True
+    validate_scripted_expectations: bool = True
 
 
 @dataclass(frozen=True, slots=True)
@@ -67,6 +68,7 @@ def build_oracle_sidecar(setup: OracleSetup) -> OracleSidecar:
             manifests=load_oracle_manifests(setup.scenario_path, setup.scenario),
         ),
         require_expected_effect_receipts=setup.require_expected_effect_receipts,
+        validate_scripted_expectations=setup.validate_scripted_expectations,
     )
 
 
