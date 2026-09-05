@@ -69,10 +69,10 @@
     "historical_sha256_recalculated": false
   },
   "readme_staging": {
-    "status": "blocked_by_automatic_safety_check",
-    "reason": "自动检查拒绝仅暂存 T18 新增段落，担心影响本地未提交 T12 段落；即使只读补丁统计为 8 新增、0 删除仍被拦截。",
+    "status": "authorized_t18_only",
+    "reason": "用户明确允许发布完整脱敏 T18 数据并只提交根 README 的 T18 段落。",
     "worktree_user_content_preserved": true,
-    "next_action": "需要用户明确批准仅提交 T18 段落，T12 原文继续保留本地且不变。"
+    "next_action": "等待本批远端质量检查；T12 原文继续保留本地且不变。"
   },
   "github_ci": {
     "previous_delivery_status": "pass",

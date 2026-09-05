@@ -1,6 +1,6 @@
 # T18 交付清单
 
-当前：实验、指标、指定明细与本地质量检查完成；上一批远端检查通过，本批远端质量检查待完成。README 分段暂存被自动安全检查拦截，整体未标记完成。
+当前：实验、指标、指定明细与本地质量检查完成；完整脱敏 T18 数据和根 README 的 T18 段落已获用户明确发布授权，本批远端质量检查待完成，整体未标记完成。
 
 - [修订预注册](../../experiments/t18/preregistration.yaml)、[技能目录](../../experiments/t18/skill-catalog.yaml)、[防御目录](../../experiments/t18/defense-catalog.yaml)。
 - [脚本矩阵](../../experiments/t18/matrix-scripted.yaml) 264 个任务；[模拟矩阵](../../experiments/t18/matrix-fake-smoke.yaml) 44 个任务。仅补缺格，不增加重复；正式旧版运行数为 0。
