@@ -1,7 +1,7 @@
 {
   "schema_version": "t18-quality-check/1.0",
   "date": "2026-09-05",
-  "status": "local_pass_remote_pending",
+  "status": "pass",
   "full_suite": {
     "runs": 1,
     "tests": 1335,
@@ -76,9 +76,14 @@
   },
   "github_ci": {
     "previous_delivery_status": "pass",
-    "run": 33901511581,
-    "tests": 1350,
-    "combined_coverage_percent": 90.13091350460942,
-    "current_table_delivery_status": "remote_check_pending"
+    "previous_run": 33901511581,
+    "status": "pass",
+    "run": 33935572308,
+    "commit": "49e28ba3f691a4cf7726cd9777f20e9278905115",
+    "tests": 1354,
+    "combined_coverage_percent": 90.17227990451264,
+    "branch_only_percent": 76.81403982450219,
+    "strict_source_files": 486,
+    "current_table_delivery_status": "pass"
   }
 }
