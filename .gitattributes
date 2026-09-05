@@ -43,3 +43,6 @@ experiments/t17/v2-luna-defense-20260904/** -text
 datasets/t18-local/** -text
 experiments/t18/** -text
 schemas/t18-*.json text eol=lf
+
+# T19 frozen evidence and delivery hashes preserve exact bytes.
+experiments/t19/** -text

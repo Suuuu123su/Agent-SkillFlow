@@ -1,0 +1,150 @@
+{
+  "status": "verified_against_attempt_sources_and_raw_journal_inventory",
+  "historical_sources": [
+    {
+      "source": "runs/t17-v2-live-20260904-01/campaign-result.json",
+      "selector": "failed_attempts[0]",
+      "sha256": "3f9033c813f96cfe1bfeb3fb963ecd24c0c86528cc560538e564fecb099f69c1",
+      "match": true,
+      "accounting_fields_match": true,
+      "redacted_field": "response_ids"
+    },
+    {
+      "source": "runs/t17-v2-live-20260904-02/campaign-after-attempt-007.json",
+      "selector": "stages[0]",
+      "sha256": "c3c50b6c8f80c95e1336564426ef0bb0f2c9f449d842a88eb1a1606b34642f2b",
+      "match": false,
+      "accounting_fields_match": true,
+      "redacted_field": "response_ids"
+    },
+    {
+      "source": "runs/t17-v2-live-20260904-02/campaign-after-attempt-007.json",
+      "selector": "stages[1]",
+      "sha256": "c3c50b6c8f80c95e1336564426ef0bb0f2c9f449d842a88eb1a1606b34642f2b",
+      "match": false,
+      "accounting_fields_match": true,
+      "redacted_field": "response_ids"
+    },
+    {
+      "source": "runs/t17-v2-live-20260904-02/campaign-after-attempt-007.json",
+      "selector": "stages[2]",
+      "sha256": "c3c50b6c8f80c95e1336564426ef0bb0f2c9f449d842a88eb1a1606b34642f2b",
+      "match": false,
+      "accounting_fields_match": true,
+      "redacted_field": "response_ids"
+    },
+    {
+      "source": "runs/t17-v2-live-20260904-02/campaign-after-attempt-007.json",
+      "selector": "failed_attempts[0]",
+      "sha256": "c3c50b6c8f80c95e1336564426ef0bb0f2c9f449d842a88eb1a1606b34642f2b",
+      "match": false,
+      "accounting_fields_match": true,
+      "redacted_field": "response_ids"
+    },
+    {
+      "source": "runs/t17-v2-live-20260904-02/campaign-after-attempt-007.json",
+      "selector": "failed_attempts[1]",
+      "sha256": "c3c50b6c8f80c95e1336564426ef0bb0f2c9f449d842a88eb1a1606b34642f2b",
+      "match": false,
+      "accounting_fields_match": true,
+      "redacted_field": "response_ids"
+    },
+    {
+      "source": "runs/t17-v2-live-20260904-02/campaign-after-attempt-007.json",
+      "selector": "failed_attempts[2]",
+      "sha256": "c3c50b6c8f80c95e1336564426ef0bb0f2c9f449d842a88eb1a1606b34642f2b",
+      "match": false,
+      "accounting_fields_match": true,
+      "redacted_field": "response_ids"
+    },
+    {
+      "source": "runs/t17-v2-live-20260904-02/campaign-after-attempt-007.json",
+      "selector": "failed_attempts[3]",
+      "sha256": "c3c50b6c8f80c95e1336564426ef0bb0f2c9f449d842a88eb1a1606b34642f2b",
+      "match": false,
+      "accounting_fields_match": true,
+      "redacted_field": "response_ids"
+    },
+    {
+      "source": "runs/t17-v2-deepseek-20260904-01/model2/attempt-01/stage-result.json",
+      "selector": "outcome",
+      "sha256": "2853758326c7b0f231cac06937655e1339fb553aa2a792f4b25daf6630f71204",
+      "match": false,
+      "accounting_fields_match": true,
+      "redacted_field": "response_ids"
+    },
+    {
+      "source": "runs/t17-v2-deepseek-20260904-01/model2/attempt-02/stage-result.json",
+      "selector": "outcome",
+      "sha256": "860621d14298a065c15ce3ceddf770bf1e221ccb05f213700366536bff041fca",
+      "match": false,
+      "accounting_fields_match": true,
+      "redacted_field": "response_ids"
+    },
+    {
+      "source": "runs/t17-v2-deepseek-20260904-01/model2_canary/attempt-01/stage-result.json",
+      "selector": "outcome",
+      "sha256": "3304e79d712d8b4a718c01afc1d0ae1e2531716e6b9ab1ddf2f97921dfd13e27",
+      "match": false,
+      "accounting_fields_match": true,
+      "redacted_field": "response_ids"
+    },
+    {
+      "source": "runs/t17-v2-deepseek-20260904-01/model2_canary/attempt-02/stage-result.json",
+      "selector": "outcome",
+      "sha256": "dbe46e9dbba1fa4b8dd6c7cb9023354261f91ca8cf08bd3ef5ba894510eeb27e",
+      "match": false,
+      "accounting_fields_match": true,
+      "redacted_field": "response_ids"
+    },
+    {
+      "source": "runs/t17-v2-luna-defense-20260904-01/defense/attempt-01/stage-result.json",
+      "selector": "outcome",
+      "sha256": "c6dd8cff08a4bce581a08c91bfdb2b180da323638c80763580236f720b3a7e7e",
+      "match": false,
+      "accounting_fields_match": true,
+      "redacted_field": "response_ids"
+    },
+    {
+      "source": "runs/t17-v2-luna-defense-20260904-01/defense/attempt-02/stage-result.json",
+      "selector": "outcome",
+      "sha256": "6afafe44a36c0d7cceda8b958ed16c2a8d1e6da41bf8657b25d8f35501d4ebb9",
+      "match": false,
+      "accounting_fields_match": true,
+      "redacted_field": "response_ids"
+    }
+  ],
+  "historical_reserved_usd": "15.5443051756",
+  "historical_known_estimate_usd": "15.3303527192",
+  "total_authorization_usd": "58.25",
+  "candidate_remaining_usd": "42.7056948244",
+  "t19_available_usd": "42.7056948244",
+  "t19_paid_calls_authorized": false,
+  "invoice_verified": false,
+  "model": "deepseek-v4-flash",
+  "model_change_basis": "User explicitly selected DS-V4 FLASH before any T19 call",
+  "source_objective_sha256": "c49bbb6cdd6018e37f2eae2d6a83711f1da00729f3507674692ed1691a598c5c",
+  "historical_requests": 5929,
+  "historical_responses": 5924,
+  "unknown_historical_requests": 5,
+  "other_active_experiment_processes": 0,
+  "other_reservations_usd": "0",
+  "execution_gate": "requires_code_tests_freeze_and_credential",
+  "raw_journal_unique_files": 14,
+  "allocation_usd": "35.00",
+  "max_input_bytes": 12000,
+  "max_agent_steps": 16,
+  "max_output_tokens": 2048,
+  "planned_max_units": 872,
+  "worst_request_usd": "0.00228928",
+  "worst_total_usd": "31.94003456",
+  "rates_basis": "same T17 frozen DS rates; estimates not supplier billing",
+  "input_bound_change": "T19 lowers request payload bound from 100000 to 12000 bytes before any paid call; preserve model, output and reasoning. Oversize requests must fail before network, not truncate silently.",
+  "t19_spent_estimate_usd": "0.0268919056",
+  "t19_reserved_usd": "0.0268919056",
+  "remaining_t19_allocation_usd": "34.9731080944",
+  "technical_precheck_additional_max": 4,
+  "planned_max_units_with_technical_validation": 888,
+  "technical_audit_candidate_max": 4,
+  "max_planned_usd_with_technical_validation": "32.52609024"
+}

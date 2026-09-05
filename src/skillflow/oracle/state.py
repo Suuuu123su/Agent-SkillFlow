@@ -70,6 +70,11 @@ class OracleDataState:
                 f"Oracle 父值不存在：{artifact_id}",
             ) from error
 
+    def record_derivation(self, source_id: str, derived_id: str) -> None:
+        """复制Oracle自身已知父值的来源，不接收Observed标签。"""
+        parent = self.require(source_id)
+        self._copy_value(derived_id, parent.value_type, source_id, ParentRelation.DERIVE)
+
     def asset_origin(self, asset_id: str) -> str:
         """把 Scenario asset alias 解析为规范运行资源来源。"""
         try:

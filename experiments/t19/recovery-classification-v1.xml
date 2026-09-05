@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="14.556" timestamp="2026-09-05T14:42:16.277849+08:00" hostname="DESKTOP-UPVMUP0"><testcase classname="tests.unit.defense.test_t19_details" name="test_six_group_common_memory_eligibility_and_strict_views" time="13.664" /><testcase classname="tests.unit.defense.test_t19_details" name="test_token_cost_recompute_accounts_for_registered_recovery" time="0.016" /><testcase classname="tests.unit.defense.test_t19_details" name="test_replay_reused_call_id_is_not_a_recovery" time="0.027"><failure message="ValueError: v2_usage_model_result_resampled">tmp_path = WindowsPath('E:/Skill ＆ Harness/Agent/runs/t19-validation/recovery-classification-v1-temp/test_replay_reused_call_id_is_0')
+
+    def test_replay_reused_call_id_is_not_a_recovery(tmp_path: Path) -&gt; None:
+        from skillflow.experiment.t19.detail_views import _usage_details
+    
+        client, _ = client_for(tmp_path)
+        client.begin_unit("core")
+        request(client, "shared-call")
+        client.begin_unit("core:audit:source:identity")
+        request(client, "shared-call")
+        client.record_recovery_intent(("blocked-source",), ("blocked-action",))
+        request(client, "shared-call")
+        ledger = LedgerInputs(
+            pricing=client.config.provider.pricing,
+&gt;           journals={"formal-test": read_usage(tmp_path / "usage.jsonl", tmp_path)},
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+
+tests\unit\defense\test_t19_details.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\skillflow\experiment\t19\usage.py:72: in read_usage
+    order.accept(event)
+src\skillflow\experiment\t17\v2\journal_order.py:27: in accept
+    self._attempt(event)
+src\skillflow\experiment\t19\usage.py:21: in _attempt
+    super(_RecoveryOrder, self)._attempt(event)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = _RecoveryOrder(unit_id='core:audit:source:identity', phase_sha256='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...56='a88906cc3e1650cc34986996da39463b513013d4e53e774b5fcb13f17817faed')}, settled={1}, recovery_attempts=frozenset({3}))
+event = ApiUsageEvent(schema_version='2.0', sequence=6, event_type='attempt', phase_contract_sha256='aaaaaaaaaaaaaaaaaaaaaaaaa...b0bdaccf3e14825a1b341136ec709cb0ca25', event_sha256='4cf6572622adef9deff3ffd993a0e61321ea802258884b91dabd39a244e837a8')
+
+    def _attempt(self, event: ApiUsageEvent) -&gt; None:
+        if event.attempt_index != len(self.attempts) + 1 or not self._closed():
+            raise ValueError("v2_usage_attempt_order")
+        if any(
+            previous.call == event.call and previous.event_type == "response"
+            for previous in self.outcomes.values()
+        ):
+&gt;           raise ValueError("v2_usage_model_result_resampled")
+E           ValueError: v2_usage_model_result_resampled
+
+src\skillflow\experiment\t17\v2\journal_order.py:62: ValueError</failure></testcase></testsuite></testsuites>

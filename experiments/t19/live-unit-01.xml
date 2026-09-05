@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="0.604" timestamp="2026-09-05T10:58:51.624230+08:00" hostname="DESKTOP-UPVMUP0"><testcase classname="tests.unit.defense.test_t19_live" name="test_replay_prefix_and_sessions_cannot_reset_steps" time="0.010"><failure message="AttributeError: 'UnitUsage' object has no attribute 'calls'">tmp_path = WindowsPath('E:/Skill ＆ Harness/Agent/.tmp/t19-tests/live-01/test_replay_prefix_and_session0')
+
+    def test_replay_prefix_and_sessions_cannot_reset_steps(tmp_path: Path) -&gt; None:
+        client, transport = client_for(tmp_path, Decimal("2"))
+        client.begin_replay("branch", 15)
+        request(client, "session-1")
+        with pytest.raises(V2BudgetExhaustedError, match="agent_turns"):
+            request(client, "session-3")
+        assert transport.calls == 1
+&gt;       assert client.unit_usage().calls == 1
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\defense\test_t19_live.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = UnitUsage(complete=True, missing_reason=None, api_calls=1, responses=1, input_tokens=100, cached_input_tokens=20, cach..._ms=1.0, estimated_cost_usd=Decimal('0.000019656'), reserved_cost_usd=Decimal('0.000019656'), response_ids=('test_1',))
+item = 'calls'
+
+    def __getattr__(self, item: str) -&gt; Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra and item in pydantic_extra:
+                return pydantic_extra[item]
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+&gt;                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'UnitUsage' object has no attribute 'calls'
+
+.venv-skillflow\Lib\site-packages\pydantic\main.py:1042: AttributeError</failure></testcase><testcase classname="tests.unit.defense.test_t19_live" name="test_previous_unknown_reservation_blocks_next_chain" time="0.003" /><testcase classname="tests.unit.defense.test_t19_live" name="test_invalid_prefix_does_not_open_a_unit[-1]" time="0.002" /><testcase classname="tests.unit.defense.test_t19_live" name="test_invalid_prefix_does_not_open_a_unit[16]" time="0.004" /><testcase classname="tests.unit.defense.test_t19_live" name="test_invalid_prefix_does_not_open_a_unit[17]" time="0.002" /></testsuite></testsuites>

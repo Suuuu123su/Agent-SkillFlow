@@ -1,0 +1,40 @@
+{
+  "phase": "formal-v1",
+  "status": "ready_for_freeze",
+  "api_model": "deepseek-v4-flash",
+  "mutable_alias": true,
+  "max_chain_steps": 16,
+  "max_output_tokens": 2048,
+  "max_input_bytes": 12000,
+  "concurrency": 1,
+  "automatic_retries": 0,
+  "timeout_seconds": {
+    "connect": 10,
+    "read": 120,
+    "write": 10,
+    "pool": 10
+  },
+  "formal_cores": 336,
+  "mandatory_audit_candidates": 144,
+  "preordered_additional_audit_candidates": 24,
+  "branches_per_eligible_candidate": [
+    "identity",
+    "neutral",
+    "same_view"
+  ],
+  "formal_worst_cost_usd": "30.76792320",
+  "previous_reserved_usd": "0.0268919056",
+  "allocation_usd": "35.00",
+  "directed_tests": {
+    "passed": 140,
+    "deselected": 96,
+    "junit": "experiments/t19/freeze-directed-v1.xml"
+  },
+  "quality_full_suite": "not_yet_run_final_only",
+  "independent_review": "REVIEW_UNAVAILABLE",
+  "metric_contract": "metric-coverage-formal.md",
+  "floating_tolerance": {
+    "absolute": 1e-12,
+    "relative": 1e-12
+  }
+}

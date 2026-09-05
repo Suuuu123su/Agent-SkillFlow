@@ -1,0 +1,22 @@
+unformatted: File would be reformatted
+  --> src\skillflow\experiment\t17\protocol.py:44:43
+   |
+43 |     """Only v2 turns missing required Tool results into failed task outcomes."""
+   -     return protocol_id is T17ProtocolId.V2
+44 +     return protocol_id is T17ProtocolId.V2
+   |
+
+unformatted: File would be reformatted
+  --> tests\unit\defense\test_t19_live.py:69:23
+   |
+68 | def client_for(path: Path, previous: Decimal = Decimal(0)) -> tuple[T19LiveClient, LocalTransport]:
+   -     data = json.loads(
+   -         (
+   -             ROOT / "experiments/t19/model-reference.json"
+   -         ).read_text()
+   -     )
+69 +     data = json.loads((ROOT / "experiments/t19/model-reference.json").read_text())
+70 |     data["budget"].update(max_total_usd="35", max_retries=0)
+   |
+
+2 files would be reformatted, 904 files already formatted

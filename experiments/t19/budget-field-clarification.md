@@ -1,0 +1,7 @@
+# 冻结预算字段的版本解释
+
+首次正式freeze保留的budget.json中，t19_paid_calls_authorized=false、execution_gate=requires_code_tests_freeze_and_credential是最初准备预算时未同步更新的状态字段。实际付费授权来自用户完整goal的一次性明确授权及随后DS-V4 FLASH指定；用户已经在可信本地宿主输入密钥。每一正式请求使用冻结live-config.json中的budget.allow_live=true、approval_id=t19-user-goal-ds-v4-flash-20260905，且进入前已通过代码、预算与冻结检查。该历史状态字段不是新的授权来源，也不能替代用户授权。
+
+为保留首次冻结证据，不改写原budget.json或code-and-contracts.zip。最终费用闭合另写budget-final.json，明确引用原冻结合同、实际授权依据、逐attempt账本、估算支出、未知请求预留和剩余额度。其prepared/authorized/completed状态与最终事实一致。全部费用仍是Token价格估算，不是供应商结算单。
+
+historical_sources中的match=false表示原脱敏报告与含response_ids的本地对象不逐字段相同；会计字段已逐项核对，accounting_fields_match均为true。历史原始账本清单含15个路径、14份不同内容，其中一个副本不重复计费。新history-preservation-check.json验证这些原始路径未改动。

@@ -1,0 +1,92 @@
+[
+  {
+    "path": "runs/t17-v2-live-20260904-01/canary/attempt-01/raw/api-usage.jsonl",
+    "attempts": 1,
+    "responses": 0,
+    "sha256": "1c429545932ca25bdab6909ad18b3d51f8e8a9217c8d7525da77f51240de387b"
+  },
+  {
+    "path": "runs/t17-v2-live-20260904-02/canary/attempt-01/raw/api-usage.jsonl",
+    "attempts": 108,
+    "responses": 108,
+    "sha256": "23454d242f729da4b8f9cd093e105b47663b66ed98a71b6998471b6ec5a937d8"
+  },
+  {
+    "path": "runs/t17-v2-live-20260904-02/model1/attempt-01/raw/api-usage.jsonl",
+    "attempts": 1412,
+    "responses": 1412,
+    "sha256": "9af47352149574e628614a671fc118640dd696f2a997026f4914026fc4d2adf3"
+  },
+  {
+    "path": "runs/t17-v2-deepseek-20260904-01/empty-target-correction-01/api-usage.jsonl",
+    "attempts": 3,
+    "responses": 3,
+    "sha256": "617d1cd59f3cc167742883f80aadfe40f7294cbfce2eea39e427dc8010ade999"
+  },
+  {
+    "path": "runs/t17-v2-deepseek-20260904-01/model2/attempt-01/raw/api-usage.jsonl",
+    "attempts": 42,
+    "responses": 42,
+    "sha256": "92a0a31fa2c826f5b1ed7f3c096b8a983a6a6864ba2f85a6dd70613766023f1f"
+  },
+  {
+    "path": "runs/t17-v2-deepseek-20260904-01/model2/attempt-02/segment/api-usage.jsonl",
+    "attempts": 904,
+    "responses": 904,
+    "sha256": "aea0f77aca993d1f8260d15293922ad15f71fbec9d36423f15eef5a96e1343d0"
+  },
+  {
+    "path": "runs/t17-v2-deepseek-20260904-01/model2_canary/attempt-01/raw/api-usage.jsonl",
+    "attempts": 3,
+    "responses": 3,
+    "sha256": "617d1cd59f3cc167742883f80aadfe40f7294cbfce2eea39e427dc8010ade999"
+  },
+  {
+    "path": "runs/t17-v2-deepseek-20260904-01/model2_canary/attempt-02/segment/api-usage.jsonl",
+    "attempts": 61,
+    "responses": 61,
+    "sha256": "3ecc3a58065477ab312d767028474f4f473b56edef4a6ae9b16a09fbc3c01b9f"
+  },
+  {
+    "path": "runs/t17-v2-luna-defense-20260904-01/defense/attempt-01/raw/api-usage.jsonl",
+    "attempts": 134,
+    "responses": 133,
+    "sha256": "3106401bfdbaefd9624aa612a0c3eae4130f4fde21b14619821a257b583adda7"
+  },
+  {
+    "path": "runs/t17-v2-luna-defense-20260904-01/defense/attempt-02/segment/api-usage.jsonl",
+    "attempts": 1181,
+    "responses": 1181,
+    "sha256": "225b68fb8e1b545e686c0c66c599e2739443ff80a6ed753a1beb918097e55198"
+  },
+  {
+    "path": "runs/t17-withdrawn-model2-20260904-01/model2/attempt-01/raw/api-usage.jsonl",
+    "attempts": 761,
+    "responses": 760,
+    "sha256": "94e629c0e96aa3462cd8526e1f2e927ccf0fe9e490fd4bec9b0579085037c816"
+  },
+  {
+    "path": "runs/t17-withdrawn-model2-20260904-01/model2/attempt-02/raw/api-usage.jsonl",
+    "attempts": 300,
+    "responses": 299,
+    "sha256": "45b46f785c1a3a82c5c0a77359b869dd7708bb08a9141cf9709bdc02bc985872"
+  },
+  {
+    "path": "runs/t17-withdrawn-model2-20260904-01/model2/attempt-03/raw/api-usage.jsonl",
+    "attempts": 466,
+    "responses": 465,
+    "sha256": "aaebe3e0a3af0f66d74618623074c07b15cf313db34839c72aa63a1250d0afb9"
+  },
+  {
+    "path": "runs/t17-withdrawn-model2-20260904-01/model2/continuation-01/segment/api-usage.jsonl",
+    "attempts": 481,
+    "responses": 481,
+    "sha256": "bd1ae1ddaf0a2d49cbf3c9c14acdc9ed6a5ef4d8ec92a2af3d31d96cf1a1f19a"
+  },
+  {
+    "path": "runs/t17-withdrawn-model2-20260904-01/model2_canary/attempt-01/raw/api-usage.jsonl",
+    "attempts": 75,
+    "responses": 75,
+    "sha256": "2b5197ad11b2ff1ec5b542be6558b09b82f644a0e3fbebd4f2bb6b8101239b21"
+  }
+]

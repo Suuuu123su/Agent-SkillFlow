@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "recorded_paths": 15,
+  "unique_hashes": 14,
+  "checks": [
+    {
+      "path": "runs/t17-v2-live-20260904-01/canary/attempt-01/raw/api-usage.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "runs/t17-v2-live-20260904-02/canary/attempt-01/raw/api-usage.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "runs/t17-v2-live-20260904-02/model1/attempt-01/raw/api-usage.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "runs/t17-v2-deepseek-20260904-01/empty-target-correction-01/api-usage.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "runs/t17-v2-deepseek-20260904-01/model2/attempt-01/raw/api-usage.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "runs/t17-v2-deepseek-20260904-01/model2/attempt-02/segment/api-usage.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "runs/t17-v2-deepseek-20260904-01/model2_canary/attempt-01/raw/api-usage.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "runs/t17-v2-deepseek-20260904-01/model2_canary/attempt-02/segment/api-usage.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "runs/t17-v2-luna-defense-20260904-01/defense/attempt-01/raw/api-usage.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "runs/t17-v2-luna-defense-20260904-01/defense/attempt-02/segment/api-usage.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "runs/t17-withdrawn-model2-20260904-01/model2/attempt-01/raw/api-usage.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "runs/t17-withdrawn-model2-20260904-01/model2/attempt-02/raw/api-usage.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "runs/t17-withdrawn-model2-20260904-01/model2/attempt-03/raw/api-usage.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "runs/t17-withdrawn-model2-20260904-01/model2/continuation-01/segment/api-usage.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "runs/t17-withdrawn-model2-20260904-01/model2_canary/attempt-01/raw/api-usage.jsonl",
+      "unchanged": true
+    }
+  ],
+  "scope": "historical_raw_journals_still_match_initial_inventory"
+}

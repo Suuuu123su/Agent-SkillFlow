@@ -1,0 +1,33 @@
+{
+  "finished_utc": "2026-09-05T07:17:17.7534364Z",
+  "full_suite_attempt": 1,
+  "status": "failed",
+  "scope": "local_existing_project_quality_not_remote_GitHub_CI",
+  "gates": [
+    {
+      "gate": "pytest-full",
+      "exit_code": 1,
+      "duration_seconds": 1132.0099198
+    },
+    {
+      "gate": "ruff-check",
+      "exit_code": 0,
+      "duration_seconds": 0.2091517
+    },
+    {
+      "gate": "ruff-format",
+      "exit_code": 1,
+      "duration_seconds": 0.1810523
+    },
+    {
+      "gate": "mypy",
+      "exit_code": 0,
+      "duration_seconds": 2.5856334
+    },
+    {
+      "gate": "cli-help",
+      "exit_code": 0,
+      "duration_seconds": 1.2241489
+    }
+  ]
+}

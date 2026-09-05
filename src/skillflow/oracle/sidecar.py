@@ -68,6 +68,10 @@ class OracleSidecar:
         self._state.record_skill_output(evidence, tuple(action_outputs))
         self._recorded_steps.add(evidence.step_id)
 
+    def record_derivation(self, source_id: str, derived_id: str) -> None:
+        """接收受信派生操作的ID边，不把Observed来源当成真值。"""
+        self._state.record_derivation(source_id, derived_id)
+
     def record_grant(self, grant: AuthorizationGrant) -> None:
         """只接收 Benchmark 已执行的结构化确认，不读取 Policy。"""
         if grant.grant_id in self._grant_ids:

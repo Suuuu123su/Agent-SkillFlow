@@ -1,0 +1,31 @@
+{
+  "status": "COMPLETED",
+  "research_verdict": "not_supported",
+  "utc": "2026-09-05T07:37:14.294734+00:00",
+  "precheck": [
+    32,
+    32
+  ],
+  "formal_core": [
+    336,
+    336
+  ],
+  "audit_terminal": [
+    168,
+    168
+  ],
+  "quality": "passed_with_targeted_resolution",
+  "independent_recompute": "passed",
+  "costs_closed": true,
+  "api_host": "exited",
+  "paid_work_pending": false,
+  "report": "T19_Summary.md",
+  "limitations": [
+    "policy_equivalence",
+    "strict_ALR_RIR_no_eligible_denominator",
+    "limited_templates",
+    "reference_candidate_output_in_prompt",
+    "exclusive_task_timing_not_available",
+    "external_methodological_review_not_performed"
+  ]
+}

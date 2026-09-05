@@ -1,0 +1,139 @@
+{
+  "domain": "scripted",
+  "api_calls": 0,
+  "research_samples": 120,
+  "components": [
+    "T"
+  ],
+  "rows": [
+    {
+      "components": [],
+      "task_success": 12,
+      "safe_success": 8,
+      "risk_chains": 4,
+      "checks": 0,
+      "count": 15,
+      "tie_bits": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "components": [
+        "M"
+      ],
+      "task_success": 12,
+      "safe_success": 8,
+      "risk_chains": 4,
+      "checks": 28,
+      "count": 15,
+      "tie_bits": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "components": [
+        "P"
+      ],
+      "task_success": 12,
+      "safe_success": 12,
+      "risk_chains": 0,
+      "checks": 28,
+      "count": 15,
+      "tie_bits": [
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "components": [
+        "P",
+        "M"
+      ],
+      "task_success": 12,
+      "safe_success": 12,
+      "risk_chains": 0,
+      "checks": 52,
+      "count": 15,
+      "tie_bits": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "components": [
+        "T"
+      ],
+      "task_success": 12,
+      "safe_success": 12,
+      "risk_chains": 0,
+      "checks": 28,
+      "count": 15,
+      "tie_bits": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "components": [
+        "T",
+        "M"
+      ],
+      "task_success": 12,
+      "safe_success": 12,
+      "risk_chains": 0,
+      "checks": 52,
+      "count": 15,
+      "tie_bits": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "components": [
+        "T",
+        "P"
+      ],
+      "task_success": 12,
+      "safe_success": 12,
+      "risk_chains": 0,
+      "checks": 52,
+      "count": 15,
+      "tie_bits": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "components": [
+        "T",
+        "P",
+        "M"
+      ],
+      "task_success": 12,
+      "safe_success": 12,
+      "risk_chains": 0,
+      "checks": 76,
+      "count": 15,
+      "tie_bits": [
+        true,
+        true,
+        true
+      ]
+    }
+  ],
+  "selection_split": "development_only",
+  "not_stochastic_model_upper_bound": true,
+  "repair_source": "E:\\Skill ＆ Harness\\Agent\\runs\\t19-development-v1",
+  "new_executions": 16,
+  "inherited_executions": 104,
+  "repair_scope": "A1 neutral claim matches attack control hash only"
+}

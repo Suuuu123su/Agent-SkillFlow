@@ -14,7 +14,9 @@ from pydantic import BaseModel
 from skillflow import __version__
 from skillflow.experiment.cli import register_research_commands
 from skillflow.experiment.t17.cli import register_t17_commands
+from skillflow.experiment.t18.cli import app as defense_app
 from skillflow.experiment.t18.cli import register_defense_commands
+from skillflow.experiment.t19.cli import register_t19_commands
 from skillflow.models import Scenario, SkillManifest
 from skillflow.validation import DocumentValidationError, validate_yaml_document
 
@@ -157,6 +159,7 @@ def main() -> None:
 register_research_commands(app)
 register_t17_commands(app)
 register_defense_commands(app)
+register_t19_commands(defense_app)
 
 
 if __name__ == "__main__":

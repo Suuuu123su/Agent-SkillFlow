@@ -1,0 +1,53 @@
+{
+  "status": "closed",
+  "authorization": "user T19 goal plus explicit DS-V4 FLASH model instruction",
+  "frozen_budget": "budget.json",
+  "field_clarification": "budget-field-clarification.md",
+  "allocated_usd": "35",
+  "actual_api_calls": 749,
+  "actual_responses": 749,
+  "estimated_cost_usd": "0.2958052552",
+  "reserved_cost_usd": "0.2958052552",
+  "remaining_t19_allocation_usd": "34.7041947448",
+  "remaining_total_authorization_after_historical_reserve_and_t19_usd": "42.4098895692",
+  "t19_unknown_requests": 0,
+  "historical_unknown_requests_still_reserved": 5,
+  "invoice_verified": false,
+  "categories": {
+    "technical/core/initial": {
+      "responses": 8,
+      "cost_usd": "0.0022047144",
+      "tokens": 10260
+    },
+    "technical/audit/initial": {
+      "responses": 1,
+      "cost_usd": "0.0005849368",
+      "tokens": 2381
+    },
+    "formal/core/initial": {
+      "responses": 662,
+      "cost_usd": "0.2675153880",
+      "tokens": 1144999
+    },
+    "formal/core/recovery": {
+      "responses": 9,
+      "cost_usd": "0.0005457312",
+      "tokens": 4625
+    },
+    "formal/audit/initial": {
+      "responses": 3,
+      "cost_usd": "0.0008522304",
+      "tokens": 3987
+    },
+    "precheck/core/initial": {
+      "responses": 64,
+      "cost_usd": "0.0238864976",
+      "tokens": 102225
+    },
+    "precheck/core/recovery": {
+      "responses": 2,
+      "cost_usd": "0.0002157568",
+      "tokens": 1207
+    }
+  }
+}

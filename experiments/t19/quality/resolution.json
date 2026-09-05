@@ -1,0 +1,39 @@
+{
+  "status": "passed_with_targeted_resolution",
+  "full_suite_runs": 1,
+  "full_suite_original_status": "failed",
+  "stages": {
+    "final-v1": {
+      "executed": 1506,
+      "failed": [
+        "tests.integration.test_t14_security_isolation::test_execution_boundaries_have_no_real_external_capability_imports"
+      ]
+    },
+    "targeted-resolution-v1": {
+      "executed": 18,
+      "failed": [
+        "tests.unit.defense.test_t19_host::test_invalid_worker_output_does_not_write_a_failure_outside_boundary[False]",
+        "tests.unit.defense.test_t19_host::test_invalid_worker_output_does_not_write_a_failure_outside_boundary[True]",
+        "tests.unit.defense.test_t19_host::test_valid_worker_uses_only_local_transport_and_closes_usage"
+      ]
+    },
+    "targeted-resolution-v2": {
+      "executed": 3,
+      "failed": []
+    }
+  },
+  "unresolved_test_failures": [],
+  "unique_test_outcomes": 1513,
+  "coverage_percent": 90.09004209068144,
+  "branch_only_percent": 77.02994751466503,
+  "coverage_method": "single_full_suite_plus_targeted; changed host prior coverage purged before fresh measurement; originals retained",
+  "coverage_threshold": 90,
+  "static_changed_files": {
+    "ruff_format": 0,
+    "mypy": 0,
+    "ruff_check": 0
+  },
+  "prior_unchanged_static_gates": "full-v1 Ruff check and Mypy passed; CLI help passed",
+  "protocol_change": "existing user file final newline only; AST unchanged; original retained",
+  "environment": "Windows Python 3.12.14; local validation not remote GitHub CI"
+}

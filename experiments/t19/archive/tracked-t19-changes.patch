@@ -1,0 +1,109 @@
+diff --git a/src/skillflow/cli.py b/src/skillflow/cli.py
+index 8f77a6e..70510ea 100644
+--- a/src/skillflow/cli.py
++++ b/src/skillflow/cli.py
+@@ -14,7 +14,9 @@ from pydantic import BaseModel
+ from skillflow import __version__
+ from skillflow.experiment.cli import register_research_commands
+ from skillflow.experiment.t17.cli import register_t17_commands
++from skillflow.experiment.t18.cli import app as defense_app
+ from skillflow.experiment.t18.cli import register_defense_commands
++from skillflow.experiment.t19.cli import register_t19_commands
+ from skillflow.models import Scenario, SkillManifest
+ from skillflow.validation import DocumentValidationError, validate_yaml_document
+ 
+@@ -157,6 +159,7 @@ def main() -> None:
+ register_research_commands(app)
+ register_t17_commands(app)
+ register_defense_commands(app)
++register_t19_commands(defense_app)
+ 
+ 
+ if __name__ == "__main__":
+diff --git a/src/skillflow/oracle/sidecar.py b/src/skillflow/oracle/sidecar.py
+index 7f7df64..43015dc 100644
+--- a/src/skillflow/oracle/sidecar.py
++++ b/src/skillflow/oracle/sidecar.py
+@@ -68,6 +68,10 @@ class OracleSidecar:
+         self._state.record_skill_output(evidence, tuple(action_outputs))
+         self._recorded_steps.add(evidence.step_id)
+ 
++    def record_derivation(self, source_id: str, derived_id: str) -> None:
++        """接收受信派生操作的ID边，不把Observed来源当成真值。"""
++        self._state.record_derivation(source_id, derived_id)
++
+     def record_grant(self, grant: AuthorizationGrant) -> None:
+         """只接收 Benchmark 已执行的结构化确认，不读取 Policy。"""
+         if grant.grant_id in self._grant_ids:
+diff --git a/src/skillflow/oracle/state.py b/src/skillflow/oracle/state.py
+index 20c0a09..fae5a3f 100644
+--- a/src/skillflow/oracle/state.py
++++ b/src/skillflow/oracle/state.py
+@@ -70,6 +70,11 @@ class OracleDataState:
+                 f"Oracle 父值不存在：{artifact_id}",
+             ) from error
+ 
++    def record_derivation(self, source_id: str, derived_id: str) -> None:
++        """复制Oracle自身已知父值的来源，不接收Observed标签。"""
++        parent = self.require(source_id)
++        self._copy_value(derived_id, parent.value_type, source_id, ParentRelation.DERIVE)
++
+     def asset_origin(self, asset_id: str) -> str:
+         """把 Scenario asset alias 解析为规范运行资源来源。"""
+         try:
+diff --git a/tests/integration/test_t14_security_isolation.py b/tests/integration/test_t14_security_isolation.py
+index f01895c..0a27ead 100644
+--- a/tests/integration/test_t14_security_isolation.py
++++ b/tests/integration/test_t14_security_isolation.py
+@@ -20,6 +20,7 @@ T16C_APPROVED_EXTERNAL_IMPORTS = {
+     Path("src/skillflow/experiment/t17/v2/network.py"): frozenset({"httpx2"}),
+ }
+ T16C_APPROVED_SECRET_READERS = {
++    Path("src/skillflow/experiment/t19/host.py"): frozenset({("getpass", "getpass")}),
+     Path("src/skillflow/experiment/t16/live_cli.py"): frozenset({("getpass", "getpass")}),
+     Path("src/skillflow/experiment/t16/task_success_live_cli.py"): frozenset({("os", "environ")}),
+     Path("src/skillflow/experiment/t16/task_success_canary_cli.py"): frozenset({("os", "environ")}),
+@@ -60,6 +61,15 @@ def test_execution_boundaries_have_no_real_external_capability_imports() -> None
+             (0, 1),
+         ),
+         ("runtime/not_approved.py", "import httpx2\nimport getpass\ngetpass.getpass()\n", (1, 1)),
++        (
++            "experiment/t19/host.py",
++            (
++                "import httpx2\nimport getpass\nimport os\nfrom pathlib import Path\n"
++                "getpass.getpass()\nos.environ.get('API_KEY')\nPath.home()\n"
++            ),
++            (1, 2),
++        ),
++        ("experiment/t19/live.py", "import httpx2\nimport getpass\ngetpass.getpass()\n", (1, 1)),
+     ],
+ )
+ def test_v2_entry_exceptions_do_not_allow_other_capabilities(
+@@ -137,3 +147,27 @@ def _imports_module(node: ast.AST, target: str) -> bool:
+     if isinstance(node, ast.ImportFrom) and node.module is not None:
+         return node.module == target or node.module.startswith(f"{target}.")
+     return False
++
++
++def test_t19_secret_input_is_confined_to_trusted_main() -> None:
++    path = Path("src/skillflow/experiment/t19/host.py")
++    tree = ast.parse(path.read_text(encoding="utf-8"))
++    main = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == "main")
++    reads = tuple(n for n in ast.walk(tree) if _is_credential_or_home_access(n, frozenset()))
++    assert len(reads) == 1
++    assert reads[0] in tuple(ast.walk(main))
++    violations = []
++    for root in (*EXECUTION_BOUNDARIES, Path("src/skillflow/defense")):
++        for candidate in root.rglob("*.py"):
++            if candidate == path:
++                continue
++            parsed = ast.parse(candidate.read_text(encoding="utf-8"))
++            for node in ast.walk(parsed):
++                from_parent = (
++                    isinstance(node, ast.ImportFrom)
++                    and node.module == "skillflow.experiment.t19"
++                    and any(alias.name == "host" for alias in node.names)
++                )
++                if _imports_module(node, "skillflow.experiment.t19.host") or from_parent:
++                    violations.append(str(candidate))
++    assert violations == []

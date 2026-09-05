@@ -1,0 +1,19 @@
+{
+  "development": [
+    "development/schedule"
+  ],
+  "formal": [
+    "heldout-ledger",
+    "heldout-inventory"
+  ],
+  "legal_controls": [
+    "B0",
+    "N0",
+    "G0",
+    "A2"
+  ],
+  "task_clusters_per_mechanism": 2,
+  "precheck_core": 32,
+  "technical_core": 4,
+  "formal_core": 336
+}

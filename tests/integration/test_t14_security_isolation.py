@@ -20,6 +20,7 @@ T16C_APPROVED_EXTERNAL_IMPORTS = {
     Path("src/skillflow/experiment/t17/v2/network.py"): frozenset({"httpx2"}),
 }
 T16C_APPROVED_SECRET_READERS = {
+    Path("src/skillflow/experiment/t19/host.py"): frozenset({("getpass", "getpass")}),
     Path("src/skillflow/experiment/t16/live_cli.py"): frozenset({("getpass", "getpass")}),
     Path("src/skillflow/experiment/t16/task_success_live_cli.py"): frozenset({("os", "environ")}),
     Path("src/skillflow/experiment/t16/task_success_canary_cli.py"): frozenset({("os", "environ")}),
@@ -60,6 +61,15 @@ def test_execution_boundaries_have_no_real_external_capability_imports() -> None
             (0, 1),
         ),
         ("runtime/not_approved.py", "import httpx2\nimport getpass\ngetpass.getpass()\n", (1, 1)),
+        (
+            "experiment/t19/host.py",
+            (
+                "import httpx2\nimport getpass\nimport os\nfrom pathlib import Path\n"
+                "getpass.getpass()\nos.environ.get('API_KEY')\nPath.home()\n"
+            ),
+            (1, 2),
+        ),
+        ("experiment/t19/live.py", "import httpx2\nimport getpass\ngetpass.getpass()\n", (1, 1)),
     ],
 )
 def test_v2_entry_exceptions_do_not_allow_other_capabilities(
@@ -137,3 +147,27 @@ def _imports_module(node: ast.AST, target: str) -> bool:
     if isinstance(node, ast.ImportFrom) and node.module is not None:
         return node.module == target or node.module.startswith(f"{target}.")
     return False
+
+
+def test_t19_secret_input_is_confined_to_trusted_main() -> None:
+    path = Path("src/skillflow/experiment/t19/host.py")
+    tree = ast.parse(path.read_text(encoding="utf-8"))
+    main = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == "main")
+    reads = tuple(n for n in ast.walk(tree) if _is_credential_or_home_access(n, frozenset()))
+    assert len(reads) == 1
+    assert reads[0] in tuple(ast.walk(main))
+    violations = []
+    for root in (*EXECUTION_BOUNDARIES, Path("src/skillflow/defense")):
+        for candidate in root.rglob("*.py"):
+            if candidate == path:
+                continue
+            parsed = ast.parse(candidate.read_text(encoding="utf-8"))
+            for node in ast.walk(parsed):
+                from_parent = (
+                    isinstance(node, ast.ImportFrom)
+                    and node.module == "skillflow.experiment.t19"
+                    and any(alias.name == "host" for alias in node.names)
+                )
+                if _imports_module(node, "skillflow.experiment.t19.host") or from_parent:
+                    violations.append(str(candidate))
+    assert violations == []

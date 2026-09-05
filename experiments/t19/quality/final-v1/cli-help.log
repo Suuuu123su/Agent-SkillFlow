@@ -1,0 +1,29 @@
+                                                                               
+ Usage: python -m skillflow.cli [OPTIONS] COMMAND [ARGS]...                    
+                                                                               
+ SkillFlow：Agent Skill 安全传播测量原型。                                     
+                                                                               
+┌─ Options ───────────────────────────────────────────────────────────────────┐
+│ --install-completion          Install completion for the current shell.     │
+│ --show-completion             Show completion for the current shell, to     │
+│                               copy it or customize the installation.        │
+│ --help                        Show this message and exit.                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+┌─ Commands ──────────────────────────────────────────────────────────────────┐
+│ version            输出 SkillFlow 版本。                                    │
+│ validate-manifest  只校验 Manifest，不加载或执行 Skill。                    │
+│ validate-scenario  只校验 Scenario，不运行任何 fixture。                    │
+│ doctor             离线检查 Python、SQLite、依赖包和临时目录。              │
+│ run                运行一个 Scenario，并建立 single-run Experiment。        │
+│ analyze            从持久化事实重新计算一个 Run 报告。                      │
+│ graph              从 Experiment SQLite 重建脱敏安全图。                    │
+│ factorial          执行一个受控 Harness feature 的二水平因子实验。          │
+│ matrix             执行已校验 Matrix 并生成分层报告。                       │
+│ replay             按已注册 alias 对一个 Run 执行成对反事实重放。           │
+│ aggregate          只读取标准 Run/Replay 结果重算 Experiment 报告。         │
+│ export             导出一个经过 Schema 校验的标准报告。                     │
+│ compare-skills     按实际技能内容版本和相同条件输出完整向量与配对差。       │
+│ t17                T17 指标、证据 Hook 与实验闭环。                         │
+│ defense            本地多技能诊断、防御与可复算实验。                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+

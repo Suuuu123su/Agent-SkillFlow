@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="18" time="40.619" timestamp="2026-09-05T15:25:19.923755+08:00" hostname="DESKTOP-UPVMUP0"><testcase classname="tests.integration.test_t14_security_isolation" name="test_runtime_and_policy_cannot_import_oracle" time="0.047" /><testcase classname="tests.integration.test_t14_security_isolation" name="test_execution_boundaries_have_no_real_external_capability_imports" time="7.223" /><testcase classname="tests.integration.test_t14_security_isolation" name="test_v2_entry_exceptions_do_not_allow_other_capabilities[experiment/t17/v2/network.py-import httpx2\nimport socket\n-expected_counts0]" time="0.021" /><testcase classname="tests.integration.test_t14_security_isolation" name="test_v2_entry_exceptions_do_not_allow_other_capabilities[experiment/t17/v2/campaign.py-import getpass\nimport os\ngetpass.getpass()\nos.environ.get('API_KEY')\n-expected_counts1]" time="0.010" /><testcase classname="tests.integration.test_t14_security_isolation" name="test_v2_entry_exceptions_do_not_allow_other_capabilities[runtime/not_approved.py-import httpx2\nimport getpass\ngetpass.getpass()\n-expected_counts2]" time="0.021" /><testcase classname="tests.integration.test_t14_security_isolation" name="test_v2_entry_exceptions_do_not_allow_other_capabilities[experiment/t19/host.py-import httpx2\nimport getpass\nimport os\nfrom pathlib import Path\ngetpass.getpass()\nos.environ.get('API_KEY')\nPath.home()\n-expected_counts3]" time="0.020" /><testcase classname="tests.integration.test_t14_security_isolation" name="test_v2_entry_exceptions_do_not_allow_other_capabilities[experiment/t19/live.py-import httpx2\nimport getpass\ngetpass.getpass()\n-expected_counts4]" time="0.009" /><testcase classname="tests.integration.test_t14_security_isolation" name="test_t19_secret_input_is_confined_to_trusted_main" time="2.425" /><testcase classname="tests.unit.defense.test_t19_host" name="test_missing_freeze_stops_before_network_and_never_exports_key" time="0.045" /><testcase classname="tests.unit.defense.test_t19_host" name="test_attempt_id_cannot_escape_output[../other]" time="0.003" /><testcase classname="tests.unit.defense.test_t19_host" name="test_attempt_id_cannot_escape_output[C:\\other]" time="0.003" /><testcase classname="tests.unit.defense.test_t19_host" name="test_attempt_id_cannot_escape_output[a/b]" time="0.003" /><testcase classname="tests.unit.defense.test_t19_host" name="test_attempt_id_cannot_escape_output[a:b]" time="0.003" /><testcase classname="tests.unit.defense.test_t19_host" name="test_attempt_id_cannot_escape_output[]" time="0.003" /><testcase classname="tests.unit.defense.test_t19_host" name="test_trusted_host_reads_key_once_and_skips_completed_jobs" time="0.080" /><testcase classname="tests.unit.defense.test_t19_host" name="test_invalid_worker_output_does_not_write_a_failure_outside_boundary[False]" time="0.004"><failure message="pydantic_core._pydantic_core.ValidationError: 1 validation error for HostJob&#10;attempt_id&#10;  Field required [type=missing, input_value={'root': WindowsPath('E:/...t_doe0/owned/not-live')}, input_type=dict]&#10;    For further information visit https://errors.pydantic.dev/2.13/v/missing">tmp_path = WindowsPath('E:/Skill ＆ Harness/Agent/runs/t19-quality-targeted-v1/test_invalid_worker_output_doe0')
+outside_project = False
+
+    @pytest.mark.parametrize("outside_project", [False, True])
+    def test_invalid_worker_output_does_not_write_a_failure_outside_boundary(
+        tmp_path: Path, outside_project: bool
+    ) -&gt; None:
+        root = tmp_path / "owned"
+        output = tmp_path / "outside" if outside_project else root / "not-live"
+&gt;       job = HostJob(
+            root=root,
+            live_root=root / "live",
+            phase_directory=root / "phase",
+            output_directory=output,
+        )
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for HostJob
+E       attempt_id
+E         Field required [type=missing, input_value={'root': WindowsPath('E:/...t_doe0/owned/not-live')}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+tests\unit\defense\test_t19_host.py:115: ValidationError</failure></testcase><testcase classname="tests.unit.defense.test_t19_host" name="test_invalid_worker_output_does_not_write_a_failure_outside_boundary[True]" time="0.003"><failure message="pydantic_core._pydantic_core.ValidationError: 1 validation error for HostJob&#10;attempt_id&#10;  Field required [type=missing, input_value={'root': WindowsPath('E:/...r_output_doe1/outside')}, input_type=dict]&#10;    For further information visit https://errors.pydantic.dev/2.13/v/missing">tmp_path = WindowsPath('E:/Skill ＆ Harness/Agent/runs/t19-quality-targeted-v1/test_invalid_worker_output_doe1')
+outside_project = True
+
+    @pytest.mark.parametrize("outside_project", [False, True])
+    def test_invalid_worker_output_does_not_write_a_failure_outside_boundary(
+        tmp_path: Path, outside_project: bool
+    ) -&gt; None:
+        root = tmp_path / "owned"
+        output = tmp_path / "outside" if outside_project else root / "not-live"
+&gt;       job = HostJob(
+            root=root,
+            live_root=root / "live",
+            phase_directory=root / "phase",
+            output_directory=output,
+        )
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for HostJob
+E       attempt_id
+E         Field required [type=missing, input_value={'root': WindowsPath('E:/...r_output_doe1/outside')}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+tests\unit\defense\test_t19_host.py:115: ValidationError</failure></testcase><testcase classname="tests.unit.defense.test_t19_host" name="test_valid_worker_uses_only_local_transport_and_closes_usage" time="2.562"><failure message="pydantic_core._pydantic_core.ValidationError: 1 validation error for HostJob&#10;attempt_id&#10;  Field required [type=missing, input_value={'root': WindowsPath('E:/..._uses_only_lo0/output')}, input_type=dict]&#10;    For further information visit https://errors.pydantic.dev/2.13/v/missing">tmp_path = WindowsPath('E:/Skill ＆ Harness/Agent/runs/t19-quality-targeted-v1/test_valid_worker_uses_only_lo0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001944DE3BD10&gt;
+
+    def test_valid_worker_uses_only_local_transport_and_closes_usage(
+        tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    ) -&gt; None:
+        root = Path(__file__).resolve().parents[3]
+        trial = next(t for t in precheck() if t.mechanism == "B0" and t.group == "Monitor")
+        plan = CampaignPlan(domain="live_reference", fixed=("T",), trials=(trial,), audit_aliases={})
+        prepare_phase(root, tmp_path / "phase", plan, "local-worker-validation")
+        transport = LocalTransport()
+        monkeypatch.setattr(host, "managed_transport", lambda _: nullcontext(transport))
+&gt;       job = HostJob(
+            root=root,
+            live_root=tmp_path,
+            phase_directory=tmp_path / "phase",
+            output_directory=tmp_path / "output",
+        )
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for HostJob
+E       attempt_id
+E         Field required [type=missing, input_value={'root': WindowsPath('E:/..._uses_only_lo0/output')}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+tests\unit\defense\test_t19_host.py:138: ValidationError</failure></testcase></testsuite></testsuites>

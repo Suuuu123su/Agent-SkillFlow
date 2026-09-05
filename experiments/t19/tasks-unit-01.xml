@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="9" time="2.998" timestamp="2026-09-05T10:45:06.712968+08:00" hostname="DESKTOP-UPVMUP0"><testcase classname="tests.unit.defense.test_t19_tasks" name="test_task_pairs_share_facts_permissions_and_capabilities[C1]" time="0.256" /><testcase classname="tests.unit.defense.test_t19_tasks" name="test_task_pairs_share_facts_permissions_and_capabilities[C2]" time="0.283" /><testcase classname="tests.unit.defense.test_t19_tasks" name="test_task_pairs_share_facts_permissions_and_capabilities[M2]" time="0.271" /><testcase classname="tests.unit.defense.test_t19_tasks" name="test_task_pairs_share_facts_permissions_and_capabilities[A1]" time="0.265" /><testcase classname="tests.unit.defense.test_t19_tasks" name="test_bridge_closure_keeps_normal_facts_and_task_success[True-C1]" time="0.278" /><testcase classname="tests.unit.defense.test_t19_tasks" name="test_bridge_closure_keeps_normal_facts_and_task_success[True-C2]" time="0.287" /><testcase classname="tests.unit.defense.test_t19_tasks" name="test_bridge_closure_keeps_normal_facts_and_task_success[False-C1]" time="0.184"><failure message="skillflow.oracle.errors.OracleInvariantError: Oracle 不变量失败：resolve_parent：Oracle 父值不存在：artifact-88b40a3c9299f001">self = &lt;skillflow.oracle.state.OracleDataState object at 0x000002B8169F6A50&gt;
+artifact_id = 'artifact-88b40a3c9299f001'
+
+    def require(self, artifact_id: str) -&gt; OracleArtifactTrace:
+        """只从 Oracle 自己的状态读取父值，绝不回退到 Observed。"""
+        try:
+&gt;           return self._by_id[artifact_id]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+E           KeyError: 'artifact-88b40a3c9299f001'
+
+src\skillflow\oracle\state.py:66: KeyError
+
+The above exception was the direct cause of the following exception:
+
+base = 'C1', bridge = False
+tmp_path = WindowsPath('E:/Skill ＆ Harness/Agent/.tmp/t19-tests/tasks-01/test_bridge_closure_keeps_norm2')
+
+    @pytest.mark.parametrize("base", ["C1", "C2"])
+    @pytest.mark.parametrize("bridge", [True, False])
+    def test_bridge_closure_keeps_normal_facts_and_task_success(
+        base: str, bridge: bool, tmp_path: Path,
+    ) -&gt; None:
+        skill = task_variant(ROOT, base, "attack", "heldout-inventory")
+&gt;       record, _ = execute(
+            ExecutionSetup(ROOT, tmp_path, "test-task", "fake_reference", "Evidence", bridge=bridge),
+            skill, V2FakeClient(),
+        )
+
+tests\unit\defense\test_t19_tasks.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\skillflow\experiment\t19\execution.py:87: in execute
+    ).run_configured(
+src\skillflow\benchmark\runner.py:177: in run_configured
+    ).run_all()
+      ^^^^^^^^^
+src\skillflow\benchmark\scenario_execution.py:99: in run_all
+    self._advance(None)
+src\skillflow\benchmark\scenario_execution.py:153: in _advance
+    self._execute_and_record(step, session.id)
+src\skillflow\experiment\t17\v2\runtime.py:53: in _execute_and_record
+    super()._execute_and_record(step, session_id)
+src\skillflow\benchmark\scenario_execution.py:204: in _execute_and_record
+    self._oracle.record_invocation(
+src\skillflow\oracle\sidecar.py:63: in record_invocation
+    attempts = bind_attempts(evidence, actions, self._state)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\skillflow\oracle\bindings.py:44: in bind_attempts
+    state.record_argument(
+src\skillflow\oracle\state.py:95: in record_argument
+    origins(self.require(item) for item in semantics.source_artifact_ids)
+src\skillflow\oracle\data_helpers.py:23: in origins
+    return tuple(sorted(origin_set(records)))
+                        ^^^^^^^^^^^^^^^^^^^
+src\skillflow\oracle\data_helpers.py:28: in origin_set
+    return {origin for record in records for origin in record.gt_data}
+                                 ^^^^^^^
+src\skillflow\oracle\state.py:95: in &lt;genexpr&gt;
+    origins(self.require(item) for item in semantics.source_artifact_ids)
+            ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;skillflow.oracle.state.OracleDataState object at 0x000002B8169F6A50&gt;
+artifact_id = 'artifact-88b40a3c9299f001'
+
+    def require(self, artifact_id: str) -&gt; OracleArtifactTrace:
+        """只从 Oracle 自己的状态读取父值，绝不回退到 Observed。"""
+        try:
+            return self._by_id[artifact_id]
+        except KeyError as error:
+&gt;           raise OracleInvariantError(
+                "resolve_parent",
+                f"Oracle 父值不存在：{artifact_id}",
+            ) from error
+E           skillflow.oracle.errors.OracleInvariantError: Oracle 不变量失败：resolve_parent：Oracle 父值不存在：artifact-88b40a3c9299f001
+
+src\skillflow\oracle\state.py:68: OracleInvariantError</failure></testcase><testcase classname="tests.unit.defense.test_t19_tasks" name="test_bridge_closure_keeps_normal_facts_and_task_success[False-C2]" time="0.176"><failure message="skillflow.oracle.errors.OracleInvariantError: Oracle 不变量失败：resolve_parent：Oracle 父值不存在：artifact-3dc8c7006db6f930">self = &lt;skillflow.oracle.state.OracleDataState object at 0x000002B816A6B140&gt;
+artifact_id = 'artifact-3dc8c7006db6f930'
+
+    def require(self, artifact_id: str) -&gt; OracleArtifactTrace:
+        """只从 Oracle 自己的状态读取父值，绝不回退到 Observed。"""
+        try:
+&gt;           return self._by_id[artifact_id]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+E           KeyError: 'artifact-3dc8c7006db6f930'
+
+src\skillflow\oracle\state.py:66: KeyError
+
+The above exception was the direct cause of the following exception:
+
+base = 'C2', bridge = False
+tmp_path = WindowsPath('E:/Skill ＆ Harness/Agent/.tmp/t19-tests/tasks-01/test_bridge_closure_keeps_norm3')
+
+    @pytest.mark.parametrize("base", ["C1", "C2"])
+    @pytest.mark.parametrize("bridge", [True, False])
+    def test_bridge_closure_keeps_normal_facts_and_task_success(
+        base: str, bridge: bool, tmp_path: Path,
+    ) -&gt; None:
+        skill = task_variant(ROOT, base, "attack", "heldout-inventory")
+&gt;       record, _ = execute(
+            ExecutionSetup(ROOT, tmp_path, "test-task", "fake_reference", "Evidence", bridge=bridge),
+            skill, V2FakeClient(),
+        )
+
+tests\unit\defense\test_t19_tasks.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\skillflow\experiment\t19\execution.py:87: in execute
+    ).run_configured(
+src\skillflow\benchmark\runner.py:177: in run_configured
+    ).run_all()
+      ^^^^^^^^^
+src\skillflow\benchmark\scenario_execution.py:99: in run_all
+    self._advance(None)
+src\skillflow\benchmark\scenario_execution.py:153: in _advance
+    self._execute_and_record(step, session.id)
+src\skillflow\experiment\t17\v2\runtime.py:53: in _execute_and_record
+    super()._execute_and_record(step, session_id)
+src\skillflow\benchmark\scenario_execution.py:204: in _execute_and_record
+    self._oracle.record_invocation(
+src\skillflow\oracle\sidecar.py:63: in record_invocation
+    attempts = bind_attempts(evidence, actions, self._state)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\skillflow\oracle\bindings.py:44: in bind_attempts
+    state.record_argument(
+src\skillflow\oracle\state.py:95: in record_argument
+    origins(self.require(item) for item in semantics.source_artifact_ids)
+src\skillflow\oracle\data_helpers.py:23: in origins
+    return tuple(sorted(origin_set(records)))
+                        ^^^^^^^^^^^^^^^^^^^
+src\skillflow\oracle\data_helpers.py:28: in origin_set
+    return {origin for record in records for origin in record.gt_data}
+                                 ^^^^^^^
+src\skillflow\oracle\state.py:95: in &lt;genexpr&gt;
+    origins(self.require(item) for item in semantics.source_artifact_ids)
+            ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;skillflow.oracle.state.OracleDataState object at 0x000002B816A6B140&gt;
+artifact_id = 'artifact-3dc8c7006db6f930'
+
+    def require(self, artifact_id: str) -&gt; OracleArtifactTrace:
+        """只从 Oracle 自己的状态读取父值，绝不回退到 Observed。"""
+        try:
+            return self._by_id[artifact_id]
+        except KeyError as error:
+&gt;           raise OracleInvariantError(
+                "resolve_parent",
+                f"Oracle 父值不存在：{artifact_id}",
+            ) from error
+E           skillflow.oracle.errors.OracleInvariantError: Oracle 不变量失败：resolve_parent：Oracle 父值不存在：artifact-3dc8c7006db6f930
+
+src\skillflow\oracle\state.py:68: OracleInvariantError</failure></testcase><testcase classname="tests.unit.defense.test_t19_tasks" name="test_templates_are_different_tasks_and_development_is_separate" time="0.340" /></testsuite></testsuites>
