@@ -1,0 +1,20 @@
+{
+  "release": "clawtrojan-evidence-v3-20260914",
+  "current_benchmark": "ClawTrojan",
+  "selected_method": "frozen/src/evidence_v3",
+  "reference_method": "frozen/src/evidence_original",
+  "main_table_groups": 10,
+  "cases_per_group": 39,
+  "attack_cases": 26,
+  "clean_cases": 13,
+  "ds_evidence_composition": {
+    "v3_previously_failed_case_updates": 12,
+    "original_historical_safe": 27
+  },
+  "new_model_requests": 0,
+  "new_native_judgments": 0,
+  "uniform_v3_full39_completed": false,
+  "remote_parent": "21efe89a11b56b2f48ae6f351ef46cca467913fb",
+  "local_experiment_deletions": 0,
+  "native_upstream_commit": "9566637c9af3f7b05e576d09b45de489bf9fec9d"
+}

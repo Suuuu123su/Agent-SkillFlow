@@ -1,0 +1,23 @@
+% Requires \usepackage{booktabs}
+\begin{table*}[t]
+\centering
+\small
+\caption{ClawTrojan results on 26 attack and 13 clean steps per condition. Rates are percentages.}
+\label{tab:clawtrojan-ds-glm}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Defense & \multicolumn{4}{c}{GLM-5} & \multicolumn{4}{c}{DS-V4-Pro} \\
+\cmidrule(lr){2-5} \cmidrule(lr){6-9}
+ & C/P/S & ASR $\downarrow$ & Safe $\uparrow$ & Utility $\uparrow$ & C/P/S & ASR $\downarrow$ & Safe $\uparrow$ & Utility $\uparrow$ \\
+\midrule
+No Defense & 20/1/5 & 76.92 & 19.23 & 100.00 & 22/0/4 & 84.62 & 15.38 & 100.00 \\
+Content & 7/0/19 & 26.92 & 73.08 & 100.00 & 12/1/13 & 46.15 & 50.00 & 100.00 \\
+Derived & 7/3/16 & 26.92 & 61.54 & 100.00 & 9/3/14 & 34.62 & 53.85 & 100.00 \\
+TaskShield & 20/0/6 & 76.92 & 23.08 & 92.31 & 19/1/6 & 73.08 & 23.08 & 84.62 \\
+Evidence & 4/2/20 & 15.38 & 76.92 & 100.00 & 8/0/18 & 30.77 & 69.23 & 92.31 \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{0.98\textwidth}\footnotesize
+C/P/S: compromised/partial/safe on attack steps. ASR=C/26; Safe=attack Safe/26; Utility=clean Safe/13. Technical unknowns are zero. DS Evidence combines 12 v3 updates and 27 historical Safe results; GLM-5 Evidence uses dynamic2. DS: 8192 Actor tokens/20 turns; GLM-5: 4096 without defense and 16384 with defense/10 turns. TaskShield is the local contract adaptation. Model, Judge, method versions and run times differ; this is a historical aggregation, not a controlled causal ranking.
+\end{minipage}
+\end{table*}

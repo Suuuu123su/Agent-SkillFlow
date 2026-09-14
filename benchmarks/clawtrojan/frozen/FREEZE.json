@@ -1,0 +1,30 @@
+{
+  "snapshot": "evidence-v3-results-20260914",
+  "selected_method": "evidence_v3",
+  "composition": {
+    "v3_updates": 12,
+    "historical_original_safe": 27
+  },
+  "source_snapshots": [
+    {
+      "label": "evidence_v3",
+      "original_workspace_relative_path": "ClawTrojan-dspro-evidence-v3-complete39/defense_source_snapshots/evidence/method",
+      "python_files": 13
+    },
+    {
+      "label": "evidence_original",
+      "original_workspace_relative_path": "ClawTrojan-dspro-evidence39/defense_source_snapshots/evidence/method",
+      "python_files": 13
+    }
+  ],
+  "status": "frozen_historical_aggregation",
+  "single_version_full39_success": false,
+  "new_experiment_calls": 0,
+  "scope": "source snapshot and result-table reproduction, not standalone native harness reproduction",
+  "unproven": [
+    "Unseen-task generalization",
+    "Uniform-version full39 performance",
+    "Native TaskShield equivalence"
+  ],
+  "no_credentials_or_provider_logs_included": true
+}

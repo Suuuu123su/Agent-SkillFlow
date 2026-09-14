@@ -46,3 +46,6 @@ schemas/t18-*.json text eol=lf
 
 # T19 frozen evidence and delivery hashes preserve exact bytes.
 experiments/t19/** -text
+
+# Byte-preserve frozen benchmark artifacts and their SHA256 manifests.
+benchmarks/clawtrojan/** -text

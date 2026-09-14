@@ -1,0 +1,25 @@
+{
+  "repository": "https://github.com/RUC-NLPIR/ClawTrojan",
+  "commit": "9566637c9af3f7b05e576d09b45de489bf9fec9d",
+  "snapshot_files": 2414,
+  "changes_from_pinned_upstream": {
+    "agent_eval/sandbox/agent_loop.py": {
+      "upstream_sha256": "48a0df4cc2b75a708d1dcf6267ec920a532052cc16df18830e379d8358fe094e",
+      "snapshot_sha256": "13fbfacbf9f0b3dd3ad4eb7c04f0b72df8d3acde4467238f22ef8db81a95e4de"
+    },
+    "agent_eval/sandbox/baselines.py": {
+      "upstream_sha256": "0f5ec23a6d13fb08324501e3a89434f078c036ed381d9be492bef4181901aa1a",
+      "snapshot_sha256": "9bbff4b3eee02e4abea406a99bef2df1ee0dd9791f4dc68e90998fa976c6416d"
+    },
+    "agent_eval/sandbox/runner.py": {
+      "upstream_sha256": "464384896c315af330a0f30a3ec27704cdbad382f902d21f13e64db5dc967907",
+      "snapshot_sha256": "b10158898e3f28b9c717bf7edc30fc7a9377e191fd9b7ca3fa18cc64ecc11f36"
+    },
+    "agent_eval/sandbox/tool_dispatcher.py": {
+      "upstream_sha256": "3bf3ac41c3a935a350eb86b2e11e89bae58dec63beecc4a09cda40a3e4011588",
+      "snapshot_sha256": "351c6c05c4b038a56c95e5c449bdaa34d134df16728b61700891fb4e3da06065"
+    }
+  },
+  "upstream_files_absent_from_snapshot": [],
+  "status": "historical adapted native snapshot; not an unmodified upstream checkout"
+}

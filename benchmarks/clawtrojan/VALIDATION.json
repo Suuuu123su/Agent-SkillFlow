@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "manifest_files": 75,
+  "native_files": 2414,
+  "historical_groups_verified": 11,
+  "historical_case_rows": 429,
+  "new_provider_requests": 0,
+  "new_native_judgments": 0,
+  "smoke_imports": "native runner, scorer and frozen Evidence v3 imported; no trial executed",
+  "credential_pattern_scan": "passed",
+  "remote_ci_run": false,
+  "full_project_test_suite_run": false,
+  "compatibility_tests": {
+    "passed": 11,
+    "files": [
+      "tests/unit/defense/test_t19_details.py",
+      "tests/unit/defense/test_t19_live.py"
+    ],
+    "transport": "local test double",
+    "provider_requests": 0
+  }
+}

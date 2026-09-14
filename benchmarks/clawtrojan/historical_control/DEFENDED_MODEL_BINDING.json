@@ -1,0 +1,41 @@
+{
+  "endpoint": "https://api.deepseek.com/chat/completions",
+  "models": {
+    "agent": {
+      "request_parameters": {
+        "model": "deepseek-v4-pro",
+        "max_tokens": 8192,
+        "temperature": 0
+      }
+    },
+    "judge": {
+      "request_parameters": {
+        "model": "deepseek-v4-pro",
+        "max_tokens": 8192,
+        "temperature": 0,
+        "thinking": {
+          "type": "disabled"
+        },
+        "response_format": {
+          "type": "json_object"
+        }
+      }
+    },
+    "defense": {
+      "request_parameters": {
+        "model": "deepseek-v4-pro",
+        "max_tokens": 8192,
+        "temperature": 0,
+        "thinking": {
+          "type": "disabled"
+        },
+        "response_format": {
+          "type": "json_object"
+        }
+      }
+    }
+  },
+  "actor_max_turns": 20,
+  "shared_global_attempt_cap": 6000,
+  "per_unit_actor_defense_cap": 256
+}
