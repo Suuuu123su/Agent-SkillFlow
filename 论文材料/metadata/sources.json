@@ -1,0 +1,40 @@
+{
+  "published_at": "2026-09-15",
+  "basis_commit": "34c8e9b901bd34fb3fff6562615eeefcb9f69855",
+  "repository": "Suuuu123su/Agent-SkillFlow",
+  "input_archive_sha256": "801feaa49948c84596b82cafe8e26dd9936f75bc627123263143e81832277f13",
+  "inputs": [
+    {
+      "archive_member": "ROW_AUDIT585.jsonl",
+      "sha256": "cddd62cdc7e0dfa2e6191f4ee9ab51961295028f8256015747b4e37ac2e30269",
+      "bytes": 6215331
+    },
+    {
+      "archive_member": "SUMMARY.json",
+      "sha256": "1db7304f1c233f4e0d7c4d654f42af800591514f431baa4a8b4cfdcde4980a27",
+      "bytes": 1017
+    },
+    {
+      "archive_member": "METRIC_DISAGREEMENT_TABLES.md",
+      "sha256": "ad57cb6dc13725e92b3abca0cfb5b323c6441104c97c805c61015f076f8fb3ed",
+      "bytes": 3661
+    },
+    {
+      "archive_member": "P0_FINAL_REPORT.md",
+      "sha256": "b538c18ec7aac5e6fbaf0da5d870dff10ed02aff5373421e116d59ba1c16efb8",
+      "bytes": 7147
+    },
+    {
+      "archive_member": "TASK_OBLIGATIONS39.json",
+      "sha256": "b0889dad21fda2be54046570dc5d3b92f525ee1b189665b66bf8cf32568f5484",
+      "bytes": 2292430
+    }
+  ],
+  "external_review": {
+    "report_sha256": "38c7a8c5e0848418f964ce5bfc6eae332cfea4ac0a31019ca674afc72d18a09e",
+    "checks_sha256": "f9b572a9febceb0b3257b2b219315c2012f94855ff6c08740db41e47a92d6ca0",
+    "scope": "previous independent mechanical recount and 10 source spot checks, not independent human review"
+  },
+  "current_work": "re-aggregate saved labels and publish curated documents; no new semantic gold, no live model or tool replay",
+  "raw_archive_in_git": false
+}

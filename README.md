@@ -1,5 +1,9 @@
 # Agent-SkillFlow
 
+## 最新：P0收尾与论文材料
+
+**[论文材料](论文材料/README.md)** 已整理P0结项、三模型五方法历史指标、辅助U/V/E_STS、可用措辞与来源哈希。P0数据处理结项，原状态PROCESSED_WITH_GAPS及人审0保留；不是新金标准或受控排名。本次仅从保存标签重排汇总，没有新增模型或业务工具重放。**P1因资源暂停，下一步P2为同组件库All-SameLibrary；目前仅布置任务，未运行。** [P0结项](论文材料/P0/CLOSEOUT.md) · [P2任务](论文材料/NEXT_CODEX_TASK.md)。
+
 最新结果发布：**[ClawTrojan 三模型攻击实验汇总（2026-09-15）](benchmarks/clawtrojan/results/three-models-20260915/README.md)**。
 
 包含 GLM-5、DS-V4-Pro、GPT-5.6-Luna 的五种方法，共390条攻击观测。已逐题复核全部计数，技术未知为0；本次新增实验请求为0。[正式 PDF](benchmarks/clawtrojan/results/three-models-20260915/PAPER_TABLES_GLM_DS_LUNA.pdf) · [逐题 CSV](benchmarks/clawtrojan/results/three-models-20260915/ATTACK_CASE_RESULTS.csv) · [校验记录](benchmarks/clawtrojan/results/three-models-20260915/VALIDATION.json)。
