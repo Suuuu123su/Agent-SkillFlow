@@ -1,6 +1,12 @@
 # Agent-SkillFlow
 
-当前 benchmark 版本：**ClawTrojan / Evidence v3 冻结交付（2026-09-14）**。
+最新结果发布：**[ClawTrojan 三模型攻击实验汇总（2026-09-15）](benchmarks/clawtrojan/results/three-models-20260915/README.md)**。
+
+包含 GLM-5、DS-V4-Pro、GPT-5.6-Luna 的五种方法，共390条攻击观测。已逐题复核全部计数，技术未知为0；本次新增实验请求为0。[正式 PDF](benchmarks/clawtrojan/results/three-models-20260915/PAPER_TABLES_GLM_DS_LUNA.pdf) · [逐题 CSV](benchmarks/clawtrojan/results/three-models-20260915/ATTACK_CASE_RESULTS.csv) · [校验记录](benchmarks/clawtrojan/results/three-models-20260915/VALIDATION.json)。
+
+Luna TaskShield 使用排除个人全局指令后的最新39条重跑。DS Evidence 为历史混合版本；其他 Luna 方法部分 CLI 结果可能受个人指令影响，且各模型配置不同，不能作为受控排名。来源与剩余问题见汇总说明。本次仅发布既有结果，不改算法，不追加实验或远端 CI；旧文件保留。
+
+冻结 benchmark 代码版本：**ClawTrojan / Evidence v3 冻结交付（2026-09-14）**。
 
 ## 当前入口
 
