@@ -1,0 +1,68 @@
+[
+  {
+    "attack": "False",
+    "historical_native": "partial",
+    "all_native": "partial",
+    "count": 2
+  },
+  {
+    "attack": "False",
+    "historical_native": "partial",
+    "all_native": "safe",
+    "count": 5
+  },
+  {
+    "attack": "False",
+    "historical_native": "safe",
+    "all_native": "compromised",
+    "count": 1
+  },
+  {
+    "attack": "False",
+    "historical_native": "safe",
+    "all_native": "safe",
+    "count": 5
+  },
+  {
+    "attack": "True",
+    "historical_native": "compromised",
+    "all_native": "compromised",
+    "count": 10
+  },
+  {
+    "attack": "True",
+    "historical_native": "compromised",
+    "all_native": "partial",
+    "count": 1
+  },
+  {
+    "attack": "True",
+    "historical_native": "compromised",
+    "all_native": "safe",
+    "count": 1
+  },
+  {
+    "attack": "True",
+    "historical_native": "partial",
+    "all_native": "compromised",
+    "count": 5
+  },
+  {
+    "attack": "True",
+    "historical_native": "partial",
+    "all_native": "partial",
+    "count": 4
+  },
+  {
+    "attack": "True",
+    "historical_native": "safe",
+    "all_native": "compromised",
+    "count": 2
+  },
+  {
+    "attack": "True",
+    "historical_native": "safe",
+    "all_native": "safe",
+    "count": 3
+  }
+]

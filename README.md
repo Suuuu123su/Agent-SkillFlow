@@ -1,8 +1,14 @@
+# P2 Luna All 最终结果
+
+仅新增All-SameLibrary，39/39有效原生判分。攻击C/P/S为17/5/4，正常为1/2/10；辅助U/V均可判定34/39，人工复核0。63次正式物理尝试和全部技术修订分开保留，历史Evidence只作HISTORY_ONLY参考，不称受控排名。
+
+[最终报告](论文材料/P2/luna-all/P2_FINAL_REPORT.md) · [逐阶段结果](论文材料/P2/luna-all/analysis/outputs/RESULTS39.csv) · [版本限制及复算](论文材料/P2/luna-all/CURRENT_STATUS.md)。本Luna修订替代GLM默认；P0结项、P1延期，不自动开始其他阶段。以下为历史发布。
+
 # Agent-SkillFlow
 
 ## 最新：P0收尾与论文材料
 
-**[论文材料](论文材料/README.md)** 已整理P0结项、三模型五方法历史指标、辅助U/V/E_STS、可用措辞与来源哈希。P0数据处理结项，原状态PROCESSED_WITH_GAPS及人审0保留；不是新金标准或受控排名。本次仅从保存标签重排汇总，没有新增模型或业务工具重放。**P1因资源暂停，下一步P2为同组件库All-SameLibrary；目前仅布置任务，未运行。** [P0结项](论文材料/P0/CLOSEOUT.md) · [P2任务](论文材料/NEXT_CODEX_TASK.md)。
+**[论文材料](论文材料/README.md)** 已整理P0结项、三模型五方法历史指标、辅助U/V/E_STS、可用措辞与来源哈希。P0数据处理结项，原状态PROCESSED_WITH_GAPS及人审0保留；不是新金标准或受控排名。本次仅从保存标签重排汇总，没有新增模型或业务工具重放。**P1因资源暂停，下一步P2为同组件库All-SameLibrary；当前P2实际进度与隔离修订见本页顶部入口。** [P0结项](论文材料/P0/CLOSEOUT.md) · [P2任务](论文材料/NEXT_CODEX_TASK.md)。
 
 最新结果发布：**[ClawTrojan 三模型攻击实验汇总（2026-09-15）](benchmarks/clawtrojan/results/three-models-20260915/README.md)**。
 

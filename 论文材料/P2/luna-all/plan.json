@@ -1,0 +1,64 @@
+{
+  "stage_id": "ct_p2_luna_all43",
+  "plan_version": "2.0",
+  "status": "LOCAL_BINDING_REQUIRED_NOT_RUN",
+  "supersedes": "ct_p2_all_same_library43 plan1.0 GLM default",
+  "reason": "user explicitly changed to Luna because GLM quota exhausted; requests local live HTML",
+  "P0": "CLOSED_WITH_DOCUMENTED_GAPS",
+  "P1": "DEFERRED_RESOURCE_LIMIT",
+  "reference": {
+    "model": "gpt-5.6-luna",
+    "method": "Evidence",
+    "revision": "actual_frozen_Luna_v3",
+    "observation_binding": "LOCAL_REQUIRED",
+    "history_reused_only": true
+  },
+  "new_arm": "All-SameLibrary",
+  "model_roles": {
+    "actor": "gpt-5.6-luna",
+    "semantic": "gpt-5.6-luna",
+    "content": "gpt-5.6-luna",
+    "derived": "gpt-5.6-luna",
+    "judge": "gpt-5.6-luna"
+  },
+  "new_glm_requests": 0,
+  "new_other_method_units": 0,
+  "historical_rejudge_requests": 0,
+  "new_transport": "BIND_ONE_EXISTING_AUTHORIZED_LUNA_TRANSPORT",
+  "new_transport_switch_midrun": false,
+  "comparison": {
+    "by_actual_contract": true,
+    "mixed_clean_history_not_controlled": true,
+    "judge_mismatch_disclosed": true,
+    "full_history_compatibility_required_to_report_new_all_only": false
+  },
+  "limits": {
+    "formal": 39,
+    "attack": 26,
+    "clean": 13,
+    "technical": 4,
+    "total_target_units": 43,
+    "actor_plus_aux_per_target": 128,
+    "judge_requests": 47,
+    "total_provider_attempts": 5600,
+    "concurrency": 1,
+    "batch": 4,
+    "transport_retries": 0,
+    "retry_unknown": false,
+    "stop_new_dispatch_hours": 8
+  },
+  "dashboard": {
+    "bind": "127.0.0.1",
+    "port_default": 8765,
+    "poll_seconds": 2,
+    "runner_heartbeat_seconds": 5,
+    "stale_seconds": 30,
+    "read_only": true,
+    "external_assets": false,
+    "model_calls": 0,
+    "state_file": "public/progress.json"
+  },
+  "allowed_push": "scoped code, plan and redacted final summaries; no live status or secrets",
+  "runtime_experiment_executed_here": false,
+  "github_pushed_this_turn": false
+}

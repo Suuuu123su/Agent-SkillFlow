@@ -1,0 +1,12 @@
+{
+  "unique_formal_stages": 39,
+  "physical_formal_attempts": 63,
+  "by_round": {
+    "first_pass": 39,
+    "recovery_round1": 16,
+    "recovery_round2": 8
+  },
+  "request_intervals_disjoint": true,
+  "selection_policy": "Chronological authorized attempt; never best-of; all prior attempts retained",
+  "provisional": false
+}

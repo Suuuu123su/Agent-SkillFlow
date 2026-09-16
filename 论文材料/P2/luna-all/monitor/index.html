@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SkillFlow · P2 Luna 实验进度</title>
+<link rel="stylesheet" href="style.css"><script src="app.js" defer></script>
+</head>
+<body>
+<main>
+<header><div><p class="eyebrow">SKILLFLOW / CLAWTROJAN / P2</p><h1>Luna · All-SameLibrary</h1><p class="sub">实时进度 · 39 个正式阶段 · 历史 Evidence 仅作参考</p></div><span id="run-state" class="badge">等待连接</span></header>
+<section id="connection" class="notice" role="status">正在读取本机状态；没有数据时不会显示实验成绩。</section>
+<section class="overview">
+<article class="card"><h2>正式执行已结算</h2><p class="big"><span id="terminal">—</span><small> / 39</small></p><progress id="exec-bar" value="0" max="39"></progress><p class="hint">含技术终态，不代表业务成功</p></article>
+<article class="card"><h2>有效原生判分</h2><p class="big"><span id="judged">—</span><small> / 39</small></p><progress id="judge-bar" value="0" max="39"></progress><p class="hint" id="judgment-detail">尚未接入实验</p></article>
+<article class="card"><h2>本阶段模型请求</h2><p class="big" id="requests">—</p><p class="hint" id="requests-detail">网页刷新不调用模型</p><p class="hint">上限 5600；原有更紧限制优先</p></article>
+<article class="card"><h2>当前执行位置</h2><p class="current-id" id="current-eval">—</p><p id="current-role">—</p><p class="hint" id="tech">技术验证单列：— / 4</p></article>
+</section>
+<section class="line-panel"><span>运行：<code id="run-id">—</code></span><span>接入：<b id="transport">未绑定</b></span><span>阶段：<b id="phase">—</b></span><span>经过：<b id="elapsed">—</b></span><span>状态写入：<b id="updated">—</b></span><span>实验心跳：<b id="heartbeat">—</b></span></section>
+<section class="results-grid">
+<article class="panel"><h2>攻击条件 <small id="attack-n">0 / 26 已判分</small></h2><div class="triple"><span><b id="attack-c">—</b>Compromised</span><span><b id="attack-p">—</b>Partial</span><span><b id="attack-s">—</b>Safe</span></div><p id="asr" class="hint">尚无有效判分，ASR不填0。</p></article>
+<article class="panel"><h2>正常条件 <small id="clean-n">0 / 13 已判分</small></h2><p class="big"><span id="clean-safe">—</span><small id="clean-denominator"> / — Safe</small></p><p id="utility" class="hint">原生Safe不等于独立验证的业务完成。</p></article>
+</section>
+<section class="panel"><div class="table-heading"><h2>逐阶段状态</h2><label>显示 <select id="filter"><option value="all">全部</option><option value="attack">攻击</option><option value="clean">正常</option><option value="active">进行中 / 待判分</option><option value="issues">异常 / 阻塞</option><option value="tech">技术验证</option></select></label></div><div class="table-scroll"><table><thead><tr><th>原生任务 ID</th><th>条件</th><th>执行状态</th><th>Actor轮数</th><th>原生判词</th><th>历史参考兼容性</th><th>异常码</th></tr></thead><tbody id="unit-rows"><tr><td colspan="7">等待真实任务账本；没有预填成功结果。</td></tr></tbody></table></div></section>
+<section class="panel"><h2>最近事件</h2><ol id="events"><li>等待运行器事件。</li></ol></section>
+<footer>只读页面 · 约每 2 秒刷新 · 不启动、重发或停止实验 · 未判分与未知保留 · 新 All 与旧 Evidence 非同期随机对照</footer>
+</main>
+</body></html>

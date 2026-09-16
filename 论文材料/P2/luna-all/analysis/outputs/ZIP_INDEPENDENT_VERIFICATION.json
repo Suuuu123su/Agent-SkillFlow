@@ -1,0 +1,40 @@
+{
+  "zip": "P2_REVIEW_20260916T110241Z.zip",
+  "sha256": "8e2bf3f5037ebbe8ee378d5c5ce7bb0e4ef7e58af6a7f0950b9e20681578d5ac",
+  "verified_at": "2026-09-16T11:03:37.665472+00:00",
+  "package_only_verification": true,
+  "verifications": [
+    {
+      "budget_counted_attempts": 1574,
+      "known_local_pre_forward_failures": 1,
+      "external_dispatch_attempts": 1573,
+      "unknown": 21,
+      "missing_usage": 23,
+      "tokens_observed": 9714560,
+      "by_role": {
+        "actor": 153,
+        "semantic": 467,
+        "content": 460,
+        "derived": 455,
+        "judge": 39
+      },
+      "scope": "Accounting only; does not prove semantic safety, completion, or raw projection fidelity."
+    },
+    {
+      "unique_formal_stages": 39,
+      "physical_attempts": 63,
+      "assigned_core_requests": 1566,
+      "request_coverage_complete": true,
+      "request_intervals_disjoint": true,
+      "auxiliary_formula_valid": true,
+      "semantic_truth_verified": false,
+      "by_round": {
+        "first_pass": 39,
+        "recovery_round1": 16,
+        "recovery_round2": 8
+      }
+    }
+  ],
+  "excluded_private_paths": true,
+  "semantic_truth_verified": false
+}
