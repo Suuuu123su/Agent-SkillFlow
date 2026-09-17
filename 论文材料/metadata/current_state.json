@@ -1,0 +1,54 @@
+{
+  "schema": "skillflow-current-state/1",
+  "as_of": "2026-09-17",
+  "layout_version": "REPO-RESTRUCTURE-PUBLISH-v2",
+  "basis_commit": "99fc346b4daca9405078555110a09796cb991567",
+  "release_record": "docs/releases/repo-restructure-20260917.json",
+  "phases": {
+    "P0": {
+      "status": "CLOSED_WITH_DOCUMENTED_GAPS",
+      "human_reviewed": 0,
+      "source": "论文材料/P0/CLOSEOUT.md"
+    },
+    "P1": {
+      "status": "DEFERRED_RESOURCE_LIMIT"
+    },
+    "P2": {
+      "status": "COMPLETED",
+      "comparison": "HISTORY_ONLY",
+      "source": "论文材料/P2/luna-all/CURRENT_STATUS.md"
+    },
+    "P3": {
+      "status": "COMPLETED_WITH_DOCUMENTED_GAPS",
+      "source": "论文材料/P3_机制测量/p3-20260916-232018/P3_STATUS.json"
+    },
+    "P3R": {
+      "status": "P3R_EXECUTION_COMPLETE",
+      "core_claims_supported": "PARTIAL_NOT_ALL",
+      "source": "论文材料/P3_机制测量/p3r-20260917-103400/P3R_STATUS.json"
+    },
+    "P4": {
+      "status": "COMPLETED_WITH_DOCUMENTED_GAPS",
+      "source": "论文材料/P4_测量证据消融/p4-20260917-123623/P4_STATUS.json"
+    },
+    "P4_closeout": {
+      "status": "CLOSED_WITH_DOCUMENTED_GAPS",
+      "source": "论文材料/P4_测量证据消融/closeout-20260917-141455/P4_CLOSEOUT_STATUS.json"
+    },
+    "P5": {
+      "status": "NOT_STARTED"
+    },
+    "P6": {
+      "status": "NOT_COMPLETE"
+    }
+  },
+  "research_limits": [
+    "HIAA F/H ToolReturn valid_only 13/15 unresolved",
+    "ALR contracts, missing reason, empty denominators kept",
+    "RIR zero does not establish revocation causal benefit",
+    "CI 289/593 malformed; 304 neutralization semantics unconfirmed",
+    "P4 coverage 190/192 and answered agreement 190/190 are finite-domain results",
+    "current evidence consumption does not mean aggregate metrics drive Router"
+  ],
+  "new_experiment_calls_this_restructure": 0
+}

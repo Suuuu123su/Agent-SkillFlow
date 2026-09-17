@@ -64,7 +64,7 @@ skip_covered = false
 target-version = "py311"
 line-length = 100
 src = ["src", "tests"]
-extend-exclude = ["SkillFlow_Codex_Task_Spec.md"]
+extend-exclude = ["docs/history/specs/SkillFlow_Codex_Task_Spec.md"]
 
 [tool.ruff.lint]
 select = ["ALL"]

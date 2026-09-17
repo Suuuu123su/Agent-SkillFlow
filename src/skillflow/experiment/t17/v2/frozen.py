@@ -69,15 +69,23 @@ def file_digest(path: Path) -> FrozenFile:
     return FrozenFile(sha256=digest.hexdigest(), size_bytes=path.stat().st_size, records=count)
 
 
+def _historical_input(root: Path, value: str) -> Path:
+    """只读兼容两个迁移的历史审计；原清单键与字节校验不变。"""
+    path = inside(root, value)
+    if not path.exists() and value in {"EXPERIMENT_AUDIT.md", "EXPERIMENT_AUDIT.json"}:
+        return inside(root, "docs/history/audits/" + value)
+    return path
+
+
 def digest_files(root: Path, paths: Iterable[str]) -> dict[str, FrozenFile]:
     """同一项目内机械登记，不改写输入。"""
-    return {value: file_digest(inside(root, value)) for value in sorted(set(paths))}
+    return {value: file_digest(_historical_input(root, value)) for value in sorted(set(paths))}
 
 
 def verify_files(root: Path, expected: Mapping[str, FrozenFile]) -> None:
     """缺文件和字节漂移均拒绝；不恢复、覆盖或删除原文件。"""
     for value, digest in expected.items():
-        path = inside(root, value)
+        path = _historical_input(root, value)
         if not path.is_file() or file_digest(path) != digest:
             raise ValueError("v2_frozen_file_drift:" + value)
 
@@ -108,6 +116,7 @@ def historical_paths(root: Path) -> tuple[str, ...]:
             and "_v2_summary" not in path.name.lower()
             and path.name != "T17_Complete_Summary_V2.md"
         )
+    # Keep historical manifest keys; _historical_input resolves their current locations.
     paths.update(root / value for value in ("EXPERIMENT_AUDIT.md", "EXPERIMENT_AUDIT.json"))
     paths.update(path for path in (root / "scenarios").rglob("*") if path.is_file())
     return tuple(sorted(path.relative_to(root).as_posix() for path in paths))

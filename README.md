@@ -1,64 +1,36 @@
-# P2 Luna All 最终结果
-
-仅新增All-SameLibrary，39/39有效原生判分。攻击C/P/S为17/5/4，正常为1/2/10；辅助U/V均可判定34/39，人工复核0。63次正式物理尝试和全部技术修订分开保留，历史Evidence只作HISTORY_ONLY参考，不称受控排名。
-
-[最终报告](论文材料/P2/luna-all/P2_FINAL_REPORT.md) · [逐阶段结果](论文材料/P2/luna-all/analysis/outputs/RESULTS39.csv) · [版本限制及复算](论文材料/P2/luna-all/CURRENT_STATUS.md)。本Luna修订替代GLM默认；P0结项、P1延期，不自动开始其他阶段。以下为历史发布。
-
 # Agent-SkillFlow
 
-## 最新：P0收尾与论文材料
+SkillFlow研究Agent Skill与Harness交互中的安全机制，以统一运行证据连接实际Effect/Receipt、授权、来源、撤销与任务完成。
 
-**[论文材料](论文材料/README.md)** 已整理P0结项、三模型五方法历史指标、辅助U/V/E_STS、可用措辞与来源哈希。P0数据处理结项，原状态PROCESSED_WITH_GAPS及人审0保留；不是新金标准或受控排名。本次仅从保存标签重排汇总，没有新增模型或业务工具重放。**P1因资源暂停，下一步P2为同组件库All-SameLibrary；当前P2实际进度与隔离修订见本页顶部入口。** [P0结项](论文材料/P0/CLOSEOUT.md) · [P2任务](论文材料/NEXT_CODEX_TASK.md)。
+**论文主线：统一运行证据 → HIAA/ALR/RIR/UEA/Provenance/CI机制测量 → P3/P3R结果 → P4证据消融 → P0公开任务测量差异 → Evidence防御应用。**
 
-最新结果发布：**[ClawTrojan 三模型攻击实验汇总（2026-09-15）](benchmarks/clawtrojan/results/three-models-20260915/README.md)**。
+## 当前阶段与结果
 
-包含 GLM-5、DS-V4-Pro、GPT-5.6-Luna 的五种方法，共390条攻击观测。已逐题复核全部计数，技术未知为0；本次新增实验请求为0。[正式 PDF](benchmarks/clawtrojan/results/three-models-20260915/PAPER_TABLES_GLM_DS_LUNA.pdf) · [逐题 CSV](benchmarks/clawtrojan/results/three-models-20260915/ATTACK_CASE_RESULTS.csv) · [校验记录](benchmarks/clawtrojan/results/three-models-20260915/VALIDATION.json)。
+P3/P3R与P4已完成并发布，研究缺口和不利结果保留。P4管理状态为`CLOSED_WITH_DOCUMENTED_GAPS`；完成实验与材料交付不等于全部研究主张成立。[当前状态](论文材料/metadata/current_state.json) · [论文材料](论文材料/README.md)。
 
-Luna TaskShield 使用排除个人全局指令后的最新39条重跑。DS Evidence 为历史混合版本；其他 Luna 方法部分 CLI 结果可能受个人指令影响，且各模型配置不同，不能作为受控排名。来源与剩余问题见汇总说明。本次仅发布既有结果，不改算法，不追加实验或远端 CI；旧文件保留。
+| 阅读目的 | 入口 |
+|---|---|
+| 框架实现与合同 | [核心代码](src/skillflow/) · [安全语义](docs/security-semantics.md) · [Schema](schemas/) · [测试](tests/) |
+| 机制测量 | [P3主表](论文材料/P3_机制测量/p3-20260916-232018/P3_METRIC_MAIN.md) · [P3R主表](论文材料/P3_机制测量/p3r-20260917-103400/P3R_METRIC_MAIN.md) · [指标合同](论文材料/P3_机制测量/p3r-20260917-103400/METRIC_CONTRACTS_P3R.md) |
+| 测量证据消融 | [P4主表](论文材料/P4_测量证据消融/p4-20260917-123623/P4_METRIC_MAIN.md) · [结项](论文材料/P4_测量证据消融/closeout-20260917-141455/P4_CLOSEOUT.md) · [表格数据册](论文材料/P4_测量证据消融/closeout-20260917-141455/PAPER_TABLES.md) · [六案例](论文材料/P4_测量证据消融/closeout-20260917-141455/PAPER_CASES.md) |
+| 测量差异与防御应用 | [P0结项](论文材料/P0/CLOSEOUT.md) · [P0指标与措辞](论文材料/P0/PAPER_METRICS.md) · [P2 Luna All](论文材料/P2/luna-all/CURRENT_STATUS.md) · [三模型五方法历史结果](benchmarks/clawtrojan/results/three-models-20260915/README.md) |
+| 已发布事实与复现 | [T17分卷与索引](datasets/t17-v2/README.md) · [T18独立构念验证](datasets/t18-local/README.md) · [四份原始审查ZIP](论文材料/发布记录/p3-p4-20260917/README.md) |
 
-冻结 benchmark 代码版本：**ClawTrojan / Evidence v3 冻结交付（2026-09-14）**。
+## 结论边界
 
-## 当前入口
+- HIAA按target/neutral×单bridge四格计算；F/H ToolReturn的P3R每格13与P4每格15冲突未决，不能把Evidence-All的ASR差当HIAA。
+- ALR保留合同区别、reason缺证与空分母；空分母不是零风险。RIR零值不证明撤销的因果收益。
+- 旧CI的593对中289对破坏JSON结构，另304对中和语义未确认；正、零、负结果保留。
+- P4有限独立参照覆盖190/192，已答一致190/190，不是通用100%准确率，也不证明框架唯一必要性。表格数据册含541行，不是三张已排版正文表。
+- P0辅助标签人审0、unknown及原`PROCESSED_WITH_GAPS`保留；业务违规V不等同UEA。DS混合版本、GLM预算、Luna传输及个人上下文差异未消除。P2历史比较均为`HISTORY_ONLY`。
+- 当前事件证据已被防御路径使用，不等于聚合HIAA/ALR/RIR已驱动在线Router。
 
-- [ClawTrojan 说明、原生 harness、冻结源码与复核方法](benchmarks/clawtrojan/README.md)
-- [GLM-5 / DS-V4-Pro 正式表格](benchmarks/clawtrojan/results/实验指标v1.html) · [单页 PDF](benchmarks/clawtrojan/results/实验指标v1.pdf)
-- [完整来源报告](benchmarks/clawtrojan/results/PAPER_TABLES.html) · [逐题结果 CSV](benchmarks/clawtrojan/results/CASE_RESULTS.csv)
-- [版本清单](benchmarks/clawtrojan/RELEASE.json) · [GitHub 旧版本清理明细](docs/releases/clawtrojan-20260914-cleanup.json)
+P0已结项，P1因资源延期，P2已完成；P5画像接口可选且未启动，P6全文未完成。本次目录发布不授权继续研究实验。
 
-## 已有结果
+## 历史与仓库布局
 
-|模型|Evidence 攻击 C/P/S|ATS/ASR ↓|正常 Utility ↑|
-|---|---:|---:|---:|
-|GLM-5|4 / 2 / 20|15.38%|100.00%|
-|DS-V4-Pro|8 / 0 / 18|30.77%|92.31%|
-|GPT-5.6-Luna|12 / 9 / 5|46.15%|46.15%|
+源码、测试、Schema及数据保留开发路径。历史审计已移至[docs/history/audits](docs/history/audits/)，早期规范移至[docs/history/specs](docs/history/specs/)，P2旧任务入口归入[历史任务](docs/history/tasks/P2_Luna_All_Completion.md)，两个旧T16启动器位于[scripts/legacy/t16](scripts/legacy/t16/)；历史运行标记不是当前执行授权。
 
-每组26条攻击、13条正常。DS Evidence 使用选定的 v3 更新12条与原版历史 Safe 27条合并，完整来源随包保存；不称为统一 v3 新跑39条。不同模型和方法存在历史输出额度差异；TaskShield 为合同适配实验。Luna Evidence 攻击为 API 记录，正常任务含历史 CLI 上下文影响；最新隔离 TaskShield 攻击 C/P/S 为19/2/5，ASR73.08%，正常 Utility84.62%。结论边界、其他四组结果和指标定义见三模型汇总报告。
+本轮实际迁移16项、将52个与原ZIP逐字节一致的展开任务包文件改为archive-only，根目录文件由14个降至6个。原四ZIP、T17分卷、冻结组件、失败与未知证据保留；Git历史不改写。迁移后位置、哈希、还原方法及冻结旧链接解释见[迁移说明](docs/releases/repo-restructure-20260917.md)与[机器映射](docs/releases/repo-restructure-20260917.json)。
 
-## 实际验证与未完成项
-
-本次只发布已有实验与冻结代码，新增 API 请求和原生判分均为0。提供离线 SHA256、原生快照与逐题指标复核入口，以及原生 runner / scorer / Evidence 导入检查；受清理影响的11项本地兼容测试通过。详细检查结果见 [VALIDATION.json](benchmarks/clawtrojan/VALIDATION.json)。未运行全量测试或远端 CI，未声称模型重跑成功。
-
-```powershell
-python -B benchmarks/clawtrojan/verify_release.py
-```
-
-历史控制器仍保留原路径与准入约束，重新付费运行需要独立配置并验证可信提供方、隔离环境及共享配额；本发布不自动继续实验。原生代码和公开材料收录在带许可证的快照 ZIP 中，完整的干净机器付费运行安装流程尚未验证。
-
-## 仓库保留与清理
-
-公共 SkillFlow 源码、测试以及 T16–T18 内容保留。旧 T19 运行报告与归档从 GitHub 当前工作树移除；仅保留3个被公共源码/测试引用的兼容配置。本地所有实验、缓存、R14及未提交修改均未清理。远端父版本尚无 R14，因此此次没有把其他对话正在修改的本地 R14 强行纳入发布。历史提交未改写，旧版本仍可通过 Git 历史追溯。
-
-后续工作以新的明确任务为准，不恢复旧优化搜索或防御实验。
-
-
-<!-- P3_P4_PUBLICATION_20260917 -->
-## P3/P3R机制测量与P4测量证据消融已发布（2026-09-17）
-
-[论文三表](论文材料/P4_测量证据消融/closeout-20260917-141455/PAPER_TABLES.md)、[P3/P4章节草稿](论文材料/P4_测量证据消融/closeout-20260917-141455/PAPER_P3_P4_SECTION.md)、[六案例](论文材料/P4_测量证据消融/closeout-20260917-141455/PAPER_CASES.md)与[结项报告](论文材料/P4_测量证据消融/closeout-20260917-141455/P4_CLOSEOUT.md)已整理完成。P4管理状态CLOSED_WITH_DOCUMENTED_GAPS；原P4状态、分母、未知和限制保持不变。
-
-Full独立参照覆盖190/192、已答一致190/190，人审0；来源删证损失8166=7472自身+694下游。F/H valid_only每格13对15的版本冲突、旧CI语义、ALR空分母和RIR因果限制均保留。机制测量放在论文前部，防御为应用展示，不据此主张框架唯一必要性。
-
-本次发布四份完整审查包及展开材料；仅做归档/路径/哈希定向检查，未重算预测，新增模型和业务调用0。未运行全量或远端CI。原工作区T19-R修改未纳入，P1继续延期，P5/P6不启动。
-
-[发布清单、完整包与复现边界](论文材料/发布记录/p3-p4-20260917/README.md)。
+本轮验证仅覆盖受影响路径、链接、Git索引字节、只读定位与发布树；未执行Live启动器、P3/P4复算、全量测试或自愿远端CI。新增模型、Judge、业务工具、反事实执行均为0，算法、指标和原分数不改。独立工作树完成整理，原工作区未提交修改不纳入发布。

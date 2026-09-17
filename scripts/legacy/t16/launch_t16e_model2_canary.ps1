@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 
-$projectRoot = $PSScriptRoot
+$projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../../..')).Path
 $python = Join-Path $projectRoot '.venv-skillflow\Scripts\python.exe'
 $outputRoot = Join-Path $projectRoot 'runs\t16e-model2-gpt55-live-20260831-01\attempt-01'
 

@@ -1,33 +1,27 @@
 # 论文材料
 
-本目录整理目前可用于写作的指标、限定性结论及下一步任务。更新时间：2026-09-15。
+按“统一证据 → 核心机制测量 → 测量正确性与证据消融 → 公开任务测量差异 → 防御应用”阅读。[当前状态](metadata/current_state.json)是导航汇总；各阶段原状态与清单保持历史身份。
 
-**P0数据整理与辅助测量分析已收尾；原状态仍为PROCESSED_WITH_GAPS，独立人工复核0。** 收尾不等于所有语义标签成为金标准。P1因API资源限制暂停；下一步为P2：同组件库All-SameLibrary对照，不是DASGuard或新的自建任务。
+## 机制结果与证据消融
 
-## 阅读入口
+- [P3核心指标恢复](P3_机制测量/p3-20260916-232018/P3_METRIC_MAIN.md) · [P3R补全主表](P3_机制测量/p3r-20260917-103400/P3R_METRIC_MAIN.md) · [指标合同](P3_机制测量/p3r-20260917-103400/METRIC_CONTRACTS_P3R.md)。
+- [P4证据消融主表](P4_测量证据消融/p4-20260917-123623/P4_METRIC_MAIN.md) · [结项报告](P4_测量证据消融/closeout-20260917-141455/P4_CLOSEOUT.md)。
+- [541行表格数据册](P4_测量证据消融/closeout-20260917-141455/PAPER_TABLES.md) · [章节草稿](P4_测量证据消融/closeout-20260917-141455/PAPER_P3_P4_SECTION.md) · [六案例](P4_测量证据消融/closeout-20260917-141455/PAPER_CASES.md)。不是三张已排版正文主表，也不代表P6全文完成。
 
-- [P0结项与解释修订](P0/CLOSEOUT.md)
-- [可以写入论文的指标和措辞](PAPER_METRICS.md)
-- [全部五方法、三模型、30个分层](P0/ALL_METHODS.md)
-- [历史原生结果CSV](tables/native_history15.csv) · [P0端点CSV](tables/p0_endpoints.csv) · [30层CSV](tables/p0_30_strata.csv)
-- [来源与哈希](metadata/sources.json) · [状态](metadata/status.json)
-- [本地Codex下一任务与P2设计](NEXT_CODEX_TASK.md)
-- [原有三模型报告](../benchmarks/clawtrojan/results/three-models-20260915/README.md)
+HIAA每格13/15冲突、ALR不同合同与空分母、RIR零值的因果限制、旧CI中和语义均保留。P4有限参照覆盖190/192和已答一致190/190分开报告，不能解释为通用100%准确率或框架唯一必要性。
 
-## 使用规则
+## 公开任务测量差异与防御应用
 
-原生C/P/S、原始任务、已保存轨迹和方法版本不改。历史原生分数用于描述已执行配置；P0标签用于事后辅助的构念区分，必须保留unknown与未人审说明。它们不支持统一版本的三模型排名、Judge错误率、动态选择因果收益或真实外泄率。
+- [P0结项](P0/CLOSEOUT.md) · [P0指标及限定措辞](P0/PAPER_METRICS.md) · [全部五方法](P0/ALL_METHODS.md)。
+- [原生历史15组](P0/tables/native_history15.csv) · [P0端点](P0/tables/p0_endpoints.csv) · [30分层](P0/tables/p0_30_strata.csv)。
+- [P2 Luna All最终报告](P2/luna-all/P2_FINAL_REPORT.md) · [P2状态与复现](P2/luna-all/CURRENT_STATUS.md) · [三模型历史应用](../benchmarks/clawtrojan/results/three-models-20260915/README.md)。
 
-本次发布只包含汇总、公开阶段/案例标识和来源哈希，不包含API Key、provider原日志、个人指令或模型私有推理。原始P0大包本地保留；本发布没有重新调用模型、裁判或业务工具。
+P0辅助标签人审0、unknown与原PROCESSED_WITH_GAPS保留；V不是UEA。DS混合版本、GLM预算、Luna传输与个人上下文限制保留；P2历史对照均为HISTORY_ONLY。当前事件证据消费不等于聚合指标驱动Router。
 
+## 归档与复现边界
 
-<!-- P3_P4_PUBLICATION_20260917 -->
-## P3/P3R机制测量与P4测量证据消融已发布（2026-09-17）
+[四份完整原审查包](发布记录/p3-p4-20260917/README.md)原字节保留；本轮去掉52个重复展开任务包文件，包内成员、保留位置与提取方式见[迁移说明](../docs/releases/repo-restructure-20260917.md)及[逐文件映射](../docs/releases/repo-restructure-20260917.json)。已有离线复算器需要完整长表或task_pack时，先在新目录还原对应ZIP布局，不执行包内Live启动器。
 
-[论文三表](P4_测量证据消融/closeout-20260917-141455/PAPER_TABLES.md)、[P3/P4章节草稿](P4_测量证据消融/closeout-20260917-141455/PAPER_P3_P4_SECTION.md)、[六案例](P4_测量证据消融/closeout-20260917-141455/PAPER_CASES.md)与[结项报告](P4_测量证据消融/closeout-20260917-141455/P4_CLOSEOUT.md)已整理完成。P4管理状态CLOSED_WITH_DOCUMENTED_GAPS；原P4状态、分母、未知和限制保持不变。
+旧P0的[来源](发布记录/p0-20260915/metadata/sources.json)、[状态](发布记录/p0-20260915/metadata/status.json)与[manifest](发布记录/p0-20260915/metadata/manifest.json)已归档；原相对根为`论文材料/`，十项manifest精确对应`caad8858cad5cdf9e8be3f0c7bf28eca00d0ad44`，不是当前文件树清单。P0三个来源原件未见于公开树/包，不能据公开汇总声称完整逐观测资料可得。
 
-Full独立参照覆盖190/192、已答一致190/190，人审0；来源删证损失8166=7472自身+694下游。F/H valid_only每格13对15的版本冲突、旧CI语义、ALR空分母和RIR因果限制均保留。机制测量放在论文前部，防御为应用展示，不据此主张框架唯一必要性。
-
-本次发布四份完整审查包及展开材料；仅做归档/路径/哈希定向检查，未重算预测，新增模型和业务调用0。未运行全量或远端CI。原工作区T19-R修改未纳入，P1继续延期，P5/P6不启动。
-
-[发布清单、完整包与复现边界](发布记录/p3-p4-20260917/README.md)。
+P1延期；P5未启动；P6未完成。此次仅目录迁移、去重、路径与导航修复，新增实验调用0，不修改原指标、分母或状态。

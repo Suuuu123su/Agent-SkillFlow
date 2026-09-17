@@ -4,7 +4,7 @@
 *.toml text eol=lf
 *.yaml text eol=lf
 *.yml text eol=lf
-SkillFlow_Codex_Task_Spec.md whitespace=-blank-at-eol
+docs/history/specs/SkillFlow_Codex_Task_Spec.md whitespace=-blank-at-eol
 
 # 历史 Matrix 的冻结 SHA-256 基于生成时的精确 CRLF 字节。
 experiments/t16/matrix_smoke.yaml -text whitespace=cr-at-eol
@@ -53,3 +53,8 @@ benchmarks/clawtrojan/** -text
 # Frozen P3/P4 evidence retains exact bytes for source hashes.
 论文材料/P3_机制测量/** -text
 论文材料/P4_测量证据消融/** -text
+
+# Relocated historical evidence preserves its original Git blob bytes.
+docs/history/audits/** -text
+论文材料/P0/tables/** -text
+论文材料/发布记录/p0-20260915/metadata/** -text

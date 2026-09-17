@@ -1,0 +1,1559 @@
+{
+  "task": "REPO-RESTRUCTURE-PUBLISH-v2",
+  "basis_commit": "99fc346b4daca9405078555110a09796cb991567",
+  "date": "2026-09-17",
+  "scope": "16 relocations, 52 byte-identical task-package members retained in original public ZIPs; no research execution",
+  "actions": [
+    {
+      "old_path": "EXPERIMENT_AUDIT.md",
+      "new_path": "docs/history/audits/EXPERIMENT_AUDIT.md",
+      "action": "move_exact",
+      "before_git_sha256": "954c0d805e3922511e160eedae2a6627ca38ea4bf1b2569992c2e38441e4cf43",
+      "before_git_blob": "34ea76e2b2a88f700e9fa961eaabab2945a25e45",
+      "bytes_before": 1170,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "954c0d805e3922511e160eedae2a6627ca38ea4bf1b2569992c2e38441e4cf43",
+      "after_git_blob": "34ea76e2b2a88f700e9fa961eaabab2945a25e45",
+      "bytes_after": 1170
+    },
+    {
+      "old_path": "EXPERIMENT_AUDIT.json",
+      "new_path": "docs/history/audits/EXPERIMENT_AUDIT.json",
+      "action": "move_exact",
+      "before_git_sha256": "6fb54d72236f65875e7627730b66996a87f5a41797c3deb6edd04dc999f77b04",
+      "before_git_blob": "8e283f2811c57a91e5cefa253213e500ca180c17",
+      "bytes_before": 2207,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "6fb54d72236f65875e7627730b66996a87f5a41797c3deb6edd04dc999f77b04",
+      "after_git_blob": "8e283f2811c57a91e5cefa253213e500ca180c17",
+      "bytes_after": 2207
+    },
+    {
+      "old_path": "EXPERIMENT_AUDIT_V2.md",
+      "new_path": "docs/history/audits/EXPERIMENT_AUDIT_V2.md",
+      "action": "move_exact",
+      "before_git_sha256": "8d87f22eb3a5361eba017c5c061bac5a3f150ac432e04945abaeea469cb6215d",
+      "before_git_blob": "e9a7da6ab9694669c30175dd1a93a3e2c1708fc6",
+      "bytes_before": 4233,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "8d87f22eb3a5361eba017c5c061bac5a3f150ac432e04945abaeea469cb6215d",
+      "after_git_blob": "e9a7da6ab9694669c30175dd1a93a3e2c1708fc6",
+      "bytes_after": 4233
+    },
+    {
+      "old_path": "EXPERIMENT_AUDIT_V2.json",
+      "new_path": "docs/history/audits/EXPERIMENT_AUDIT_V2.json",
+      "action": "move_exact",
+      "before_git_sha256": "594b2fc61fdeed6800434024416f7a3ff8557f57c1f9c857afb1ba6edd7d9719",
+      "before_git_blob": "6b96dafbe6e110d4e5596b33b7a5bddb7e14dd06",
+      "bytes_before": 3314,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "594b2fc61fdeed6800434024416f7a3ff8557f57c1f9c857afb1ba6edd7d9719",
+      "after_git_blob": "6b96dafbe6e110d4e5596b33b7a5bddb7e14dd06",
+      "bytes_after": 3314
+    },
+    {
+      "old_path": "SkillFlow_Codex_Task_Spec.md",
+      "new_path": "docs/history/specs/SkillFlow_Codex_Task_Spec.md",
+      "action": "move_exact",
+      "before_git_sha256": "e4b329a4c0e6fda02d0114a447650e55f4dbb98d3202c22f69415db16beb80ba",
+      "before_git_blob": "8593bd95d027b99e252b839f76f6722610b87443",
+      "bytes_before": 61357,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "e4b329a4c0e6fda02d0114a447650e55f4dbb98d3202c22f69415db16beb80ba",
+      "after_git_blob": "8593bd95d027b99e252b839f76f6722610b87443",
+      "bytes_after": 61357
+    },
+    {
+      "old_path": "实验框架.md",
+      "new_path": "docs/history/specs/实验框架.md",
+      "action": "move_exact",
+      "before_git_sha256": "aa6d18300e747530d962ed24b7c82a013bad305e55dd42beca0a59005d436836",
+      "before_git_blob": "32bc23d6d0d789b31817d7745a6b08c46be9eaea",
+      "bytes_before": 12432,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "aa6d18300e747530d962ed24b7c82a013bad305e55dd42beca0a59005d436836",
+      "after_git_blob": "32bc23d6d0d789b31817d7745a6b08c46be9eaea",
+      "bytes_after": 12432
+    },
+    {
+      "old_path": "launch_t16d2_v31_canary.ps1",
+      "new_path": "scripts/legacy/t16/launch_t16d2_v31_canary.ps1",
+      "action": "move_and_fix_root",
+      "before_git_sha256": "7df6b71a11f0d2fb32bf15050b4397217e13beeb287318ba7ef662ece678f8e9",
+      "before_git_blob": "73f4fc54dc10c0a53cca2a12ede40dedb3bf3881",
+      "bytes_before": 703,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "36c1f78223308b80695e9f74aee050675bc51b22ddd9270b942fdd22541d2af0",
+      "after_git_blob": "dd877f4d891f596791dc869ce39f49f697d26b27",
+      "bytes_after": 759
+    },
+    {
+      "old_path": "launch_t16e_model2_canary.ps1",
+      "new_path": "scripts/legacy/t16/launch_t16e_model2_canary.ps1",
+      "action": "move_and_fix_root",
+      "before_git_sha256": "c4aaf60c6abe914a38e52f0cee4ef6d6360e46e569648c4fa064935483cb52a3",
+      "before_git_blob": "842d650835b8aeca90b70515fd718d394a0be8ff",
+      "bytes_before": 706,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "a243687ca7d6277255e529a0f2db4387d09ef46ae5f1dada7c25f6d4f7af9e51",
+      "after_git_blob": "dfc3dc5499499631848274763963abfa93bdefa8",
+      "bytes_after": 762
+    },
+    {
+      "old_path": "论文材料/PAPER_METRICS.md",
+      "new_path": "论文材料/P0/PAPER_METRICS.md",
+      "action": "move_exact",
+      "before_git_sha256": "906d5b3906af178d2e0b1f06437ea6cdc3c1b906744115a9bac12218d4b1295e",
+      "before_git_blob": "61e7a96991be0c579d8f9992104176b14bd2e277",
+      "bytes_before": 3796,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "906d5b3906af178d2e0b1f06437ea6cdc3c1b906744115a9bac12218d4b1295e",
+      "after_git_blob": "61e7a96991be0c579d8f9992104176b14bd2e277",
+      "bytes_after": 3796
+    },
+    {
+      "old_path": "论文材料/tables/native_history15.csv",
+      "new_path": "论文材料/P0/tables/native_history15.csv",
+      "action": "move_exact",
+      "before_git_sha256": "09191911a53b0f96156d6a0551d629e4400b8e80a5139c2666393c3cd928c0e6",
+      "before_git_blob": "4ffd7e5c1be4731c4971a84b841ecc5c2a4bb950",
+      "bytes_before": 1557,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "09191911a53b0f96156d6a0551d629e4400b8e80a5139c2666393c3cd928c0e6",
+      "after_git_blob": "4ffd7e5c1be4731c4971a84b841ecc5c2a4bb950",
+      "bytes_after": 1557
+    },
+    {
+      "old_path": "论文材料/tables/p0_30_strata.csv",
+      "new_path": "论文材料/P0/tables/p0_30_strata.csv",
+      "action": "move_exact",
+      "before_git_sha256": "ebf65a368af8e11e9bcd517e1542eca716581e91f140b9f9e3c0674585729b38",
+      "before_git_blob": "ad7afdfca984f40671a569429c6254dad4161156",
+      "bytes_before": 1874,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "ebf65a368af8e11e9bcd517e1542eca716581e91f140b9f9e3c0674585729b38",
+      "after_git_blob": "ad7afdfca984f40671a569429c6254dad4161156",
+      "bytes_after": 1874
+    },
+    {
+      "old_path": "论文材料/tables/p0_endpoints.csv",
+      "new_path": "论文材料/P0/tables/p0_endpoints.csv",
+      "action": "move_exact",
+      "before_git_sha256": "9c9cf8ad5e6b6e9e7e7ef2136c0cf7f422257238c288cf8eb4d9826fb5a03116",
+      "before_git_blob": "fd5dceb65c1451f33309c890fd83f24265528801",
+      "bytes_before": 404,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "9c9cf8ad5e6b6e9e7e7ef2136c0cf7f422257238c288cf8eb4d9826fb5a03116",
+      "after_git_blob": "fd5dceb65c1451f33309c890fd83f24265528801",
+      "bytes_after": 404
+    },
+    {
+      "old_path": "论文材料/metadata/status.json",
+      "new_path": "论文材料/发布记录/p0-20260915/metadata/status.json",
+      "action": "move_exact",
+      "before_git_sha256": "89ed94ba70c00a2378f9bdf2b16eb0581e88b2336bdf8dfdd108e89f6232dcc9",
+      "before_git_blob": "f2b28c176f464705eef5af8b9bb6b2b5734151a4",
+      "bytes_before": 940,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "89ed94ba70c00a2378f9bdf2b16eb0581e88b2336bdf8dfdd108e89f6232dcc9",
+      "after_git_blob": "f2b28c176f464705eef5af8b9bb6b2b5734151a4",
+      "bytes_after": 940
+    },
+    {
+      "old_path": "论文材料/metadata/sources.json",
+      "new_path": "论文材料/发布记录/p0-20260915/metadata/sources.json",
+      "action": "move_exact",
+      "before_git_sha256": "b9442708f74d69d44750cc4b8de4da288c60eee83a14971f08cba963a4c85bad",
+      "before_git_blob": "91712ab96707df4315f0adc769778290b78b0936",
+      "bytes_before": 1563,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "b9442708f74d69d44750cc4b8de4da288c60eee83a14971f08cba963a4c85bad",
+      "after_git_blob": "91712ab96707df4315f0adc769778290b78b0936",
+      "bytes_after": 1563
+    },
+    {
+      "old_path": "论文材料/metadata/manifest.json",
+      "new_path": "论文材料/发布记录/p0-20260915/metadata/manifest.json",
+      "action": "move_exact",
+      "before_git_sha256": "bc475f26ce04daf45ee6cc43a539e38d46eac753511f13bb92196954dd05a955",
+      "before_git_blob": "f7659aa1b1e21ecd0d0eb7d8ca6ea8ca633961a1",
+      "bytes_before": 1616,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "bc475f26ce04daf45ee6cc43a539e38d46eac753511f13bb92196954dd05a955",
+      "after_git_blob": "f7659aa1b1e21ecd0d0eb7d8ca6ea8ca633961a1",
+      "bytes_after": 1616
+    },
+    {
+      "old_path": "论文材料/NEXT_CODEX_TASK.md",
+      "new_path": "docs/history/tasks/P2_Luna_All_Completion.md",
+      "action": "move_and_link_only",
+      "before_git_sha256": "93cca3def4779e26f0b0cb1985531e340a19e9f3199d3e03efa93e3519803aaa",
+      "before_git_blob": "43ee2d9a5afcd5725acc5d86245ce014dc8244e7",
+      "bytes_before": 431,
+      "dependency_handling": "current links updated; frozen paths resolve through this mapping and fixed base",
+      "after_sha256": "7fa4dd7e18b3aebd2c188333d2e598a3ed9cafd81ef5a756f51e7aaf3cea26a0",
+      "after_git_blob": "318eb9bab949762e01e009d9a79e476e7eb63638",
+      "bytes_after": 475
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/00_README.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/00_README.md",
+      "before_git_sha256": "ad0cbdebb17cba9d9e6ec6d9b92b3f31dd42870e2e806dd7e74a5bf2326ae287",
+      "after_sha256": "ad0cbdebb17cba9d9e6ec6d9b92b3f31dd42870e2e806dd7e74a5bf2326ae287",
+      "bytes_before": 2411,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/01_CODEX_GOAL.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/01_CODEX_GOAL.md",
+      "before_git_sha256": "241561fc61b35b204a57955f6367755877a896d9b9fba773e5fb8bf996ad852a",
+      "after_sha256": "241561fc61b35b204a57955f6367755877a896d9b9fba773e5fb8bf996ad852a",
+      "bytes_before": 8409,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/02_OFFLINE_REPAIR_SPEC.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/02_OFFLINE_REPAIR_SPEC.md",
+      "before_git_sha256": "f4dc7ed48424c06f6dd03b62e35087aede3cce78d8cdbb0ffd3faedbaf80efb3",
+      "after_sha256": "f4dc7ed48424c06f6dd03b62e35087aede3cce78d8cdbb0ffd3faedbaf80efb3",
+      "bytes_before": 11026,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/03_LIVE_SUPPLEMENT_SPEC.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/03_LIVE_SUPPLEMENT_SPEC.md",
+      "before_git_sha256": "49b64c789179caae73e38aa5a432feb2f2ba2ec2c401f76791498b771d81f462",
+      "after_sha256": "49b64c789179caae73e38aa5a432feb2f2ba2ec2c401f76791498b771d81f462",
+      "bytes_before": 8427,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/04_ACCEPTANCE_AND_EXAMPLES.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/04_ACCEPTANCE_AND_EXAMPLES.md",
+      "before_git_sha256": "b118602deb960955c8bac9cdf83753a9d00c4f05b6667b5c627b249160df4a78",
+      "after_sha256": "b118602deb960955c8bac9cdf83753a9d00c4f05b6667b5c627b249160df4a78",
+      "bytes_before": 6340,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+      "before_git_sha256": "0dc6c212979c9ebe9c93c4f323ee15af168c35ab030f4c26481946fcb81ed065",
+      "after_sha256": "0dc6c212979c9ebe9c93c4f323ee15af168c35ab030f4c26481946fcb81ed065",
+      "bytes_before": 3050,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv",
+      "before_git_sha256": "51f450ec4e3eb83e9d7b8d45db2c0bdeba012d2f4f5452f0e9bdf5bf9548d2d8",
+      "after_sha256": "51f450ec4e3eb83e9d7b8d45db2c0bdeba012d2f4f5452f0e9bdf5bf9548d2d8",
+      "bytes_before": 7846,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/checks/verify_pack.py",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/checks/verify_pack.py",
+      "before_git_sha256": "c63d5f0245b77e54b0a6736ec4d1300fe8f0609b415210fd63a0456c62a2c3a7",
+      "after_sha256": "c63d5f0245b77e54b0a6736ec4d1300fe8f0609b415210fd63a0456c62a2c3a7",
+      "bytes_before": 1328,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/locators/LEGACY_M2_90.csv",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/locators/LEGACY_M2_90.csv",
+      "before_git_sha256": "4424c73263db3fcbbbf67cd01a6bf68e37ccb016b222a107c3f5886512bc8b90",
+      "after_sha256": "4424c73263db3fcbbbf67cd01a6bf68e37ccb016b222a107c3f5886512bc8b90",
+      "bytes_before": 16959,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/plan.json",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/plan.json",
+      "before_git_sha256": "92df36ad5c504faa5b55df698ee27acbbc690339525ed5d2635b69cb02228951",
+      "after_sha256": "92df36ad5c504faa5b55df698ee27acbbc690339525ed5d2635b69cb02228951",
+      "bytes_before": 2841,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/CI_IDENTITY_SENSITIVITY_original.csv",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "legacy/CI_IDENTITY_SENSITIVITY.csv",
+      "before_git_sha256": "4c7e65b92928f5a496543c9ab4365d9a8cd435fb0f487d9feed69a154b1c5811",
+      "after_sha256": "4c7e65b92928f5a496543c9ab4365d9a8cd435fb0f487d9feed69a154b1c5811",
+      "bytes_before": 795,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/LEGACY_SELECTED_METRIC_CONTRACTS.json",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/references/LEGACY_SELECTED_METRIC_CONTRACTS.json",
+      "before_git_sha256": "8b76c11bca8aa51d7dd3410b72796e42c93adf46c65087015ff56d35d625fc2a",
+      "after_sha256": "8b76c11bca8aa51d7dd3410b72796e42c93adf46c65087015ff56d35d625fc2a",
+      "bytes_before": 10880,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_CONTRACT_DIFFERENCES.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_CONTRACT_DIFFERENCES.md",
+      "before_git_sha256": "199e8a96e0884c176412e08dae1deab261ff3fd5036ed0ebcaa8cc3ac3a2076a",
+      "after_sha256": "199e8a96e0884c176412e08dae1deab261ff3fd5036ed0ebcaa8cc3ac3a2076a",
+      "bytes_before": 1889,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_EXTERNAL_REVIEW.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_EXTERNAL_REVIEW.md",
+      "before_git_sha256": "31ce06fb9bda77a4ccdfba7c1b0b18fdbd7b1a50095224aba38093e50e093177",
+      "after_sha256": "31ce06fb9bda77a4ccdfba7c1b0b18fdbd7b1a50095224aba38093e50e093177",
+      "bytes_before": 6240,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_FINAL_REPORT_original.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_FINAL_REPORT_original.md",
+      "before_git_sha256": "b7d7d4d85d08784ba06470fa6ecdb5b71dbf47ed6f6c2da29954266a19ed9cc6",
+      "after_sha256": "b7d7d4d85d08784ba06470fa6ecdb5b71dbf47ed6f6c2da29954266a19ed9cc6",
+      "bytes_before": 3508,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_GAP_LIST.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "legacy/GAP_LIST.md",
+      "before_git_sha256": "af2e736340eca2c8ad451b59871ef3b2b7cfd44b728f7b78fcc7a9298ea1a405",
+      "after_sha256": "af2e736340eca2c8ad451b59871ef3b2b7cfd44b728f7b78fcc7a9298ea1a405",
+      "bytes_before": 2231,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_HANDOFF_original.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_HANDOFF_original.md",
+      "before_git_sha256": "ff028cdbb330a1ed0799c1fb2682f2787860ea75c1ce8909ce41ab88d91801b1",
+      "after_sha256": "ff028cdbb330a1ed0799c1fb2682f2787860ea75c1ce8909ce41ab88d91801b1",
+      "bytes_before": 1895,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_METRIC_MAIN_original.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "legacy/P3_METRIC_MAIN.md",
+      "before_git_sha256": "db7f3cfcf77ea068ce97d068aa502e134b18bf56459165ae5b313b671ea93372",
+      "after_sha256": "db7f3cfcf77ea068ce97d068aa502e134b18bf56459165ae5b313b671ea93372",
+      "bytes_before": 8549,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/SOURCE_NOTE.json",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "retained_member": "task_pack/SkillFlow_P3R_CompleteMetrics60/references/SOURCE_NOTE.json",
+      "before_git_sha256": "e22329fd1c040159d717f49ef06a4c035adea7447391e1741bc4aca4da9b6d94",
+      "after_sha256": "e22329fd1c040159d717f49ef06a4c035adea7447391e1741bc4aca4da9b6d94",
+      "bytes_before": 611,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/00_README.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/00_README.md",
+      "before_git_sha256": "3a6157da9a44e3c4d98d2051379dea645b6859104dd5e0cd3d7d1b968fff78c4",
+      "after_sha256": "3a6157da9a44e3c4d98d2051379dea645b6859104dd5e0cd3d7d1b968fff78c4",
+      "bytes_before": 1026,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/01_CODEX_GOAL.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/01_CODEX_GOAL.md",
+      "before_git_sha256": "2a2f5981e98018d3ffff9a56e2bfce8d7fd7197efb3cea357b9c2301bb3eeca3",
+      "after_sha256": "2a2f5981e98018d3ffff9a56e2bfce8d7fd7197efb3cea357b9c2301bb3eeca3",
+      "bytes_before": 8191,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/02_CLOSEOUT_SPEC.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/02_CLOSEOUT_SPEC.md",
+      "before_git_sha256": "f5d4759114cae87d3b9e060081f88b3443e728cdf0d39c25b79285ae71988687",
+      "after_sha256": "f5d4759114cae87d3b9e060081f88b3443e728cdf0d39c25b79285ae71988687",
+      "bytes_before": 10908,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/SOURCE_MAP.json",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/SOURCE_MAP.json",
+      "before_git_sha256": "4b9dea472960c5172541879a6e7616446f1a58999f8e6087f2aeaa11940197a6",
+      "after_sha256": "4b9dea472960c5172541879a6e7616446f1a58999f8e6087f2aeaa11940197a6",
+      "bytes_before": 2282,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/check_task_pack.py",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/check_task_pack.py",
+      "before_git_sha256": "b4df62b991e12cc53770fcf392dc283e77ad2fb9b4fd2c4a1849b284ea182a27",
+      "after_sha256": "b4df62b991e12cc53770fcf392dc283e77ad2fb9b4fd2c4a1849b284ea182a27",
+      "bytes_before": 1077,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/plan.json",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/plan.json",
+      "before_git_sha256": "ede64a8d8b37e22f3f7e982f8f9be3c764b79fe7d6b22b2f5c2520d3e49dcb49",
+      "after_sha256": "ede64a8d8b37e22f3f7e982f8f9be3c764b79fe7d6b22b2f5c2520d3e49dcb49",
+      "bytes_before": 2126,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/LIMITATIONS_AND_GAPS.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/references/LIMITATIONS_AND_GAPS.md",
+      "before_git_sha256": "0fd9d85ed9d3b7711c5ed22c8bfbc927034a05f0fd01b4d00280ab4dc0715333",
+      "after_sha256": "0fd9d85ed9d3b7711c5ed22c8bfbc927034a05f0fd01b4d00280ab4dc0715333",
+      "bytes_before": 1865,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/METRIC_CONTRACTS.csv",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/references/METRIC_CONTRACTS.csv",
+      "before_git_sha256": "db5b017f8c8a19642d78e0b708ada3694cfa8d482465bdb100e43b4030ddd0eb",
+      "after_sha256": "db5b017f8c8a19642d78e0b708ada3694cfa8d482465bdb100e43b4030ddd0eb",
+      "bytes_before": 4585,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_COMMIT_REVIEW_LIST.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/references/P4_COMMIT_REVIEW_LIST.md",
+      "before_git_sha256": "7ffdd3f8ce2548cf72400778ced381e521e45169961a74fd351945f2589dc809",
+      "after_sha256": "7ffdd3f8ce2548cf72400778ced381e521e45169961a74fd351945f2589dc809",
+      "bytes_before": 746,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_EXTERNAL_REVIEW.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/references/P4_EXTERNAL_REVIEW.md",
+      "before_git_sha256": "d3dd1ac693d21a6ff741ca19a1c2562ba0b4345ed0d3aa788221796d085813ed",
+      "after_sha256": "d3dd1ac693d21a6ff741ca19a1c2562ba0b4345ed0d3aa788221796d085813ed",
+      "bytes_before": 8313,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_FINAL_REPORT.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/references/P4_FINAL_REPORT.md",
+      "before_git_sha256": "6cc9e9195a10252b87d575399e490c0c43f6a3177eee31326b11475a801308d5",
+      "after_sha256": "6cc9e9195a10252b87d575399e490c0c43f6a3177eee31326b11475a801308d5",
+      "bytes_before": 3926,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_LOCAL_BINDINGS.json",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/references/P4_LOCAL_BINDINGS.json",
+      "before_git_sha256": "403b8bf86ccb396068327302aba6ae0b5359198411a47cdce7fd0428bab521ed",
+      "after_sha256": "403b8bf86ccb396068327302aba6ae0b5359198411a47cdce7fd0428bab521ed",
+      "bytes_before": 511,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_METRIC_MAIN.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/references/P4_METRIC_MAIN.md",
+      "before_git_sha256": "7582626748922849b57d0ee819ac72ea7ed356405e78a6094706d71701e4e6e4",
+      "after_sha256": "7582626748922849b57d0ee819ac72ea7ed356405e78a6094706d71701e4e6e4",
+      "bytes_before": 9430,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_NEXT_PLAN.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/references/P4_NEXT_PLAN.md",
+      "before_git_sha256": "e4043787f66186bc6708d6f28cd6b2335a06d324127962db181491cde8d60c82",
+      "after_sha256": "e4043787f66186bc6708d6f28cd6b2335a06d324127962db181491cde8d60c82",
+      "bytes_before": 5581,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_REPRODUCE.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/references/P4_REPRODUCE.md",
+      "before_git_sha256": "42733682e60e3ac68f72cf41f9a154d087e55a4558134daff69940aa121c089b",
+      "after_sha256": "42733682e60e3ac68f72cf41f9a154d087e55a4558134daff69940aa121c089b",
+      "bytes_before": 1278,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_STATUS.json",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_Closeout_Codex/references/P4_STATUS.json",
+      "before_git_sha256": "a27acb72c7b0dee75e4272005b73da6a085a619020463940067635762d53d73c",
+      "after_sha256": "a27acb72c7b0dee75e4272005b73da6a085a619020463940067635762d53d73c",
+      "bytes_before": 2457,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/00_README.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/00_README.md",
+      "before_git_sha256": "8b19dd244573b9861d098f659c4517baea514958b943621ea47d4c01d27f9e22",
+      "after_sha256": "8b19dd244573b9861d098f659c4517baea514958b943621ea47d4c01d27f9e22",
+      "bytes_before": 2119,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/01_CODEX_GOAL.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/01_CODEX_GOAL.md",
+      "before_git_sha256": "263344bb15afcea9c0260ae3a04e824a6a2f14ea642e7d4224dc25f71f66d1b8",
+      "after_sha256": "263344bb15afcea9c0260ae3a04e824a6a2f14ea642e7d4224dc25f71f66d1b8",
+      "bytes_before": 7312,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/02_BACKGROUND_AND_INPUT_MAP.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/02_BACKGROUND_AND_INPUT_MAP.md",
+      "before_git_sha256": "ca458a1eb3f870537d7138708477728187c266ea358c97e331a5d05788336771",
+      "after_sha256": "ca458a1eb3f870537d7138708477728187c266ea358c97e331a5d05788336771",
+      "bytes_before": 5588,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/03_ABLATION_PROTOCOL.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/03_ABLATION_PROTOCOL.md",
+      "before_git_sha256": "cd6ec193ecfdbe5fe45e4ce23960c88df678c47510dd83b1ed994cb8c2c813f6",
+      "after_sha256": "cd6ec193ecfdbe5fe45e4ce23960c88df678c47510dd83b1ed994cb8c2c813f6",
+      "bytes_before": 10247,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/04_METRICS_AND_EXAMPLES.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/04_METRICS_AND_EXAMPLES.md",
+      "before_git_sha256": "c2a7ba5d71e9badf78fe7b030cceddc20cc84028e13d3901ffc9ba91983247d5",
+      "after_sha256": "c2a7ba5d71e9badf78fe7b030cceddc20cc84028e13d3901ffc9ba91983247d5",
+      "bytes_before": 9166,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/05_ACCEPTANCE_AND_DELIVERY.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/05_ACCEPTANCE_AND_DELIVERY.md",
+      "before_git_sha256": "9fc82c25d8c4dc738b7697840dec0b7f11194503befc575247233ab2faa2a6b9",
+      "after_sha256": "9fc82c25d8c4dc738b7697840dec0b7f11194503befc575247233ab2faa2a6b9",
+      "bytes_before": 5558,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json",
+      "before_git_sha256": "0b8e69145da6e2b2db5c63f6783de5f52fa9470a585212700fb33fea483e0533",
+      "after_sha256": "0b8e69145da6e2b2db5c63f6783de5f52fa9470a585212700fb33fea483e0533",
+      "bytes_before": 2675,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/ablation_profiles.json",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/ablation_profiles.json",
+      "before_git_sha256": "95e4f34c82a32ab8d8bb5016d3c93db4d8b2f2f5df19437cf4713b022dcb97ef",
+      "after_sha256": "95e4f34c82a32ab8d8bb5016d3c93db4d8b2f2f5df19437cf4713b022dcb97ef",
+      "bytes_before": 4741,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/contract_examples.json",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/contract_examples.json",
+      "before_git_sha256": "de0585b3924d064a7ac204fca9866fc33814329efb1b7cc25f0b63fcca8e2a99",
+      "after_sha256": "de0585b3924d064a7ac204fca9866fc33814329efb1b7cc25f0b63fcca8e2a99",
+      "bytes_before": 2240,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/plan.json",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/plan.json",
+      "before_git_sha256": "aa3d93af9e24b7492e1ec938e8430dd4b2bfa7a539213d0f439e5189a8259366",
+      "after_sha256": "aa3d93af9e24b7492e1ec938e8430dd4b2bfa7a539213d0f439e5189a8259366",
+      "bytes_before": 2588,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/CAPABILITY_MODEL_CONTRACT.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/CAPABILITY_MODEL_CONTRACT.md",
+      "before_git_sha256": "fc205b806db5522a17b2ef28357547c2abe538b84cf4764df5814118f5e7f34b",
+      "after_sha256": "fc205b806db5522a17b2ef28357547c2abe538b84cf4764df5814118f5e7f34b",
+      "bytes_before": 1516,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/METRIC_CONTRACTS_P3R.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/METRIC_CONTRACTS_P3R.md",
+      "before_git_sha256": "01c08797724a872c3e2ac635b97acb7c04f98ac2f926fe145c4806b9cc81f0f2",
+      "after_sha256": "01c08797724a872c3e2ac635b97acb7c04f98ac2f926fe145c4806b9cc81f0f2",
+      "bytes_before": 5201,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_EXTERNAL_REVIEW.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_EXTERNAL_REVIEW.md",
+      "before_git_sha256": "327a9effbda82988d6abec547eda466f03df1971e88cb8d3976fa888c3751b01",
+      "after_sha256": "327a9effbda82988d6abec547eda466f03df1971e88cb8d3976fa888c3751b01",
+      "bytes_before": 6842,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_FINAL_REPORT.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_FINAL_REPORT.md",
+      "before_git_sha256": "01a760f497b767a1bcf5d89564eea11d1a3c759bf1c1ef1ec54e1f8b53ed0eab",
+      "after_sha256": "01a760f497b767a1bcf5d89564eea11d1a3c759bf1c1ef1ec54e1f8b53ed0eab",
+      "bytes_before": 4583,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_METRIC_MAIN.md",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_METRIC_MAIN.md",
+      "before_git_sha256": "ba55a325d44ef8f1bfa08dc6bb420c93ae040c9f5eb4430a6f94ee546eee2c92",
+      "after_sha256": "ba55a325d44ef8f1bfa08dc6bb420c93ae040c9f5eb4430a6f94ee546eee2c92",
+      "bytes_before": 7402,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/source_refs.json",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/source_refs.json",
+      "before_git_sha256": "ca04849c03cfbb928448122551c373fd8ce0a97f277e1ce1b97bc101387073d4",
+      "after_sha256": "ca04849c03cfbb928448122551c373fd8ce0a97f277e1ce1b97bc101387073d4",
+      "bytes_before": 2178,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/tools/check_task_pack.py",
+      "action": "archive_only",
+      "retained_archive": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "retained_member": "task_pack/SkillFlow_P4_MeasurementEvidenceAblation/tools/check_task_pack.py",
+      "before_git_sha256": "6c15920f77c8c0814c0947cf29f17df166ed7ace7a3d1a2eca3e8f4194f48cf2",
+      "after_sha256": "6c15920f77c8c0814c0947cf29f17df166ed7ace7a3d1a2eca3e8f4194f48cf2",
+      "bytes_before": 1678,
+      "dependency_handling": "full original ZIP restores task_pack at original relative paths; portable recompute inputs stay present; audit/build code requiring PACK must run from restored layout, see release note"
+    },
+    {
+      "old_path": ".gitattributes",
+      "new_path": ".gitattributes",
+      "action": "path_configuration_only",
+      "before_git_sha256": "97ba6329dc84103844b528f7c241159ed9e5e4fe53347839a262a49a44696755",
+      "after_sha256": "4a27600035687e3da7b05460b4a3500b45f97e1877f2272158491c00bb7e9166",
+      "before_git_blob": "9b21b3ad38480f4d03a43b9b8262b68f092a6952",
+      "after_git_blob": "42e9d403d3c6e11f12e7eb8bcb18f766fc227526"
+    },
+    {
+      "old_path": "pyproject.toml",
+      "new_path": "pyproject.toml",
+      "action": "path_configuration_only",
+      "before_git_sha256": "90a5d922bd8429fa42466f104eaccd6721214fb22134ad109d03342251058d49",
+      "after_sha256": "5057a19fba11b8c4afb7cc3ab7d6967cc46932d3f39d13ed79428d5c6a8e35de",
+      "before_git_blob": "3b9076c6b398127b870323daa2a63d1e5211cd6a",
+      "after_git_blob": "19932fa861b0f1cdac6cdeeadcd632e6b5219cb7"
+    },
+    {
+      "old_path": "src/skillflow/experiment/t17/v2/frozen.py",
+      "new_path": "src/skillflow/experiment/t17/v2/frozen.py",
+      "action": "path_configuration_only",
+      "before_git_sha256": "4c3f3621ad3194f75a7ee68b9c5727f416ed420bb68c6a563d4dcdf0d0a876e9",
+      "after_sha256": "c57f7a756d707d1aaf90e97db1e00b4dc420326ff4a8a055d3ff3dc3adcc9b1b",
+      "before_git_blob": "dc69d5749b5c1dbf13cf9e7d42fb4d36a114a915",
+      "after_git_blob": "55a85b05d64c8eeaeb072cdb25d104f3d23ff447"
+    },
+    {
+      "old_path": "docs/security-semantics.md",
+      "new_path": "docs/security-semantics.md",
+      "action": "link_only",
+      "before_git_sha256": "185799f5435469a5f56d23a78c0bb7fb4f0efd57ba38e15592961cee93c5c2b4",
+      "after_sha256": "48a9cc8b825e884a2fbe65638eff842d5f85f5c10e0a7d38a421d686dd57b775",
+      "before_git_blob": "87e2b9cac38d7da56393efea2bf6c3ff8be28416",
+      "after_git_blob": "4275e7fa03831d81e63b041d2501e980173d25f7"
+    },
+    {
+      "old_path": "docs/threat-model.md",
+      "new_path": "docs/threat-model.md",
+      "action": "link_only",
+      "before_git_sha256": "30f59d4c0770b347b03f50f2a0bca22b4f7bd95bf4f50fcdfc0048c9213f6b82",
+      "after_sha256": "4df0c9357363f3855ae559fd9585ed895d7a41537324960a5d0c6492bf7aa077",
+      "before_git_blob": "6d76869a3b3238d6abcdeadb4a0e681bf4046a83",
+      "after_git_blob": "9bda1b8a0fad862c1d1f1eb35e252de1f980c5fb"
+    },
+    {
+      "old_path": "docs/summaries/T17_Complete_Summary_V2.md",
+      "new_path": "docs/summaries/T17_Complete_Summary_V2.md",
+      "action": "link_only",
+      "before_git_sha256": "ad9d061381462b961d86cfcff1d89912b762708ed5af45126801dde577bc5de3",
+      "after_sha256": "352409ec58ae3891db72f70b3e023ca3d65cfbd59adb54152041cc4f588ae916",
+      "before_git_blob": "5a5cb1d9d0f91da807d25a3fd8a7f213f35214a7",
+      "after_git_blob": "1e28d7022441bf1b584516fe21eca5bd99754d75"
+    },
+    {
+      "old_path": "README.md",
+      "new_path": "README.md",
+      "action": "navigation_update",
+      "before_git_sha256": "215d81a7d7d83743dd44edce929a9717256f0ffe08850aed09e337323e4c2f20",
+      "after_sha256": "455ea1ab135c97476323517202672c977a1c555f6c545ab95176fcdaa59efc0c",
+      "before_git_blob": "d799101db46714df55b379d7b8386f7c1d9be461",
+      "after_git_blob": "5f411649a4312d8112007f8598846f5a71c1407f"
+    },
+    {
+      "old_path": "论文材料/README.md",
+      "new_path": "论文材料/README.md",
+      "action": "navigation_update",
+      "before_git_sha256": "c80c89a510589c57ffc798c735bafb63df13f0654a5f13e994b8b8b511a7b28d",
+      "after_sha256": "3b623b9cfa316f664aee3efd1d453787ef875bb6977573fa67f6965508032cc8",
+      "before_git_blob": "2d82a4cfcfbc03db8e02ee65be0a35c3b807241e",
+      "after_git_blob": "57391c1d9174b256bae0282b33918fa39b1dc0da"
+    },
+    {
+      "old_path": "论文材料/发布记录/p3-p4-20260917/README.md",
+      "new_path": "论文材料/发布记录/p3-p4-20260917/README.md",
+      "action": "navigation_update",
+      "before_git_sha256": "59a81669ece8d2a4b1ea84ed836bb90374a38461ad6e6790a585ca8bfb3d2f21",
+      "after_sha256": "362bb21bf5eeb79ec7299ad37e9c3702e78a2c811b106f92a272114860625c72",
+      "before_git_blob": "860467a928a8a75ffc5561fe1aa441b2b4a90197",
+      "after_git_blob": "ba8788baa4694cfea9bc726b1cce76e5530c10eb"
+    }
+  ],
+  "retained_review_archives": [
+    {
+      "path": "论文材料/P3_机制测量/p3-20260916-232018/P3_REVIEW_p3-20260916-232018.zip",
+      "sha256": "790950036f6893eab47588a8a30e9976c51b27aa0fabeaffe2c53fed87c9b67f",
+      "bytes": 4819181
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/p3r-completion-review.zip",
+      "sha256": "3390b1e8dba914cc42088661b5378d139ddce177c551f4e0d70a3d74e47ee304",
+      "bytes": 4333215
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/closeout-20260917-141455/p4-closeout-review.zip",
+      "sha256": "82bf039de2c7b54a5951763021b4497e4356de98f590468094c2b9289d20dee3",
+      "bytes": 523452
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "sha256": "dcda387b143a72eb56dd53a1a03fe5aa934462eccf974181025b868bd8c1265d",
+      "bytes": 39613816
+    }
+  ],
+  "historical_manifest": {
+    "path": "论文材料/发布记录/p0-20260915/metadata/manifest.json",
+    "original_relative_root": "论文材料/",
+    "verified_commit": "caad8858cad5cdf9e8be3f0c7bf28eca00d0ad44",
+    "exact_members": 10,
+    "current_tree_manifest": false
+  },
+  "checks": {
+    "status": "PASS",
+    "planned_moves_completed": 16,
+    "pure_move_same_git_blob": 13,
+    "launchers_path_only": 2,
+    "moved_task_link_only": 1,
+    "archive_only_removed": 52,
+    "unique_evidence_loss": 0,
+    "base_files": 4516,
+    "current_files": 4467,
+    "unchanged_original_blobs": 4439,
+    "root_file_count_before": 14,
+    "root_file_count_after": 6,
+    "current_navigation_and_changed_doc_links_resolved": 86,
+    "new_editable_link_regressions": 0,
+    "frozen_link_exceptions": 2,
+    "preexisting_broken_local_targets": 27,
+    "link_scope": "all retained Markdown/HTML file targets compared to base; current navigation and affected links checked; URL reachability and all anchors not claimed",
+    "index_identity_verified": true,
+    "launcher_checks": [
+      {
+        "parse_errors": 0,
+        "path": "scripts/legacy/t16/launch_t16d2_v31_canary.ps1",
+        "launcher_executed": false,
+        "root_resolves_to_repository": true,
+        "assignment": "$projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../../..')).Path"
+      },
+      {
+        "parse_errors": 0,
+        "path": "scripts/legacy/t16/launch_t16e_model2_canary.ps1",
+        "launcher_executed": false,
+        "root_resolves_to_repository": true,
+        "assignment": "$projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../../..')).Path"
+      }
+    ],
+    "path_checks": {
+      "status": "PASS",
+      "checks": [
+        "relocated audit old key and digest EXPERIMENT_AUDIT.md",
+        "relocated audit old key and digest EXPERIMENT_AUDIT.json",
+        "reject unsafe ../escape",
+        "reject unsafe C:/escape",
+        "reject unsafe /escape",
+        "reject unsafe a\\b",
+        "isolated relocated fixture accepts exact bytes",
+        "relocated digest drift rejected",
+        "existing conflicting original never silently redirected",
+        "arbitrary path not aliased",
+        "missing ordinary file fails"
+      ],
+      "project_imports": 0,
+      "model_or_metric_execution": 0
+    },
+    "original_workspace_status_and_modified_hashes_unchanged": true,
+    "model_Judge_business_counterfactual_calls": 0,
+    "metrics_recomputed": 0,
+    "full_CI_runs": 0,
+    "modified_source_ruff": "PASS: src/skillflow/experiment/t17/v2/frozen.py only; no-cache",
+    "staged_whitespace_check": "PASS"
+  },
+  "frozen_reference_policy": "Frozen reports, manifests and PUBLICATION_MAP retain their original relative roots and fixed-base identity. Consult old_path mappings or original ZIP layout; they are not declared current-tree indexes.",
+  "self_hash_excluded": true,
+  "frozen_link_exceptions": [
+    {
+      "path": "docs/history/audits/EXPERIMENT_AUDIT_V2.md",
+      "target": "docs/evidence/t17-v2-ci-coverage-repair-20260904.json",
+      "resolved_path": "docs/history/audits/docs/evidence/t17-v2-ci-coverage-repair-20260904.json"
+    },
+    {
+      "path": "docs/history/audits/EXPERIMENT_AUDIT_V2.md",
+      "target": "docs/evidence/t17-v2-quality-pass-20260904.json",
+      "resolved_path": "docs/history/audits/docs/evidence/t17-v2-quality-pass-20260904.json"
+    }
+  ],
+  "archived_input_references": [
+    {
+      "path": "论文材料/P3_机制测量/p3-20260916-232018/analysis/finalize_tables.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3-20260916-232018/analysis/package_review.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3-20260916-232018/analysis/recover.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3-20260916-232018/analysis/supplement.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/00_README.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/01_CODEX_GOAL.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/plan.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/00_README.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/01_CODEX_GOAL.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/plan.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/00_README.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/01_CODEX_GOAL.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/plan.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3-20260916-232018/analysis/validate_delivery.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3-20260916-232018/analysis/write_reports.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/BUNDLE_MANIFEST.json",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/00_README.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/01_CODEX_GOAL.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/02_OFFLINE_REPAIR_SPEC.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/03_LIVE_SUPPLEMENT_SPEC.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/04_ACCEPTANCE_AND_EXAMPLES.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/checks/verify_pack.py",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/locators/LEGACY_M2_90.csv",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/plan.json",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/CI_IDENTITY_SENSITIVITY_original.csv",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/LEGACY_SELECTED_METRIC_CONTRACTS.json",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_CONTRACT_DIFFERENCES.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_EXTERNAL_REVIEW.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_FINAL_REPORT_original.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_GAP_LIST.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_HANDOFF_original.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_METRIC_MAIN_original.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/SOURCE_NOTE.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/SOURCE_MANIFEST_P3R.json",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/00_README.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/01_CODEX_GOAL.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/02_OFFLINE_REPAIR_SPEC.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/03_LIVE_SUPPLEMENT_SPEC.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/04_ACCEPTANCE_AND_EXAMPLES.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/checks/verify_pack.py",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/locators/LEGACY_M2_90.csv",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/plan.json",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/CI_IDENTITY_SENSITIVITY_original.csv",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/LEGACY_SELECTED_METRIC_CONTRACTS.json",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_CONTRACT_DIFFERENCES.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_EXTERNAL_REVIEW.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_FINAL_REPORT_original.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_GAP_LIST.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_HANDOFF_original.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_METRIC_MAIN_original.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/SOURCE_NOTE.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/acceptance.py",
+      "references": [
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/CAPABILITY_MODEL_CONTRACT.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_FINAL_REPORT.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_METRIC_MAIN.md"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/analyze_live.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/bootstrap.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/locators/LEGACY_M2_90.csv",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/build_final_report.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/plan.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/plan.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/plan.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/METRIC_CONTRACTS_P3R.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_FINAL_REPORT.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_METRIC_MAIN.md"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/diagnose_m2.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/locators/LEGACY_M2_90.csv"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/export_live.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/final_contract_notes.py",
+      "references": [
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/METRIC_CONTRACTS_P3R.md"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/final_readme_and_control_note.py",
+      "references": [
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_FINAL_REPORT.md"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/freeze_activation.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/independent_live.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/inspect_manifest.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/lifecycle_accounting.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/package_review.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/retain_core_gaps.py",
+      "references": [
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_FINAL_REPORT.md"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/source_audit.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/validate_pot.py",
+      "references": [
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/CAPABILITY_MODEL_CONTRACT.md"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/analysis/write_contracts.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/METRIC_CONTRACTS_P3R.md"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/live/FORMAL_CODE_FREEZE.json",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/live/PREFLIGHT_CODE_FREEZE.json",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/live/code/p2_transport.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/live/public/EXECUTION_AUDIT.json",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/closeout-20260917-141455/MANIFEST.json",
+      "references": [
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/00_README.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/01_CODEX_GOAL.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/02_CLOSEOUT_SPEC.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/SOURCE_MAP.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/check_task_pack.py",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/plan.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/LIMITATIONS_AND_GAPS.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/METRIC_CONTRACTS.csv",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_COMMIT_REVIEW_LIST.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_EXTERNAL_REVIEW.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_FINAL_REPORT.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_LOCAL_BINDINGS.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_METRIC_MAIN.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_NEXT_PLAN.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_REPRODUCE.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_STATUS.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/closeout-20260917-141455/METRIC_NAME_MAP.csv",
+      "references": [
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/02_CLOSEOUT_SPEC.md"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/closeout-20260917-141455/P4_CLOSEOUT_STATUS.json",
+      "references": [
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_EXTERNAL_REVIEW.md"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/closeout-20260917-141455/SOURCE_MANIFEST.json",
+      "references": [
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/00_README.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/01_CODEX_GOAL.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/02_CLOSEOUT_SPEC.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/SOURCE_MAP.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/check_task_pack.py",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/plan.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/LIMITATIONS_AND_GAPS.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/METRIC_CONTRACTS.csv",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_COMMIT_REVIEW_LIST.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_EXTERNAL_REVIEW.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_FINAL_REPORT.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_LOCAL_BINDINGS.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_METRIC_MAIN.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_NEXT_PLAN.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_REPRODUCE.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_STATUS.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/closeout-20260917-141455/checks/INPUT_BINDING.json",
+      "references": [
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/00_README.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/01_CODEX_GOAL.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/02_BACKGROUND_AND_INPUT_MAP.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/03_ABLATION_PROTOCOL.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/04_METRICS_AND_EXAMPLES.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/05_ACCEPTANCE_AND_DELIVERY.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/ablation_profiles.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/contract_examples.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/plan.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/CAPABILITY_MODEL_CONTRACT.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/METRIC_CONTRACTS_P3R.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_EXTERNAL_REVIEW.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_FINAL_REPORT.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_METRIC_MAIN.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/source_refs.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/tools/check_task_pack.py"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/closeout-20260917-141455/code/bind_task_case.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/closeout-20260917-141455/code/bootstrap.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_STATUS.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/closeout-20260917-141455/code/check_closeout.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/closeout-20260917-141455/code/collect_saved_results.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/SOURCE_MAP.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/LIMITATIONS_AND_GAPS.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/METRIC_CONTRACTS.csv",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_FINAL_REPORT.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_METRIC_MAIN.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_STATUS.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/METRIC_CONTRACTS_P3R.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_METRIC_MAIN.md"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/closeout-20260917-141455/code/complete_pack.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/closeout-20260917-141455/code/finalize_closeout.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_EXTERNAL_REVIEW.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/closeout-20260917-141455/code/inspect_detail.py",
+      "references": [
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/SOURCE_MAP.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_METRIC_MAIN.md"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/closeout-20260917-141455/code/render_tables.py",
+      "references": [
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/02_CLOSEOUT_SPEC.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/METRIC_CONTRACTS.csv",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/METRIC_CONTRACTS_P3R.md"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/closeout-20260917-141455/code/write_closeout_documents.py",
+      "references": [
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_EXTERNAL_REVIEW.md"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/MANIFEST.json",
+      "references": [
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/00_README.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/01_CODEX_GOAL.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/02_BACKGROUND_AND_INPUT_MAP.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/03_ABLATION_PROTOCOL.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/04_METRICS_AND_EXAMPLES.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/05_ACCEPTANCE_AND_DELIVERY.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/ablation_profiles.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/contract_examples.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/plan.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/CAPABILITY_MODEL_CONTRACT.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/METRIC_CONTRACTS_P3R.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_EXTERNAL_REVIEW.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_FINAL_REPORT.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_METRIC_MAIN.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/source_refs.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/tools/check_task_pack.py"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/SOURCE_MAP.json",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/00_README.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/01_CODEX_GOAL.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/02_BACKGROUND_AND_INPUT_MAP.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/03_ABLATION_PROTOCOL.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/04_METRICS_AND_EXAMPLES.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/05_ACCEPTANCE_AND_DELIVERY.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/ablation_profiles.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/contract_examples.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/plan.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/CAPABILITY_MODEL_CONTRACT.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/METRIC_CONTRACTS_P3R.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_EXTERNAL_REVIEW.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_FINAL_REPORT.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_METRIC_MAIN.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/source_refs.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/tools/check_task_pack.py"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/audit/P3R_INPUT_BINDING.json",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/00_README.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/01_CODEX_GOAL.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/02_OFFLINE_REPAIR_SPEC.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/03_LIVE_SUPPLEMENT_SPEC.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/04_ACCEPTANCE_AND_EXAMPLES.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/checks/verify_pack.py",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/locators/LEGACY_M2_90.csv",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/plan.json",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/CI_IDENTITY_SENSITIVITY_original.csv",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/LEGACY_SELECTED_METRIC_CONTRACTS.json",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_CONTRACT_DIFFERENCES.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_EXTERNAL_REVIEW.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_FINAL_REPORT_original.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_GAP_LIST.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_HANDOFF_original.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_METRIC_MAIN_original.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/SOURCE_NOTE.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/code/admission_invariants.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/code/bootstrap.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/code/build_delivery_material.py",
+      "references": [
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/METRIC_CONTRACTS.csv"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/code/build_inputs.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/SOURCE_MAP.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/code/finalize_validation.py",
+      "references": [
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_FINAL_REPORT.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_STATUS.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/code/inspect_schema.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/code/package_review.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/code/portable_binding_adjustment.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/SOURCE_MAP.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/METRIC_CONTRACTS.csv"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/code/prepare_full.py",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/SOURCE_MAP.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/METRIC_CONTRACTS.csv",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/CAPABILITY_MODEL_CONTRACT.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/METRIC_CONTRACTS_P3R.md"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/code/verify_frozen_sources.py",
+      "references": [
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/SOURCE_MAP.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/code/write_reports.py",
+      "references": [
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/LIMITATIONS_AND_GAPS.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_FINAL_REPORT.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_METRIC_MAIN.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_STATUS.json"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    },
+    {
+      "path": "论文材料/发布记录/p3-p4-20260917/PUBLICATION_MAP.json",
+      "references": [
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/00_README.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/01_CODEX_GOAL.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/02_OFFLINE_REPAIR_SPEC.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/03_LIVE_SUPPLEMENT_SPEC.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/04_ACCEPTANCE_AND_EXAMPLES.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/checks/verify_pack.py",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/locators/LEGACY_M2_90.csv",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/plan.json",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/CI_IDENTITY_SENSITIVITY_original.csv",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/LEGACY_SELECTED_METRIC_CONTRACTS.json",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_CONTRACT_DIFFERENCES.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_EXTERNAL_REVIEW.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_FINAL_REPORT_original.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_GAP_LIST.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_HANDOFF_original.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_METRIC_MAIN_original.md",
+        "论文材料/P3_机制测量/p3r-20260917-103400/task_pack/SkillFlow_P3R_CompleteMetrics60/references/SOURCE_NOTE.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/00_README.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/01_CODEX_GOAL.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/02_CLOSEOUT_SPEC.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/SOURCE_MAP.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/check_task_pack.py",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/plan.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/LIMITATIONS_AND_GAPS.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/METRIC_CONTRACTS.csv",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_COMMIT_REVIEW_LIST.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_EXTERNAL_REVIEW.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_FINAL_REPORT.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_LOCAL_BINDINGS.json",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_METRIC_MAIN.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_NEXT_PLAN.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_REPRODUCE.md",
+        "论文材料/P4_测量证据消融/closeout-20260917-141455/task_pack/SkillFlow_P4_Closeout_Codex/references/P4_STATUS.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/00_README.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/01_CODEX_GOAL.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/02_BACKGROUND_AND_INPUT_MAP.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/03_ABLATION_PROTOCOL.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/04_METRICS_AND_EXAMPLES.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/05_ACCEPTANCE_AND_DELIVERY.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/MANIFEST.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/ablation_profiles.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/contract_examples.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/plan.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/CAPABILITY_MODEL_CONTRACT.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/METRIC_CONTRACTS_P3R.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_EXTERNAL_REVIEW.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_FINAL_REPORT.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/references/P3R_METRIC_MAIN.md",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/source_refs.json",
+        "论文材料/P4_测量证据消融/p4-20260917-123623/task_pack/SkillFlow_P4_MeasurementEvidenceAblation/tools/check_task_pack.py"
+      ],
+      "handling": "frozen historical provenance or archived build dependency; restore original ZIP layout before generation, portable inputs unchanged"
+    }
+  ]
+}

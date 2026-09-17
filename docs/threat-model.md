@@ -5,7 +5,7 @@
 - 任务：T02
 - 状态：已冻结，后续实现必须遵守
 - 适用范围：确定性 MVP；单 Agent、2～3 个 Skill、共享 Context、Persistent Memory、多 Session 和安全 Mock Tool
-- 上位边界：`SkillFlow_Codex_Task_Spec.md` 第 1、2 节
+- 上位边界：[历史任务规范](history/specs/SkillFlow_Codex_Task_Spec.md) 第 1、2 节
 
 本文档固定研究对象、可信主体、攻击者能力、资产、敏感 Sink 和攻击成功判据。它不是恶意文本分类器的设计，也不承诺阻止所有攻击。若后续实现需要扩大或改变 MVP 边界，必须先取得用户确认并新增 ADR。
 

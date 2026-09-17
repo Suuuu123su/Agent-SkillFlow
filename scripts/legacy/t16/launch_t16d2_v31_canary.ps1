@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 
-$projectRoot = $PSScriptRoot
+$projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../../..')).Path
 $python = Join-Path $projectRoot '.venv-skillflow\Scripts\python.exe'
 $outputRoot = Join-Path $projectRoot 'runs\t16d2-v31-canary-live-20260830-01\attempt-01'
 
