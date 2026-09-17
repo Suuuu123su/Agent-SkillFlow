@@ -1,0 +1,60 @@
+{
+  "projection": "code/ingest.py whitelist -> code/views.py recursive precompute mask -> isolated code/run_predictor.py",
+  "channels": [
+    [
+      "V00",
+      null
+    ],
+    [
+      "V01",
+      "receipt"
+    ],
+    [
+      "V02",
+      "grant"
+    ],
+    [
+      "V03",
+      "provenance"
+    ],
+    [
+      "V04",
+      "counterfactual"
+    ],
+    [
+      "V05",
+      "task_success_evidence"
+    ],
+    [
+      "V06",
+      "lifecycle"
+    ],
+    [
+      "V07",
+      "scope_lifetime"
+    ],
+    [
+      "V08",
+      "decision_reason"
+    ],
+    [
+      "V09",
+      "failure"
+    ],
+    [
+      "V10",
+      "declared_capability_rules"
+    ],
+    [
+      "V11",
+      "irrelevant_metadata"
+    ],
+    [
+      "V12",
+      "rename"
+    ]
+  ],
+  "definition": "null = withheld/unavailable, never event absence",
+  "field_map": "MASK_DEPENDENCY_MAP.csv",
+  "leak_check": "checks/LEAKAGE_CHECK.json"
+}

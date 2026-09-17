@@ -1,0 +1,1899 @@
+{
+  "checks": [
+    {
+      "check": "SQL_status_counts",
+      "view": "V00",
+      "pass_check": true,
+      "computed": {
+        "bounded": 1,
+        "not_applicable": 3325,
+        "point": 15471,
+        "unknown": 595
+      },
+      "reported": {
+        "point": 15471,
+        "bounded": 1,
+        "unknown": 595,
+        "not_applicable": 3325,
+        "conflict": 0,
+        "analysis_error": 0
+      }
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V00",
+      "query_id": "i_3d031958544a8c5247ac8905",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V00",
+      "query_id": "i_d9f7f47a56f73e0b00390941",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V00",
+      "query_id": "i_51995fbbe28a6c790ab02462",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V00",
+      "query_id": "i_66353a38e186af9745a7012f",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V00",
+      "query_id": "i_2e2200be6e596b25d03b56c9",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V00",
+      "query_id": "i_a7db05e53e903af24c867e2c",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V00",
+      "query_id": "i_99fb18bbf02b615f24b30dd4",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V00",
+      "query_id": "i_63221a8b3fbb859c22ccc1e7",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V00",
+      "query_id": "i_d15c48fbf8946b62d1799de0",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V00",
+      "query_id": "i_a9b8388644a103fe92cd66c2",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V00",
+      "query_id": "i_0e989e548b2c68a47360abd8",
+      "pass_check": true
+    },
+    {
+      "check": "SQL_status_counts",
+      "view": "V01",
+      "pass_check": true,
+      "computed": {
+        "bounded": 676,
+        "not_applicable": 3325,
+        "point": 13367,
+        "unknown": 2024
+      },
+      "reported": {
+        "point": 13367,
+        "bounded": 676,
+        "unknown": 2024,
+        "not_applicable": 3325,
+        "conflict": 0,
+        "analysis_error": 0
+      }
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V01",
+      "query_id": "i_3d031958544a8c5247ac8905",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V01",
+      "query_id": "i_d9f7f47a56f73e0b00390941",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V01",
+      "query_id": "i_51995fbbe28a6c790ab02462",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V01",
+      "query_id": "i_66353a38e186af9745a7012f",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V01",
+      "query_id": "i_2e2200be6e596b25d03b56c9",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V01",
+      "query_id": "i_a7db05e53e903af24c867e2c",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V01",
+      "query_id": "i_99fb18bbf02b615f24b30dd4",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V01",
+      "query_id": "i_63221a8b3fbb859c22ccc1e7",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V01",
+      "query_id": "i_d15c48fbf8946b62d1799de0",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V01",
+      "query_id": "i_a9b8388644a103fe92cd66c2",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V01",
+      "query_id": "i_0e989e548b2c68a47360abd8",
+      "pass_check": true
+    },
+    {
+      "check": "SQL_status_counts",
+      "view": "V02",
+      "pass_check": true,
+      "computed": {
+        "bounded": 756,
+        "not_applicable": 3325,
+        "point": 12613,
+        "unknown": 2698
+      },
+      "reported": {
+        "point": 12613,
+        "bounded": 756,
+        "unknown": 2698,
+        "not_applicable": 3325,
+        "conflict": 0,
+        "analysis_error": 0
+      }
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V02",
+      "query_id": "i_3d031958544a8c5247ac8905",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V02",
+      "query_id": "i_d9f7f47a56f73e0b00390941",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V02",
+      "query_id": "i_51995fbbe28a6c790ab02462",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V02",
+      "query_id": "i_66353a38e186af9745a7012f",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V02",
+      "query_id": "i_2e2200be6e596b25d03b56c9",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V02",
+      "query_id": "i_a7db05e53e903af24c867e2c",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V02",
+      "query_id": "i_99fb18bbf02b615f24b30dd4",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V02",
+      "query_id": "i_63221a8b3fbb859c22ccc1e7",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V02",
+      "query_id": "i_d15c48fbf8946b62d1799de0",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V02",
+      "query_id": "i_a9b8388644a103fe92cd66c2",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V02",
+      "query_id": "i_0e989e548b2c68a47360abd8",
+      "pass_check": true
+    },
+    {
+      "check": "SQL_status_counts",
+      "view": "V03",
+      "pass_check": true,
+      "computed": {
+        "bounded": 1,
+        "not_applicable": 2629,
+        "point": 7305,
+        "unknown": 9457
+      },
+      "reported": {
+        "point": 7305,
+        "bounded": 1,
+        "unknown": 9457,
+        "not_applicable": 2629,
+        "conflict": 0,
+        "analysis_error": 0
+      }
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V03",
+      "query_id": "i_3d031958544a8c5247ac8905",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V03",
+      "query_id": "i_d9f7f47a56f73e0b00390941",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V03",
+      "query_id": "i_51995fbbe28a6c790ab02462",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V03",
+      "query_id": "i_66353a38e186af9745a7012f",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V03",
+      "query_id": "i_2e2200be6e596b25d03b56c9",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V03",
+      "query_id": "i_a7db05e53e903af24c867e2c",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V03",
+      "query_id": "i_99fb18bbf02b615f24b30dd4",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V03",
+      "query_id": "i_63221a8b3fbb859c22ccc1e7",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V03",
+      "query_id": "i_d15c48fbf8946b62d1799de0",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V03",
+      "query_id": "i_a9b8388644a103fe92cd66c2",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V03",
+      "query_id": "i_0e989e548b2c68a47360abd8",
+      "pass_check": true
+    },
+    {
+      "check": "SQL_status_counts",
+      "view": "V04",
+      "pass_check": true,
+      "computed": {
+        "bounded": 1,
+        "not_applicable": 2602,
+        "point": 14857,
+        "unknown": 1932
+      },
+      "reported": {
+        "point": 14857,
+        "bounded": 1,
+        "unknown": 1932,
+        "not_applicable": 2602,
+        "conflict": 0,
+        "analysis_error": 0
+      }
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V04",
+      "query_id": "i_3d031958544a8c5247ac8905",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V04",
+      "query_id": "i_d9f7f47a56f73e0b00390941",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V04",
+      "query_id": "i_51995fbbe28a6c790ab02462",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V04",
+      "query_id": "i_66353a38e186af9745a7012f",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V04",
+      "query_id": "i_2e2200be6e596b25d03b56c9",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V04",
+      "query_id": "i_a7db05e53e903af24c867e2c",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V04",
+      "query_id": "i_99fb18bbf02b615f24b30dd4",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V04",
+      "query_id": "i_63221a8b3fbb859c22ccc1e7",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V04",
+      "query_id": "i_d15c48fbf8946b62d1799de0",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V04",
+      "query_id": "i_a9b8388644a103fe92cd66c2",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V04",
+      "query_id": "i_0e989e548b2c68a47360abd8",
+      "pass_check": true
+    },
+    {
+      "check": "SQL_status_counts",
+      "view": "V05",
+      "pass_check": true,
+      "computed": {
+        "bounded": 1,
+        "not_applicable": 3325,
+        "point": 15471,
+        "unknown": 595
+      },
+      "reported": {
+        "point": 15471,
+        "bounded": 1,
+        "unknown": 595,
+        "not_applicable": 3325,
+        "conflict": 0,
+        "analysis_error": 0
+      }
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V05",
+      "query_id": "i_3d031958544a8c5247ac8905",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V05",
+      "query_id": "i_d9f7f47a56f73e0b00390941",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V05",
+      "query_id": "i_51995fbbe28a6c790ab02462",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V05",
+      "query_id": "i_66353a38e186af9745a7012f",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V05",
+      "query_id": "i_2e2200be6e596b25d03b56c9",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V05",
+      "query_id": "i_a7db05e53e903af24c867e2c",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V05",
+      "query_id": "i_99fb18bbf02b615f24b30dd4",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V05",
+      "query_id": "i_63221a8b3fbb859c22ccc1e7",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V05",
+      "query_id": "i_d15c48fbf8946b62d1799de0",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V05",
+      "query_id": "i_a9b8388644a103fe92cd66c2",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V05",
+      "query_id": "i_0e989e548b2c68a47360abd8",
+      "pass_check": true
+    },
+    {
+      "check": "SQL_status_counts",
+      "view": "V06",
+      "pass_check": true,
+      "computed": {
+        "bounded": 668,
+        "not_applicable": 3317,
+        "point": 11914,
+        "unknown": 3493
+      },
+      "reported": {
+        "point": 11914,
+        "bounded": 668,
+        "unknown": 3493,
+        "not_applicable": 3317,
+        "conflict": 0,
+        "analysis_error": 0
+      }
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V06",
+      "query_id": "i_3d031958544a8c5247ac8905",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V06",
+      "query_id": "i_d9f7f47a56f73e0b00390941",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V06",
+      "query_id": "i_51995fbbe28a6c790ab02462",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V06",
+      "query_id": "i_66353a38e186af9745a7012f",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V06",
+      "query_id": "i_2e2200be6e596b25d03b56c9",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V06",
+      "query_id": "i_a7db05e53e903af24c867e2c",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V06",
+      "query_id": "i_99fb18bbf02b615f24b30dd4",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V06",
+      "query_id": "i_63221a8b3fbb859c22ccc1e7",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V06",
+      "query_id": "i_d15c48fbf8946b62d1799de0",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V06",
+      "query_id": "i_a9b8388644a103fe92cd66c2",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V06",
+      "query_id": "i_0e989e548b2c68a47360abd8",
+      "pass_check": true
+    },
+    {
+      "check": "SQL_status_counts",
+      "view": "V07",
+      "pass_check": true,
+      "computed": {
+        "bounded": 671,
+        "not_applicable": 3325,
+        "point": 13070,
+        "unknown": 2326
+      },
+      "reported": {
+        "point": 13070,
+        "bounded": 671,
+        "unknown": 2326,
+        "not_applicable": 3325,
+        "conflict": 0,
+        "analysis_error": 0
+      }
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V07",
+      "query_id": "i_3d031958544a8c5247ac8905",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V07",
+      "query_id": "i_d9f7f47a56f73e0b00390941",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V07",
+      "query_id": "i_51995fbbe28a6c790ab02462",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V07",
+      "query_id": "i_66353a38e186af9745a7012f",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V07",
+      "query_id": "i_2e2200be6e596b25d03b56c9",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V07",
+      "query_id": "i_a7db05e53e903af24c867e2c",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V07",
+      "query_id": "i_99fb18bbf02b615f24b30dd4",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V07",
+      "query_id": "i_63221a8b3fbb859c22ccc1e7",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V07",
+      "query_id": "i_d15c48fbf8946b62d1799de0",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V07",
+      "query_id": "i_a9b8388644a103fe92cd66c2",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V07",
+      "query_id": "i_0e989e548b2c68a47360abd8",
+      "pass_check": true
+    },
+    {
+      "check": "SQL_status_counts",
+      "view": "V08",
+      "pass_check": true,
+      "computed": {
+        "bounded": 1,
+        "not_applicable": 3325,
+        "point": 15467,
+        "unknown": 599
+      },
+      "reported": {
+        "point": 15467,
+        "bounded": 1,
+        "unknown": 599,
+        "not_applicable": 3325,
+        "conflict": 0,
+        "analysis_error": 0
+      }
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V08",
+      "query_id": "i_3d031958544a8c5247ac8905",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V08",
+      "query_id": "i_d9f7f47a56f73e0b00390941",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V08",
+      "query_id": "i_51995fbbe28a6c790ab02462",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V08",
+      "query_id": "i_66353a38e186af9745a7012f",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V08",
+      "query_id": "i_2e2200be6e596b25d03b56c9",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V08",
+      "query_id": "i_a7db05e53e903af24c867e2c",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V08",
+      "query_id": "i_99fb18bbf02b615f24b30dd4",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V08",
+      "query_id": "i_63221a8b3fbb859c22ccc1e7",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V08",
+      "query_id": "i_d15c48fbf8946b62d1799de0",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V08",
+      "query_id": "i_a9b8388644a103fe92cd66c2",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V08",
+      "query_id": "i_0e989e548b2c68a47360abd8",
+      "pass_check": true
+    },
+    {
+      "check": "SQL_status_counts",
+      "view": "V09",
+      "pass_check": true,
+      "computed": {
+        "bounded": 1,
+        "not_applicable": 3322,
+        "point": 14203,
+        "unknown": 1866
+      },
+      "reported": {
+        "point": 14203,
+        "bounded": 1,
+        "unknown": 1866,
+        "not_applicable": 3322,
+        "conflict": 0,
+        "analysis_error": 0
+      }
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V09",
+      "query_id": "i_3d031958544a8c5247ac8905",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V09",
+      "query_id": "i_51995fbbe28a6c790ab02462",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V09",
+      "query_id": "i_2e2200be6e596b25d03b56c9",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V09",
+      "query_id": "i_a7db05e53e903af24c867e2c",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V09",
+      "query_id": "i_63221a8b3fbb859c22ccc1e7",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V09",
+      "query_id": "i_a9b8388644a103fe92cd66c2",
+      "pass_check": true
+    },
+    {
+      "check": "SQL_status_counts",
+      "view": "V10",
+      "pass_check": true,
+      "computed": {
+        "bounded": 7,
+        "not_applicable": 3325,
+        "point": 15465,
+        "unknown": 595
+      },
+      "reported": {
+        "point": 15465,
+        "bounded": 7,
+        "unknown": 595,
+        "not_applicable": 3325,
+        "conflict": 0,
+        "analysis_error": 0
+      }
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V10",
+      "query_id": "i_3d031958544a8c5247ac8905",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V10",
+      "query_id": "i_d9f7f47a56f73e0b00390941",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V10",
+      "query_id": "i_51995fbbe28a6c790ab02462",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V10",
+      "query_id": "i_66353a38e186af9745a7012f",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V10",
+      "query_id": "i_2e2200be6e596b25d03b56c9",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V10",
+      "query_id": "i_a7db05e53e903af24c867e2c",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V10",
+      "query_id": "i_99fb18bbf02b615f24b30dd4",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V10",
+      "query_id": "i_63221a8b3fbb859c22ccc1e7",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V10",
+      "query_id": "i_d15c48fbf8946b62d1799de0",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V10",
+      "query_id": "i_a9b8388644a103fe92cd66c2",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V10",
+      "query_id": "i_0e989e548b2c68a47360abd8",
+      "pass_check": true
+    },
+    {
+      "check": "SQL_status_counts",
+      "view": "V11",
+      "pass_check": true,
+      "computed": {
+        "bounded": 1,
+        "not_applicable": 3325,
+        "point": 15471,
+        "unknown": 595
+      },
+      "reported": {
+        "point": 15471,
+        "bounded": 1,
+        "unknown": 595,
+        "not_applicable": 3325,
+        "conflict": 0,
+        "analysis_error": 0
+      }
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V11",
+      "query_id": "i_3d031958544a8c5247ac8905",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V11",
+      "query_id": "i_d9f7f47a56f73e0b00390941",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V11",
+      "query_id": "i_51995fbbe28a6c790ab02462",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V11",
+      "query_id": "i_66353a38e186af9745a7012f",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V11",
+      "query_id": "i_2e2200be6e596b25d03b56c9",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V11",
+      "query_id": "i_a7db05e53e903af24c867e2c",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V11",
+      "query_id": "i_99fb18bbf02b615f24b30dd4",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V11",
+      "query_id": "i_63221a8b3fbb859c22ccc1e7",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V11",
+      "query_id": "i_d15c48fbf8946b62d1799de0",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V11",
+      "query_id": "i_a9b8388644a103fe92cd66c2",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V11",
+      "query_id": "i_0e989e548b2c68a47360abd8",
+      "pass_check": true
+    },
+    {
+      "check": "SQL_status_counts",
+      "view": "V12",
+      "pass_check": true,
+      "computed": {
+        "bounded": 1,
+        "not_applicable": 3325,
+        "point": 15471,
+        "unknown": 595
+      },
+      "reported": {
+        "point": 15471,
+        "bounded": 1,
+        "unknown": 595,
+        "not_applicable": 3325,
+        "conflict": 0,
+        "analysis_error": 0
+      }
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V12",
+      "query_id": "i_3d031958544a8c5247ac8905",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V12",
+      "query_id": "i_d9f7f47a56f73e0b00390941",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V12",
+      "query_id": "i_51995fbbe28a6c790ab02462",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V12",
+      "query_id": "i_66353a38e186af9745a7012f",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V12",
+      "query_id": "i_2e2200be6e596b25d03b56c9",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V12",
+      "query_id": "i_a7db05e53e903af24c867e2c",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V12",
+      "query_id": "i_99fb18bbf02b615f24b30dd4",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V12",
+      "query_id": "i_63221a8b3fbb859c22ccc1e7",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V12",
+      "query_id": "i_d15c48fbf8946b62d1799de0",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V12",
+      "query_id": "i_a9b8388644a103fe92cd66c2",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_signed_bounds",
+      "view": "V12",
+      "query_id": "i_0e989e548b2c68a47360abd8",
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        0,
+        0,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        0,
+        1,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        0,
+        null,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        0,
+        null,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        0,
+        null,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        1,
+        0,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        1,
+        1,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        1,
+        null,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        1,
+        null,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        1,
+        null,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        null,
+        0,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        null,
+        0,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        null,
+        0,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        null,
+        1,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        null,
+        1,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        null,
+        1,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        null,
+        null,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        null,
+        null,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        0,
+        null,
+        null,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        0,
+        0,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        0,
+        1,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        0,
+        null,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        0,
+        null,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        0,
+        null,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        1,
+        0,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        1,
+        null,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        1,
+        null,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        null,
+        0,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        null,
+        0,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        null,
+        0,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        null,
+        1,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        null,
+        1,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        null,
+        1,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        null,
+        null,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        null,
+        null,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        1,
+        null,
+        null,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        0,
+        0,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        0,
+        0,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        0,
+        0,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        0,
+        1,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        0,
+        1,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        0,
+        1,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        0,
+        null,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        0,
+        null,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        0,
+        null,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        1,
+        0,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        1,
+        0,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        1,
+        0,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        1,
+        1,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        1,
+        1,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        1,
+        1,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        1,
+        null,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        1,
+        null,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        1,
+        null,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        null,
+        0,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        null,
+        0,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        null,
+        0,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        null,
+        1,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        null,
+        1,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        null,
+        1,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        null,
+        null,
+        0
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        null,
+        null,
+        1
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "HIAA_81_completion_vectors",
+      "inputs": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "pass_check": true
+    },
+    {
+      "check": "real_grant_snapshot_bypass_removed",
+      "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/positive-original/state.json",
+      "raw_copies": 30,
+      "pass_check": true
+    }
+  ],
+  "passed": 233,
+  "failed": 0,
+  "predictor_core_called": false,
+  "method": "SQLite group counts; algebraic bounds vs finite completion enumeration"
+}

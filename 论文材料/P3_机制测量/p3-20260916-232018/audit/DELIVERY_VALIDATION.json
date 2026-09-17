@@ -1,0 +1,237 @@
+{
+  "scope": "targeted offline checks; not full or remote CI",
+  "checks": [
+    {
+      "check": "python_syntax:correct_weight.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "python_syntax:finalize_tables.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "python_syntax:independent.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "python_syntax:recover.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "python_syntax:supplement.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "python_syntax:t18_refine.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "python_syntax:validate_delivery.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "python_syntax:write_reports.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "metric_rows",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "contracts_match_all_metrics",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all_core_fact_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all_replay_terminal_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "independent_main_checks",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "historical_980_full_objects",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "unique_core_f",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "unique_replay_f",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "unique_core_g",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "unique_replay_g",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "unique_core_h",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "unique_replay_h",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "unique_core_e",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "unique_replay_e",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "unique_core_g_canary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "unique_replay_g_canary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "F_H_no_duplicates",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "run_uea_unit_weights",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "effects_receipted",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "G_RIR_not_zero",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "HIAA_contrast_no_fake_denominator",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "negative_ci_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "strict_reason_never_imputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "original_input_and_code_hashes_unchanged",
+      "passed": true,
+      "detail": {
+        "files_checked": 1338,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "positive_receipted_selector",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "mismatched_receipt_rejected",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "cross_run_receipt_binding_rejected",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "unrelated_effect_not_hiaa",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "network_guard_rejects_connect_without_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "process_guard_rejects_spawn_without_spawn",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "bounded_static_examples",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "selected_checks_and_enforcer_bound",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no_future_endpoint_in_six_inputs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "frozen_luna_static_hashes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "t18_308_endpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hiaa_structural_controls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "required_deliverables_present",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "passed": 45,
+  "failed": 0,
+  "new_live_calls": 0,
+  "new_replays": 0
+}

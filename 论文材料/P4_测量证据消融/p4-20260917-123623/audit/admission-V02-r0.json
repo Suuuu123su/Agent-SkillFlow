@@ -1,0 +1,33 @@
+{
+  "documents_sha256": "529b07005072047ca7fe9df914499829122335ac64d3c2fb8ef973b09d766ac6",
+  "queries_sha256": "b4831fc2da70a03c7ed4e24c5eb40d45d973b9a090b63e187605bd8edd908e2b",
+  "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+  "queries": 645,
+  "documents": 1968,
+  "file_accesses": [
+    {
+      "path": "DOCUMENTS.jsonl",
+      "operation": "read"
+    },
+    {
+      "path": "QUERIES.jsonl",
+      "operation": "read"
+    },
+    {
+      "path": "predictor.py",
+      "operation": "read"
+    },
+    {
+      "path": "admission-V02-r0.jsonl",
+      "operation": "write"
+    }
+  ],
+  "blocked_accesses": [
+    "E:\\Skill ＆ Harness\\Agent\\论文材料\\P4_测量证据消融\\p4-20260917-123623\\control\\REFERENCE_INPUTS.jsonl"
+  ],
+  "errors": [],
+  "elapsed_seconds": 0.46398353576660156,
+  "network_calls": 0,
+  "business_tool_calls": 0,
+  "model_calls": 0
+}

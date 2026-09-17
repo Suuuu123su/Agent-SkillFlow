@@ -1,0 +1,6451 @@
+{
+  "archive_sha256": "3390b1e8dba914cc42088661b5378d139ddce177c551f4e0d70a3d74e47ee304",
+  "entries": 1289,
+  "checks": [
+    {
+      "path": "AFTER_P3_PLAN.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "ALR_REASON_PROVENANCE.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "ALR_STRICT_FUNNEL.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/acceptance.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/add_dialogue_binding_audit.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/add_empty_denominator_note.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/analyze_live.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/bootstrap.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/build_final_report.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/build_slice.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/capability_model.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/ci_raw_audit.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/common.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/diagnose_m2.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/export_live.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/final_contract_notes.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/final_null_handling.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/final_readme_and_control_note.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/freeze_activation.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/independent_legacy.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/independent_live.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/inspect_alr_events.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/inspect_export.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/inspect_final_inputs.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/inspect_manifest.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/inspect_model_binding.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/inspect_representatives.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/lifecycle_accounting.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/package_review.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/portable_verify_template.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/recover_mechanisms.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/reference_harness.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/refine_portable_observation.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/refine_report_contract.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/refine_report_schema.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/retain_core_gaps.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/serial_batches.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/source_audit.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/validate_pot.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/validate_reference.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "analysis/write_contracts.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/APPROVAL_REJECTION_RECORD.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/BASELINE_HASHES.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/CI_CONTENT_SCHEMA_SENSITIVITY.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/CI_RAW_INTERVENTION_CHECK.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/EVIDENCE_SOURCE_BINDING.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/FINAL_ACCEPTANCE.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/git-status-before.txt",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/GRAPH_INTEGRITY.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/HISTORICAL_PRESERVATION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/INDEPENDENT_AUTHORIZATION.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/INDEPENDENT_GRAPH_DEPTH.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/INDEPENDENT_INTERVALS.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/INDEPENDENT_ORIGIN_DIFFERENCES.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/INDEPENDENT_SUMMARY.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/M2_DIAGNOSIS_COUNTS.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/MANIFEST_SOURCE_HASHES.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/PACK_VERIFICATION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/POT_INDEPENDENT_ENUMERATION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/PUBLIC_EXPORT_SCAN.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/RECOVERED_SUMMARY.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/ROOT_README_APPEND_PROPOSED.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "audit/SERIAL_CONTROLLER_EXIT.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "CAPABILITY_MODEL_CONTRACT.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "CI_FULL_AND_STABILITY.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "CLAIM_EVIDENCE_MATRIX.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "COMMIT_REVIEW_LIST.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/CONSTRUCT_RESULTS.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-identity/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-identity/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-identity/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-identity/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-identity/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-identity/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-identity/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-neutral/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-neutral/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-neutral/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-neutral/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-neutral/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-neutral/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-neutral/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-original/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-original/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-original/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-original/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-original/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-original/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-original/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-prefix/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-prefix/safe_sink/fx0007.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/legal_retention-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/missing_memory-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-identity/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-identity/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-identity/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-identity/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-identity/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-identity/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-identity/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-neutral/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-neutral/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-neutral/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-neutral/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-neutral/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-neutral/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-neutral/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-original/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-original/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-original/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-original/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-original/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-original/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-original/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-prefix/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-prefix/safe_sink/fx0007.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/negative-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-identity/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-identity/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-neutral/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-neutral/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-original/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-original/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/neutral_still_executes-alr-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-identity/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-identity/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-neutral/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-neutral/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-original/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-original/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/ordinary_bypass-alr-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-identity/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-identity/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-neutral/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-original/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-original/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-alr-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-identity/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-identity/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-identity/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-identity/safe_sink/fx0019.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-identity/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-identity/safe_sink/fx0027.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-identity/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-identity/safe_sink/fx0035.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-identity/safe_sink/fx0038.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-neutral/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-neutral/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-neutral/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-neutral/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-neutral/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-neutral/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-neutral/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-original/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-original/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-original/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-original/safe_sink/fx0019.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-original/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-original/safe_sink/fx0027.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-original/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-original/safe_sink/fx0035.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-original/safe_sink/fx0038.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-prefix/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-prefix/safe_sink/fx0007.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/positive-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-identity/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-identity/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-neutral/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-neutral/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-original/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-original/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/real_grant-alr-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-identity/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-identity/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-neutral/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-original/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-original/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/execution-v1/unknown_reason-alr-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "construct/unknown_reason_observation.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "evidence/ALR_ORIGINAL_DATABASE_LOOKUP.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "evidence/CI_RAW_INTERVENTION_OBJECTS.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "evidence/F_M2_SUCCESS_CORE.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "evidence/M2_SAFE_REQUEST_RESPONSE.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "facts/EVIDENCE_BOUNDARIES_SIX.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "GAP_CLOSURE.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "INPUT_COVERAGE.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/ALR_REQUEST_FUNNEL.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/ALR_STRICT_CONTRACT.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/CI_IDENTITY_SENSITIVITY.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/CLAIM_EVIDENCE_MATRIX.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/FAILURE_BREAKDOWN.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/GAP_LIST.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/HIAA_CELLS.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/HIAA_CONTRASTS.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/HIAA_POTENTIAL_SETS.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/METRIC_CONTRACTS.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/METRIC_TO_DECISION_MAP.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/METRICS_LONG.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/P3_METRIC_MAIN.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/P3_STATUS.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/PROVENANCE_BY_MECHANISM_AND_DEPTH.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/PROVENANCE_DETAILS.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/RECOMPUTE_CHECK.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/RIR_SESSION_COHORTS.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/SOURCE_MANIFEST.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/T19R_GAP_APPENDIX.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "legacy/UEA_EFFECTS.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/batch_control.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/CLI_OFFLINE_ADMISSION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/code/cli_base_instructions.txt",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/code/cli_settings.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/code/cli_transport.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/code/offline_cli_clean_test.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/code/offline_cli_isolation_test.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/code/p2_transport.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/code/run_batch.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/FORMAL_CODE_FREEZE.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/ledger.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/offline_cli/ISOLATION_POSITIVE_TEST.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/PREFLIGHT_CODE_FREEZE.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/public/ATTEMPT_RESULT_INDEX.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/public/AUTHORIZATION_DECISIONS.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/public/CHECKPOINT_RELATIONS.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/public/CONTINUITY_CHECK.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/public/EFFECT_RECEIPT_INDEPENDENT_CHECK.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/public/EXECUTION_AUDIT.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/public/INDEPENDENT_ALR_EVENT_JOINS.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/public/INDEPENDENT_METRICS.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/public/INDEPENDENT_RIR_EVENT_JOINS.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/public/INDEPENDENT_VALIDATION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/public/LIFECYCLE.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/public/LIVE_SUMMARY.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/public/REQUESTS.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/public/RESULTS.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/public/SLOT_CAP_AUDIT.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/TECH_VALIDATION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-identity/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-identity/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-identity/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-identity/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-neutral/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-neutral/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-neutral/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-neutral/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-original/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-original/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-original/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-original/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-P/checkpoint.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-P/CHECKPOINT_BINDING.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-P/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-P/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-P/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-P/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-P/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-P/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R1-P/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-identity/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-identity/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-identity/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-identity/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-neutral/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-neutral/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-neutral/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-neutral/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-original/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-original/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-original/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-original/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-P/checkpoint.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-P/CHECKPOINT_BINDING.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-P/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-P/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-P/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-P/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-P/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-P/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I1-R2-P/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-identity/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-identity/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-identity/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-identity/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-neutral/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-neutral/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-neutral/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-neutral/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-original/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-original/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-original/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-original/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-P/checkpoint.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-P/CHECKPOINT_BINDING.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-P/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-P/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-P/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-P/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-P/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-P/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R1-P/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-identity/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-identity/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-identity/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-identity/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-neutral/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-neutral/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-neutral/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-neutral/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-original/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-original/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-original/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-original/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-P/checkpoint.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-P/CHECKPOINT_BINDING.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-P/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-P/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-P/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-P/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-P/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-P/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/ALR-I2-R2-P/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-not_revoked_control/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-not_revoked_control/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-not_revoked_control/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-not_revoked_control/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-not_revoked_control/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-not_revoked_control/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-not_revoked_control/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-not_revoked_control/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-not_revoked_control/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-not_revoked_control/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-not_revoked_control/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-not_revoked_control/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-not_revoked_control/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-not_revoked_control/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-P/checkpoint.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-P/CHECKPOINT_BINDING.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-P/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-P/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-P/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-P/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-P/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-P/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-P/safe_sink/fx0007.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-P/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-P/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_identity/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_identity/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_identity/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_identity/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_identity/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_identity/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_identity/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_identity/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_identity/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_identity/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_original/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_original/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_original/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_original/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_original/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_original/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_original/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_original/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_original/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_original/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R1-revoked_original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-not_revoked_control/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-not_revoked_control/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-not_revoked_control/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-not_revoked_control/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-not_revoked_control/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-not_revoked_control/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-not_revoked_control/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-not_revoked_control/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-not_revoked_control/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-not_revoked_control/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-not_revoked_control/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-not_revoked_control/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-not_revoked_control/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-not_revoked_control/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-P/checkpoint.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-P/CHECKPOINT_BINDING.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-P/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-P/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-P/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-P/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-P/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-P/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-P/safe_sink/fx0007.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-P/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-P/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_identity/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_identity/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_identity/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_identity/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_identity/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_identity/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_identity/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_identity/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_identity/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_identity/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_original/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_original/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_original/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_original/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_original/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_original/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_original/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_original/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_original/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_original/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-neutral-R2-revoked_original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-not_revoked_control/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-not_revoked_control/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-not_revoked_control/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-not_revoked_control/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-not_revoked_control/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-not_revoked_control/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-not_revoked_control/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-not_revoked_control/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-not_revoked_control/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-not_revoked_control/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-not_revoked_control/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-not_revoked_control/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-not_revoked_control/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-not_revoked_control/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-P/checkpoint.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-P/CHECKPOINT_BINDING.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-P/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-P/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-P/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-P/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-P/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-P/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-P/safe_sink/fx0007.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-P/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-P/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_identity/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_identity/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_identity/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_identity/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_identity/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_identity/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_identity/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_identity/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_identity/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_identity/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_original/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_original/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_original/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_original/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_original/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_original/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_original/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_original/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_original/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_original/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R1-revoked_original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-not_revoked_control/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-not_revoked_control/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-not_revoked_control/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-not_revoked_control/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-not_revoked_control/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-not_revoked_control/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-not_revoked_control/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-not_revoked_control/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-not_revoked_control/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-not_revoked_control/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-not_revoked_control/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-not_revoked_control/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-not_revoked_control/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-not_revoked_control/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-P/checkpoint.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-P/CHECKPOINT_BINDING.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-P/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-P/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-P/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-P/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-P/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-P/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-P/safe_sink/fx0007.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-P/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-P/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_identity/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_identity/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_identity/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_identity/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_identity/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_identity/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_identity/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_identity/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_identity/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_identity/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_original/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_original/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_original/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_original/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_original/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_original/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_original/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_original/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_original/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_original/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I1-target-R2-revoked_original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-not_revoked_control/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-not_revoked_control/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-not_revoked_control/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-not_revoked_control/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-not_revoked_control/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-not_revoked_control/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-not_revoked_control/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-not_revoked_control/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-not_revoked_control/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-not_revoked_control/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-not_revoked_control/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-not_revoked_control/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-not_revoked_control/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-not_revoked_control/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-P/checkpoint.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-P/CHECKPOINT_BINDING.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-P/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-P/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-P/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-P/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-P/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-P/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-P/safe_sink/fx0007.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-P/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-P/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_identity/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_identity/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_identity/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_identity/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_identity/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_identity/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_identity/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_identity/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_identity/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_identity/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_original/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_original/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_original/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_original/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_original/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_original/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_original/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_original/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_original/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_original/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R1-revoked_original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-not_revoked_control/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-not_revoked_control/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-not_revoked_control/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-not_revoked_control/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-not_revoked_control/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-not_revoked_control/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-not_revoked_control/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-not_revoked_control/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-not_revoked_control/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-not_revoked_control/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-not_revoked_control/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-not_revoked_control/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-not_revoked_control/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-not_revoked_control/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-P/checkpoint.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-P/CHECKPOINT_BINDING.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-P/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-P/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-P/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-P/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-P/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-P/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-P/safe_sink/fx0007.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-P/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-P/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_identity/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_identity/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_identity/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_identity/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_identity/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_identity/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_identity/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_identity/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_identity/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_identity/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_original/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_original/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_original/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_original/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_original/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_original/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_original/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_original/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_original/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_original/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-neutral-R2-revoked_original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-not_revoked_control/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-not_revoked_control/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-not_revoked_control/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-not_revoked_control/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-not_revoked_control/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-not_revoked_control/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-not_revoked_control/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-not_revoked_control/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-not_revoked_control/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-not_revoked_control/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-not_revoked_control/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-not_revoked_control/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-not_revoked_control/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-not_revoked_control/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-P/checkpoint.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-P/CHECKPOINT_BINDING.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-P/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-P/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-P/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-P/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-P/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-P/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-P/safe_sink/fx0007.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-P/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-P/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_identity/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_identity/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_identity/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_identity/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_identity/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_identity/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_identity/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_identity/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_identity/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_identity/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_neutral/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_neutral/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_neutral/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_neutral/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_neutral/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_neutral/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_neutral/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_neutral/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_neutral/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_neutral/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_original/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_original/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_original/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_original/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_original/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_original/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_original/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_original/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_original/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_original/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R1-revoked_original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-not_revoked_control/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-not_revoked_control/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-not_revoked_control/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-not_revoked_control/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-not_revoked_control/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-not_revoked_control/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-not_revoked_control/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-not_revoked_control/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-not_revoked_control/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-not_revoked_control/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-not_revoked_control/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-not_revoked_control/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-not_revoked_control/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-not_revoked_control/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-P/checkpoint.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-P/CHECKPOINT_BINDING.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-P/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-P/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-P/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-P/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-P/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-P/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-P/safe_sink/fx0007.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-P/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-P/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_identity/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_identity/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_identity/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_identity/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_identity/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_identity/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_identity/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_identity/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_identity/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_identity/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_neutral/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_neutral/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_neutral/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_neutral/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_neutral/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_neutral/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_neutral/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_neutral/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_neutral/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_neutral/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_original/INTERVENTION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_original/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_original/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_original/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_original/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_original/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_original/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_original/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_original/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_original/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/RIR-I2-target-R2-revoked_original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-01/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-01/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-01/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-01/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-01/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-01/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-01/safe_sink/fx0007.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-01/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-01/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-01/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-01/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-01/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-01/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-01/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-01/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-02/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-02/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-02/messages.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-02/model_turns.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-02/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-02/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-02/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/units/TECH-02/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "live/USER_AUTHORIZATION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "LIVE_ALR_SEVEN_CONDITIONS.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "LIVE_PREFIX_FORMATION.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "LIVE_RIR_COHORTS.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "LIVE_SESSION_LIFECYCLE.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "LIVE_UNITS.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "M2_DIAGNOSIS.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "M2_FIRST_FAILURES.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "METRIC_CONTRACTS_P3R.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "METRIC_TO_DECISION_MAP.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "METRICS_LONG.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "METRICS_LONG.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "MODULE_ACCOUNTING.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "P3R_FINAL_REPORT.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "P3R_METRIC_MAIN.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "P3R_STATUS.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "POT_SETS_AND_WITNESSES.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "README.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "REPRODUCE.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/ci_unstable.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/index.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/observations/missing_reason.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/pot.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/recompute.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/RECOMPUTED.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/statistics.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-identity/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-identity/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-identity/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-identity/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-identity/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-identity/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-identity/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-neutral/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-neutral/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-neutral/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-neutral/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-neutral/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-neutral/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-neutral/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-original/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-original/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-original/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-original/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-original/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-original/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-original/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-prefix/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-prefix/safe_sink/fx0007.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/legal_retention-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/missing_memory-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-identity/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-identity/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-identity/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-identity/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-identity/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-identity/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-identity/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-neutral/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-neutral/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-neutral/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-neutral/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-neutral/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-neutral/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-neutral/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-original/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-original/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-original/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-original/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-original/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-original/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-original/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-prefix/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-prefix/safe_sink/fx0007.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/negative-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-identity/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-identity/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-neutral/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-neutral/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-original/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-original/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/neutral_still_executes-alr-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-identity/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-identity/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-neutral/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-neutral/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-original/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-original/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/ordinary_bypass-alr-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-identity/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-identity/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-neutral/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-original/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-original/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-alr-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-identity/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-identity/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-identity/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-identity/safe_sink/fx0019.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-identity/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-identity/safe_sink/fx0027.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-identity/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-identity/safe_sink/fx0035.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-identity/safe_sink/fx0038.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-neutral/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-neutral/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-neutral/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-neutral/safe_sink/fx0021.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-neutral/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-neutral/safe_sink/fx0029.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-neutral/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-original/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-original/safe_sink/fx0013.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-original/safe_sink/fx0016.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-original/safe_sink/fx0019.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-original/safe_sink/fx0024.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-original/safe_sink/fx0027.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-original/safe_sink/fx0032.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-original/safe_sink/fx0035.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-original/safe_sink/fx0038.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-prefix/memory.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-prefix/safe_sink/fx0007.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/positive-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-identity/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-identity/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-neutral/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-neutral/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-original/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-original/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/real_grant-alr-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-identity/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-identity/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-identity/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-identity/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-identity/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-identity/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-neutral/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-neutral/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-neutral/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-neutral/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-neutral/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-original/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-original/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-original/safe_sink/fx0009.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-original/safe_sink/fx0012.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-original/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-original/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-prefix/claim.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-prefix/events.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-prefix/safe_sink/fx0004.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-prefix/source.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "review_slice/units/unknown_reason-alr-prefix/state.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "RIR_LEGACY_AND_CHAIN.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "RIR_LIFECYCLE_EVENTS.jsonl",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "SOURCE_MANIFEST_P3R.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "SUPPLEMENT_ACTIVATION.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "T18_ALR_RIR_RECOVERED.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/00_README.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/01_CODEX_GOAL.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/02_OFFLINE_REPAIR_SPEC.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/03_LIVE_SUPPLEMENT_SPEC.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/04_ACCEPTANCE_AND_EXAMPLES.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/checks/verify_pack.py",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/locators/LEGACY_M2_90.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/MANIFEST.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/plan.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/references/CI_IDENTITY_SENSITIVITY_original.csv",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/references/LEGACY_SELECTED_METRIC_CONTRACTS.json",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_CONTRACT_DIFFERENCES.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_EXTERNAL_REVIEW.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_FINAL_REPORT_original.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_GAP_LIST.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_HANDOFF_original.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/references/P3_METRIC_MAIN_original.md",
+      "hash_ok": true,
+      "local_matches": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/references/SOURCE_NOTE.json",
+      "hash_ok": true,
+      "local_matches": true
+    }
+  ]
+}

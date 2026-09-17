@@ -1,0 +1,94 @@
+[
+  {
+    "phase": "e",
+    "domain": "live_reference",
+    "scheduled_core": 24,
+    "observed_core": 24,
+    "unique_core_ids": 24,
+    "scheduled_replay": 18,
+    "observed_replay": 18,
+    "unique_replay_ids": 18,
+    "core_parts": [
+      "core-trials.jsonl"
+    ],
+    "replay_parts": [
+      "replay-pairs.jsonl"
+    ],
+    "complete": true,
+    "replay_complete": true
+  },
+  {
+    "phase": "f",
+    "domain": "live_reference",
+    "scheduled_core": 360,
+    "observed_core": 360,
+    "unique_core_ids": 360,
+    "scheduled_replay": 270,
+    "observed_replay": 270,
+    "unique_replay_ids": 270,
+    "core_parts": [
+      "core-trials.jsonl"
+    ],
+    "replay_parts": [
+      "replay-pairs.jsonl",
+      "replay-pairs.part-0002.jsonl"
+    ],
+    "complete": true,
+    "replay_complete": true
+  },
+  {
+    "phase": "g",
+    "domain": "live_reference",
+    "scheduled_core": 360,
+    "observed_core": 360,
+    "unique_core_ids": 360,
+    "scheduled_replay": 270,
+    "observed_replay": 270,
+    "unique_replay_ids": 270,
+    "core_parts": [
+      "core-trials.jsonl"
+    ],
+    "replay_parts": [
+      "replay-pairs.jsonl"
+    ],
+    "complete": true,
+    "replay_complete": true
+  },
+  {
+    "phase": "g_canary",
+    "domain": "live_reference",
+    "scheduled_core": 24,
+    "observed_core": 24,
+    "unique_core_ids": 24,
+    "scheduled_replay": 18,
+    "observed_replay": 18,
+    "unique_replay_ids": 18,
+    "core_parts": [
+      "core-trials.jsonl"
+    ],
+    "replay_parts": [
+      "replay-pairs.jsonl"
+    ],
+    "complete": true,
+    "replay_complete": true
+  },
+  {
+    "phase": "h",
+    "domain": "live_reference",
+    "scheduled_core": 270,
+    "observed_core": 270,
+    "unique_core_ids": 270,
+    "scheduled_replay": 270,
+    "observed_replay": 270,
+    "unique_replay_ids": 270,
+    "core_parts": [
+      "core-trials.jsonl"
+    ],
+    "replay_parts": [
+      "replay-pairs.jsonl",
+      "replay-pairs.part-0002.jsonl"
+    ],
+    "complete": true,
+    "replay_complete": true
+  }
+]

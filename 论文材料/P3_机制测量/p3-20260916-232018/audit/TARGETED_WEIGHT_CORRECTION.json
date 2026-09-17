@@ -1,0 +1,56 @@
+{
+  "utc": "2026-09-16T15:31:59.495374+00:00",
+  "changes": [
+    {
+      "phase": "e",
+      "first_independent_value": 14.0,
+      "corrected_unit_weight": 6,
+      "sensitivity_sum_separate_diagnostic": 14,
+      "reason": "original calculate_uea uses weight=1 per operation; sensitivity belongs to HIAA_pot not UEA"
+    },
+    {
+      "phase": "f",
+      "first_independent_value": 210.0,
+      "corrected_unit_weight": 90,
+      "sensitivity_sum_separate_diagnostic": 210,
+      "reason": "original calculate_uea uses weight=1 per operation; sensitivity belongs to HIAA_pot not UEA"
+    },
+    {
+      "phase": "g",
+      "first_independent_value": 70.0,
+      "corrected_unit_weight": 52,
+      "sensitivity_sum_separate_diagnostic": 70,
+      "reason": "original calculate_uea uses weight=1 per operation; sensitivity belongs to HIAA_pot not UEA"
+    },
+    {
+      "phase": "g_canary",
+      "first_independent_value": 6.0,
+      "corrected_unit_weight": 3,
+      "sensitivity_sum_separate_diagnostic": 6,
+      "reason": "original calculate_uea uses weight=1 per operation; sensitivity belongs to HIAA_pot not UEA"
+    },
+    {
+      "phase": "h",
+      "first_independent_value": 0.0,
+      "corrected_unit_weight": 0,
+      "sensitivity_sum_separate_diagnostic": 0,
+      "reason": "original calculate_uea uses weight=1 per operation; sensitivity belongs to HIAA_pot not UEA"
+    },
+    {
+      "phase": "fh_monitor",
+      "first_independent_value": 210.0,
+      "corrected_unit_weight": 90,
+      "sensitivity_sum_separate_diagnostic": 210,
+      "reason": "original calculate_uea uses weight=1 per operation; sensitivity belongs to HIAA_pot not UEA"
+    },
+    {
+      "phase": "fh_enforce",
+      "first_independent_value": 0.0,
+      "corrected_unit_weight": 0,
+      "sensitivity_sum_separate_diagnostic": 0,
+      "reason": "original calculate_uea uses weight=1 per operation; sensitivity belongs to HIAA_pot not UEA"
+    }
+  ],
+  "scope": "only seven UEA-weight aggregate cells; all other checks unchanged",
+  "source_contract": "src/skillflow/analysis/effective_authority.py:89"
+}

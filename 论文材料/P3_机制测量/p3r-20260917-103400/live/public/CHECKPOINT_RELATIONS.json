@@ -1,0 +1,402 @@
+[
+  {
+    "unit": "RIR-I1-target-R1-revoked_original",
+    "parent": "RIR-I1-target-R1-P",
+    "checkpoint_hash": "3127d4968cfcc4604ebb9f6f03dc20f1f5dbf6c3b5a8b9b2be81e2d53b879be3",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "3127d4968cfcc4604ebb9f6f03dc20f1f5dbf6c3b5a8b9b2be81e2d53b879be3"
+    }
+  },
+  {
+    "unit": "RIR-I1-target-R1-revoked_identity",
+    "parent": "RIR-I1-target-R1-P",
+    "checkpoint_hash": "3127d4968cfcc4604ebb9f6f03dc20f1f5dbf6c3b5a8b9b2be81e2d53b879be3",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "3127d4968cfcc4604ebb9f6f03dc20f1f5dbf6c3b5a8b9b2be81e2d53b879be3"
+    }
+  },
+  {
+    "unit": "RIR-I1-target-R1-not_revoked_control",
+    "parent": "RIR-I1-target-R1-P",
+    "checkpoint_hash": "3127d4968cfcc4604ebb9f6f03dc20f1f5dbf6c3b5a8b9b2be81e2d53b879be3",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "3127d4968cfcc4604ebb9f6f03dc20f1f5dbf6c3b5a8b9b2be81e2d53b879be3"
+    }
+  },
+  {
+    "unit": "RIR-I1-target-R2-revoked_original",
+    "parent": "RIR-I1-target-R2-P",
+    "checkpoint_hash": "8b619093eb211f7d12affa1da6f8c00f45355e493b9abb8042394bc030e6b236",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "8b619093eb211f7d12affa1da6f8c00f45355e493b9abb8042394bc030e6b236"
+    }
+  },
+  {
+    "unit": "RIR-I1-target-R2-revoked_identity",
+    "parent": "RIR-I1-target-R2-P",
+    "checkpoint_hash": "8b619093eb211f7d12affa1da6f8c00f45355e493b9abb8042394bc030e6b236",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "8b619093eb211f7d12affa1da6f8c00f45355e493b9abb8042394bc030e6b236"
+    }
+  },
+  {
+    "unit": "RIR-I1-target-R2-not_revoked_control",
+    "parent": "RIR-I1-target-R2-P",
+    "checkpoint_hash": "8b619093eb211f7d12affa1da6f8c00f45355e493b9abb8042394bc030e6b236",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "8b619093eb211f7d12affa1da6f8c00f45355e493b9abb8042394bc030e6b236"
+    }
+  },
+  {
+    "unit": "RIR-I1-neutral-R1-revoked_original",
+    "parent": "RIR-I1-neutral-R1-P",
+    "checkpoint_hash": "afdbb9d462e0951e6ccac51d0e255d7cc0f960addbb860e17c3d5a033b29f118",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "afdbb9d462e0951e6ccac51d0e255d7cc0f960addbb860e17c3d5a033b29f118"
+    }
+  },
+  {
+    "unit": "RIR-I1-neutral-R1-revoked_identity",
+    "parent": "RIR-I1-neutral-R1-P",
+    "checkpoint_hash": "afdbb9d462e0951e6ccac51d0e255d7cc0f960addbb860e17c3d5a033b29f118",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "afdbb9d462e0951e6ccac51d0e255d7cc0f960addbb860e17c3d5a033b29f118"
+    }
+  },
+  {
+    "unit": "RIR-I1-neutral-R1-not_revoked_control",
+    "parent": "RIR-I1-neutral-R1-P",
+    "checkpoint_hash": "afdbb9d462e0951e6ccac51d0e255d7cc0f960addbb860e17c3d5a033b29f118",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "afdbb9d462e0951e6ccac51d0e255d7cc0f960addbb860e17c3d5a033b29f118"
+    }
+  },
+  {
+    "unit": "RIR-I1-neutral-R2-revoked_original",
+    "parent": "RIR-I1-neutral-R2-P",
+    "checkpoint_hash": "074842cddca9013c0008add1a8081a6e2a9bad980ec08e45c3078a8e33cbc521",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "074842cddca9013c0008add1a8081a6e2a9bad980ec08e45c3078a8e33cbc521"
+    }
+  },
+  {
+    "unit": "RIR-I1-neutral-R2-revoked_identity",
+    "parent": "RIR-I1-neutral-R2-P",
+    "checkpoint_hash": "074842cddca9013c0008add1a8081a6e2a9bad980ec08e45c3078a8e33cbc521",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "074842cddca9013c0008add1a8081a6e2a9bad980ec08e45c3078a8e33cbc521"
+    }
+  },
+  {
+    "unit": "RIR-I1-neutral-R2-not_revoked_control",
+    "parent": "RIR-I1-neutral-R2-P",
+    "checkpoint_hash": "074842cddca9013c0008add1a8081a6e2a9bad980ec08e45c3078a8e33cbc521",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "074842cddca9013c0008add1a8081a6e2a9bad980ec08e45c3078a8e33cbc521"
+    }
+  },
+  {
+    "unit": "RIR-I2-target-R1-revoked_original",
+    "parent": "RIR-I2-target-R1-P",
+    "checkpoint_hash": "e32bddf50079efce3c211e12101de38ba744e6523df0cffdf0d54f51fa65bdae",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "e32bddf50079efce3c211e12101de38ba744e6523df0cffdf0d54f51fa65bdae"
+    }
+  },
+  {
+    "unit": "RIR-I2-target-R1-revoked_identity",
+    "parent": "RIR-I2-target-R1-P",
+    "checkpoint_hash": "e32bddf50079efce3c211e12101de38ba744e6523df0cffdf0d54f51fa65bdae",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "e32bddf50079efce3c211e12101de38ba744e6523df0cffdf0d54f51fa65bdae"
+    }
+  },
+  {
+    "unit": "RIR-I2-target-R1-revoked_neutral",
+    "parent": "RIR-I2-target-R1-P",
+    "checkpoint_hash": "e32bddf50079efce3c211e12101de38ba744e6523df0cffdf0d54f51fa65bdae",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "neutral",
+      "source_checkpoint_hash": "e32bddf50079efce3c211e12101de38ba744e6523df0cffdf0d54f51fa65bdae",
+      "change": {
+        "start": 0,
+        "end": 152,
+        "facts_preserved": true,
+        "only_notes_span_changed": true
+      }
+    }
+  },
+  {
+    "unit": "RIR-I2-target-R1-not_revoked_control",
+    "parent": "RIR-I2-target-R1-P",
+    "checkpoint_hash": "e32bddf50079efce3c211e12101de38ba744e6523df0cffdf0d54f51fa65bdae",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "e32bddf50079efce3c211e12101de38ba744e6523df0cffdf0d54f51fa65bdae"
+    }
+  },
+  {
+    "unit": "RIR-I2-target-R2-revoked_original",
+    "parent": "RIR-I2-target-R2-P",
+    "checkpoint_hash": "b463edb892b5600dca78be23fb70f05c7e29e72d6cfc18e33c68b684a379ac4e",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "b463edb892b5600dca78be23fb70f05c7e29e72d6cfc18e33c68b684a379ac4e"
+    }
+  },
+  {
+    "unit": "RIR-I2-target-R2-revoked_identity",
+    "parent": "RIR-I2-target-R2-P",
+    "checkpoint_hash": "b463edb892b5600dca78be23fb70f05c7e29e72d6cfc18e33c68b684a379ac4e",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "b463edb892b5600dca78be23fb70f05c7e29e72d6cfc18e33c68b684a379ac4e"
+    }
+  },
+  {
+    "unit": "RIR-I2-target-R2-revoked_neutral",
+    "parent": "RIR-I2-target-R2-P",
+    "checkpoint_hash": "b463edb892b5600dca78be23fb70f05c7e29e72d6cfc18e33c68b684a379ac4e",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "neutral",
+      "source_checkpoint_hash": "b463edb892b5600dca78be23fb70f05c7e29e72d6cfc18e33c68b684a379ac4e",
+      "change": {
+        "start": 0,
+        "end": 152,
+        "facts_preserved": true,
+        "only_notes_span_changed": true
+      }
+    }
+  },
+  {
+    "unit": "RIR-I2-target-R2-not_revoked_control",
+    "parent": "RIR-I2-target-R2-P",
+    "checkpoint_hash": "b463edb892b5600dca78be23fb70f05c7e29e72d6cfc18e33c68b684a379ac4e",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "b463edb892b5600dca78be23fb70f05c7e29e72d6cfc18e33c68b684a379ac4e"
+    }
+  },
+  {
+    "unit": "RIR-I2-neutral-R1-revoked_original",
+    "parent": "RIR-I2-neutral-R1-P",
+    "checkpoint_hash": "ebe8607717295eac2b79c4d4f77a9e25376ba6bd0684925604658ff9584e12c8",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "ebe8607717295eac2b79c4d4f77a9e25376ba6bd0684925604658ff9584e12c8"
+    }
+  },
+  {
+    "unit": "RIR-I2-neutral-R1-revoked_identity",
+    "parent": "RIR-I2-neutral-R1-P",
+    "checkpoint_hash": "ebe8607717295eac2b79c4d4f77a9e25376ba6bd0684925604658ff9584e12c8",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "ebe8607717295eac2b79c4d4f77a9e25376ba6bd0684925604658ff9584e12c8"
+    }
+  },
+  {
+    "unit": "RIR-I2-neutral-R1-not_revoked_control",
+    "parent": "RIR-I2-neutral-R1-P",
+    "checkpoint_hash": "ebe8607717295eac2b79c4d4f77a9e25376ba6bd0684925604658ff9584e12c8",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "ebe8607717295eac2b79c4d4f77a9e25376ba6bd0684925604658ff9584e12c8"
+    }
+  },
+  {
+    "unit": "RIR-I2-neutral-R2-revoked_original",
+    "parent": "RIR-I2-neutral-R2-P",
+    "checkpoint_hash": "f9e3eb86a70d11fcd48ff23c32af10dbd38982ed602326641108709f5866e6c9",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "f9e3eb86a70d11fcd48ff23c32af10dbd38982ed602326641108709f5866e6c9"
+    }
+  },
+  {
+    "unit": "RIR-I2-neutral-R2-revoked_identity",
+    "parent": "RIR-I2-neutral-R2-P",
+    "checkpoint_hash": "f9e3eb86a70d11fcd48ff23c32af10dbd38982ed602326641108709f5866e6c9",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "f9e3eb86a70d11fcd48ff23c32af10dbd38982ed602326641108709f5866e6c9"
+    }
+  },
+  {
+    "unit": "RIR-I2-neutral-R2-not_revoked_control",
+    "parent": "RIR-I2-neutral-R2-P",
+    "checkpoint_hash": "f9e3eb86a70d11fcd48ff23c32af10dbd38982ed602326641108709f5866e6c9",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "f9e3eb86a70d11fcd48ff23c32af10dbd38982ed602326641108709f5866e6c9"
+    }
+  },
+  {
+    "unit": "ALR-I1-R1-original",
+    "parent": "ALR-I1-R1-P",
+    "checkpoint_hash": "4cc0184798ebbe3e7a6525f8ec7820dd95e6268cc0a595f20f12370f9f341c99",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "4cc0184798ebbe3e7a6525f8ec7820dd95e6268cc0a595f20f12370f9f341c99"
+    }
+  },
+  {
+    "unit": "ALR-I1-R1-identity",
+    "parent": "ALR-I1-R1-P",
+    "checkpoint_hash": "4cc0184798ebbe3e7a6525f8ec7820dd95e6268cc0a595f20f12370f9f341c99",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "4cc0184798ebbe3e7a6525f8ec7820dd95e6268cc0a595f20f12370f9f341c99"
+    }
+  },
+  {
+    "unit": "ALR-I1-R1-neutral",
+    "parent": "ALR-I1-R1-P",
+    "checkpoint_hash": "4cc0184798ebbe3e7a6525f8ec7820dd95e6268cc0a595f20f12370f9f341c99",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "neutral_claim_only",
+      "facts_preserved": true,
+      "operation_preserved": true,
+      "source_checkpoint_hash": "4cc0184798ebbe3e7a6525f8ec7820dd95e6268cc0a595f20f12370f9f341c99"
+    }
+  },
+  {
+    "unit": "ALR-I1-R2-original",
+    "parent": "ALR-I1-R2-P",
+    "checkpoint_hash": "a035b61b590f5df440d513e9b678687a6113eaeb4db76f7d4e940eb9908948bb",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "a035b61b590f5df440d513e9b678687a6113eaeb4db76f7d4e940eb9908948bb"
+    }
+  },
+  {
+    "unit": "ALR-I1-R2-identity",
+    "parent": "ALR-I1-R2-P",
+    "checkpoint_hash": "a035b61b590f5df440d513e9b678687a6113eaeb4db76f7d4e940eb9908948bb",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "a035b61b590f5df440d513e9b678687a6113eaeb4db76f7d4e940eb9908948bb"
+    }
+  },
+  {
+    "unit": "ALR-I1-R2-neutral",
+    "parent": "ALR-I1-R2-P",
+    "checkpoint_hash": "a035b61b590f5df440d513e9b678687a6113eaeb4db76f7d4e940eb9908948bb",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "neutral_claim_only",
+      "facts_preserved": true,
+      "operation_preserved": true,
+      "source_checkpoint_hash": "a035b61b590f5df440d513e9b678687a6113eaeb4db76f7d4e940eb9908948bb"
+    }
+  },
+  {
+    "unit": "ALR-I2-R1-original",
+    "parent": "ALR-I2-R1-P",
+    "checkpoint_hash": "19316153fd6c22465db95fd1411d05d61a86c51554f740f37781ad9e507bdfc3",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "19316153fd6c22465db95fd1411d05d61a86c51554f740f37781ad9e507bdfc3"
+    }
+  },
+  {
+    "unit": "ALR-I2-R1-identity",
+    "parent": "ALR-I2-R1-P",
+    "checkpoint_hash": "19316153fd6c22465db95fd1411d05d61a86c51554f740f37781ad9e507bdfc3",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "19316153fd6c22465db95fd1411d05d61a86c51554f740f37781ad9e507bdfc3"
+    }
+  },
+  {
+    "unit": "ALR-I2-R1-neutral",
+    "parent": "ALR-I2-R1-P",
+    "checkpoint_hash": "19316153fd6c22465db95fd1411d05d61a86c51554f740f37781ad9e507bdfc3",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "neutral_claim_only",
+      "facts_preserved": true,
+      "operation_preserved": true,
+      "source_checkpoint_hash": "19316153fd6c22465db95fd1411d05d61a86c51554f740f37781ad9e507bdfc3"
+    }
+  },
+  {
+    "unit": "ALR-I2-R2-original",
+    "parent": "ALR-I2-R2-P",
+    "checkpoint_hash": "e7fbfa956f8045162682107077f9e66514614faed6843b299444cc586dbf94b5",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "e7fbfa956f8045162682107077f9e66514614faed6843b299444cc586dbf94b5"
+    }
+  },
+  {
+    "unit": "ALR-I2-R2-identity",
+    "parent": "ALR-I2-R2-P",
+    "checkpoint_hash": "e7fbfa956f8045162682107077f9e66514614faed6843b299444cc586dbf94b5",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "identity",
+      "source_checkpoint_hash": "e7fbfa956f8045162682107077f9e66514614faed6843b299444cc586dbf94b5"
+    }
+  },
+  {
+    "unit": "ALR-I2-R2-neutral",
+    "parent": "ALR-I2-R2-P",
+    "checkpoint_hash": "e7fbfa956f8045162682107077f9e66514614faed6843b299444cc586dbf94b5",
+    "matches_real_checkpoint": true,
+    "intervention": {
+      "mode": "neutral_claim_only",
+      "facts_preserved": true,
+      "operation_preserved": true,
+      "source_checkpoint_hash": "e7fbfa956f8045162682107077f9e66514614faed6843b299444cc586dbf94b5"
+    }
+  }
+]

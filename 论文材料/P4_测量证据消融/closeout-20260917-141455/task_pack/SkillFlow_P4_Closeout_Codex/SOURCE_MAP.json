@@ -1,0 +1,67 @@
+{
+  "reference_use": "Existing source copies and binding anchors, not newly obtained experiment results.",
+  "input_archive": {
+    "visible_filename": "d7d17ed8-b367-456e-b589-4e2c71bafa7d.zip",
+    "bytes": 39613816,
+    "sha256": "dcda387b143a72eb56dd53a1a03fe5aa934462eccf974181025b868bd8c1265d"
+  },
+  "source_read_scope": "Original P4 reports/status/schema/bindings plus previous external review; no full prediction rerun in authoring this task pack.",
+  "references": [
+    {
+      "path": "references/LIMITATIONS_AND_GAPS.md",
+      "bytes": 1865,
+      "sha256": "0fd9d85ed9d3b7711c5ed22c8bfbc927034a05f0fd01b4d00280ab4dc0715333"
+    },
+    {
+      "path": "references/METRIC_CONTRACTS.csv",
+      "bytes": 4585,
+      "sha256": "db5b017f8c8a19642d78e0b708ada3694cfa8d482465bdb100e43b4030ddd0eb"
+    },
+    {
+      "path": "references/P4_COMMIT_REVIEW_LIST.md",
+      "bytes": 746,
+      "sha256": "7ffdd3f8ce2548cf72400778ced381e521e45169961a74fd351945f2589dc809"
+    },
+    {
+      "path": "references/P4_EXTERNAL_REVIEW.md",
+      "bytes": 8313,
+      "sha256": "d3dd1ac693d21a6ff741ca19a1c2562ba0b4345ed0d3aa788221796d085813ed"
+    },
+    {
+      "path": "references/P4_FINAL_REPORT.md",
+      "bytes": 3926,
+      "sha256": "6cc9e9195a10252b87d575399e490c0c43f6a3177eee31326b11475a801308d5"
+    },
+    {
+      "path": "references/P4_LOCAL_BINDINGS.json",
+      "bytes": 511,
+      "sha256": "403b8bf86ccb396068327302aba6ae0b5359198411a47cdce7fd0428bab521ed"
+    },
+    {
+      "path": "references/P4_METRIC_MAIN.md",
+      "bytes": 9430,
+      "sha256": "7582626748922849b57d0ee819ac72ea7ed356405e78a6094706d71701e4e6e4"
+    },
+    {
+      "path": "references/P4_NEXT_PLAN.md",
+      "bytes": 5581,
+      "sha256": "e4043787f66186bc6708d6f28cd6b2335a06d324127962db181491cde8d60c82"
+    },
+    {
+      "path": "references/P4_REPRODUCE.md",
+      "bytes": 1278,
+      "sha256": "42733682e60e3ac68f72cf41f9a154d087e55a4558134daff69940aa121c089b"
+    },
+    {
+      "path": "references/P4_STATUS.json",
+      "bytes": 2457,
+      "sha256": "a27acb72c7b0dee75e4272005b73da6a085a619020463940067635762d53d73c"
+    }
+  ],
+  "not_claimed": [
+    "current GitHub commit",
+    "local Codex execution",
+    "new P4 prediction results",
+    "new independent semantic review"
+  ]
+}

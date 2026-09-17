@@ -1,0 +1,141 @@
+{
+  "attempts": 292,
+  "results": 292,
+  "unique_attempt_ids": 292,
+  "duplicate_attempt_ids": 0,
+  "duplicate_result_ids": 0,
+  "unmatched_results": [],
+  "pending_results": [],
+  "by_unit": {
+    "TECH-01": 11,
+    "TECH-02": 3,
+    "RIR-I1-target-R1-P": 2,
+    "RIR-I1-target-R1-revoked_original": 9,
+    "RIR-I1-target-R1-revoked_identity": 9,
+    "RIR-I1-target-R1-not_revoked_control": 9,
+    "RIR-I1-target-R2-P": 2,
+    "RIR-I1-target-R2-revoked_original": 9,
+    "RIR-I1-target-R2-revoked_identity": 9,
+    "RIR-I1-target-R2-not_revoked_control": 9,
+    "RIR-I1-neutral-R1-P": 2,
+    "RIR-I1-neutral-R1-revoked_original": 9,
+    "RIR-I1-neutral-R1-revoked_identity": 9,
+    "RIR-I1-neutral-R1-not_revoked_control": 9,
+    "RIR-I1-neutral-R2-P": 2,
+    "RIR-I1-neutral-R2-revoked_original": 9,
+    "RIR-I1-neutral-R2-revoked_identity": 9,
+    "RIR-I1-neutral-R2-not_revoked_control": 9,
+    "RIR-I2-target-R1-P": 2,
+    "RIR-I2-target-R1-revoked_original": 9,
+    "RIR-I2-target-R1-revoked_identity": 9,
+    "RIR-I2-target-R1-revoked_neutral": 9,
+    "RIR-I2-target-R1-not_revoked_control": 9,
+    "RIR-I2-target-R2-P": 2,
+    "RIR-I2-target-R2-revoked_original": 9,
+    "RIR-I2-target-R2-revoked_identity": 9,
+    "RIR-I2-target-R2-revoked_neutral": 9,
+    "RIR-I2-target-R2-not_revoked_control": 9,
+    "RIR-I2-neutral-R1-P": 2,
+    "RIR-I2-neutral-R1-revoked_original": 9,
+    "RIR-I2-neutral-R1-revoked_identity": 9,
+    "RIR-I2-neutral-R1-not_revoked_control": 9,
+    "RIR-I2-neutral-R2-P": 2,
+    "RIR-I2-neutral-R2-revoked_original": 9,
+    "RIR-I2-neutral-R2-revoked_identity": 9,
+    "RIR-I2-neutral-R2-not_revoked_control": 9,
+    "ALR-I1-R1-P": 1,
+    "ALR-I1-R1-original": 2,
+    "ALR-I1-R1-identity": 2,
+    "ALR-I1-R1-neutral": 2,
+    "ALR-I1-R2-P": 1,
+    "ALR-I1-R2-original": 2,
+    "ALR-I1-R2-identity": 2,
+    "ALR-I1-R2-neutral": 2,
+    "ALR-I2-R1-P": 1,
+    "ALR-I2-R1-original": 2,
+    "ALR-I2-R1-identity": 2,
+    "ALR-I2-R1-neutral": 2,
+    "ALR-I2-R2-P": 1,
+    "ALR-I2-R2-original": 2,
+    "ALR-I2-R2-identity": 2,
+    "ALR-I2-R2-neutral": 2
+  },
+  "role_counts": {
+    "actor": 292
+  },
+  "models": {
+    "gpt-5.6-luna": 292
+  },
+  "actual_response_models": {
+    "gpt-5.6-luna": 292
+  },
+  "endpoints": {
+    "https://chatgpt.com/backend-api/codex/responses": 292
+  },
+  "slot_cap_failures": [],
+  "frozen_source_checks": [
+    {
+      "path": "live/code/cli_base_instructions.txt",
+      "expected": "debf7de13fa13fc13d5de5c92f3cc0a8b9bb98f5ed4626fc1a5097da122714b6",
+      "current": "debf7de13fa13fc13d5de5c92f3cc0a8b9bb98f5ed4626fc1a5097da122714b6",
+      "match": true
+    },
+    {
+      "path": "live/code/cli_settings.py",
+      "expected": "9e7bb936a3bc8de35dc20ef2466bb7aa7df03cab621c33313103edaf627bd115",
+      "current": "9e7bb936a3bc8de35dc20ef2466bb7aa7df03cab621c33313103edaf627bd115",
+      "match": true
+    },
+    {
+      "path": "live/code/cli_transport.py",
+      "expected": "c5a7fa1dbbc89baab1f00ea9dff5f2655470791ae92fe83129ec681ee36b0f55",
+      "current": "c5a7fa1dbbc89baab1f00ea9dff5f2655470791ae92fe83129ec681ee36b0f55",
+      "match": true
+    },
+    {
+      "path": "live/code/offline_cli_clean_test.py",
+      "expected": "30b0d280a4ae6f2ac3c5f47ad6d2578ac77e5f30b72810ac25c575b035e299b1",
+      "current": "30b0d280a4ae6f2ac3c5f47ad6d2578ac77e5f30b72810ac25c575b035e299b1",
+      "match": true
+    },
+    {
+      "path": "live/code/offline_cli_isolation_test.py",
+      "expected": "be4f179f5278749bb72ac07e6d5aa73c1a73dd65cab36519a838b108fe7ec880",
+      "current": "be4f179f5278749bb72ac07e6d5aa73c1a73dd65cab36519a838b108fe7ec880",
+      "match": true
+    },
+    {
+      "path": "live/code/p2_transport.py",
+      "expected": "c7dad176eb646ee830c2e0d3e3335299b70f95aa14517cac812f26497cc2e001",
+      "current": "c7dad176eb646ee830c2e0d3e3335299b70f95aa14517cac812f26497cc2e001",
+      "match": true
+    },
+    {
+      "path": "live/code/run_batch.py",
+      "expected": "6c66df811c297a8411681c3be521df091e9dc5574240bfa184e9d0b1ede2368d",
+      "current": "6c66df811c297a8411681c3be521df091e9dc5574240bfa184e9d0b1ede2368d",
+      "match": true
+    },
+    {
+      "path": "analysis/reference_harness.py",
+      "expected": "a7ed315a77d1299cfb65aa5e0c40c3056ae3b6d1011abf866020ace0ffc62a0b",
+      "current": "a7ed315a77d1299cfb65aa5e0c40c3056ae3b6d1011abf866020ace0ffc62a0b",
+      "match": true
+    },
+    {
+      "path": "SUPPLEMENT_ACTIVATION.json",
+      "expected": "e92ffcaacd1e8336d0125e218266e4ac6baa7fdec6d773399e632b1299982df7",
+      "current": "e92ffcaacd1e8336d0125e218266e4ac6baa7fdec6d773399e632b1299982df7",
+      "match": true
+    },
+    {
+      "path": "task_pack/SkillFlow_P3R_CompleteMetrics60/capacity_slots.csv",
+      "expected": "51f450ec4e3eb83e9d7b8d45db2c0bdeba012d2f4f5452f0e9bdf5bf9548d2d8",
+      "current": "51f450ec4e3eb83e9d7b8d45db2c0bdeba012d2f4f5452f0e9bdf5bf9548d2d8",
+      "match": true
+    }
+  ],
+  "frozen_source_failures": [],
+  "automatic_resubmission": false,
+  "sanitization": "Private auth/home, raw SSE and reasoning absent. Exact forwarded requests are hashed locally; public projection removes runtime account/cache identifiers only."
+}

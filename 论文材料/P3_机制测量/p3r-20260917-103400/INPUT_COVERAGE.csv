@@ -1,0 +1,11 @@
+﻿domain,phase,core,replay,use,duplicate_rule
+T17_FORMAL,f,360,270,main historical mechanism,H incremental; F counted once
+T17_FORMAL,g,360,270,main historical mechanism,H incremental; F counted once
+T17_FORMAL,h,270,270,main historical mechanism,H incremental; F counted once
+T17_CANARY,e,24,18,"separate preflight, excluded formal main",
+T17_CANARY,g_canary,24,18,"separate preflight, excluded formal main",
+T17_DERIVED_COMPARISON,f+h,630,540,comparison only; not additional independent observations,
+T18,scripted,264,,independent construct appendix,
+T18,fake_reference,44,,separate reference appendix,
+P3R_NEW_LOCAL,scripted,36,,9 construct families; actual local events,
+P3R_NEW_LIVE,luna,56,,56 formal planned slots plus up to 4 TECH; not core count comparable to T17,

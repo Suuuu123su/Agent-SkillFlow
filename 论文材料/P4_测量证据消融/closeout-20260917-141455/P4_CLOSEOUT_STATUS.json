@@ -1,0 +1,69 @@
+{
+  "stage": "P4-CLOSEOUT",
+  "management_status": "CLOSED_WITH_DOCUMENTED_GAPS",
+  "original_P4_status": "COMPLETED_WITH_DOCUMENTED_GAPS",
+  "data_processing": {
+    "saved_prediction_read_passes": 1,
+    "saved_rows": 252096,
+    "published_strata_checked": 4758,
+    "new_predictions": 0,
+    "P3_raw_recomputation": 0
+  },
+  "existing_verification_records": {
+    "author_portable": 832,
+    "author_zip_roundtrip": 832,
+    "external_report_portable": 832,
+    "counting_rule": "separate historical records, not added, not current checks",
+    "external_source": "task_pack/SkillFlow_P4_Closeout_Codex/references/P4_EXTERNAL_REVIEW.md"
+  },
+  "current_checks": {
+    "document_checks": 16,
+    "source_hashes": 61,
+    "P4_manifest_members": 184,
+    "new_portable_64x13_checks": 0,
+    "scope": "saved-result aggregates, formats, names, links, hashes and ZIP members; no predictors"
+  },
+  "reference_scope": {
+    "queries": 314,
+    "eligibility_known": 308,
+    "determinate_applicable": 192,
+    "Full_answered": 190,
+    "Full_agrees": 190,
+    "human_reviews": 0
+  },
+  "research_support": {
+    "measurement_identifiability": "PARTIALLY_SUPPORTED",
+    "unique_framework_necessity": "NOT_ESTABLISHED",
+    "live_revocation_benefit": "NOT_SUPPORTED",
+    "general_natural_language_accuracy": "NOT_ESTABLISHED"
+  },
+  "retained_numeric_conflicts": 2,
+  "tables": {
+    "A": 138,
+    "B": 273,
+    "C": 130,
+    "B_full_strata": 4758,
+    "C_overall": 13
+  },
+  "case_cards": 6,
+  "new_activity": {
+    "API": 0,
+    "Actor": 0,
+    "Router": 0,
+    "Checker": 0,
+    "Judge": 0,
+    "local_model": 0,
+    "attack_generation": 0,
+    "business_tool": 0,
+    "counterfactual_replay": 0
+  },
+  "next_stages": {
+    "P1": "DEFERRED",
+    "P5": "NOT_STARTED",
+    "P6": "NOT_STARTED"
+  },
+  "git_commit": false,
+  "git_push": false,
+  "review_zip": "p4-closeout-review.zip",
+  "packaging_evidence": "ZIP_RECEIPT.json (sidecar; final verification after ZIP creation)"
+}

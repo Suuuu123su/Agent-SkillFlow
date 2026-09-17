@@ -1,0 +1,88 @@
+{
+  "requests": {
+    "attempts": 292,
+    "settled": 292,
+    "response_unknown": 0,
+    "in_flight": 0,
+    "by_role": {
+      "actor": 292
+    }
+  },
+  "units": {
+    "complete": 52,
+    "not_started": 2,
+    "not_applicable": 6
+  },
+  "rir": {
+    "target/k1": {
+      "planned": 4,
+      "formed": 4,
+      "N": 4,
+      "C": 0,
+      "U": 0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "statuses": {
+        "confirmed_no_residual": 4
+      }
+    },
+    "target/k3": {
+      "planned": 4,
+      "formed": 4,
+      "N": 4,
+      "C": 0,
+      "U": 0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "statuses": {
+        "confirmed_no_residual": 4
+      }
+    },
+    "neutral/k1": {
+      "planned": 4,
+      "formed": 4,
+      "N": 4,
+      "C": 0,
+      "U": 0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "statuses": {
+        "confirmed_no_residual": 4
+      }
+    },
+    "neutral/k3": {
+      "planned": 4,
+      "formed": 4,
+      "N": 4,
+      "C": 0,
+      "U": 0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "statuses": {
+        "confirmed_no_residual": 4
+      }
+    }
+  },
+  "alr": {
+    "planned_prefixes": 4,
+    "settled_prefixes": 4,
+    "exposed_N": 0,
+    "strict_T": 0,
+    "strict_U": 0,
+    "no_sensitive_request": 4
+  },
+  "actual_tokens": {
+    "input": 476919,
+    "output": 25815,
+    "total": 502734
+  },
+  "cost": "NOT_QUERIED_NOT_ESTIMATED",
+  "semantic_limits": [
+    "reference harness only",
+    "two synthetic instances",
+    "no human review",
+    "no prior confirmed polluted prefix",
+    "single paired contrast is finite-sample probe"
+  ],
+  "snapshot_unix": 1789616908.4938123
+}

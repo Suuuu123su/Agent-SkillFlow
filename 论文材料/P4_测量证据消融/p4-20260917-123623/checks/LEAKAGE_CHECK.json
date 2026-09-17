@@ -1,0 +1,28 @@
+{
+  "forbidden_keys": [
+    "authorized",
+    "ci",
+    "condition_id",
+    "evaluator_id",
+    "expected",
+    "gold",
+    "grant_snapshot",
+    "gt_data",
+    "hiaa",
+    "matched_grants",
+    "policy",
+    "result",
+    "run_id",
+    "safe_task_success",
+    "satisfied",
+    "scenario_id",
+    "score",
+    "task_success",
+    "trial_id",
+    "unit_id",
+    "verdict"
+  ],
+  "occurrences": [],
+  "scope": "all projected documents including nested CF",
+  "independent_business_values_retained": true
+}

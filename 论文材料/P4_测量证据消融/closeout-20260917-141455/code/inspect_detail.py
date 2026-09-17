@@ -1,0 +1,4 @@
+from pathlib import Path
+import json,csv
+O=Path(__file__).resolve().parents[1];R=O.parents[2];S=R/'论文材料/P3_机制测量/p3r-20260917-103400';P=O.parent/'p4-20260917-123623'
+a=[json.loads(x) for x in (S/'METRICS_LONG.jsonl').read_text(encoding='utf-8-sig').splitlines()];print('STRUCTURED_NEW',json.dumps([x for x in a if x.get('analysis_layer')=='NEW_CONSTRUCT_VALIDATION'][-16:],ensure_ascii=False)[:8000]);print('T18',next(csv.DictReader((S/'T18_ALR_RIR_RECOVERED.csv').open(encoding='utf-8-sig'))));print('P4_SOURCES',list(json.loads((P/'SOURCE_MAP.json').read_text(encoding='utf-8')).keys()));print('P3Rmain_tail',(S/'P3R_METRIC_MAIN.md').read_text(encoding='utf-8')[-3500:]);print('legacyCounts',[{k:x.get(k) for k in ['metric_id','value','numerator','denominator','unit','model_config','contract_version']} for x in a if x.get('phase')=='f' and x.get('metric_id') in ['uea_count','provenance.f1','hiaa.c1-context-grid.potential','alr']])

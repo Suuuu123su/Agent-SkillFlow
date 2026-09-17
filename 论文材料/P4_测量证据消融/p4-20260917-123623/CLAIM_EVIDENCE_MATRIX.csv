@@ -1,0 +1,7 @@
+﻿claim,support,evidence,limit
+证据家族影响机制测量可辨识性,PARTIAL,P4_METRIC_MAIN.csv;FULL_TO_VIEW_TRANSITIONS.csv,定义依赖不能推出框架独有必要性
+存在有限域不可辨识见证,YES_FINITE_ONLY,IDENTIFIABILITY_WITNESSES.json,2对既有声明模型；不是新增Live样本
+删证必然使全部结论未知,REFUTED,CASEBOOK.md;TASK_EVIDENCE_RECONSTRUCTION.csv,任务冗余和合取短路保留
+Full等于gold/自然语言100%正确,NOT_SUPPORTED,GOLD_PROVENANCE.json;INDEPENDENT_REFERENCE_SCORES.csv,192个确定受控查询，Full判断190；人审0
+旧CI精准语义有效,NOT_SUPPORTED,CI_DETAILS.csv;CI_STABILITY_SUMMARY.csv,289破坏JSON，304未知；稳定不是语义有效
+新Live撤销产生因果安全收益,NOT_SUPPORTED,RIR_SESSION_COHORTS.csv,目标、中性、未撤销对照无风险；confirmed-prefix缺证

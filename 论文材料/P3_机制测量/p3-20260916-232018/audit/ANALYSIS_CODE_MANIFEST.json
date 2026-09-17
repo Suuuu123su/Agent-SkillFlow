@@ -1,0 +1,810 @@
+[
+  {
+    "path": "src/skillflow/__init__.py",
+    "sha256": "f948c263ff36bc6c1743c48551ec34c75b9f1449f8706c7e24a6273688ddea23"
+  },
+  {
+    "path": "src/skillflow/adapters/__init__.py",
+    "sha256": "2cb167f16ff5a7b7f03971361d047a7e8cfd618aa64ebd40fa6dfd552739ca70"
+  },
+  {
+    "path": "src/skillflow/adapters/base.py",
+    "sha256": "fe769d14d47744215638c05c6ba590af9e16fff43a61d82513cc5539f17c5de9"
+  },
+  {
+    "path": "src/skillflow/adapters/benchmark_controller.py",
+    "sha256": "5a88580ac398b2bc994213ec7270bad8d3cd86da4003f59002337f8ea776332c"
+  },
+  {
+    "path": "src/skillflow/adapters/checkpoint.py",
+    "sha256": "801f719cbd5fa42ae09405f5595a2de59bd349472074cb227a9c1f44a4b49144"
+  },
+  {
+    "path": "src/skillflow/adapters/mock_benchmark_state.py",
+    "sha256": "3e575669c95dc1fa157ac7640572272f9cc8c5893242809520bbcab19f9dcaa3"
+  },
+  {
+    "path": "src/skillflow/adapters/mock_checkpoint.py",
+    "sha256": "f4e1a63a5a5c5cab560782839d597bcbca51506377d8be720a05bc574a896a5d"
+  },
+  {
+    "path": "src/skillflow/adapters/mock_harness.py",
+    "sha256": "98aaa18170d0d17f77cf4ebb62c49ce9e2fb63a1129f959c92c96e059da8abae"
+  },
+  {
+    "path": "src/skillflow/adapters/mock_session.py",
+    "sha256": "1318b81ab1eec92e5e2bca53f84d923ca633bd8b8d6824c3d37a86e2fdb27f12"
+  },
+  {
+    "path": "src/skillflow/analysis/__init__.py",
+    "sha256": "42e565572cf4f5558566eb0c4b08eca39243439caa482e4bfa98be72943222a7"
+  },
+  {
+    "path": "src/skillflow/analysis/authorization_laundering.py",
+    "sha256": "ecbeb12509756599236f4d0d45a9ef136a18489dee1ac568a215c2db8c93e1fc"
+  },
+  {
+    "path": "src/skillflow/analysis/effect_projection.py",
+    "sha256": "19683c397998c17d8b78df9adaa4b604fceef2d84ccf5707eea950be931e9cc3"
+  },
+  {
+    "path": "src/skillflow/analysis/effect_selection.py",
+    "sha256": "e7d2989292fa6ee0536e3c19178d367c0eca440405a054d8288f0bfadac89fbc"
+  },
+  {
+    "path": "src/skillflow/analysis/effective_authority.py",
+    "sha256": "54efb14049ac7bbcff269bd8fe5abc989532dc4b4b2856f042da06cd26aa16b7"
+  },
+  {
+    "path": "src/skillflow/analysis/errors.py",
+    "sha256": "a41b1201d3aff5b46cbe078f899bfa4e5a317ecb9c339508ba838c02976c0364"
+  },
+  {
+    "path": "src/skillflow/analysis/facts.py",
+    "sha256": "d2eb83df6e8a6a6c741939e2e9d5205283fd6129344d70abdf34e453218e9582"
+  },
+  {
+    "path": "src/skillflow/analysis/hiaa.py",
+    "sha256": "59235a402ab626ef6e79e648032c10a82d6c81a4fdec474454237255eee23ff0"
+  },
+  {
+    "path": "src/skillflow/analysis/metric_helpers.py",
+    "sha256": "95942281fd153e31df3f82515445e3c32216f62b72853f441287df9ef4cdd15e"
+  },
+  {
+    "path": "src/skillflow/analysis/projection.py",
+    "sha256": "cc7474376ead709572198a23f1cc26e1044346b9c8076ec13c60b67c19e7107e"
+  },
+  {
+    "path": "src/skillflow/analysis/provenance_metrics.py",
+    "sha256": "74bb49fe3ff54fc2a0c23803cef8a068cf50f4ceac48718ddcc11289ce00946a"
+  },
+  {
+    "path": "src/skillflow/analysis/report_io.py",
+    "sha256": "80f3ae5b254b4abf35d89265ba309084fd078b7f61e4419d08809f8b082c1476"
+  },
+  {
+    "path": "src/skillflow/analysis/reporting.py",
+    "sha256": "dd8c659dc85a0dbdf1cd1d4787969e1cd5fd5bb32c07c710a424b2824617a0f9"
+  },
+  {
+    "path": "src/skillflow/analysis/run_reporting.py",
+    "sha256": "8d1e5f55b5e82627acebc9633a0b7e849c1859ce5ed2a6626a3842a9c806fc3a"
+  },
+  {
+    "path": "src/skillflow/benchmark/__init__.py",
+    "sha256": "98e7894a8c9b1cc92e601a362c9f8af3b6d379a92088b1708b7937d532ebc43f"
+  },
+  {
+    "path": "src/skillflow/benchmark/execution_policy.py",
+    "sha256": "3fdb333efc7fd03d19a87f1f9fc4dcd1e0abe445cd4ca27e71e7810ff19fa7d3"
+  },
+  {
+    "path": "src/skillflow/benchmark/harness_factory.py",
+    "sha256": "3054c86f5b473ed812a705005b8cee6208e7093960bc0bdec3971f1b3736c26c"
+  },
+  {
+    "path": "src/skillflow/benchmark/manifests.py",
+    "sha256": "2a8beb714d97055d2de6b8707768de5f01e636ab847a22c337bc6efcd5526519"
+  },
+  {
+    "path": "src/skillflow/benchmark/oracle_bridge.py",
+    "sha256": "55909cdd88d1528f5b89a38c2acc2112e9e6802a2fcc7df335842f641c9f12c5"
+  },
+  {
+    "path": "src/skillflow/benchmark/replay_models.py",
+    "sha256": "80d2cfcf96c882e23e017a0ed2be5870a582150dccb52dbf5cd0970a4015f508"
+  },
+  {
+    "path": "src/skillflow/benchmark/run_facts.py",
+    "sha256": "129c040b06c6e3543f6c769a345c6f9de84260cbe3e1a35777bd5f7fb71d492b"
+  },
+  {
+    "path": "src/skillflow/benchmark/run_workspace.py",
+    "sha256": "75a16dedda1325691225ad4fcc47af262947191ed5088497406c983f005022f2"
+  },
+  {
+    "path": "src/skillflow/benchmark/runner.py",
+    "sha256": "262fb1a44e6872a2f8227b0122f7174d4b9bd81c891fcd59508a21b945c87b00"
+  },
+  {
+    "path": "src/skillflow/benchmark/scenario_execution.py",
+    "sha256": "5757b67250551cfe1c569713fc3b0e70058280531f3579cd450f4c992b1cd56f"
+  },
+  {
+    "path": "src/skillflow/benchmark/scripted_backend.py",
+    "sha256": "f783cec30f8d93f9f95cd025d7917d673c52a87d95e9a9b2295d579d6ee15833"
+  },
+  {
+    "path": "src/skillflow/benchmark/success.py",
+    "sha256": "c221afded4bbc522bfb0d0ab4cc8e46ff606031a502d9fed8aba6730e0358f45"
+  },
+  {
+    "path": "src/skillflow/experiment/__init__.py",
+    "sha256": "3c6bc5ba49d6c8484c2b91c4694b3c25ef3eea61491eb7e7b86fe3abd1a539d7"
+  },
+  {
+    "path": "src/skillflow/experiment/aggregate_hiaa.py",
+    "sha256": "e492693c0b5a4d1eb604fb3f41925c0943eb413c2103c7b30c83a4f6f1e99ed6"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/__init__.py",
+    "sha256": "70750409104bce308f7b9c9f6c57ef0a082783b7f0ba994f9d4012aeb9c7382f"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/budget.py",
+    "sha256": "2a27969f6363fdd7af497319691dd17c8e1a64c6623861cb13f02a6fb4823ea6"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/dry_run_records.py",
+    "sha256": "5af1f7fc33832fee7ea8e68bf3a14c6d3a17616ba1db9a96ef40d122858746ae"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/live_agent_calls.py",
+    "sha256": "c4e32f54d112f80dcfc4e5f47741bdc2890d52a22da91e75524c7fccd0dce342"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/live_config.py",
+    "sha256": "366de974b74d0aca87f82bfe6093f4cfc47fd8ca27db915f384312a5d10be7ef"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/live_design_models.py",
+    "sha256": "f9c9b059a862799cf5901ed6dcbd9c2d1eb0b9cd5362e6bd75d41ef43a3c3340"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/live_record_builders.py",
+    "sha256": "ae0af2955d12a9f858a5d1666bba9c56457f054dbbb929a89116e4093fe75a63"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/live_record_schema.py",
+    "sha256": "3839554a8b8e953389a279daaec98a3beaaa0c3cecd5db6c75a2900618c766d0"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/live_records.py",
+    "sha256": "1761d23ffb57b1338722099d908733e1ea353f872f0e214ff9da0b9be17b1534"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/live_session_models.py",
+    "sha256": "dd5cf7789dbc9da92e72d8cf248950278e1b508edc4b69228f8b60ccac64a1fa"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/live_task_success_binding.py",
+    "sha256": "d0753632a15475c3f8a2225d9d31c66914b0a625a056af0d7dea35dde4249924"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/live_tools.py",
+    "sha256": "764102618b577fd3f31e288d61d6df7aa1020c295ef04560b412a85048f15266"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/openai_output_schemas.py",
+    "sha256": "09e367c00c58700579e764a77c9e40f6418d2843d66c4d9ac89f1a33bbc7451e"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/openai_response_models.py",
+    "sha256": "0b36645e48f800fc2cf0faad026f932321d55d496d3eccfb10cfabb5ed648213"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/openai_responses.py",
+    "sha256": "de1dc2c2169ce63714725558cd322bfd5f2ac62e89195b7546bcb3d27aafddf0"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/preregistration_models.py",
+    "sha256": "a70c149f43ae9e50d9b3520ba02a758d8520c8e61efcdf9430f4f4a8ca97e37d"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/provider.py",
+    "sha256": "a39d0179c67666e62ae41f5478e40884c1948fc5330c0892610c0feb8e4b52e1"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/task_success_artifact_checks.py",
+    "sha256": "b97ae13dbe88427299df8549a125211201986811b2f07663013ca9af54faf39b"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/task_success_assertions.py",
+    "sha256": "c13f9cb087e5ccb178717ac8dd36e5b648afebaaaae3e5ddc2aae0888d245008"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/task_success_evaluator.py",
+    "sha256": "132ee22ed99e635cdaf3d8e16ebd0ab8a5a11a363a3f5430365c619fc8493d21"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/task_success_evidence.py",
+    "sha256": "1236d24df8354d8109c0b0a8e92c60594276088e9e4703e2dc24be9f23f8fe49"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/task_success_facts.py",
+    "sha256": "c5bdca8c0490c33742ddeeab9a0ae380a9c209372a36b29a5291e78b09eb1fef"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/task_success_observations.py",
+    "sha256": "d04887aecd2e69a38c9d6576f760c49a298146cca1b71814265ab6be23a3ead3"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/task_success_output.py",
+    "sha256": "91c71a7d5f6f3e0113dc9adc864c8e5e01b6e4ac1e46436db4ff79ab5f59f556"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/task_success_runtime_checks.py",
+    "sha256": "7d5a15d8a0c09cef29cb44e94ece313eaf42238b9afa5ce60995413df4a6f997"
+  },
+  {
+    "path": "src/skillflow/experiment/t16/trial.py",
+    "sha256": "fb18755a1639d5b61fee3cc4f601608b64c0328c658a58c60d088bfd08cdddd9"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/__init__.py",
+    "sha256": "667b76e8994b864a352bae248e3154c3132b779fe131749b147e4cdb3db18b15"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/contracts.py",
+    "sha256": "d1e5af6e93ff65ec7a0ee468df59a157d943c92bcfe73cea5e86f53bd0512a77"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/live_attempt_models.py",
+    "sha256": "ec04f57f4c67aa47183bf7ac7ae3235cc76e19f7e11d6a396b33b83b90cf9b6b"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/live_matrix.py",
+    "sha256": "8b251bae2f0be8fcf713895c6da7c5dd238060c80fddb63d0630fdaddd11b2b3"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/live_reference_client.py",
+    "sha256": "e67bf8e045aceab4ebf4b67bb95cd66516e66ededf90e8127a7c2ca30a7095db"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/metric_models.py",
+    "sha256": "163c456671e48b1b3edf624756bd6ebeb7ac86537f6698d885ed25c400031ed8"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/minimal/__init__.py",
+    "sha256": "d2796a3206de0743a0edf8cf8a77e11636940f28124219d59483be85141d9fd5"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/minimal/contracts.py",
+    "sha256": "121da901b6196e42029852f6ef1e71b6465da7da14c96669cf5a3c6ee4a70a1d"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/minimal/report_models.py",
+    "sha256": "33f7e6fe9e0a7585e46941afdff0cf75eb5daddcc266583c453260ca35595d89"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/minimal/run_models.py",
+    "sha256": "b29ee43c588db3dd488e152a696468a1db8ca2b0215a2de486176a0919f719f1"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/minimal/task_evidence.py",
+    "sha256": "a92aed5b4dda5d9f85ac336c620d261c2f17fb8ed57ffe5e335857da6ecb5c06"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/minimal/task_models.py",
+    "sha256": "9f199e4cf155a1fe85427e20e106c39b2e3ed07c27a8d1c7a67be846f5c254dc"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/observation_hooks.py",
+    "sha256": "cfde488a12cf799dbc2b41e19057e1fa84cf6370b6e95fe22899d72996c783ef"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/observation_models.py",
+    "sha256": "8cee89811d8b9cde4125887c5423b6bae2a6495c68419ebabe3b4d57b7e8d434"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/observations.py",
+    "sha256": "628253cd2ad4431206e7c53035616d6cb236add2b5f85f87e9b0cf0f00a6671c"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/reference_backend.py",
+    "sha256": "8cffe420192857acdb60dd2d0a60938df40d643e2414bb5edf3f249aa65c96f0"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/scenario_registry.py",
+    "sha256": "49cb41a53a534f5309ba2a2d878720121eda9453b16d5d2af9fb993403c7c576"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/scripted_models.py",
+    "sha256": "69b4e213aebe0056e73dc06402b0e453626ad64bfcf0c1c5bbfd77cf9d94868c"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/task_evidence.py",
+    "sha256": "a6dc985d25ba5d421423b891b599e6a9034fc8c60e27a871f60229bcc7c48a97"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/__init__.py",
+    "sha256": "be12d06796294b2a0419d26aed42b5a6bb571e41ffa4482fde364a6b573057f1"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/analysis_context.py",
+    "sha256": "3e70b45cfffac644efb4cd52883ee57b6ec28a1f603ae9550df08cc4b4391396"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/api_models.py",
+    "sha256": "6f67df084c231d4d937c368c63259167b34734647d3f9cb57bee84785a60ffc4"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/authorization_metrics.py",
+    "sha256": "fccd3b9a0fc6cadc42845fc09ef0cb149d234fe256c82efeef62b706cc5f26a9"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/canonical.py",
+    "sha256": "67c6969e01becab35475faa91e449757960c83d9a21178b0b4fbf02b1773d40d"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/catalog_models.py",
+    "sha256": "e9e0669e7b54bdf11b041b5aaa82cc0aacacc86441a6a5f32db7ce6b4c2a5a0a"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/causal_metrics.py",
+    "sha256": "073c22fd14cd70ca102c258f2f6042f584144aec64e2f4c627b7aabf9b0d8301"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/claim_models.py",
+    "sha256": "27adfad2b05d956fa93535f17f15028bbbb97ae53c7c4ff92c5ca68dff1f2b59"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/config_models.py",
+    "sha256": "2dda973b69d928ca488e355464afe26b87c919ff83c2f1e9beb47cb517678d22"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/core_metrics.py",
+    "sha256": "c31fc96fd7ff2741be428a5874c0542c1c6c747120296e9726b6d03bb76258fe"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/dataset_rows.py",
+    "sha256": "b739ee7f4195adacd051d30f537203531147323a478f5aac51ba67e5bce32c58"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/efficiency_metrics.py",
+    "sha256": "dcd827f2b579aa1bd3e2959eefa92e21a52f2fccf7d2543b2c4cd05ddf3677a9"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/fact_store.py",
+    "sha256": "29add0dbd61e229ba0c560c9cb1abcee02b18972e748c51cc094793f26a79832"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/frozen.py",
+    "sha256": "4c3f3621ad3194f75a7ee68b9c5727f416ed420bb68c6a563d4dcdf0d0a876e9"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/hiaa_metrics.py",
+    "sha256": "1535005c0085384692629e93b7648c92bddfce74ec8570b4969aacf7b9f75440"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/hooks.py",
+    "sha256": "f405c8ad13c1dca47ab5869cbdf89342361457892dea15039a8c8b99873aeaaf"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/measurements.py",
+    "sha256": "c6f037a259130ee47aaad797e55b6a4cb0554f71f7627bf2b8881b1093cdadbe"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/metrics.py",
+    "sha256": "77309ecc14ccd76bd3a16bad6010495d0b54d053d9c84d34affa3d331519c965"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/paired_metrics.py",
+    "sha256": "31a82250e60001cbf76e6a72ae02fa719df219617b72454c93f6adbda9efcef6"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/paired_models.py",
+    "sha256": "1fc9bf8557658fade67bd847c14a020d181f8627da791a7b60f78a7524949198"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/portable.py",
+    "sha256": "27c47729d9ddf8e7d2bd229709eddad9b7f5ac3607df14c1e3b98155727b4199"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/portable_models.py",
+    "sha256": "2aa75eb44bc213e99de43d999f69208f24ce7cf7d32d2abb57476ac08a5306e8"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/provenance_metrics.py",
+    "sha256": "1a0c5e94f25c8366289384e92de75c24400723ecbac6f3cfc3389f553423a316"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/replay_proof.py",
+    "sha256": "22d9e36169c1ad602e62643a5a1af757ab4174dbeb7e59d9f927868254e8746d"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/run_models.py",
+    "sha256": "69fc36a5cd29e207cc6567c3a46eb7e8751598b8992e74e6f9d9602a8cde97c5"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/runtime_models.py",
+    "sha256": "1e6d1a6c855af6fe9a8f5010ba903092eb21b9ef497109df37ee66b2f57fe54a"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/statistic_enrichment.py",
+    "sha256": "63e306c1d3383b993e5f44baf4b1c2bbb39a7b99a68bf6e37cb1bdd050a929eb"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/statistics.py",
+    "sha256": "e558e58e7600061ef99abd1b4a35e7c57bd584c967c48f5a3b93c9040873fcad"
+  },
+  {
+    "path": "src/skillflow/experiment/t17/v2/statistics_models.py",
+    "sha256": "2f9b8dbbad05075a2ecde55843a1bfd5308b6d1fe104549bac5e9f91b9140991"
+  },
+  {
+    "path": "src/skillflow/graph/__init__.py",
+    "sha256": "d908be7939bf7c1e17886fc460d7c57af22252c4ff6aa9fdcf859cb8176af49d"
+  },
+  {
+    "path": "src/skillflow/graph/assembly.py",
+    "sha256": "cb25f8827eb4ec73d33fe4089f4db37e600df1617395d65bb07254193528eebf"
+  },
+  {
+    "path": "src/skillflow/graph/builder.py",
+    "sha256": "aee8aaca29426602514979265e6a710b0c76814a0e5f1479a58734e72d725a73"
+  },
+  {
+    "path": "src/skillflow/graph/enums.py",
+    "sha256": "57d0176ee8f7e6b3656a8d160d561720298a2e18ae16fd3c880d724a32331d8a"
+  },
+  {
+    "path": "src/skillflow/graph/errors.py",
+    "sha256": "f48cedb906cfc72e136f551f0218dd0c1ae3b71241ce752ec2e780002eac009c"
+  },
+  {
+    "path": "src/skillflow/graph/event_projection.py",
+    "sha256": "ebfaa205818b386379ab51bd2881245104d2b6f1c304649cb5d96354ead6dafc"
+  },
+  {
+    "path": "src/skillflow/graph/facts.py",
+    "sha256": "85b432538776e53e5db80fe42debe3642745bca17ca401a6af0e1a75ea792471"
+  },
+  {
+    "path": "src/skillflow/graph/models.py",
+    "sha256": "f44770c7649f0eacae5a6ee35ddb34fbe5be261f98682236176092fe845cc50f"
+  },
+  {
+    "path": "src/skillflow/graph/path_analysis.py",
+    "sha256": "263046b207db4bb30e3e2828ec9e7ad23a97e31c86e991b2419509f48cce3024"
+  },
+  {
+    "path": "src/skillflow/graph/pathing.py",
+    "sha256": "7a295e733ba9672812936167c12c45b01f720e29cab23600c5ed62bf437c4609"
+  },
+  {
+    "path": "src/skillflow/graph/record_projection.py",
+    "sha256": "209dca37e0fddb1a9368ffc15c7d14942a0c77429540087c46c9f1ce4a43fa57"
+  },
+  {
+    "path": "src/skillflow/graph/security.py",
+    "sha256": "841c01635e8110c90692b94f21c257490197fa81b251c70af401d6a7351b0799"
+  },
+  {
+    "path": "src/skillflow/graph/semantics.py",
+    "sha256": "bf97b17bd228879382f18b9c0091c49625680e1cb2ca5a57ef7e350f0ede9c8e"
+  },
+  {
+    "path": "src/skillflow/graph/special_event_projection.py",
+    "sha256": "16187c26f1ba80aa2f83bd9f8c10e24a2b3b26ccf2db6062c453872bb25858bd"
+  },
+  {
+    "path": "src/skillflow/instrumentation/__init__.py",
+    "sha256": "9843a6b77f1641cee5ed9dece311a4876f682efde3352a5b12f5a15a199f8013"
+  },
+  {
+    "path": "src/skillflow/instrumentation/artifact_intervention.py",
+    "sha256": "a56af9e821fa1a8391c0ce01db2e095cd8e8f38f3e21b24f8578d8c4b49c9ed9"
+  },
+  {
+    "path": "src/skillflow/instrumentation/context_proxy.py",
+    "sha256": "d0ca58b26a04f82d08bbd10fe42c1dfd15a20cf03f36e678910f5bd9ebaa5c8a"
+  },
+  {
+    "path": "src/skillflow/instrumentation/decision_stub.py",
+    "sha256": "88bad5f8422650aea7c59c5668b3e8488a5b71de579e24ae66ca76def282fef6"
+  },
+  {
+    "path": "src/skillflow/instrumentation/errors.py",
+    "sha256": "11ed33b81f96c47ad77134e1b8aac5fe802a380824a55ea2d9e035778a8c9e47"
+  },
+  {
+    "path": "src/skillflow/instrumentation/file_proxy.py",
+    "sha256": "03d53db1bf3a427014a3c6e5c3e2913770f7a7e346b466adfa4dfdf43dc73599"
+  },
+  {
+    "path": "src/skillflow/instrumentation/memory_proxy.py",
+    "sha256": "067e987a6e43691166d2e811abf7ec6f797447673e1f6c12e281a2303606239e"
+  },
+  {
+    "path": "src/skillflow/instrumentation/mock_tools.py",
+    "sha256": "22cb5e9df361a0643f7de1327942317bfe873eff732bef67eb718598488448f3"
+  },
+  {
+    "path": "src/skillflow/instrumentation/skill_proxy.py",
+    "sha256": "6d195df6e1532e144917653bb04a8d02681912dacf4f6d4e8768534a57bd07ba"
+  },
+  {
+    "path": "src/skillflow/instrumentation/tool_effects.py",
+    "sha256": "69af19b32e9d0e449f8f735ad58348d35452870337d8b643508259b09f76aa02"
+  },
+  {
+    "path": "src/skillflow/instrumentation/tool_proxy.py",
+    "sha256": "44d93f35aa8d85fd9b9f5afff6580e08d4db240bda42494d0aa48f0a0e3412f8"
+  },
+  {
+    "path": "src/skillflow/instrumentation/tool_receipt.py",
+    "sha256": "83ed9cc808586bfda946c69b636fda7a30f73c8727e9493c69fbf6bd3df34ddb"
+  },
+  {
+    "path": "src/skillflow/instrumentation/tool_types.py",
+    "sha256": "3c8d6efbde791cd80b926eaa8c286f2aeb14978614d393d903b43990b67b3df7"
+  },
+  {
+    "path": "src/skillflow/models/__init__.py",
+    "sha256": "8542505d8378e36d910645dbc30e6fdf52d234a523151a5b8071a7b78a2139bf"
+  },
+  {
+    "path": "src/skillflow/models/advanced_metrics.py",
+    "sha256": "be40ff4354b592cf4e06ef62b38f111cb4ab4267bb9d0e9e055d4917ab1c9e03"
+  },
+  {
+    "path": "src/skillflow/models/authorization.py",
+    "sha256": "2097375c446a36705619d1fb628c3f6d69c41923d52b80340a816dad57ae558c"
+  },
+  {
+    "path": "src/skillflow/models/base.py",
+    "sha256": "60acc5863e11695b570f675bd41b028c15bedaf8db8e18f2adab5ee9c5e16d59"
+  },
+  {
+    "path": "src/skillflow/models/effects.py",
+    "sha256": "7b24c128abe1988602d6843b9152d1391d9f52511be5632f98eae91dd59e2cf1"
+  },
+  {
+    "path": "src/skillflow/models/enums.py",
+    "sha256": "d2b68130611fa185cedd87fce4f9845133da10c25ce8a3c25b4dd62a013f5a7b"
+  },
+  {
+    "path": "src/skillflow/models/events.py",
+    "sha256": "05a458f8b429712957d787ee34b61ddc58abab8cb3b17be9e3e70d421b62691a"
+  },
+  {
+    "path": "src/skillflow/models/experiment_reports.py",
+    "sha256": "fcf9eea864155bf43a7e6c69641629067c953c8256e14626688548a8ff5cb40b"
+  },
+  {
+    "path": "src/skillflow/models/manifest.py",
+    "sha256": "ab8dea79e21a60d4f19d5c56af117e2aa30d966840c24bf318b9f4c5d2a2deb6"
+  },
+  {
+    "path": "src/skillflow/models/matrix.py",
+    "sha256": "16b8475fbc83ece8aae76db69ecd36ba34c14ae86bc9150da1b43dfd0bfcf09b"
+  },
+  {
+    "path": "src/skillflow/models/matrix_axes.py",
+    "sha256": "d0108f7628aefbc6224a99f3c63ca38bd1f773b983dfdd7e737de9a64161e19e"
+  },
+  {
+    "path": "src/skillflow/models/matrix_design.py",
+    "sha256": "99868e0b87a9b6ae01a8b84db5b364fdb34ee1be1501e3ccaf66a5e269ceca2e"
+  },
+  {
+    "path": "src/skillflow/models/metrics.py",
+    "sha256": "46dc7a3aa2aa2251289f17116a074c3a0e30de46188b6d2f384271a351e05c05"
+  },
+  {
+    "path": "src/skillflow/models/provenance.py",
+    "sha256": "7b9a2b273e8230579f0f92bd7d83d1bd9cb358554b819b6d4d938e76eccbf5ae"
+  },
+  {
+    "path": "src/skillflow/models/references.py",
+    "sha256": "e063608a557290851adfad46a69d7b12a4a524fea4bf04d23189257eca629b87"
+  },
+  {
+    "path": "src/skillflow/models/replay_reports.py",
+    "sha256": "b829495cc1f27b05d57be5d712b3752b011a43eb065114103680a28aa5b86168"
+  },
+  {
+    "path": "src/skillflow/models/reports.py",
+    "sha256": "0d36eddf0392d92609c9324308424e6a42ffc86d6d6f705c382e46027d18f5fa"
+  },
+  {
+    "path": "src/skillflow/models/residual_metrics.py",
+    "sha256": "b69bd5e05dc487763e572d5dc5125f87f149460575e263997b2aacbd433dba4e"
+  },
+  {
+    "path": "src/skillflow/models/resources.py",
+    "sha256": "98a6e51d2e54cf9c1b27b0c93e7a37a35670adfdff148c7de52b0c121ca3ccc5"
+  },
+  {
+    "path": "src/skillflow/models/run_reports.py",
+    "sha256": "15efbd3929b35c70d945aaae6a0d42bd3249af1e5d4edf0a188f5e60aeedc56e"
+  },
+  {
+    "path": "src/skillflow/models/run_results.py",
+    "sha256": "00383255ca412fb1347418faa0ff194f33597927e08785f55af1e600748e334d"
+  },
+  {
+    "path": "src/skillflow/models/scenario.py",
+    "sha256": "f3a7418cd97dbf1b96b07b0ff05c7809f48901a8d18f394e0fe74c6c4845a71d"
+  },
+  {
+    "path": "src/skillflow/models/scenario_parts.py",
+    "sha256": "e99d15cd95c5c712816039a4d91682c51b743f98d24c8abe69cffa8018af99e9"
+  },
+  {
+    "path": "src/skillflow/models/scenario_research.py",
+    "sha256": "78b36a5d748df6f7018f99e0c4d11d6aa4e4aefa45e43b75683f8b177996bbe9"
+  },
+  {
+    "path": "src/skillflow/models/tool_calls.py",
+    "sha256": "ee4adf99d87eb18d26e037889c53f156c9049bff1b33c6012f5e0cc1ca04bd22"
+  },
+  {
+    "path": "src/skillflow/oracle/__init__.py",
+    "sha256": "da02167ae19845b28de3c96d466bbb3aa86f426efbbd2fcff1069e4e57368f97"
+  },
+  {
+    "path": "src/skillflow/oracle/bindings.py",
+    "sha256": "a229b1db66641f87e1f7f64c02f1cd1e8da96dc80eaabcd3ef71814c5f2e1a55"
+  },
+  {
+    "path": "src/skillflow/oracle/data_helpers.py",
+    "sha256": "9cb3cd392c538dc53ff2f7e6c733937a83b51b531c4b340f5b642512a72a37b7"
+  },
+  {
+    "path": "src/skillflow/oracle/effects.py",
+    "sha256": "9cc8c30264e2996f3af005e3b19c58320f6b340b62fa6496020f3f6de730b958"
+  },
+  {
+    "path": "src/skillflow/oracle/errors.py",
+    "sha256": "aef1923a57b8c88bd2a902a177d4ac15c0b236e7559c42f019b2cb5aa4d210d4"
+  },
+  {
+    "path": "src/skillflow/oracle/expectations.py",
+    "sha256": "503918d79d5a843b91f3315a651838fee20c8ce34f98c9876453febd9c645307"
+  },
+  {
+    "path": "src/skillflow/oracle/grants.py",
+    "sha256": "fa5a9741f359a20d4dd301c22e883baaa01ec3c1beeff624d58cbb0e58fbb629"
+  },
+  {
+    "path": "src/skillflow/oracle/models.py",
+    "sha256": "21abcd783f4acbd429f5071949042cfd2cb0e515c3dcb253974f8047037a8007"
+  },
+  {
+    "path": "src/skillflow/oracle/sidecar.py",
+    "sha256": "59ded01a949ce13b7de43d46ccd8a323faec0b35806331a638e7748ce2f1d6c6"
+  },
+  {
+    "path": "src/skillflow/oracle/state.py",
+    "sha256": "c842cb42ab17290c4b976b3519249c12a4c899ccfbc5d4b6c529216700696047"
+  },
+  {
+    "path": "src/skillflow/oracle/writer.py",
+    "sha256": "2023e2cabb890223efb00bb3b341d91345775d0332140d71ebba52be257b5f8a"
+  },
+  {
+    "path": "src/skillflow/policy/__init__.py",
+    "sha256": "84b7c3c91a33e6224ed52dcfe668cc9910736cf6123bbd5b69e52b8e9313edf6"
+  },
+  {
+    "path": "src/skillflow/policy/baseline.py",
+    "sha256": "7ec0540ff161a46a6fc8de9cc535785b87308f5ad63103660f4cb8266481ec6e"
+  },
+  {
+    "path": "src/skillflow/policy/engine.py",
+    "sha256": "ccd6e942a1c605a42b277656ee29e0deae40fea8be2538f26b7c9168fcf02ace"
+  },
+  {
+    "path": "src/skillflow/policy/errors.py",
+    "sha256": "9146dac40debd5962a8c99d987dbd5d21cb66fd52216153b82a31a62d2003be0"
+  },
+  {
+    "path": "src/skillflow/policy/matchers.py",
+    "sha256": "7b729dd7548f32932901fc6c4a56e728bf10422adcd7ed4b864e23399c2e9f88"
+  },
+  {
+    "path": "src/skillflow/policy/models.py",
+    "sha256": "3267ba1c5101fdbef4bdf4f8cac2b9a25fc35cf6b2fcc73e1e24d0a35daf1e08"
+  },
+  {
+    "path": "src/skillflow/policy/reasons.py",
+    "sha256": "f0f325843a94c9f2b09a3c451b72a3b9fa72ab1953a6c881ed2c5f37448b3a55"
+  },
+  {
+    "path": "src/skillflow/policy/runtime.py",
+    "sha256": "d6e4cd14735d67c13af15635c1d41dea288236c71890578eb1e01d0636e188a6"
+  },
+  {
+    "path": "src/skillflow/runtime/__init__.py",
+    "sha256": "c83680232f678b80e9e1318ad496d707b1e623f0953639aa99a23fe206e2ea2d"
+  },
+  {
+    "path": "src/skillflow/runtime/contracts.py",
+    "sha256": "de781cc384965e8c7d90383acfd080599b2970888e78190bf89cc34e8dcfb2b5"
+  },
+  {
+    "path": "src/skillflow/runtime/determinism.py",
+    "sha256": "8799940afa37a4396edd6abf4ae2480e6441d147074e1101f31cbc1282056720"
+  },
+  {
+    "path": "src/skillflow/runtime/provenance.py",
+    "sha256": "a3369650e768b4064907d9d4eba1688e8357a92ce7a0ab23c6d0f4101724a55d"
+  },
+  {
+    "path": "src/skillflow/runtime/session.py",
+    "sha256": "0393caeb9e661076c63b4fc9681d9e383d90a9971955ec6f22aeff196d493f70"
+  },
+  {
+    "path": "src/skillflow/runtime/workspace_checkpoint.py",
+    "sha256": "67309e0ec91ce1e27a42c38beab7a4b1480073857f8f8388e5360d087121cc81"
+  },
+  {
+    "path": "src/skillflow/store/__init__.py",
+    "sha256": "d6a27f7ff028f3c41923eca8e7d7f1fc2804c5c14e40aab41f0d86d89eff6614"
+  },
+  {
+    "path": "src/skillflow/store/blob_store.py",
+    "sha256": "be7ca9d762a64f3fe59074e8181c62ee32667acd5d2f33602ad973ec0b926c57"
+  },
+  {
+    "path": "src/skillflow/store/checkpoint.py",
+    "sha256": "2e9586faead0539b98dbf941ebc1163ba1231228ee43acebd139d7521f52fc49"
+  },
+  {
+    "path": "src/skillflow/store/envelope_validation.py",
+    "sha256": "5a956947205800db1ae3a24380c6efa443881d63adbd977743fbee4330a6523f"
+  },
+  {
+    "path": "src/skillflow/store/errors.py",
+    "sha256": "c4f654c387309fb2a4bcb8cae758757541c654eafbe39c054c3909d9a0829535"
+  },
+  {
+    "path": "src/skillflow/store/event_store.py",
+    "sha256": "964bca9cde74efd38f6ae2cafaf51c178f4bb0cdd4e632252a45b7bb051d952d"
+  },
+  {
+    "path": "src/skillflow/store/sqlite_store.py",
+    "sha256": "0e0cea020ed655852bf02ed981c19d008a4998824a4743debe6cfba624234d0f"
+  },
+  {
+    "path": "src/skillflow/store/sqlite_writer.py",
+    "sha256": "eba227072fdaa83e67f7021a00c62a7fcf15886d6505d44a10b4c34fe7e315f4"
+  },
+  {
+    "path": "src/skillflow/store/trace.py",
+    "sha256": "01110e89afe4de55a9fdf216f03a45bb862cf9a1ffad8b6b0ffb32ed0b319742"
+  },
+  {
+    "path": "src/skillflow/trace/__init__.py",
+    "sha256": "c23144a5b35f3aef1cdffaf9328347aa0026d3a67cae03d4e5d869b934a8518f"
+  },
+  {
+    "path": "src/skillflow/trace/contracts.py",
+    "sha256": "de332f3134bff4be9c527f373c98df1ee12d1824ae37b1eb8e1625965472a0b8"
+  },
+  {
+    "path": "src/skillflow/trace/jsonl.py",
+    "sha256": "84138dbacbc9dc143ddfadcdc18ba4166a9867c2065b82030354cc6acfd46ade"
+  },
+  {
+    "path": "src/skillflow/trace/observed.py",
+    "sha256": "7de5eca2cde20c68c81b796f60d6e734a029a18a2e0a82d1edfdc95d40e299d9"
+  },
+  {
+    "path": "src/skillflow/validation.py",
+    "sha256": "bad2c2b14e4617bc589a32996f97c5ecb0f931d4080621094c88092cc9b9ed6d"
+  }
+]

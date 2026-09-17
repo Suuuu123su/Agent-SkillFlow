@@ -1,0 +1,502 @@
+{
+  "checks": 99,
+  "failed": [],
+  "results": [
+    {
+      "name": "required:P3R_FINAL_REPORT.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:P3R_METRIC_MAIN.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:P3R_STATUS.json",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:METRICS_LONG.csv",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:GAP_CLOSURE.csv",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:CLAIM_EVIDENCE_MATRIX.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:M2_DIAGNOSIS.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:M2_FIRST_FAILURES.csv",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:CAPABILITY_MODEL_CONTRACT.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:POT_SETS_AND_WITNESSES.json",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:ALR_REASON_PROVENANCE.csv",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:ALR_STRICT_FUNNEL.csv",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:RIR_LEGACY_AND_CHAIN.csv",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:RIR_LIFECYCLE_EVENTS.jsonl",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:CI_FULL_AND_STABILITY.csv",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:SOURCE_MANIFEST_P3R.json",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:METRIC_TO_DECISION_MAP.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:AFTER_P3_PLAN.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:INPUT_COVERAGE.csv",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:MODULE_ACCOUNTING.csv",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:LIVE_UNITS.csv",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:LIVE_RIR_COHORTS.csv",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:LIVE_ALR_SEVEN_CONDITIONS.csv",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:LIVE_SESSION_LIFECYCLE.csv",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:live/public/ATTEMPT_RESULT_INDEX.csv",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:live/public/INDEPENDENT_METRICS.json",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:review_slice/index.json",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "required:review_slice/recompute.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "execution_complete",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "partial_claims_retained",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "human_review_0",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "attempts_unique",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "all_settled",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "caps",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "only_luna",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "only_actor",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "fixed_endpoint",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "frozen_source",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "legacy_preservation",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "source_hashes",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "live_receipts_events",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "independent_metrics",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "checkpoint_prefix_and_grants",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "3_continuous_sessions",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "portable_slice",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "G01_to_G11",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "no_blank_gaps",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "unknown_pot_not_zero",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "legacy_G_rir_NA",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:acceptance.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:add_dialogue_binding_audit.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:add_empty_denominator_note.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:analyze_live.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:bootstrap.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:build_final_report.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:build_slice.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:capability_model.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:ci_raw_audit.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:common.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:diagnose_m2.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:export_live.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:final_contract_notes.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:final_null_handling.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:final_readme_and_control_note.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:freeze_activation.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:independent_legacy.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:independent_live.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:inspect_alr_events.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:inspect_export.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:inspect_final_inputs.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:inspect_manifest.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:inspect_model_binding.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:inspect_representatives.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:lifecycle_accounting.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:package_review.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:portable_verify_template.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:recover_mechanisms.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:reference_harness.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:refine_portable_observation.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:refine_report_contract.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:refine_report_schema.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:retain_core_gaps.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:serial_batches.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:source_audit.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:validate_pot.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:validate_reference.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "syntax:write_contracts.py",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "link:P3R_FINAL_REPORT.md:P3R_METRIC_MAIN.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "link:P3R_FINAL_REPORT.md:P3R_METRIC_MAIN.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "link:P3R_FINAL_REPORT.md:METRIC_CONTRACTS_P3R.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "link:P3R_FINAL_REPORT.md:M2_DIAGNOSIS.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "link:P3R_FINAL_REPORT.md:GAP_CLOSURE.csv",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "link:P3R_FINAL_REPORT.md:REPRODUCE.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "link:P3R_FINAL_REPORT.md:P3R_STATUS.json",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "link:P3R_FINAL_REPORT.md:COMMIT_REVIEW_LIST.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "link:README.md:P3R_FINAL_REPORT.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "link:README.md:P3R_METRIC_MAIN.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "link:README.md:REPRODUCE.md",
+      "pass_check": true,
+      "detail": null
+    },
+    {
+      "name": "link:README.md:COMMIT_REVIEW_LIST.md",
+      "pass_check": true,
+      "detail": null
+    }
+  ],
+  "no_new_model_calls": true
+}

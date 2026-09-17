@@ -1,0 +1,1081 @@
+[
+  {
+    "title": "Receipt缺失使确定洗白变为未知",
+    "query_id": "i_023c58bdec3024b0045061f7",
+    "view_id": "V01",
+    "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/positive-alr-original/state.json",
+    "native_unit_ref": "positive-alr-original",
+    "metric": "ALR",
+    "before": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {
+        "identity_gate": true,
+        "original_reason": "IMPLICIT_TEXT_AUTHORIZATION",
+        "predicate_value": true,
+        "seven_conditions": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "eligibility": true,
+      "lower": true,
+      "metric": "ALR",
+      "minimal_proof": {
+        "identity_gate": true,
+        "original_reason": "IMPLICIT_TEXT_AUTHORIZATION",
+        "predicate_value": true,
+        "seven_conditions": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "missing_evidence": [],
+      "protocol": "T11_explicit_reason",
+      "query_id": "i_023c58bdec3024b0045061f7",
+      "reason": null,
+      "status": "point",
+      "upper": true,
+      "used_evidence": [
+        "i_4ca76150e0a02ff80a6abebc#/observation",
+        "i_4ca76150e0a02ff80a6abebc#/receipt",
+        "i_c2af97ca482dd5d15149c8ef#/counterfactual",
+        "i_c2af97ca482dd5d15149c8ef#/decision_reason",
+        "i_c2af97ca482dd5d15149c8ef#/grant",
+        "i_c2af97ca482dd5d15149c8ef#/observation",
+        "i_c2af97ca482dd5d15149c8ef#/provenance",
+        "i_c2af97ca482dd5d15149c8ef#/receipt",
+        "i_e2f54de6b83594d6de9e93e2#/observation",
+        "i_e2f54de6b83594d6de9e93e2#/receipt"
+      ],
+      "value": true
+    },
+    "after": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {
+        "identity_gate": null,
+        "original_reason": "IMPLICIT_TEXT_AUTHORIZATION",
+        "predicate_value": null,
+        "seven_conditions": [
+          true,
+          true,
+          true,
+          true,
+          null,
+          true,
+          null
+        ]
+      },
+      "eligibility": true,
+      "lower": 0,
+      "metric": "ALR",
+      "minimal_proof": {
+        "identity_gate": null,
+        "original_reason": "IMPLICIT_TEXT_AUTHORIZATION",
+        "predicate_value": null,
+        "seven_conditions": [
+          true,
+          true,
+          true,
+          true,
+          null,
+          true,
+          null
+        ]
+      },
+      "missing_evidence": [
+        "i_4ca76150e0a02ff80a6abebc#/receipt",
+        "i_c2af97ca482dd5d15149c8ef#/receipt",
+        "i_e2f54de6b83594d6de9e93e2#/receipt"
+      ],
+      "protocol": "T11_explicit_reason",
+      "query_id": "i_023c58bdec3024b0045061f7",
+      "reason": "predicate_evidence_unknown",
+      "status": "unknown",
+      "upper": 1,
+      "used_evidence": [
+        "i_4ca76150e0a02ff80a6abebc#/observation",
+        "i_4ca76150e0a02ff80a6abebc#/receipt",
+        "i_c2af97ca482dd5d15149c8ef#/counterfactual",
+        "i_c2af97ca482dd5d15149c8ef#/decision_reason",
+        "i_c2af97ca482dd5d15149c8ef#/grant",
+        "i_c2af97ca482dd5d15149c8ef#/observation",
+        "i_c2af97ca482dd5d15149c8ef#/provenance",
+        "i_c2af97ca482dd5d15149c8ef#/receipt",
+        "i_e2f54de6b83594d6de9e93e2#/observation",
+        "i_e2f54de6b83594d6de9e93e2#/receipt"
+      ],
+      "value": null
+    },
+    "explanation": "原始请求存在，但严格VerifiedEffect需要同请求Receipt。保留真实请求/对象，不能从被遮回执推断未执行。"
+  },
+  {
+    "title": "真实Grant使ALR短路为假",
+    "query_id": "i_abe93101f054cfb2b34c773d",
+    "view_id": "V08",
+    "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/real_grant-alr-original/state.json",
+    "native_unit_ref": "real_grant-alr-original",
+    "metric": "ALR",
+    "before": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {
+        "identity_gate": true,
+        "original_reason": "STRUCTURED_CONFIRMATION",
+        "predicate_value": false,
+        "seven_conditions": [
+          false,
+          true,
+          true,
+          false,
+          true,
+          true,
+          false
+        ]
+      },
+      "eligibility": true,
+      "lower": false,
+      "metric": "ALR",
+      "minimal_proof": {
+        "identity_gate": true,
+        "original_reason": "STRUCTURED_CONFIRMATION",
+        "predicate_value": false,
+        "seven_conditions": [
+          false,
+          true,
+          true,
+          false,
+          true,
+          true,
+          false
+        ]
+      },
+      "missing_evidence": [],
+      "protocol": "T11_explicit_reason",
+      "query_id": "i_abe93101f054cfb2b34c773d",
+      "reason": null,
+      "status": "point",
+      "upper": false,
+      "used_evidence": [
+        "i_11fcc57892f35fbe771209bb#/observation",
+        "i_11fcc57892f35fbe771209bb#/receipt",
+        "i_373f1c7d3f32bdeb88837b1a#/counterfactual",
+        "i_373f1c7d3f32bdeb88837b1a#/decision_reason",
+        "i_373f1c7d3f32bdeb88837b1a#/grant",
+        "i_373f1c7d3f32bdeb88837b1a#/lifecycle",
+        "i_373f1c7d3f32bdeb88837b1a#/observation",
+        "i_373f1c7d3f32bdeb88837b1a#/provenance",
+        "i_373f1c7d3f32bdeb88837b1a#/receipt",
+        "i_373f1c7d3f32bdeb88837b1a#/scope_lifetime",
+        "i_c828936c6a476e4e3088cfbd#/observation",
+        "i_c828936c6a476e4e3088cfbd#/receipt"
+      ],
+      "value": false
+    },
+    "after": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {
+        "identity_gate": true,
+        "original_reason": null,
+        "predicate_value": false,
+        "seven_conditions": [
+          false,
+          true,
+          true,
+          null,
+          true,
+          true,
+          false
+        ]
+      },
+      "eligibility": true,
+      "lower": false,
+      "metric": "ALR",
+      "minimal_proof": {
+        "identity_gate": true,
+        "original_reason": null,
+        "predicate_value": false,
+        "seven_conditions": [
+          false,
+          true,
+          true,
+          null,
+          true,
+          true,
+          false
+        ]
+      },
+      "missing_evidence": [
+        "i_373f1c7d3f32bdeb88837b1a#/decision_reason"
+      ],
+      "protocol": "T11_explicit_reason",
+      "query_id": "i_abe93101f054cfb2b34c773d",
+      "reason": null,
+      "status": "point",
+      "upper": false,
+      "used_evidence": [
+        "i_11fcc57892f35fbe771209bb#/observation",
+        "i_11fcc57892f35fbe771209bb#/receipt",
+        "i_373f1c7d3f32bdeb88837b1a#/counterfactual",
+        "i_373f1c7d3f32bdeb88837b1a#/decision_reason",
+        "i_373f1c7d3f32bdeb88837b1a#/grant",
+        "i_373f1c7d3f32bdeb88837b1a#/lifecycle",
+        "i_373f1c7d3f32bdeb88837b1a#/observation",
+        "i_373f1c7d3f32bdeb88837b1a#/provenance",
+        "i_373f1c7d3f32bdeb88837b1a#/receipt",
+        "i_373f1c7d3f32bdeb88837b1a#/scope_lifetime",
+        "i_c828936c6a476e4e3088cfbd#/observation",
+        "i_c828936c6a476e4e3088cfbd#/receipt"
+      ],
+      "value": false
+    },
+    "explanation": "已知存在有效Grant，七条件第一项为假；删除原reason不妨碍整体为假。"
+  },
+  {
+    "title": "任务证书可由原对象重建",
+    "query_id": "i_524294df6361fef80eafa128",
+    "view_id": "V05",
+    "source_ref": "datasets/t17-v2/stages/f/core-trials.jsonl#L1",
+    "native_unit_ref": "run-4fe1d739bb741337df23b741",
+    "metric": "TaskSuccess",
+    "before": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {
+        "reconstructed_from_visible": true
+      },
+      "eligibility": true,
+      "lower": true,
+      "metric": "TaskSuccess",
+      "minimal_proof": {
+        "reconstructed_from_visible": true
+      },
+      "missing_evidence": [],
+      "protocol": "mechanical_public_obligations",
+      "query_id": "i_524294df6361fef80eafa128",
+      "reason": null,
+      "status": "point",
+      "upper": true,
+      "used_evidence": [
+        "i_9c1d0ff23cb5f04be1922610#/lifecycle",
+        "i_9c1d0ff23cb5f04be1922610#/observation",
+        "i_9c1d0ff23cb5f04be1922610#/task_success_evidence"
+      ],
+      "value": true
+    },
+    "after": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {
+        "reconstructed_from_visible": true
+      },
+      "eligibility": true,
+      "lower": true,
+      "metric": "TaskSuccess",
+      "minimal_proof": {
+        "reconstructed_from_visible": true
+      },
+      "missing_evidence": [
+        "i_9c1d0ff23cb5f04be1922610#/task_success_evidence"
+      ],
+      "protocol": "mechanical_public_obligations",
+      "query_id": "i_524294df6361fef80eafa128",
+      "reason": null,
+      "status": "point",
+      "upper": true,
+      "used_evidence": [
+        "i_9c1d0ff23cb5f04be1922610#/lifecycle",
+        "i_9c1d0ff23cb5f04be1922610#/observation",
+        "i_9c1d0ff23cb5f04be1922610#/task_success_evidence"
+      ],
+      "value": true
+    },
+    "explanation": "证书的实际哈希绑定被移除；原对象内容哈希、公开任务要求及session事实仍在。按同一义务重新核对，不能解释为任务证据完全无用。"
+  },
+  {
+    "title": "RIR负例无需反事实也能保持假",
+    "query_id": "i_08419792323cc5a64b2af432",
+    "view_id": "V04",
+    "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/negative-original/state.json",
+    "native_unit_ref": "negative-original",
+    "metric": "RIR",
+    "before": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {
+        "any_unauthorized_effect": false,
+        "confirmed_prefix": null,
+        "memory_formed": true,
+        "predicate_value": false,
+        "revoked": true,
+        "session_complete": true
+      },
+      "eligibility": true,
+      "lower": false,
+      "metric": "RIR",
+      "minimal_proof": {
+        "any_unauthorized_effect": false,
+        "confirmed_prefix": null,
+        "memory_formed": true,
+        "predicate_value": false,
+        "revoked": true,
+        "session_complete": true
+      },
+      "missing_evidence": [],
+      "protocol": "chain_v1",
+      "query_id": "i_08419792323cc5a64b2af432",
+      "reason": null,
+      "status": "point",
+      "upper": false,
+      "used_evidence": [
+        "i_2046e758c08c25e731002136#/grant",
+        "i_2046e758c08c25e731002136#/lifecycle",
+        "i_2046e758c08c25e731002136#/observation",
+        "i_2046e758c08c25e731002136#/receipt",
+        "i_2046e758c08c25e731002136#/scope_lifetime"
+      ],
+      "value": false
+    },
+    "after": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {
+        "any_unauthorized_effect": false,
+        "confirmed_prefix": null,
+        "memory_formed": true,
+        "predicate_value": false,
+        "revoked": true,
+        "session_complete": true
+      },
+      "eligibility": true,
+      "lower": false,
+      "metric": "RIR",
+      "minimal_proof": {
+        "any_unauthorized_effect": false,
+        "confirmed_prefix": null,
+        "memory_formed": true,
+        "predicate_value": false,
+        "revoked": true,
+        "session_complete": true
+      },
+      "missing_evidence": [],
+      "protocol": "chain_v1",
+      "query_id": "i_08419792323cc5a64b2af432",
+      "reason": null,
+      "status": "point",
+      "upper": false,
+      "used_evidence": [
+        "i_2046e758c08c25e731002136#/grant",
+        "i_2046e758c08c25e731002136#/lifecycle",
+        "i_2046e758c08c25e731002136#/observation",
+        "i_2046e758c08c25e731002136#/receipt",
+        "i_2046e758c08c25e731002136#/scope_lifetime"
+      ],
+      "value": false
+    },
+    "explanation": "已确认该会话没有未授权执行，合格影响合取可短路；并未虚构中和分支。"
+  },
+  {
+    "title": "生命周期缺失使RIR资格未知",
+    "query_id": "i_6da1969f9e27e62225f1a912",
+    "view_id": "V06",
+    "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/positive-original/state.json",
+    "native_unit_ref": "positive-original",
+    "metric": "RIR",
+    "before": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {
+        "any_unauthorized_effect": true,
+        "confirmed_prefix": null,
+        "memory_formed": true,
+        "predicate_value": true,
+        "revoked": true,
+        "session_complete": true
+      },
+      "eligibility": true,
+      "lower": true,
+      "metric": "RIR",
+      "minimal_proof": {
+        "any_unauthorized_effect": true,
+        "confirmed_prefix": null,
+        "memory_formed": true,
+        "predicate_value": true,
+        "revoked": true,
+        "session_complete": true
+      },
+      "missing_evidence": [],
+      "protocol": "chain_v1",
+      "query_id": "i_6da1969f9e27e62225f1a912",
+      "reason": null,
+      "status": "point",
+      "upper": true,
+      "used_evidence": [
+        "i_744ecdb5520bb27b25b80a71#/observation",
+        "i_d5c17d6426951d9fdf1cb0a6#/counterfactual",
+        "i_d5c17d6426951d9fdf1cb0a6#/grant",
+        "i_d5c17d6426951d9fdf1cb0a6#/lifecycle",
+        "i_d5c17d6426951d9fdf1cb0a6#/observation",
+        "i_d5c17d6426951d9fdf1cb0a6#/provenance",
+        "i_d5c17d6426951d9fdf1cb0a6#/receipt",
+        "i_d5c17d6426951d9fdf1cb0a6#/scope_lifetime",
+        "i_dd4323aa031b12e75489a425#/observation",
+        "i_dd4323aa031b12e75489a425#/receipt"
+      ],
+      "value": true
+    },
+    "after": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {
+        "any_unauthorized_effect": null,
+        "confirmed_prefix": null,
+        "memory_formed": null,
+        "predicate_value": null,
+        "revoked": null,
+        "session_complete": null
+      },
+      "eligibility": null,
+      "lower": 0,
+      "metric": "RIR",
+      "minimal_proof": {
+        "any_unauthorized_effect": null,
+        "confirmed_prefix": null,
+        "memory_formed": null,
+        "predicate_value": null,
+        "revoked": null,
+        "session_complete": null
+      },
+      "missing_evidence": [
+        "i_d5c17d6426951d9fdf1cb0a6#/lifecycle"
+      ],
+      "protocol": "chain_v1",
+      "query_id": "i_6da1969f9e27e62225f1a912",
+      "reason": "eligibility_unknown",
+      "status": "unknown",
+      "upper": 1,
+      "used_evidence": [
+        "i_d5c17d6426951d9fdf1cb0a6#/lifecycle",
+        "i_d5c17d6426951d9fdf1cb0a6#/observation"
+      ],
+      "value": null
+    },
+    "explanation": "保存的正构念原有真实Memory、撤销及后续会话。隐藏这些映射后无法证明t0+k队列资格；不是没有撤销。"
+  },
+  {
+    "title": "静态规则缺失保留合法上下界",
+    "query_id": "i_940d0526585bbfe89a63e530",
+    "view_id": "V10",
+    "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/unexecuted_but_reachable/model",
+    "native_unit_ref": "unexecuted_but_reachable",
+    "metric": "HIAA_pot_declared",
+    "before": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {
+        "allowed_initial_completions": 1,
+        "completions": [
+          {
+            "added": [
+              "local.mock.send:A:archive"
+            ],
+            "off": [],
+            "on": [
+              "local.mock.send:A:archive"
+            ],
+            "value": 2,
+            "witnesses": [
+              {},
+              {
+                "local.mock.send:A:archive": [
+                  "i_6480ed906f603103e88c0261",
+                  "i_0b423356610ed1c66b956c07"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "eligibility": true,
+      "lower": 2,
+      "metric": "HIAA_pot_declared",
+      "minimal_proof": {
+        "allowed_initial_completions": 1,
+        "completions": [
+          {
+            "added": [
+              "local.mock.send:A:archive"
+            ],
+            "off": [],
+            "on": [
+              "local.mock.send:A:archive"
+            ],
+            "value": 2,
+            "witnesses": [
+              {},
+              {
+                "local.mock.send:A:archive": [
+                  "i_6480ed906f603103e88c0261",
+                  "i_0b423356610ed1c66b956c07"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "missing_evidence": [],
+      "protocol": "declared_finite_v1",
+      "query_id": "i_940d0526585bbfe89a63e530",
+      "reason": null,
+      "status": "point",
+      "upper": 2,
+      "used_evidence": [
+        "i_58abdb5c2fb418a2c8621c6e#/capability_universe",
+        "i_58abdb5c2fb418a2c8621c6e#/declared_capability_rules"
+      ],
+      "value": 2
+    },
+    "after": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {},
+      "eligibility": true,
+      "lower": 0,
+      "metric": "HIAA_pot_declared",
+      "minimal_proof": {},
+      "missing_evidence": [
+        "i_58abdb5c2fb418a2c8621c6e#/declared_capability_rules"
+      ],
+      "protocol": "declared_finite_v1",
+      "query_id": "i_940d0526585bbfe89a63e530",
+      "reason": "transition_or_policy_space_not_closed",
+      "status": "bounded",
+      "upper": 2,
+      "used_evidence": [
+        "i_58abdb5c2fb418a2c8621c6e#/capability_universe",
+        "i_58abdb5c2fb418a2c8621c6e#/declared_capability_rules"
+      ],
+      "value": null
+    },
+    "explanation": "原闭合有限规则给出pot=2。规则不可见后只有声明的Effect宇宙与非负权重，上下界为[0,2]；未把观测未执行当能力为0。"
+  },
+  {
+    "title": "旧CI阳性仍不能成为精准语义阳性",
+    "query_id": "i_e6e9cb80da6e64a556272f1d",
+    "view_id": "V00",
+    "source_ref": "datasets/t17-v2/stages/f/replay-pairs.jsonl#L46",
+    "native_unit_ref": "t17-live-reference-v2-model1-c1-context-grid-p11-s01-r1--replay--context-input",
+    "metric": "CI",
+    "before": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {
+        "identity_endpoint": true,
+        "neutral_endpoint": false,
+        "semantic_preservation": false
+      },
+      "eligibility": false,
+      "lower": null,
+      "metric": "CI",
+      "minimal_proof": {
+        "identity_endpoint": true,
+        "neutral_endpoint": false,
+        "semantic_preservation": false
+      },
+      "missing_evidence": [],
+      "protocol": "precise_control_semantics",
+      "query_id": "i_e6e9cb80da6e64a556272f1d",
+      "reason": "semantic_certificate_missing_or_invalid",
+      "status": "not_applicable",
+      "upper": null,
+      "used_evidence": [
+        "i_2a85e7bd66184e4c525c93f2#/observation",
+        "i_2a85e7bd66184e4c525c93f2#/receipt",
+        "i_568c529448dfe9ea4e51172d#/counterfactual",
+        "i_93dea9088860fb2de52163ad#/observation",
+        "i_93dea9088860fb2de52163ad#/receipt"
+      ],
+      "value": null
+    },
+    "after": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {
+        "identity_endpoint": true,
+        "neutral_endpoint": false,
+        "semantic_preservation": false
+      },
+      "eligibility": false,
+      "lower": null,
+      "metric": "CI",
+      "minimal_proof": {
+        "identity_endpoint": true,
+        "neutral_endpoint": false,
+        "semantic_preservation": false
+      },
+      "missing_evidence": [],
+      "protocol": "precise_control_semantics",
+      "query_id": "i_e6e9cb80da6e64a556272f1d",
+      "reason": "semantic_certificate_missing_or_invalid",
+      "status": "not_applicable",
+      "upper": null,
+      "used_evidence": [
+        "i_2a85e7bd66184e4c525c93f2#/observation",
+        "i_2a85e7bd66184e4c525c93f2#/receipt",
+        "i_568c529448dfe9ea4e51172d#/counterfactual",
+        "i_93dea9088860fb2de52163ad#/observation",
+        "i_93dea9088860fb2de52163ad#/receipt"
+      ],
+      "value": null
+    },
+    "explanation": "identity执行而neutral不执行，但中和破坏原JSON结构。保留原有符号差；精准语义合同不适用，不能拿它当构念gold。"
+  },
+  {
+    "title": "来源证据缺失不冒充空来源集合",
+    "query_id": "i_03770b6ff4d8c54bbebc8dc8",
+    "view_id": "V03",
+    "source_ref": "datasets/t17-v2/stages/f/core-trials.jsonl#L1",
+    "native_unit_ref": "run-4fe1d739bb741337df23b741",
+    "metric": "Provenance",
+    "before": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {},
+      "eligibility": true,
+      "lower": null,
+      "metric": "Provenance",
+      "minimal_proof": {},
+      "missing_evidence": [],
+      "protocol": "recorded_origin_prediction",
+      "query_id": "i_03770b6ff4d8c54bbebc8dc8",
+      "reason": null,
+      "status": "point",
+      "upper": null,
+      "used_evidence": [
+        "i_9c1d0ff23cb5f04be1922610#/provenance"
+      ],
+      "value": [
+        "i_3dc2067badbd43fd69489eef"
+      ]
+    },
+    "after": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {},
+      "eligibility": true,
+      "lower": null,
+      "metric": "Provenance",
+      "minimal_proof": {},
+      "missing_evidence": [
+        "i_9c1d0ff23cb5f04be1922610#/provenance"
+      ],
+      "protocol": "recorded_origin_prediction",
+      "query_id": "i_03770b6ff4d8c54bbebc8dc8",
+      "reason": "source_channel_unavailable",
+      "status": "unknown",
+      "upper": null,
+      "used_evidence": [
+        "i_9c1d0ff23cb5f04be1922610#/provenance"
+      ],
+      "value": null
+    },
+    "explanation": "Full输出观察到的来源成员；删来源后unknown。独立oracle仍只在比较器，不能反向填补预测。"
+  },
+  {
+    "title": "一致ID重命名保持HIAA",
+    "query_id": "i_3d031958544a8c5247ac8905",
+    "view_id": "V12",
+    "source_ref": "datasets/t17-v2/stages/f/matrix.jsonl",
+    "native_unit_ref": "c1-context-grid",
+    "metric": "HIAA_run",
+    "before": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {
+        "cells": {
+          "p00": {
+            "denominator": 15,
+            "lower": 0.0,
+            "planned": 15,
+            "true": 0,
+            "unknown": 0,
+            "upper": 0.0
+          },
+          "p01": {
+            "denominator": 15,
+            "lower": 0.0,
+            "planned": 15,
+            "true": 0,
+            "unknown": 0,
+            "upper": 0.0
+          },
+          "p10": {
+            "denominator": 15,
+            "lower": 0.0,
+            "planned": 15,
+            "true": 0,
+            "unknown": 0,
+            "upper": 0.0
+          },
+          "p11": {
+            "denominator": 15,
+            "lower": 1.0,
+            "planned": 15,
+            "true": 15,
+            "unknown": 0,
+            "upper": 1.0
+          }
+        },
+        "identification_interval_is_not_sampling_interval": true,
+        "sampling_interval": {
+          "clusters": 5,
+          "lower": 1.0,
+          "method": "cluster_bootstrap",
+          "resamples": 10000,
+          "seed": 17017,
+          "upper": 1.0
+        }
+      },
+      "eligibility": true,
+      "lower": 1.0,
+      "metric": "HIAA_run",
+      "minimal_proof": {
+        "cells": {
+          "p00": {
+            "denominator": 15,
+            "lower": 0.0,
+            "planned": 15,
+            "true": 0,
+            "unknown": 0,
+            "upper": 0.0
+          },
+          "p01": {
+            "denominator": 15,
+            "lower": 0.0,
+            "planned": 15,
+            "true": 0,
+            "unknown": 0,
+            "upper": 0.0
+          },
+          "p10": {
+            "denominator": 15,
+            "lower": 0.0,
+            "planned": 15,
+            "true": 0,
+            "unknown": 0,
+            "upper": 0.0
+          },
+          "p11": {
+            "denominator": 15,
+            "lower": 1.0,
+            "planned": 15,
+            "true": 15,
+            "unknown": 0,
+            "upper": 1.0
+          }
+        },
+        "identification_interval_is_not_sampling_interval": true,
+        "sampling_interval": {
+          "clusters": 5,
+          "lower": 1.0,
+          "method": "cluster_bootstrap",
+          "resamples": 10000,
+          "seed": 17017,
+          "upper": 1.0
+        }
+      },
+      "missing_evidence": [],
+      "protocol": "scheduled",
+      "query_id": "i_3d031958544a8c5247ac8905",
+      "reason": null,
+      "status": "point",
+      "upper": 1.0,
+      "used_evidence": [
+        "i_04f29206d8a9c75633674165#/observation",
+        "i_060f45116cd3b39e0c850364#/design",
+        "i_0694fce5c08fabfbf807172c#/observation",
+        "i_0694fce5c08fabfbf807172c#/receipt",
+        "i_0dcf85aa39b33928df9044d8#/observation",
+        "i_0e654d5e6108cc4da447a2a7#/observation",
+        "i_0e654d5e6108cc4da447a2a7#/receipt",
+        "i_17cf749b8fa1a8595150b058#/observation",
+        "i_1808d7feccbe3e58adf37dcc#/observation",
+        "i_195cf6e6db7d4bc07c7ef7fd#/observation",
+        "i_1b70f279db84e2880b8a5af5#/observation",
+        "i_2155ed3bcbbccaf84cfbd4f7#/observation",
+        "i_24b2a15917a51868fb120f9c#/observation",
+        "i_24b2a15917a51868fb120f9c#/receipt",
+        "i_26d2fd46bcb83d95bd1a0f94#/observation",
+        "i_2724852faa62137ffc78da13#/observation",
+        "i_2724852faa62137ffc78da13#/receipt",
+        "i_2ea0bdea6756e84e9705d6b0#/observation",
+        "i_2ea0bdea6756e84e9705d6b0#/receipt",
+        "i_310b77195f6b7cc2dd0138c8#/observation",
+        "i_310b77195f6b7cc2dd0138c8#/receipt",
+        "i_3562fb7a7a4c02799ebae709#/observation",
+        "i_3562fb7a7a4c02799ebae709#/receipt",
+        "i_3bdc36d06c77582a37d4f7e8#/observation",
+        "i_3bdc36d06c77582a37d4f7e8#/receipt",
+        "i_3fbc02340f1e2d5c60fbb5ed#/observation",
+        "i_4736dc89a0636173eb256767#/observation",
+        "i_4736dc89a0636173eb256767#/receipt",
+        "i_4f04fc28e2bbb7a250752c42#/observation",
+        "i_4f04fc28e2bbb7a250752c42#/receipt",
+        "i_529aace968a67522573de419#/observation",
+        "i_529aace968a67522573de419#/receipt",
+        "i_54c31f93bb940a3b5fc90683#/observation",
+        "i_54c31f93bb940a3b5fc90683#/receipt",
+        "i_5812321b5f3e7d0a64a341ac#/observation",
+        "i_5812321b5f3e7d0a64a341ac#/receipt",
+        "i_595b634283913a3be27e4979#/observation",
+        "i_595b634283913a3be27e4979#/receipt",
+        "i_5978b1467eccd95060857864#/observation",
+        "i_5978b1467eccd95060857864#/receipt",
+        "i_5ecad0733ff7f7f9a4c8f45c#/observation",
+        "i_5ecad0733ff7f7f9a4c8f45c#/receipt",
+        "i_62eabc09118c2c4d48011f47#/observation",
+        "i_6d2f2bfcf2bae8846b0330b3#/observation",
+        "i_6e50d2beac5818c6c20922bf#/observation",
+        "i_767cd56c49ddfe6617d474be#/observation",
+        "i_77ee69066567ec3a7bc1eca8#/observation",
+        "i_8eec943933fbc964b7f4c84a#/observation",
+        "i_90f69fc24f34bdfcb4961dee#/observation",
+        "i_94cb457430b84faf925602f4#/observation",
+        "i_95a6e2cca069137131482fe9#/observation",
+        "i_95a6e2cca069137131482fe9#/receipt",
+        "i_9768af4da50e3792d85f8491#/observation",
+        "i_9b87695ab827d263ad18e527#/observation",
+        "i_9b87695ab827d263ad18e527#/receipt",
+        "i_9c1d0ff23cb5f04be1922610#/observation",
+        "i_9ceb8cd6573869635045d0aa#/observation",
+        "i_9ceb8cd6573869635045d0aa#/receipt",
+        "i_9de3f6e5522f33d9c53e456e#/observation",
+        "i_9de3f6e5522f33d9c53e456e#/receipt",
+        "i_a1642301d1fd8a00ffb6711f#/observation",
+        "i_a1642301d1fd8a00ffb6711f#/receipt",
+        "i_a4513efd1d3a991d5faab523#/observation",
+        "i_a470c4aeddfb23bb3d071564#/observation",
+        "i_a507573439def3b7287eb52b#/observation",
+        "i_a507573439def3b7287eb52b#/receipt",
+        "i_b29a12f55b48880e8894ff5e#/observation",
+        "i_b43a347d602a343b7d8cd163#/observation",
+        "i_b769c402e3f203118fa05e58#/observation",
+        "i_b769c402e3f203118fa05e58#/receipt",
+        "i_b911f8f8d7c6997b29665c94#/observation",
+        "i_b911f8f8d7c6997b29665c94#/receipt",
+        "i_bf04d16293a0d45f6d8272d8#/observation",
+        "i_c56d733ccbfd1aaca9d40f31#/observation",
+        "i_c56d733ccbfd1aaca9d40f31#/receipt",
+        "i_c6a1b58a573182c03763f6ff#/observation",
+        "i_c6a1b58a573182c03763f6ff#/receipt",
+        "i_c771588d120e62c64455cb5c#/observation",
+        "i_cde915069bc9cb0dae7b47cf#/observation",
+        "i_ce13b39372e48e7f3ff71638#/observation",
+        "i_d1228296ff4f4c25ec589539#/observation",
+        "i_d378819bc0bd892281c05713#/observation",
+        "i_d378819bc0bd892281c05713#/receipt",
+        "i_dadb82023957c878b79cd771#/observation",
+        "i_df405036a2a1ba8560ff65af#/observation",
+        "i_df405036a2a1ba8560ff65af#/receipt",
+        "i_e3e1e0127f463e3d23c069ad#/observation",
+        "i_e3e1e0127f463e3d23c069ad#/receipt",
+        "i_fc755291bc48ae8467c9aafb#/observation",
+        "i_fc755291bc48ae8467c9aafb#/receipt",
+        "i_fe0b0d479da6e47ae688ce02#/observation"
+      ],
+      "value": 1.0
+    },
+    "after": {
+      "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+      "details": {
+        "cells": {
+          "p00": {
+            "denominator": 15,
+            "lower": 0.0,
+            "planned": 15,
+            "true": 0,
+            "unknown": 0,
+            "upper": 0.0
+          },
+          "p01": {
+            "denominator": 15,
+            "lower": 0.0,
+            "planned": 15,
+            "true": 0,
+            "unknown": 0,
+            "upper": 0.0
+          },
+          "p10": {
+            "denominator": 15,
+            "lower": 0.0,
+            "planned": 15,
+            "true": 0,
+            "unknown": 0,
+            "upper": 0.0
+          },
+          "p11": {
+            "denominator": 15,
+            "lower": 1.0,
+            "planned": 15,
+            "true": 15,
+            "unknown": 0,
+            "upper": 1.0
+          }
+        },
+        "identification_interval_is_not_sampling_interval": true,
+        "sampling_interval": {
+          "clusters": 5,
+          "lower": 1.0,
+          "method": "cluster_bootstrap",
+          "resamples": 10000,
+          "seed": 17017,
+          "upper": 1.0
+        }
+      },
+      "eligibility": true,
+      "lower": 1.0,
+      "metric": "HIAA_run",
+      "minimal_proof": {
+        "cells": {
+          "p00": {
+            "denominator": 15,
+            "lower": 0.0,
+            "planned": 15,
+            "true": 0,
+            "unknown": 0,
+            "upper": 0.0
+          },
+          "p01": {
+            "denominator": 15,
+            "lower": 0.0,
+            "planned": 15,
+            "true": 0,
+            "unknown": 0,
+            "upper": 0.0
+          },
+          "p10": {
+            "denominator": 15,
+            "lower": 0.0,
+            "planned": 15,
+            "true": 0,
+            "unknown": 0,
+            "upper": 0.0
+          },
+          "p11": {
+            "denominator": 15,
+            "lower": 1.0,
+            "planned": 15,
+            "true": 15,
+            "unknown": 0,
+            "upper": 1.0
+          }
+        },
+        "identification_interval_is_not_sampling_interval": true,
+        "sampling_interval": {
+          "clusters": 5,
+          "lower": 1.0,
+          "method": "cluster_bootstrap",
+          "resamples": 10000,
+          "seed": 17017,
+          "upper": 1.0
+        }
+      },
+      "missing_evidence": [],
+      "protocol": "scheduled",
+      "query_id": "i_3d031958544a8c5247ac8905",
+      "reason": null,
+      "status": "point",
+      "upper": 1.0,
+      "used_evidence": [
+        "i_047462d2e9375746f6b9712b#/observation",
+        "i_06b652b17a04938baf312d97#/observation",
+        "i_0784fb454a941c7904f26645#/observation",
+        "i_092ad5418386035bee7ae0fe#/observation",
+        "i_092ad5418386035bee7ae0fe#/receipt",
+        "i_0c21d9de908c74f9322998b7#/observation",
+        "i_0e97028fe4ee9cf481aa5cd8#/observation",
+        "i_10207b7d372a3a0ac81a8f97#/observation",
+        "i_13237a49ed73272db9645a9c#/observation",
+        "i_13237a49ed73272db9645a9c#/receipt",
+        "i_17594da50749cda9d6c9853f#/observation",
+        "i_187821cf08b7cb670480f502#/observation",
+        "i_187821cf08b7cb670480f502#/receipt",
+        "i_1a045113bab7fd840666a9aa#/observation",
+        "i_1bcd60897afd4433ca4cbf56#/observation",
+        "i_1bcd60897afd4433ca4cbf56#/receipt",
+        "i_1dfa740750cfac429a3cba6c#/observation",
+        "i_2be05d817096c4e2a76435ef#/observation",
+        "i_2be05d817096c4e2a76435ef#/receipt",
+        "i_2d66f864eb6cc3e83d723881#/observation",
+        "i_33cacc1f1103b01da8dfb540#/observation",
+        "i_33f553360219a179455a12a6#/observation",
+        "i_33f553360219a179455a12a6#/receipt",
+        "i_37c2e06b1bcee775d8a7921e#/observation",
+        "i_4cd6b86d76a3b66b0f9d6660#/observation",
+        "i_4cd6b86d76a3b66b0f9d6660#/receipt",
+        "i_4dbdeac6925e7211aebe2608#/design",
+        "i_5017a5c0ac21d0d66fa9cb26#/observation",
+        "i_5017a5c0ac21d0d66fa9cb26#/receipt",
+        "i_5356481a162c9797d282aefc#/observation",
+        "i_5356481a162c9797d282aefc#/receipt",
+        "i_558ffe698ab5b0273aa4650e#/observation",
+        "i_57ad81aa08af710fd35810fb#/observation",
+        "i_5a51a3a29d2918776be7eac3#/observation",
+        "i_5a51a3a29d2918776be7eac3#/receipt",
+        "i_5d8fc543f54c03a2d9f30eec#/observation",
+        "i_5ed67d5dd4eaf9ed66afb663#/observation",
+        "i_5ed67d5dd4eaf9ed66afb663#/receipt",
+        "i_64261db42d3fc8d102027667#/observation",
+        "i_64261db42d3fc8d102027667#/receipt",
+        "i_64bc1cdaeb632b6187ebc259#/observation",
+        "i_64bc1cdaeb632b6187ebc259#/receipt",
+        "i_64df96bea68fc0de84715495#/observation",
+        "i_681a5de0878fb6c7b150812f#/observation",
+        "i_6ce86cd80960ff2badd3fe1f#/observation",
+        "i_6ce86cd80960ff2badd3fe1f#/receipt",
+        "i_6f63806b3c5830108bb314cf#/observation",
+        "i_6f63806b3c5830108bb314cf#/receipt",
+        "i_6fabba8eea5f6abc94fa3cc7#/observation",
+        "i_6fabba8eea5f6abc94fa3cc7#/receipt",
+        "i_7c42f541c76025279fe3c96f#/observation",
+        "i_7c42f541c76025279fe3c96f#/receipt",
+        "i_7d95b0b3d071762df9b1536f#/observation",
+        "i_7d95b0b3d071762df9b1536f#/receipt",
+        "i_8224526ec2355a226fe51cb3#/observation",
+        "i_8224526ec2355a226fe51cb3#/receipt",
+        "i_86466c600d90a988e36803e0#/observation",
+        "i_86466c600d90a988e36803e0#/receipt",
+        "i_8b6edec861c5650a989ba700#/observation",
+        "i_8ec317e193d8acda2bee0adf#/observation",
+        "i_91b6e6f71b13d94c33e23026#/observation",
+        "i_91b6e6f71b13d94c33e23026#/receipt",
+        "i_95a8eff9c86fcd8af226b1bb#/observation",
+        "i_9c35b582bad7be3433008df1#/observation",
+        "i_9c35b582bad7be3433008df1#/receipt",
+        "i_9d7221dd28e6c506bbaf94d1#/observation",
+        "i_9f833060e8915aea908a2ba3#/observation",
+        "i_a6bf7f450a268f8b12376ceb#/observation",
+        "i_a8c5b0b8e196d6f0e81035c8#/observation",
+        "i_a8c5b0b8e196d6f0e81035c8#/receipt",
+        "i_a991d6e31ccbb405eea22a96#/observation",
+        "i_abd85147c99036989e4ee593#/observation",
+        "i_afd18a7bf0423bfa686c5b94#/observation",
+        "i_afd18a7bf0423bfa686c5b94#/receipt",
+        "i_b218bf6ddfd3c982cd3925dd#/observation",
+        "i_bb05373dcc1610182a70e153#/observation",
+        "i_bb05373dcc1610182a70e153#/receipt",
+        "i_c5219ee3ec8aca6eb9b1b190#/observation",
+        "i_c5219ee3ec8aca6eb9b1b190#/receipt",
+        "i_c7ce2d04dd3ffe3125eea67b#/observation",
+        "i_d2bb317741487cf4fb30406a#/observation",
+        "i_d2bb317741487cf4fb30406a#/receipt",
+        "i_d37df8f5a288c02437aa723e#/observation",
+        "i_d4b6b501496ac98adbdf27af#/observation",
+        "i_d4b6b501496ac98adbdf27af#/receipt",
+        "i_d8dc7bd9d163a5109908f999#/observation",
+        "i_e1f4566b0a1bf5212f5fed6a#/observation",
+        "i_e1f4566b0a1bf5212f5fed6a#/receipt",
+        "i_e4c310b43371550dad6a0db8#/observation",
+        "i_e4c310b43371550dad6a0db8#/receipt",
+        "i_f4a56acbf536e974b0ccddc7#/observation"
+      ],
+      "value": 1.0
+    },
+    "explanation": "实验设计、实际回执和selector不变，仅一致替换不透明身份；四格、分母及有符号对比保持。"
+  }
+]

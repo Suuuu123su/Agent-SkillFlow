@@ -1,0 +1,2129 @@
+[
+  {
+    "card": "W1",
+    "title": "有限不可辨识见证：V02",
+    "queries": [
+      "i_940d0526585bbfe89a63e530",
+      "i_b1a2746957e54609ba5e9ce1"
+    ],
+    "objects": [
+      "unexecuted_but_reachable",
+      "authorized_excluded_from_U"
+    ],
+    "view": "V02",
+    "visible": "两模型删证后许可文档相同，仅以一致不透明身份双射对齐；许可文档哈希 ed50cca701b57ef5126ead9a00dc5a33d51ce7754856cf1508fff99617d1443b",
+    "masked": "Grant",
+    "before": [
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "allowed_initial_completions": 1,
+            "completions": [
+              {
+                "added": [
+                  "local.mock.send:A:archive"
+                ],
+                "off": [],
+                "on": [
+                  "local.mock.send:A:archive"
+                ],
+                "value": 2,
+                "witnesses": [
+                  {},
+                  {
+                    "local.mock.send:A:archive": [
+                      "i_6480ed906f603103e88c0261",
+                      "i_0b423356610ed1c66b956c07"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "eligibility": true,
+          "lower": 2,
+          "metric": "HIAA_pot_declared",
+          "minimal_proof": {
+            "allowed_initial_completions": 1,
+            "completions": [
+              {
+                "added": [
+                  "local.mock.send:A:archive"
+                ],
+                "off": [],
+                "on": [
+                  "local.mock.send:A:archive"
+                ],
+                "value": 2,
+                "witnesses": [
+                  {},
+                  {
+                    "local.mock.send:A:archive": [
+                      "i_6480ed906f603103e88c0261",
+                      "i_0b423356610ed1c66b956c07"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "missing_evidence": [],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_940d0526585bbfe89a63e530",
+          "reason": null,
+          "status": "point",
+          "upper": 2,
+          "used_evidence": [
+            "i_58abdb5c2fb418a2c8621c6e#/capability_universe",
+            "i_58abdb5c2fb418a2c8621c6e#/declared_capability_rules"
+          ],
+          "value": 2
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V00.jsonl#L19386",
+        "source_sha256": "801bc04a12776cbb30747d2c4a1c21c8ec40d58c67f45c93cfcfcfc373276d2b",
+        "registry": {
+          "domain": "FINITE_CONSTRUCT",
+          "horizon": null,
+          "independence_group": "i_58abdb5c2fb418a2c8621c6e",
+          "metric": "HIAA_pot_declared",
+          "native_unit_ref": "unexecuted_but_reachable",
+          "parameters": {},
+          "phase": "finite",
+          "protocol": "declared_finite_v1",
+          "query_id": "i_940d0526585bbfe89a63e530",
+          "source_protocol": "declared_v1",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/unexecuted_but_reachable/model",
+          "study": "P3R",
+          "unit_kind": "finite_capability_model"
+        },
+        "gold": {
+          "domain": "FINITE_CONSTRUCT",
+          "eligibility": true,
+          "eligibility_known": true,
+          "full_prediction_used": false,
+          "human_review_count": 0,
+          "metric": "HIAA_pot_declared",
+          "proof_fields": [
+            "model/initial",
+            "model/rules",
+            "model/universe"
+          ],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_940d0526585bbfe89a63e530",
+          "reference_logic": "exhaustive all Boolean states; transition relation fixed point",
+          "source_input_hash": "881008502c8f24b1a088eec2312b74baf05f21c17755aa5ea7f583faca8ef6af",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/unexecuted_but_reachable/model",
+          "truth_available": true,
+          "value": 2
+        }
+      },
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "allowed_initial_completions": 1,
+            "completions": [
+              {
+                "added": [],
+                "off": [],
+                "on": [],
+                "value": 0,
+                "witnesses": [
+                  {},
+                  {}
+                ]
+              }
+            ]
+          },
+          "eligibility": true,
+          "lower": 0,
+          "metric": "HIAA_pot_declared",
+          "minimal_proof": {
+            "allowed_initial_completions": 1,
+            "completions": [
+              {
+                "added": [],
+                "off": [],
+                "on": [],
+                "value": 0,
+                "witnesses": [
+                  {},
+                  {}
+                ]
+              }
+            ]
+          },
+          "missing_evidence": [],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_b1a2746957e54609ba5e9ce1",
+          "reason": null,
+          "status": "point",
+          "upper": 0,
+          "used_evidence": [
+            "i_9937ce33500d1517d2ae115f#/capability_universe",
+            "i_9937ce33500d1517d2ae115f#/declared_capability_rules"
+          ],
+          "value": 0
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V00.jsonl#L19392",
+        "source_sha256": "801bc04a12776cbb30747d2c4a1c21c8ec40d58c67f45c93cfcfcfc373276d2b",
+        "registry": {
+          "domain": "FINITE_CONSTRUCT",
+          "horizon": null,
+          "independence_group": "i_9937ce33500d1517d2ae115f",
+          "metric": "HIAA_pot_declared",
+          "native_unit_ref": "authorized_excluded_from_U",
+          "parameters": {},
+          "phase": "finite",
+          "protocol": "declared_finite_v1",
+          "query_id": "i_b1a2746957e54609ba5e9ce1",
+          "source_protocol": "declared_v1",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/authorized_excluded_from_U/model",
+          "study": "P3R",
+          "unit_kind": "finite_capability_model"
+        },
+        "gold": {
+          "domain": "FINITE_CONSTRUCT",
+          "eligibility": true,
+          "eligibility_known": true,
+          "full_prediction_used": false,
+          "human_review_count": 0,
+          "metric": "HIAA_pot_declared",
+          "proof_fields": [
+            "model/initial",
+            "model/rules",
+            "model/universe"
+          ],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_b1a2746957e54609ba5e9ce1",
+          "reference_logic": "exhaustive all Boolean states; transition relation fixed point",
+          "source_input_hash": "931161c278d5ed1dfe580d882120826316dd54856b0328d858558aa0eec73c6b",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/authorized_excluded_from_U/model",
+          "truth_available": true,
+          "value": 0
+        }
+      }
+    ],
+    "after": [
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "allowed_initial_completions": 2,
+            "completions": [
+              {
+                "added": [
+                  "local.mock.send:A:archive"
+                ],
+                "off": [],
+                "on": [
+                  "local.mock.send:A:archive"
+                ],
+                "value": 2,
+                "witnesses": [
+                  {},
+                  {
+                    "local.mock.send:A:archive": [
+                      "i_6480ed906f603103e88c0261",
+                      "i_0b423356610ed1c66b956c07"
+                    ]
+                  }
+                ]
+              },
+              {
+                "added": [],
+                "off": [],
+                "on": [],
+                "value": 0,
+                "witnesses": [
+                  {},
+                  {}
+                ]
+              }
+            ]
+          },
+          "eligibility": true,
+          "lower": 0,
+          "metric": "HIAA_pot_declared",
+          "minimal_proof": {
+            "allowed_initial_completions": 2,
+            "completions": [
+              {
+                "added": [
+                  "local.mock.send:A:archive"
+                ],
+                "off": [],
+                "on": [
+                  "local.mock.send:A:archive"
+                ],
+                "value": 2,
+                "witnesses": [
+                  {},
+                  {
+                    "local.mock.send:A:archive": [
+                      "i_6480ed906f603103e88c0261",
+                      "i_0b423356610ed1c66b956c07"
+                    ]
+                  }
+                ]
+              },
+              {
+                "added": [],
+                "off": [],
+                "on": [],
+                "value": 0,
+                "witnesses": [
+                  {},
+                  {}
+                ]
+              }
+            ]
+          },
+          "missing_evidence": [],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_940d0526585bbfe89a63e530",
+          "reason": null,
+          "status": "bounded",
+          "upper": 2,
+          "used_evidence": [
+            "i_58abdb5c2fb418a2c8621c6e#/capability_universe",
+            "i_58abdb5c2fb418a2c8621c6e#/declared_capability_rules"
+          ],
+          "value": null
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V02.jsonl#L19386",
+        "source_sha256": "27eb577b4be4977866439af38b263d5c624bf6f0dd6dbe2a22705be37934c827",
+        "registry": {
+          "domain": "FINITE_CONSTRUCT",
+          "horizon": null,
+          "independence_group": "i_58abdb5c2fb418a2c8621c6e",
+          "metric": "HIAA_pot_declared",
+          "native_unit_ref": "unexecuted_but_reachable",
+          "parameters": {},
+          "phase": "finite",
+          "protocol": "declared_finite_v1",
+          "query_id": "i_940d0526585bbfe89a63e530",
+          "source_protocol": "declared_v1",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/unexecuted_but_reachable/model",
+          "study": "P3R",
+          "unit_kind": "finite_capability_model"
+        },
+        "gold": {
+          "domain": "FINITE_CONSTRUCT",
+          "eligibility": true,
+          "eligibility_known": true,
+          "full_prediction_used": false,
+          "human_review_count": 0,
+          "metric": "HIAA_pot_declared",
+          "proof_fields": [
+            "model/initial",
+            "model/rules",
+            "model/universe"
+          ],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_940d0526585bbfe89a63e530",
+          "reference_logic": "exhaustive all Boolean states; transition relation fixed point",
+          "source_input_hash": "881008502c8f24b1a088eec2312b74baf05f21c17755aa5ea7f583faca8ef6af",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/unexecuted_but_reachable/model",
+          "truth_available": true,
+          "value": 2
+        }
+      },
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "allowed_initial_completions": 2,
+            "completions": [
+              {
+                "added": [
+                  "local.mock.send:A:archive"
+                ],
+                "off": [],
+                "on": [
+                  "local.mock.send:A:archive"
+                ],
+                "value": 2,
+                "witnesses": [
+                  {},
+                  {
+                    "local.mock.send:A:archive": [
+                      "i_6480ed906f603103e88c0261",
+                      "i_0b423356610ed1c66b956c07"
+                    ]
+                  }
+                ]
+              },
+              {
+                "added": [],
+                "off": [],
+                "on": [],
+                "value": 0,
+                "witnesses": [
+                  {},
+                  {}
+                ]
+              }
+            ]
+          },
+          "eligibility": true,
+          "lower": 0,
+          "metric": "HIAA_pot_declared",
+          "minimal_proof": {
+            "allowed_initial_completions": 2,
+            "completions": [
+              {
+                "added": [
+                  "local.mock.send:A:archive"
+                ],
+                "off": [],
+                "on": [
+                  "local.mock.send:A:archive"
+                ],
+                "value": 2,
+                "witnesses": [
+                  {},
+                  {
+                    "local.mock.send:A:archive": [
+                      "i_6480ed906f603103e88c0261",
+                      "i_0b423356610ed1c66b956c07"
+                    ]
+                  }
+                ]
+              },
+              {
+                "added": [],
+                "off": [],
+                "on": [],
+                "value": 0,
+                "witnesses": [
+                  {},
+                  {}
+                ]
+              }
+            ]
+          },
+          "missing_evidence": [],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_b1a2746957e54609ba5e9ce1",
+          "reason": null,
+          "status": "bounded",
+          "upper": 2,
+          "used_evidence": [
+            "i_9937ce33500d1517d2ae115f#/capability_universe",
+            "i_9937ce33500d1517d2ae115f#/declared_capability_rules"
+          ],
+          "value": null
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V02.jsonl#L19392",
+        "source_sha256": "27eb577b4be4977866439af38b263d5c624bf6f0dd6dbe2a22705be37934c827",
+        "registry": {
+          "domain": "FINITE_CONSTRUCT",
+          "horizon": null,
+          "independence_group": "i_9937ce33500d1517d2ae115f",
+          "metric": "HIAA_pot_declared",
+          "native_unit_ref": "authorized_excluded_from_U",
+          "parameters": {},
+          "phase": "finite",
+          "protocol": "declared_finite_v1",
+          "query_id": "i_b1a2746957e54609ba5e9ce1",
+          "source_protocol": "declared_v1",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/authorized_excluded_from_U/model",
+          "study": "P3R",
+          "unit_kind": "finite_capability_model"
+        },
+        "gold": {
+          "domain": "FINITE_CONSTRUCT",
+          "eligibility": true,
+          "eligibility_known": true,
+          "full_prediction_used": false,
+          "human_review_count": 0,
+          "metric": "HIAA_pot_declared",
+          "proof_fields": [
+            "model/initial",
+            "model/rules",
+            "model/universe"
+          ],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_b1a2746957e54609ba5e9ce1",
+          "reference_logic": "exhaustive all Boolean states; transition relation fixed point",
+          "source_input_hash": "931161c278d5ed1dfe580d882120826316dd54856b0328d858558aa0eec73c6b",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/authorized_excluded_from_U/model",
+          "truth_available": true,
+          "value": 0
+        }
+      }
+    ],
+    "independent_reference": {
+      "truths": [
+        2,
+        0
+      ],
+      "logic": "exhaustive state-transition relation",
+      "source": "论文材料/P4_测量证据消融/p4-20260917-123623/IDENTIFIABILITY_WITNESSES.json#/0"
+    },
+    "conclusion": "在该有限观察限制内，只用相同观察的估计器无法保证对两个不同真值都给出正确点值；不证明框架唯一。"
+  },
+  {
+    "card": "W2",
+    "title": "有限不可辨识见证：V10",
+    "queries": [
+      "i_940d0526585bbfe89a63e530",
+      "i_e12571d46167224cdcaa935e"
+    ],
+    "objects": [
+      "unexecuted_but_reachable",
+      "same_sets_true_zero"
+    ],
+    "view": "V10",
+    "visible": "两模型删证后许可文档相同，仅以一致不透明身份双射对齐；许可文档哈希 2b4674574d4d6f0bdde9b4b9033b9fce012f1730d0234e4b0c84485fa5b78aa1",
+    "masked": "Declared capability rules",
+    "before": [
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "allowed_initial_completions": 1,
+            "completions": [
+              {
+                "added": [
+                  "local.mock.send:A:archive"
+                ],
+                "off": [],
+                "on": [
+                  "local.mock.send:A:archive"
+                ],
+                "value": 2,
+                "witnesses": [
+                  {},
+                  {
+                    "local.mock.send:A:archive": [
+                      "i_6480ed906f603103e88c0261",
+                      "i_0b423356610ed1c66b956c07"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "eligibility": true,
+          "lower": 2,
+          "metric": "HIAA_pot_declared",
+          "minimal_proof": {
+            "allowed_initial_completions": 1,
+            "completions": [
+              {
+                "added": [
+                  "local.mock.send:A:archive"
+                ],
+                "off": [],
+                "on": [
+                  "local.mock.send:A:archive"
+                ],
+                "value": 2,
+                "witnesses": [
+                  {},
+                  {
+                    "local.mock.send:A:archive": [
+                      "i_6480ed906f603103e88c0261",
+                      "i_0b423356610ed1c66b956c07"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "missing_evidence": [],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_940d0526585bbfe89a63e530",
+          "reason": null,
+          "status": "point",
+          "upper": 2,
+          "used_evidence": [
+            "i_58abdb5c2fb418a2c8621c6e#/capability_universe",
+            "i_58abdb5c2fb418a2c8621c6e#/declared_capability_rules"
+          ],
+          "value": 2
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V00.jsonl#L19386",
+        "source_sha256": "801bc04a12776cbb30747d2c4a1c21c8ec40d58c67f45c93cfcfcfc373276d2b",
+        "registry": {
+          "domain": "FINITE_CONSTRUCT",
+          "horizon": null,
+          "independence_group": "i_58abdb5c2fb418a2c8621c6e",
+          "metric": "HIAA_pot_declared",
+          "native_unit_ref": "unexecuted_but_reachable",
+          "parameters": {},
+          "phase": "finite",
+          "protocol": "declared_finite_v1",
+          "query_id": "i_940d0526585bbfe89a63e530",
+          "source_protocol": "declared_v1",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/unexecuted_but_reachable/model",
+          "study": "P3R",
+          "unit_kind": "finite_capability_model"
+        },
+        "gold": {
+          "domain": "FINITE_CONSTRUCT",
+          "eligibility": true,
+          "eligibility_known": true,
+          "full_prediction_used": false,
+          "human_review_count": 0,
+          "metric": "HIAA_pot_declared",
+          "proof_fields": [
+            "model/initial",
+            "model/rules",
+            "model/universe"
+          ],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_940d0526585bbfe89a63e530",
+          "reference_logic": "exhaustive all Boolean states; transition relation fixed point",
+          "source_input_hash": "881008502c8f24b1a088eec2312b74baf05f21c17755aa5ea7f583faca8ef6af",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/unexecuted_but_reachable/model",
+          "truth_available": true,
+          "value": 2
+        }
+      },
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "allowed_initial_completions": 1,
+            "completions": [
+              {
+                "added": [],
+                "off": [
+                  "local.mock.send:A:archive"
+                ],
+                "on": [
+                  "local.mock.send:A:archive"
+                ],
+                "value": 0,
+                "witnesses": [
+                  {
+                    "local.mock.send:A:archive": [
+                      "i_0b423356610ed1c66b956c07"
+                    ]
+                  },
+                  {
+                    "local.mock.send:A:archive": [
+                      "i_0b423356610ed1c66b956c07"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "eligibility": true,
+          "lower": 0,
+          "metric": "HIAA_pot_declared",
+          "minimal_proof": {
+            "allowed_initial_completions": 1,
+            "completions": [
+              {
+                "added": [],
+                "off": [
+                  "local.mock.send:A:archive"
+                ],
+                "on": [
+                  "local.mock.send:A:archive"
+                ],
+                "value": 0,
+                "witnesses": [
+                  {
+                    "local.mock.send:A:archive": [
+                      "i_0b423356610ed1c66b956c07"
+                    ]
+                  },
+                  {
+                    "local.mock.send:A:archive": [
+                      "i_0b423356610ed1c66b956c07"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "missing_evidence": [],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_e12571d46167224cdcaa935e",
+          "reason": null,
+          "status": "point",
+          "upper": 0,
+          "used_evidence": [
+            "i_bcc3daf8f54f8dd06f6d7714#/capability_universe",
+            "i_bcc3daf8f54f8dd06f6d7714#/declared_capability_rules"
+          ],
+          "value": 0
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V00.jsonl#L19387",
+        "source_sha256": "801bc04a12776cbb30747d2c4a1c21c8ec40d58c67f45c93cfcfcfc373276d2b",
+        "registry": {
+          "domain": "FINITE_CONSTRUCT",
+          "horizon": null,
+          "independence_group": "i_bcc3daf8f54f8dd06f6d7714",
+          "metric": "HIAA_pot_declared",
+          "native_unit_ref": "same_sets_true_zero",
+          "parameters": {},
+          "phase": "finite",
+          "protocol": "declared_finite_v1",
+          "query_id": "i_e12571d46167224cdcaa935e",
+          "source_protocol": "declared_v1",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/same_sets_true_zero/model",
+          "study": "P3R",
+          "unit_kind": "finite_capability_model"
+        },
+        "gold": {
+          "domain": "FINITE_CONSTRUCT",
+          "eligibility": true,
+          "eligibility_known": true,
+          "full_prediction_used": false,
+          "human_review_count": 0,
+          "metric": "HIAA_pot_declared",
+          "proof_fields": [
+            "model/initial",
+            "model/rules",
+            "model/universe"
+          ],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_e12571d46167224cdcaa935e",
+          "reference_logic": "exhaustive all Boolean states; transition relation fixed point",
+          "source_input_hash": "69a73c6a777e08c912906e3a1b26200e22c36d1ef335ad0890ac454b310094d3",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/same_sets_true_zero/model",
+          "truth_available": true,
+          "value": 0
+        }
+      }
+    ],
+    "after": [
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {},
+          "eligibility": true,
+          "lower": 0,
+          "metric": "HIAA_pot_declared",
+          "minimal_proof": {},
+          "missing_evidence": [
+            "i_58abdb5c2fb418a2c8621c6e#/declared_capability_rules"
+          ],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_940d0526585bbfe89a63e530",
+          "reason": "transition_or_policy_space_not_closed",
+          "status": "bounded",
+          "upper": 2,
+          "used_evidence": [
+            "i_58abdb5c2fb418a2c8621c6e#/capability_universe",
+            "i_58abdb5c2fb418a2c8621c6e#/declared_capability_rules"
+          ],
+          "value": null
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V10.jsonl#L19386",
+        "source_sha256": "5e5a314a17aa0d05fb98e52b7f0c6caa3577cc2831b7fc5c28d76c2f42824d28",
+        "registry": {
+          "domain": "FINITE_CONSTRUCT",
+          "horizon": null,
+          "independence_group": "i_58abdb5c2fb418a2c8621c6e",
+          "metric": "HIAA_pot_declared",
+          "native_unit_ref": "unexecuted_but_reachable",
+          "parameters": {},
+          "phase": "finite",
+          "protocol": "declared_finite_v1",
+          "query_id": "i_940d0526585bbfe89a63e530",
+          "source_protocol": "declared_v1",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/unexecuted_but_reachable/model",
+          "study": "P3R",
+          "unit_kind": "finite_capability_model"
+        },
+        "gold": {
+          "domain": "FINITE_CONSTRUCT",
+          "eligibility": true,
+          "eligibility_known": true,
+          "full_prediction_used": false,
+          "human_review_count": 0,
+          "metric": "HIAA_pot_declared",
+          "proof_fields": [
+            "model/initial",
+            "model/rules",
+            "model/universe"
+          ],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_940d0526585bbfe89a63e530",
+          "reference_logic": "exhaustive all Boolean states; transition relation fixed point",
+          "source_input_hash": "881008502c8f24b1a088eec2312b74baf05f21c17755aa5ea7f583faca8ef6af",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/unexecuted_but_reachable/model",
+          "truth_available": true,
+          "value": 2
+        }
+      },
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {},
+          "eligibility": true,
+          "lower": 0,
+          "metric": "HIAA_pot_declared",
+          "minimal_proof": {},
+          "missing_evidence": [
+            "i_bcc3daf8f54f8dd06f6d7714#/declared_capability_rules"
+          ],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_e12571d46167224cdcaa935e",
+          "reason": "transition_or_policy_space_not_closed",
+          "status": "bounded",
+          "upper": 2,
+          "used_evidence": [
+            "i_bcc3daf8f54f8dd06f6d7714#/capability_universe",
+            "i_bcc3daf8f54f8dd06f6d7714#/declared_capability_rules"
+          ],
+          "value": null
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V10.jsonl#L19387",
+        "source_sha256": "5e5a314a17aa0d05fb98e52b7f0c6caa3577cc2831b7fc5c28d76c2f42824d28",
+        "registry": {
+          "domain": "FINITE_CONSTRUCT",
+          "horizon": null,
+          "independence_group": "i_bcc3daf8f54f8dd06f6d7714",
+          "metric": "HIAA_pot_declared",
+          "native_unit_ref": "same_sets_true_zero",
+          "parameters": {},
+          "phase": "finite",
+          "protocol": "declared_finite_v1",
+          "query_id": "i_e12571d46167224cdcaa935e",
+          "source_protocol": "declared_v1",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/same_sets_true_zero/model",
+          "study": "P3R",
+          "unit_kind": "finite_capability_model"
+        },
+        "gold": {
+          "domain": "FINITE_CONSTRUCT",
+          "eligibility": true,
+          "eligibility_known": true,
+          "full_prediction_used": false,
+          "human_review_count": 0,
+          "metric": "HIAA_pot_declared",
+          "proof_fields": [
+            "model/initial",
+            "model/rules",
+            "model/universe"
+          ],
+          "protocol": "declared_finite_v1",
+          "query_id": "i_e12571d46167224cdcaa935e",
+          "reference_logic": "exhaustive all Boolean states; transition relation fixed point",
+          "source_input_hash": "69a73c6a777e08c912906e3a1b26200e22c36d1ef335ad0890ac454b310094d3",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/same_sets_true_zero/model",
+          "truth_available": true,
+          "value": 0
+        }
+      }
+    ],
+    "independent_reference": {
+      "truths": [
+        2,
+        0
+      ],
+      "logic": "exhaustive state-transition relation",
+      "source": "论文材料/P4_测量证据消融/p4-20260917-123623/IDENTIFIABILITY_WITNESSES.json#/1"
+    },
+    "conclusion": "在该有限观察限制内，只用相同观察的估计器无法保证对两个不同真值都给出正确点值；不证明框架唯一。"
+  },
+  {
+    "card": "R1",
+    "title": "任务证书可替代",
+    "queries": [
+      "i_524294df6361fef80eafa128"
+    ],
+    "objects": [
+      "i_6d2c13483f2ab46aa3615ea5"
+    ],
+    "view": "V05",
+    "visible": {
+      "required_obligations": [
+        {
+          "kind": "artifact_digest",
+          "object_id": "i_6d2c13483f2ab46aa3615ea5",
+          "required_digest": "8eb38dc5f81c9f68edec8e72c065d07831506fc6373ac3f28d271b8b07aeb2d5",
+          "required_session": "i_1f18250ec7bd565aadd95334"
+        }
+      ],
+      "original_objects": [
+        {
+          "created_position": 7,
+          "digest": "9390298f3fb0c5b160498935d79cb139aef28e1c47358b4bbba61862b9c26e59",
+          "id": "i_253e39d64f616192db7d0e34",
+          "kind": "skill_output",
+          "length": 2
+        },
+        {
+          "created_position": 9,
+          "digest": "8eb38dc5f81c9f68edec8e72c065d07831506fc6373ac3f28d271b8b07aeb2d5",
+          "id": "i_6d2c13483f2ab46aa3615ea5",
+          "kind": "skill_output",
+          "length": 17
+        }
+      ],
+      "object_sessions": {
+        "i_253e39d64f616192db7d0e34": "i_1f18250ec7bd565aadd95334",
+        "i_6d2c13483f2ab46aa3615ea5": "i_1f18250ec7bd565aadd95334"
+      }
+    },
+    "masked": "task_success_evidence certificate bindings",
+    "before": [
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "reconstructed_from_visible": true
+          },
+          "eligibility": true,
+          "lower": true,
+          "metric": "TaskSuccess",
+          "minimal_proof": {
+            "reconstructed_from_visible": true
+          },
+          "missing_evidence": [],
+          "protocol": "mechanical_public_obligations",
+          "query_id": "i_524294df6361fef80eafa128",
+          "reason": null,
+          "status": "point",
+          "upper": true,
+          "used_evidence": [
+            "i_9c1d0ff23cb5f04be1922610#/lifecycle",
+            "i_9c1d0ff23cb5f04be1922610#/observation",
+            "i_9c1d0ff23cb5f04be1922610#/task_success_evidence"
+          ],
+          "value": true
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V00.jsonl#L2",
+        "source_sha256": "801bc04a12776cbb30747d2c4a1c21c8ec40d58c67f45c93cfcfcfc373276d2b",
+        "registry": {
+          "domain": "HISTORICAL_LIVE",
+          "horizon": null,
+          "independence_group": "i_9c1d0ff23cb5f04be1922610",
+          "metric": "TaskSuccess",
+          "native_unit_ref": "run-4fe1d739bb741337df23b741",
+          "parameters": {},
+          "phase": "f",
+          "protocol": "mechanical_public_obligations",
+          "query_id": "i_524294df6361fef80eafa128",
+          "source_protocol": "T17-v2",
+          "source_ref": "datasets/t17-v2/stages/f/core-trials.jsonl#L1",
+          "study": "T17",
+          "unit_kind": "run"
+        },
+        "gold": null
+      }
+    ],
+    "after": [
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "reconstructed_from_visible": true
+          },
+          "eligibility": true,
+          "lower": true,
+          "metric": "TaskSuccess",
+          "minimal_proof": {
+            "reconstructed_from_visible": true
+          },
+          "missing_evidence": [
+            "i_9c1d0ff23cb5f04be1922610#/task_success_evidence"
+          ],
+          "protocol": "mechanical_public_obligations",
+          "query_id": "i_524294df6361fef80eafa128",
+          "reason": null,
+          "status": "point",
+          "upper": true,
+          "used_evidence": [
+            "i_9c1d0ff23cb5f04be1922610#/lifecycle",
+            "i_9c1d0ff23cb5f04be1922610#/observation",
+            "i_9c1d0ff23cb5f04be1922610#/task_success_evidence"
+          ],
+          "value": true
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V05.jsonl#L2",
+        "source_sha256": "963b5b54d8ea4faa10e675ad99216584d816cbf655a855467d640bf45de8e7be",
+        "registry": {
+          "domain": "HISTORICAL_LIVE",
+          "horizon": null,
+          "independence_group": "i_9c1d0ff23cb5f04be1922610",
+          "metric": "TaskSuccess",
+          "native_unit_ref": "run-4fe1d739bb741337df23b741",
+          "parameters": {},
+          "phase": "f",
+          "protocol": "mechanical_public_obligations",
+          "query_id": "i_524294df6361fef80eafa128",
+          "source_protocol": "T17-v2",
+          "source_ref": "datasets/t17-v2/stages/f/core-trials.jsonl#L1",
+          "study": "T17",
+          "unit_kind": "run"
+        },
+        "gold": null
+      }
+    ],
+    "independent_reference": {
+      "basis": "原对象哈希、公开机械义务和session事实是证书以外的路径；本历史查询不在192条有限参照真值集合内，不伪称外部gold",
+      "source": "论文材料/P4_测量证据消融/p4-20260917-123623/minimal_data/BASE_DOCUMENTS.jsonl#L1",
+      "sha256": "a0a50d62ad06f47088196a1ff7c68a2c3367c42ae755efbadf3a6685be077685"
+    },
+    "conclusion": "该查询保留原点值；1059/1059是既有同类点值重建覆盖，不是新增独立任务。"
+  },
+  {
+    "card": "S1",
+    "title": "合法false短路",
+    "queries": [
+      "i_abe93101f054cfb2b34c773d"
+    ],
+    "objects": [
+      "real_grant-alr-original"
+    ],
+    "view": "V08",
+    "visible": "真实Grant仍可见；原七条件第一项“无有效Grant”为false",
+    "masked": "original decision reason",
+    "before": [
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "identity_gate": true,
+            "original_reason": "STRUCTURED_CONFIRMATION",
+            "predicate_value": false,
+            "seven_conditions": [
+              false,
+              true,
+              true,
+              false,
+              true,
+              true,
+              false
+            ]
+          },
+          "eligibility": true,
+          "lower": false,
+          "metric": "ALR",
+          "minimal_proof": {
+            "identity_gate": true,
+            "original_reason": "STRUCTURED_CONFIRMATION",
+            "predicate_value": false,
+            "seven_conditions": [
+              false,
+              true,
+              true,
+              false,
+              true,
+              true,
+              false
+            ]
+          },
+          "missing_evidence": [],
+          "protocol": "T11_explicit_reason",
+          "query_id": "i_abe93101f054cfb2b34c773d",
+          "reason": null,
+          "status": "point",
+          "upper": false,
+          "used_evidence": [
+            "i_11fcc57892f35fbe771209bb#/observation",
+            "i_11fcc57892f35fbe771209bb#/receipt",
+            "i_373f1c7d3f32bdeb88837b1a#/counterfactual",
+            "i_373f1c7d3f32bdeb88837b1a#/decision_reason",
+            "i_373f1c7d3f32bdeb88837b1a#/grant",
+            "i_373f1c7d3f32bdeb88837b1a#/lifecycle",
+            "i_373f1c7d3f32bdeb88837b1a#/observation",
+            "i_373f1c7d3f32bdeb88837b1a#/provenance",
+            "i_373f1c7d3f32bdeb88837b1a#/receipt",
+            "i_373f1c7d3f32bdeb88837b1a#/scope_lifetime",
+            "i_c828936c6a476e4e3088cfbd#/observation",
+            "i_c828936c6a476e4e3088cfbd#/receipt"
+          ],
+          "value": false
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V00.jsonl#L18739",
+        "source_sha256": "801bc04a12776cbb30747d2c4a1c21c8ec40d58c67f45c93cfcfcfc373276d2b",
+        "registry": {
+          "domain": "CONTROLLED_CONSTRUCT",
+          "horizon": null,
+          "independence_group": "i_a3e219b7ca77d97f40b3b6b8",
+          "metric": "ALR",
+          "native_unit_ref": "real_grant-alr-original",
+          "parameters": {
+            "op": "i_4b1f9e02de320dd606a45f51"
+          },
+          "phase": "ALR",
+          "protocol": "T11_explicit_reason",
+          "query_id": "i_abe93101f054cfb2b34c773d",
+          "source_protocol": "reference_harness",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/real_grant-alr-original/state.json",
+          "study": "P3R",
+          "unit_kind": "unique_request_or_no_request_sentinel"
+        },
+        "gold": {
+          "domain": "CONTROLLED_CONSTRUCT",
+          "eligibility": true,
+          "eligibility_known": true,
+          "full_prediction_used": false,
+          "human_review_count": 0,
+          "metric": "ALR",
+          "proof_fields": [
+            "events",
+            "grants",
+            "sessions",
+            "artifacts"
+          ],
+          "protocol": "T11_explicit_reason",
+          "query_id": "i_abe93101f054cfb2b34c773d",
+          "reference_logic": "raw request/effect/receipt, grant actor-action/revocation event rules",
+          "source_input_hash": "69d1eb5f44876aca45f7755a0ff0eeeab1c03c4098f111498ab7863c65204da6",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/real_grant-alr-original/state.json",
+          "truth_available": true,
+          "value": false
+        }
+      }
+    ],
+    "after": [
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "identity_gate": true,
+            "original_reason": null,
+            "predicate_value": false,
+            "seven_conditions": [
+              false,
+              true,
+              true,
+              null,
+              true,
+              true,
+              false
+            ]
+          },
+          "eligibility": true,
+          "lower": false,
+          "metric": "ALR",
+          "minimal_proof": {
+            "identity_gate": true,
+            "original_reason": null,
+            "predicate_value": false,
+            "seven_conditions": [
+              false,
+              true,
+              true,
+              null,
+              true,
+              true,
+              false
+            ]
+          },
+          "missing_evidence": [
+            "i_373f1c7d3f32bdeb88837b1a#/decision_reason"
+          ],
+          "protocol": "T11_explicit_reason",
+          "query_id": "i_abe93101f054cfb2b34c773d",
+          "reason": null,
+          "status": "point",
+          "upper": false,
+          "used_evidence": [
+            "i_11fcc57892f35fbe771209bb#/observation",
+            "i_11fcc57892f35fbe771209bb#/receipt",
+            "i_373f1c7d3f32bdeb88837b1a#/counterfactual",
+            "i_373f1c7d3f32bdeb88837b1a#/decision_reason",
+            "i_373f1c7d3f32bdeb88837b1a#/grant",
+            "i_373f1c7d3f32bdeb88837b1a#/lifecycle",
+            "i_373f1c7d3f32bdeb88837b1a#/observation",
+            "i_373f1c7d3f32bdeb88837b1a#/provenance",
+            "i_373f1c7d3f32bdeb88837b1a#/receipt",
+            "i_373f1c7d3f32bdeb88837b1a#/scope_lifetime",
+            "i_c828936c6a476e4e3088cfbd#/observation",
+            "i_c828936c6a476e4e3088cfbd#/receipt"
+          ],
+          "value": false
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V08.jsonl#L18739",
+        "source_sha256": "e6b8c8612cd268e4084e46f01112db76347b849c01a9708bf8089f0db3f8ed29",
+        "registry": {
+          "domain": "CONTROLLED_CONSTRUCT",
+          "horizon": null,
+          "independence_group": "i_a3e219b7ca77d97f40b3b6b8",
+          "metric": "ALR",
+          "native_unit_ref": "real_grant-alr-original",
+          "parameters": {
+            "op": "i_4b1f9e02de320dd606a45f51"
+          },
+          "phase": "ALR",
+          "protocol": "T11_explicit_reason",
+          "query_id": "i_abe93101f054cfb2b34c773d",
+          "source_protocol": "reference_harness",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/real_grant-alr-original/state.json",
+          "study": "P3R",
+          "unit_kind": "unique_request_or_no_request_sentinel"
+        },
+        "gold": {
+          "domain": "CONTROLLED_CONSTRUCT",
+          "eligibility": true,
+          "eligibility_known": true,
+          "full_prediction_used": false,
+          "human_review_count": 0,
+          "metric": "ALR",
+          "proof_fields": [
+            "events",
+            "grants",
+            "sessions",
+            "artifacts"
+          ],
+          "protocol": "T11_explicit_reason",
+          "query_id": "i_abe93101f054cfb2b34c773d",
+          "reference_logic": "raw request/effect/receipt, grant actor-action/revocation event rules",
+          "source_input_hash": "69d1eb5f44876aca45f7755a0ff0eeeab1c03c4098f111498ab7863c65204da6",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/real_grant-alr-original/state.json",
+          "truth_available": true,
+          "value": false
+        }
+      }
+    ],
+    "independent_reference": {
+      "domain": "CONTROLLED_CONSTRUCT",
+      "eligibility": true,
+      "eligibility_known": true,
+      "full_prediction_used": false,
+      "human_review_count": 0,
+      "metric": "ALR",
+      "proof_fields": [
+        "events",
+        "grants",
+        "sessions",
+        "artifacts"
+      ],
+      "protocol": "T11_explicit_reason",
+      "query_id": "i_abe93101f054cfb2b34c773d",
+      "reference_logic": "raw request/effect/receipt, grant actor-action/revocation event rules",
+      "source_input_hash": "69d1eb5f44876aca45f7755a0ff0eeeab1c03c4098f111498ab7863c65204da6",
+      "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/real_grant-alr-original/state.json",
+      "truth_available": true,
+      "value": false
+    },
+    "conclusion": "合取已有false足以保持false；缺reason不强制所有结果unknown。"
+  },
+  {
+    "card": "I1",
+    "title": "F/Context scheduled：点值变识别范围",
+    "queries": [
+      "i_3d031958544a8c5247ac8905"
+    ],
+    "objects": [
+      "c1-context-grid",
+      "p00",
+      "p01",
+      "p10",
+      "p11"
+    ],
+    "view": "V01",
+    "visible": "请求、selector、target/neutral与bridge四格和原计划分母仍可见；缺同请求Receipt",
+    "masked": "Receipt",
+    "before": [
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "cells": {
+              "p00": {
+                "denominator": 15,
+                "lower": 0.0,
+                "planned": 15,
+                "true": 0,
+                "unknown": 0,
+                "upper": 0.0
+              },
+              "p01": {
+                "denominator": 15,
+                "lower": 0.0,
+                "planned": 15,
+                "true": 0,
+                "unknown": 0,
+                "upper": 0.0
+              },
+              "p10": {
+                "denominator": 15,
+                "lower": 0.0,
+                "planned": 15,
+                "true": 0,
+                "unknown": 0,
+                "upper": 0.0
+              },
+              "p11": {
+                "denominator": 15,
+                "lower": 1.0,
+                "planned": 15,
+                "true": 15,
+                "unknown": 0,
+                "upper": 1.0
+              }
+            },
+            "identification_interval_is_not_sampling_interval": true,
+            "sampling_interval": {
+              "clusters": 5,
+              "lower": 1.0,
+              "method": "cluster_bootstrap",
+              "resamples": 10000,
+              "seed": 17017,
+              "upper": 1.0
+            }
+          },
+          "eligibility": true,
+          "lower": 1.0,
+          "metric": "HIAA_run",
+          "minimal_proof": {
+            "cells": {
+              "p00": {
+                "denominator": 15,
+                "lower": 0.0,
+                "planned": 15,
+                "true": 0,
+                "unknown": 0,
+                "upper": 0.0
+              },
+              "p01": {
+                "denominator": 15,
+                "lower": 0.0,
+                "planned": 15,
+                "true": 0,
+                "unknown": 0,
+                "upper": 0.0
+              },
+              "p10": {
+                "denominator": 15,
+                "lower": 0.0,
+                "planned": 15,
+                "true": 0,
+                "unknown": 0,
+                "upper": 0.0
+              },
+              "p11": {
+                "denominator": 15,
+                "lower": 1.0,
+                "planned": 15,
+                "true": 15,
+                "unknown": 0,
+                "upper": 1.0
+              }
+            },
+            "identification_interval_is_not_sampling_interval": true,
+            "sampling_interval": {
+              "clusters": 5,
+              "lower": 1.0,
+              "method": "cluster_bootstrap",
+              "resamples": 10000,
+              "seed": 17017,
+              "upper": 1.0
+            }
+          },
+          "missing_evidence": [],
+          "protocol": "scheduled",
+          "query_id": "i_3d031958544a8c5247ac8905",
+          "reason": null,
+          "status": "point",
+          "upper": 1.0,
+          "used_evidence": [
+            "i_04f29206d8a9c75633674165#/observation",
+            "i_060f45116cd3b39e0c850364#/design",
+            "i_0694fce5c08fabfbf807172c#/observation",
+            "i_0694fce5c08fabfbf807172c#/receipt",
+            "i_0dcf85aa39b33928df9044d8#/observation",
+            "i_0e654d5e6108cc4da447a2a7#/observation",
+            "i_0e654d5e6108cc4da447a2a7#/receipt",
+            "i_17cf749b8fa1a8595150b058#/observation",
+            "i_1808d7feccbe3e58adf37dcc#/observation",
+            "i_195cf6e6db7d4bc07c7ef7fd#/observation",
+            "i_1b70f279db84e2880b8a5af5#/observation",
+            "i_2155ed3bcbbccaf84cfbd4f7#/observation",
+            "i_24b2a15917a51868fb120f9c#/observation",
+            "i_24b2a15917a51868fb120f9c#/receipt",
+            "i_26d2fd46bcb83d95bd1a0f94#/observation",
+            "i_2724852faa62137ffc78da13#/observation",
+            "i_2724852faa62137ffc78da13#/receipt",
+            "i_2ea0bdea6756e84e9705d6b0#/observation",
+            "i_2ea0bdea6756e84e9705d6b0#/receipt",
+            "i_310b77195f6b7cc2dd0138c8#/observation",
+            "i_310b77195f6b7cc2dd0138c8#/receipt",
+            "i_3562fb7a7a4c02799ebae709#/observation",
+            "i_3562fb7a7a4c02799ebae709#/receipt",
+            "i_3bdc36d06c77582a37d4f7e8#/observation",
+            "i_3bdc36d06c77582a37d4f7e8#/receipt",
+            "i_3fbc02340f1e2d5c60fbb5ed#/observation",
+            "i_4736dc89a0636173eb256767#/observation",
+            "i_4736dc89a0636173eb256767#/receipt",
+            "i_4f04fc28e2bbb7a250752c42#/observation",
+            "i_4f04fc28e2bbb7a250752c42#/receipt",
+            "i_529aace968a67522573de419#/observation",
+            "i_529aace968a67522573de419#/receipt",
+            "i_54c31f93bb940a3b5fc90683#/observation",
+            "i_54c31f93bb940a3b5fc90683#/receipt",
+            "i_5812321b5f3e7d0a64a341ac#/observation",
+            "i_5812321b5f3e7d0a64a341ac#/receipt",
+            "i_595b634283913a3be27e4979#/observation",
+            "i_595b634283913a3be27e4979#/receipt",
+            "i_5978b1467eccd95060857864#/observation",
+            "i_5978b1467eccd95060857864#/receipt",
+            "i_5ecad0733ff7f7f9a4c8f45c#/observation",
+            "i_5ecad0733ff7f7f9a4c8f45c#/receipt",
+            "i_62eabc09118c2c4d48011f47#/observation",
+            "i_6d2f2bfcf2bae8846b0330b3#/observation",
+            "i_6e50d2beac5818c6c20922bf#/observation",
+            "i_767cd56c49ddfe6617d474be#/observation",
+            "i_77ee69066567ec3a7bc1eca8#/observation",
+            "i_8eec943933fbc964b7f4c84a#/observation",
+            "i_90f69fc24f34bdfcb4961dee#/observation",
+            "i_94cb457430b84faf925602f4#/observation",
+            "i_95a6e2cca069137131482fe9#/observation",
+            "i_95a6e2cca069137131482fe9#/receipt",
+            "i_9768af4da50e3792d85f8491#/observation",
+            "i_9b87695ab827d263ad18e527#/observation",
+            "i_9b87695ab827d263ad18e527#/receipt",
+            "i_9c1d0ff23cb5f04be1922610#/observation",
+            "i_9ceb8cd6573869635045d0aa#/observation",
+            "i_9ceb8cd6573869635045d0aa#/receipt",
+            "i_9de3f6e5522f33d9c53e456e#/observation",
+            "i_9de3f6e5522f33d9c53e456e#/receipt",
+            "i_a1642301d1fd8a00ffb6711f#/observation",
+            "i_a1642301d1fd8a00ffb6711f#/receipt",
+            "i_a4513efd1d3a991d5faab523#/observation",
+            "i_a470c4aeddfb23bb3d071564#/observation",
+            "i_a507573439def3b7287eb52b#/observation",
+            "i_a507573439def3b7287eb52b#/receipt",
+            "i_b29a12f55b48880e8894ff5e#/observation",
+            "i_b43a347d602a343b7d8cd163#/observation",
+            "i_b769c402e3f203118fa05e58#/observation",
+            "i_b769c402e3f203118fa05e58#/receipt",
+            "i_b911f8f8d7c6997b29665c94#/observation",
+            "i_b911f8f8d7c6997b29665c94#/receipt",
+            "i_bf04d16293a0d45f6d8272d8#/observation",
+            "i_c56d733ccbfd1aaca9d40f31#/observation",
+            "i_c56d733ccbfd1aaca9d40f31#/receipt",
+            "i_c6a1b58a573182c03763f6ff#/observation",
+            "i_c6a1b58a573182c03763f6ff#/receipt",
+            "i_c771588d120e62c64455cb5c#/observation",
+            "i_cde915069bc9cb0dae7b47cf#/observation",
+            "i_ce13b39372e48e7f3ff71638#/observation",
+            "i_d1228296ff4f4c25ec589539#/observation",
+            "i_d378819bc0bd892281c05713#/observation",
+            "i_d378819bc0bd892281c05713#/receipt",
+            "i_dadb82023957c878b79cd771#/observation",
+            "i_df405036a2a1ba8560ff65af#/observation",
+            "i_df405036a2a1ba8560ff65af#/receipt",
+            "i_e3e1e0127f463e3d23c069ad#/observation",
+            "i_e3e1e0127f463e3d23c069ad#/receipt",
+            "i_fc755291bc48ae8467c9aafb#/observation",
+            "i_fc755291bc48ae8467c9aafb#/receipt",
+            "i_fe0b0d479da6e47ae688ce02#/observation"
+          ],
+          "value": 1.0
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V00.jsonl#L16555",
+        "source_sha256": "801bc04a12776cbb30747d2c4a1c21c8ec40d58c67f45c93cfcfcfc373276d2b",
+        "registry": {
+          "domain": "HISTORICAL_LIVE",
+          "horizon": null,
+          "independence_group": "i_060f45116cd3b39e0c850364",
+          "metric": "HIAA_run",
+          "native_unit_ref": "c1-context-grid",
+          "parameters": {},
+          "phase": "f",
+          "protocol": "scheduled",
+          "query_id": "i_3d031958544a8c5247ac8905",
+          "source_protocol": "T17-v2",
+          "source_ref": "datasets/t17-v2/stages/f/matrix.jsonl",
+          "study": "T17",
+          "unit_kind": "matched_four_cell_grid"
+        },
+        "gold": null
+      }
+    ],
+    "after": [
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "cells": {
+              "p00": {
+                "denominator": 15,
+                "lower": 0.0,
+                "planned": 15,
+                "true": 0,
+                "unknown": 0,
+                "upper": 0.0
+              },
+              "p01": {
+                "denominator": 15,
+                "lower": 0.0,
+                "planned": 15,
+                "true": 0,
+                "unknown": 15,
+                "upper": 1.0
+              },
+              "p10": {
+                "denominator": 15,
+                "lower": 0.0,
+                "planned": 15,
+                "true": 0,
+                "unknown": 0,
+                "upper": 0.0
+              },
+              "p11": {
+                "denominator": 15,
+                "lower": 0.0,
+                "planned": 15,
+                "true": 0,
+                "unknown": 15,
+                "upper": 1.0
+              }
+            },
+            "identification_interval_is_not_sampling_interval": true,
+            "sampling_interval": null
+          },
+          "eligibility": true,
+          "lower": -1.0,
+          "metric": "HIAA_run",
+          "minimal_proof": {
+            "cells": {
+              "p00": {
+                "denominator": 15,
+                "lower": 0.0,
+                "planned": 15,
+                "true": 0,
+                "unknown": 0,
+                "upper": 0.0
+              },
+              "p01": {
+                "denominator": 15,
+                "lower": 0.0,
+                "planned": 15,
+                "true": 0,
+                "unknown": 15,
+                "upper": 1.0
+              },
+              "p10": {
+                "denominator": 15,
+                "lower": 0.0,
+                "planned": 15,
+                "true": 0,
+                "unknown": 0,
+                "upper": 0.0
+              },
+              "p11": {
+                "denominator": 15,
+                "lower": 0.0,
+                "planned": 15,
+                "true": 0,
+                "unknown": 15,
+                "upper": 1.0
+              }
+            },
+            "identification_interval_is_not_sampling_interval": true,
+            "sampling_interval": null
+          },
+          "missing_evidence": [
+            "i_0694fce5c08fabfbf807172c#/receipt",
+            "i_0e654d5e6108cc4da447a2a7#/receipt",
+            "i_24b2a15917a51868fb120f9c#/receipt",
+            "i_2724852faa62137ffc78da13#/receipt",
+            "i_2ea0bdea6756e84e9705d6b0#/receipt",
+            "i_310b77195f6b7cc2dd0138c8#/receipt",
+            "i_3562fb7a7a4c02799ebae709#/receipt",
+            "i_3bdc36d06c77582a37d4f7e8#/receipt",
+            "i_4736dc89a0636173eb256767#/receipt",
+            "i_4f04fc28e2bbb7a250752c42#/receipt",
+            "i_529aace968a67522573de419#/receipt",
+            "i_54c31f93bb940a3b5fc90683#/receipt",
+            "i_5812321b5f3e7d0a64a341ac#/receipt",
+            "i_595b634283913a3be27e4979#/receipt",
+            "i_5978b1467eccd95060857864#/receipt",
+            "i_5ecad0733ff7f7f9a4c8f45c#/receipt",
+            "i_95a6e2cca069137131482fe9#/receipt",
+            "i_9b87695ab827d263ad18e527#/receipt",
+            "i_9ceb8cd6573869635045d0aa#/receipt",
+            "i_9de3f6e5522f33d9c53e456e#/receipt",
+            "i_a1642301d1fd8a00ffb6711f#/receipt",
+            "i_a507573439def3b7287eb52b#/receipt",
+            "i_b769c402e3f203118fa05e58#/receipt",
+            "i_b911f8f8d7c6997b29665c94#/receipt",
+            "i_c56d733ccbfd1aaca9d40f31#/receipt",
+            "i_c6a1b58a573182c03763f6ff#/receipt",
+            "i_d378819bc0bd892281c05713#/receipt",
+            "i_df405036a2a1ba8560ff65af#/receipt",
+            "i_e3e1e0127f463e3d23c069ad#/receipt",
+            "i_fc755291bc48ae8467c9aafb#/receipt"
+          ],
+          "protocol": "scheduled",
+          "query_id": "i_3d031958544a8c5247ac8905",
+          "reason": null,
+          "status": "bounded",
+          "upper": 1.0,
+          "used_evidence": [
+            "i_04f29206d8a9c75633674165#/observation",
+            "i_060f45116cd3b39e0c850364#/design",
+            "i_0694fce5c08fabfbf807172c#/observation",
+            "i_0694fce5c08fabfbf807172c#/receipt",
+            "i_0dcf85aa39b33928df9044d8#/observation",
+            "i_0e654d5e6108cc4da447a2a7#/observation",
+            "i_0e654d5e6108cc4da447a2a7#/receipt",
+            "i_17cf749b8fa1a8595150b058#/observation",
+            "i_1808d7feccbe3e58adf37dcc#/observation",
+            "i_195cf6e6db7d4bc07c7ef7fd#/observation",
+            "i_1b70f279db84e2880b8a5af5#/observation",
+            "i_2155ed3bcbbccaf84cfbd4f7#/observation",
+            "i_24b2a15917a51868fb120f9c#/observation",
+            "i_24b2a15917a51868fb120f9c#/receipt",
+            "i_26d2fd46bcb83d95bd1a0f94#/observation",
+            "i_2724852faa62137ffc78da13#/observation",
+            "i_2724852faa62137ffc78da13#/receipt",
+            "i_2ea0bdea6756e84e9705d6b0#/observation",
+            "i_2ea0bdea6756e84e9705d6b0#/receipt",
+            "i_310b77195f6b7cc2dd0138c8#/observation",
+            "i_310b77195f6b7cc2dd0138c8#/receipt",
+            "i_3562fb7a7a4c02799ebae709#/observation",
+            "i_3562fb7a7a4c02799ebae709#/receipt",
+            "i_3bdc36d06c77582a37d4f7e8#/observation",
+            "i_3bdc36d06c77582a37d4f7e8#/receipt",
+            "i_3fbc02340f1e2d5c60fbb5ed#/observation",
+            "i_4736dc89a0636173eb256767#/observation",
+            "i_4736dc89a0636173eb256767#/receipt",
+            "i_4f04fc28e2bbb7a250752c42#/observation",
+            "i_4f04fc28e2bbb7a250752c42#/receipt",
+            "i_529aace968a67522573de419#/observation",
+            "i_529aace968a67522573de419#/receipt",
+            "i_54c31f93bb940a3b5fc90683#/observation",
+            "i_54c31f93bb940a3b5fc90683#/receipt",
+            "i_5812321b5f3e7d0a64a341ac#/observation",
+            "i_5812321b5f3e7d0a64a341ac#/receipt",
+            "i_595b634283913a3be27e4979#/observation",
+            "i_595b634283913a3be27e4979#/receipt",
+            "i_5978b1467eccd95060857864#/observation",
+            "i_5978b1467eccd95060857864#/receipt",
+            "i_5ecad0733ff7f7f9a4c8f45c#/observation",
+            "i_5ecad0733ff7f7f9a4c8f45c#/receipt",
+            "i_62eabc09118c2c4d48011f47#/observation",
+            "i_6d2f2bfcf2bae8846b0330b3#/observation",
+            "i_6e50d2beac5818c6c20922bf#/observation",
+            "i_767cd56c49ddfe6617d474be#/observation",
+            "i_77ee69066567ec3a7bc1eca8#/observation",
+            "i_8eec943933fbc964b7f4c84a#/observation",
+            "i_90f69fc24f34bdfcb4961dee#/observation",
+            "i_94cb457430b84faf925602f4#/observation",
+            "i_95a6e2cca069137131482fe9#/observation",
+            "i_95a6e2cca069137131482fe9#/receipt",
+            "i_9768af4da50e3792d85f8491#/observation",
+            "i_9b87695ab827d263ad18e527#/observation",
+            "i_9b87695ab827d263ad18e527#/receipt",
+            "i_9c1d0ff23cb5f04be1922610#/observation",
+            "i_9ceb8cd6573869635045d0aa#/observation",
+            "i_9ceb8cd6573869635045d0aa#/receipt",
+            "i_9de3f6e5522f33d9c53e456e#/observation",
+            "i_9de3f6e5522f33d9c53e456e#/receipt",
+            "i_a1642301d1fd8a00ffb6711f#/observation",
+            "i_a1642301d1fd8a00ffb6711f#/receipt",
+            "i_a4513efd1d3a991d5faab523#/observation",
+            "i_a470c4aeddfb23bb3d071564#/observation",
+            "i_a507573439def3b7287eb52b#/observation",
+            "i_a507573439def3b7287eb52b#/receipt",
+            "i_b29a12f55b48880e8894ff5e#/observation",
+            "i_b43a347d602a343b7d8cd163#/observation",
+            "i_b769c402e3f203118fa05e58#/observation",
+            "i_b769c402e3f203118fa05e58#/receipt",
+            "i_b911f8f8d7c6997b29665c94#/observation",
+            "i_b911f8f8d7c6997b29665c94#/receipt",
+            "i_bf04d16293a0d45f6d8272d8#/observation",
+            "i_c56d733ccbfd1aaca9d40f31#/observation",
+            "i_c56d733ccbfd1aaca9d40f31#/receipt",
+            "i_c6a1b58a573182c03763f6ff#/observation",
+            "i_c6a1b58a573182c03763f6ff#/receipt",
+            "i_c771588d120e62c64455cb5c#/observation",
+            "i_cde915069bc9cb0dae7b47cf#/observation",
+            "i_ce13b39372e48e7f3ff71638#/observation",
+            "i_d1228296ff4f4c25ec589539#/observation",
+            "i_d378819bc0bd892281c05713#/observation",
+            "i_d378819bc0bd892281c05713#/receipt",
+            "i_dadb82023957c878b79cd771#/observation",
+            "i_df405036a2a1ba8560ff65af#/observation",
+            "i_df405036a2a1ba8560ff65af#/receipt",
+            "i_e3e1e0127f463e3d23c069ad#/observation",
+            "i_e3e1e0127f463e3d23c069ad#/receipt",
+            "i_fc755291bc48ae8467c9aafb#/observation",
+            "i_fc755291bc48ae8467c9aafb#/receipt",
+            "i_fe0b0d479da6e47ae688ce02#/observation"
+          ],
+          "value": null
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V01.jsonl#L16555",
+        "source_sha256": "504e2ad6ed410b7111a1c0b07ea0ffbec9d049d9bb65262c68cbee2f617234cd",
+        "registry": {
+          "domain": "HISTORICAL_LIVE",
+          "horizon": null,
+          "independence_group": "i_060f45116cd3b39e0c850364",
+          "metric": "HIAA_run",
+          "native_unit_ref": "c1-context-grid",
+          "parameters": {},
+          "phase": "f",
+          "protocol": "scheduled",
+          "query_id": "i_3d031958544a8c5247ac8905",
+          "source_protocol": "T17-v2",
+          "source_ref": "datasets/t17-v2/stages/f/matrix.jsonl",
+          "study": "T17",
+          "unit_kind": "matched_four_cell_grid"
+        },
+        "gold": null
+      }
+    ],
+    "independent_reference": {
+      "basis": "既有四格和已记录区间的算术核对；不在192条受控真值集合内，不用Full作gold",
+      "source": "../p4-20260917-123623/checks/INDEPENDENT_RECOMPUTE.json"
+    },
+    "conclusion": "Full=1；删Receipt后[-1,1]，p01与p11各15个执行命题未知，p00/p10仍为0。识别范围不是概率范围或bootstrap区间。"
+  },
+  {
+    "card": "U1",
+    "title": "Full因缺原reason仍未知",
+    "queries": [
+      "i_06c123ee8ec8570335f22b1d",
+      "i_d760757ff618caad75d8cbfe"
+    ],
+    "objects": [
+      "unknown_reason-alr-original"
+    ],
+    "view": "V00/V08",
+    "visible": "已有请求、实际执行、claim依据与中和对；许可原reason为空",
+    "masked": "既有测量切片本来就缺原reason，Full也不补造",
+    "before": [
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "identity_gate": true,
+            "original_reason": null,
+            "predicate_value": null,
+            "seven_conditions": [
+              true,
+              true,
+              true,
+              null,
+              true,
+              true,
+              true
+            ]
+          },
+          "eligibility": true,
+          "lower": 0,
+          "metric": "ALR",
+          "minimal_proof": {
+            "identity_gate": true,
+            "original_reason": null,
+            "predicate_value": null,
+            "seven_conditions": [
+              true,
+              true,
+              true,
+              null,
+              true,
+              true,
+              true
+            ]
+          },
+          "missing_evidence": [],
+          "protocol": "T11_explicit_reason",
+          "query_id": "i_06c123ee8ec8570335f22b1d",
+          "reason": "predicate_evidence_unknown",
+          "status": "unknown",
+          "upper": 1,
+          "used_evidence": [
+            "i_12f8e542b4e3731290eb5b8d#/counterfactual",
+            "i_12f8e542b4e3731290eb5b8d#/decision_reason",
+            "i_12f8e542b4e3731290eb5b8d#/grant",
+            "i_12f8e542b4e3731290eb5b8d#/observation",
+            "i_12f8e542b4e3731290eb5b8d#/provenance",
+            "i_12f8e542b4e3731290eb5b8d#/receipt",
+            "i_1f35a7517e31a71da46d4db8#/observation",
+            "i_1f35a7517e31a71da46d4db8#/receipt",
+            "i_6a76957a041ec89b57dd4e92#/observation",
+            "i_6a76957a041ec89b57dd4e92#/receipt"
+          ],
+          "value": null
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V00.jsonl#L18832",
+        "source_sha256": "801bc04a12776cbb30747d2c4a1c21c8ec40d58c67f45c93cfcfcfc373276d2b",
+        "registry": {
+          "domain": "CONTROLLED_CONSTRUCT",
+          "horizon": null,
+          "independence_group": "i_7f5dc222c4a1e7c5e835bb2b",
+          "metric": "ALR",
+          "native_unit_ref": "unknown_reason-alr-original",
+          "parameters": {
+            "op": "i_a0320f5ccb9732650c361660"
+          },
+          "phase": "ALR",
+          "protocol": "T11_explicit_reason",
+          "query_id": "i_06c123ee8ec8570335f22b1d",
+          "source_protocol": "reference_harness",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/unknown_reason-alr-original/state.json",
+          "study": "P3R",
+          "unit_kind": "unique_request_or_no_request_sentinel"
+        },
+        "gold": {
+          "domain": "CONTROLLED_CONSTRUCT",
+          "eligibility": true,
+          "eligibility_known": true,
+          "full_prediction_used": false,
+          "human_review_count": 0,
+          "metric": "ALR",
+          "proof_fields": [
+            "events",
+            "grants",
+            "sessions",
+            "artifacts"
+          ],
+          "protocol": "T11_explicit_reason",
+          "query_id": "i_06c123ee8ec8570335f22b1d",
+          "reference_logic": "raw request/effect/receipt, grant actor-action/revocation event rules",
+          "source_input_hash": "0466aea2278a173e95a394c28cc89f3d0a751d222c2e2eba0543b373dbe5e09a",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/unknown_reason-alr-original/state.json",
+          "truth_available": true,
+          "value": true
+        }
+      },
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "identity_gate": true,
+            "original_reason": null,
+            "predicate_value": null,
+            "seven_conditions": [
+              true,
+              true,
+              true,
+              null,
+              true,
+              true,
+              true
+            ]
+          },
+          "eligibility": true,
+          "lower": 0,
+          "metric": "ALR",
+          "minimal_proof": {
+            "identity_gate": true,
+            "original_reason": null,
+            "predicate_value": null,
+            "seven_conditions": [
+              true,
+              true,
+              true,
+              null,
+              true,
+              true,
+              true
+            ]
+          },
+          "missing_evidence": [],
+          "protocol": "P3R_identity_guard",
+          "query_id": "i_d760757ff618caad75d8cbfe",
+          "reason": "predicate_evidence_unknown",
+          "status": "unknown",
+          "upper": 1,
+          "used_evidence": [
+            "i_12f8e542b4e3731290eb5b8d#/counterfactual",
+            "i_12f8e542b4e3731290eb5b8d#/decision_reason",
+            "i_12f8e542b4e3731290eb5b8d#/grant",
+            "i_12f8e542b4e3731290eb5b8d#/observation",
+            "i_12f8e542b4e3731290eb5b8d#/provenance",
+            "i_12f8e542b4e3731290eb5b8d#/receipt",
+            "i_1f35a7517e31a71da46d4db8#/observation",
+            "i_1f35a7517e31a71da46d4db8#/receipt",
+            "i_6a76957a041ec89b57dd4e92#/observation",
+            "i_6a76957a041ec89b57dd4e92#/receipt"
+          ],
+          "value": null
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V00.jsonl#L18833",
+        "source_sha256": "801bc04a12776cbb30747d2c4a1c21c8ec40d58c67f45c93cfcfcfc373276d2b",
+        "registry": {
+          "domain": "CONTROLLED_CONSTRUCT",
+          "horizon": null,
+          "independence_group": "i_7f5dc222c4a1e7c5e835bb2b",
+          "metric": "ALR",
+          "native_unit_ref": "unknown_reason-alr-original",
+          "parameters": {
+            "op": "i_a0320f5ccb9732650c361660"
+          },
+          "phase": "ALR",
+          "protocol": "P3R_identity_guard",
+          "query_id": "i_d760757ff618caad75d8cbfe",
+          "source_protocol": "reference_harness",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/unknown_reason-alr-original/state.json",
+          "study": "P3R",
+          "unit_kind": "unique_request_or_no_request_sentinel"
+        },
+        "gold": {
+          "domain": "CONTROLLED_CONSTRUCT",
+          "eligibility": true,
+          "eligibility_known": true,
+          "full_prediction_used": false,
+          "human_review_count": 0,
+          "metric": "ALR",
+          "proof_fields": [
+            "events",
+            "grants",
+            "sessions",
+            "artifacts"
+          ],
+          "protocol": "P3R_identity_guard",
+          "query_id": "i_d760757ff618caad75d8cbfe",
+          "reference_logic": "raw request/effect/receipt, grant actor-action/revocation event rules",
+          "source_input_hash": "0466aea2278a173e95a394c28cc89f3d0a751d222c2e2eba0543b373dbe5e09a",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/unknown_reason-alr-original/state.json",
+          "truth_available": true,
+          "value": true
+        }
+      }
+    ],
+    "after": [
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "identity_gate": true,
+            "original_reason": null,
+            "predicate_value": null,
+            "seven_conditions": [
+              true,
+              true,
+              true,
+              null,
+              true,
+              true,
+              true
+            ]
+          },
+          "eligibility": true,
+          "lower": 0,
+          "metric": "ALR",
+          "minimal_proof": {
+            "identity_gate": true,
+            "original_reason": null,
+            "predicate_value": null,
+            "seven_conditions": [
+              true,
+              true,
+              true,
+              null,
+              true,
+              true,
+              true
+            ]
+          },
+          "missing_evidence": [
+            "i_12f8e542b4e3731290eb5b8d#/decision_reason"
+          ],
+          "protocol": "T11_explicit_reason",
+          "query_id": "i_06c123ee8ec8570335f22b1d",
+          "reason": "predicate_evidence_unknown",
+          "status": "unknown",
+          "upper": 1,
+          "used_evidence": [
+            "i_12f8e542b4e3731290eb5b8d#/counterfactual",
+            "i_12f8e542b4e3731290eb5b8d#/decision_reason",
+            "i_12f8e542b4e3731290eb5b8d#/grant",
+            "i_12f8e542b4e3731290eb5b8d#/observation",
+            "i_12f8e542b4e3731290eb5b8d#/provenance",
+            "i_12f8e542b4e3731290eb5b8d#/receipt",
+            "i_1f35a7517e31a71da46d4db8#/observation",
+            "i_1f35a7517e31a71da46d4db8#/receipt",
+            "i_6a76957a041ec89b57dd4e92#/observation",
+            "i_6a76957a041ec89b57dd4e92#/receipt"
+          ],
+          "value": null
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V08.jsonl#L18832",
+        "source_sha256": "e6b8c8612cd268e4084e46f01112db76347b849c01a9708bf8089f0db3f8ed29",
+        "registry": {
+          "domain": "CONTROLLED_CONSTRUCT",
+          "horizon": null,
+          "independence_group": "i_7f5dc222c4a1e7c5e835bb2b",
+          "metric": "ALR",
+          "native_unit_ref": "unknown_reason-alr-original",
+          "parameters": {
+            "op": "i_a0320f5ccb9732650c361660"
+          },
+          "phase": "ALR",
+          "protocol": "T11_explicit_reason",
+          "query_id": "i_06c123ee8ec8570335f22b1d",
+          "source_protocol": "reference_harness",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/unknown_reason-alr-original/state.json",
+          "study": "P3R",
+          "unit_kind": "unique_request_or_no_request_sentinel"
+        },
+        "gold": {
+          "domain": "CONTROLLED_CONSTRUCT",
+          "eligibility": true,
+          "eligibility_known": true,
+          "full_prediction_used": false,
+          "human_review_count": 0,
+          "metric": "ALR",
+          "proof_fields": [
+            "events",
+            "grants",
+            "sessions",
+            "artifacts"
+          ],
+          "protocol": "T11_explicit_reason",
+          "query_id": "i_06c123ee8ec8570335f22b1d",
+          "reference_logic": "raw request/effect/receipt, grant actor-action/revocation event rules",
+          "source_input_hash": "0466aea2278a173e95a394c28cc89f3d0a751d222c2e2eba0543b373dbe5e09a",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/unknown_reason-alr-original/state.json",
+          "truth_available": true,
+          "value": true
+        }
+      },
+      {
+        "prediction": {
+          "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+          "details": {
+            "identity_gate": true,
+            "original_reason": null,
+            "predicate_value": null,
+            "seven_conditions": [
+              true,
+              true,
+              true,
+              null,
+              true,
+              true,
+              true
+            ]
+          },
+          "eligibility": true,
+          "lower": 0,
+          "metric": "ALR",
+          "minimal_proof": {
+            "identity_gate": true,
+            "original_reason": null,
+            "predicate_value": null,
+            "seven_conditions": [
+              true,
+              true,
+              true,
+              null,
+              true,
+              true,
+              true
+            ]
+          },
+          "missing_evidence": [
+            "i_12f8e542b4e3731290eb5b8d#/decision_reason"
+          ],
+          "protocol": "P3R_identity_guard",
+          "query_id": "i_d760757ff618caad75d8cbfe",
+          "reason": "predicate_evidence_unknown",
+          "status": "unknown",
+          "upper": 1,
+          "used_evidence": [
+            "i_12f8e542b4e3731290eb5b8d#/counterfactual",
+            "i_12f8e542b4e3731290eb5b8d#/decision_reason",
+            "i_12f8e542b4e3731290eb5b8d#/grant",
+            "i_12f8e542b4e3731290eb5b8d#/observation",
+            "i_12f8e542b4e3731290eb5b8d#/provenance",
+            "i_12f8e542b4e3731290eb5b8d#/receipt",
+            "i_1f35a7517e31a71da46d4db8#/observation",
+            "i_1f35a7517e31a71da46d4db8#/receipt",
+            "i_6a76957a041ec89b57dd4e92#/observation",
+            "i_6a76957a041ec89b57dd4e92#/receipt"
+          ],
+          "value": null
+        },
+        "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/results/V08.jsonl#L18833",
+        "source_sha256": "e6b8c8612cd268e4084e46f01112db76347b849c01a9708bf8089f0db3f8ed29",
+        "registry": {
+          "domain": "CONTROLLED_CONSTRUCT",
+          "horizon": null,
+          "independence_group": "i_7f5dc222c4a1e7c5e835bb2b",
+          "metric": "ALR",
+          "native_unit_ref": "unknown_reason-alr-original",
+          "parameters": {
+            "op": "i_a0320f5ccb9732650c361660"
+          },
+          "phase": "ALR",
+          "protocol": "P3R_identity_guard",
+          "query_id": "i_d760757ff618caad75d8cbfe",
+          "source_protocol": "reference_harness",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/unknown_reason-alr-original/state.json",
+          "study": "P3R",
+          "unit_kind": "unique_request_or_no_request_sentinel"
+        },
+        "gold": {
+          "domain": "CONTROLLED_CONSTRUCT",
+          "eligibility": true,
+          "eligibility_known": true,
+          "full_prediction_used": false,
+          "human_review_count": 0,
+          "metric": "ALR",
+          "proof_fields": [
+            "events",
+            "grants",
+            "sessions",
+            "artifacts"
+          ],
+          "protocol": "P3R_identity_guard",
+          "query_id": "i_d760757ff618caad75d8cbfe",
+          "reference_logic": "raw request/effect/receipt, grant actor-action/revocation event rules",
+          "source_input_hash": "0466aea2278a173e95a394c28cc89f3d0a751d222c2e2eba0543b373dbe5e09a",
+          "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/unknown_reason-alr-original/state.json",
+          "truth_available": true,
+          "value": true
+        }
+      }
+    ],
+    "independent_reference": [
+      {
+        "domain": "CONTROLLED_CONSTRUCT",
+        "eligibility": true,
+        "eligibility_known": true,
+        "full_prediction_used": false,
+        "human_review_count": 0,
+        "metric": "ALR",
+        "proof_fields": [
+          "events",
+          "grants",
+          "sessions",
+          "artifacts"
+        ],
+        "protocol": "T11_explicit_reason",
+        "query_id": "i_06c123ee8ec8570335f22b1d",
+        "reference_logic": "raw request/effect/receipt, grant actor-action/revocation event rules",
+        "source_input_hash": "0466aea2278a173e95a394c28cc89f3d0a751d222c2e2eba0543b373dbe5e09a",
+        "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/unknown_reason-alr-original/state.json",
+        "truth_available": true,
+        "value": true
+      },
+      {
+        "domain": "CONTROLLED_CONSTRUCT",
+        "eligibility": true,
+        "eligibility_known": true,
+        "full_prediction_used": false,
+        "human_review_count": 0,
+        "metric": "ALR",
+        "proof_fields": [
+          "events",
+          "grants",
+          "sessions",
+          "artifacts"
+        ],
+        "protocol": "P3R_identity_guard",
+        "query_id": "i_d760757ff618caad75d8cbfe",
+        "reference_logic": "raw request/effect/receipt, grant actor-action/revocation event rules",
+        "source_input_hash": "0466aea2278a173e95a394c28cc89f3d0a751d222c2e2eba0543b373dbe5e09a",
+        "source_ref": "论文材料/P3_机制测量/p3r-20260917-103400/construct/execution-v1/unknown_reason-alr-original/state.json",
+        "truth_available": true,
+        "value": true
+      }
+    ],
+    "conclusion": "同一个构念的两个ALR合同：独立参照true、Full均unknown；不是两个独立实验；不得把独立参照保有的原因回填许可视图。这是既有受控遮蔽，不是自然历史遗失。"
+  }
+]

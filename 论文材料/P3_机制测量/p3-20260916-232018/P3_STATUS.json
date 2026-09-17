@@ -1,0 +1,230 @@
+{
+  "task": "P3-FRAMEWORK-METRICS",
+  "status": "COMPLETED_WITH_DOCUMENTED_GAPS",
+  "data_coverage": {
+    "status": "COMPLETE_LOCAL_MANIFEST_LISTED_INPUTS",
+    "formal_unique_cores": 990,
+    "formal_replay_terminals": 810,
+    "f_plus_h_unique_cores": 630,
+    "f_plus_h_replay_terminals": 540,
+    "precheck_cores_separate": 48,
+    "precheck_replay_terminals_separate": 36,
+    "t18_scripted_cores": 264,
+    "t18_fake_reference_cores": 44,
+    "stage_counts": [
+      {
+        "phase": "e",
+        "domain": "live_reference",
+        "scheduled_core": 24,
+        "observed_core": 24,
+        "unique_core_ids": 24,
+        "scheduled_replay": 18,
+        "observed_replay": 18,
+        "unique_replay_ids": 18,
+        "core_parts": [
+          "core-trials.jsonl"
+        ],
+        "replay_parts": [
+          "replay-pairs.jsonl"
+        ],
+        "complete": true,
+        "replay_complete": true
+      },
+      {
+        "phase": "f",
+        "domain": "live_reference",
+        "scheduled_core": 360,
+        "observed_core": 360,
+        "unique_core_ids": 360,
+        "scheduled_replay": 270,
+        "observed_replay": 270,
+        "unique_replay_ids": 270,
+        "core_parts": [
+          "core-trials.jsonl"
+        ],
+        "replay_parts": [
+          "replay-pairs.jsonl",
+          "replay-pairs.part-0002.jsonl"
+        ],
+        "complete": true,
+        "replay_complete": true
+      },
+      {
+        "phase": "g",
+        "domain": "live_reference",
+        "scheduled_core": 360,
+        "observed_core": 360,
+        "unique_core_ids": 360,
+        "scheduled_replay": 270,
+        "observed_replay": 270,
+        "unique_replay_ids": 270,
+        "core_parts": [
+          "core-trials.jsonl"
+        ],
+        "replay_parts": [
+          "replay-pairs.jsonl"
+        ],
+        "complete": true,
+        "replay_complete": true
+      },
+      {
+        "phase": "g_canary",
+        "domain": "live_reference",
+        "scheduled_core": 24,
+        "observed_core": 24,
+        "unique_core_ids": 24,
+        "scheduled_replay": 18,
+        "observed_replay": 18,
+        "unique_replay_ids": 18,
+        "core_parts": [
+          "core-trials.jsonl"
+        ],
+        "replay_parts": [
+          "replay-pairs.jsonl"
+        ],
+        "complete": true,
+        "replay_complete": true
+      },
+      {
+        "phase": "h",
+        "domain": "live_reference",
+        "scheduled_core": 270,
+        "observed_core": 270,
+        "unique_core_ids": 270,
+        "scheduled_replay": 270,
+        "observed_replay": 270,
+        "unique_replay_ids": 270,
+        "core_parts": [
+          "core-trials.jsonl"
+        ],
+        "replay_parts": [
+          "replay-pairs.jsonl",
+          "replay-pairs.part-0002.jsonl"
+        ],
+        "complete": true,
+        "replay_complete": true
+      }
+    ]
+  },
+  "metric_recompute": {
+    "status": "COMPLETE_EXPORTED_FACT_RECOMPUTATION",
+    "long_rows": 980,
+    "metric_contracts": 150,
+    "first_computation_seal": "audit/FIRST_COMPUTATION_SEAL.json",
+    "historical_full_objects_equal": 980
+  },
+  "independent_check": {
+    "status": "PASSED_WITH_EXPLICIT_SCOPE_LIMITS",
+    "passed": 1326,
+    "failed": 0,
+    "t18_endpoint_checks": 1232,
+    "not_independently_reimplemented": [
+      "authorization policy evaluator",
+      "security graph depth topology",
+      "original bootstrap intervals",
+      "ancillary usage and paired metrics"
+    ]
+  },
+  "semantic_validation": {
+    "status": "QUALIFIED_NOT_UNIVERSAL",
+    "contract_differences": "CONTRACT_DIFFERENCES.md",
+    "private_text_review": false
+  },
+  "paper_readiness": {
+    "status": "READY_FOR_LOCAL_REVIEW_WITH_MANDATORY_FOOTNOTES",
+    "not_publication_approval": true,
+    "strict_ALR": "MISSING_EXPLICIT_ORIGINAL_REASON",
+    "static_HIAA_pot": "NOT_IDENTIFIED",
+    "strict_contamination_conditioned_RIR": "NOT_ESTABLISHED"
+  },
+  "human_review": "NOT_PERFORMED",
+  "live_requests": {
+    "actor": 0,
+    "router_checker": 0,
+    "judge": 0,
+    "local_model": 0,
+    "attack_generation": 0,
+    "business_tool_replay": 0
+  },
+  "network_fetches": 0,
+  "credentials_read_or_decrypted": false,
+  "sdk_initialized": false,
+  "original_data_or_scores_changed": false,
+  "router_components_executor_recovery_changed": false,
+  "git_commit": false,
+  "git_push": false,
+  "requires_existing_public_collection": true,
+  "future_stages": "P4/P5/P5-RX/P6_NOT_STARTED",
+  "unresolved_items": [
+    {
+      "id": "G01",
+      "subject": "HIAA_pot静态版本",
+      "description": "F/G/H导出含观测Effect集合，没有完整冻结可达状态空间集合"
+    },
+    {
+      "id": "G02",
+      "subject": "ALR显式reason",
+      "description": "F24/G15/H22暴露请求缺独立baseline_reason字段；原v2可由配置/决策推导"
+    },
+    {
+      "id": "G03",
+      "subject": "RIR合格队列",
+      "description": "F30→13；G30→0；未另要求已确认污染前缀"
+    },
+    {
+      "id": "G04",
+      "subject": "Replay identity稳定性",
+      "description": "F5/G16/H1有效对与原核心终点不一致"
+    },
+    {
+      "id": "G05",
+      "subject": "模型格式与任务独立性",
+      "description": "G171/360含schema_rejection；每模型仅五表述簇重复"
+    },
+    {
+      "id": "G06",
+      "subject": "独立核对范围",
+      "description": "图深度标签和授权真值仍信任本轮生产图/保存Oracle；区间原算法复现"
+    },
+    {
+      "id": "G07",
+      "subject": "公开导出信任边界",
+      "description": "私有正文/服务端模型快照未导出；所有已登记字节与哈希一致"
+    },
+    {
+      "id": "G08",
+      "subject": "旧T19-R缺审计",
+      "description": "历史报告核心1818可测+6未知；审计11可测+1技术失败+1140未到达，完整identity/neutral三联0/576"
+    },
+    {
+      "id": "G09",
+      "subject": "Evidence边界覆盖",
+      "description": "只查同一保存任务的前六个initial_consume边界"
+    },
+    {
+      "id": "G10",
+      "subject": "人工审查与发布",
+      "description": "本轮没有人工审查，也未自动commit/push"
+    },
+    {
+      "id": "G11",
+      "subject": "T17→CT画像迁移",
+      "description": "没有已证明兼容的桥梁/任务/合同开发画像"
+    }
+  ],
+  "delivery_validation": {
+    "passed": 45,
+    "failed": 0,
+    "source_files_verified_unchanged": 1338,
+    "mechanism_strata_checked": true
+  },
+  "workspace_preservation": {
+    "root_readme_unchanged": true,
+    "before_sha256": "CBA296A64A8F1C72E9F79EE5CD23EC97E11B30A60EBFE1778FCACE534CB43CC2",
+    "after_sha256": "CBA296A64A8F1C72E9F79EE5CD23EC97E11B30A60EBFE1778FCACE534CB43CC2",
+    "head": "21efe89a11b56b2f48ae6f351ef46cca467913fb",
+    "no_commit_or_push": true
+  },
+  "stopped_at": "P3_LOCAL_REVIEW_DELIVERY",
+  "review_zip": "P3_REVIEW_p3-20260916-232018.zip"
+}

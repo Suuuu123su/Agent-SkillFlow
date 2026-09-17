@@ -1,0 +1,309 @@
+{
+  "f": {
+    "alr": {
+      "N": 24,
+      "T": 0,
+      "F": 10,
+      "U": 14,
+      "raw_db_found": 24
+    },
+    "rir": {
+      "1": {
+        "planned": 30,
+        "formed": 14,
+        "legacy_N": 13,
+        "chain_N": 13,
+        "states": {
+          "confirmed_no_residual": 13,
+          "not_eligible_memory_unformed": 16,
+          "observation_incomplete": 1
+        }
+      },
+      "3": {
+        "planned": 30,
+        "formed": 14,
+        "legacy_N": 13,
+        "chain_N": 14,
+        "states": {
+          "confirmed_no_residual": 14,
+          "not_eligible_memory_unformed": 16
+        }
+      }
+    },
+    "ci": {
+      "full_N": 237,
+      "full_sum": 107,
+      "stable_N": 232,
+      "stable_sum": 104
+    }
+  },
+  "g": {
+    "alr": {
+      "N": 15,
+      "T": 0,
+      "F": 9,
+      "U": 6,
+      "raw_db_found": 15
+    },
+    "rir": {
+      "1": {
+        "planned": 30,
+        "formed": 0,
+        "legacy_N": 0,
+        "chain_N": 0,
+        "states": {
+          "not_eligible_memory_unformed": 30
+        }
+      },
+      "3": {
+        "planned": 30,
+        "formed": 0,
+        "legacy_N": 0,
+        "chain_N": 0,
+        "states": {
+          "not_eligible_memory_unformed": 30
+        }
+      }
+    },
+    "ci": {
+      "full_N": 122,
+      "full_sum": 22,
+      "stable_N": 106,
+      "stable_sum": 18
+    }
+  },
+  "h": {
+    "alr": {
+      "N": 22,
+      "T": 0,
+      "F": 22,
+      "U": 0,
+      "raw_db_found": 22
+    },
+    "rir": {
+      "1": {
+        "planned": 30,
+        "formed": 13,
+        "legacy_N": 13,
+        "chain_N": 13,
+        "states": {
+          "not_eligible_memory_unformed": 17,
+          "confirmed_no_residual": 13
+        }
+      },
+      "3": {
+        "planned": 30,
+        "formed": 13,
+        "legacy_N": 13,
+        "chain_N": 13,
+        "states": {
+          "not_eligible_memory_unformed": 17,
+          "confirmed_no_residual": 13
+        }
+      }
+    },
+    "ci": {
+      "full_N": 234,
+      "full_sum": 30,
+      "stable_N": 233,
+      "stable_sum": 29
+    }
+  },
+  "t18": {
+    "scripted/all_defenses/ALR_T18_legacy/None": {
+      "N": 3,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/all_defenses/RIR_T18_legacy/1": {
+      "N": 0,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/all_defenses/RIR_T18_legacy/3": {
+      "N": 0,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/causal_only/ALR_T18_legacy/None": {
+      "N": 2,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/causal_only/RIR_T18_legacy/1": {
+      "N": 4,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/causal_only/RIR_T18_legacy/3": {
+      "N": 2,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/drift_isolation_only/ALR_T18_legacy/None": {
+      "N": 2,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/drift_isolation_only/RIR_T18_legacy/1": {
+      "N": 0,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/drift_isolation_only/RIR_T18_legacy/3": {
+      "N": 0,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/evidence_router/ALR_T18_legacy/None": {
+      "N": 3,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/evidence_router/RIR_T18_legacy/1": {
+      "N": 0,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/evidence_router/RIR_T18_legacy/3": {
+      "N": 0,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/monitor/ALR_T18_legacy/None": {
+      "N": 3,
+      "T": 2,
+      "U": 0
+    },
+    "scripted/monitor/RIR_T18_legacy/1": {
+      "N": 4,
+      "T": 2,
+      "U": 0
+    },
+    "scripted/monitor/RIR_T18_legacy/3": {
+      "N": 2,
+      "T": 1,
+      "U": 0
+    },
+    "scripted/oracle_router/ALR_T18_legacy/None": {
+      "N": 2,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/oracle_router/RIR_T18_legacy/1": {
+      "N": 2,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/oracle_router/RIR_T18_legacy/3": {
+      "N": 1,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/task_alignment_only/ALR_T18_legacy/None": {
+      "N": 2,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/task_alignment_only/RIR_T18_legacy/1": {
+      "N": 4,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/task_alignment_only/RIR_T18_legacy/3": {
+      "N": 2,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/tdg_only/ALR_T18_legacy/None": {
+      "N": 2,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/tdg_only/RIR_T18_legacy/1": {
+      "N": 4,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/tdg_only/RIR_T18_legacy/3": {
+      "N": 2,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/universal_enforce/ALR_T18_legacy/None": {
+      "N": 2,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/universal_enforce/RIR_T18_legacy/1": {
+      "N": 4,
+      "T": 0,
+      "U": 0
+    },
+    "scripted/universal_enforce/RIR_T18_legacy/3": {
+      "N": 2,
+      "T": 0,
+      "U": 0
+    },
+    "fake_reference/all_defenses/ALR_T18_legacy/None": {
+      "N": 1,
+      "T": 0,
+      "U": 0
+    },
+    "fake_reference/all_defenses/RIR_T18_legacy/1": {
+      "N": 0,
+      "T": 0,
+      "U": 0
+    },
+    "fake_reference/all_defenses/RIR_T18_legacy/3": {
+      "N": 0,
+      "T": 0,
+      "U": 0
+    },
+    "fake_reference/evidence_router/ALR_T18_legacy/None": {
+      "N": 1,
+      "T": 0,
+      "U": 0
+    },
+    "fake_reference/evidence_router/RIR_T18_legacy/1": {
+      "N": 0,
+      "T": 0,
+      "U": 0
+    },
+    "fake_reference/evidence_router/RIR_T18_legacy/3": {
+      "N": 0,
+      "T": 0,
+      "U": 0
+    },
+    "fake_reference/monitor/ALR_T18_legacy/None": {
+      "N": 1,
+      "T": 1,
+      "U": 0
+    },
+    "fake_reference/monitor/RIR_T18_legacy/1": {
+      "N": 2,
+      "T": 1,
+      "U": 0
+    },
+    "fake_reference/monitor/RIR_T18_legacy/3": {
+      "N": 2,
+      "T": 1,
+      "U": 0
+    },
+    "fake_reference/oracle_router/ALR_T18_legacy/None": {
+      "N": 1,
+      "T": 0,
+      "U": 0
+    },
+    "fake_reference/oracle_router/RIR_T18_legacy/1": {
+      "N": 1,
+      "T": 0,
+      "U": 0
+    },
+    "fake_reference/oracle_router/RIR_T18_legacy/3": {
+      "N": 1,
+      "T": 0,
+      "U": 0
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "mode": "portable_smoke",
+  "queries": 64,
+  "views": 13,
+  "results": 832,
+  "errors": [],
+  "checks": [
+    {
+      "view": "V00",
+      "queries": 64,
+      "exact_archived_prediction_differences": 0
+    },
+    {
+      "view": "V01",
+      "queries": 64,
+      "exact_archived_prediction_differences": 0
+    },
+    {
+      "view": "V02",
+      "queries": 64,
+      "exact_archived_prediction_differences": 0
+    },
+    {
+      "view": "V03",
+      "queries": 64,
+      "exact_archived_prediction_differences": 0
+    },
+    {
+      "view": "V04",
+      "queries": 64,
+      "exact_archived_prediction_differences": 0
+    },
+    {
+      "view": "V05",
+      "queries": 64,
+      "exact_archived_prediction_differences": 0
+    },
+    {
+      "view": "V06",
+      "queries": 64,
+      "exact_archived_prediction_differences": 0
+    },
+    {
+      "view": "V07",
+      "queries": 64,
+      "exact_archived_prediction_differences": 0
+    },
+    {
+      "view": "V08",
+      "queries": 64,
+      "exact_archived_prediction_differences": 0
+    },
+    {
+      "view": "V09",
+      "queries": 64,
+      "exact_archived_prediction_differences": 0
+    },
+    {
+      "view": "V10",
+      "queries": 64,
+      "exact_archived_prediction_differences": 0
+    },
+    {
+      "view": "V11",
+      "queries": 64,
+      "exact_archived_prediction_differences": 0
+    },
+    {
+      "view": "V12",
+      "queries": 64,
+      "exact_archived_prediction_differences": 0
+    }
+  ],
+  "new_model_calls": 0,
+  "new_business_tool_calls": 0,
+  "network_calls": 0,
+  "source_bundle": "E:\\Skill ＆ Harness\\Agent\\论文材料\\P4_测量证据消融\\p4-20260917-123623\\zip_validation",
+  "output": "E:\\Skill ＆ Harness\\Agent\\论文材料\\P4_测量证据消融\\p4-20260917-123623\\zip_validation\\reproductions\\review-20260917-132936"
+}

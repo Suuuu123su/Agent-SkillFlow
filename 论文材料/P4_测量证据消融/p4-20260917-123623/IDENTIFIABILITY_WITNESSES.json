@@ -1,0 +1,174 @@
+[
+  {
+    "view_id": "V02",
+    "type": "existing_saved_finite_model_pair_modulo_opaque_identity_bijection",
+    "source_a": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/unexecuted_but_reachable/model",
+    "source_b": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/authorized_excluded_from_U/model",
+    "query_a": "i_940d0526585bbfe89a63e530",
+    "query_b": "i_b1a2746957e54609ba5e9ce1",
+    "truth_a": 2,
+    "truth_b": 0,
+    "visible_a": {
+      "capability_universe": {
+        "local.mock.send:A:archive": 2
+      },
+      "declared_capability_rules": {
+        "atoms": [
+          "source_A",
+          "source_B",
+          "consumed_A",
+          "purpose_send",
+          "grant_send",
+          "enabled"
+        ],
+        "closed": true,
+        "effect_key": "action:source:purpose/sink",
+        "initial": [
+          "source_A",
+          "purpose_send",
+          "enabled"
+        ],
+        "observed_executed_effects": [],
+        "rules": [
+          {
+            "adds": [
+              "consumed_A"
+            ],
+            "bridge": true,
+            "execution_requires": [
+              "enabled"
+            ],
+            "id": "i_6480ed906f603103e88c0261",
+            "requires": [
+              "source_A"
+            ]
+          },
+          {
+            "adds": [],
+            "effect": "local.mock.send:A:archive",
+            "execution_requires": [
+              "enabled"
+            ],
+            "grant_atom": "grant_send",
+            "id": "i_0b423356610ed1c66b956c07",
+            "manifest_declared": true,
+            "requires": [
+              "consumed_A",
+              "purpose_send"
+            ]
+          }
+        ],
+        "weights": "nonnegative declared sensitivity",
+        "unknown_initial_atoms": [
+          "grant_send"
+        ]
+      },
+      "id": "opaque-common-identity",
+      "irrelevant_metadata": {
+        "display_title": "Declared finite model"
+      },
+      "layout": "capability"
+    },
+    "visible_b": {
+      "capability_universe": {
+        "local.mock.send:A:archive": 2
+      },
+      "declared_capability_rules": {
+        "atoms": [
+          "source_A",
+          "source_B",
+          "consumed_A",
+          "purpose_send",
+          "grant_send",
+          "enabled"
+        ],
+        "closed": true,
+        "effect_key": "action:source:purpose/sink",
+        "initial": [
+          "source_A",
+          "purpose_send",
+          "enabled"
+        ],
+        "observed_executed_effects": [],
+        "rules": [
+          {
+            "adds": [
+              "consumed_A"
+            ],
+            "bridge": true,
+            "execution_requires": [
+              "enabled"
+            ],
+            "id": "i_6480ed906f603103e88c0261",
+            "requires": [
+              "source_A"
+            ]
+          },
+          {
+            "adds": [],
+            "effect": "local.mock.send:A:archive",
+            "execution_requires": [
+              "enabled"
+            ],
+            "grant_atom": "grant_send",
+            "id": "i_0b423356610ed1c66b956c07",
+            "manifest_declared": true,
+            "requires": [
+              "consumed_A",
+              "purpose_send"
+            ]
+          }
+        ],
+        "weights": "nonnegative declared sensitivity",
+        "unknown_initial_atoms": [
+          "grant_send"
+        ]
+      },
+      "id": "opaque-common-identity",
+      "irrelevant_metadata": {
+        "display_title": "Declared finite model"
+      },
+      "layout": "capability"
+    },
+    "visible_hash": "ed50cca701b57ef5126ead9a00dc5a33d51ce7754856cf1508fff99617d1443b",
+    "observations_equal": true,
+    "new_model_or_tool_runs": 0,
+    "independent_reference": "exhaustive state-transition relation"
+  },
+  {
+    "view_id": "V10",
+    "type": "existing_saved_finite_model_pair_modulo_opaque_identity_bijection",
+    "source_a": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/unexecuted_but_reachable/model",
+    "source_b": "论文材料/P3_机制测量/p3r-20260917-103400/POT_SETS_AND_WITNESSES.json#/same_sets_true_zero/model",
+    "query_a": "i_940d0526585bbfe89a63e530",
+    "query_b": "i_e12571d46167224cdcaa935e",
+    "truth_a": 2,
+    "truth_b": 0,
+    "visible_a": {
+      "capability_universe": {
+        "local.mock.send:A:archive": 2
+      },
+      "declared_capability_rules": null,
+      "id": "opaque-common-identity",
+      "irrelevant_metadata": {
+        "display_title": "Declared finite model"
+      },
+      "layout": "capability"
+    },
+    "visible_b": {
+      "capability_universe": {
+        "local.mock.send:A:archive": 2
+      },
+      "declared_capability_rules": null,
+      "id": "opaque-common-identity",
+      "irrelevant_metadata": {
+        "display_title": "Declared finite model"
+      },
+      "layout": "capability"
+    },
+    "visible_hash": "2b4674574d4d6f0bdde9b4b9033b9fce012f1730d0234e4b0c84485fa5b78aa1",
+    "observations_equal": true,
+    "new_model_or_tool_runs": 0,
+    "independent_reference": "exhaustive state-transition relation"
+  }
+]

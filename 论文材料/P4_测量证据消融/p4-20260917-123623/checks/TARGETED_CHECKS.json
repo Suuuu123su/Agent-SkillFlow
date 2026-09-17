@@ -1,0 +1,92 @@
+[
+  {
+    "requirement": 1,
+    "name": "zero_new_calls",
+    "status": "PASS",
+    "evidence": "checks/ADMISSION_REVIEW.json;checks/INDEPENDENT_RECOMPUTE.json;checks/INPUT_AND_CHAIN_VERIFICATION.json;CASEBOOK.json;P4_STATUS.json"
+  },
+  {
+    "requirement": 2,
+    "name": "inputs_unchanged",
+    "status": "PASS",
+    "evidence": "checks/ADMISSION_REVIEW.json;checks/INDEPENDENT_RECOMPUTE.json;checks/INPUT_AND_CHAIN_VERIFICATION.json;CASEBOOK.json;P4_STATUS.json"
+  },
+  {
+    "requirement": 3,
+    "name": "fixed_query_units",
+    "status": "PASS",
+    "evidence": "checks/ADMISSION_REVIEW.json;checks/INDEPENDENT_RECOMPUTE.json;checks/INPUT_AND_CHAIN_VERIFICATION.json;CASEBOOK.json;P4_STATUS.json"
+  },
+  {
+    "requirement": 4,
+    "name": "no_answer_leakage",
+    "status": "PASS",
+    "evidence": "checks/ADMISSION_REVIEW.json;checks/INDEPENDENT_RECOMPUTE.json;checks/INPUT_AND_CHAIN_VERIFICATION.json;CASEBOOK.json;P4_STATUS.json"
+  },
+  {
+    "requirement": 5,
+    "name": "real_grant_snapshot_bypass",
+    "status": "PASS",
+    "evidence": "checks/ADMISSION_REVIEW.json;checks/INDEPENDENT_RECOMPUTE.json;checks/INPUT_AND_CHAIN_VERIFICATION.json;CASEBOOK.json;P4_STATUS.json"
+  },
+  {
+    "requirement": 6,
+    "name": "precompute_masks_and_hashes",
+    "status": "PASS",
+    "evidence": "checks/ADMISSION_REVIEW.json;checks/INDEPENDENT_RECOMPUTE.json;checks/INPUT_AND_CHAIN_VERIFICATION.json;CASEBOOK.json;P4_STATUS.json"
+  },
+  {
+    "requirement": 7,
+    "name": "order_invariance",
+    "status": "PASS",
+    "evidence": "checks/ADMISSION_REVIEW.json;checks/INDEPENDENT_RECOMPUTE.json;checks/INPUT_AND_CHAIN_VERIFICATION.json;CASEBOOK.json;P4_STATUS.json"
+  },
+  {
+    "requirement": 8,
+    "name": "missing_not_false",
+    "status": "PASS",
+    "evidence": "checks/ADMISSION_REVIEW.json;checks/INDEPENDENT_RECOMPUTE.json;checks/INPUT_AND_CHAIN_VERIFICATION.json;CASEBOOK.json;P4_STATUS.json"
+  },
+  {
+    "requirement": 9,
+    "name": "conjunction_short_circuit",
+    "status": "PASS",
+    "evidence": "checks/ADMISSION_REVIEW.json;checks/INDEPENDENT_RECOMPUTE.json;checks/INPUT_AND_CHAIN_VERIFICATION.json;CASEBOOK.json;P4_STATUS.json"
+  },
+  {
+    "requirement": 10,
+    "name": "separate_eligibility_errors_failures",
+    "status": "PASS",
+    "evidence": "checks/ADMISSION_REVIEW.json;checks/INDEPENDENT_RECOMPUTE.json;checks/INPUT_AND_CHAIN_VERIFICATION.json;CASEBOOK.json;P4_STATUS.json"
+  },
+  {
+    "requirement": 11,
+    "name": "actual_task_reconstruction",
+    "status": "PASS",
+    "evidence": "checks/ADMISSION_REVIEW.json;checks/INDEPENDENT_RECOMPUTE.json;checks/INPUT_AND_CHAIN_VERIFICATION.json;CASEBOOK.json;P4_STATUS.json"
+  },
+  {
+    "requirement": 12,
+    "name": "negative_control_invariance",
+    "status": "PASS",
+    "evidence": "checks/ADMISSION_REVIEW.json;checks/INDEPENDENT_RECOMPUTE.json;checks/INPUT_AND_CHAIN_VERIFICATION.json;CASEBOOK.json;P4_STATUS.json"
+  },
+  {
+    "requirement": 13,
+    "name": "HIAA_signed_bounds",
+    "status": "PASS",
+    "evidence": "checks/ADMISSION_REVIEW.json;checks/INDEPENDENT_RECOMPUTE.json;checks/INPUT_AND_CHAIN_VERIFICATION.json;CASEBOOK.json;P4_STATUS.json"
+  },
+  {
+    "requirement": 14,
+    "name": "independent_gold_and_CI_ALR_limits",
+    "status": "PASS",
+    "evidence": "checks/ADMISSION_REVIEW.json;checks/INDEPENDENT_RECOMPUTE.json;checks/INPUT_AND_CHAIN_VERIFICATION.json;CASEBOOK.json;P4_STATUS.json"
+  },
+  {
+    "requirement": 15,
+    "name": "all_queries_and_portable_recompute",
+    "status": "PASS",
+    "evidence": "checks/PORTABLE_RECOMPUTE.json"
+  }
+]

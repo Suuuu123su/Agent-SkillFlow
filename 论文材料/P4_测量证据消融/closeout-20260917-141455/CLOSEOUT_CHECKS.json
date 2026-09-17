@@ -1,0 +1,178 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "CSV_A",
+      "status": "PASS",
+      "detail": 138
+    },
+    {
+      "check": "MD_LATEX_A",
+      "status": "PASS",
+      "detail": {
+        "rows": 138,
+        "numeric_and_text_cells_equal": true
+      }
+    },
+    {
+      "check": "CSV_B",
+      "status": "PASS",
+      "detail": 273
+    },
+    {
+      "check": "MD_LATEX_B",
+      "status": "PASS",
+      "detail": {
+        "rows": 273,
+        "numeric_and_text_cells_equal": true
+      }
+    },
+    {
+      "check": "CSV_C",
+      "status": "PASS",
+      "detail": 130
+    },
+    {
+      "check": "MD_LATEX_C",
+      "status": "PASS",
+      "detail": {
+        "rows": 130,
+        "numeric_and_text_cells_equal": true
+      }
+    },
+    {
+      "check": "fixed_denominators_and_status_partition",
+      "status": "PASS",
+      "detail": {
+        "groups": 21,
+        "views": 13,
+        "queries_per_view": 19392,
+        "eligibility_unknown_subset": true
+      }
+    },
+    {
+      "check": "reference_coverage",
+      "status": "PASS",
+      "detail": {
+        "reference_queries": 314,
+        "eligibility_known": 308,
+        "determinate_applicable_truths": 192,
+        "answered": 190,
+        "agrees": 190,
+        "wrong_determinate": 0,
+        "view_id": "V00",
+        "judgment_coverage": 0.9895833333333334,
+        "answered_agreement": 1.0
+      }
+    },
+    {
+      "check": "source_decomposition",
+      "status": "PASS",
+      "detail": {
+        "UEA_count": 0,
+        "TaskSuccess": 0,
+        "E_STS": 0,
+        "failure_taxonomy": 0,
+        "ALR": 87,
+        "Provenance": 7472,
+        "HIAA_Y": 0,
+        "UEA": 0,
+        "RIR": 14,
+        "CI": 593,
+        "HIAA_run": 0,
+        "HIAA_pot_observed": 0,
+        "HIAA_pot_declared": 0
+      }
+    },
+    {
+      "check": "ALR_contract_separation",
+      "status": "PASS",
+      "detail": "F 0/9/15 vs 0/10/14; G 0/5/10 vs 0/9/6"
+    },
+    {
+      "check": "display_alias_only",
+      "status": "PASS",
+      "detail": "native P4 fields retained; P0 native protocol explicitly not imported"
+    },
+    {
+      "check": "six_existing_cards",
+      "status": "PASS",
+      "detail": "6 cards, actual query IDs, source/hash, reference coverage boundaries"
+    },
+    {
+      "check": "version_conflicts_retained",
+      "status": "PASS",
+      "detail": "F/H valid-only 13 vs 15, not repaired"
+    },
+    {
+      "check": "used_source_hashes",
+      "status": "PASS",
+      "detail": 61
+    },
+    {
+      "check": "saved_reaggregation_scope",
+      "status": "PASS",
+      "detail": "exactly one prior saved-result pass; this checker does not read prediction JSONL"
+    },
+    {
+      "check": "reproduction_command",
+      "status": "PASS",
+      "detail": "literal PowerShell path without escaped carriage return"
+    }
+  ],
+  "new_prediction_calls": 0,
+  "new_portable_64x13_checks": 0,
+  "new_model_calls": 0,
+  "latex_compiled": false,
+  "scope": "document/count/alias/source-byte checks; no semantic human review",
+  "delivery_checks": {
+    "required_files": 18,
+    "resolved_authored_links": 33,
+    "entry_prefixes_preserved": 3,
+    "unrelated_modified_files_preserved": 7,
+    "original_manifest_members_unchanged": 184,
+    "zip_validation": "see ZIP_RECEIPT.json sidecar"
+  },
+  "acceptance_items": [
+    {
+      "item": 1,
+      "status": "PASS_WITH_DOCUMENTED_SCOPE",
+      "evidence": "checks/INPUT_BINDING.json"
+    },
+    {
+      "item": 2,
+      "status": "PASS_WITH_DOCUMENTED_SCOPE",
+      "evidence": "checks/CLOSEOUT_CHECKS.json"
+    },
+    {
+      "item": 3,
+      "status": "PASS_WITH_DOCUMENTED_SCOPE",
+      "evidence": "INTERPRETATION_AMENDMENTS.md"
+    },
+    {
+      "item": 4,
+      "status": "PASS_WITH_DOCUMENTED_SCOPE",
+      "evidence": "METRIC_NAME_MAP.csv"
+    },
+    {
+      "item": 5,
+      "status": "PASS_WITH_DOCUMENTED_SCOPE",
+      "evidence": "CLAIM_EVIDENCE_MATRIX.csv"
+    },
+    {
+      "item": 6,
+      "status": "PASS_WITH_DOCUMENTED_SCOPE",
+      "evidence": "PAPER_CASES.md"
+    },
+    {
+      "item": 7,
+      "status": "PASS_WITH_DOCUMENTED_SCOPE",
+      "evidence": "checks/PRESERVATION.json;checks/ENTRY_UPDATES.json"
+    },
+    {
+      "item": 8,
+      "status": "PASS_WITH_DOCUMENTED_SCOPE",
+      "evidence": "DEPENDENCIES.json;ZIP_RECEIPT.json"
+    }
+  ]
+}

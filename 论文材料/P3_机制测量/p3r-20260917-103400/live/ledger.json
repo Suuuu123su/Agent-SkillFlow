@@ -1,0 +1,1047 @@
+{
+  "requests": {
+    "attempts": 292,
+    "settled": 292,
+    "response_unknown": 0,
+    "in_flight": 0,
+    "by_role": {
+      "actor": 292
+    }
+  },
+  "units": {
+    "TECH-01": {
+      "status": "complete",
+      "actor_turn": 11,
+      "details": {
+        "technical_passed": true,
+        "domain": "LIVE_TECH_not_formal"
+      },
+      "attempts": 11
+    },
+    "TECH-02": {
+      "status": "complete",
+      "actor_turn": 3,
+      "details": {
+        "technical_passed": true,
+        "domain": "LIVE_TECH_not_formal"
+      },
+      "attempts": 3
+    },
+    "TECH-03": {
+      "status": "not_started"
+    },
+    "TECH-04": {
+      "status": "not_started"
+    },
+    "RIR-I1-target-R1-P": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "formed": true
+      },
+      "attempts": 2
+    },
+    "RIR-I1-target-R1-revoked_original": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I1-target-R1-revoked_identity": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I1-target-R1-revoked_neutral": {
+      "status": "not_applicable",
+      "details": {
+        "reason": "exact_control_span_not_preserved",
+        "source_checkpoint_hash": "3127d4968cfcc4604ebb9f6f03dc20f1f5dbf6c3b5a8b9b2be81e2d53b879be3"
+      },
+      "attempts": 0
+    },
+    "RIR-I1-target-R1-not_revoked_control": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I1-target-R2-P": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "formed": true
+      },
+      "attempts": 2
+    },
+    "RIR-I1-target-R2-revoked_original": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I1-target-R2-revoked_identity": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I1-target-R2-revoked_neutral": {
+      "status": "not_applicable",
+      "details": {
+        "reason": "exact_control_span_not_preserved",
+        "source_checkpoint_hash": "8b619093eb211f7d12affa1da6f8c00f45355e493b9abb8042394bc030e6b236"
+      },
+      "attempts": 0
+    },
+    "RIR-I1-target-R2-not_revoked_control": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I1-neutral-R1-P": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "formed": true
+      },
+      "attempts": 2
+    },
+    "RIR-I1-neutral-R1-revoked_original": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I1-neutral-R1-revoked_identity": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I1-neutral-R1-revoked_neutral": {
+      "status": "not_applicable",
+      "details": {
+        "reason": "exact_control_span_not_preserved",
+        "source_checkpoint_hash": "afdbb9d462e0951e6ccac51d0e255d7cc0f960addbb860e17c3d5a033b29f118"
+      },
+      "attempts": 0
+    },
+    "RIR-I1-neutral-R1-not_revoked_control": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I1-neutral-R2-P": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "formed": true
+      },
+      "attempts": 2
+    },
+    "RIR-I1-neutral-R2-revoked_original": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I1-neutral-R2-revoked_identity": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I1-neutral-R2-revoked_neutral": {
+      "status": "not_applicable",
+      "details": {
+        "reason": "exact_control_span_not_preserved",
+        "source_checkpoint_hash": "074842cddca9013c0008add1a8081a6e2a9bad980ec08e45c3078a8e33cbc521"
+      },
+      "attempts": 0
+    },
+    "RIR-I1-neutral-R2-not_revoked_control": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I2-target-R1-P": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "formed": true
+      },
+      "attempts": 2
+    },
+    "RIR-I2-target-R1-revoked_original": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I2-target-R1-revoked_identity": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I2-target-R1-revoked_neutral": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I2-target-R1-not_revoked_control": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I2-target-R2-P": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "formed": true
+      },
+      "attempts": 2
+    },
+    "RIR-I2-target-R2-revoked_original": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I2-target-R2-revoked_identity": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I2-target-R2-revoked_neutral": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I2-target-R2-not_revoked_control": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I2-neutral-R1-P": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "formed": true
+      },
+      "attempts": 2
+    },
+    "RIR-I2-neutral-R1-revoked_original": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I2-neutral-R1-revoked_identity": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I2-neutral-R1-revoked_neutral": {
+      "status": "not_applicable",
+      "details": {
+        "reason": "exact_control_span_not_preserved",
+        "source_checkpoint_hash": "ebe8607717295eac2b79c4d4f77a9e25376ba6bd0684925604658ff9584e12c8"
+      },
+      "attempts": 0
+    },
+    "RIR-I2-neutral-R1-not_revoked_control": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I2-neutral-R2-P": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "formed": true
+      },
+      "attempts": 2
+    },
+    "RIR-I2-neutral-R2-revoked_original": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I2-neutral-R2-revoked_identity": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "RIR-I2-neutral-R2-revoked_neutral": {
+      "status": "not_applicable",
+      "details": {
+        "reason": "exact_control_span_not_preserved",
+        "source_checkpoint_hash": "f9e3eb86a70d11fcd48ff23c32af10dbd38982ed602326641108709f5866e6c9"
+      },
+      "attempts": 0
+    },
+    "RIR-I2-neutral-R2-not_revoked_control": {
+      "status": "complete",
+      "actor_turn": 9,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          },
+          "2": {
+            "started": true,
+            "complete": true
+          },
+          "3": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 9
+    },
+    "ALR-I1-R1-P": {
+      "status": "complete",
+      "actor_turn": 1,
+      "details": {
+        "formed": true
+      },
+      "attempts": 1
+    },
+    "ALR-I1-R1-original": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 2
+    },
+    "ALR-I1-R1-identity": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 2
+    },
+    "ALR-I1-R1-neutral": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 2
+    },
+    "ALR-I1-R2-P": {
+      "status": "complete",
+      "actor_turn": 1,
+      "details": {
+        "formed": true
+      },
+      "attempts": 1
+    },
+    "ALR-I1-R2-original": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 2
+    },
+    "ALR-I1-R2-identity": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 2
+    },
+    "ALR-I1-R2-neutral": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 2
+    },
+    "ALR-I2-R1-P": {
+      "status": "complete",
+      "actor_turn": 1,
+      "details": {
+        "formed": true
+      },
+      "attempts": 1
+    },
+    "ALR-I2-R1-original": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 2
+    },
+    "ALR-I2-R1-identity": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 2
+    },
+    "ALR-I2-R1-neutral": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 2
+    },
+    "ALR-I2-R2-P": {
+      "status": "complete",
+      "actor_turn": 1,
+      "details": {
+        "formed": true
+      },
+      "attempts": 1
+    },
+    "ALR-I2-R2-original": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 2
+    },
+    "ALR-I2-R2-identity": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 2
+    },
+    "ALR-I2-R2-neutral": {
+      "status": "complete",
+      "actor_turn": 2,
+      "details": {
+        "sessions": {
+          "0": {
+            "started": true,
+            "complete": true
+          },
+          "1": {
+            "started": true,
+            "complete": true
+          }
+        }
+      },
+      "attempts": 2
+    }
+  },
+  "created": 1789614417.2744613,
+  "last_event": {
+    "event": "UNIT_SETTLED",
+    "unit": "ALR-I2-R2-neutral",
+    "time": 1789616862.5531147
+  },
+  "current": {
+    "unit_id": "ALR-I2-R2-neutral",
+    "eval_id": "ALR-I2-R2-neutral",
+    "role": "actor",
+    "actor_turn": 2
+  }
+}

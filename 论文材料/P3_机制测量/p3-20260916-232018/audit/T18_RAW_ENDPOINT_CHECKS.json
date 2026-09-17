@@ -1,0 +1,2466 @@
+[
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-attack.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-attack.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-attack.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-attack.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-attack.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-neutral.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-neutral.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-neutral.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-neutral.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-neutral.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b1-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-attack.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-attack.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-attack.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-attack.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-attack.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-neutral.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-neutral.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-neutral.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-neutral.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-neutral.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m1-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-attack.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-attack.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-attack.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-attack.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-attack.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-neutral.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-neutral.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-neutral.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-neutral.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-neutral.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-m2-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-attack.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-attack.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-attack.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-attack.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-attack.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-neutral.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-neutral.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-neutral.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-neutral.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-neutral.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a1-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-attack.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-attack.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-attack.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-attack.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-attack.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-neutral.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-neutral.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-neutral.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-neutral.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-neutral.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-s1-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-attack.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-attack.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-attack.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-attack.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-attack.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-neutral.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-neutral.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-neutral.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-neutral.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-neutral.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-l1-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-attack.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-attack.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-attack.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-attack.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-attack.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-neutral.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-neutral.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-neutral.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-neutral.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-neutral.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hp-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-attack.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-attack.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-attack.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-attack.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-attack.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-neutral.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-neutral.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-neutral.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-neutral.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-neutral.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hc-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-attack.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-attack.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-attack.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-attack.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-attack.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-neutral.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-neutral.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-neutral.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-neutral.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-neutral.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-hm-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-attack.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-attack.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-attack.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-attack.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-attack.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-neutral.universal_enforce.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-neutral.task_alignment_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-neutral.tdg_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-neutral.drift_isolation_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-neutral.causal_only.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-ha-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b0-benign-control.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b0-benign-control.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-b0-benign-control.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-n0-benign-control.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-n0-benign-control.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-n0-benign-control.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-g0-benign-control.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-g0-benign-control.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-g0-benign-control.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a2-benign-control.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a2-benign-control.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-a2-benign-control.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.monitor.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.monitor.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.universal_enforce.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.universal_enforce.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.task_alignment_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.task_alignment_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.tdg_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.tdg_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.drift_isolation_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.drift_isolation_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.causal_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.causal_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.all_defenses.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.all_defenses.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.oracle_router.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.oracle_router.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-neutral.evidence_router.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c1-attack.evidence_router.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.monitor.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.monitor.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.universal_enforce.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.universal_enforce.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.task_alignment_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.task_alignment_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.tdg_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.tdg_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.drift_isolation_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.drift_isolation_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.causal_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.causal_only.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.all_defenses.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.all_defenses.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.oracle_router.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.oracle_router.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-neutral.evidence_router.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "scripted",
+    "run_id": "t18-scripted-c2-attack.evidence_router.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-b1-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-b1-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-b1-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-b1-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-b1-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-b1-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-b1-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-b1-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c1-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c1-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c1-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c1-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c1-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c1-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c1-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c1-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-m2-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-m2-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-m2-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-m2-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-m2-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-m2-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-m2-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-m2-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-a1-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-a1-attack.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-a1-attack.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-a1-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-a1-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-a1-neutral.all_defenses.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-a1-neutral.oracle_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-a1-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c1-neutral.monitor.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c1-attack.monitor.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c1-neutral.evidence_router.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c1-attack.evidence_router.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c2-neutral.monitor.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c2-neutral.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c2-attack.monitor.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c2-attack.monitor.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c2-neutral.evidence_router.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c2-neutral.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c2-attack.evidence_router.off",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  },
+  {
+    "domain": "fake_reference",
+    "run_id": "t18-fake_reference-c2-attack.evidence_router.on",
+    "task_match": true,
+    "safe_task_match": true,
+    "uea_match": true,
+    "target_match": true
+  }
+]

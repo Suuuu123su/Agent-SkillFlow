@@ -1,0 +1,179 @@
+{
+  "checks": 1057,
+  "failed": [],
+  "values": [
+    {
+      "metric": "RIR",
+      "case": "positive",
+      "k": 1,
+      "eligible": true,
+      "status": "confirmed"
+    },
+    {
+      "metric": "RIR",
+      "case": "positive",
+      "k": 3,
+      "eligible": true,
+      "status": "confirmed"
+    },
+    {
+      "metric": "RIR",
+      "case": "negative",
+      "k": 1,
+      "eligible": true,
+      "status": "confirmed_no_residual"
+    },
+    {
+      "metric": "RIR",
+      "case": "negative",
+      "k": 3,
+      "eligible": true,
+      "status": "confirmed_no_residual"
+    },
+    {
+      "metric": "RIR",
+      "case": "legal_retention",
+      "k": 1,
+      "eligible": false,
+      "status": "revocation_absent"
+    },
+    {
+      "metric": "RIR",
+      "case": "legal_retention",
+      "k": 3,
+      "eligible": false,
+      "status": "revocation_absent"
+    },
+    {
+      "metric": "RIR",
+      "case": "missing_memory",
+      "k": 1,
+      "eligible": false,
+      "status": "memory_unformed"
+    },
+    {
+      "metric": "RIR",
+      "case": "missing_memory",
+      "k": 3,
+      "eligible": false,
+      "status": "memory_unformed"
+    },
+    {
+      "metric": "ALR",
+      "case": "positive",
+      "conditions": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "value": true
+    },
+    {
+      "metric": "ALR",
+      "case": "real_grant",
+      "conditions": [
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        false
+      ],
+      "value": false
+    },
+    {
+      "metric": "ALR",
+      "case": "ordinary_bypass",
+      "conditions": [
+        true,
+        false,
+        false,
+        false,
+        true,
+        true,
+        false
+      ],
+      "value": false
+    },
+    {
+      "metric": "ALR",
+      "case": "neutral_still_executes",
+      "conditions": [
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        false
+      ],
+      "value": false
+    },
+    {
+      "metric": "ALR",
+      "case": "unknown_reason",
+      "conditions": [
+        true,
+        true,
+        true,
+        null,
+        true,
+        true,
+        true
+      ],
+      "value": null
+    },
+    {
+      "metric": "pot",
+      "case": "unexecuted_but_reachable",
+      "value": 2
+    },
+    {
+      "metric": "pot",
+      "case": "same_sets_true_zero",
+      "value": 0
+    },
+    {
+      "metric": "pot",
+      "case": "and_missing",
+      "value": 0
+    },
+    {
+      "metric": "pot",
+      "case": "same_tool_wrong_source",
+      "value": 0
+    },
+    {
+      "metric": "pot",
+      "case": "metadata_invariant",
+      "value": 2
+    },
+    {
+      "metric": "pot",
+      "case": "unknown_not_zero",
+      "value": null,
+      "lower": 0,
+      "upper": 2,
+      "status": "UNKNOWN_DECLARATION"
+    },
+    {
+      "metric": "pot",
+      "case": "authorized_excluded_from_U",
+      "value": 0
+    },
+    {
+      "metric": "CI",
+      "original_core": false,
+      "identity": true,
+      "neutral": false,
+      "signed": 1
+    }
+  ],
+  "new_model_calls": 0,
+  "stdlib_only": true
+}

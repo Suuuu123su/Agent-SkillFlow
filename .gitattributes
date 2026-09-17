@@ -49,3 +49,7 @@ experiments/t19/** -text
 
 # Byte-preserve frozen benchmark artifacts and their SHA256 manifests.
 benchmarks/clawtrojan/** -text
+
+# Frozen P3/P4 evidence retains exact bytes for source hashes.
+论文材料/P3_机制测量/** -text
+论文材料/P4_测量证据消融/** -text

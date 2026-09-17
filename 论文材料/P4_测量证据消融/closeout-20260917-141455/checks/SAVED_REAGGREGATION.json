@@ -1,0 +1,151 @@
+{
+  "passes": 1,
+  "parsed_saved_predictions": 252096,
+  "new_predictions": 0,
+  "new_gold_labels": 0,
+  "per_view": [
+    {
+      "view": "V00",
+      "unique_queries": 19392,
+      "strata": 366,
+      "new_predictor_calls": 0
+    },
+    {
+      "view": "V01",
+      "unique_queries": 19392,
+      "strata": 366,
+      "new_predictor_calls": 0
+    },
+    {
+      "view": "V02",
+      "unique_queries": 19392,
+      "strata": 366,
+      "new_predictor_calls": 0
+    },
+    {
+      "view": "V03",
+      "unique_queries": 19392,
+      "strata": 366,
+      "new_predictor_calls": 0
+    },
+    {
+      "view": "V04",
+      "unique_queries": 19392,
+      "strata": 366,
+      "new_predictor_calls": 0
+    },
+    {
+      "view": "V05",
+      "unique_queries": 19392,
+      "strata": 366,
+      "new_predictor_calls": 0
+    },
+    {
+      "view": "V06",
+      "unique_queries": 19392,
+      "strata": 366,
+      "new_predictor_calls": 0
+    },
+    {
+      "view": "V07",
+      "unique_queries": 19392,
+      "strata": 366,
+      "new_predictor_calls": 0
+    },
+    {
+      "view": "V08",
+      "unique_queries": 19392,
+      "strata": 366,
+      "new_predictor_calls": 0
+    },
+    {
+      "view": "V09",
+      "unique_queries": 19392,
+      "strata": 366,
+      "new_predictor_calls": 0
+    },
+    {
+      "view": "V10",
+      "unique_queries": 19392,
+      "strata": 366,
+      "new_predictor_calls": 0
+    },
+    {
+      "view": "V11",
+      "unique_queries": 19392,
+      "strata": 366,
+      "new_predictor_calls": 0
+    },
+    {
+      "view": "V12",
+      "unique_queries": 19392,
+      "strata": 366,
+      "new_predictor_calls": 0
+    }
+  ],
+  "stratum_and_reference_conflicts": [],
+  "source_point_loss": {
+    "UEA_count": 0,
+    "TaskSuccess": 0,
+    "E_STS": 0,
+    "failure_taxonomy": 0,
+    "ALR": 87,
+    "Provenance": 7472,
+    "HIAA_Y": 0,
+    "UEA": 0,
+    "RIR": 14,
+    "CI": 593,
+    "HIAA_run": 0,
+    "HIAA_pot_observed": 0,
+    "HIAA_pot_declared": 0
+  },
+  "source_total": 8166,
+  "HIAA_version_conflicts": [
+    {
+      "kind": "HIAA_VALID_ONLY_DENOMINATOR",
+      "phase": "f",
+      "design": "c2-tool-return-grid",
+      "protocol": "valid_only",
+      "P3R_denominators": {
+        "p00": 13,
+        "p01": 13,
+        "p10": 13,
+        "p11": 13
+      },
+      "P4_denominators": {
+        "p00": 15,
+        "p01": 15,
+        "p10": 15,
+        "p11": 15
+      },
+      "P3R_source": "论文材料/P3_机制测量/p3r-20260917-103400/legacy/HIAA_CELLS.csv",
+      "P4_source": "论文材料/P4_测量证据消融/p4-20260917-123623/HIAA_CELLS.csv",
+      "query_id": "i_66353a38e186af9745a7012f",
+      "impact": "same point value does not make denominators interchangeable; Table A retains P3R and Table B retains P4",
+      "resolution": "documented, no predictor or source change; exact qualification difference not repaired in closeout"
+    },
+    {
+      "kind": "HIAA_VALID_ONLY_DENOMINATOR",
+      "phase": "h",
+      "design": "c2-tool-return-grid",
+      "protocol": "valid_only",
+      "P3R_denominators": {
+        "p00": 13,
+        "p01": 13,
+        "p10": 13,
+        "p11": 13
+      },
+      "P4_denominators": {
+        "p00": 15,
+        "p01": 15,
+        "p10": 15,
+        "p11": 15
+      },
+      "P3R_source": "论文材料/P3_机制测量/p3r-20260917-103400/legacy/HIAA_CELLS.csv",
+      "P4_source": "论文材料/P4_测量证据消融/p4-20260917-123623/HIAA_CELLS.csv",
+      "query_id": "i_0e989e548b2c68a47360abd8",
+      "impact": "same point value does not make denominators interchangeable; Table A retains P3R and Table B retains P4",
+      "resolution": "documented, no predictor or source change; exact qualification difference not repaired in closeout"
+    }
+  ]
+}

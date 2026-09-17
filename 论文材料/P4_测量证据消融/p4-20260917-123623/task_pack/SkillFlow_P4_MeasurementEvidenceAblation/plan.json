@@ -1,0 +1,87 @@
+{
+  "stage_id": "P4-MEASUREMENT-EVIDENCE-ABLATION-v1",
+  "created": "2026-09-17",
+  "status": "TASK_SPEC_NOT_EXECUTED",
+  "primary_goal": "mechanism_measurement_identifiability_and_evidence_ablation",
+  "source_scope": [
+    "P3R_existing_constructs",
+    "T17_F_G_H_saved_facts",
+    "T18_recovered_mechanism_records",
+    "P3R_existing_live"
+  ],
+  "auxiliary_scope": {
+    "P0_P2": "field_mapping_and_up_to_6_existing_cases_only",
+    "relabel_585": false
+  },
+  "intervention_target": "analyzer_evidence_view_only",
+  "profiles": 13,
+  "main_ablations": 10,
+  "negative_controls": 2,
+  "budgets": {
+    "actor_calls": 0,
+    "router_calls": 0,
+    "checker_calls": 0,
+    "judge_calls": 0,
+    "attack_generation_calls": 0,
+    "local_model_inference": 0,
+    "provider_requests": 0,
+    "business_tool_replay": 0,
+    "new_live_units": 0
+  },
+  "execution": {
+    "full_sweep": 1,
+    "after_bugfix": "affected_only_with_old_outputs_preserved",
+    "new_evidence_algorithm": false,
+    "new_business_benchmark": false,
+    "all_subsets_search": false,
+    "pure_finite_state_enumeration": true,
+    "raw_archive_scripts_autoexecute": false,
+    "network_in_analysis_process": false,
+    "sdk_initialization": false,
+    "key_access": false,
+    "extra_judge_subagents": false
+  },
+  "unit_definition": "metric_specific_query; profiles and sessions not independent runs",
+  "report_order": [
+    "HIAA_run",
+    "HIAA_pot_declared_v1",
+    "ALR_versioned",
+    "RIR_versioned",
+    "UEA",
+    "Provenance",
+    "CI_versioned",
+    "TaskSuccess_and_E_STS",
+    "failure_taxonomy"
+  ],
+  "gold_policy": {
+    "full_is_gold": false,
+    "independent_construct_reference": true,
+    "legacy_live_accuracy_without_gold": false,
+    "precomputed_verdicts_in_predictor": false
+  },
+  "historical_constraints": {
+    "P0": "closed_provisional",
+    "P1": "deferred",
+    "P2": "closed_historical",
+    "P3R": "execution_complete_partial_research_support",
+    "legacy_scores_modified": false,
+    "legacy_ci_json_invalid_count_reported": 289,
+    "legacy_ci_structurally_valid_total_reported": 593
+  },
+  "publication": {
+    "output_root_hint": "E:/Skill ＆ Harness/Agent/论文材料/P4_测量证据消融/<new_run_id>",
+    "auto_commit": false,
+    "auto_push": false,
+    "full_ci": false,
+    "remote_ci": false
+  },
+  "local_bindings": {
+    "repository_head": null,
+    "input_manifest_hash": null,
+    "query_registry_hash": null,
+    "analyzer_hash": null,
+    "evaluation_contract_hash": null
+  },
+  "stop_after": "P4_review_bundle_delivery",
+  "next_live_authorization": false
+}

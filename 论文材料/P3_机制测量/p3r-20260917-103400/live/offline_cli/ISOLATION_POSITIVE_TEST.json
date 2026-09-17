@@ -1,0 +1,19 @@
+{
+  "exit_code": 0,
+  "local_mock_requests": 1,
+  "external_provider_requests": 0,
+  "synthetic_fixture_not_model_inference": true,
+  "wire_models": [
+    "gpt-5.6-luna"
+  ],
+  "wire_paths": [
+    "/backend-api/codex/responses"
+  ],
+  "wire_tools": [
+    []
+  ],
+  "authorization_sent_to_mock": false,
+  "reply_present": true,
+  "canary_absent": true,
+  "builtin_coding_persona_absent": true
+}

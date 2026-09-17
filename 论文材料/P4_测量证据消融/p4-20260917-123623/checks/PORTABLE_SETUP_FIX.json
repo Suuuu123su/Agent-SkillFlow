@@ -1,0 +1,6 @@
+{
+  "failure": "Windows subprocess audit supplies command line string, not argv list",
+  "impact": "portable controller refused own allowed Python runner before any prediction; full results unaffected",
+  "fix": "exact allowlisted command string and executable path",
+  "old_output_preserved": true
+}

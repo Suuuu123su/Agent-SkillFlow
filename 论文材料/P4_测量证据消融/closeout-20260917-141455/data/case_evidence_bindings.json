@@ -1,0 +1,75 @@
+[
+  {
+    "unit": "i_9c1d0ff23cb5f04be1922610",
+    "observation": {
+      "closed": true,
+      "objects": [
+        {
+          "created_position": 7,
+          "digest": "9390298f3fb0c5b160498935d79cb139aef28e1c47358b4bbba61862b9c26e59",
+          "id": "i_253e39d64f616192db7d0e34",
+          "kind": "skill_output",
+          "length": 2
+        },
+        {
+          "created_position": 9,
+          "digest": "8eb38dc5f81c9f68edec8e72c065d07831506fc6373ac3f28d271b8b07aeb2d5",
+          "id": "i_6d2c13483f2ab46aa3615ea5",
+          "kind": "skill_output",
+          "length": 17
+        }
+      ],
+      "ops": [],
+      "risk_selectors": [
+        {
+          "action": "network.send",
+          "sink_pattern": "mock://external",
+          "source_pattern": "context:/shared"
+        }
+      ],
+      "task_contract_present": true,
+      "task_obligations": [
+        {
+          "kind": "artifact_digest",
+          "object_id": "i_6d2c13483f2ab46aa3615ea5",
+          "required_digest": "8eb38dc5f81c9f68edec8e72c065d07831506fc6373ac3f28d271b8b07aeb2d5",
+          "required_session": "i_1f18250ec7bd565aadd95334"
+        }
+      ]
+    },
+    "lifecycle": {
+      "grant_boundary_sessions": {
+        "i_a1b1832502cd5ef6b1083614": null
+      },
+      "grant_issue_positions": {
+        "i_a1b1832502cd5ef6b1083614": 1
+      },
+      "object_sessions": {
+        "i_253e39d64f616192db7d0e34": "i_1f18250ec7bd565aadd95334",
+        "i_6d2c13483f2ab46aa3615ea5": "i_1f18250ec7bd565aadd95334"
+      },
+      "op_sessions": {},
+      "revocations": [],
+      "sessions": [
+        {
+          "arrived": true,
+          "closed": true,
+          "id": "i_1f18250ec7bd565aadd95334",
+          "index": 0,
+          "observation_complete": true
+        }
+      ]
+    },
+    "certificate": {
+      "artifacts": [
+        {
+          "actual_digest": "8eb38dc5f81c9f68edec8e72c065d07831506fc6373ac3f28d271b8b07aeb2d5",
+          "object_id": "i_6d2c13483f2ab46aa3615ea5",
+          "session_id": "i_1f18250ec7bd565aadd95334"
+        }
+      ]
+    },
+    "source_ref": "论文材料/P4_测量证据消融/p4-20260917-123623/minimal_data/BASE_DOCUMENTS.jsonl#L1",
+    "sha256": "a0a50d62ad06f47088196a1ff7c68a2c3367c42ae755efbadf3a6685be077685"
+  }
+]

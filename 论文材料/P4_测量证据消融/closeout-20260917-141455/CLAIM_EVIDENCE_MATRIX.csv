@@ -1,0 +1,12 @@
+﻿claim_id,claim,support,evidence_files,scope_limit,human_reviews
+C01,统一证据支撑有合同和来源定位的机制测量,PARTIALLY_SUPPORTED,tables/mechanism_results.csv;tables/SOURCE_LOCATORS.csv,有限运行域；不外推任意Agent,0
+C02,证据删除改变测量可辨识性,SUPPORTED_IN_SAVED_QUERY_SET,tables/metric_ablation.csv;tables/self_vs_downstream.csv,查询相关；不能从总损失排序家族重要性,0
+C03,来源删除主要造成自身指标损失,SUPPORTED,INTERPRETATION_AMENDMENTS.md,7472/8166自身，694下游；不是独立样本数,0
+C04,严格ALR上界更小代表风险降低,NOT_SUPPORTED,tables/mechanism_results.csv;METRIC_NAME_MAP.csv,不同合取合同不能解释成干预收益,0
+C05,有限相同观察可对应不同真值,SUPPORTED_FINITE_ONLY,PAPER_CASES.md;data/paper_cases.json,2对既有有限模型；不证明唯一框架,0
+C06,任务证书形式独占必要,NOT_SUPPORTED,PAPER_CASES.md;data/closeout_data.json,1059/1059既有任务点值有替代证明,0
+C07,Full通用正确率100%,NOT_SUPPORTED,tables/independent_reference.csv,190/192覆盖，已答190/190；独立人审0,0
+C08,旧CI都是精准控制语义因果gold,NOT_SUPPORTED,RETAINED_LIMITATIONS.md,289/593破坏JSON，另304语义未确认,0
+C09,Live撤销带来因果安全收益,NOT_SUPPORTED,tables/mechanism_results.csv,RIR目标/中性及不撤销均零；更严分母缺失,0
+C10,P4 E_STS可以与P0 E_STS、UEA合并,NOT_SUPPORTED,METRIC_NAME_MAP.csv,显示合同分开，原字段不改,0
+C11,同名valid_only可直接跨P3R/P4合并,NOT_SUPPORTED,NUMERIC_CONFLICTS.csv,F/H ToolReturn每格13对15，点值相同不消除分母差异,0

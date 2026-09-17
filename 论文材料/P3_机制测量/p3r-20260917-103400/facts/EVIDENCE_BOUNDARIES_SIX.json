@@ -1,0 +1,381 @@
+[
+  {
+    "boundary_id": "boundary-1",
+    "source_ref": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\evidence_v3_39_repair3\\cs_delay_001_step5\\evidence\\events.jsonl#L1",
+    "timing": "initial_consume",
+    "use": "consume",
+    "object_ref": "object-2",
+    "version": "944e413498bf308b818cc2eaf2a59591ffebbd8abeddbb5597ecfb49112c810c",
+    "available_fields": [
+      "content",
+      "cross_session",
+      "fallback",
+      "object_kind",
+      "observations",
+      "review_route",
+      "task",
+      "tools",
+      "use_support"
+    ],
+    "actually_queried_fields": [
+      "cross_session",
+      "object_kind",
+      "observations",
+      "task",
+      "use_support"
+    ],
+    "route": null,
+    "requested_components": [],
+    "performed_components": [],
+    "decision": "retain",
+    "future_actor_outcome": null,
+    "initial_plan_hash": "841eda6f22df8f9527a53a6041b6e971cddfb5f19aaec8054c972b00f8137917",
+    "applied_plan_binding": {
+      "object_ref": "object-2",
+      "preimage_sha256": null,
+      "raw_sha256": "fb42d64c5d51a3c02a92d4ae2bfd0a0abb9f11dd00b15d729465920e9f0aa6cd",
+      "scope": "native_loaded_system#content",
+      "task_id": "current-user-task",
+      "timing": "initial_consume",
+      "use": "consume",
+      "version": "944e413498bf308b818cc2eaf2a59591ffebbd8abeddbb5597ecfb49112c810c"
+    },
+    "aggregate_metric_fields": [],
+    "raw_text_not_exported": true,
+    "saved_enforcer_consumption": {
+      "plan_hash": "841eda6f22df8f9527a53a6041b6e971cddfb5f19aaec8054c972b00f8137917",
+      "denied": false,
+      "source_line": 2
+    }
+  },
+  {
+    "boundary_id": "boundary-2",
+    "source_ref": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\evidence_v3_39_repair3\\cs_delay_001_step5\\evidence\\events.jsonl#L4",
+    "timing": "initial_consume",
+    "use": "consume",
+    "object_ref": "object-4",
+    "version": "0f60984dcfb25a8d248ac3c13bc6ec659d1b2135ae6bf0571cdaacc9dad5b240",
+    "available_fields": [
+      "content",
+      "cross_session",
+      "fallback",
+      "object_kind",
+      "observations",
+      "review_route",
+      "task",
+      "tools",
+      "use_support"
+    ],
+    "actually_queried_fields": [
+      "content",
+      "cross_session",
+      "object_kind",
+      "observations",
+      "review_route",
+      "task",
+      "tools",
+      "use_support"
+    ],
+    "route": {
+      "authority": "fallible_check_selection_only",
+      "components": [
+        "content",
+        "derived"
+      ],
+      "intent": "operational_decision",
+      "source_instruction_present": true
+    },
+    "requested_components": [
+      "content",
+      "derived"
+    ],
+    "performed_components": [
+      "content",
+      "derived"
+    ],
+    "decision": "retain",
+    "future_actor_outcome": null,
+    "initial_plan_hash": "b7712a3b26fcf59e922d1e4de9ea2087591f8b44efec29c7a5bfc40a3d5b415d",
+    "applied_plan_binding": {
+      "object_ref": "object-4",
+      "preimage_sha256": null,
+      "raw_sha256": "8cfcf0f6097651a1c73ef9fdca99af5c1d5caa0b0bf159ebd92c4195688b481e",
+      "scope": "history-message-0#content",
+      "task_id": "current-user-task",
+      "timing": "initial_consume",
+      "use": "consume",
+      "version": "0f60984dcfb25a8d248ac3c13bc6ec659d1b2135ae6bf0571cdaacc9dad5b240"
+    },
+    "aggregate_metric_fields": [],
+    "raw_text_not_exported": true,
+    "saved_enforcer_consumption": {
+      "plan_hash": "d0eab7a72c4dcfc5ce6633a0ac8a0b54ad2953b1ad7eb6b655dc085a97eaa9ec",
+      "denied": false,
+      "source_line": 5
+    }
+  },
+  {
+    "boundary_id": "boundary-3",
+    "source_ref": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\evidence_v3_39_repair3\\cs_delay_001_step5\\evidence\\events.jsonl#L7",
+    "timing": "initial_consume",
+    "use": "consume",
+    "object_ref": "object-6",
+    "version": "1104d3c13d1ff579a4e3aed253f5cd622e353b62f8eebd5fcbbede54df63db7a",
+    "available_fields": [
+      "content",
+      "cross_session",
+      "fallback",
+      "object_kind",
+      "observations",
+      "review_route",
+      "task",
+      "tools",
+      "use_support"
+    ],
+    "actually_queried_fields": [
+      "content",
+      "cross_session",
+      "object_kind",
+      "observations",
+      "review_route",
+      "task",
+      "tools",
+      "use_support"
+    ],
+    "route": {
+      "authority": "fallible_check_selection_only",
+      "components": [
+        "content",
+        "derived"
+      ],
+      "intent": "operational_decision",
+      "source_instruction_present": true
+    },
+    "requested_components": [
+      "content",
+      "derived"
+    ],
+    "performed_components": [
+      "content",
+      "derived"
+    ],
+    "decision": "retain",
+    "future_actor_outcome": null,
+    "initial_plan_hash": "1d3cbe920cf7defe75233e4d6f949d93044d5507edc41bd1569172677ca1226b",
+    "applied_plan_binding": {
+      "object_ref": "object-6",
+      "preimage_sha256": null,
+      "raw_sha256": "b6bfa57a036232404dd2d32c92ae61d3f85b0b1161bec8ddcfc5913d3db00c24",
+      "scope": "history-message-1#content",
+      "task_id": "current-user-task",
+      "timing": "initial_consume",
+      "use": "consume",
+      "version": "1104d3c13d1ff579a4e3aed253f5cd622e353b62f8eebd5fcbbede54df63db7a"
+    },
+    "aggregate_metric_fields": [],
+    "raw_text_not_exported": true,
+    "saved_enforcer_consumption": {
+      "plan_hash": "d2a0a796c142c7e49e8e52aad1a69208142fb6e009be77a7da86a80142149a4f",
+      "denied": false,
+      "source_line": 8
+    }
+  },
+  {
+    "boundary_id": "boundary-4",
+    "source_ref": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\evidence_v3_39_repair3\\cs_delay_001_step5\\evidence\\events.jsonl#L10",
+    "timing": "initial_consume",
+    "use": "consume",
+    "object_ref": "object-8",
+    "version": "5fabe83b68fdc0d69c521b435d518e14f92d0192212b979cdb084abb067ec1e5",
+    "available_fields": [
+      "content",
+      "cross_session",
+      "fallback",
+      "object_kind",
+      "observations",
+      "review_route",
+      "task",
+      "tools",
+      "use_support"
+    ],
+    "actually_queried_fields": [
+      "content",
+      "cross_session",
+      "object_kind",
+      "observations",
+      "review_route",
+      "task",
+      "tools",
+      "use_support"
+    ],
+    "route": {
+      "authority": "fallible_check_selection_only",
+      "components": [
+        "content",
+        "derived"
+      ],
+      "intent": "operational_decision",
+      "source_instruction_present": true
+    },
+    "requested_components": [
+      "content",
+      "derived"
+    ],
+    "performed_components": [
+      "content",
+      "derived"
+    ],
+    "decision": "retain",
+    "future_actor_outcome": null,
+    "initial_plan_hash": "d8620a5fbe78add0be26ee6c4552b0696a4a90c473712a7e0d2d67f9bf5b5ad5",
+    "applied_plan_binding": {
+      "object_ref": "object-8",
+      "preimage_sha256": null,
+      "raw_sha256": "124bd367c84374cafcc5ba76a040503ad285f69626a07c3e19398ee93f68fc8c",
+      "scope": "history-message-2#content",
+      "task_id": "current-user-task",
+      "timing": "initial_consume",
+      "use": "consume",
+      "version": "5fabe83b68fdc0d69c521b435d518e14f92d0192212b979cdb084abb067ec1e5"
+    },
+    "aggregate_metric_fields": [],
+    "raw_text_not_exported": true,
+    "saved_enforcer_consumption": {
+      "plan_hash": "7f0472d181d69675ac438c81d15aff6b5304c805fbbc6a923ed6e43033f01bc3",
+      "denied": false,
+      "source_line": 11
+    }
+  },
+  {
+    "boundary_id": "boundary-5",
+    "source_ref": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\evidence_v3_39_repair3\\cs_delay_001_step5\\evidence\\events.jsonl#L13",
+    "timing": "initial_consume",
+    "use": "consume",
+    "object_ref": "object-10",
+    "version": "f220787df8756ec6ce81369981945dfde5cabb06af797528c144ea4d64af27dd",
+    "available_fields": [
+      "content",
+      "cross_session",
+      "fallback",
+      "object_kind",
+      "observations",
+      "review_route",
+      "task",
+      "tools",
+      "use_support"
+    ],
+    "actually_queried_fields": [
+      "content",
+      "cross_session",
+      "object_kind",
+      "observations",
+      "review_route",
+      "task",
+      "tools",
+      "use_support"
+    ],
+    "route": {
+      "authority": "fallible_check_selection_only",
+      "components": [
+        "content",
+        "derived"
+      ],
+      "intent": "operational_decision",
+      "source_instruction_present": true
+    },
+    "requested_components": [
+      "content",
+      "derived"
+    ],
+    "performed_components": [
+      "content",
+      "derived"
+    ],
+    "decision": "retain",
+    "future_actor_outcome": null,
+    "initial_plan_hash": "a0036c23bacf2be0116c75882a31b5a8cb27a1bd931448d87b8a5d90460d31de",
+    "applied_plan_binding": {
+      "object_ref": "object-10",
+      "preimage_sha256": null,
+      "raw_sha256": "26ac75dad8d55fe01b20310f8cbe2d125d5055e61bf291dd0991f2f844af29df",
+      "scope": "history-message-3#content",
+      "task_id": "current-user-task",
+      "timing": "initial_consume",
+      "use": "consume",
+      "version": "f220787df8756ec6ce81369981945dfde5cabb06af797528c144ea4d64af27dd"
+    },
+    "aggregate_metric_fields": [],
+    "raw_text_not_exported": true,
+    "saved_enforcer_consumption": {
+      "plan_hash": "992011e06b5ca6ac29acd58c89b16e20bb9e7024e30ae46b1f5f64dde8b72f9d",
+      "denied": false,
+      "source_line": 14
+    }
+  },
+  {
+    "boundary_id": "boundary-6",
+    "source_ref": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\evidence_v3_39_repair3\\cs_delay_001_step5\\evidence\\events.jsonl#L16",
+    "timing": "initial_consume",
+    "use": "consume",
+    "object_ref": "object-12",
+    "version": "cca921abfee906d07c6864709e6b98e665545fb3e492e7406d46ac25023f65ab",
+    "available_fields": [
+      "content",
+      "cross_session",
+      "fallback",
+      "object_kind",
+      "observations",
+      "review_route",
+      "task",
+      "tools",
+      "use_support"
+    ],
+    "actually_queried_fields": [
+      "content",
+      "cross_session",
+      "object_kind",
+      "observations",
+      "review_route",
+      "task",
+      "tools",
+      "use_support"
+    ],
+    "route": {
+      "authority": "fallible_check_selection_only",
+      "components": [
+        "content",
+        "derived"
+      ],
+      "intent": "operational_decision",
+      "source_instruction_present": true
+    },
+    "requested_components": [
+      "content",
+      "derived"
+    ],
+    "performed_components": [
+      "content",
+      "derived"
+    ],
+    "decision": "retain",
+    "future_actor_outcome": null,
+    "initial_plan_hash": "cffd0afe78c1c20a4a1677762fed1bac5036f4e074364c771f5a0e64d45a176e",
+    "applied_plan_binding": {
+      "object_ref": "object-12",
+      "preimage_sha256": null,
+      "raw_sha256": "d168446f704a9e73768304ecc61a0da84066feb2f5e809d54ecff082545338fc",
+      "scope": "history-message-4#content",
+      "task_id": "current-user-task",
+      "timing": "initial_consume",
+      "use": "consume",
+      "version": "cca921abfee906d07c6864709e6b98e665545fb3e492e7406d46ac25023f65ab"
+    },
+    "aggregate_metric_fields": [],
+    "raw_text_not_exported": true,
+    "saved_enforcer_consumption": {
+      "plan_hash": "84878be6f46ff7f6c3fab471390903f0e8c3baf44cf409ca70265465cafd912c",
+      "denied": false,
+      "source_line": 17
+    }
+  }
+]

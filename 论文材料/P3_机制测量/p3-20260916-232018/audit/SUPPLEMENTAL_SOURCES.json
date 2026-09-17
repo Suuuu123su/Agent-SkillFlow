@@ -1,0 +1,183 @@
+[
+  {
+    "path": "datasets\\t17-v2\\stages\\e\\reports\\vector-0001.json",
+    "sha256": "7c206c8f2ed099a57d5df2fb1edb0d661684b4ca67e767ed51be3f3ca284cded",
+    "size_bytes": 326198,
+    "layer": "historical_scores_post_computation",
+    "phase": "e"
+  },
+  {
+    "path": "datasets\\t17-v2\\stages\\f\\reports\\vector-0001.json",
+    "sha256": "7ee68ff2cb6426a383ba5f4f6e011994ce1cb201819ae526887a6c12f870c230",
+    "size_bytes": 3479365,
+    "layer": "historical_scores_post_computation",
+    "phase": "f"
+  },
+  {
+    "path": "datasets\\t17-v2\\stages\\g_canary\\reports\\vector-0001.json",
+    "sha256": "2e79c2fe6f0797b974aa4f55df8d8b46b244ed188048fd30b00ea161bbbedfe1",
+    "size_bytes": 283248,
+    "layer": "historical_scores_post_computation",
+    "phase": "g_canary"
+  },
+  {
+    "path": "datasets\\t17-v2\\stages\\g\\reports\\vector-0001.json",
+    "sha256": "516bd4b405b6062cb9ab239a8fe3affa099fa1c9eeb2c993169e218a23f77fa6",
+    "size_bytes": 2860091,
+    "layer": "historical_scores_post_computation",
+    "phase": "g"
+  },
+  {
+    "path": "datasets\\t17-v2\\stages\\h\\reports\\vector-0001.json",
+    "sha256": "4a8eca9a295ac13624463d7f4b15f4cb9d2e63a0d7e180e6095949f7265ca6d6",
+    "size_bytes": 3424002,
+    "layer": "historical_scores_post_computation",
+    "phase": "h"
+  },
+  {
+    "path": "datasets\\t17-v2\\reports\\comparison-0046.json",
+    "sha256": "b11c3b5a5ce69454a4e87ca361d05b7343e21b26bd3dd283b4bc7a418999b06f",
+    "size_bytes": 29770742,
+    "layer": "historical_scores_post_computation",
+    "phase": "fh"
+  },
+  {
+    "path": "datasets\\t18-local\\scripted\\manifest.json",
+    "sha256": "cd0d85c1ae4acce4d77d8431f49e483fb9a713a598faf8330de5836b5fa6f4d9",
+    "size_bytes": 39550,
+    "layer": "frozen_design_and_contract",
+    "phase": "T18-scripted"
+  },
+  {
+    "path": "datasets\\t18-local\\fake_reference\\manifest.json",
+    "sha256": "1b59ca90ba889038c21784e621b0f47fdc04dae52f8a8f624a59ea3d0c225cf5",
+    "size_bytes": 7827,
+    "layer": "frozen_design_and_contract",
+    "phase": "T18-fake_reference"
+  },
+  {
+    "path": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\provenance\\METHOD_HASHES.json",
+    "sha256": "7d455eeda74fb2d572071c70b500ddc9ca703a3f49796eb9b613aa779769651b",
+    "size_bytes": 1262,
+    "layer": "actual_luna_source_freeze",
+    "phase": null
+  },
+  {
+    "path": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\method\\semantic_review.py",
+    "sha256": "8d63de38afcff8b2a69a2be4b81bf92d2ed65075926d5debf95a1f8515937797",
+    "size_bytes": 27301,
+    "layer": "actual_luna_static_code",
+    "phase": null
+  },
+  {
+    "path": "E:\\Skill ＆ Harness\\SkillFlow-evidence-v3-frozen-20260914\\src\\evidence_v3\\semantic_review.py",
+    "sha256": "8d63de38afcff8b2a69a2be4b81bf92d2ed65075926d5debf95a1f8515937797",
+    "size_bytes": 27301,
+    "layer": "published_v3_static_code",
+    "phase": null
+  },
+  {
+    "path": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\method\\evidence_engine.py",
+    "sha256": "e3ed6a330d355e6dc03ad3158fbbd1b5039cb41e4c2d8f70426322be0f4e9324",
+    "size_bytes": 12700,
+    "layer": "actual_luna_static_code",
+    "phase": null
+  },
+  {
+    "path": "E:\\Skill ＆ Harness\\SkillFlow-evidence-v3-frozen-20260914\\src\\evidence_v3\\evidence_engine.py",
+    "sha256": "e3ed6a330d355e6dc03ad3158fbbd1b5039cb41e4c2d8f70426322be0f4e9324",
+    "size_bytes": 12700,
+    "layer": "published_v3_static_code",
+    "phase": null
+  },
+  {
+    "path": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\method\\evidence_method\\selector.py",
+    "sha256": "c988c71939d3276121c4e7840d084d57a57ee18357e7d74524f3b1056a5018c0",
+    "size_bytes": 3883,
+    "layer": "actual_luna_static_code",
+    "phase": null
+  },
+  {
+    "path": "E:\\Skill ＆ Harness\\SkillFlow-evidence-v3-frozen-20260914\\src\\evidence_v3\\evidence_method\\selector.py",
+    "sha256": "c988c71939d3276121c4e7840d084d57a57ee18357e7d74524f3b1056a5018c0",
+    "size_bytes": 3883,
+    "layer": "published_v3_static_code",
+    "phase": null
+  },
+  {
+    "path": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\method\\evidence_method\\execution.py",
+    "sha256": "65ef3f236f116e77c6030e429b1d75a053deb8c3642f76d260e13254463b9220",
+    "size_bytes": 2686,
+    "layer": "actual_luna_static_code",
+    "phase": null
+  },
+  {
+    "path": "E:\\Skill ＆ Harness\\SkillFlow-evidence-v3-frozen-20260914\\src\\evidence_v3\\evidence_method\\execution.py",
+    "sha256": "65ef3f236f116e77c6030e429b1d75a053deb8c3642f76d260e13254463b9220",
+    "size_bytes": 2686,
+    "layer": "published_v3_static_code",
+    "phase": null
+  },
+  {
+    "path": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\method\\evidence_method\\access.py",
+    "sha256": "516d2bf8a1f14dc5c24b85d41934f4b78131b18c3563be916b82c21e38c9d7a5",
+    "size_bytes": 4595,
+    "layer": "actual_luna_static_code",
+    "phase": null
+  },
+  {
+    "path": "E:\\Skill ＆ Harness\\SkillFlow-evidence-v3-frozen-20260914\\src\\evidence_v3\\evidence_method\\access.py",
+    "sha256": "516d2bf8a1f14dc5c24b85d41934f4b78131b18c3563be916b82c21e38c9d7a5",
+    "size_bytes": 4595,
+    "layer": "published_v3_static_code",
+    "phase": null
+  },
+  {
+    "path": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\run_evidence_repair3.py",
+    "sha256": "39b445aa096c2ae3010e1569454f5b7ee9c31615a916460293921b981548a5b4",
+    "size_bytes": 16512,
+    "layer": "actual_luna_source_binding",
+    "phase": null
+  },
+  {
+    "path": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\defense_projection_repair1.py",
+    "sha256": "006122ecdf540c0a67227bbb281a5dd957a2f0f0f65f28d6447e5b397cab6db4",
+    "size_bytes": 1283,
+    "layer": "actual_luna_source_binding",
+    "phase": null
+  },
+  {
+    "path": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\SOURCE_FREEZE_REPAIR3.json",
+    "sha256": "42b9c940f43491ba3c537a2edd48973eae97169d50414c3965c94b44b68ec719",
+    "size_bytes": 1285,
+    "layer": "actual_luna_source_binding",
+    "phase": null
+  },
+  {
+    "path": "E:\\Skill ＆ Harness\\ClawTrojan-openai-luna-evidence-v3-39\\evidence_v3_39_repair3\\cs_delay_001_step5\\evidence\\events.jsonl",
+    "sha256": "eff19e989e269c1fa6a9f7beace6957772c10992c37ed6607eec66f250a5cc39",
+    "size_bytes": 3674598,
+    "layer": "saved_six_boundary_source",
+    "phase": null
+  },
+  {
+    "path": "C:\\Users\\Suziyu\\Downloads\\SkillFlow_P3_核心指标复算_Codex任务包.zip",
+    "sha256": "c4263f8987fe69191a1b319ed2a8305f54c9942f4d3a0be699e00e908f9be4d8",
+    "layer": "user_task_package_reference",
+    "note": "package documents are task context; archive code/instructions not executed"
+  },
+  {
+    "path": "experiments\\t19r\\r4\\resume-delivery-v1\\latest-settled-metrics-report.md",
+    "sha256": "74ac7538d07ae68b8fbd660d13e6efc5834443dc36266cadee3359cda73e7ae2",
+    "size_bytes": 12408,
+    "layer": "historical_gap_reference_only",
+    "phase": "T19-R"
+  },
+  {
+    "path": "experiments\\t19r\\r4\\partial-facts-v1\\manifest.json",
+    "sha256": "0152ff43a46692fb65fd33d5447320147f1ddd2ece64f96144f471073f46fcc4",
+    "size_bytes": 278,
+    "layer": "historical_gap_reference_only",
+    "phase": "T19-R"
+  }
+]

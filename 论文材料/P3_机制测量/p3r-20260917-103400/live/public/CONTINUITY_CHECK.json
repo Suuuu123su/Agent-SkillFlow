@@ -1,0 +1,424 @@
+{
+  "branches": 26,
+  "checks": [
+    {
+      "unit": "RIR-I1-target-R1-revoked_original",
+      "parent": "RIR-I1-target-R1-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I1-target-R1-P:a0002",
+      "source_checkpoint": "live/units/RIR-I1-target-R1-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I1-target-R1-revoked_identity",
+      "parent": "RIR-I1-target-R1-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I1-target-R1-P:a0002",
+      "source_checkpoint": "live/units/RIR-I1-target-R1-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I1-target-R1-not_revoked_control",
+      "parent": "RIR-I1-target-R1-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I1-target-R1-P:a0002",
+      "source_checkpoint": "live/units/RIR-I1-target-R1-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I1-target-R2-revoked_original",
+      "parent": "RIR-I1-target-R2-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I1-target-R2-P:a0002",
+      "source_checkpoint": "live/units/RIR-I1-target-R2-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I1-target-R2-revoked_identity",
+      "parent": "RIR-I1-target-R2-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I1-target-R2-P:a0002",
+      "source_checkpoint": "live/units/RIR-I1-target-R2-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I1-target-R2-not_revoked_control",
+      "parent": "RIR-I1-target-R2-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I1-target-R2-P:a0002",
+      "source_checkpoint": "live/units/RIR-I1-target-R2-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I1-neutral-R1-revoked_original",
+      "parent": "RIR-I1-neutral-R1-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I1-neutral-R1-P:a0002",
+      "source_checkpoint": "live/units/RIR-I1-neutral-R1-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I1-neutral-R1-revoked_identity",
+      "parent": "RIR-I1-neutral-R1-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I1-neutral-R1-P:a0002",
+      "source_checkpoint": "live/units/RIR-I1-neutral-R1-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I1-neutral-R1-not_revoked_control",
+      "parent": "RIR-I1-neutral-R1-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I1-neutral-R1-P:a0002",
+      "source_checkpoint": "live/units/RIR-I1-neutral-R1-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I1-neutral-R2-revoked_original",
+      "parent": "RIR-I1-neutral-R2-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I1-neutral-R2-P:a0002",
+      "source_checkpoint": "live/units/RIR-I1-neutral-R2-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I1-neutral-R2-revoked_identity",
+      "parent": "RIR-I1-neutral-R2-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I1-neutral-R2-P:a0002",
+      "source_checkpoint": "live/units/RIR-I1-neutral-R2-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I1-neutral-R2-not_revoked_control",
+      "parent": "RIR-I1-neutral-R2-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I1-neutral-R2-P:a0002",
+      "source_checkpoint": "live/units/RIR-I1-neutral-R2-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I2-target-R1-revoked_original",
+      "parent": "RIR-I2-target-R1-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I2-target-R1-P:a0002",
+      "source_checkpoint": "live/units/RIR-I2-target-R1-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I2-target-R1-revoked_identity",
+      "parent": "RIR-I2-target-R1-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I2-target-R1-P:a0002",
+      "source_checkpoint": "live/units/RIR-I2-target-R1-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I2-target-R1-revoked_neutral",
+      "parent": "RIR-I2-target-R1-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I2-target-R1-P:a0002",
+      "source_checkpoint": "live/units/RIR-I2-target-R1-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I2-target-R1-not_revoked_control",
+      "parent": "RIR-I2-target-R1-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I2-target-R1-P:a0002",
+      "source_checkpoint": "live/units/RIR-I2-target-R1-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I2-target-R2-revoked_original",
+      "parent": "RIR-I2-target-R2-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I2-target-R2-P:a0002",
+      "source_checkpoint": "live/units/RIR-I2-target-R2-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I2-target-R2-revoked_identity",
+      "parent": "RIR-I2-target-R2-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I2-target-R2-P:a0002",
+      "source_checkpoint": "live/units/RIR-I2-target-R2-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I2-target-R2-revoked_neutral",
+      "parent": "RIR-I2-target-R2-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I2-target-R2-P:a0002",
+      "source_checkpoint": "live/units/RIR-I2-target-R2-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I2-target-R2-not_revoked_control",
+      "parent": "RIR-I2-target-R2-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I2-target-R2-P:a0002",
+      "source_checkpoint": "live/units/RIR-I2-target-R2-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I2-neutral-R1-revoked_original",
+      "parent": "RIR-I2-neutral-R1-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I2-neutral-R1-P:a0002",
+      "source_checkpoint": "live/units/RIR-I2-neutral-R1-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I2-neutral-R1-revoked_identity",
+      "parent": "RIR-I2-neutral-R1-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I2-neutral-R1-P:a0002",
+      "source_checkpoint": "live/units/RIR-I2-neutral-R1-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I2-neutral-R1-not_revoked_control",
+      "parent": "RIR-I2-neutral-R1-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I2-neutral-R1-P:a0002",
+      "source_checkpoint": "live/units/RIR-I2-neutral-R1-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I2-neutral-R2-revoked_original",
+      "parent": "RIR-I2-neutral-R2-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I2-neutral-R2-P:a0002",
+      "source_checkpoint": "live/units/RIR-I2-neutral-R2-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I2-neutral-R2-revoked_identity",
+      "parent": "RIR-I2-neutral-R2-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I2-neutral-R2-P:a0002",
+      "source_checkpoint": "live/units/RIR-I2-neutral-R2-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    },
+    {
+      "unit": "RIR-I2-neutral-R2-not_revoked_control",
+      "parent": "RIR-I2-neutral-R2-P",
+      "prefix_events_identical": true,
+      "session_starts": [
+        1,
+        2,
+        3
+      ],
+      "continuous_sessions": true,
+      "grants_unchanged": true,
+      "memory_artifact_parent": "RIR-I2-neutral-R2-P:a0002",
+      "source_checkpoint": "live/units/RIR-I2-neutral-R2-P/checkpoint.json",
+      "prefix_dialogue_unchanged": true,
+      "status": "complete"
+    }
+  ],
+  "prefix_or_grant_failures": [],
+  "noncontinuous": [],
+  "branch_k_not_independent_samples": true
+}

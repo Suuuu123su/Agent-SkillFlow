@@ -1,0 +1,8 @@
+{
+  "references": "GOLD_PROVENANCE.jsonl",
+  "recorder_oracle": "control/PROVENANCE_REFERENCE.jsonl",
+  "build": "checks/GOLD_BUILD.json",
+  "independent_rule_code": "code/independent_reference.py",
+  "full_not_gold": true,
+  "human_semantic_review": 0
+}

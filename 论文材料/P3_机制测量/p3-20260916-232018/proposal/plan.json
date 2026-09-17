@@ -1,0 +1,78 @@
+{
+  "task_id": "P3-FRAMEWORK-METRICS",
+  "created_date": "2026-09-16",
+  "repository": "Suuuu123su/Agent-SkillFlow",
+  "reference_commit": "06e78a602caf074c0e2593f9dd057c13ea4de7cc",
+  "primary_inputs": [
+    "T17-F",
+    "T17-G",
+    "T17-H-increment-and-reuse-comparison"
+  ],
+  "secondary_inputs": [
+    "T11-T14-saved-construct-evidence",
+    "T18-saved-scripted-reference",
+    "T19-R-selected-metric-gaps"
+  ],
+  "core_metrics": [
+    "HIAA_run",
+    "HIAA_pot",
+    "ALR",
+    "RIR_1",
+    "RIR_3",
+    "UEA",
+    "Provenance_P_R_F1_Decay",
+    "Counterfactual_CI",
+    "TaskSuccess_STS_Failure"
+  ],
+  "allowed_work": [
+    "read_existing_facts",
+    "pure_offline_metric_recompute",
+    "targeted_tests",
+    "static_metric_to_router_mapping",
+    "draft_future_roadmap",
+    "create_local_review_bundle"
+  ],
+  "new_actor_calls": 0,
+  "new_router_checker_calls": 0,
+  "new_judge_calls": 0,
+  "new_local_model_calls": 0,
+  "new_business_tool_replays": 0,
+  "read_credentials": false,
+  "instantiate_model_sdk": false,
+  "change_evidence_algorithm": false,
+  "static_existing_boundary_examples_max": 6,
+  "github_write_current_task": false,
+  "fetch_missing_exact_public_repository_files": "allowed_read_only_pinned_ref_separate_from_analysis",
+  "full_ci": false,
+  "remote_ci": false,
+  "P0": "CLOSED_WITH_DOCUMENTED_GAPS_NO_RELABEL",
+  "P1": "DEFERRED_RESOURCE_LIMIT",
+  "P2": "COMPLETE_HISTORICAL_REFERENCE_ONLY",
+  "future": {
+    "P4-EVIDENCE-ABLATION": {
+      "authorized_now": false,
+      "new_model_calls": 0
+    },
+    "P5-TARGETED-GAP": {
+      "authorized_now": false,
+      "conditional_target_unit_design_cap": 68
+    },
+    "P5-RX0": {
+      "authorized_now": false,
+      "new_model_calls": 0,
+      "purpose": "profile_to_local_evidence_interface_design_and_local_checks"
+    },
+    "P5-RX1": {
+      "authorized_now": false,
+      "conditional_main_target_units": 24,
+      "conditional_tech_target_units_max": 4,
+      "conditional_total_target_units_max": 28
+    },
+    "P6-PAPER-INTEGRATION": {
+      "authorized_now": false,
+      "new_model_calls": 0
+    }
+  },
+  "completion_is_not_positive_research_result": true,
+  "current_status": "TASK_SPEC_ONLY_NOT_EXECUTED"
+}

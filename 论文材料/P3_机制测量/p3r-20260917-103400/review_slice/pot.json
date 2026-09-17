@@ -1,0 +1,573 @@
+{
+  "unexecuted_but_reachable": {
+    "model": {
+      "closed": true,
+      "atoms": [
+        "source_A",
+        "source_B",
+        "consumed_A",
+        "purpose_send",
+        "grant_send",
+        "enabled"
+      ],
+      "initial": [
+        "source_A",
+        "purpose_send",
+        "enabled"
+      ],
+      "universe": {
+        "local.mock.send:A:archive": 2
+      },
+      "rules": [
+        {
+          "id": "bridge_read_A",
+          "requires": [
+            "source_A"
+          ],
+          "execution_requires": [
+            "enabled"
+          ],
+          "adds": [
+            "consumed_A"
+          ],
+          "bridge": true
+        },
+        {
+          "id": "send_A",
+          "requires": [
+            "consumed_A",
+            "purpose_send"
+          ],
+          "execution_requires": [
+            "enabled"
+          ],
+          "adds": [],
+          "effect": "local.mock.send:A:archive",
+          "manifest_declared": true,
+          "grant_atom": "grant_send"
+        }
+      ],
+      "effect_key": "action:source:purpose/sink",
+      "weights": "nonnegative declared sensitivity",
+      "observed_executed_effects": []
+    },
+    "result": {
+      "h0": {
+        "status": "EXACT_DECLARED_FINITE_MODEL",
+        "lower": [],
+        "upper": [],
+        "witnesses": {},
+        "visited_states": 1
+      },
+      "h1": {
+        "status": "EXACT_DECLARED_FINITE_MODEL",
+        "lower": [
+          "local.mock.send:A:archive"
+        ],
+        "upper": [
+          "local.mock.send:A:archive"
+        ],
+        "witnesses": {
+          "local.mock.send:A:archive": [
+            "bridge_read_A",
+            "send_A"
+          ]
+        },
+        "visited_states": 2
+      },
+      "difference_lower": [
+        "local.mock.send:A:archive"
+      ],
+      "difference_upper": [
+        "local.mock.send:A:archive"
+      ],
+      "lower": 2,
+      "upper": 2,
+      "exact": true
+    }
+  },
+  "same_sets_true_zero": {
+    "model": {
+      "closed": true,
+      "atoms": [
+        "source_A",
+        "source_B",
+        "consumed_A",
+        "purpose_send",
+        "grant_send",
+        "enabled"
+      ],
+      "initial": [
+        "source_A",
+        "purpose_send",
+        "enabled",
+        "consumed_A"
+      ],
+      "universe": {
+        "local.mock.send:A:archive": 2
+      },
+      "rules": [
+        {
+          "id": "bridge_read_A",
+          "requires": [
+            "source_A"
+          ],
+          "execution_requires": [
+            "enabled"
+          ],
+          "adds": [
+            "consumed_A"
+          ],
+          "bridge": true
+        },
+        {
+          "id": "send_A",
+          "requires": [
+            "consumed_A",
+            "purpose_send"
+          ],
+          "execution_requires": [
+            "enabled"
+          ],
+          "adds": [],
+          "effect": "local.mock.send:A:archive",
+          "manifest_declared": true,
+          "grant_atom": "grant_send"
+        }
+      ],
+      "effect_key": "action:source:purpose/sink",
+      "weights": "nonnegative declared sensitivity",
+      "observed_executed_effects": []
+    },
+    "result": {
+      "h0": {
+        "status": "EXACT_DECLARED_FINITE_MODEL",
+        "lower": [
+          "local.mock.send:A:archive"
+        ],
+        "upper": [
+          "local.mock.send:A:archive"
+        ],
+        "witnesses": {
+          "local.mock.send:A:archive": [
+            "send_A"
+          ]
+        },
+        "visited_states": 1
+      },
+      "h1": {
+        "status": "EXACT_DECLARED_FINITE_MODEL",
+        "lower": [
+          "local.mock.send:A:archive"
+        ],
+        "upper": [
+          "local.mock.send:A:archive"
+        ],
+        "witnesses": {
+          "local.mock.send:A:archive": [
+            "send_A"
+          ]
+        },
+        "visited_states": 1
+      },
+      "difference_lower": [],
+      "difference_upper": [],
+      "lower": 0,
+      "upper": 0,
+      "exact": true
+    }
+  },
+  "and_missing": {
+    "model": {
+      "closed": true,
+      "atoms": [
+        "source_A",
+        "source_B",
+        "consumed_A",
+        "purpose_send",
+        "grant_send",
+        "enabled"
+      ],
+      "initial": [
+        "source_A",
+        "enabled"
+      ],
+      "universe": {
+        "local.mock.send:A:archive": 2
+      },
+      "rules": [
+        {
+          "id": "bridge_read_A",
+          "requires": [
+            "source_A"
+          ],
+          "execution_requires": [
+            "enabled"
+          ],
+          "adds": [
+            "consumed_A"
+          ],
+          "bridge": true
+        },
+        {
+          "id": "send_A",
+          "requires": [
+            "consumed_A",
+            "purpose_send"
+          ],
+          "execution_requires": [
+            "enabled"
+          ],
+          "adds": [],
+          "effect": "local.mock.send:A:archive",
+          "manifest_declared": true,
+          "grant_atom": "grant_send"
+        }
+      ],
+      "effect_key": "action:source:purpose/sink",
+      "weights": "nonnegative declared sensitivity",
+      "observed_executed_effects": []
+    },
+    "result": {
+      "h0": {
+        "status": "EXACT_DECLARED_FINITE_MODEL",
+        "lower": [],
+        "upper": [],
+        "witnesses": {},
+        "visited_states": 1
+      },
+      "h1": {
+        "status": "EXACT_DECLARED_FINITE_MODEL",
+        "lower": [],
+        "upper": [],
+        "witnesses": {},
+        "visited_states": 2
+      },
+      "difference_lower": [],
+      "difference_upper": [],
+      "lower": 0,
+      "upper": 0,
+      "exact": true
+    }
+  },
+  "same_tool_wrong_source": {
+    "model": {
+      "closed": true,
+      "atoms": [
+        "source_A",
+        "source_B",
+        "consumed_A",
+        "purpose_send",
+        "grant_send",
+        "enabled"
+      ],
+      "initial": [
+        "purpose_send",
+        "enabled",
+        "source_B"
+      ],
+      "universe": {
+        "local.mock.send:A:archive": 2
+      },
+      "rules": [
+        {
+          "id": "bridge_read_A",
+          "requires": [
+            "source_A"
+          ],
+          "execution_requires": [
+            "enabled"
+          ],
+          "adds": [
+            "consumed_A"
+          ],
+          "bridge": true
+        },
+        {
+          "id": "send_A",
+          "requires": [
+            "consumed_A",
+            "purpose_send"
+          ],
+          "execution_requires": [
+            "enabled"
+          ],
+          "adds": [],
+          "effect": "local.mock.send:A:archive",
+          "manifest_declared": true,
+          "grant_atom": "grant_send"
+        }
+      ],
+      "effect_key": "action:source:purpose/sink",
+      "weights": "nonnegative declared sensitivity",
+      "observed_executed_effects": []
+    },
+    "result": {
+      "h0": {
+        "status": "EXACT_DECLARED_FINITE_MODEL",
+        "lower": [],
+        "upper": [],
+        "witnesses": {},
+        "visited_states": 1
+      },
+      "h1": {
+        "status": "EXACT_DECLARED_FINITE_MODEL",
+        "lower": [],
+        "upper": [],
+        "witnesses": {},
+        "visited_states": 1
+      },
+      "difference_lower": [],
+      "difference_upper": [],
+      "lower": 0,
+      "upper": 0,
+      "exact": true
+    }
+  },
+  "metadata_invariant": {
+    "model": {
+      "closed": true,
+      "atoms": [
+        "source_A",
+        "source_B",
+        "consumed_A",
+        "purpose_send",
+        "grant_send",
+        "enabled"
+      ],
+      "initial": [
+        "source_A",
+        "purpose_send",
+        "enabled"
+      ],
+      "universe": {
+        "local.mock.send:A:archive": 2
+      },
+      "rules": [
+        {
+          "id": "bridge_read_A",
+          "requires": [
+            "source_A"
+          ],
+          "execution_requires": [
+            "enabled"
+          ],
+          "adds": [
+            "consumed_A"
+          ],
+          "bridge": true
+        },
+        {
+          "id": "send_A",
+          "requires": [
+            "consumed_A",
+            "purpose_send"
+          ],
+          "execution_requires": [
+            "enabled"
+          ],
+          "adds": [],
+          "effect": "local.mock.send:A:archive",
+          "manifest_declared": true,
+          "grant_atom": "grant_send"
+        }
+      ],
+      "effect_key": "action:source:purpose/sink",
+      "weights": "nonnegative declared sensitivity",
+      "observed_executed_effects": [],
+      "irrelevant_metadata": "changed"
+    },
+    "result": {
+      "h0": {
+        "status": "EXACT_DECLARED_FINITE_MODEL",
+        "lower": [],
+        "upper": [],
+        "witnesses": {},
+        "visited_states": 1
+      },
+      "h1": {
+        "status": "EXACT_DECLARED_FINITE_MODEL",
+        "lower": [
+          "local.mock.send:A:archive"
+        ],
+        "upper": [
+          "local.mock.send:A:archive"
+        ],
+        "witnesses": {
+          "local.mock.send:A:archive": [
+            "bridge_read_A",
+            "send_A"
+          ]
+        },
+        "visited_states": 2
+      },
+      "difference_lower": [
+        "local.mock.send:A:archive"
+      ],
+      "difference_upper": [
+        "local.mock.send:A:archive"
+      ],
+      "lower": 2,
+      "upper": 2,
+      "exact": true
+    }
+  },
+  "unknown_not_zero": {
+    "model": {
+      "closed": true,
+      "atoms": [
+        "source_A",
+        "source_B",
+        "consumed_A",
+        "purpose_send",
+        "grant_send",
+        "enabled"
+      ],
+      "initial": [
+        "source_A",
+        "purpose_send",
+        "enabled"
+      ],
+      "universe": {
+        "local.mock.send:A:archive": 2
+      },
+      "rules": [
+        {
+          "id": "bridge_read_A",
+          "requires": [
+            "source_A"
+          ],
+          "execution_requires": [
+            "enabled"
+          ],
+          "adds": [
+            "consumed_A"
+          ],
+          "bridge": true
+        },
+        {
+          "id": "send_A",
+          "requires": [
+            "consumed_A",
+            "purpose_send"
+          ],
+          "execution_requires": [
+            "enabled"
+          ],
+          "adds": [],
+          "effect": "local.mock.send:A:archive",
+          "manifest_declared": true,
+          "grant_atom": "grant_send"
+        }
+      ],
+      "effect_key": "action:source:purpose/sink",
+      "weights": "nonnegative declared sensitivity",
+      "observed_executed_effects": [],
+      "unknown_semantics": [
+        "policy semantics absent"
+      ]
+    },
+    "result": {
+      "h0": {
+        "status": "UNKNOWN",
+        "lower": [],
+        "upper": [
+          "local.mock.send:A:archive"
+        ],
+        "witnesses": {},
+        "reason": "undeclared parameter/policy semantics"
+      },
+      "h1": {
+        "status": "UNKNOWN",
+        "lower": [],
+        "upper": [
+          "local.mock.send:A:archive"
+        ],
+        "witnesses": {},
+        "reason": "undeclared parameter/policy semantics"
+      },
+      "difference_lower": [],
+      "difference_upper": [
+        "local.mock.send:A:archive"
+      ],
+      "lower": 0,
+      "upper": 2,
+      "exact": false
+    }
+  },
+  "authorized_excluded_from_U": {
+    "model": {
+      "closed": true,
+      "atoms": [
+        "source_A",
+        "source_B",
+        "consumed_A",
+        "purpose_send",
+        "grant_send",
+        "enabled"
+      ],
+      "initial": [
+        "source_A",
+        "purpose_send",
+        "enabled",
+        "grant_send"
+      ],
+      "universe": {
+        "local.mock.send:A:archive": 2
+      },
+      "rules": [
+        {
+          "id": "bridge_read_A",
+          "requires": [
+            "source_A"
+          ],
+          "execution_requires": [
+            "enabled"
+          ],
+          "adds": [
+            "consumed_A"
+          ],
+          "bridge": true
+        },
+        {
+          "id": "send_A",
+          "requires": [
+            "consumed_A",
+            "purpose_send"
+          ],
+          "execution_requires": [
+            "enabled"
+          ],
+          "adds": [],
+          "effect": "local.mock.send:A:archive",
+          "manifest_declared": true,
+          "grant_atom": "grant_send"
+        }
+      ],
+      "effect_key": "action:source:purpose/sink",
+      "weights": "nonnegative declared sensitivity",
+      "observed_executed_effects": []
+    },
+    "result": {
+      "h0": {
+        "status": "EXACT_DECLARED_FINITE_MODEL",
+        "lower": [],
+        "upper": [],
+        "witnesses": {},
+        "visited_states": 1
+      },
+      "h1": {
+        "status": "EXACT_DECLARED_FINITE_MODEL",
+        "lower": [],
+        "upper": [],
+        "witnesses": {},
+        "visited_states": 2
+      },
+      "difference_lower": [],
+      "difference_upper": [],
+      "lower": 0,
+      "upper": 0,
+      "exact": true
+    }
+  }
+}

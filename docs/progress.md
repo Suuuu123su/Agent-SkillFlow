@@ -1484,3 +1484,15 @@ skillflow matrix scenarios\matrix\mvp.yaml --backend scripted --output runs\mvp
 - 修改文件仅为 README、progress、[M3 Summary](summaries/T17M3_Summary.md)、[版本化最终 Summary](summaries/T17_Minimal_Final_Summary_20260903.md)及新增验收补充 JSON。Matrix/配置/Raw/报告哈希仍见 [M2 清单](evidence/T17_MINIMAL_MANIFEST_20260903.md)。
 - 新 API 调用与费用为 0；M2 后未追加正式样本。独立审查 `REVIEW_UNAVAILABLE` 不改成 PASS；旧 T17-E 仍 16/24 core、12/18 Replay incomplete，原 F/G/H 未运行，SkillFlow-Rx 未实现。
 - 本轮到此停止；只完成当前文档的普通快进交付及远端检查，不自动进入新实验。最终提交与 CI 结果保存在新的本地交付回执，旧回执保留。
+
+
+<!-- P3_P4_PUBLICATION_20260917 -->
+## P3/P3R机制测量与P4测量证据消融已发布（2026-09-17）
+
+[论文三表](../论文材料/P4_测量证据消融/closeout-20260917-141455/PAPER_TABLES.md)、[P3/P4章节草稿](../论文材料/P4_测量证据消融/closeout-20260917-141455/PAPER_P3_P4_SECTION.md)、[六案例](../论文材料/P4_测量证据消融/closeout-20260917-141455/PAPER_CASES.md)与[结项报告](../论文材料/P4_测量证据消融/closeout-20260917-141455/P4_CLOSEOUT.md)已整理完成。P4管理状态CLOSED_WITH_DOCUMENTED_GAPS；原P4状态、分母、未知和限制保持不变。
+
+Full独立参照覆盖190/192、已答一致190/190，人审0；来源删证损失8166=7472自身+694下游。F/H valid_only每格13对15的版本冲突、旧CI语义、ALR空分母和RIR因果限制均保留。机制测量放在论文前部，防御为应用展示，不据此主张框架唯一必要性。
+
+本次发布四份完整审查包及展开材料；仅做归档/路径/哈希定向检查，未重算预测，新增模型和业务调用0。未运行全量或远端CI。原工作区T19-R修改未纳入，P1继续延期，P5/P6不启动。
+
+[发布清单、完整包与复现边界](../论文材料/发布记录/p3-p4-20260917/README.md)。

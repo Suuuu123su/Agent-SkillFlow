@@ -1,0 +1,29 @@
+{
+  "archive": {
+    "file": "p3r-completion-review.zip",
+    "sha256": "3390b1e8dba914cc42088661b5378d139ddce177c551f4e0d70a3d74e47ee304",
+    "bytes": 4333215,
+    "entries": 1290,
+    "all_member_hashes_verified": true,
+    "excludes_credentials_and_private_reasoning": true
+  },
+  "portable_after_extraction": {
+    "checks": 1057,
+    "failed": [],
+    "same_results_as_source": true,
+    "python_isolated_mode": true,
+    "new_model_calls": 0
+  },
+  "final_requests": {
+    "attempts": 292,
+    "settled": 292,
+    "response_unknown": 0,
+    "in_flight": 0,
+    "by_role": {
+      "actor": 292
+    }
+  },
+  "execution_complete": true,
+  "core_claims_supported": "PARTIAL_NOT_ALL",
+  "no_further_dispatch": true
+}

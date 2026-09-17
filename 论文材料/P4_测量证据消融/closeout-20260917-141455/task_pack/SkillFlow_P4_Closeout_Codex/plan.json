@@ -1,0 +1,70 @@
+{
+  "stage": "P4-CLOSEOUT-PAPER",
+  "task_spec_version": "1.0",
+  "created_date": "2026-09-17",
+  "execution_status": "TASK_SPEC_ONLY_NOT_EXECUTED",
+  "goal": "Close the completed P4 using saved results; normalize reporting and produce manuscript materials.",
+  "reference_source_archive_sha256": "dcda387b143a72eb56dd53a1a03fe5aa934462eccf974181025b868bd8c1265d",
+  "existing_scope_for_binding_only": {
+    "queries": 19392,
+    "views": 13,
+    "saved_results": 252096,
+    "published_strata": 4758,
+    "reference_queries": 314,
+    "determinate_applicable_reference_queries": 192
+  },
+  "zero_new_activity": [
+    "provider_requests",
+    "actor",
+    "router",
+    "checker",
+    "judge",
+    "local_model_inference",
+    "attack_generation",
+    "business_tool_replay",
+    "counterfactual_execution",
+    "new_views",
+    "new_gold_labels"
+  ],
+  "allowed": [
+    "read_existing_files",
+    "write_new_closeout_documents",
+    "generate_tables_from_saved_results",
+    "targeted_document_checks",
+    "optional_one_existing_64x13_portable_check_only_if_packaging_paths_change"
+  ],
+  "limits": {
+    "full_predictor_sweeps": 0,
+    "optional_portable_checks": 1,
+    "optional_portable_query_count": 64,
+    "optional_portable_views": 13,
+    "saved_prediction_reaggregation_passes_if_needed": 1,
+    "paper_case_cards": 6
+  },
+  "preserve": [
+    "original_predictions",
+    "original_metric_ids",
+    "source_data",
+    "original_manifests",
+    "unknown_and_na",
+    "user_uncommitted_changes",
+    "historical_review_scope"
+  ],
+  "future_stages": {
+    "P1": "DEFERRED",
+    "P5_RX0": "NOT_STARTED",
+    "P5_RX1": "NOT_STARTED",
+    "P6_full_paper": "NOT_STARTED"
+  },
+  "github": {
+    "read_required": false,
+    "commit": false,
+    "push": false,
+    "prepare_file_review_list": true
+  },
+  "output_relative_root": "论文材料/P4_测量证据消融/closeout-<timestamp>/",
+  "proposed_closeout_state_if_completed": "CLOSED_WITH_DOCUMENTED_GAPS",
+  "keep_original_p4_state": "COMPLETED_WITH_DOCUMENTED_GAPS",
+  "human_reviews_added": 0,
+  "stop_after": "local closeout review ZIP and actual outcome report"
+}

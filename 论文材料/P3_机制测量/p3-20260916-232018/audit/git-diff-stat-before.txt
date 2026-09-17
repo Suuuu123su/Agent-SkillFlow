@@ -1,0 +1,10 @@
+ .gitignore                                       |   2 +
+ README.md                                        | 962 +++++++++++++++++++++++
+ docs/progress.md                                 | 173 ++++
+ src/skillflow/instrumentation/file_proxy.py      |  14 +-
+ src/skillflow/instrumentation/mock_tools.py      |   4 +
+ src/skillflow/instrumentation/tool_effects.py    |   6 +
+ src/skillflow/instrumentation/tool_types.py      |   2 +
+ src/skillflow/models/tool_calls.py               |  13 +-
+ tests/integration/test_t14_security_isolation.py |   1 +
+ 9 files changed, 1174 insertions(+), 3 deletions(-)

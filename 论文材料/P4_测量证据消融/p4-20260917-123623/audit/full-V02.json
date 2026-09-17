@@ -1,0 +1,31 @@
+{
+  "documents_sha256": "529b07005072047ca7fe9df914499829122335ac64d3c2fb8ef973b09d766ac6",
+  "queries_sha256": "fd39394747ef0fd80d28423557f5e18609edbf768cda09c3c36204cf2c418a92",
+  "analysis_code_hash": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+  "queries": 19392,
+  "documents": 1968,
+  "file_accesses": [
+    {
+      "path": "DOCUMENTS.jsonl",
+      "operation": "read"
+    },
+    {
+      "path": "QUERIES.jsonl",
+      "operation": "read"
+    },
+    {
+      "path": "predictor.py",
+      "operation": "read"
+    },
+    {
+      "path": "V02.jsonl",
+      "operation": "write"
+    }
+  ],
+  "blocked_accesses": [],
+  "errors": [],
+  "elapsed_seconds": 0.6828787326812744,
+  "network_calls": 0,
+  "business_tool_calls": 0,
+  "model_calls": 0
+}

@@ -1,0 +1,116 @@
+[
+  {
+    "case": "unexecuted_but_reachable",
+    "bridge": false,
+    "match": true,
+    "independent": [],
+    "solver": []
+  },
+  {
+    "case": "unexecuted_but_reachable",
+    "bridge": true,
+    "match": true,
+    "independent": [
+      "local.mock.send:A:archive"
+    ],
+    "solver": [
+      "local.mock.send:A:archive"
+    ]
+  },
+  {
+    "case": "same_sets_true_zero",
+    "bridge": false,
+    "match": true,
+    "independent": [
+      "local.mock.send:A:archive"
+    ],
+    "solver": [
+      "local.mock.send:A:archive"
+    ]
+  },
+  {
+    "case": "same_sets_true_zero",
+    "bridge": true,
+    "match": true,
+    "independent": [
+      "local.mock.send:A:archive"
+    ],
+    "solver": [
+      "local.mock.send:A:archive"
+    ]
+  },
+  {
+    "case": "and_missing",
+    "bridge": false,
+    "match": true,
+    "independent": [],
+    "solver": []
+  },
+  {
+    "case": "and_missing",
+    "bridge": true,
+    "match": true,
+    "independent": [],
+    "solver": []
+  },
+  {
+    "case": "same_tool_wrong_source",
+    "bridge": false,
+    "match": true,
+    "independent": [],
+    "solver": []
+  },
+  {
+    "case": "same_tool_wrong_source",
+    "bridge": true,
+    "match": true,
+    "independent": [],
+    "solver": []
+  },
+  {
+    "case": "metadata_invariant",
+    "bridge": false,
+    "match": true,
+    "independent": [],
+    "solver": []
+  },
+  {
+    "case": "metadata_invariant",
+    "bridge": true,
+    "match": true,
+    "independent": [
+      "local.mock.send:A:archive"
+    ],
+    "solver": [
+      "local.mock.send:A:archive"
+    ]
+  },
+  {
+    "case": "unknown_not_zero",
+    "bridge": false,
+    "match": true,
+    "independent": null,
+    "solver": []
+  },
+  {
+    "case": "unknown_not_zero",
+    "bridge": true,
+    "match": true,
+    "independent": null,
+    "solver": []
+  },
+  {
+    "case": "authorized_excluded_from_U",
+    "bridge": false,
+    "match": true,
+    "independent": [],
+    "solver": []
+  },
+  {
+    "case": "authorized_excluded_from_U",
+    "bridge": true,
+    "match": true,
+    "independent": [],
+    "solver": []
+  }
+]

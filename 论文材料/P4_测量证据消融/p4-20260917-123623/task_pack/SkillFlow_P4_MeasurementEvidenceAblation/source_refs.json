@@ -1,0 +1,52 @@
+{
+  "scope": "files read to draft P4; no P4 results or live GitHub verification",
+  "sources": [
+    {
+      "path": "references/P3R_EXTERNAL_REVIEW.md",
+      "source_runtime_path": "/mnt/data/SkillFlow_P3R_ExternalReview_20260917/REVIEW.md",
+      "bytes": 6842,
+      "sha256": "327a9effbda82988d6abec547eda466f03df1971e88cb8d3976fa888c3751b01",
+      "role": "context_only_not_predictor_input"
+    },
+    {
+      "path": "references/P3R_FINAL_REPORT.md",
+      "source_runtime_path": "/mnt/data/SkillFlow_P3R_ExternalReview_20260917/source/P3R_FINAL_REPORT.md",
+      "bytes": 4583,
+      "sha256": "01a760f497b767a1bcf5d89564eea11d1a3c759bf1c1ef1ec54e1f8b53ed0eab",
+      "role": "context_only_not_predictor_input"
+    },
+    {
+      "path": "references/METRIC_CONTRACTS_P3R.md",
+      "source_runtime_path": "/mnt/data/SkillFlow_P3R_ExternalReview_20260917/source/METRIC_CONTRACTS_P3R.md",
+      "bytes": 5201,
+      "sha256": "01c08797724a872c3e2ac635b97acb7c04f98ac2f926fe145c4806b9cc81f0f2",
+      "role": "context_only_not_predictor_input"
+    },
+    {
+      "path": "references/CAPABILITY_MODEL_CONTRACT.md",
+      "source_runtime_path": "/mnt/data/SkillFlow_P3R_ExternalReview_20260917/source/CAPABILITY_MODEL_CONTRACT.md",
+      "bytes": 1516,
+      "sha256": "fc205b806db5522a17b2ef28357547c2abe538b84cf4764df5814118f5e7f34b",
+      "role": "context_only_not_predictor_input"
+    },
+    {
+      "path": "references/P3R_METRIC_MAIN.md",
+      "source_runtime_path": "/mnt/data/SkillFlow_P3R_ExternalReview_20260917/source/P3R_METRIC_MAIN.md",
+      "bytes": 7402,
+      "sha256": "ba55a325d44ef8f1bfa08dc6bb420c93ae040c9f5eb4430a6f94ee546eee2c92",
+      "role": "context_only_not_predictor_input"
+    },
+    {
+      "external_archive_name": "91e6e0d7-231b-47a6-964a-db3cc391ebf6.zip",
+      "bytes": 4333215,
+      "sha256": "3390b1e8dba914cc42088661b5378d139ddce177c551f4e0d70a3d74e47ee304",
+      "included_in_pack": false
+    },
+    {
+      "external_archive_name": "e12ede2f-0db3-4444-9207-40d27b0a6daf.zip",
+      "bytes": 4819181,
+      "sha256": "790950036f6893eab47588a8a30e9976c51b27aa0fabeaffe2c53fed87c9b67f",
+      "included_in_pack": false
+    }
+  ]
+}

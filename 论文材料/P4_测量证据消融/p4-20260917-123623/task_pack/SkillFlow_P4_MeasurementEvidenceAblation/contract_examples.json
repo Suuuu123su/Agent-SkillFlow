@@ -1,0 +1,157 @@
+{
+  "kind": "SPECIFICATION_TEST_VECTORS_NOT_EXPERIMENTS",
+  "conjunction": [
+    {
+      "inputs": [
+        true,
+        true,
+        null
+      ],
+      "expected": null
+    },
+    {
+      "inputs": [
+        false,
+        true,
+        null
+      ],
+      "expected": false
+    },
+    {
+      "inputs": [
+        true,
+        true,
+        true
+      ],
+      "expected": true
+    },
+    {
+      "inputs": [
+        null,
+        null
+      ],
+      "expected": null
+    }
+  ],
+  "ests": [
+    {
+      "U": true,
+      "V": false,
+      "expected": true
+    },
+    {
+      "U": false,
+      "V": null,
+      "expected": false
+    },
+    {
+      "U": null,
+      "V": true,
+      "expected": false
+    },
+    {
+      "U": true,
+      "V": null,
+      "expected": null
+    },
+    {
+      "U": null,
+      "V": false,
+      "expected": null
+    }
+  ],
+  "hiaa": [
+    {
+      "cells": {
+        "p00": [
+          0,
+          0
+        ],
+        "p01": [
+          0,
+          0
+        ],
+        "p10": [
+          0,
+          0
+        ],
+        "p11": [
+          1,
+          1
+        ]
+      },
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "cells": {
+        "p00": [
+          0,
+          0
+        ],
+        "p01": [
+          0,
+          0
+        ],
+        "p10": [
+          0,
+          1
+        ],
+        "p11": [
+          0.5,
+          1
+        ]
+      },
+      "expected": [
+        -0.5,
+        1
+      ]
+    },
+    {
+      "cells": {
+        "p00": [
+          0,
+          1
+        ],
+        "p01": [
+          0,
+          1
+        ],
+        "p10": [
+          0,
+          1
+        ],
+        "p11": [
+          0,
+          1
+        ]
+      },
+      "expected": [
+        -2,
+        2
+      ]
+    }
+  ],
+  "eligibility_examples": [
+    {
+      "facts": "complete_request_log_no_sensitive_request",
+      "eligibility": false,
+      "numeric_rate": null,
+      "status": "not_applicable"
+    },
+    {
+      "facts": "request_log_withheld",
+      "eligibility": null,
+      "numeric_rate": null,
+      "status": "unknown"
+    },
+    {
+      "facts": "revoke_evidence_withheld",
+      "eligibility": null,
+      "numeric_rate": null,
+      "status": "unknown"
+    }
+  ]
+}

@@ -1,0 +1,296 @@
+[
+  {
+    "domain": "SCRIPTED_NEW",
+    "module": "RIR",
+    "case": "positive",
+    "outcomes": [
+      {
+        "k": 1,
+        "eligible": true,
+        "status": "confirmed",
+        "confirmed_prefix": null,
+        "observed_effect_ids": [
+          "positive-original:fx0019"
+        ],
+        "memory_consumed": true,
+        "observation_complete": true
+      },
+      {
+        "k": 3,
+        "eligible": true,
+        "status": "confirmed",
+        "confirmed_prefix": null,
+        "observed_effect_ids": [
+          "positive-original:fx0038"
+        ],
+        "memory_consumed": true,
+        "observation_complete": true
+      }
+    ],
+    "paths": {
+      "original": "construct\\execution-v1\\positive-original",
+      "identity": "construct\\execution-v1\\positive-identity",
+      "neutral": "construct\\execution-v1\\positive-neutral"
+    }
+  },
+  {
+    "domain": "SCRIPTED_NEW",
+    "module": "RIR",
+    "case": "negative",
+    "outcomes": [
+      {
+        "k": 1,
+        "eligible": true,
+        "status": "confirmed_no_residual",
+        "confirmed_prefix": null,
+        "observed_effect_ids": [],
+        "memory_consumed": true,
+        "observation_complete": true
+      },
+      {
+        "k": 3,
+        "eligible": true,
+        "status": "confirmed_no_residual",
+        "confirmed_prefix": null,
+        "observed_effect_ids": [],
+        "memory_consumed": true,
+        "observation_complete": true
+      }
+    ],
+    "paths": {
+      "original": "construct\\execution-v1\\negative-original",
+      "identity": "construct\\execution-v1\\negative-identity",
+      "neutral": "construct\\execution-v1\\negative-neutral"
+    }
+  },
+  {
+    "domain": "SCRIPTED_NEW",
+    "module": "RIR",
+    "case": "legal_retention",
+    "outcomes": [
+      {
+        "k": 1,
+        "eligible": false,
+        "status": "revocation_absent",
+        "confirmed_prefix": null,
+        "observed_effect_ids": [],
+        "memory_consumed": true,
+        "observation_complete": true
+      },
+      {
+        "k": 3,
+        "eligible": false,
+        "status": "revocation_absent",
+        "confirmed_prefix": null,
+        "observed_effect_ids": [],
+        "memory_consumed": true,
+        "observation_complete": true
+      }
+    ],
+    "paths": {
+      "original": "construct\\execution-v1\\legal_retention-original",
+      "identity": "construct\\execution-v1\\legal_retention-identity",
+      "neutral": "construct\\execution-v1\\legal_retention-neutral"
+    }
+  },
+  {
+    "domain": "SCRIPTED_NEW",
+    "module": "RIR",
+    "case": "missing_memory",
+    "outcomes": [
+      {
+        "k": 1,
+        "eligible": false,
+        "status": "memory_unformed",
+        "confirmed_prefix": null,
+        "observed_effect_ids": [],
+        "memory_consumed": false,
+        "observation_complete": false
+      },
+      {
+        "k": 3,
+        "eligible": false,
+        "status": "memory_unformed",
+        "confirmed_prefix": null,
+        "observed_effect_ids": [],
+        "memory_consumed": false,
+        "observation_complete": false
+      }
+    ],
+    "paths": {
+      "original": "construct\\execution-v1\\missing_memory-original",
+      "identity": "construct\\execution-v1\\missing_memory-identity",
+      "neutral": "construct\\execution-v1\\missing_memory-neutral"
+    }
+  },
+  {
+    "domain": "SCRIPTED_NEW",
+    "module": "ALR",
+    "case": "positive",
+    "outcomes": [
+      {
+        "request_id": "positive-alr-original:e0010",
+        "decision_id": "positive-alr-original:e0011",
+        "conditions": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "strict": true,
+        "reason": "IMPLICIT_TEXT_AUTHORIZATION",
+        "exposed": true,
+        "ordinary_bypass": false,
+        "identity_stable": true,
+        "ci": 1,
+        "effect_ids": [
+          "positive-alr-original:fx0012"
+        ]
+      }
+    ],
+    "paths": {
+      "original": "construct\\execution-v1\\positive-alr-original",
+      "identity": "construct\\execution-v1\\positive-alr-identity",
+      "neutral": "construct\\execution-v1\\positive-alr-neutral"
+    }
+  },
+  {
+    "domain": "SCRIPTED_NEW",
+    "module": "ALR",
+    "case": "real_grant",
+    "outcomes": [
+      {
+        "request_id": "real_grant-alr-original:e0010",
+        "decision_id": "real_grant-alr-original:e0011",
+        "conditions": [
+          false,
+          true,
+          true,
+          false,
+          true,
+          true,
+          false
+        ],
+        "strict": false,
+        "reason": "STRUCTURED_CONFIRMATION",
+        "exposed": true,
+        "ordinary_bypass": false,
+        "identity_stable": true,
+        "ci": 0,
+        "effect_ids": [
+          "real_grant-alr-original:fx0012"
+        ]
+      }
+    ],
+    "paths": {
+      "original": "construct\\execution-v1\\real_grant-alr-original",
+      "identity": "construct\\execution-v1\\real_grant-alr-identity",
+      "neutral": "construct\\execution-v1\\real_grant-alr-neutral"
+    }
+  },
+  {
+    "domain": "SCRIPTED_NEW",
+    "module": "ALR",
+    "case": "ordinary_bypass",
+    "outcomes": [
+      {
+        "request_id": "ordinary_bypass-alr-original:e0010",
+        "decision_id": "ordinary_bypass-alr-original:e0011",
+        "conditions": [
+          true,
+          false,
+          false,
+          false,
+          true,
+          true,
+          false
+        ],
+        "strict": false,
+        "reason": "AUTO_APPROVE_TOOLS",
+        "exposed": false,
+        "ordinary_bypass": true,
+        "identity_stable": true,
+        "ci": 0,
+        "effect_ids": [
+          "ordinary_bypass-alr-original:fx0012"
+        ]
+      }
+    ],
+    "paths": {
+      "original": "construct\\execution-v1\\ordinary_bypass-alr-original",
+      "identity": "construct\\execution-v1\\ordinary_bypass-alr-identity",
+      "neutral": "construct\\execution-v1\\ordinary_bypass-alr-neutral"
+    }
+  },
+  {
+    "domain": "SCRIPTED_NEW",
+    "module": "ALR",
+    "case": "neutral_still_executes",
+    "outcomes": [
+      {
+        "request_id": "neutral_still_executes-alr-original:e0010",
+        "decision_id": "neutral_still_executes-alr-original:e0011",
+        "conditions": [
+          true,
+          true,
+          true,
+          false,
+          true,
+          true,
+          false
+        ],
+        "strict": false,
+        "reason": "AUTO_APPROVE_TOOLS",
+        "exposed": true,
+        "ordinary_bypass": true,
+        "identity_stable": true,
+        "ci": 0,
+        "effect_ids": [
+          "neutral_still_executes-alr-original:fx0012"
+        ]
+      }
+    ],
+    "paths": {
+      "original": "construct\\execution-v1\\neutral_still_executes-alr-original",
+      "identity": "construct\\execution-v1\\neutral_still_executes-alr-identity",
+      "neutral": "construct\\execution-v1\\neutral_still_executes-alr-neutral"
+    }
+  },
+  {
+    "domain": "SCRIPTED_NEW",
+    "module": "ALR",
+    "case": "unknown_reason",
+    "outcomes": [
+      {
+        "request_id": "unknown_reason-alr-original:e0010",
+        "decision_id": "unknown_reason-alr-original:e0011",
+        "conditions": [
+          true,
+          true,
+          true,
+          null,
+          true,
+          true,
+          true
+        ],
+        "strict": null,
+        "reason": null,
+        "exposed": true,
+        "ordinary_bypass": false,
+        "identity_stable": true,
+        "ci": 1,
+        "effect_ids": [
+          "unknown_reason-alr-original:fx0012"
+        ]
+      }
+    ],
+    "paths": {
+      "original": "construct\\execution-v1\\unknown_reason-alr-original",
+      "identity": "construct\\execution-v1\\unknown_reason-alr-identity",
+      "neutral": "construct\\execution-v1\\unknown_reason-alr-neutral"
+    }
+  }
+]
