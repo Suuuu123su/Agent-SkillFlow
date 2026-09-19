@@ -1,0 +1,129 @@
+{
+  "at": "2026-09-19T09:02:33.463974+00:00",
+  "document_sha256": "bc6eef5be059fdfac7defe3295c0adfa03b67a865a705bc6aba77cbad6a83737",
+  "families": 6,
+  "queries": 56,
+  "records": [
+    {
+      "path": "raw\\development\\D01_append_journal_01\\attempt-01\\record.json",
+      "sha256": "d9d0b1b93442677d686fc9aedb989ad0ca88608f7e0d11864aeba7cdf7f33448",
+      "unit": "D01_append_journal_01"
+    },
+    {
+      "path": "raw\\development\\D01_append_journal_02\\attempt-01\\record.json",
+      "sha256": "17b317834fbd1d6fe89b6d00db4c790c42a1c206b17eb5871530126a2565a634",
+      "unit": "D01_append_journal_02"
+    },
+    {
+      "path": "raw\\development\\D01_append_journal_03\\attempt-01\\record.json",
+      "sha256": "cffec843d9db2e368e4236620dcab837578a56840c6c6a6fcf6e0f0ab1c5adda",
+      "unit": "D01_append_journal_03"
+    },
+    {
+      "path": "raw\\development\\D01_append_journal_04\\attempt-01\\record.json",
+      "sha256": "bb05f149db2ae4a01614b5383cc5e0556fbe25a72bf2a429769620303ec84898",
+      "unit": "D01_append_journal_04"
+    },
+    {
+      "path": "raw\\development\\D02_sqlite_transfer_01\\attempt-01\\record.json",
+      "sha256": "a26b1125e859250db639b6cfe806fae092cfd11068b41bb46de9f3c5ce16de88",
+      "unit": "D02_sqlite_transfer_01"
+    },
+    {
+      "path": "raw\\development\\D02_sqlite_transfer_02\\attempt-01\\record.json",
+      "sha256": "0e46dc3a3cc5432e4d47656fb29c7635f181c78ce6ca15b07aef1b320359772b",
+      "unit": "D02_sqlite_transfer_02"
+    },
+    {
+      "path": "raw\\development\\D02_sqlite_transfer_03\\attempt-01\\record.json",
+      "sha256": "1a56e118e94d9d91dee481866f38080c9134cc33a6ea1c4444922856e2de4629",
+      "unit": "D02_sqlite_transfer_03"
+    },
+    {
+      "path": "raw\\development\\D02_sqlite_transfer_04\\attempt-01\\record.json",
+      "sha256": "be95fdf048572ec696108ba84801cec8eb9868716a69ac1e1caf065574aef67b",
+      "unit": "D02_sqlite_transfer_04"
+    },
+    {
+      "path": "raw\\development\\D03_render_report_01\\attempt-01\\record.json",
+      "sha256": "50affc783163118120a584dde878183d8927050732f76e422eacdfb780bdfb51",
+      "unit": "D03_render_report_01"
+    },
+    {
+      "path": "raw\\development\\D03_render_report_02\\attempt-01\\record.json",
+      "sha256": "d793bee9c370c53415a0bb9e1373bb963167f6ffeb5348cb9266f60dab9b239d",
+      "unit": "D03_render_report_02"
+    },
+    {
+      "path": "raw\\development\\D03_render_report_03\\attempt-01\\record.json",
+      "sha256": "18a5c95b5512883e8ebcafd3707949a2e367d13313a6a574f6ff1713e361ae5f",
+      "unit": "D03_render_report_03"
+    },
+    {
+      "path": "raw\\development\\D03_render_report_04\\attempt-01\\record.json",
+      "sha256": "f3950b0de0ba3eaae63600bf10e3d951602d4836d549223c573b9d6a0f42eb7d",
+      "unit": "D03_render_report_04"
+    },
+    {
+      "path": "raw\\development\\D04_kv_increment_01\\attempt-01\\record.json",
+      "sha256": "837d30af271e2717674bef97128d6a1da5aba64da50e75b63c11b0bfcc3dbac6",
+      "unit": "D04_kv_increment_01"
+    },
+    {
+      "path": "raw\\development\\D04_kv_increment_02\\attempt-01\\record.json",
+      "sha256": "adb6a5f12bfc41749329129ee4ab1d9f58404002099f728f0aef0e2affc92166",
+      "unit": "D04_kv_increment_02"
+    },
+    {
+      "path": "raw\\development\\D04_kv_increment_03\\attempt-01\\record.json",
+      "sha256": "9f5c3f7e13612c74364db75589ece5cbab86081c72ed21af3fade15b7cdf215a",
+      "unit": "D04_kv_increment_03"
+    },
+    {
+      "path": "raw\\development\\D04_kv_increment_04\\attempt-01\\record.json",
+      "sha256": "607e7ab3db285934a2c9f2ba6bf004638ce67cd1b0d8158165092fe5ef4d3941",
+      "unit": "D04_kv_increment_04"
+    },
+    {
+      "path": "raw\\development\\D05_untrusted_copy_01\\attempt-01\\record.json",
+      "sha256": "48115293452279841b5d0aa9a1cc7a7899b862cb3cfdaaef31cca0d41d6bdc0a",
+      "unit": "D05_untrusted_copy_01"
+    },
+    {
+      "path": "raw\\development\\D05_untrusted_copy_02\\attempt-01\\record.json",
+      "sha256": "d1e451d1cc58d343deb4ed7ba82f9b862561ac98132b2eabec03d1eeb2223fa2",
+      "unit": "D05_untrusted_copy_02"
+    },
+    {
+      "path": "raw\\development\\D05_untrusted_copy_03\\attempt-01\\record.json",
+      "sha256": "7a3ff5e5c4ddad215b88f55810d595d79f23900985abcecee2813f5679d410dc",
+      "unit": "D05_untrusted_copy_03"
+    },
+    {
+      "path": "raw\\development\\D05_untrusted_copy_04\\attempt-01\\record.json",
+      "sha256": "f3d2ba6d32bd5731a7870449a6a555979685fef5f680952f610538d5876dec48",
+      "unit": "D05_untrusted_copy_04"
+    },
+    {
+      "path": "raw\\development\\D06_revoked_cache_01\\attempt-01\\record.json",
+      "sha256": "30e60946c030ae547ec55fbbee2d49039b8cf2951bfc10891b337e54ef8ecd54",
+      "unit": "D06_revoked_cache_01"
+    },
+    {
+      "path": "raw\\development\\D06_revoked_cache_02\\attempt-01\\record.json",
+      "sha256": "136ef990d336e1120fd0a8a2e1d8b423e19a05e872dd5dca619a515018441bd7",
+      "unit": "D06_revoked_cache_02"
+    },
+    {
+      "path": "raw\\development\\D06_revoked_cache_03\\attempt-01\\record.json",
+      "sha256": "9211a0022688dd6c41e1944a8511f115cac5d6bd5c4bf0b56e03171bc596b098",
+      "unit": "D06_revoked_cache_03"
+    },
+    {
+      "path": "raw\\development\\D06_revoked_cache_04\\attempt-01\\record.json",
+      "sha256": "022acc05e58ae0dd7804023861a2a92fdf1e46168f2469a75d90d1dd29647a4b",
+      "unit": "D06_revoked_cache_04"
+    }
+  ],
+  "units": 24
+}

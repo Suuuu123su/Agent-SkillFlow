@@ -1,0 +1,103 @@
+{
+  "status": "PASS",
+  "review_scope": "Layout only; source values, selection, four policies, two panels, ranges, line styles and confidence-interval policy unchanged.",
+  "changes": [
+    "Fixed x-axis ticks at 0, 20, 40, 60 KiB.",
+    "Short integer tick labels; KiB unit moved to the x-axis label."
+  ],
+  "matplotlib_version": "3.11.2",
+  "backend": "Agg",
+  "dependency_target": "E:\\Skill ＆ Harness\\tmp\\evidence-strengthening-matplotlib",
+  "configuration_directory": "E:\\Skill ＆ Harness\\publication\\evidence-strengthening-20260919\\论文材料\\证据合同补强_20260919\\strengthening-20260919-085337\\.mplconfig",
+  "csv_sha256": "c424c8124a67bec9a8cbd5c73cc7fb7784da4271bf8fd5262d37825ebba264a8",
+  "original_figure_sha256": {
+    "BUDGET_COVERAGE.svg": "04ae247c685d7d289d10a839ea0ca52ba394882c263429fbba8a2fa3265eec8f",
+    "BUDGET_COVERAGE.png": "96a0e175364051050b43bac127c0fb19b6270cb2259ad39cc187edfab74197a7"
+  },
+  "reviewed_figure_sha256": {
+    "BUDGET_COVERAGE_REVIEWED.svg": "354ea5f686961290c2c23d56af0b1c1b1333ea0c34fe881925ac524ea0098ba3",
+    "BUDGET_COVERAGE_REVIEWED.png": "b533b231f47c0c2048e1ea5f43089b264f165b43b87c6906bb6c27665afb0b34"
+  },
+  "originals_and_csv_unchanged": true,
+  "x_range_bytes": [
+    0,
+    76363
+  ],
+  "x_tick_bytes": [
+    0,
+    20480,
+    40960,
+    61440
+  ],
+  "x_tick_labels_KiB": [
+    "0",
+    "20",
+    "40",
+    "60"
+  ],
+  "y_range": [
+    -0.015,
+    1.015
+  ],
+  "panels": [
+    "family_equal_correct_point_coverage",
+    "family_equal_wrong_point_rate"
+  ],
+  "policies": [
+    "dependency_guided",
+    "global_fixed",
+    "metric_static",
+    "random"
+  ],
+  "series_point_counts": [
+    {
+      "panel_field": "family_equal_correct_point_coverage",
+      "policy": "dependency_guided",
+      "points": 10
+    },
+    {
+      "panel_field": "family_equal_correct_point_coverage",
+      "policy": "global_fixed",
+      "points": 10
+    },
+    {
+      "panel_field": "family_equal_correct_point_coverage",
+      "policy": "metric_static",
+      "points": 10
+    },
+    {
+      "panel_field": "family_equal_correct_point_coverage",
+      "policy": "random",
+      "points": 10
+    },
+    {
+      "panel_field": "family_equal_wrong_point_rate",
+      "policy": "dependency_guided",
+      "points": 10
+    },
+    {
+      "panel_field": "family_equal_wrong_point_rate",
+      "policy": "global_fixed",
+      "points": 10
+    },
+    {
+      "panel_field": "family_equal_wrong_point_rate",
+      "policy": "metric_static",
+      "points": 10
+    },
+    {
+      "panel_field": "family_equal_wrong_point_rate",
+      "policy": "random",
+      "points": 10
+    }
+  ],
+  "series_sha256": "3c082bbb4a0e947195c2fad3a088db59cf05aad51497757f5d6324d16e9e6f01",
+  "layout_checks": {
+    "tick_label_overlap": false,
+    "legend_covers_axes": false
+  },
+  "visual_review": "PASS: rendered PNG inspected; x ticks are distinct, KiB unit is explicit, all four legend entries are below the axes without covering data, and both panels retain the original ranges.",
+  "predictor_runs": 0,
+  "new_sandbox_executions": 0,
+  "model_calls": 0
+}

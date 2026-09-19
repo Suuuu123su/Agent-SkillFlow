@@ -1,0 +1,1922 @@
+[
+  {
+    "candidate_index": 0,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "provenance",
+      "decision_reason",
+      "counterfactual",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27139722,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 1,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "decision_reason",
+      "provenance",
+      "counterfactual",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27139722,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 2,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "counterfactual",
+      "provenance",
+      "decision_reason",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27144842,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 3,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "receipt",
+      "provenance",
+      "decision_reason",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27213450,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 4,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "provenance",
+      "decision_reason",
+      "receipt",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27172490,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 5,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "decision_reason",
+      "provenance",
+      "receipt",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27172490,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 6,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "counterfactual",
+      "provenance",
+      "receipt",
+      "decision_reason",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27183754,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 7,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "receipt",
+      "provenance",
+      "counterfactual",
+      "decision_reason",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27215498,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 8,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "provenance",
+      "counterfactual",
+      "decision_reason",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27139722,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 9,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "decision_reason",
+      "counterfactual",
+      "provenance",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27142794,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 10,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "counterfactual",
+      "decision_reason",
+      "provenance",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27144842,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 11,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "receipt",
+      "decision_reason",
+      "provenance",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27213450,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 12,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "provenance",
+      "counterfactual",
+      "receipt",
+      "decision_reason",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27178634,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 13,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "decision_reason",
+      "counterfactual",
+      "receipt",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27181706,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 14,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "counterfactual",
+      "decision_reason",
+      "receipt",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27183754,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 15,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "receipt",
+      "decision_reason",
+      "counterfactual",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27220618,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 16,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "provenance",
+      "receipt",
+      "decision_reason",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27203210,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 17,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "decision_reason",
+      "receipt",
+      "provenance",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27196042,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 18,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "counterfactual",
+      "receipt",
+      "provenance",
+      "decision_reason",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27209354,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 19,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "receipt",
+      "counterfactual",
+      "provenance",
+      "decision_reason",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27224714,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 20,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "provenance",
+      "receipt",
+      "counterfactual",
+      "decision_reason",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27205258,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 21,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "decision_reason",
+      "receipt",
+      "counterfactual",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27203210,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 22,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "counterfactual",
+      "receipt",
+      "decision_reason",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27209354,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 23,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "ALR",
+    "order": [
+      "receipt",
+      "counterfactual",
+      "decision_reason",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 27224714,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 0,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28384779,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 1,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "provenance",
+      "counterfactual",
+      "receipt",
+      "lifecycle",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28275211,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 2,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "provenance",
+      "lifecycle",
+      "counterfactual",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28368395,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 3,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "counterfactual",
+      "lifecycle",
+      "provenance",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28368395,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 4,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "receipt",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28357131,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 5,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "lifecycle",
+      "provenance",
+      "receipt",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28411403,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 6,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "provenance",
+      "lifecycle",
+      "receipt",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28395019,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 7,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "counterfactual",
+      "lifecycle",
+      "receipt",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28386827,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 8,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "receipt",
+      "lifecycle",
+      "counterfactual",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28359179,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 9,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "lifecycle",
+      "counterfactual",
+      "provenance",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28385803,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 10,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "provenance",
+      "counterfactual",
+      "lifecycle",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28350987,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 11,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "counterfactual",
+      "provenance",
+      "lifecycle",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28352011,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 12,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "receipt",
+      "provenance",
+      "lifecycle",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28338699,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 13,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "lifecycle",
+      "counterfactual",
+      "receipt",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28404235,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 14,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "counterfactual",
+      "provenance",
+      "receipt",
+      "lifecycle",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28276235,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 15,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "receipt",
+      "provenance",
+      "counterfactual",
+      "lifecycle",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28300811,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 16,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "provenance",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28426763,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 17,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "provenance",
+      "receipt",
+      "lifecycle",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28327435,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 18,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "counterfactual",
+      "receipt",
+      "lifecycle",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28309003,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 19,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "receipt",
+      "counterfactual",
+      "lifecycle",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28321291,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 20,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "counterfactual",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28428811,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 21,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "provenance",
+      "receipt",
+      "counterfactual",
+      "lifecycle",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28289547,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 22,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "counterfactual",
+      "receipt",
+      "provenance",
+      "lifecycle",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28290571,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 23,
+    "correct": 0,
+    "family_equal_coverage": 0,
+    "metric": "RIR",
+    "order": [
+      "receipt",
+      "counterfactual",
+      "provenance",
+      "lifecycle",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 28302859,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 0,
+    "correct": 1883,
+    "family_equal_coverage": 0.39229166666666665,
+    "metric": "TaskSuccess",
+    "order": [
+      "task_success_evidence",
+      "lifecycle",
+      "receipt",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156205284,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 1,
+    "correct": 1725,
+    "family_equal_coverage": 0.359375,
+    "metric": "TaskSuccess",
+    "order": [
+      "failure",
+      "receipt",
+      "lifecycle",
+      "task_success_evidence",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 157647076,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 2,
+    "correct": 1919,
+    "family_equal_coverage": 0.39979166666666666,
+    "metric": "TaskSuccess",
+    "order": [
+      "task_success_evidence",
+      "lifecycle",
+      "failure",
+      "receipt",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155661540,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 3,
+    "correct": 1907,
+    "family_equal_coverage": 0.39729166666666665,
+    "metric": "TaskSuccess",
+    "order": [
+      "task_success_evidence",
+      "failure",
+      "lifecycle",
+      "receipt",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155564260,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 4,
+    "correct": 1873,
+    "family_equal_coverage": 0.3902083333333333,
+    "metric": "TaskSuccess",
+    "order": [
+      "lifecycle",
+      "task_success_evidence",
+      "receipt",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156441828,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 5,
+    "correct": 1773,
+    "family_equal_coverage": 0.369375,
+    "metric": "TaskSuccess",
+    "order": [
+      "receipt",
+      "task_success_evidence",
+      "lifecycle",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 157000932,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 6,
+    "correct": 1900,
+    "family_equal_coverage": 0.3958333333333333,
+    "metric": "TaskSuccess",
+    "order": [
+      "failure",
+      "task_success_evidence",
+      "lifecycle",
+      "receipt",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155913444,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 7,
+    "correct": 1909,
+    "family_equal_coverage": 0.39770833333333333,
+    "metric": "TaskSuccess",
+    "order": [
+      "lifecycle",
+      "task_success_evidence",
+      "failure",
+      "receipt",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155898084,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 8,
+    "correct": 1750,
+    "family_equal_coverage": 0.36458333333333337,
+    "metric": "TaskSuccess",
+    "order": [
+      "receipt",
+      "task_success_evidence",
+      "failure",
+      "lifecycle",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 157139172,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 9,
+    "correct": 1779,
+    "family_equal_coverage": 0.370625,
+    "metric": "TaskSuccess",
+    "order": [
+      "failure",
+      "task_success_evidence",
+      "receipt",
+      "lifecycle",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156389604,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 10,
+    "correct": 1796,
+    "family_equal_coverage": 0.3741666666666667,
+    "metric": "TaskSuccess",
+    "order": [
+      "task_success_evidence",
+      "receipt",
+      "lifecycle",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156387556,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 11,
+    "correct": 1840,
+    "family_equal_coverage": 0.3833333333333333,
+    "metric": "TaskSuccess",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "task_success_evidence",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 157141220,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 12,
+    "correct": 1763,
+    "family_equal_coverage": 0.3672916666666667,
+    "metric": "TaskSuccess",
+    "order": [
+      "receipt",
+      "lifecycle",
+      "task_success_evidence",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 157195492,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 13,
+    "correct": 1889,
+    "family_equal_coverage": 0.3935416666666667,
+    "metric": "TaskSuccess",
+    "order": [
+      "failure",
+      "lifecycle",
+      "task_success_evidence",
+      "receipt",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156205284,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 14,
+    "correct": 1773,
+    "family_equal_coverage": 0.369375,
+    "metric": "TaskSuccess",
+    "order": [
+      "task_success_evidence",
+      "receipt",
+      "failure",
+      "lifecycle",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156529892,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 15,
+    "correct": 1811,
+    "family_equal_coverage": 0.3772916666666667,
+    "metric": "TaskSuccess",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "failure",
+      "task_success_evidence",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 157790436,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 16,
+    "correct": 1734,
+    "family_equal_coverage": 0.36125,
+    "metric": "TaskSuccess",
+    "order": [
+      "receipt",
+      "lifecycle",
+      "failure",
+      "task_success_evidence",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 157844708,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 17,
+    "correct": 1834,
+    "family_equal_coverage": 0.38208333333333333,
+    "metric": "TaskSuccess",
+    "order": [
+      "failure",
+      "lifecycle",
+      "receipt",
+      "task_success_evidence",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 157347044,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 18,
+    "correct": 1893,
+    "family_equal_coverage": 0.394375,
+    "metric": "TaskSuccess",
+    "order": [
+      "lifecycle",
+      "failure",
+      "task_success_evidence",
+      "receipt",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156374244,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 19,
+    "correct": 1732,
+    "family_equal_coverage": 0.36083333333333334,
+    "metric": "TaskSuccess",
+    "order": [
+      "receipt",
+      "failure",
+      "task_success_evidence",
+      "lifecycle",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 157605092,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 20,
+    "correct": 1736,
+    "family_equal_coverage": 0.3616666666666667,
+    "metric": "TaskSuccess",
+    "order": [
+      "failure",
+      "receipt",
+      "task_success_evidence",
+      "lifecycle",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 157389028,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 21,
+    "correct": 1786,
+    "family_equal_coverage": 0.3720833333333333,
+    "metric": "TaskSuccess",
+    "order": [
+      "task_success_evidence",
+      "failure",
+      "receipt",
+      "lifecycle",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156044516,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 22,
+    "correct": 1838,
+    "family_equal_coverage": 0.3829166666666667,
+    "metric": "TaskSuccess",
+    "order": [
+      "lifecycle",
+      "failure",
+      "receipt",
+      "task_success_evidence",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 157516004,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 23,
+    "correct": 1721,
+    "family_equal_coverage": 0.35854166666666665,
+    "metric": "TaskSuccess",
+    "order": [
+      "receipt",
+      "failure",
+      "lifecycle",
+      "task_success_evidence",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 157863140,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 0,
+    "correct": 1804,
+    "family_equal_coverage": 0.37583333333333335,
+    "metric": "UEA",
+    "order": [
+      "receipt",
+      "grant",
+      "scope_lifetime",
+      "lifecycle",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155779300,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 1,
+    "correct": 1763,
+    "family_equal_coverage": 0.3672916666666667,
+    "metric": "UEA",
+    "order": [
+      "scope_lifetime",
+      "failure",
+      "receipt",
+      "grant",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155716836,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 2,
+    "correct": 1948,
+    "family_equal_coverage": 0.4058333333333333,
+    "metric": "UEA",
+    "order": [
+      "grant",
+      "lifecycle",
+      "failure",
+      "scope_lifetime",
+      "receipt",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 154768612,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 3,
+    "correct": 1931,
+    "family_equal_coverage": 0.40229166666666666,
+    "metric": "UEA",
+    "order": [
+      "scope_lifetime",
+      "grant",
+      "failure",
+      "lifecycle",
+      "receipt",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 154129636,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 4,
+    "correct": 1834,
+    "family_equal_coverage": 0.38208333333333333,
+    "metric": "UEA",
+    "order": [
+      "grant",
+      "receipt",
+      "scope_lifetime",
+      "lifecycle",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155266276,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 5,
+    "correct": 1808,
+    "family_equal_coverage": 0.37666666666666665,
+    "metric": "UEA",
+    "order": [
+      "scope_lifetime",
+      "receipt",
+      "grant",
+      "lifecycle",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155745508,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 6,
+    "correct": 1876,
+    "family_equal_coverage": 0.39083333333333337,
+    "metric": "UEA",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "grant",
+      "scope_lifetime",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155949284,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 7,
+    "correct": 1761,
+    "family_equal_coverage": 0.366875,
+    "metric": "UEA",
+    "order": [
+      "failure",
+      "receipt",
+      "grant",
+      "scope_lifetime",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155927780,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 8,
+    "correct": 1771,
+    "family_equal_coverage": 0.36895833333333333,
+    "metric": "UEA",
+    "order": [
+      "receipt",
+      "grant",
+      "scope_lifetime",
+      "failure",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155944164,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 9,
+    "correct": 1801,
+    "family_equal_coverage": 0.37520833333333337,
+    "metric": "UEA",
+    "order": [
+      "grant",
+      "receipt",
+      "scope_lifetime",
+      "failure",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155431140,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 10,
+    "correct": 1775,
+    "family_equal_coverage": 0.3697916666666667,
+    "metric": "UEA",
+    "order": [
+      "scope_lifetime",
+      "receipt",
+      "grant",
+      "failure",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155910372,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 11,
+    "correct": 1870,
+    "family_equal_coverage": 0.38958333333333334,
+    "metric": "UEA",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "grant",
+      "failure",
+      "scope_lifetime",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156698852,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 12,
+    "correct": 1764,
+    "family_equal_coverage": 0.3675,
+    "metric": "UEA",
+    "order": [
+      "failure",
+      "receipt",
+      "grant",
+      "lifecycle",
+      "scope_lifetime",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156202212,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 13,
+    "correct": 1806,
+    "family_equal_coverage": 0.37625,
+    "metric": "UEA",
+    "order": [
+      "receipt",
+      "grant",
+      "lifecycle",
+      "scope_lifetime",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155929828,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 14,
+    "correct": 1836,
+    "family_equal_coverage": 0.3825,
+    "metric": "UEA",
+    "order": [
+      "grant",
+      "receipt",
+      "lifecycle",
+      "scope_lifetime",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155416804,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 15,
+    "correct": 1803,
+    "family_equal_coverage": 0.375625,
+    "metric": "UEA",
+    "order": [
+      "scope_lifetime",
+      "receipt",
+      "lifecycle",
+      "grant",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155954404,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 16,
+    "correct": 1873,
+    "family_equal_coverage": 0.3902083333333333,
+    "metric": "UEA",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "scope_lifetime",
+      "grant",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156053732,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 17,
+    "correct": 1760,
+    "family_equal_coverage": 0.36666666666666664,
+    "metric": "UEA",
+    "order": [
+      "failure",
+      "receipt",
+      "scope_lifetime",
+      "grant",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 155971812,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 18,
+    "correct": 1800,
+    "family_equal_coverage": 0.375,
+    "metric": "UEA",
+    "order": [
+      "receipt",
+      "grant",
+      "lifecycle",
+      "failure",
+      "scope_lifetime",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156691684,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 19,
+    "correct": 1830,
+    "family_equal_coverage": 0.38125,
+    "metric": "UEA",
+    "order": [
+      "grant",
+      "receipt",
+      "lifecycle",
+      "failure",
+      "scope_lifetime",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156178660,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 20,
+    "correct": 1765,
+    "family_equal_coverage": 0.3677083333333333,
+    "metric": "UEA",
+    "order": [
+      "scope_lifetime",
+      "receipt",
+      "lifecycle",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156431588,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 21,
+    "correct": 1835,
+    "family_equal_coverage": 0.38229166666666664,
+    "metric": "UEA",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "scope_lifetime",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156529892,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 22,
+    "correct": 1753,
+    "family_equal_coverage": 0.3652083333333333,
+    "metric": "UEA",
+    "order": [
+      "failure",
+      "receipt",
+      "scope_lifetime",
+      "lifecycle",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156305636,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 23,
+    "correct": 1771,
+    "family_equal_coverage": 0.36895833333333333,
+    "metric": "UEA",
+    "order": [
+      "receipt",
+      "grant",
+      "failure",
+      "scope_lifetime",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 156307684,
+    "wrong": 0
+  }
+]

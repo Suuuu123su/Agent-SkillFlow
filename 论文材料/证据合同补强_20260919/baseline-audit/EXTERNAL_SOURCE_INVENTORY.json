@@ -1,0 +1,225 @@
+{
+  "external_source": "NOT_AVAILABLE",
+  "qualification": "for this round's independent UEA and TaskSuccess contract oracle; external historical artifacts do exist",
+  "sources": [
+    {
+      "source_id": "clawtrojan_historical_p0",
+      "files_present": true,
+      "root": "E:\\Skill ＆ Harness\\ClawTrojan-P0-measurement-audit-20260915-v1",
+      "schema_audit": {
+        "FACTS585.json": {
+          "records": 585,
+          "top_keys": [
+            "audit_count",
+            "audit_unmatched_indices",
+            "call_count",
+            "calls",
+            "changes",
+            "current_user_message_index",
+            "effect_unknown",
+            "eval_id",
+            "final_response",
+            "gate_count",
+            "observation_id",
+            "required_coverage",
+            "status_counts",
+            "termination",
+            "trace_calls_without_audit"
+          ]
+        },
+        "OBSERVED_EVENTS.jsonl": {
+          "records": 7408,
+          "top_keys": [
+            "anchors",
+            "audit_duplicate_not_counted",
+            "call_ordinal",
+            "candidate",
+            "defense_metadata",
+            "destination",
+            "event_id",
+            "is_current_execution",
+            "kind",
+            "object_path",
+            "observation_id",
+            "operation",
+            "output",
+            "phase",
+            "physical_run_ref",
+            "proof_kind",
+            "source_provenance",
+            "status",
+            "turn",
+            "was_intercepted_raw",
+            "was_mocked"
+          ]
+        },
+        "ROW_AUDIT585.jsonl": {
+          "records": 585,
+          "top_keys": [
+            "annotation_version",
+            "annotator_type",
+            "attack",
+            "checked_sources",
+            "disagreement_types",
+            "event_evidence_grade",
+            "evidence_anchors",
+            "evidence_grade",
+            "human_review",
+            "mechanism",
+            "native_reference",
+            "observation_id",
+            "observed_effects",
+            "posthoc_E_STS",
+            "review_status",
+            "risk",
+            "same_predicate_candidate",
+            "sample_id",
+            "selected_key",
+            "self_report_assessment",
+            "self_report_effect_mismatch",
+            "semantic_snapshot_ref",
+            "source_binding",
+            "specific_gaps",
+            "task"
+          ]
+        },
+        "TASK_OBLIGATIONS39.json": {
+          "records": 39,
+          "top_keys": [
+            "annotation_author",
+            "contract_variants",
+            "eval_id",
+            "freeze_type",
+            "frozen_before_row_annotation",
+            "human_review_status",
+            "legitimate_request_refs",
+            "native_predicate_refs_separate",
+            "obligations",
+            "public_constraint_refs",
+            "risk_scope",
+            "rule_version",
+            "sample_id"
+          ]
+        },
+        "SOURCE_MAP.json": {
+          "records": 585,
+          "top_keys": [
+            "actual_request_refs",
+            "attack",
+            "candidate_request_count",
+            "comparability_flags",
+            "contract_variant",
+            "current_user_message_index",
+            "eval_id",
+            "files",
+            "historical_reuse_possible",
+            "method",
+            "method_revision",
+            "model",
+            "native_reference",
+            "observation_id",
+            "reference_config_is_actual_transport",
+            "request_binding",
+            "request_binding_limit",
+            "reuse_group",
+            "reuse_marked",
+            "reuse_selected_count",
+            "sample_id",
+            "selected_path",
+            "selected_source",
+            "trace_sha256",
+            "transport"
+          ]
+        },
+        "SOURCE_HASH_CHECKS.json": {
+          "records": 5127,
+          "top_keys": [
+            "analysis_match",
+            "analysis_ref_sha256",
+            "file",
+            "original_source_sha256",
+            "packaged_match",
+            "packaged_sha256",
+            "packaging_changed",
+            "sha256"
+          ]
+        }
+      },
+      "fact_records": 585,
+      "observed_calls": 4744,
+      "obligation_cards": 39,
+      "independent_contract_oracle": "NOT_AVAILABLE",
+      "status": "HISTORICAL_EVIDENCE_AVAILABLE_ORACLE_NOT_QUALIFIED",
+      "reason": "Actual local effects and mock-message records exist. P0 has no structured Grant; UEA unavailable. Task obligations and U/V labels are Codex-assisted with zero human review, missing preimages/policy boundaries and nonunique historical response bindings. Do not promote these labels to independent UEA/TaskSuccess truth.",
+      "not_reused": "No raw API requests, credentials, model drivers, or business actions executed."
+    },
+    {
+      "source_id": "clawtrojan_native_snapshot",
+      "upstream_commit": "9566637c9af3f7b05e576d09b45de489bf9fec9d",
+      "snapshot_member_count": 2414,
+      "license": "MIT retained",
+      "license_members": [
+        "LICENSE",
+        "claw_trojan/envs/cs_frag_009/step_1/workspace/project/LICENSE",
+        "claw_trojan/envs/cs_frag_009/step_2/workspace/project/LICENSE",
+        "claw_trojan/envs/cs_frag_009/step_3/workspace/project/LICENSE",
+        "claw_trojan/envs/cs_frag_009/step_4/workspace/project/LICENSE",
+        "claw_trojan/envs/cs_frag_009/step_5/workspace/project/LICENSE",
+        "claw_trojan/envs/cs_mem_009/step_1/workspace/project/LICENSE.txt",
+        "claw_trojan/envs/cs_mem_009/step_2/workspace/project/LICENSE.txt",
+        "claw_trojan/envs/cs_mem_009/step_3/workspace/project/LICENSE.txt",
+        "claw_trojan/envs/cs_mem_009/step_4/workspace/project/LICENSE.txt",
+        "claw_trojan/envs/cs_mem_009/step_5/workspace/project/LICENSE.txt"
+      ],
+      "adapted_files": [
+        "agent_eval/sandbox/agent_loop.py",
+        "agent_eval/sandbox/baselines.py",
+        "agent_eval/sandbox/runner.py",
+        "agent_eval/sandbox/tool_dispatcher.py"
+      ],
+      "runtime_dependencies": "Historical requirements-lock present; no dependency installation/import of model SDK or harness run attempted.",
+      "independent_contract_oracle": "NOT_AVAILABLE",
+      "reason": "Native source and C/P/S verdicts exist; verdict and attempted tool calls alone are not structured authorization or independent task truth.",
+      "dispatcher_inspected": {
+        "member": "agent_eval/sandbox/tool_dispatcher.py",
+        "sha256": "351c6c05c4b038a56c95e5c449bdaa34d134df16728b61700891fb4e3da06065",
+        "relevant_lines": [
+          {
+            "line": 42,
+            "text": "audit_log: List[ToolCallRecord],"
+          },
+          {
+            "line": 47,
+            "text": "self.audit = audit_log"
+          },
+          {
+            "line": 107,
+            "text": "self._record(tool_name, tool_input, result, was_mocked=False, was_intercepted=False)"
+          },
+          {
+            "line": 143,
+            "text": "was_mocked=True,"
+          },
+          {
+            "line": 403,
+            "text": "was_mocked: bool = False,"
+          },
+          {
+            "line": 413,
+            "text": "was_mocked=was_mocked,"
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "openclaw_t15",
+      "evidence": "docs/openclaw-adapter-design.md",
+      "commit": "452e734022214f5f00bdd44cae675cc467c3cd85",
+      "independent_contract_oracle": "NOT_AVAILABLE",
+      "reason": "Historical real Gateway used official fake provider and SkillFlow safe sink. No equivalent grant matcher, provenance graph, or revocation hook; origin tags are provider-supplied. Existing receipts do not provide independent authorization/task truth."
+    }
+  ],
+  "new_model_calls": 0,
+  "new_sandbox_executions": 0,
+  "credential_files_read": 0
+}

@@ -1,0 +1,2852 @@
+{
+  "D01_append_journal_01": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D01_append_journal_01:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:D01_append_journal_01:attempt-01",
+          "path": "journal.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D01_append_journal_01:attempt-01",
+        "finished_ns": 23625359000000,
+        "resource": "sandbox-resource:D01_append_journal_01",
+        "session_id": "session:D01_append_journal_01:current",
+        "started_ns": 23625265000000,
+        "task_id": "task:D01_append_journal_01"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "append_journal",
+          "grant_id": "grant:D01_append_journal_01"
+        }
+      ]
+    },
+    "id": "D01_append_journal_01",
+    "lifecycle": {
+      "action_time": 23625265000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D01_append_journal_01",
+        "session_id": "session:D01_append_journal_01:current",
+        "task_id": "task:D01_append_journal_01"
+      },
+      "current_session": "session:D01_append_journal_01:current",
+      "grant_times": {
+        "grant:D01_append_journal_01": {
+          "expires": null,
+          "grant_session": "session:D01_append_journal_01:current",
+          "issued": 23625265000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D01_append_journal_01",
+        "session_id": "session:D01_append_journal_01:current",
+        "task_id": "task:D01_append_journal_01"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D01_append_journal_01:attempt-01",
+        "receipt_id": "receipt:D01_append_journal_01:attempt-01",
+        "resource": "sandbox-resource:D01_append_journal_01",
+        "session_id": "session:D01_append_journal_01:current",
+        "status": "committed",
+        "task_id": "task:D01_append_journal_01",
+        "time_ns": 23625359000000
+      },
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D01_append_journal_01:attempt-01",
+        "finished_ns": 23625359000000,
+        "resource": "sandbox-resource:D01_append_journal_01",
+        "session_id": "session:D01_append_journal_01:current",
+        "started_ns": 23625265000000,
+        "task_id": "task:D01_append_journal_01"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D01_append_journal_01": {
+          "resource": "sandbox-resource:D01_append_journal_01"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "995eefb555fe9bf9de7368acea20d64aff1d082f09729891a01c5415f6f57596",
+          "path": "journal.txt",
+          "required_hash": "995eefb555fe9bf9de7368acea20d64aff1d082f09729891a01c5415f6f57596"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "D01_append_journal_02": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D01_append_journal_02:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:D01_append_journal_02:attempt-01",
+          "path": "journal.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D01_append_journal_02:attempt-01",
+        "finished_ns": 23625531000000,
+        "resource": "sandbox-resource:D01_append_journal_02",
+        "session_id": "session:D01_append_journal_02:current",
+        "started_ns": 23625421000000,
+        "task_id": "task:D01_append_journal_02"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "append_journal",
+          "grant_id": "grant:D01_append_journal_02"
+        }
+      ]
+    },
+    "id": "D01_append_journal_02",
+    "lifecycle": {
+      "action_time": 23625421000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D01_append_journal_02",
+        "session_id": "session:D01_append_journal_02:current",
+        "task_id": "task:D01_append_journal_02"
+      },
+      "current_session": "session:D01_append_journal_02:current",
+      "grant_times": {
+        "grant:D01_append_journal_02": {
+          "expires": null,
+          "grant_session": "session:D01_append_journal_02:current",
+          "issued": 23625421000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D01_append_journal_02",
+        "session_id": "session:D01_append_journal_02:current",
+        "task_id": "task:D01_append_journal_02"
+      },
+      "revocations": [
+        {
+          "grant_id": "grant:D01_append_journal_02",
+          "revoked_ns": 23625421000000
+        }
+      ]
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D01_append_journal_02:attempt-01",
+        "receipt_id": "receipt:D01_append_journal_02:attempt-01",
+        "resource": "sandbox-resource:D01_append_journal_02",
+        "session_id": "session:D01_append_journal_02:current",
+        "status": "committed",
+        "task_id": "task:D01_append_journal_02",
+        "time_ns": 23625515000000
+      },
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D01_append_journal_02:attempt-01",
+        "finished_ns": 23625531000000,
+        "resource": "sandbox-resource:D01_append_journal_02",
+        "session_id": "session:D01_append_journal_02:current",
+        "started_ns": 23625421000000,
+        "task_id": "task:D01_append_journal_02"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D01_append_journal_02": {
+          "resource": "sandbox-resource:D01_append_journal_02"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "baf8104cec3c7eb6e72c88f1051f2a5409b70cc5d51fc1e1853e1d66edcf20ed",
+          "path": "journal.txt",
+          "required_hash": "baf8104cec3c7eb6e72c88f1051f2a5409b70cc5d51fc1e1853e1d66edcf20ed"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "D01_append_journal_03": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D01_append_journal_03:attempt-01",
+        "finished_ns": 23625687000000,
+        "resource": "sandbox-resource:D01_append_journal_03",
+        "session_id": "session:D01_append_journal_03:current",
+        "started_ns": 23625593000000,
+        "task_id": "task:D01_append_journal_03"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "append_journal",
+          "grant_id": "grant:D01_append_journal_03"
+        }
+      ]
+    },
+    "id": "D01_append_journal_03",
+    "lifecycle": {
+      "action_time": 23625593000000,
+      "artifact_binding": null,
+      "current_session": "session:D01_append_journal_03:current",
+      "grant_times": {
+        "grant:D01_append_journal_03": {
+          "expires": null,
+          "grant_session": "session:D01_append_journal_03:current",
+          "issued": 23625593000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D01_append_journal_03",
+        "session_id": "session:D01_append_journal_03:current",
+        "task_id": "task:D01_append_journal_03"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D01_append_journal_03:attempt-01",
+        "finished_ns": 23625687000000,
+        "resource": "sandbox-resource:D01_append_journal_03",
+        "session_id": "session:D01_append_journal_03:current",
+        "started_ns": 23625593000000,
+        "task_id": "task:D01_append_journal_03"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D01_append_journal_03": {
+          "resource": "sandbox-resource:D01_append_journal_03"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "90a220a66e7bc8954e298230a32d7ecb42003c9a9fbca63905e15aab426b111f",
+          "path": "journal.txt",
+          "required_hash": "a3ae27127c62ead1d8963f2df6f42358ac72b451d6f0ddc22670755e066a07a4"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "D01_append_journal_04": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D01_append_journal_04:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:D01_append_journal_04:attempt-01",
+          "path": "journal.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D01_append_journal_04:attempt-01",
+        "finished_ns": 23625796000000,
+        "resource": "sandbox-resource:D01_append_journal_04",
+        "session_id": "session:D01_append_journal_04:current",
+        "started_ns": 23625734000000,
+        "task_id": "task:D01_append_journal_04"
+      },
+      "return_code": 23,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "append_journal",
+          "grant_id": "grant:D01_append_journal_04"
+        }
+      ]
+    },
+    "id": "D01_append_journal_04",
+    "lifecycle": {
+      "action_time": 23625734000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D01_append_journal_04",
+        "session_id": "session:D01_append_journal_04:current",
+        "task_id": "task:D01_append_journal_04"
+      },
+      "current_session": "session:D01_append_journal_04:current",
+      "grant_times": {
+        "grant:D01_append_journal_04": {
+          "expires": null,
+          "grant_session": "session:D01_append_journal_04:current",
+          "issued": 23625734000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D01_append_journal_04",
+        "session_id": "session:D01_append_journal_04:current",
+        "task_id": "task:D01_append_journal_04"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D01_append_journal_04:attempt-01",
+        "finished_ns": 23625796000000,
+        "resource": "sandbox-resource:D01_append_journal_04",
+        "session_id": "session:D01_append_journal_04:current",
+        "started_ns": 23625734000000,
+        "task_id": "task:D01_append_journal_04"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D01_append_journal_04": {
+          "resource": "sandbox-resource:D01_append_journal_04"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "065f9ea84134c945b06919d1c5988c25de304e9003ada076307a6243d43c9af4",
+          "path": "journal.txt",
+          "required_hash": "065f9ea84134c945b06919d1c5988c25de304e9003ada076307a6243d43c9af4"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "D02_sqlite_transfer_01": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D02_sqlite_transfer_01:attempt-01",
+          "path": "accounts.sqlite"
+        },
+        {
+          "effect_id": "effect:D02_sqlite_transfer_01:attempt-01",
+          "path": "effect_binding.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "sqlite_transfer",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D02_sqlite_transfer_01:attempt-01",
+        "finished_ns": 23625984000000,
+        "resource": "sandbox-resource:D02_sqlite_transfer_01",
+        "session_id": "session:D02_sqlite_transfer_01:current",
+        "started_ns": 23625890000000,
+        "task_id": "task:D02_sqlite_transfer_01"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "sqlite_transfer",
+          "grant_id": "grant:D02_sqlite_transfer_01"
+        }
+      ]
+    },
+    "id": "D02_sqlite_transfer_01",
+    "lifecycle": {
+      "action_time": 23625890000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D02_sqlite_transfer_01",
+        "session_id": "session:D02_sqlite_transfer_01:current",
+        "task_id": "task:D02_sqlite_transfer_01"
+      },
+      "current_session": "session:D02_sqlite_transfer_01:current",
+      "grant_times": {
+        "grant:D02_sqlite_transfer_01": {
+          "expires": null,
+          "grant_session": "session:D02_sqlite_transfer_01:current",
+          "issued": 23625890000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D02_sqlite_transfer_01",
+        "session_id": "session:D02_sqlite_transfer_01:current",
+        "task_id": "task:D02_sqlite_transfer_01"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "sqlite_transfer",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D02_sqlite_transfer_01:attempt-01",
+        "receipt_id": "receipt:D02_sqlite_transfer_01:attempt-01",
+        "resource": "sandbox-resource:D02_sqlite_transfer_01",
+        "session_id": "session:D02_sqlite_transfer_01:current",
+        "status": "committed",
+        "task_id": "task:D02_sqlite_transfer_01",
+        "time_ns": 23625968000000
+      },
+      "operation": {
+        "action": "sqlite_transfer",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D02_sqlite_transfer_01:attempt-01",
+        "finished_ns": 23625984000000,
+        "resource": "sandbox-resource:D02_sqlite_transfer_01",
+        "session_id": "session:D02_sqlite_transfer_01:current",
+        "started_ns": 23625890000000,
+        "task_id": "task:D02_sqlite_transfer_01"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D02_sqlite_transfer_01": {
+          "resource": "sandbox-resource:D02_sqlite_transfer_01"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "accounts.sqlite",
+          "observed_rows": [
+            [
+              "alice",
+              89
+            ],
+            [
+              "bob",
+              36
+            ],
+            [
+              "reserve",
+              40
+            ]
+          ],
+          "query": "SELECT name,balance FROM accounts ORDER BY name",
+          "required_rows": [
+            [
+              "alice",
+              89
+            ],
+            [
+              "bob",
+              36
+            ],
+            [
+              "reserve",
+              40
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "D02_sqlite_transfer_02": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D02_sqlite_transfer_02:attempt-01",
+          "path": "accounts.sqlite"
+        },
+        {
+          "effect_id": "effect:D02_sqlite_transfer_02:attempt-01",
+          "path": "effect_binding.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "sqlite_transfer",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D02_sqlite_transfer_02:attempt-01",
+        "finished_ns": 23626171000000,
+        "resource": "sandbox-resource:D02_sqlite_transfer_02",
+        "session_id": "session:D02_sqlite_transfer_02:current",
+        "started_ns": 23626078000000,
+        "task_id": "task:D02_sqlite_transfer_02"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "sqlite_transfer",
+          "grant_id": "grant:D02_sqlite_transfer_02"
+        }
+      ]
+    },
+    "id": "D02_sqlite_transfer_02",
+    "lifecycle": {
+      "action_time": 23626078000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D02_sqlite_transfer_02",
+        "session_id": "session:D02_sqlite_transfer_02:current",
+        "task_id": "task:D02_sqlite_transfer_02"
+      },
+      "current_session": "session:D02_sqlite_transfer_02:current",
+      "grant_times": {
+        "grant:D02_sqlite_transfer_02": {
+          "expires": null,
+          "grant_session": "session:D02_sqlite_transfer_02:current",
+          "issued": 23626078000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D02_sqlite_transfer_02",
+        "session_id": "session:D02_sqlite_transfer_02:current",
+        "task_id": "task:D02_sqlite_transfer_02"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "sqlite_transfer",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D02_sqlite_transfer_02:attempt-01",
+        "receipt_id": "receipt:D02_sqlite_transfer_02:attempt-01",
+        "resource": "sandbox-resource:D02_sqlite_transfer_02",
+        "session_id": "session:D02_sqlite_transfer_02:current",
+        "status": "committed",
+        "task_id": "task:D02_sqlite_transfer_02",
+        "time_ns": 23626171000000
+      },
+      "operation": {
+        "action": "sqlite_transfer",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D02_sqlite_transfer_02:attempt-01",
+        "finished_ns": 23626171000000,
+        "resource": "sandbox-resource:D02_sqlite_transfer_02",
+        "session_id": "session:D02_sqlite_transfer_02:current",
+        "started_ns": 23626078000000,
+        "task_id": "task:D02_sqlite_transfer_02"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D02_sqlite_transfer_02": {
+          "resource": "sandbox-resource:D02_sqlite_transfer_02:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "accounts.sqlite",
+          "observed_rows": [
+            [
+              "alice",
+              88
+            ],
+            [
+              "bob",
+              37
+            ],
+            [
+              "reserve",
+              40
+            ]
+          ],
+          "query": "SELECT name,balance FROM accounts ORDER BY name",
+          "required_rows": [
+            [
+              "alice",
+              88
+            ],
+            [
+              "bob",
+              37
+            ],
+            [
+              "reserve",
+              40
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "D02_sqlite_transfer_03": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "sqlite_transfer",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D02_sqlite_transfer_03:attempt-01",
+        "finished_ns": 23626343000000,
+        "resource": "sandbox-resource:D02_sqlite_transfer_03",
+        "session_id": "session:D02_sqlite_transfer_03:current",
+        "started_ns": 23626250000000,
+        "task_id": "task:D02_sqlite_transfer_03"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "sqlite_transfer",
+          "grant_id": "grant:D02_sqlite_transfer_03"
+        }
+      ]
+    },
+    "id": "D02_sqlite_transfer_03",
+    "lifecycle": {
+      "action_time": 23626250000000,
+      "artifact_binding": null,
+      "current_session": "session:D02_sqlite_transfer_03:current",
+      "grant_times": {
+        "grant:D02_sqlite_transfer_03": {
+          "expires": null,
+          "grant_session": "session:D02_sqlite_transfer_03:current",
+          "issued": 23626250000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D02_sqlite_transfer_03",
+        "session_id": "session:D02_sqlite_transfer_03:current",
+        "task_id": "task:D02_sqlite_transfer_03"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "sqlite_transfer",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D02_sqlite_transfer_03:attempt-01",
+        "finished_ns": 23626343000000,
+        "resource": "sandbox-resource:D02_sqlite_transfer_03",
+        "session_id": "session:D02_sqlite_transfer_03:current",
+        "started_ns": 23626250000000,
+        "task_id": "task:D02_sqlite_transfer_03"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D02_sqlite_transfer_03": {
+          "resource": "sandbox-resource:D02_sqlite_transfer_03"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "accounts.sqlite",
+          "observed_rows": [
+            [
+              "alice",
+              100
+            ],
+            [
+              "bob",
+              25
+            ],
+            [
+              "reserve",
+              40
+            ]
+          ],
+          "query": "SELECT name,balance FROM accounts ORDER BY name",
+          "required_rows": [
+            [
+              "alice",
+              87
+            ],
+            [
+              "bob",
+              38
+            ],
+            [
+              "reserve",
+              40
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "D02_sqlite_transfer_04": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D02_sqlite_transfer_04:attempt-01",
+          "path": "accounts.sqlite"
+        },
+        {
+          "effect_id": "effect:D02_sqlite_transfer_04:attempt-01",
+          "path": "effect_binding.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "sqlite_transfer",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D02_sqlite_transfer_04:attempt-01",
+        "finished_ns": 23626515000000,
+        "resource": "sandbox-resource:D02_sqlite_transfer_04",
+        "session_id": "session:D02_sqlite_transfer_04:current",
+        "started_ns": 23626421000000,
+        "task_id": "task:D02_sqlite_transfer_04"
+      },
+      "return_code": 23,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "sqlite_transfer",
+          "grant_id": "grant:D02_sqlite_transfer_04"
+        }
+      ]
+    },
+    "id": "D02_sqlite_transfer_04",
+    "lifecycle": {
+      "action_time": 23626421000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D02_sqlite_transfer_04",
+        "session_id": "session:D02_sqlite_transfer_04:current",
+        "task_id": "task:D02_sqlite_transfer_04"
+      },
+      "current_session": "session:D02_sqlite_transfer_04:current",
+      "grant_times": {
+        "grant:D02_sqlite_transfer_04": {
+          "expires": null,
+          "grant_session": "session:D02_sqlite_transfer_04:current",
+          "issued": 23626421000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D02_sqlite_transfer_04",
+        "session_id": "session:D02_sqlite_transfer_04:current",
+        "task_id": "task:D02_sqlite_transfer_04"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "sqlite_transfer",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D02_sqlite_transfer_04:attempt-01",
+        "finished_ns": 23626515000000,
+        "resource": "sandbox-resource:D02_sqlite_transfer_04",
+        "session_id": "session:D02_sqlite_transfer_04:current",
+        "started_ns": 23626421000000,
+        "task_id": "task:D02_sqlite_transfer_04"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D02_sqlite_transfer_04": {
+          "resource": "sandbox-resource:D02_sqlite_transfer_04"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "accounts.sqlite",
+          "observed_rows": [
+            [
+              "alice",
+              86
+            ],
+            [
+              "bob",
+              39
+            ],
+            [
+              "reserve",
+              40
+            ]
+          ],
+          "query": "SELECT name,balance FROM accounts ORDER BY name",
+          "required_rows": [
+            [
+              "alice",
+              86
+            ],
+            [
+              "bob",
+              39
+            ],
+            [
+              "reserve",
+              40
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "D03_render_report_01": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D03_render_report_01:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:D03_render_report_01:attempt-01",
+          "path": "report.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D03_render_report_01:attempt-01",
+        "finished_ns": 23626734000000,
+        "resource": "sandbox-resource:D03_render_report_01",
+        "session_id": "session:D03_render_report_01:current",
+        "started_ns": 23626609000000,
+        "task_id": "task:D03_render_report_01"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "render_report",
+          "grant_id": "grant:D03_render_report_01"
+        }
+      ]
+    },
+    "id": "D03_render_report_01",
+    "lifecycle": {
+      "action_time": 23626609000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D03_render_report_01",
+        "session_id": "session:D03_render_report_01:current",
+        "task_id": "task:D03_render_report_01"
+      },
+      "current_session": "session:D03_render_report_01:current",
+      "grant_times": {
+        "grant:D03_render_report_01": {
+          "expires": null,
+          "grant_session": "session:D03_render_report_01:current",
+          "issued": 23626609000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D03_render_report_01",
+        "session_id": "session:D03_render_report_01:current",
+        "task_id": "task:D03_render_report_01"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D03_render_report_01:attempt-01",
+        "receipt_id": "receipt:D03_render_report_01:attempt-01",
+        "resource": "sandbox-resource:D03_render_report_01",
+        "session_id": "session:D03_render_report_01:current",
+        "status": "committed",
+        "task_id": "task:D03_render_report_01",
+        "time_ns": 23626718000000
+      },
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D03_render_report_01:attempt-01",
+        "finished_ns": 23626734000000,
+        "resource": "sandbox-resource:D03_render_report_01",
+        "session_id": "session:D03_render_report_01:current",
+        "started_ns": 23626609000000,
+        "task_id": "task:D03_render_report_01"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D03_render_report_01": {
+          "resource": "sandbox-resource:D03_render_report_01"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "47d11bc91836bfd5b0b2ae666f67295ce8e2aeb3b2b8a0e496efcc994c7cdf65",
+          "path": "report.txt",
+          "required_hash": "47d11bc91836bfd5b0b2ae666f67295ce8e2aeb3b2b8a0e496efcc994c7cdf65"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "D03_render_report_02": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D03_render_report_02:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:D03_render_report_02:attempt-01",
+          "path": "report.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D03_render_report_02:attempt-01",
+        "finished_ns": 23626890000000,
+        "resource": "sandbox-resource:D03_render_report_02",
+        "session_id": "session:D03_render_report_02:current",
+        "started_ns": 23626781000000,
+        "task_id": "task:D03_render_report_02"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "render_report",
+          "grant_id": "grant:D03_render_report_02"
+        }
+      ]
+    },
+    "id": "D03_render_report_02",
+    "lifecycle": {
+      "action_time": 23626781000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D03_render_report_02",
+        "session_id": "session:D03_render_report_02:current",
+        "task_id": "task:D03_render_report_02"
+      },
+      "current_session": "session:D03_render_report_02:current",
+      "grant_times": {
+        "grant:D03_render_report_02": {
+          "expires": null,
+          "grant_session": "session:D03_render_report_02:current",
+          "issued": 23626781000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D03_render_report_02",
+        "session_id": "session:D03_render_report_02:current",
+        "task_id": "task:D03_render_report_02"
+      },
+      "revocations": [
+        {
+          "grant_id": "grant:D03_render_report_02",
+          "revoked_ns": 23626781000000
+        }
+      ]
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D03_render_report_02:attempt-01",
+        "receipt_id": "receipt:D03_render_report_02:attempt-01",
+        "resource": "sandbox-resource:D03_render_report_02",
+        "session_id": "session:D03_render_report_02:current",
+        "status": "committed",
+        "task_id": "task:D03_render_report_02",
+        "time_ns": 23626875000000
+      },
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D03_render_report_02:attempt-01",
+        "finished_ns": 23626890000000,
+        "resource": "sandbox-resource:D03_render_report_02",
+        "session_id": "session:D03_render_report_02:current",
+        "started_ns": 23626781000000,
+        "task_id": "task:D03_render_report_02"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D03_render_report_02": {
+          "resource": "sandbox-resource:D03_render_report_02"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "f8d667a866027e7efd1d81eaa01a6ae0877eecd20ea1466303aae426bcb2ddbe",
+          "path": "report.txt",
+          "required_hash": "f8d667a866027e7efd1d81eaa01a6ae0877eecd20ea1466303aae426bcb2ddbe"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "D03_render_report_03": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D03_render_report_03:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:D03_render_report_03:attempt-01",
+          "path": "report.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D03_render_report_03:attempt-01",
+        "finished_ns": 23627093000000,
+        "resource": "sandbox-resource:D03_render_report_03",
+        "session_id": "session:D03_render_report_03:current",
+        "started_ns": 23626953000000,
+        "task_id": "task:D03_render_report_03"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "render_report",
+          "grant_id": "grant:D03_render_report_03"
+        }
+      ]
+    },
+    "id": "D03_render_report_03",
+    "lifecycle": {
+      "action_time": 23626953000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D03_render_report_03",
+        "session_id": "session:D03_render_report_03:current",
+        "task_id": "task:D03_render_report_03"
+      },
+      "current_session": "session:D03_render_report_03:current",
+      "grant_times": {
+        "grant:D03_render_report_03": {
+          "expires": null,
+          "grant_session": "session:D03_render_report_03:current",
+          "issued": 23626953000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D03_render_report_03",
+        "session_id": "session:D03_render_report_03:current",
+        "task_id": "task:D03_render_report_03"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D03_render_report_03:attempt-01",
+        "receipt_id": "receipt:D03_render_report_03:attempt-01",
+        "resource": "sandbox-resource:D03_render_report_03",
+        "session_id": "session:D03_render_report_03:current",
+        "status": "committed",
+        "task_id": "task:D03_render_report_03",
+        "time_ns": 23627078000000
+      },
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D03_render_report_03:attempt-01",
+        "finished_ns": 23627093000000,
+        "resource": "sandbox-resource:D03_render_report_03",
+        "session_id": "session:D03_render_report_03:current",
+        "started_ns": 23626953000000,
+        "task_id": "task:D03_render_report_03"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D03_render_report_03": {
+          "resource": "sandbox-resource:D03_render_report_03"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "8af1b5706044138461251a1cda1c8701d0e3ffd7bb7cc0dc8605376f8508b077",
+          "path": "report.txt",
+          "required_hash": "223c2ba174123b668b6d4ebb89d62e1901a486eef92c0abdcba30d7fff7d499d"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "D03_render_report_04": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D03_render_report_04:attempt-01",
+        "finished_ns": 23627250000000,
+        "resource": "sandbox-resource:D03_render_report_04",
+        "session_id": "session:D03_render_report_04:current",
+        "started_ns": 23627171000000,
+        "task_id": "task:D03_render_report_04"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "render_report",
+          "grant_id": "grant:D03_render_report_04"
+        }
+      ]
+    },
+    "id": "D03_render_report_04",
+    "lifecycle": {
+      "action_time": 23627171000000,
+      "artifact_binding": null,
+      "current_session": "session:D03_render_report_04:current",
+      "grant_times": {
+        "grant:D03_render_report_04": {
+          "expires": null,
+          "grant_session": "session:D03_render_report_04:current",
+          "issued": 23627171000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D03_render_report_04",
+        "session_id": "session:D03_render_report_04:current",
+        "task_id": "task:D03_render_report_04"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D03_render_report_04:attempt-01",
+        "finished_ns": 23627250000000,
+        "resource": "sandbox-resource:D03_render_report_04",
+        "session_id": "session:D03_render_report_04:current",
+        "started_ns": 23627171000000,
+        "task_id": "task:D03_render_report_04"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D03_render_report_04": {
+          "resource": "sandbox-resource:D03_render_report_04"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": null,
+          "path": "report.txt",
+          "required_hash": "a5fa50c3ee9a3c68a22230951a995c368216e5230a8fbe2d8824545dda429923"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "D04_kv_increment_01": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D04_kv_increment_01:attempt-01",
+          "path": "counters.sqlite"
+        },
+        {
+          "effect_id": "effect:D04_kv_increment_01:attempt-01",
+          "path": "effect_binding.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "kv_increment",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D04_kv_increment_01:attempt-01",
+        "finished_ns": 23627406000000,
+        "resource": "sandbox-resource:D04_kv_increment_01",
+        "session_id": "session:D04_kv_increment_01:current",
+        "started_ns": 23627312000000,
+        "task_id": "task:D04_kv_increment_01"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "kv_increment",
+          "grant_id": "grant:D04_kv_increment_01"
+        }
+      ]
+    },
+    "id": "D04_kv_increment_01",
+    "lifecycle": {
+      "action_time": 23627312000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D04_kv_increment_01",
+        "session_id": "session:D04_kv_increment_01:current",
+        "task_id": "task:D04_kv_increment_01"
+      },
+      "current_session": "session:D04_kv_increment_01:current",
+      "grant_times": {
+        "grant:D04_kv_increment_01": {
+          "expires": null,
+          "grant_session": "session:D04_kv_increment_01:current",
+          "issued": 23627312000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D04_kv_increment_01",
+        "session_id": "session:D04_kv_increment_01:current",
+        "task_id": "task:D04_kv_increment_01"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "kv_increment",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D04_kv_increment_01:attempt-01",
+        "receipt_id": "receipt:D04_kv_increment_01:attempt-01",
+        "resource": "sandbox-resource:D04_kv_increment_01",
+        "session_id": "session:D04_kv_increment_01:current",
+        "status": "committed",
+        "task_id": "task:D04_kv_increment_01",
+        "time_ns": 23627406000000
+      },
+      "operation": {
+        "action": "kv_increment",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D04_kv_increment_01:attempt-01",
+        "finished_ns": 23627406000000,
+        "resource": "sandbox-resource:D04_kv_increment_01",
+        "session_id": "session:D04_kv_increment_01:current",
+        "started_ns": 23627312000000,
+        "task_id": "task:D04_kv_increment_01"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D04_kv_increment_01": {
+          "resource": "sandbox-resource:D04_kv_increment_01"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "counters.sqlite",
+          "observed_rows": [
+            [
+              "protected",
+              99
+            ],
+            [
+              "visits",
+              10
+            ]
+          ],
+          "query": "SELECT key,value FROM counters ORDER BY key",
+          "required_rows": [
+            [
+              "protected",
+              99
+            ],
+            [
+              "visits",
+              10
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "D04_kv_increment_02": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D04_kv_increment_02:attempt-01",
+          "path": "counters.sqlite"
+        },
+        {
+          "effect_id": "effect:D04_kv_increment_02:attempt-01",
+          "path": "effect_binding.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "kv_increment",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D04_kv_increment_02:attempt-01",
+        "finished_ns": 23627562000000,
+        "resource": "sandbox-resource:D04_kv_increment_02",
+        "session_id": "session:D04_kv_increment_02:current",
+        "started_ns": 23627484000000,
+        "task_id": "task:D04_kv_increment_02"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "kv_increment",
+          "grant_id": "grant:D04_kv_increment_02"
+        }
+      ]
+    },
+    "id": "D04_kv_increment_02",
+    "lifecycle": {
+      "action_time": 23627484000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D04_kv_increment_02",
+        "session_id": "session:D04_kv_increment_02:current",
+        "task_id": "task:D04_kv_increment_02"
+      },
+      "current_session": "session:D04_kv_increment_02:current",
+      "grant_times": {
+        "grant:D04_kv_increment_02": {
+          "expires": null,
+          "grant_session": "session:D04_kv_increment_02:current",
+          "issued": 23627468000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D04_kv_increment_02",
+        "session_id": "session:D04_kv_increment_02:current",
+        "task_id": "task:D04_kv_increment_02"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "kv_increment",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D04_kv_increment_02:attempt-01",
+        "receipt_id": "receipt:D04_kv_increment_02:attempt-01",
+        "resource": "sandbox-resource:D04_kv_increment_02",
+        "session_id": "session:D04_kv_increment_02:current",
+        "status": "committed",
+        "task_id": "task:D04_kv_increment_02",
+        "time_ns": 23627562000000
+      },
+      "operation": {
+        "action": "kv_increment",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D04_kv_increment_02:attempt-01",
+        "finished_ns": 23627562000000,
+        "resource": "sandbox-resource:D04_kv_increment_02",
+        "session_id": "session:D04_kv_increment_02:current",
+        "started_ns": 23627484000000,
+        "task_id": "task:D04_kv_increment_02"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D04_kv_increment_02": {
+          "resource": "sandbox-resource:D04_kv_increment_02:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "counters.sqlite",
+          "observed_rows": [
+            [
+              "protected",
+              99
+            ],
+            [
+              "visits",
+              11
+            ]
+          ],
+          "query": "SELECT key,value FROM counters ORDER BY key",
+          "required_rows": [
+            [
+              "protected",
+              99
+            ],
+            [
+              "visits",
+              11
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "D04_kv_increment_03": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D04_kv_increment_03:attempt-01",
+          "path": "counters.sqlite"
+        },
+        {
+          "effect_id": "effect:D04_kv_increment_03:attempt-01",
+          "path": "effect_binding.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "kv_increment",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D04_kv_increment_03:attempt-01",
+        "finished_ns": 23627734000000,
+        "resource": "sandbox-resource:D04_kv_increment_03",
+        "session_id": "session:D04_kv_increment_03:current",
+        "started_ns": 23627640000000,
+        "task_id": "task:D04_kv_increment_03"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "kv_increment",
+          "grant_id": "grant:D04_kv_increment_03"
+        }
+      ]
+    },
+    "id": "D04_kv_increment_03",
+    "lifecycle": {
+      "action_time": 23627640000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D04_kv_increment_03",
+        "session_id": "session:D04_kv_increment_03:current",
+        "task_id": "task:another-task"
+      },
+      "current_session": "session:D04_kv_increment_03:current",
+      "grant_times": {
+        "grant:D04_kv_increment_03": {
+          "expires": null,
+          "grant_session": "session:D04_kv_increment_03:current",
+          "issued": 23627640000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D04_kv_increment_03",
+        "session_id": "session:D04_kv_increment_03:current",
+        "task_id": "task:D04_kv_increment_03"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "kv_increment",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D04_kv_increment_03:attempt-01",
+        "receipt_id": "receipt:D04_kv_increment_03:attempt-01",
+        "resource": "sandbox-resource:D04_kv_increment_03",
+        "session_id": "session:D04_kv_increment_03:current",
+        "status": "committed",
+        "task_id": "task:D04_kv_increment_03",
+        "time_ns": 23627734000000
+      },
+      "operation": {
+        "action": "kv_increment",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D04_kv_increment_03:attempt-01",
+        "finished_ns": 23627734000000,
+        "resource": "sandbox-resource:D04_kv_increment_03",
+        "session_id": "session:D04_kv_increment_03:current",
+        "started_ns": 23627640000000,
+        "task_id": "task:D04_kv_increment_03"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D04_kv_increment_03": {
+          "resource": "sandbox-resource:D04_kv_increment_03"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "counters.sqlite",
+          "observed_rows": [
+            [
+              "protected",
+              99
+            ],
+            [
+              "visits",
+              12
+            ]
+          ],
+          "query": "SELECT key,value FROM counters ORDER BY key",
+          "required_rows": [
+            [
+              "protected",
+              99
+            ],
+            [
+              "visits",
+              12
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "D04_kv_increment_04": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D04_kv_increment_04:attempt-01",
+          "path": "counters.sqlite"
+        },
+        {
+          "effect_id": "effect:D04_kv_increment_04:attempt-01",
+          "path": "effect_binding.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "kv_increment",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D04_kv_increment_04:attempt-01",
+        "finished_ns": 23627890000000,
+        "resource": "sandbox-resource:D04_kv_increment_04",
+        "session_id": "session:D04_kv_increment_04:current",
+        "started_ns": 23627796000000,
+        "task_id": "task:D04_kv_increment_04"
+      },
+      "return_code": 23,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "kv_increment",
+          "grant_id": "grant:D04_kv_increment_04"
+        }
+      ]
+    },
+    "id": "D04_kv_increment_04",
+    "lifecycle": {
+      "action_time": 23627796000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D04_kv_increment_04",
+        "session_id": "session:D04_kv_increment_04:current",
+        "task_id": "task:D04_kv_increment_04"
+      },
+      "current_session": "session:D04_kv_increment_04:current",
+      "grant_times": {
+        "grant:D04_kv_increment_04": {
+          "expires": null,
+          "grant_session": "session:D04_kv_increment_04:current",
+          "issued": 23627796000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D04_kv_increment_04",
+        "session_id": "session:D04_kv_increment_04:current",
+        "task_id": "task:D04_kv_increment_04"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "kv_increment",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D04_kv_increment_04:attempt-01",
+        "finished_ns": 23627890000000,
+        "resource": "sandbox-resource:D04_kv_increment_04",
+        "session_id": "session:D04_kv_increment_04:current",
+        "started_ns": 23627796000000,
+        "task_id": "task:D04_kv_increment_04"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D04_kv_increment_04": {
+          "resource": "sandbox-resource:D04_kv_increment_04"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "counters.sqlite",
+          "observed_rows": [
+            [
+              "protected",
+              99
+            ],
+            [
+              "visits",
+              13
+            ]
+          ],
+          "query": "SELECT key,value FROM counters ORDER BY key",
+          "required_rows": [
+            [
+              "protected",
+              99
+            ],
+            [
+              "visits",
+              13
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "D05_untrusted_copy_01": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D05_untrusted_copy_01:attempt-01",
+          "path": "copied_instruction.txt"
+        },
+        {
+          "effect_id": "effect:D05_untrusted_copy_01:attempt-01",
+          "path": "effect_binding.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "untrusted_copy",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D05_untrusted_copy_01:attempt-01",
+        "finished_ns": 23628046000000,
+        "resource": "sandbox-resource:D05_untrusted_copy_01",
+        "session_id": "session:D05_untrusted_copy_01:current",
+        "started_ns": 23627953000000,
+        "task_id": "task:D05_untrusted_copy_01"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "untrusted_copy",
+          "grant_id": "grant:D05_untrusted_copy_01"
+        }
+      ]
+    },
+    "id": "D05_untrusted_copy_01",
+    "lifecycle": {
+      "action_time": 23627953000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D05_untrusted_copy_01",
+        "session_id": "session:D05_untrusted_copy_01:current",
+        "task_id": "task:D05_untrusted_copy_01"
+      },
+      "current_session": "session:D05_untrusted_copy_01:current",
+      "grant_times": {
+        "grant:D05_untrusted_copy_01": {
+          "expires": null,
+          "grant_session": "session:D05_untrusted_copy_01:current",
+          "issued": 23627953000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D05_untrusted_copy_01",
+        "session_id": "session:D05_untrusted_copy_01:current",
+        "task_id": "task:D05_untrusted_copy_01"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "untrusted_copy",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D05_untrusted_copy_01:attempt-01",
+        "receipt_id": "receipt:D05_untrusted_copy_01:attempt-01",
+        "resource": "sandbox-resource:D05_untrusted_copy_01",
+        "session_id": "session:D05_untrusted_copy_01:current",
+        "status": "committed",
+        "task_id": "task:D05_untrusted_copy_01",
+        "time_ns": 23628031000000
+      },
+      "operation": {
+        "action": "untrusted_copy",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D05_untrusted_copy_01:attempt-01",
+        "finished_ns": 23628046000000,
+        "resource": "sandbox-resource:D05_untrusted_copy_01",
+        "session_id": "session:D05_untrusted_copy_01:current",
+        "started_ns": 23627953000000,
+        "task_id": "task:D05_untrusted_copy_01"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D05_untrusted_copy_01": {
+          "resource": "sandbox-resource:D05_untrusted_copy_01"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "1d54511277460faf685a6eb8462207127b1947840a41660f8646ff812a6fabf8",
+          "path": "copied_instruction.txt",
+          "required_hash": "1d54511277460faf685a6eb8462207127b1947840a41660f8646ff812a6fabf8"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "D05_untrusted_copy_02": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D05_untrusted_copy_02:attempt-01",
+          "path": "copied_instruction.txt"
+        },
+        {
+          "effect_id": "effect:D05_untrusted_copy_02:attempt-01",
+          "path": "effect_binding.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "untrusted_copy",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D05_untrusted_copy_02:attempt-01",
+        "finished_ns": 23628218000000,
+        "resource": "sandbox-resource:D05_untrusted_copy_02",
+        "session_id": "session:D05_untrusted_copy_02:current",
+        "started_ns": 23628125000000,
+        "task_id": "task:D05_untrusted_copy_02"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": []
+    },
+    "id": "D05_untrusted_copy_02",
+    "lifecycle": {
+      "action_time": 23628125000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D05_untrusted_copy_02",
+        "session_id": "session:D05_untrusted_copy_02:current",
+        "task_id": "task:D05_untrusted_copy_02"
+      },
+      "current_session": "session:D05_untrusted_copy_02:current",
+      "grant_times": {},
+      "required_binding": {
+        "resource": "sandbox-resource:D05_untrusted_copy_02",
+        "session_id": "session:D05_untrusted_copy_02:current",
+        "task_id": "task:D05_untrusted_copy_02"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "untrusted_copy",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D05_untrusted_copy_02:attempt-01",
+        "receipt_id": "receipt:D05_untrusted_copy_02:attempt-01",
+        "resource": "sandbox-resource:D05_untrusted_copy_02",
+        "session_id": "session:D05_untrusted_copy_02:current",
+        "status": "committed",
+        "task_id": "task:D05_untrusted_copy_02",
+        "time_ns": 23628218000000
+      },
+      "operation": {
+        "action": "untrusted_copy",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D05_untrusted_copy_02:attempt-01",
+        "finished_ns": 23628218000000,
+        "resource": "sandbox-resource:D05_untrusted_copy_02",
+        "session_id": "session:D05_untrusted_copy_02:current",
+        "started_ns": 23628125000000,
+        "task_id": "task:D05_untrusted_copy_02"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {}
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "2a2bd0dce58dbaf99cce69aa36032554f15f20c484295ad273ad7ae794be7a3e",
+          "path": "copied_instruction.txt",
+          "required_hash": "2a2bd0dce58dbaf99cce69aa36032554f15f20c484295ad273ad7ae794be7a3e"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "D05_untrusted_copy_03": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "untrusted_copy",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D05_untrusted_copy_03:attempt-01",
+        "finished_ns": 23628359000000,
+        "resource": "sandbox-resource:D05_untrusted_copy_03",
+        "session_id": "session:D05_untrusted_copy_03:current",
+        "started_ns": 23628281000000,
+        "task_id": "task:D05_untrusted_copy_03"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "untrusted_copy",
+          "grant_id": "grant:D05_untrusted_copy_03"
+        }
+      ]
+    },
+    "id": "D05_untrusted_copy_03",
+    "lifecycle": {
+      "action_time": 23628281000000,
+      "artifact_binding": null,
+      "current_session": "session:D05_untrusted_copy_03:current",
+      "grant_times": {
+        "grant:D05_untrusted_copy_03": {
+          "expires": null,
+          "grant_session": "session:D05_untrusted_copy_03:current",
+          "issued": 23628265000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D05_untrusted_copy_03",
+        "session_id": "session:D05_untrusted_copy_03:current",
+        "task_id": "task:D05_untrusted_copy_03"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "untrusted_copy",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D05_untrusted_copy_03:attempt-01",
+        "finished_ns": 23628359000000,
+        "resource": "sandbox-resource:D05_untrusted_copy_03",
+        "session_id": "session:D05_untrusted_copy_03:current",
+        "started_ns": 23628281000000,
+        "task_id": "task:D05_untrusted_copy_03"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D05_untrusted_copy_03": {
+          "resource": "sandbox-resource:D05_untrusted_copy_03"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": null,
+          "path": "copied_instruction.txt",
+          "required_hash": "83fef773ba1bc9074c4515319d673d7a197c5e56225d0e06fff6efd81a2849bd"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "D05_untrusted_copy_04": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D05_untrusted_copy_04:attempt-01",
+          "path": "copied_instruction.txt"
+        },
+        {
+          "effect_id": "effect:D05_untrusted_copy_04:attempt-01",
+          "path": "effect_binding.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "untrusted_copy",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D05_untrusted_copy_04:attempt-01",
+        "finished_ns": 23628484000000,
+        "resource": "sandbox-resource:D05_untrusted_copy_04",
+        "session_id": "session:D05_untrusted_copy_04:current",
+        "started_ns": 23628406000000,
+        "task_id": "task:D05_untrusted_copy_04"
+      },
+      "return_code": 23,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "untrusted_copy",
+          "grant_id": "grant:D05_untrusted_copy_04"
+        }
+      ]
+    },
+    "id": "D05_untrusted_copy_04",
+    "lifecycle": {
+      "action_time": 23628406000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D05_untrusted_copy_04",
+        "session_id": "session:D05_untrusted_copy_04:current",
+        "task_id": "task:D05_untrusted_copy_04"
+      },
+      "current_session": "session:D05_untrusted_copy_04:current",
+      "grant_times": {
+        "grant:D05_untrusted_copy_04": {
+          "expires": null,
+          "grant_session": "session:D05_untrusted_copy_04:current",
+          "issued": 23628406000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D05_untrusted_copy_04",
+        "session_id": "session:D05_untrusted_copy_04:current",
+        "task_id": "task:D05_untrusted_copy_04"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "untrusted_copy",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D05_untrusted_copy_04:attempt-01",
+        "finished_ns": 23628484000000,
+        "resource": "sandbox-resource:D05_untrusted_copy_04",
+        "session_id": "session:D05_untrusted_copy_04:current",
+        "started_ns": 23628406000000,
+        "task_id": "task:D05_untrusted_copy_04"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D05_untrusted_copy_04": {
+          "resource": "sandbox-resource:D05_untrusted_copy_04"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "38473df3cd47e2c0b98294162762cdb7345acdc203c4acb306964509bbf913c8",
+          "path": "copied_instruction.txt",
+          "required_hash": "38473df3cd47e2c0b98294162762cdb7345acdc203c4acb306964509bbf913c8"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "D06_revoked_cache_01": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D06_revoked_cache_01:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:D06_revoked_cache_01:attempt-01",
+          "path": "materialized.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "revoked_cache",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D06_revoked_cache_01:attempt-01",
+        "finished_ns": 23628640000000,
+        "resource": "sandbox-resource:D06_revoked_cache_01",
+        "session_id": "session:D06_revoked_cache_01:current",
+        "started_ns": 23628546000000,
+        "task_id": "task:D06_revoked_cache_01"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "revoked_cache",
+          "grant_id": "grant:D06_revoked_cache_01"
+        }
+      ]
+    },
+    "id": "D06_revoked_cache_01",
+    "lifecycle": {
+      "action_time": 23628546000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D06_revoked_cache_01",
+        "session_id": "session:D06_revoked_cache_01:current",
+        "task_id": "task:D06_revoked_cache_01"
+      },
+      "current_session": "session:D06_revoked_cache_01:current",
+      "grant_times": {
+        "grant:D06_revoked_cache_01": {
+          "expires": null,
+          "grant_session": "session:D06_revoked_cache_01:current",
+          "issued": 23628546000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D06_revoked_cache_01",
+        "session_id": "session:D06_revoked_cache_01:current",
+        "task_id": "task:D06_revoked_cache_01"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "revoked_cache",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D06_revoked_cache_01:attempt-01",
+        "receipt_id": "receipt:D06_revoked_cache_01:attempt-01",
+        "resource": "sandbox-resource:D06_revoked_cache_01",
+        "session_id": "session:D06_revoked_cache_01:current",
+        "status": "committed",
+        "task_id": "task:D06_revoked_cache_01",
+        "time_ns": 23628640000000
+      },
+      "operation": {
+        "action": "revoked_cache",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D06_revoked_cache_01:attempt-01",
+        "finished_ns": 23628640000000,
+        "resource": "sandbox-resource:D06_revoked_cache_01",
+        "session_id": "session:D06_revoked_cache_01:current",
+        "started_ns": 23628546000000,
+        "task_id": "task:D06_revoked_cache_01"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D06_revoked_cache_01": {
+          "resource": "sandbox-resource:D06_revoked_cache_01"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "4f7ea4f0aaa876f49229356554eb4e7b1cf1ebe4acd98f4dccd4dbaf46572af1",
+          "path": "materialized.txt",
+          "required_hash": "4f7ea4f0aaa876f49229356554eb4e7b1cf1ebe4acd98f4dccd4dbaf46572af1"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "D06_revoked_cache_02": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D06_revoked_cache_02:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:D06_revoked_cache_02:attempt-01",
+          "path": "materialized.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "revoked_cache",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D06_revoked_cache_02:attempt-01",
+        "finished_ns": 23628796000000,
+        "resource": "sandbox-resource:D06_revoked_cache_02",
+        "session_id": "session:D06_revoked_cache_02:current",
+        "started_ns": 23628703000000,
+        "task_id": "task:D06_revoked_cache_02"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "revoked_cache",
+          "grant_id": "grant:D06_revoked_cache_02"
+        }
+      ]
+    },
+    "id": "D06_revoked_cache_02",
+    "lifecycle": {
+      "action_time": 23628703000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D06_revoked_cache_02",
+        "session_id": "session:D06_revoked_cache_02:current",
+        "task_id": "task:D06_revoked_cache_02"
+      },
+      "current_session": "session:D06_revoked_cache_02:current",
+      "grant_times": {
+        "grant:D06_revoked_cache_02": {
+          "expires": null,
+          "grant_session": "session:D06_revoked_cache_02:previous",
+          "issued": 23628703000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D06_revoked_cache_02",
+        "session_id": "session:D06_revoked_cache_02:current",
+        "task_id": "task:D06_revoked_cache_02"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "revoked_cache",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D06_revoked_cache_02:attempt-01",
+        "receipt_id": "receipt:D06_revoked_cache_02:attempt-01",
+        "resource": "sandbox-resource:D06_revoked_cache_02",
+        "session_id": "session:D06_revoked_cache_02:current",
+        "status": "committed",
+        "task_id": "task:D06_revoked_cache_02",
+        "time_ns": 23628796000000
+      },
+      "operation": {
+        "action": "revoked_cache",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D06_revoked_cache_02:attempt-01",
+        "finished_ns": 23628796000000,
+        "resource": "sandbox-resource:D06_revoked_cache_02",
+        "session_id": "session:D06_revoked_cache_02:current",
+        "started_ns": 23628703000000,
+        "task_id": "task:D06_revoked_cache_02"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D06_revoked_cache_02": {
+          "resource": "sandbox-resource:D06_revoked_cache_02"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "c39c8f9e90cfc9941d9c79f0f93de224655737dc7ed4b3f2e2233ed6e21d2940",
+          "path": "materialized.txt",
+          "required_hash": "c39c8f9e90cfc9941d9c79f0f93de224655737dc7ed4b3f2e2233ed6e21d2940"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "D06_revoked_cache_03": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D06_revoked_cache_03:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:D06_revoked_cache_03:attempt-01",
+          "path": "materialized.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "revoked_cache",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D06_revoked_cache_03:attempt-01",
+        "finished_ns": 23628953000000,
+        "resource": "sandbox-resource:D06_revoked_cache_03",
+        "session_id": "session:D06_revoked_cache_03:current",
+        "started_ns": 23628843000000,
+        "task_id": "task:D06_revoked_cache_03"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "revoked_cache",
+          "grant_id": "grant:D06_revoked_cache_03"
+        }
+      ]
+    },
+    "id": "D06_revoked_cache_03",
+    "lifecycle": {
+      "action_time": 23628843000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D06_revoked_cache_03",
+        "session_id": "session:D06_revoked_cache_03:current",
+        "task_id": "task:D06_revoked_cache_03"
+      },
+      "current_session": "session:D06_revoked_cache_03:current",
+      "grant_times": {
+        "grant:D06_revoked_cache_03": {
+          "expires": null,
+          "grant_session": "session:D06_revoked_cache_03:current",
+          "issued": 23628843000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D06_revoked_cache_03",
+        "session_id": "session:D06_revoked_cache_03:current",
+        "task_id": "task:D06_revoked_cache_03"
+      },
+      "revocations": [
+        {
+          "grant_id": "grant:D06_revoked_cache_03",
+          "revoked_ns": 23628843000000
+        }
+      ]
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "revoked_cache",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D06_revoked_cache_03:attempt-01",
+        "receipt_id": "receipt:D06_revoked_cache_03:attempt-01",
+        "resource": "sandbox-resource:D06_revoked_cache_03",
+        "session_id": "session:D06_revoked_cache_03:current",
+        "status": "committed",
+        "task_id": "task:D06_revoked_cache_03",
+        "time_ns": 23628937000000
+      },
+      "operation": {
+        "action": "revoked_cache",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D06_revoked_cache_03:attempt-01",
+        "finished_ns": 23628953000000,
+        "resource": "sandbox-resource:D06_revoked_cache_03",
+        "session_id": "session:D06_revoked_cache_03:current",
+        "started_ns": 23628843000000,
+        "task_id": "task:D06_revoked_cache_03"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D06_revoked_cache_03": {
+          "resource": "sandbox-resource:D06_revoked_cache_03"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "93d72759be5370917e9802c84f39608309de337887b46a1a220e894e48219be2",
+          "path": "materialized.txt",
+          "required_hash": "93d72759be5370917e9802c84f39608309de337887b46a1a220e894e48219be2"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "D06_revoked_cache_04": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:D06_revoked_cache_04:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:D06_revoked_cache_04:attempt-01",
+          "path": "materialized.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "revoked_cache",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D06_revoked_cache_04:attempt-01",
+        "finished_ns": 23629078000000,
+        "resource": "sandbox-resource:D06_revoked_cache_04",
+        "session_id": "session:D06_revoked_cache_04:current",
+        "started_ns": 23629000000000,
+        "task_id": "task:D06_revoked_cache_04"
+      },
+      "return_code": 23,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "revoked_cache",
+          "grant_id": "grant:D06_revoked_cache_04"
+        }
+      ]
+    },
+    "id": "D06_revoked_cache_04",
+    "lifecycle": {
+      "action_time": 23629000000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:D06_revoked_cache_04",
+        "session_id": "session:D06_revoked_cache_04:current",
+        "task_id": "task:D06_revoked_cache_04"
+      },
+      "current_session": "session:D06_revoked_cache_04:current",
+      "grant_times": {
+        "grant:D06_revoked_cache_04": {
+          "expires": null,
+          "grant_session": "session:D06_revoked_cache_04:current",
+          "issued": 23629000000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:D06_revoked_cache_04",
+        "session_id": "session:D06_revoked_cache_04:current",
+        "task_id": "task:D06_revoked_cache_04"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "revoked_cache",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:D06_revoked_cache_04:attempt-01",
+        "finished_ns": 23629078000000,
+        "resource": "sandbox-resource:D06_revoked_cache_04",
+        "session_id": "session:D06_revoked_cache_04:current",
+        "started_ns": 23629000000000,
+        "task_id": "task:D06_revoked_cache_04"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:D06_revoked_cache_04": {
+          "resource": "sandbox-resource:D06_revoked_cache_04"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "e276168c57d6efec9f699de925fdb6a4fb9233dca6cdf9569feb36a7a741297a",
+          "path": "materialized.txt",
+          "required_hash": "e276168c57d6efec9f699de925fdb6a4fb9233dca6cdf9569feb36a7a741297a"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  }
+}

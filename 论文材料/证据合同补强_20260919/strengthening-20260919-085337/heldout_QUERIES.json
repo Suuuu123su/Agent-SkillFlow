@@ -1,0 +1,506 @@
+[
+  {
+    "family_id": "H01_publish_directory",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H01_publish_directory_01:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H01_publish_directory_01"
+  },
+  {
+    "family_id": "H01_publish_directory",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H01_publish_directory_01:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H01_publish_directory_01"
+  },
+  {
+    "family_id": "H01_publish_directory",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H01_publish_directory_02:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H01_publish_directory_02"
+  },
+  {
+    "family_id": "H01_publish_directory",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H01_publish_directory_02:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H01_publish_directory_02"
+  },
+  {
+    "family_id": "H01_publish_directory",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H01_publish_directory_03:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H01_publish_directory_03"
+  },
+  {
+    "family_id": "H01_publish_directory",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H01_publish_directory_03:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H01_publish_directory_03"
+  },
+  {
+    "family_id": "H01_publish_directory",
+    "fault_event": true,
+    "metric": "UEA",
+    "query_id": "H01_publish_directory_04:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H01_publish_directory_04"
+  },
+  {
+    "family_id": "H01_publish_directory",
+    "fault_event": true,
+    "metric": "TaskSuccess",
+    "query_id": "H01_publish_directory_04:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H01_publish_directory_04"
+  },
+  {
+    "family_id": "H02_inventory_reservation",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H02_inventory_reservation_01:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H02_inventory_reservation_01"
+  },
+  {
+    "family_id": "H02_inventory_reservation",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H02_inventory_reservation_01:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H02_inventory_reservation_01"
+  },
+  {
+    "family_id": "H02_inventory_reservation",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H02_inventory_reservation_02:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H02_inventory_reservation_02"
+  },
+  {
+    "family_id": "H02_inventory_reservation",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H02_inventory_reservation_02:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H02_inventory_reservation_02"
+  },
+  {
+    "family_id": "H02_inventory_reservation",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H02_inventory_reservation_03:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H02_inventory_reservation_03"
+  },
+  {
+    "family_id": "H02_inventory_reservation",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H02_inventory_reservation_03:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H02_inventory_reservation_03"
+  },
+  {
+    "family_id": "H02_inventory_reservation",
+    "fault_event": true,
+    "metric": "UEA",
+    "query_id": "H02_inventory_reservation_04:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H02_inventory_reservation_04"
+  },
+  {
+    "family_id": "H02_inventory_reservation",
+    "fault_event": true,
+    "metric": "TaskSuccess",
+    "query_id": "H02_inventory_reservation_04:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H02_inventory_reservation_04"
+  },
+  {
+    "family_id": "H03_manifest_package",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H03_manifest_package_01:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H03_manifest_package_01"
+  },
+  {
+    "family_id": "H03_manifest_package",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H03_manifest_package_01:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H03_manifest_package_01"
+  },
+  {
+    "family_id": "H03_manifest_package",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H03_manifest_package_02:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H03_manifest_package_02"
+  },
+  {
+    "family_id": "H03_manifest_package",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H03_manifest_package_02:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H03_manifest_package_02"
+  },
+  {
+    "family_id": "H03_manifest_package",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H03_manifest_package_03:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H03_manifest_package_03"
+  },
+  {
+    "family_id": "H03_manifest_package",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H03_manifest_package_03:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H03_manifest_package_03"
+  },
+  {
+    "family_id": "H03_manifest_package",
+    "fault_event": true,
+    "metric": "UEA",
+    "query_id": "H03_manifest_package_04:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H03_manifest_package_04"
+  },
+  {
+    "family_id": "H03_manifest_package",
+    "fault_event": true,
+    "metric": "TaskSuccess",
+    "query_id": "H03_manifest_package_04:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H03_manifest_package_04"
+  },
+  {
+    "family_id": "H04_sql_join_export",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H04_sql_join_export_01:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H04_sql_join_export_01"
+  },
+  {
+    "family_id": "H04_sql_join_export",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H04_sql_join_export_01:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H04_sql_join_export_01"
+  },
+  {
+    "family_id": "H04_sql_join_export",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H04_sql_join_export_02:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H04_sql_join_export_02"
+  },
+  {
+    "family_id": "H04_sql_join_export",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H04_sql_join_export_02:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H04_sql_join_export_02"
+  },
+  {
+    "family_id": "H04_sql_join_export",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H04_sql_join_export_03:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H04_sql_join_export_03"
+  },
+  {
+    "family_id": "H04_sql_join_export",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H04_sql_join_export_03:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H04_sql_join_export_03"
+  },
+  {
+    "family_id": "H04_sql_join_export",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H04_sql_join_export_04:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H04_sql_join_export_04"
+  },
+  {
+    "family_id": "H04_sql_join_export",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H04_sql_join_export_04:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H04_sql_join_export_04"
+  },
+  {
+    "family_id": "H05_queued_approval",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H05_queued_approval_01:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H05_queued_approval_01"
+  },
+  {
+    "family_id": "H05_queued_approval",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H05_queued_approval_01:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H05_queued_approval_01"
+  },
+  {
+    "family_id": "H05_queued_approval",
+    "fault_event": false,
+    "metric": "ALR",
+    "query_id": "H05_queued_approval_01:ALR",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H05_queued_approval_01"
+  },
+  {
+    "family_id": "H05_queued_approval",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H05_queued_approval_02:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H05_queued_approval_02"
+  },
+  {
+    "family_id": "H05_queued_approval",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H05_queued_approval_02:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H05_queued_approval_02"
+  },
+  {
+    "family_id": "H05_queued_approval",
+    "fault_event": false,
+    "metric": "ALR",
+    "query_id": "H05_queued_approval_02:ALR",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H05_queued_approval_02"
+  },
+  {
+    "family_id": "H05_queued_approval",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H05_queued_approval_03:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H05_queued_approval_03"
+  },
+  {
+    "family_id": "H05_queued_approval",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H05_queued_approval_03:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H05_queued_approval_03"
+  },
+  {
+    "family_id": "H05_queued_approval",
+    "fault_event": false,
+    "metric": "ALR",
+    "query_id": "H05_queued_approval_03:ALR",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H05_queued_approval_03"
+  },
+  {
+    "family_id": "H05_queued_approval",
+    "fault_event": true,
+    "metric": "UEA",
+    "query_id": "H05_queued_approval_04:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H05_queued_approval_04"
+  },
+  {
+    "family_id": "H05_queued_approval",
+    "fault_event": true,
+    "metric": "TaskSuccess",
+    "query_id": "H05_queued_approval_04:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H05_queued_approval_04"
+  },
+  {
+    "family_id": "H05_queued_approval",
+    "fault_event": true,
+    "metric": "ALR",
+    "query_id": "H05_queued_approval_04:ALR",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H05_queued_approval_04"
+  },
+  {
+    "family_id": "H06_revoked_lease_journal",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H06_revoked_lease_journal_01:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H06_revoked_lease_journal_01"
+  },
+  {
+    "family_id": "H06_revoked_lease_journal",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H06_revoked_lease_journal_01:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H06_revoked_lease_journal_01"
+  },
+  {
+    "family_id": "H06_revoked_lease_journal",
+    "fault_event": false,
+    "metric": "RIR",
+    "query_id": "H06_revoked_lease_journal_01:RIR",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H06_revoked_lease_journal_01"
+  },
+  {
+    "family_id": "H06_revoked_lease_journal",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H06_revoked_lease_journal_02:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H06_revoked_lease_journal_02"
+  },
+  {
+    "family_id": "H06_revoked_lease_journal",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H06_revoked_lease_journal_02:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H06_revoked_lease_journal_02"
+  },
+  {
+    "family_id": "H06_revoked_lease_journal",
+    "fault_event": false,
+    "metric": "RIR",
+    "query_id": "H06_revoked_lease_journal_02:RIR",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H06_revoked_lease_journal_02"
+  },
+  {
+    "family_id": "H06_revoked_lease_journal",
+    "fault_event": false,
+    "metric": "UEA",
+    "query_id": "H06_revoked_lease_journal_03:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H06_revoked_lease_journal_03"
+  },
+  {
+    "family_id": "H06_revoked_lease_journal",
+    "fault_event": false,
+    "metric": "TaskSuccess",
+    "query_id": "H06_revoked_lease_journal_03:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H06_revoked_lease_journal_03"
+  },
+  {
+    "family_id": "H06_revoked_lease_journal",
+    "fault_event": false,
+    "metric": "RIR",
+    "query_id": "H06_revoked_lease_journal_03:RIR",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H06_revoked_lease_journal_03"
+  },
+  {
+    "family_id": "H06_revoked_lease_journal",
+    "fault_event": true,
+    "metric": "UEA",
+    "query_id": "H06_revoked_lease_journal_04:UEA",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H06_revoked_lease_journal_04"
+  },
+  {
+    "family_id": "H06_revoked_lease_journal",
+    "fault_event": true,
+    "metric": "TaskSuccess",
+    "query_id": "H06_revoked_lease_journal_04:TaskSuccess",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H06_revoked_lease_journal_04"
+  },
+  {
+    "family_id": "H06_revoked_lease_journal",
+    "fault_event": true,
+    "metric": "RIR",
+    "query_id": "H06_revoked_lease_journal_04:RIR",
+    "source_id": "stdlib-supervised-local-sandbox-v1",
+    "split": "heldout",
+    "unit": "H06_revoked_lease_journal_04"
+  }
+]

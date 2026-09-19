@@ -1,0 +1,3099 @@
+{
+  "H01_publish_directory_01": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H01_publish_directory_01:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H01_publish_directory_01:attempt-01",
+          "path": "published/change.txt"
+        },
+        {
+          "effect_id": "effect:H01_publish_directory_01:attempt-01",
+          "path": "published/index.txt"
+        },
+        {
+          "effect_id": "effect:H01_publish_directory_01:attempt-01",
+          "path": "published/intro.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H01_publish_directory_01:attempt-01",
+        "finished_ns": 23996875000000,
+        "resource": "sandbox-resource:H01_publish_directory_01",
+        "session_id": "session:H01_publish_directory_01:current",
+        "started_ns": 23996781000000,
+        "task_id": "task:H01_publish_directory_01"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "publish_directory",
+          "grant_id": "grant:H01_publish_directory_01"
+        }
+      ]
+    },
+    "id": "H01_publish_directory_01",
+    "lifecycle": {
+      "action_time": 23996781000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H01_publish_directory_01",
+        "session_id": "session:H01_publish_directory_01:current",
+        "task_id": "task:H01_publish_directory_01"
+      },
+      "current_session": "session:H01_publish_directory_01:current",
+      "grant_times": {
+        "grant:H01_publish_directory_01": {
+          "expires": null,
+          "grant_session": "session:H01_publish_directory_01:current",
+          "issued": 23996781000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H01_publish_directory_01",
+        "session_id": "session:H01_publish_directory_01:current",
+        "task_id": "task:H01_publish_directory_01"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H01_publish_directory_01:attempt-01",
+        "receipt_id": "receipt:H01_publish_directory_01:attempt-01",
+        "resource": "sandbox-resource:H01_publish_directory_01",
+        "session_id": "session:H01_publish_directory_01:current",
+        "status": "committed",
+        "task_id": "task:H01_publish_directory_01",
+        "time_ns": 23996875000000
+      },
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H01_publish_directory_01:attempt-01",
+        "finished_ns": 23996875000000,
+        "resource": "sandbox-resource:H01_publish_directory_01",
+        "session_id": "session:H01_publish_directory_01:current",
+        "started_ns": 23996781000000,
+        "task_id": "task:H01_publish_directory_01"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H01_publish_directory_01": {
+          "resource": "sandbox-resource:H01_publish_directory_01"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "17a04222235238f92272b5a9d86b93cdf88ea0a408f145bec5028a0a8269db74",
+          "path": "published/intro.txt",
+          "required_hash": "17a04222235238f92272b5a9d86b93cdf88ea0a408f145bec5028a0a8269db74"
+        },
+        {
+          "observed_hash": "dde489a81a777b06054c82ed18b8f5a5bc9b3ba3b6db4543a1ffb65f6cebdc0f",
+          "path": "published/change.txt",
+          "required_hash": "dde489a81a777b06054c82ed18b8f5a5bc9b3ba3b6db4543a1ffb65f6cebdc0f"
+        },
+        {
+          "observed_hash": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04",
+          "path": "published/index.txt",
+          "required_hash": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "H01_publish_directory_02": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H01_publish_directory_02:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H01_publish_directory_02:attempt-01",
+          "path": "published/change.txt"
+        },
+        {
+          "effect_id": "effect:H01_publish_directory_02:attempt-01",
+          "path": "published/index.txt"
+        },
+        {
+          "effect_id": "effect:H01_publish_directory_02:attempt-01",
+          "path": "published/intro.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H01_publish_directory_02:attempt-01",
+        "finished_ns": 23997031000000,
+        "resource": "sandbox-resource:H01_publish_directory_02",
+        "session_id": "session:H01_publish_directory_02:current",
+        "started_ns": 23996937000000,
+        "task_id": "task:H01_publish_directory_02"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "publish_directory",
+          "grant_id": "grant:H01_publish_directory_02"
+        }
+      ]
+    },
+    "id": "H01_publish_directory_02",
+    "lifecycle": {
+      "action_time": 23996937000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H01_publish_directory_02",
+        "session_id": "session:H01_publish_directory_02:current",
+        "task_id": "task:H01_publish_directory_02"
+      },
+      "current_session": "session:H01_publish_directory_02:current",
+      "grant_times": {
+        "grant:H01_publish_directory_02": {
+          "expires": null,
+          "grant_session": "session:H01_publish_directory_02:current",
+          "issued": 23996937000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H01_publish_directory_02",
+        "session_id": "session:H01_publish_directory_02:current",
+        "task_id": "task:H01_publish_directory_02"
+      },
+      "revocations": [
+        {
+          "grant_id": "grant:H01_publish_directory_02",
+          "revoked_ns": 23996937000000
+        }
+      ]
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H01_publish_directory_02:attempt-01",
+        "receipt_id": "receipt:H01_publish_directory_02:attempt-01",
+        "resource": "sandbox-resource:H01_publish_directory_02",
+        "session_id": "session:H01_publish_directory_02:current",
+        "status": "committed",
+        "task_id": "task:H01_publish_directory_02",
+        "time_ns": 23997031000000
+      },
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H01_publish_directory_02:attempt-01",
+        "finished_ns": 23997031000000,
+        "resource": "sandbox-resource:H01_publish_directory_02",
+        "session_id": "session:H01_publish_directory_02:current",
+        "started_ns": 23996937000000,
+        "task_id": "task:H01_publish_directory_02"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H01_publish_directory_02": {
+          "resource": "sandbox-resource:H01_publish_directory_02"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "c63a8972dd00bcfa870621f9c1761514b3de23c5569880e33b3b955129cae32e",
+          "path": "published/intro.txt",
+          "required_hash": "c63a8972dd00bcfa870621f9c1761514b3de23c5569880e33b3b955129cae32e"
+        },
+        {
+          "observed_hash": "4377af05fa29dc543c2b9d2a0c789e39897f7ab61b660c546be6d3be425a8408",
+          "path": "published/change.txt",
+          "required_hash": "4377af05fa29dc543c2b9d2a0c789e39897f7ab61b660c546be6d3be425a8408"
+        },
+        {
+          "observed_hash": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04",
+          "path": "published/index.txt",
+          "required_hash": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "H01_publish_directory_03": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H01_publish_directory_03:attempt-01",
+        "finished_ns": 23997203000000,
+        "resource": "sandbox-resource:H01_publish_directory_03",
+        "session_id": "session:H01_publish_directory_03:current",
+        "started_ns": 23997109000000,
+        "task_id": "task:H01_publish_directory_03"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "publish_directory",
+          "grant_id": "grant:H01_publish_directory_03"
+        }
+      ]
+    },
+    "id": "H01_publish_directory_03",
+    "lifecycle": {
+      "action_time": 23997109000000,
+      "artifact_binding": null,
+      "current_session": "session:H01_publish_directory_03:current",
+      "grant_times": {
+        "grant:H01_publish_directory_03": {
+          "expires": null,
+          "grant_session": "session:H01_publish_directory_03:current",
+          "issued": 23997109000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H01_publish_directory_03",
+        "session_id": "session:H01_publish_directory_03:current",
+        "task_id": "task:H01_publish_directory_03"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H01_publish_directory_03:attempt-01",
+        "finished_ns": 23997203000000,
+        "resource": "sandbox-resource:H01_publish_directory_03",
+        "session_id": "session:H01_publish_directory_03:current",
+        "started_ns": 23997109000000,
+        "task_id": "task:H01_publish_directory_03"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H01_publish_directory_03": {
+          "resource": "sandbox-resource:H01_publish_directory_03"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": null,
+          "path": "published/intro.txt",
+          "required_hash": "cd9ce38e3c07acb85b3b92fbc70533fc2d68a298713c1ce7be125e88c626d6d3"
+        },
+        {
+          "observed_hash": null,
+          "path": "published/change.txt",
+          "required_hash": "9edc3a19c54a47268301b5bb080b6a5c922105c0c8d3ed84487ed8baad6efd03"
+        },
+        {
+          "observed_hash": null,
+          "path": "published/index.txt",
+          "required_hash": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "H01_publish_directory_04": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H01_publish_directory_04:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H01_publish_directory_04:attempt-01",
+          "path": "published/change.txt"
+        },
+        {
+          "effect_id": "effect:H01_publish_directory_04:attempt-01",
+          "path": "published/index.txt"
+        },
+        {
+          "effect_id": "effect:H01_publish_directory_04:attempt-01",
+          "path": "published/intro.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H01_publish_directory_04:attempt-01",
+        "finished_ns": 23997359000000,
+        "resource": "sandbox-resource:H01_publish_directory_04",
+        "session_id": "session:H01_publish_directory_04:current",
+        "started_ns": 23997265000000,
+        "task_id": "task:H01_publish_directory_04"
+      },
+      "return_code": 23,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "publish_directory",
+          "grant_id": "grant:H01_publish_directory_04"
+        }
+      ]
+    },
+    "id": "H01_publish_directory_04",
+    "lifecycle": {
+      "action_time": 23997265000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H01_publish_directory_04",
+        "session_id": "session:H01_publish_directory_04:current",
+        "task_id": "task:H01_publish_directory_04"
+      },
+      "current_session": "session:H01_publish_directory_04:current",
+      "grant_times": {
+        "grant:H01_publish_directory_04": {
+          "expires": null,
+          "grant_session": "session:H01_publish_directory_04:current",
+          "issued": 23997265000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H01_publish_directory_04",
+        "session_id": "session:H01_publish_directory_04:current",
+        "task_id": "task:H01_publish_directory_04"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H01_publish_directory_04:attempt-01",
+        "finished_ns": 23997359000000,
+        "resource": "sandbox-resource:H01_publish_directory_04",
+        "session_id": "session:H01_publish_directory_04:current",
+        "started_ns": 23997265000000,
+        "task_id": "task:H01_publish_directory_04"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H01_publish_directory_04": {
+          "resource": "sandbox-resource:H01_publish_directory_04"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "8c005ff23e9dd0ba8f76e335ad3696805b02dc6b9f3fd116a446c3ca47904db7",
+          "path": "published/intro.txt",
+          "required_hash": "8c005ff23e9dd0ba8f76e335ad3696805b02dc6b9f3fd116a446c3ca47904db7"
+        },
+        {
+          "observed_hash": "3ee6a32e13f3199249761d5ff4a705abd96e821cc262de494fceacabe9336764",
+          "path": "published/change.txt",
+          "required_hash": "3ee6a32e13f3199249761d5ff4a705abd96e821cc262de494fceacabe9336764"
+        },
+        {
+          "observed_hash": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04",
+          "path": "published/index.txt",
+          "required_hash": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "H02_inventory_reservation_01": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H02_inventory_reservation_01:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H02_inventory_reservation_01:attempt-01",
+          "path": "stock.sqlite"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H02_inventory_reservation_01:attempt-01",
+        "finished_ns": 23997562000000,
+        "resource": "sandbox-resource:H02_inventory_reservation_01",
+        "session_id": "session:H02_inventory_reservation_01:current",
+        "started_ns": 23997437000000,
+        "task_id": "task:H02_inventory_reservation_01"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "inventory_reservation",
+          "grant_id": "grant:H02_inventory_reservation_01"
+        }
+      ]
+    },
+    "id": "H02_inventory_reservation_01",
+    "lifecycle": {
+      "action_time": 23997437000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H02_inventory_reservation_01",
+        "session_id": "session:H02_inventory_reservation_01:current",
+        "task_id": "task:H02_inventory_reservation_01"
+      },
+      "current_session": "session:H02_inventory_reservation_01:current",
+      "grant_times": {
+        "grant:H02_inventory_reservation_01": {
+          "expires": null,
+          "grant_session": "session:H02_inventory_reservation_01:current",
+          "issued": 23997437000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H02_inventory_reservation_01",
+        "session_id": "session:H02_inventory_reservation_01:current",
+        "task_id": "task:H02_inventory_reservation_01"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H02_inventory_reservation_01:attempt-01",
+        "receipt_id": "receipt:H02_inventory_reservation_01:attempt-01",
+        "resource": "sandbox-resource:H02_inventory_reservation_01",
+        "session_id": "session:H02_inventory_reservation_01:current",
+        "status": "committed",
+        "task_id": "task:H02_inventory_reservation_01",
+        "time_ns": 23997546000000
+      },
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H02_inventory_reservation_01:attempt-01",
+        "finished_ns": 23997562000000,
+        "resource": "sandbox-resource:H02_inventory_reservation_01",
+        "session_id": "session:H02_inventory_reservation_01:current",
+        "started_ns": 23997437000000,
+        "task_id": "task:H02_inventory_reservation_01"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H02_inventory_reservation_01": {
+          "resource": "sandbox-resource:H02_inventory_reservation_01"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [
+            [
+              "bolt",
+              29
+            ],
+            [
+              "nut",
+              38
+            ],
+            [
+              "spare",
+              90
+            ]
+          ],
+          "query": "SELECT sku,quantity FROM stock ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              29
+            ],
+            [
+              "nut",
+              38
+            ],
+            [
+              "spare",
+              90
+            ]
+          ]
+        },
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [
+            [
+              "bolt",
+              1
+            ],
+            [
+              "nut",
+              2
+            ]
+          ],
+          "query": "SELECT sku,quantity FROM reservations ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              1
+            ],
+            [
+              "nut",
+              2
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "H02_inventory_reservation_02": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H02_inventory_reservation_02:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H02_inventory_reservation_02:attempt-01",
+          "path": "stock.sqlite"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H02_inventory_reservation_02:attempt-01",
+        "finished_ns": 23997765000000,
+        "resource": "sandbox-resource:H02_inventory_reservation_02",
+        "session_id": "session:H02_inventory_reservation_02:current",
+        "started_ns": 23997640000000,
+        "task_id": "task:H02_inventory_reservation_02"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "inventory_reservation",
+          "grant_id": "grant:H02_inventory_reservation_02"
+        }
+      ]
+    },
+    "id": "H02_inventory_reservation_02",
+    "lifecycle": {
+      "action_time": 23997640000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H02_inventory_reservation_02",
+        "session_id": "session:H02_inventory_reservation_02:current",
+        "task_id": "task:H02_inventory_reservation_02"
+      },
+      "current_session": "session:H02_inventory_reservation_02:current",
+      "grant_times": {
+        "grant:H02_inventory_reservation_02": {
+          "expires": null,
+          "grant_session": "session:H02_inventory_reservation_02:current",
+          "issued": 23997640000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H02_inventory_reservation_02",
+        "session_id": "session:H02_inventory_reservation_02:current",
+        "task_id": "task:H02_inventory_reservation_02"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H02_inventory_reservation_02:attempt-01",
+        "receipt_id": "receipt:H02_inventory_reservation_02:attempt-01",
+        "resource": "sandbox-resource:H02_inventory_reservation_02",
+        "session_id": "session:H02_inventory_reservation_02:current",
+        "status": "committed",
+        "task_id": "task:H02_inventory_reservation_02",
+        "time_ns": 23997765000000
+      },
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H02_inventory_reservation_02:attempt-01",
+        "finished_ns": 23997765000000,
+        "resource": "sandbox-resource:H02_inventory_reservation_02",
+        "session_id": "session:H02_inventory_reservation_02:current",
+        "started_ns": 23997640000000,
+        "task_id": "task:H02_inventory_reservation_02"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H02_inventory_reservation_02": {
+          "resource": "sandbox-resource:H02_inventory_reservation_02:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [
+            [
+              "bolt",
+              28
+            ],
+            [
+              "nut",
+              36
+            ],
+            [
+              "spare",
+              90
+            ]
+          ],
+          "query": "SELECT sku,quantity FROM stock ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              28
+            ],
+            [
+              "nut",
+              36
+            ],
+            [
+              "spare",
+              90
+            ]
+          ]
+        },
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [
+            [
+              "bolt",
+              2
+            ],
+            [
+              "nut",
+              4
+            ]
+          ],
+          "query": "SELECT sku,quantity FROM reservations ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              2
+            ],
+            [
+              "nut",
+              4
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "H02_inventory_reservation_03": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H02_inventory_reservation_03:attempt-01",
+        "finished_ns": 23997953000000,
+        "resource": "sandbox-resource:H02_inventory_reservation_03",
+        "session_id": "session:H02_inventory_reservation_03:current",
+        "started_ns": 23997843000000,
+        "task_id": "task:H02_inventory_reservation_03"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "inventory_reservation",
+          "grant_id": "grant:H02_inventory_reservation_03"
+        }
+      ]
+    },
+    "id": "H02_inventory_reservation_03",
+    "lifecycle": {
+      "action_time": 23997843000000,
+      "artifact_binding": null,
+      "current_session": "session:H02_inventory_reservation_03:current",
+      "grant_times": {
+        "grant:H02_inventory_reservation_03": {
+          "expires": null,
+          "grant_session": "session:H02_inventory_reservation_03:current",
+          "issued": 23997843000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H02_inventory_reservation_03",
+        "session_id": "session:H02_inventory_reservation_03:current",
+        "task_id": "task:H02_inventory_reservation_03"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H02_inventory_reservation_03:attempt-01",
+        "finished_ns": 23997953000000,
+        "resource": "sandbox-resource:H02_inventory_reservation_03",
+        "session_id": "session:H02_inventory_reservation_03:current",
+        "started_ns": 23997843000000,
+        "task_id": "task:H02_inventory_reservation_03"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H02_inventory_reservation_03": {
+          "resource": "sandbox-resource:H02_inventory_reservation_03"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [
+            [
+              "bolt",
+              30
+            ],
+            [
+              "nut",
+              40
+            ],
+            [
+              "spare",
+              90
+            ]
+          ],
+          "query": "SELECT sku,quantity FROM stock ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              27
+            ],
+            [
+              "nut",
+              34
+            ],
+            [
+              "spare",
+              90
+            ]
+          ]
+        },
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [],
+          "query": "SELECT sku,quantity FROM reservations ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              3
+            ],
+            [
+              "nut",
+              6
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "H02_inventory_reservation_04": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H02_inventory_reservation_04:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H02_inventory_reservation_04:attempt-01",
+          "path": "stock.sqlite"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H02_inventory_reservation_04:attempt-01",
+        "finished_ns": 23998156000000,
+        "resource": "sandbox-resource:H02_inventory_reservation_04",
+        "session_id": "session:H02_inventory_reservation_04:current",
+        "started_ns": 23998046000000,
+        "task_id": "task:H02_inventory_reservation_04"
+      },
+      "return_code": 23,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "inventory_reservation",
+          "grant_id": "grant:H02_inventory_reservation_04"
+        }
+      ]
+    },
+    "id": "H02_inventory_reservation_04",
+    "lifecycle": {
+      "action_time": 23998046000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H02_inventory_reservation_04",
+        "session_id": "session:H02_inventory_reservation_04:current",
+        "task_id": "task:H02_inventory_reservation_04"
+      },
+      "current_session": "session:H02_inventory_reservation_04:current",
+      "grant_times": {
+        "grant:H02_inventory_reservation_04": {
+          "expires": null,
+          "grant_session": "session:H02_inventory_reservation_04:current",
+          "issued": 23998046000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H02_inventory_reservation_04",
+        "session_id": "session:H02_inventory_reservation_04:current",
+        "task_id": "task:H02_inventory_reservation_04"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H02_inventory_reservation_04:attempt-01",
+        "finished_ns": 23998156000000,
+        "resource": "sandbox-resource:H02_inventory_reservation_04",
+        "session_id": "session:H02_inventory_reservation_04:current",
+        "started_ns": 23998046000000,
+        "task_id": "task:H02_inventory_reservation_04"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H02_inventory_reservation_04": {
+          "resource": "sandbox-resource:H02_inventory_reservation_04"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [
+            [
+              "bolt",
+              26
+            ],
+            [
+              "nut",
+              32
+            ],
+            [
+              "spare",
+              90
+            ]
+          ],
+          "query": "SELECT sku,quantity FROM stock ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              26
+            ],
+            [
+              "nut",
+              32
+            ],
+            [
+              "spare",
+              90
+            ]
+          ]
+        },
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [
+            [
+              "bolt",
+              4
+            ],
+            [
+              "nut",
+              8
+            ]
+          ],
+          "query": "SELECT sku,quantity FROM reservations ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              4
+            ],
+            [
+              "nut",
+              8
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "H03_manifest_package_01": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H03_manifest_package_01:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H03_manifest_package_01:attempt-01",
+          "path": "manifest.json"
+        },
+        {
+          "effect_id": "effect:H03_manifest_package_01:attempt-01",
+          "path": "package.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H03_manifest_package_01:attempt-01",
+        "finished_ns": 23998359000000,
+        "resource": "sandbox-resource:H03_manifest_package_01",
+        "session_id": "session:H03_manifest_package_01:current",
+        "started_ns": 23998234000000,
+        "task_id": "task:H03_manifest_package_01"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "manifest_package",
+          "grant_id": "grant:H03_manifest_package_01"
+        }
+      ]
+    },
+    "id": "H03_manifest_package_01",
+    "lifecycle": {
+      "action_time": 23998234000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H03_manifest_package_01",
+        "session_id": "session:H03_manifest_package_01:current",
+        "task_id": "task:H03_manifest_package_01"
+      },
+      "current_session": "session:H03_manifest_package_01:current",
+      "grant_times": {
+        "grant:H03_manifest_package_01": {
+          "expires": null,
+          "grant_session": "session:H03_manifest_package_01:current",
+          "issued": 23998234000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H03_manifest_package_01",
+        "session_id": "session:H03_manifest_package_01:current",
+        "task_id": "task:H03_manifest_package_01"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H03_manifest_package_01:attempt-01",
+        "receipt_id": "receipt:H03_manifest_package_01:attempt-01",
+        "resource": "sandbox-resource:H03_manifest_package_01",
+        "session_id": "session:H03_manifest_package_01:current",
+        "status": "committed",
+        "task_id": "task:H03_manifest_package_01",
+        "time_ns": 23998343000000
+      },
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H03_manifest_package_01:attempt-01",
+        "finished_ns": 23998359000000,
+        "resource": "sandbox-resource:H03_manifest_package_01",
+        "session_id": "session:H03_manifest_package_01:current",
+        "started_ns": 23998234000000,
+        "task_id": "task:H03_manifest_package_01"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H03_manifest_package_01": {
+          "resource": "sandbox-resource:H03_manifest_package_01"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "dffc2e721ba85bf742df6aaee48abb8a32295778841326808846f30a7ce49729",
+          "path": "package.json",
+          "required_hash": "dffc2e721ba85bf742df6aaee48abb8a32295778841326808846f30a7ce49729"
+        },
+        {
+          "observed_hash": "f383efa3f0c270874b1414dc2f101cff6819291ae358b7e9e752c505614f52da",
+          "path": "manifest.json",
+          "required_hash": "f383efa3f0c270874b1414dc2f101cff6819291ae358b7e9e752c505614f52da"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "H03_manifest_package_02": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H03_manifest_package_02:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H03_manifest_package_02:attempt-01",
+          "path": "manifest.json"
+        },
+        {
+          "effect_id": "effect:H03_manifest_package_02:attempt-01",
+          "path": "package.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H03_manifest_package_02:attempt-01",
+        "finished_ns": 23998562000000,
+        "resource": "sandbox-resource:H03_manifest_package_02",
+        "session_id": "session:H03_manifest_package_02:current",
+        "started_ns": 23998421000000,
+        "task_id": "task:H03_manifest_package_02"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "manifest_package",
+          "grant_id": "grant:H03_manifest_package_02"
+        }
+      ]
+    },
+    "id": "H03_manifest_package_02",
+    "lifecycle": {
+      "action_time": 23998421000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H03_manifest_package_02",
+        "session_id": "session:H03_manifest_package_02:current",
+        "task_id": "task:H03_manifest_package_02"
+      },
+      "current_session": "session:H03_manifest_package_02:current",
+      "grant_times": {
+        "grant:H03_manifest_package_02": {
+          "expires": null,
+          "grant_session": "session:H03_manifest_package_02:current",
+          "issued": 23998421000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H03_manifest_package_02",
+        "session_id": "session:H03_manifest_package_02:current",
+        "task_id": "task:H03_manifest_package_02"
+      },
+      "revocations": [
+        {
+          "grant_id": "grant:H03_manifest_package_02",
+          "revoked_ns": 23998421000000
+        }
+      ]
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H03_manifest_package_02:attempt-01",
+        "receipt_id": "receipt:H03_manifest_package_02:attempt-01",
+        "resource": "sandbox-resource:H03_manifest_package_02",
+        "session_id": "session:H03_manifest_package_02:current",
+        "status": "committed",
+        "task_id": "task:H03_manifest_package_02",
+        "time_ns": 23998546000000
+      },
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H03_manifest_package_02:attempt-01",
+        "finished_ns": 23998562000000,
+        "resource": "sandbox-resource:H03_manifest_package_02",
+        "session_id": "session:H03_manifest_package_02:current",
+        "started_ns": 23998421000000,
+        "task_id": "task:H03_manifest_package_02"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H03_manifest_package_02": {
+          "resource": "sandbox-resource:H03_manifest_package_02"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "1208a35249c83d1b294c6058063f15db853c9137642057e640d38f39b5387bd0",
+          "path": "package.json",
+          "required_hash": "1208a35249c83d1b294c6058063f15db853c9137642057e640d38f39b5387bd0"
+        },
+        {
+          "observed_hash": "22da98ab3221c8e27f63d7d59742d2f688a818b3d2e54c5beb170c6da3efca0d",
+          "path": "manifest.json",
+          "required_hash": "22da98ab3221c8e27f63d7d59742d2f688a818b3d2e54c5beb170c6da3efca0d"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "H03_manifest_package_03": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H03_manifest_package_03:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H03_manifest_package_03:attempt-01",
+          "path": "manifest.json"
+        },
+        {
+          "effect_id": "effect:H03_manifest_package_03:attempt-01",
+          "path": "package.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H03_manifest_package_03:attempt-01",
+        "finished_ns": 23998750000000,
+        "resource": "sandbox-resource:H03_manifest_package_03",
+        "session_id": "session:H03_manifest_package_03:current",
+        "started_ns": 23998609000000,
+        "task_id": "task:H03_manifest_package_03"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "manifest_package",
+          "grant_id": "grant:H03_manifest_package_03"
+        }
+      ]
+    },
+    "id": "H03_manifest_package_03",
+    "lifecycle": {
+      "action_time": 23998609000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H03_manifest_package_03",
+        "session_id": "session:H03_manifest_package_03:current",
+        "task_id": "task:H03_manifest_package_03"
+      },
+      "current_session": "session:H03_manifest_package_03:current",
+      "grant_times": {
+        "grant:H03_manifest_package_03": {
+          "expires": null,
+          "grant_session": "session:H03_manifest_package_03:current",
+          "issued": 23998609000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H03_manifest_package_03",
+        "session_id": "session:H03_manifest_package_03:current",
+        "task_id": "task:H03_manifest_package_03"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H03_manifest_package_03:attempt-01",
+        "receipt_id": "receipt:H03_manifest_package_03:attempt-01",
+        "resource": "sandbox-resource:H03_manifest_package_03",
+        "session_id": "session:H03_manifest_package_03:current",
+        "status": "committed",
+        "task_id": "task:H03_manifest_package_03",
+        "time_ns": 23998734000000
+      },
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H03_manifest_package_03:attempt-01",
+        "finished_ns": 23998750000000,
+        "resource": "sandbox-resource:H03_manifest_package_03",
+        "session_id": "session:H03_manifest_package_03:current",
+        "started_ns": 23998609000000,
+        "task_id": "task:H03_manifest_package_03"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H03_manifest_package_03": {
+          "resource": "sandbox-resource:H03_manifest_package_03"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "748c295f860245ec5ad05c222eef17b4245e5caf897b6e0209515d5ea99f0817",
+          "path": "package.json",
+          "required_hash": "c63fd04d465864df7af8fe2bd28877666ac7fe3b056d81b0a0437062b1989428"
+        },
+        {
+          "observed_hash": "d6a21fb37feedaf9c396e95ebe4459197fa6779ff6dde5617b57275f4eb816ba",
+          "path": "manifest.json",
+          "required_hash": "d6a21fb37feedaf9c396e95ebe4459197fa6779ff6dde5617b57275f4eb816ba"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "H03_manifest_package_04": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H03_manifest_package_04:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H03_manifest_package_04:attempt-01",
+          "path": "manifest.json"
+        },
+        {
+          "effect_id": "effect:H03_manifest_package_04:attempt-01",
+          "path": "package.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H03_manifest_package_04:attempt-01",
+        "finished_ns": 23998906000000,
+        "resource": "sandbox-resource:H03_manifest_package_04",
+        "session_id": "session:H03_manifest_package_04:current",
+        "started_ns": 23998812000000,
+        "task_id": "task:H03_manifest_package_04"
+      },
+      "return_code": 23,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "manifest_package",
+          "grant_id": "grant:H03_manifest_package_04"
+        }
+      ]
+    },
+    "id": "H03_manifest_package_04",
+    "lifecycle": {
+      "action_time": 23998812000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H03_manifest_package_04",
+        "session_id": "session:H03_manifest_package_04:current",
+        "task_id": "task:H03_manifest_package_04"
+      },
+      "current_session": "session:H03_manifest_package_04:current",
+      "grant_times": {
+        "grant:H03_manifest_package_04": {
+          "expires": null,
+          "grant_session": "session:H03_manifest_package_04:current",
+          "issued": 23998812000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H03_manifest_package_04",
+        "session_id": "session:H03_manifest_package_04:current",
+        "task_id": "task:H03_manifest_package_04"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H03_manifest_package_04:attempt-01",
+        "finished_ns": 23998906000000,
+        "resource": "sandbox-resource:H03_manifest_package_04",
+        "session_id": "session:H03_manifest_package_04:current",
+        "started_ns": 23998812000000,
+        "task_id": "task:H03_manifest_package_04"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H03_manifest_package_04": {
+          "resource": "sandbox-resource:H03_manifest_package_04"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "62159ea44975be8e32ca28f0ee0644e98fadd48814861e500d48695a4217a82c",
+          "path": "package.json",
+          "required_hash": "62159ea44975be8e32ca28f0ee0644e98fadd48814861e500d48695a4217a82c"
+        },
+        {
+          "observed_hash": "287459154f5ae99fd82148519c3c3cb732e26a92cee737b5db275d8a03e54e79",
+          "path": "manifest.json",
+          "required_hash": "287459154f5ae99fd82148519c3c3cb732e26a92cee737b5db275d8a03e54e79"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "H04_sql_join_export_01": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H04_sql_join_export_01:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H04_sql_join_export_01:attempt-01",
+          "path": "revenue.csv"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H04_sql_join_export_01:attempt-01",
+        "finished_ns": 23999156000000,
+        "resource": "sandbox-resource:H04_sql_join_export_01",
+        "session_id": "session:H04_sql_join_export_01:current",
+        "started_ns": 23999015000000,
+        "task_id": "task:H04_sql_join_export_01"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "sql_join_export",
+          "grant_id": "grant:H04_sql_join_export_01"
+        }
+      ]
+    },
+    "id": "H04_sql_join_export_01",
+    "lifecycle": {
+      "action_time": 23999015000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H04_sql_join_export_01",
+        "session_id": "session:H04_sql_join_export_01:current",
+        "task_id": "task:H04_sql_join_export_01"
+      },
+      "current_session": "session:H04_sql_join_export_01:current",
+      "grant_times": {
+        "grant:H04_sql_join_export_01": {
+          "expires": null,
+          "grant_session": "session:H04_sql_join_export_01:current",
+          "issued": 23999015000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H04_sql_join_export_01",
+        "session_id": "session:H04_sql_join_export_01:current",
+        "task_id": "task:H04_sql_join_export_01"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H04_sql_join_export_01:attempt-01",
+        "receipt_id": "receipt:H04_sql_join_export_01:attempt-01",
+        "resource": "sandbox-resource:H04_sql_join_export_01",
+        "session_id": "session:H04_sql_join_export_01:current",
+        "status": "committed",
+        "task_id": "task:H04_sql_join_export_01",
+        "time_ns": 23999140000000
+      },
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H04_sql_join_export_01:attempt-01",
+        "finished_ns": 23999156000000,
+        "resource": "sandbox-resource:H04_sql_join_export_01",
+        "session_id": "session:H04_sql_join_export_01:current",
+        "started_ns": 23999015000000,
+        "task_id": "task:H04_sql_join_export_01"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H04_sql_join_export_01": {
+          "resource": "sandbox-resource:H04_sql_join_export_01"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "824e115bc4c19c564d13adbea8e55ce03f67919d0797a09ba481aa02a61a09d4",
+          "path": "revenue.csv",
+          "required_hash": "824e115bc4c19c564d13adbea8e55ce03f67919d0797a09ba481aa02a61a09d4"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "H04_sql_join_export_02": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H04_sql_join_export_02:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H04_sql_join_export_02:attempt-01",
+          "path": "revenue.csv"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H04_sql_join_export_02:attempt-01",
+        "finished_ns": 23999328000000,
+        "resource": "sandbox-resource:H04_sql_join_export_02",
+        "session_id": "session:H04_sql_join_export_02:current",
+        "started_ns": 23999234000000,
+        "task_id": "task:H04_sql_join_export_02"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "sql_join_export",
+          "grant_id": "grant:H04_sql_join_export_02"
+        }
+      ]
+    },
+    "id": "H04_sql_join_export_02",
+    "lifecycle": {
+      "action_time": 23999234000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H04_sql_join_export_02",
+        "session_id": "session:H04_sql_join_export_02:current",
+        "task_id": "task:H04_sql_join_export_02"
+      },
+      "current_session": "session:H04_sql_join_export_02:current",
+      "grant_times": {
+        "grant:H04_sql_join_export_02": {
+          "expires": null,
+          "grant_session": "session:H04_sql_join_export_02:current",
+          "issued": 23999218000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H04_sql_join_export_02",
+        "session_id": "session:H04_sql_join_export_02:current",
+        "task_id": "task:H04_sql_join_export_02"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H04_sql_join_export_02:attempt-01",
+        "receipt_id": "receipt:H04_sql_join_export_02:attempt-01",
+        "resource": "sandbox-resource:H04_sql_join_export_02",
+        "session_id": "session:H04_sql_join_export_02:current",
+        "status": "committed",
+        "task_id": "task:H04_sql_join_export_02",
+        "time_ns": 23999328000000
+      },
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H04_sql_join_export_02:attempt-01",
+        "finished_ns": 23999328000000,
+        "resource": "sandbox-resource:H04_sql_join_export_02",
+        "session_id": "session:H04_sql_join_export_02:current",
+        "started_ns": 23999234000000,
+        "task_id": "task:H04_sql_join_export_02"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H04_sql_join_export_02": {
+          "resource": "sandbox-resource:H04_sql_join_export_02:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "fbf8b142d392324187e844c5cf3da75ac05815c2e3b42b956d8ca36155b0d237",
+          "path": "revenue.csv",
+          "required_hash": "fbf8b142d392324187e844c5cf3da75ac05815c2e3b42b956d8ca36155b0d237"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "H04_sql_join_export_03": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H04_sql_join_export_03:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H04_sql_join_export_03:attempt-01",
+          "path": "revenue.csv"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H04_sql_join_export_03:attempt-01",
+        "finished_ns": 23999484000000,
+        "resource": "sandbox-resource:H04_sql_join_export_03",
+        "session_id": "session:H04_sql_join_export_03:current",
+        "started_ns": 23999390000000,
+        "task_id": "task:H04_sql_join_export_03"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "sql_join_export",
+          "grant_id": "grant:H04_sql_join_export_03"
+        }
+      ]
+    },
+    "id": "H04_sql_join_export_03",
+    "lifecycle": {
+      "action_time": 23999390000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H04_sql_join_export_03",
+        "session_id": "session:H04_sql_join_export_03:current",
+        "task_id": "task:another-task"
+      },
+      "current_session": "session:H04_sql_join_export_03:current",
+      "grant_times": {
+        "grant:H04_sql_join_export_03": {
+          "expires": null,
+          "grant_session": "session:H04_sql_join_export_03:current",
+          "issued": 23999390000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H04_sql_join_export_03",
+        "session_id": "session:H04_sql_join_export_03:current",
+        "task_id": "task:H04_sql_join_export_03"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H04_sql_join_export_03:attempt-01",
+        "receipt_id": "receipt:H04_sql_join_export_03:attempt-01",
+        "resource": "sandbox-resource:H04_sql_join_export_03",
+        "session_id": "session:H04_sql_join_export_03:current",
+        "status": "committed",
+        "task_id": "task:H04_sql_join_export_03",
+        "time_ns": 23999484000000
+      },
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H04_sql_join_export_03:attempt-01",
+        "finished_ns": 23999484000000,
+        "resource": "sandbox-resource:H04_sql_join_export_03",
+        "session_id": "session:H04_sql_join_export_03:current",
+        "started_ns": 23999390000000,
+        "task_id": "task:H04_sql_join_export_03"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H04_sql_join_export_03": {
+          "resource": "sandbox-resource:H04_sql_join_export_03"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "f8535083eeb825e20c2f4f984dd25c0d6dd814e0dea740522a72068e13e54688",
+          "path": "revenue.csv",
+          "required_hash": "f8535083eeb825e20c2f4f984dd25c0d6dd814e0dea740522a72068e13e54688"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "H04_sql_join_export_04": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H04_sql_join_export_04:attempt-01",
+        "finished_ns": 23999625000000,
+        "resource": "sandbox-resource:H04_sql_join_export_04",
+        "session_id": "session:H04_sql_join_export_04:current",
+        "started_ns": 23999531000000,
+        "task_id": "task:H04_sql_join_export_04"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "sql_join_export",
+          "grant_id": "grant:H04_sql_join_export_04"
+        }
+      ]
+    },
+    "id": "H04_sql_join_export_04",
+    "lifecycle": {
+      "action_time": 23999531000000,
+      "artifact_binding": null,
+      "current_session": "session:H04_sql_join_export_04:current",
+      "grant_times": {
+        "grant:H04_sql_join_export_04": {
+          "expires": null,
+          "grant_session": "session:H04_sql_join_export_04:current",
+          "issued": 23999531000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H04_sql_join_export_04",
+        "session_id": "session:H04_sql_join_export_04:current",
+        "task_id": "task:H04_sql_join_export_04"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H04_sql_join_export_04:attempt-01",
+        "finished_ns": 23999625000000,
+        "resource": "sandbox-resource:H04_sql_join_export_04",
+        "session_id": "session:H04_sql_join_export_04:current",
+        "started_ns": 23999531000000,
+        "task_id": "task:H04_sql_join_export_04"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H04_sql_join_export_04": {
+          "resource": "sandbox-resource:H04_sql_join_export_04"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": null,
+          "path": "revenue.csv",
+          "required_hash": "0966243fddcdcc0db7925af5416971faff76bf5066d11dbe78a73b59ef89053d"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "H05_queued_approval_01": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H05_queued_approval_01:attempt-01",
+          "path": "decision.json"
+        },
+        {
+          "effect_id": "effect:H05_queued_approval_01:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H05_queued_approval_01:attempt-01",
+          "path": "queue.sqlite"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "queued_approval",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H05_queued_approval_01:attempt-01",
+        "finished_ns": 23999796000000,
+        "resource": "sandbox-resource:H05_queued_approval_01",
+        "session_id": "session:H05_queued_approval_01:current",
+        "started_ns": 23999687000000,
+        "task_id": "task:H05_queued_approval_01"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "queued_approval",
+          "grant_id": "grant:H05_queued_approval_01"
+        }
+      ]
+    },
+    "id": "H05_queued_approval_01",
+    "lifecycle": {
+      "action_time": 23999687000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H05_queued_approval_01",
+        "session_id": "session:H05_queued_approval_01:current",
+        "task_id": "task:H05_queued_approval_01"
+      },
+      "current_session": "session:H05_queued_approval_01:current",
+      "grant_times": {
+        "grant:H05_queued_approval_01": {
+          "expires": null,
+          "grant_session": "session:H05_queued_approval_01:current",
+          "issued": 23999687000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H05_queued_approval_01",
+        "session_id": "session:H05_queued_approval_01:current",
+        "task_id": "task:H05_queued_approval_01"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "queued_approval",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H05_queued_approval_01:attempt-01",
+        "receipt_id": "receipt:H05_queued_approval_01:attempt-01",
+        "resource": "sandbox-resource:H05_queued_approval_01",
+        "session_id": "session:H05_queued_approval_01:current",
+        "status": "committed",
+        "task_id": "task:H05_queued_approval_01",
+        "time_ns": 23999796000000
+      },
+      "operation": {
+        "action": "queued_approval",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H05_queued_approval_01:attempt-01",
+        "finished_ns": 23999796000000,
+        "resource": "sandbox-resource:H05_queued_approval_01",
+        "session_id": "session:H05_queued_approval_01:current",
+        "started_ns": 23999687000000,
+        "task_id": "task:H05_queued_approval_01"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H05_queued_approval_01": {
+          "resource": "sandbox-resource:H05_queued_approval_01"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "317b1d94abe313102f4eb130c19b8ecc91c195eb593b856f3fe74ec8d50560f6",
+          "path": "decision.json",
+          "required_hash": "317b1d94abe313102f4eb130c19b8ecc91c195eb593b856f3fe74ec8d50560f6"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "queue.sqlite",
+          "observed_rows": [
+            [
+              2,
+              "pending-1"
+            ]
+          ],
+          "query": "SELECT id,request FROM queue ORDER BY id",
+          "required_rows": [
+            [
+              2,
+              "pending-1"
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "H05_queued_approval_02": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H05_queued_approval_02:attempt-01",
+          "path": "decision.json"
+        },
+        {
+          "effect_id": "effect:H05_queued_approval_02:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H05_queued_approval_02:attempt-01",
+          "path": "queue.sqlite"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "queued_approval",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H05_queued_approval_02:attempt-01",
+        "finished_ns": 23999968000000,
+        "resource": "sandbox-resource:H05_queued_approval_02",
+        "session_id": "session:H05_queued_approval_02:current",
+        "started_ns": 23999859000000,
+        "task_id": "task:H05_queued_approval_02"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": []
+    },
+    "id": "H05_queued_approval_02",
+    "lifecycle": {
+      "action_time": 23999859000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H05_queued_approval_02",
+        "session_id": "session:H05_queued_approval_02:current",
+        "task_id": "task:H05_queued_approval_02"
+      },
+      "current_session": "session:H05_queued_approval_02:current",
+      "grant_times": {},
+      "required_binding": {
+        "resource": "sandbox-resource:H05_queued_approval_02",
+        "session_id": "session:H05_queued_approval_02:current",
+        "task_id": "task:H05_queued_approval_02"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "queued_approval",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H05_queued_approval_02:attempt-01",
+        "receipt_id": "receipt:H05_queued_approval_02:attempt-01",
+        "resource": "sandbox-resource:H05_queued_approval_02",
+        "session_id": "session:H05_queued_approval_02:current",
+        "status": "committed",
+        "task_id": "task:H05_queued_approval_02",
+        "time_ns": 23999968000000
+      },
+      "operation": {
+        "action": "queued_approval",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H05_queued_approval_02:attempt-01",
+        "finished_ns": 23999968000000,
+        "resource": "sandbox-resource:H05_queued_approval_02",
+        "session_id": "session:H05_queued_approval_02:current",
+        "started_ns": 23999859000000,
+        "task_id": "task:H05_queued_approval_02"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {}
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "a7a61f515bdc90a2dd0a68cca807bf536a61659b808d8a3f1698eb528981232c",
+          "path": "decision.json",
+          "required_hash": "a7a61f515bdc90a2dd0a68cca807bf536a61659b808d8a3f1698eb528981232c"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "queue.sqlite",
+          "observed_rows": [
+            [
+              2,
+              "pending-2"
+            ]
+          ],
+          "query": "SELECT id,request FROM queue ORDER BY id",
+          "required_rows": [
+            [
+              2,
+              "pending-2"
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "H05_queued_approval_03": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "queued_approval",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H05_queued_approval_03:attempt-01",
+        "finished_ns": 24000109000000,
+        "resource": "sandbox-resource:H05_queued_approval_03",
+        "session_id": "session:H05_queued_approval_03:current",
+        "started_ns": 24000031000000,
+        "task_id": "task:H05_queued_approval_03"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "queued_approval",
+          "grant_id": "grant:H05_queued_approval_03"
+        }
+      ]
+    },
+    "id": "H05_queued_approval_03",
+    "lifecycle": {
+      "action_time": 24000031000000,
+      "artifact_binding": null,
+      "current_session": "session:H05_queued_approval_03:current",
+      "grant_times": {
+        "grant:H05_queued_approval_03": {
+          "expires": null,
+          "grant_session": "session:H05_queued_approval_03:current",
+          "issued": 24000031000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H05_queued_approval_03",
+        "session_id": "session:H05_queued_approval_03:current",
+        "task_id": "task:H05_queued_approval_03"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "queued_approval",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H05_queued_approval_03:attempt-01",
+        "finished_ns": 24000109000000,
+        "resource": "sandbox-resource:H05_queued_approval_03",
+        "session_id": "session:H05_queued_approval_03:current",
+        "started_ns": 24000031000000,
+        "task_id": "task:H05_queued_approval_03"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H05_queued_approval_03": {
+          "resource": "sandbox-resource:H05_queued_approval_03"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": null,
+          "path": "decision.json",
+          "required_hash": "7c6b4ef0c1e1957254188e4c758758c083bacf71da980c5a3897c8d18149ee29"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "queue.sqlite",
+          "observed_rows": [
+            [
+              1,
+              "approval-claim-3"
+            ],
+            [
+              2,
+              "pending-3"
+            ]
+          ],
+          "query": "SELECT id,request FROM queue ORDER BY id",
+          "required_rows": [
+            [
+              2,
+              "pending-3"
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "H05_queued_approval_04": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H05_queued_approval_04:attempt-01",
+          "path": "decision.json"
+        },
+        {
+          "effect_id": "effect:H05_queued_approval_04:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H05_queued_approval_04:attempt-01",
+          "path": "queue.sqlite"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "queued_approval",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H05_queued_approval_04:attempt-01",
+        "finished_ns": 24000312000000,
+        "resource": "sandbox-resource:H05_queued_approval_04",
+        "session_id": "session:H05_queued_approval_04:current",
+        "started_ns": 24000203000000,
+        "task_id": "task:H05_queued_approval_04"
+      },
+      "return_code": 23,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "queued_approval",
+          "grant_id": "grant:H05_queued_approval_04"
+        }
+      ]
+    },
+    "id": "H05_queued_approval_04",
+    "lifecycle": {
+      "action_time": 24000203000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H05_queued_approval_04",
+        "session_id": "session:H05_queued_approval_04:current",
+        "task_id": "task:H05_queued_approval_04"
+      },
+      "current_session": "session:H05_queued_approval_04:current",
+      "grant_times": {
+        "grant:H05_queued_approval_04": {
+          "expires": null,
+          "grant_session": "session:H05_queued_approval_04:current",
+          "issued": 24000203000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H05_queued_approval_04",
+        "session_id": "session:H05_queued_approval_04:current",
+        "task_id": "task:H05_queued_approval_04"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "queued_approval",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H05_queued_approval_04:attempt-01",
+        "finished_ns": 24000312000000,
+        "resource": "sandbox-resource:H05_queued_approval_04",
+        "session_id": "session:H05_queued_approval_04:current",
+        "started_ns": 24000203000000,
+        "task_id": "task:H05_queued_approval_04"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H05_queued_approval_04": {
+          "resource": "sandbox-resource:H05_queued_approval_04"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "1302b9b4d33c8f73c13b23ef2fd5e77d921b283f23d7786197377bb64a9272d9",
+          "path": "decision.json",
+          "required_hash": "1302b9b4d33c8f73c13b23ef2fd5e77d921b283f23d7786197377bb64a9272d9"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "queue.sqlite",
+          "observed_rows": [
+            [
+              2,
+              "pending-4"
+            ]
+          ],
+          "query": "SELECT id,request FROM queue ORDER BY id",
+          "required_rows": [
+            [
+              2,
+              "pending-4"
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "H06_revoked_lease_journal_01": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H06_revoked_lease_journal_01:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H06_revoked_lease_journal_01:attempt-01",
+          "path": "leases.sqlite"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "revoked_lease_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H06_revoked_lease_journal_01:attempt-01",
+        "finished_ns": 24000546000000,
+        "resource": "sandbox-resource:H06_revoked_lease_journal_01",
+        "session_id": "session:H06_revoked_lease_journal_01:current",
+        "started_ns": 24000421000000,
+        "task_id": "task:H06_revoked_lease_journal_01"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "revoked_lease_journal",
+          "grant_id": "grant:H06_revoked_lease_journal_01"
+        }
+      ]
+    },
+    "id": "H06_revoked_lease_journal_01",
+    "lifecycle": {
+      "action_time": 24000421000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H06_revoked_lease_journal_01",
+        "session_id": "session:H06_revoked_lease_journal_01:current",
+        "task_id": "task:H06_revoked_lease_journal_01"
+      },
+      "current_session": "session:H06_revoked_lease_journal_01:current",
+      "grant_times": {
+        "grant:H06_revoked_lease_journal_01": {
+          "expires": null,
+          "grant_session": "session:H06_revoked_lease_journal_01:current",
+          "issued": 24000406000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H06_revoked_lease_journal_01",
+        "session_id": "session:H06_revoked_lease_journal_01:current",
+        "task_id": "task:H06_revoked_lease_journal_01"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "revoked_lease_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H06_revoked_lease_journal_01:attempt-01",
+        "receipt_id": "receipt:H06_revoked_lease_journal_01:attempt-01",
+        "resource": "sandbox-resource:H06_revoked_lease_journal_01",
+        "session_id": "session:H06_revoked_lease_journal_01:current",
+        "status": "committed",
+        "task_id": "task:H06_revoked_lease_journal_01",
+        "time_ns": 24000531000000
+      },
+      "operation": {
+        "action": "revoked_lease_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H06_revoked_lease_journal_01:attempt-01",
+        "finished_ns": 24000546000000,
+        "resource": "sandbox-resource:H06_revoked_lease_journal_01",
+        "session_id": "session:H06_revoked_lease_journal_01:current",
+        "started_ns": 24000421000000,
+        "task_id": "task:H06_revoked_lease_journal_01"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H06_revoked_lease_journal_01": {
+          "resource": "sandbox-resource:H06_revoked_lease_journal_01"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "leases.sqlite",
+          "observed_rows": [
+            [
+              1,
+              "task:H06_revoked_lease_journal_01",
+              "session:H06_revoked_lease_journal_01:current"
+            ]
+          ],
+          "query": "SELECT version,task_id,session_id FROM deployment ORDER BY version",
+          "required_rows": [
+            [
+              1,
+              "task:H06_revoked_lease_journal_01",
+              "session:H06_revoked_lease_journal_01:current"
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "H06_revoked_lease_journal_02": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H06_revoked_lease_journal_02:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H06_revoked_lease_journal_02:attempt-01",
+          "path": "leases.sqlite"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "revoked_lease_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H06_revoked_lease_journal_02:attempt-01",
+        "finished_ns": 24000765000000,
+        "resource": "sandbox-resource:H06_revoked_lease_journal_02",
+        "session_id": "session:H06_revoked_lease_journal_02:current",
+        "started_ns": 24000625000000,
+        "task_id": "task:H06_revoked_lease_journal_02"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "revoked_lease_journal",
+          "grant_id": "grant:H06_revoked_lease_journal_02"
+        }
+      ]
+    },
+    "id": "H06_revoked_lease_journal_02",
+    "lifecycle": {
+      "action_time": 24000625000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H06_revoked_lease_journal_02",
+        "session_id": "session:H06_revoked_lease_journal_02:current",
+        "task_id": "task:H06_revoked_lease_journal_02"
+      },
+      "current_session": "session:H06_revoked_lease_journal_02:current",
+      "grant_times": {
+        "grant:H06_revoked_lease_journal_02": {
+          "expires": null,
+          "grant_session": "session:H06_revoked_lease_journal_02:previous",
+          "issued": 24000625000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H06_revoked_lease_journal_02",
+        "session_id": "session:H06_revoked_lease_journal_02:current",
+        "task_id": "task:H06_revoked_lease_journal_02"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "revoked_lease_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H06_revoked_lease_journal_02:attempt-01",
+        "receipt_id": "receipt:H06_revoked_lease_journal_02:attempt-01",
+        "resource": "sandbox-resource:H06_revoked_lease_journal_02",
+        "session_id": "session:H06_revoked_lease_journal_02:current",
+        "status": "committed",
+        "task_id": "task:H06_revoked_lease_journal_02",
+        "time_ns": 24000750000000
+      },
+      "operation": {
+        "action": "revoked_lease_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H06_revoked_lease_journal_02:attempt-01",
+        "finished_ns": 24000765000000,
+        "resource": "sandbox-resource:H06_revoked_lease_journal_02",
+        "session_id": "session:H06_revoked_lease_journal_02:current",
+        "started_ns": 24000625000000,
+        "task_id": "task:H06_revoked_lease_journal_02"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H06_revoked_lease_journal_02": {
+          "resource": "sandbox-resource:H06_revoked_lease_journal_02"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "leases.sqlite",
+          "observed_rows": [
+            [
+              2,
+              "task:H06_revoked_lease_journal_02",
+              "session:H06_revoked_lease_journal_02:current"
+            ]
+          ],
+          "query": "SELECT version,task_id,session_id FROM deployment ORDER BY version",
+          "required_rows": [
+            [
+              2,
+              "task:H06_revoked_lease_journal_02",
+              "session:H06_revoked_lease_journal_02:current"
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "H06_revoked_lease_journal_03": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H06_revoked_lease_journal_03:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H06_revoked_lease_journal_03:attempt-01",
+          "path": "leases.sqlite"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "revoked_lease_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H06_revoked_lease_journal_03:attempt-01",
+        "finished_ns": 24000937000000,
+        "resource": "sandbox-resource:H06_revoked_lease_journal_03",
+        "session_id": "session:H06_revoked_lease_journal_03:current",
+        "started_ns": 24000843000000,
+        "task_id": "task:H06_revoked_lease_journal_03"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "revoked_lease_journal",
+          "grant_id": "grant:H06_revoked_lease_journal_03"
+        }
+      ]
+    },
+    "id": "H06_revoked_lease_journal_03",
+    "lifecycle": {
+      "action_time": 24000843000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H06_revoked_lease_journal_03",
+        "session_id": "session:H06_revoked_lease_journal_03:current",
+        "task_id": "task:H06_revoked_lease_journal_03"
+      },
+      "current_session": "session:H06_revoked_lease_journal_03:current",
+      "grant_times": {
+        "grant:H06_revoked_lease_journal_03": {
+          "expires": null,
+          "grant_session": "session:H06_revoked_lease_journal_03:current",
+          "issued": 24000828000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H06_revoked_lease_journal_03",
+        "session_id": "session:H06_revoked_lease_journal_03:current",
+        "task_id": "task:H06_revoked_lease_journal_03"
+      },
+      "revocations": [
+        {
+          "grant_id": "grant:H06_revoked_lease_journal_03",
+          "revoked_ns": 24000828000000
+        }
+      ]
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "revoked_lease_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H06_revoked_lease_journal_03:attempt-01",
+        "receipt_id": "receipt:H06_revoked_lease_journal_03:attempt-01",
+        "resource": "sandbox-resource:H06_revoked_lease_journal_03",
+        "session_id": "session:H06_revoked_lease_journal_03:current",
+        "status": "committed",
+        "task_id": "task:H06_revoked_lease_journal_03",
+        "time_ns": 24000937000000
+      },
+      "operation": {
+        "action": "revoked_lease_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H06_revoked_lease_journal_03:attempt-01",
+        "finished_ns": 24000937000000,
+        "resource": "sandbox-resource:H06_revoked_lease_journal_03",
+        "session_id": "session:H06_revoked_lease_journal_03:current",
+        "started_ns": 24000843000000,
+        "task_id": "task:H06_revoked_lease_journal_03"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H06_revoked_lease_journal_03": {
+          "resource": "sandbox-resource:H06_revoked_lease_journal_03"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "leases.sqlite",
+          "observed_rows": [
+            [
+              3,
+              "task:H06_revoked_lease_journal_03",
+              "session:H06_revoked_lease_journal_03:current"
+            ]
+          ],
+          "query": "SELECT version,task_id,session_id FROM deployment ORDER BY version",
+          "required_rows": [
+            [
+              3,
+              "task:H06_revoked_lease_journal_03",
+              "session:H06_revoked_lease_journal_03:current"
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "H06_revoked_lease_journal_04": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:H06_revoked_lease_journal_04:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:H06_revoked_lease_journal_04:attempt-01",
+          "path": "leases.sqlite"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "revoked_lease_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H06_revoked_lease_journal_04:attempt-01",
+        "finished_ns": 24001156000000,
+        "resource": "sandbox-resource:H06_revoked_lease_journal_04",
+        "session_id": "session:H06_revoked_lease_journal_04:current",
+        "started_ns": 24001031000000,
+        "task_id": "task:H06_revoked_lease_journal_04"
+      },
+      "return_code": 23,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "revoked_lease_journal",
+          "grant_id": "grant:H06_revoked_lease_journal_04"
+        }
+      ]
+    },
+    "id": "H06_revoked_lease_journal_04",
+    "lifecycle": {
+      "action_time": 24001031000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:H06_revoked_lease_journal_04",
+        "session_id": "session:H06_revoked_lease_journal_04:current",
+        "task_id": "task:H06_revoked_lease_journal_04"
+      },
+      "current_session": "session:H06_revoked_lease_journal_04:current",
+      "grant_times": {
+        "grant:H06_revoked_lease_journal_04": {
+          "expires": null,
+          "grant_session": "session:H06_revoked_lease_journal_04:current",
+          "issued": 24001031000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:H06_revoked_lease_journal_04",
+        "session_id": "session:H06_revoked_lease_journal_04:current",
+        "task_id": "task:H06_revoked_lease_journal_04"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "revoked_lease_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:H06_revoked_lease_journal_04:attempt-01",
+        "finished_ns": 24001156000000,
+        "resource": "sandbox-resource:H06_revoked_lease_journal_04",
+        "session_id": "session:H06_revoked_lease_journal_04:current",
+        "started_ns": 24001031000000,
+        "task_id": "task:H06_revoked_lease_journal_04"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:H06_revoked_lease_journal_04": {
+          "resource": "sandbox-resource:H06_revoked_lease_journal_04"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "leases.sqlite",
+          "observed_rows": [
+            [
+              4,
+              "task:H06_revoked_lease_journal_04",
+              "session:H06_revoked_lease_journal_04:current"
+            ]
+          ],
+          "query": "SELECT version,task_id,session_id FROM deployment ORDER BY version",
+          "required_rows": [
+            [
+              4,
+              "task:H06_revoked_lease_journal_04",
+              "session:H06_revoked_lease_journal_04:current"
+            ]
+          ]
+        }
+      ]
+    }
+  }
+}

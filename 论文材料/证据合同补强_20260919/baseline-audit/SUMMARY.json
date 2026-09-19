@@ -1,0 +1,41 @@
+{
+  "ci_regression": {
+    "ci_queries_replayed": 30,
+    "policy_endpoint_rows_verified_against_archive": 120,
+    "difference_counts": {
+      "all_nine_missing": 8,
+      "five_missing": 2
+    },
+    "model_calls": 0,
+    "sandbox_executions": 0
+  },
+  "hiaa_regression": {
+    "tests_run": 13,
+    "tests_passed": 13,
+    "raw_runs": 360,
+    "quartets": 90,
+    "exact_membership_checks_passed": 48,
+    "f_h_toolreturn_valid_only_denominators": [
+      13,
+      13,
+      13,
+      13,
+      13,
+      13,
+      13,
+      13
+    ]
+  },
+  "external_source_audit": {
+    "external_source": "NOT_AVAILABLE",
+    "source_candidates_audited": 3,
+    "clawtrojan_fact_records": 585,
+    "clawtrojan_observed_calls": 4744,
+    "qualification": "independent contract oracle unavailable; not absence of external records"
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "repository_root": "E:\\Skill ＆ Harness\\publication\\evidence-strengthening-20260919",
+  "new_model_calls": 0,
+  "new_sandbox_executions": 0,
+  "historical_results_modified": false
+}

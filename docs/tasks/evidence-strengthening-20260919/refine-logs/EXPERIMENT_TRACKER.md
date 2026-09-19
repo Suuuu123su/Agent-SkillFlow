@@ -1,18 +1,18 @@
 # SkillFlow 补强实验跟踪表
 
-2026-09-19。以下全部为 **NOT_STARTED**，没有新增实验已完成的含义。`EXPERIMENT_PLAN.md` 是边界与验收依据；执行者必须逐阶段记录真实状态，更新根 README。历史240/235 query结果是开发材料，不在本表计作新留出。
+2026-09-19。本轮已执行 M0–M3，交付完成、研究主张部分支持；以下状态与追加执行记录对应。`EXPERIMENT_PLAN.md` 是边界与验收依据；执行者必须逐阶段记录真实状态，更新根 README。历史240/235 query结果是开发材料，不在本表计作新留出。
 
 | Run ID | Milestone | 目的 | 系统 / 变体 | Split | 关键检查 / 指标 | 优先级 | 状态 | 备注 |
 |---|---|---|---|---|---|---|---|---|
-| R001 | M0 | 固化当前基线与已修HIAA | 历史只读，记录Git/输入SHA | 开发 | 13项HIAA测试、48名单一致、历史档案不变 | MUST | NOT_STARTED | 不全量重跑旧模型实验 |
-| R002 | M0 | 补齐跨字段依赖与收费owner | 新版dependency ledger / projector | 旧240/235+小fixture | 512 mask；0漏登记、0免费恢复、顺序无关 | MUST | NOT_STARTED | 重点provenance→source_object与failure资格 |
-| R003 | M0 | 隔离与公平总byte门 | strategy sandbox / cost ledger | 开发 | 0标签/隐藏值影响；初始byte计费；0超预算 | MUST | NOT_STARTED | M0不过不得宣称效率，继续修开发 |
-| R004 | M1 | 来源盘点与family预注册 | 已有外部harness优先；独立sandbox备选 | 12族：6开发+6留出 | 来源分类、48逻辑单元、代码/拆分SHA | MUST | NOT_STARTED | 外部不可用标NOT_AVAILABLE但继续sandbox |
-| R005 | M1 | 独立记录与参照验证 | recorder / raw side-effect + grant oracle | 24开发单元 | UEA/TaskSuccess参照；ALR/RIR条件满足才评估 | MUST | NOT_STARTED | 不复用predictor或既有oracle判定；所有执行计数 |
-| R006 | M2 | 强静态与预算冻结 | 通用固定/随机；最佳指标静态 | 仅开发 | ≤24候选/metric；≤10绝对byte点；3seed | MUST | NOT_STARTED | 旧pilot结果不变；冻结后不得按留出选顺序 |
-| R007 | M2 | 一次冻结留出评估 | 所有必需静态策略 | 24留出单元/6族 | 整通道、随机、失败相关缺证；错误确定性+覆盖+总byte | MUST | NOT_STARTED | 总sandbox执行含分支/失败≤192；预算回放不是新任务 |
-| R008 | M3 | 最简动态删除检验 | 至多1个冻结dependency-guided策略 | 开发设计，留出一次评估 | 对最强指标静态的配对正确覆盖/byte AUC | NICE | NOT_STARTED | R006前冻结是否做及策略，和R007同次留出；阴性删除算法贡献 |
-| R009 | M3 | 论文贡献验收与复现 | 各source/family/metric分层 | 全部，开发/留出分开 | SUPPORTED_IN_SCOPE/PARTIAL/UNSUPPORTED | MUST | NOT_STARTED | Full!=真值；未知/N/A不计正确；不报虚假样本量 |
+| R001 | M0 | 固化当前基线与已修HIAA | 历史只读，记录Git/输入SHA | 开发 | 13项HIAA测试、48名单一致、历史档案不变 | MUST | PASSED | 不全量重跑旧模型实验 |
+| R002 | M0 | 补齐跨字段依赖与收费owner | 新版dependency ledger / projector | 旧240/235+小fixture | 512 mask；0漏登记、0免费恢复、顺序无关 | MUST | PASSED | 重点provenance→source_object与failure资格 |
+| R003 | M0 | 隔离与公平总byte门 | strategy sandbox / cost ledger | 开发 | 0标签/隐藏值影响；初始byte计费；0超预算 | MUST | PASSED | M0不过不得宣称效率，继续修开发 |
+| R004 | M1 | 来源盘点与family预注册 | 已有外部harness优先；独立sandbox备选 | 12族：6开发+6留出 | 来源分类、48逻辑单元、代码/拆分SHA | MUST | COMPLETED_SANDBOX_ONLY | 外部不可用标NOT_AVAILABLE但继续sandbox |
+| R005 | M1 | 独立记录与参照验证 | recorder / raw side-effect + grant oracle | 24开发单元 | UEA/TaskSuccess参照；ALR/RIR条件满足才评估 | MUST | PASSED_LIMITED_CONTRACT | 不复用predictor或既有oracle判定；所有执行计数 |
+| R006 | M2 | 强静态与预算冻结 | 通用固定/随机；最佳指标静态 | 仅开发 | ≤24候选/metric；≤10绝对byte点；3seed | MUST | FROZEN_FINAL_PRE_HELDOUT | 旧pilot结果不变；冻结后不得按留出选顺序 |
+| R007 | M2 | 一次冻结留出评估 | 所有必需静态策略 | 24留出单元/6族 | 整通道、随机、失败相关缺证；错误确定性+覆盖+总byte | MUST | COMPLETED_ONCE | 总sandbox执行含分支/失败≤192；预算回放不是新任务 |
+| R008 | M3 | 最简动态删除检验 | 至多1个冻结dependency-guided策略 | 开发设计，留出一次评估 | 对最强指标静态的配对正确覆盖/byte AUC | NICE | PARTIAL_EXPLORATORY | R006前冻结是否做及策略，和R007同次留出；阴性删除算法贡献 |
+| R009 | M3 | 论文贡献验收与复现 | 各source/family/metric分层 | 全部，开发/留出分开 | SUPPORTED_IN_SCOPE/PARTIAL/UNSUPPORTED | MUST | COMPLETED_WITH_LIMITS | Full!=真值；未知/N/A不计正确；不报虚假样本量 |
 
 ## 必填计数与停止条件
 
@@ -30,3 +30,23 @@
 | 日期 | 阶段 | 实际状态 | 命令/证据目录 | 独立单元/族/执行/查询/轨迹行数 | 主要结果与局限 | 根README已同步 |
 |---|---|---|---|---|---|---|
 | — | 尚未执行 | NOT_STARTED | — | — | 仅完成任务规划 | 执行者填写 |
+
+|2026-09-19T09:02:07.850514+00:00|M0|IMPLEMENTED_PENDING_GATE|论文材料/证据合同补强_20260919/strengthening-20260919-085337|实际执行 0/192；模型0|已预注册48单元/12族与全部随机种子；待依赖、隔离、费用及HIAA回归门通过，尚无新增执行。|是|
+
+|2026-09-19T09:02:12.795438+00:00|M0|PASSED|论文材料/证据合同补强_20260919/strengthening-20260919-085337|实际执行 0/192；模型0|依赖掩码、隔离、字节计费和回执绑定测试通过；HIAA13测试/48名单及旧CI8+2差异已复核。下一步只收集24个开发单元。|是|
+
+|2026-09-19T09:02:35.001552+00:00|M1|PASSED_CONTROLLED_SCOPE|论文材料/证据合同补强_20260919/strengthening-20260919-085337|实际执行 24/192；模型0|24开发单元/6族已实际执行；UEA/TaskSuccess独立参照与Full核对通过；ALR/RIR原因和污染前缀不足仍未知。下一步冻结强静态、预算和动态。|是|
+
+|2026-09-19T09:05:29.263438+00:00|M2|R006_FROZEN|论文材料/证据合同补强_20260919/strengthening-20260919-085337|实际执行 24/192；模型0|开发候选选择已完成；每指标至多24静态候选、统一绝对字节预算和1个动态策略已封存。下一步执行24留出单元，禁止按留出修改。|是|
+
+|2026-09-19T09:08:06.954366+00:00|M2|R006_FINAL_AMENDED_FREEZE|论文材料/证据合同补强_20260919/strengthening-20260919-085337|实际执行 24/192；模型0|留出前复核修正：所有oracle原始sidecar与查询输入独立封存；开发静态选择先平均随机seed，与主结果口径一致。旧冻结/候选保留，实际执行仍24。|是|
+
+|2026-09-19T09:08:46.935180+00:00|M2|HELDOUT_COLLECTED_NOT_EVALUATED|论文材料/证据合同补强_20260919/strengthening-20260919-085337|实际执行 48/192；模型0|24留出单元/6族已按冻结代码执行并封存；尚未读取其oracle/Full；下一步一次性回放全部冻结策略后再连接参照。|是|
+
+|2026-09-19T09:09:31.157793+00:00|M2|R007_R008_EVALUATED_ONCE|论文材料/证据合同补强_20260919/strengthening-20260919-085337|实际执行 48/192；模型0|全部冻结静态与动态策略轨迹先封存，随后才连接留出独立参照；未知、失败及不可行预算均保留。下一步只统计与审查，不调参或扩样。|是|
+
+|2026-09-19T09:10:34.778677+00:00|M3|COMPLETED_WITH_SCOPE_LIMITS|论文材料/证据合同补强_20260919/strengthening-20260919-085337|实际执行 48/192；模型0|已完成独立参照、冻结留出、公平预算、动态删除检验与主张表；结果与限制见SUMMARY/RESULTS_CN。受控程序结论不外推外部agent；旧材料与原工作区校验未变。|是|
+
+最终验收：实际48/192执行、12族/48单元、模型0；最终冻结为 FINAL_PLAN.json（父PLAN保留）。静态协议内增益保留，动态微弱且逐族混合；16/24留出完整包超最高预算1–6byte，效率外推PARTIAL。
+
+[最终中文验收](../../../../论文材料/证据合同补强_20260919/strengthening-20260919-085337/FINAL_REVIEWED_RESULTS.md)；[全量核账](../../../../论文材料/证据合同补强_20260919/baseline-audit/DELIVERY_AUDIT.json)。
