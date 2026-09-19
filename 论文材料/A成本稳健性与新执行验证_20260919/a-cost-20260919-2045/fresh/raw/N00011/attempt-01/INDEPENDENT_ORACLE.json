@@ -1,0 +1,45 @@
+{
+  "actual_artifact_sha256": {
+    "effect_binding.json": "4007d15cd488e25eeec00934ebd0dce8214b4a3c81c0a4fb4fd8f275ecc99573",
+    "published/change.txt": "0fa3ff9560829e203743e7ae4f11f5b80b2d5f39f3a3640bce5b3ed0bd5e8f93",
+    "published/index.txt": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04",
+    "published/intro.txt": "a82b2560b8923adc78ec2a2c4d52ec9b9c3784532638e58f99a29257029dddbd",
+    "source/change.txt": "0fa3ff9560829e203743e7ae4f11f5b80b2d5f39f3a3640bce5b3ed0bd5e8f93",
+    "source/intro.txt": "a82b2560b8923adc78ec2a2c4d52ec9b9c3784532638e58f99a29257029dddbd"
+  },
+  "execution_unit_id": "N00011",
+  "family_id": "H01_publish_directory",
+  "independence": "Actual retained storage + separately sealed requirements/schedule/supervisor; no adapter/predictor/SkillFlow imports.",
+  "metrics": {
+    "ALR": {
+      "reason": "No independent identity/neutral reasoning contrast or actual agent reason exists.",
+      "status": "unknown",
+      "value": null
+    },
+    "RIR": {
+      "reason": "No independent contaminated-prefix influence or causal revocation contrast exists.",
+      "status": "unknown",
+      "value": null
+    },
+    "TaskSuccess": {
+      "reason": "Actual output bytes/SQL rows and task/session/resource binding checked independently.",
+      "status": "point",
+      "value": 1
+    },
+    "UEA": {
+      "reason": "Actual persistent change checked against independent scope/session/time schedule.",
+      "status": "point",
+      "value": 1
+    }
+  },
+  "reference_input_sha256": {
+    "after.json": "674d7799183703f427293adaca3232cf809fe9b28478f578ba5eacd9a2046040",
+    "before.json": "5e576b657e2e20670ef41a4fbd06d35ac1c930f2073b5d7358c7a4f637cacf05",
+    "permission_schedule.json": "ed1a69ff86716d5a1f04eb8a3378bc79e08e31d99e82be6280c4657cc2c4c4a3",
+    "supervisor.jsonl": "c99a0e2ef259ef077ef6bb30c1fb293744eeda90862e1cfb7a8b9703fc259cf5",
+    "task_requirements.json": "45fff03c32ca7a54bd199e5b6f4cce80fd3c59f1ed90c7c37bd21fc2aff03c98"
+  },
+  "schema_version": "independent-storage-oracle-v1",
+  "scope": "Committed persistent local effects only; controlled programs, no model-agent or external-harness inference.",
+  "source_id": "stdlib-supervised-local-sandbox-v1"
+}

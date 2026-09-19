@@ -1,0 +1,1146 @@
+{
+  "costs": {
+    "C0": {
+      "budgets": [
+        0,
+        39499,
+        50761,
+        58954,
+        62026,
+        66121,
+        72264,
+        72267,
+        73290,
+        76363
+      ],
+      "public": "actual historical header",
+      "quotes": {
+        "counterfactual": 4096,
+        "decision_reason": 3072,
+        "failure": 10240,
+        "grant": 11264,
+        "lifecycle": 14336,
+        "provenance": 3072,
+        "receipt": 10240,
+        "scope_lifetime": 4096,
+        "task_success_evidence": 15360
+      },
+      "rho": [
+        0.0,
+        0.5172531199664759,
+        0.6647329203933843,
+        0.7720231001925016,
+        0.812252006861962,
+        0.8658774537406859,
+        0.9463221717323835,
+        0.9463614577740529,
+        0.9597579979833165,
+        1.0
+      ],
+      "unit": "historical padded wire bytes"
+    },
+    "C1": {
+      "budgets": [
+        0,
+        3869,
+        7738,
+        11608,
+        15477,
+        19346,
+        23216,
+        27085,
+        30954,
+        34824,
+        38693,
+        42562,
+        46432,
+        50301,
+        54170,
+        58040,
+        61909,
+        65778,
+        69648,
+        73517,
+        77387
+      ],
+      "public": 1611,
+      "quotes": {
+        "counterfactual": 4096,
+        "decision_reason": 3072,
+        "failure": 10240,
+        "grant": 11264,
+        "lifecycle": 14336,
+        "provenance": 3072,
+        "receipt": 10240,
+        "scope_lifetime": 4096,
+        "task_success_evidence": 15360
+      },
+      "rho": [
+        0.0,
+        0.05,
+        0.1,
+        0.15,
+        0.2,
+        0.25,
+        0.3,
+        0.35,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6,
+        0.65,
+        0.7,
+        0.75,
+        0.8,
+        0.85,
+        0.9,
+        0.95,
+        1.0
+      ],
+      "scale": 77387,
+      "unit": "fixed-overhead weighted proxy units"
+    },
+    "C2": {
+      "budgets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "public": 1,
+      "quotes": {
+        "counterfactual": 1,
+        "decision_reason": 1,
+        "failure": 1,
+        "grant": 1,
+        "lifecycle": 1,
+        "provenance": 1,
+        "receipt": 1,
+        "scope_lifetime": 1,
+        "task_success_evidence": 1
+      },
+      "rho": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "scale": 10,
+      "unit": "channel proxy units"
+    }
+  },
+  "gate": {
+    "costs": {
+      "C1": {
+        "checks": {
+          "all_leave_one_out_positive": true,
+          "dependency_recovery_witness": true,
+          "five_of_six": true,
+          "integrity": true,
+          "interior_points": true,
+          "positive_auc": true,
+          "zero_wrong_and_wrong_safe": true
+        },
+        "passed": true
+      },
+      "C2": {
+        "checks": {
+          "all_leave_one_out_positive": true,
+          "dependency_recovery_witness": true,
+          "five_of_six": true,
+          "integrity": true,
+          "interior_points": true,
+          "positive_auc": true,
+          "zero_wrong_and_wrong_safe": true
+        },
+        "passed": true
+      }
+    },
+    "model_calls": 0,
+    "new_business_executions": 0,
+    "new_sample_authorized": true,
+    "passed": true,
+    "status": "PASS",
+    "subsequent_scope": "Only preregistered 24 units plus bounded sanity/retry"
+  },
+  "model_calls": 0,
+  "new_business_executions": 0,
+  "prior_C0": {
+    "curve": [
+      {
+        "coverage_difference": 0.0,
+        "dynamic_wrong": 0.0,
+        "dynamic_wrong_safe": 0.0,
+        "rho": 0.0,
+        "static_wrong": 0.0,
+        "static_wrong_safe": 0.0
+      },
+      {
+        "coverage_difference": 0.000496031746031746,
+        "dynamic_wrong": 0.0,
+        "dynamic_wrong_safe": 0.0,
+        "rho": 0.5172531199664759,
+        "static_wrong": 0.0,
+        "static_wrong_safe": 0.0
+      },
+      {
+        "coverage_difference": 0.00496031746031746,
+        "dynamic_wrong": 0.0,
+        "dynamic_wrong_safe": 0.0,
+        "rho": 0.6647329203933843,
+        "static_wrong": 0.0,
+        "static_wrong_safe": 0.0
+      },
+      {
+        "coverage_difference": 0.004960317460317457,
+        "dynamic_wrong": 0.0,
+        "dynamic_wrong_safe": 0.0,
+        "rho": 0.7720231001925016,
+        "static_wrong": 0.0,
+        "static_wrong_safe": 0.0
+      },
+      {
+        "coverage_difference": 0.004464285714285726,
+        "dynamic_wrong": 0.0,
+        "dynamic_wrong_safe": 0.0,
+        "rho": 0.812252006861962,
+        "static_wrong": 0.0,
+        "static_wrong_safe": 0.0
+      },
+      {
+        "coverage_difference": 0.0029761904761904656,
+        "dynamic_wrong": 0.0,
+        "dynamic_wrong_safe": 0.0,
+        "rho": 0.8658774537406859,
+        "static_wrong": 0.0,
+        "static_wrong_safe": 0.0
+      },
+      {
+        "coverage_difference": 0.0014880952380952328,
+        "dynamic_wrong": 0.0,
+        "dynamic_wrong_safe": 0.0,
+        "rho": 0.9463221717323835,
+        "static_wrong": 0.0,
+        "static_wrong_safe": 0.0
+      },
+      {
+        "coverage_difference": 0.0014880952380952883,
+        "dynamic_wrong": 0.0,
+        "dynamic_wrong_safe": 0.0,
+        "rho": 0.9463614577740529,
+        "static_wrong": 0.0,
+        "static_wrong_safe": 0.0
+      },
+      {
+        "coverage_difference": 0.0014880952380953438,
+        "dynamic_wrong": 0.0,
+        "dynamic_wrong_safe": 0.0,
+        "rho": 0.9597579979833165,
+        "static_wrong": 0.0,
+        "static_wrong_safe": 0.0
+      },
+      {
+        "coverage_difference": 0.0004960317460317443,
+        "dynamic_wrong": 0.0,
+        "dynamic_wrong_safe": 0.0,
+        "rho": 1.0,
+        "static_wrong": 0.0,
+        "static_wrong_safe": 0.0
+      }
+    ],
+    "difference": 0.0016913816661813103,
+    "dynamic_auc": 0.09130200476774569,
+    "leave_one_out": [
+      {
+        "difference": 0.0019099174182460627,
+        "excluded": "H01_publish_directory"
+      },
+      {
+        "difference": 0.001570716745768802,
+        "excluded": "H02_inventory_reservation"
+      },
+      {
+        "difference": 0.0017862014638103884,
+        "excluded": "H03_manifest_package"
+      },
+      {
+        "difference": 0.0014230511161289177,
+        "excluded": "H04_sql_join_export"
+      },
+      {
+        "difference": 0.0014686470884989812,
+        "excluded": "H05_queued_approval"
+      },
+      {
+        "difference": 0.0019897561646347096,
+        "excluded": "H06_revoked_lease_journal"
+      }
+    ],
+    "paired": [
+      {
+        "difference": 0.0005987029058575483,
+        "dynamic_auc": 0.09024358437113959,
+        "family_id": "H01_publish_directory",
+        "static_auc": 0.08964488146528204
+      },
+      {
+        "difference": 0.0022947062682438513,
+        "dynamic_auc": 0.09192814879182949,
+        "family_id": "H02_inventory_reservation",
+        "static_auc": 0.08963344252358564
+      },
+      {
+        "difference": 0.0012172826780359192,
+        "dynamic_auc": 0.08053085107908778,
+        "family_id": "H03_manifest_package",
+        "static_auc": 0.07931356840105186
+      },
+      {
+        "difference": 0.0030330344164432727,
+        "dynamic_auc": 0.0988751330580816,
+        "family_id": "H04_sql_join_export",
+        "static_auc": 0.09584209864163833
+      },
+      {
+        "difference": 0.002805054554592956,
+        "dynamic_auc": 0.10462570535593464,
+        "family_id": "H05_queued_approval",
+        "static_auc": 0.10182065080134169
+      },
+      {
+        "difference": 0.000199509173914314,
+        "dynamic_auc": 0.08160860595040105,
+        "family_id": "H06_revoked_lease_journal",
+        "static_auc": 0.08140909677648674
+      }
+    ],
+    "positive_families": 6,
+    "positive_interior_points": 8,
+    "static_auc": 0.08961062310156438
+  },
+  "results": {
+    "C1": {
+      "development": {
+        "curve": [
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.0,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.05,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.1,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.15,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.2,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.25,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.3,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.35,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.4,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.000496031746031746,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.45,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.000992063492063492,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.5,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.000992063492063492,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.55,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0014880952380952363,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.6,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0024801587301587283,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.65,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.003968253968253968,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.7,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0049603174603174705,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.75,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.001984126984126977,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.8,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0024801587301587213,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.85,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.00396825396825401,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.9,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0014880952380952328,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.95,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 1.0,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          }
+        ],
+        "difference": 0.0012648809523809479,
+        "dynamic_auc": 0.10342261904761905,
+        "leave_one_out": [
+          {
+            "difference": 0.0012797619047619057,
+            "excluded": "D01_append_journal"
+          },
+          {
+            "difference": 0.0013988095238095216,
+            "excluded": "D02_sqlite_transfer"
+          },
+          {
+            "difference": 0.0012202380952380965,
+            "excluded": "D03_render_report"
+          },
+          {
+            "difference": 0.0013095238095238103,
+            "excluded": "D04_kv_increment"
+          },
+          {
+            "difference": 0.0008630952380952378,
+            "excluded": "D05_untrusted_copy"
+          },
+          {
+            "difference": 0.001517857142857143,
+            "excluded": "D06_revoked_cache"
+          }
+        ],
+        "paired": [
+          {
+            "difference": 0.0011904761904761862,
+            "dynamic_auc": 0.10565476190476192,
+            "family_id": "D01_append_journal",
+            "static_auc": 0.10446428571428573
+          },
+          {
+            "difference": 0.000595238095238107,
+            "dynamic_auc": 0.10267857142857144,
+            "family_id": "D02_sqlite_transfer",
+            "static_auc": 0.10208333333333333
+          },
+          {
+            "difference": 0.0014880952380952328,
+            "dynamic_auc": 0.10669642857142857,
+            "family_id": "D03_render_report",
+            "static_auc": 0.10520833333333333
+          },
+          {
+            "difference": 0.001041666666666663,
+            "dynamic_auc": 0.10014880952380954,
+            "family_id": "D04_kv_increment",
+            "static_auc": 0.09910714285714288
+          },
+          {
+            "difference": 0.003273809523809526,
+            "dynamic_auc": 0.11056547619047619,
+            "family_id": "D05_untrusted_copy",
+            "static_auc": 0.10729166666666666
+          },
+          {
+            "difference": 0.0,
+            "dynamic_auc": 0.09479166666666668,
+            "family_id": "D06_revoked_cache",
+            "static_auc": 0.09479166666666668
+          }
+        ],
+        "positive_families": 5,
+        "positive_interior_points": 11,
+        "static_auc": 0.10215773809523811
+      },
+      "heldout": {
+        "curve": [
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.0,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.05,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.1,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.15,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.2,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.25,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.3,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.35,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.000496031746031746,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.4,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.000496031746031746,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.45,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.5,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.000992063492063492,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.55,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0034722222222222203,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.6,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.003968253968253968,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.65,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.005456349206349208,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.7,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0049603174603174705,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.75,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.005456349206349201,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.8,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0034722222222222376,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.85,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.001984126984126977,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.9,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0014880952380953438,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.95,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 1.0,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          }
+        ],
+        "difference": 0.0016121031746031828,
+        "dynamic_auc": 0.10265376984126985,
+        "leave_one_out": [
+          {
+            "difference": 0.0018749999999999988,
+            "excluded": "H01_publish_directory"
+          },
+          {
+            "difference": 0.0013690476190476198,
+            "excluded": "H02_inventory_reservation"
+          },
+          {
+            "difference": 0.001696428571428571,
+            "excluded": "H03_manifest_package"
+          },
+          {
+            "difference": 0.001369047619047617,
+            "excluded": "H04_sql_join_export"
+          },
+          {
+            "difference": 0.001458333333333331,
+            "excluded": "H05_queued_approval"
+          },
+          {
+            "difference": 0.0019047619047619035,
+            "excluded": "H06_revoked_lease_journal"
+          }
+        ],
+        "paired": [
+          {
+            "difference": 0.00029761904761904656,
+            "dynamic_auc": 0.1029761904761905,
+            "family_id": "H01_publish_directory",
+            "static_auc": 0.10267857142857145
+          },
+          {
+            "difference": 0.0028273809523809423,
+            "dynamic_auc": 0.10595238095238096,
+            "family_id": "H02_inventory_reservation",
+            "static_auc": 0.10312500000000002
+          },
+          {
+            "difference": 0.0011904761904761862,
+            "dynamic_auc": 0.09598214285714286,
+            "family_id": "H03_manifest_package",
+            "static_auc": 0.09479166666666668
+          },
+          {
+            "difference": 0.002827380952380956,
+            "dynamic_auc": 0.10580357142857144,
+            "family_id": "H04_sql_join_export",
+            "static_auc": 0.10297619047619049
+          },
+          {
+            "difference": 0.0023809523809523864,
+            "dynamic_auc": 0.11011904761904762,
+            "family_id": "H05_queued_approval",
+            "static_auc": 0.10773809523809523
+          },
+          {
+            "difference": 0.00014880952380952328,
+            "dynamic_auc": 0.09508928571428572,
+            "family_id": "H06_revoked_lease_journal",
+            "static_auc": 0.0949404761904762
+          }
+        ],
+        "positive_families": 6,
+        "positive_interior_points": 11,
+        "static_auc": 0.10104166666666667
+      }
+    },
+    "C2": {
+      "development": {
+        "curve": [
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.0,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.1,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.2,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.3,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.4,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.5,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.004464285714285716,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.6,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.005456349206349201,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.7,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.002480158730158749,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.8,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0004960317460317443,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.9,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 1.0,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          }
+        ],
+        "difference": 0.0012896825396825629,
+        "dynamic_auc": 0.15927579365079364,
+        "leave_one_out": [
+          {
+            "difference": 0.0013690476190476308,
+            "excluded": "D01_append_journal"
+          },
+          {
+            "difference": 0.001309523809523816,
+            "excluded": "D02_sqlite_transfer"
+          },
+          {
+            "difference": 0.0011904761904761973,
+            "excluded": "D03_render_report"
+          },
+          {
+            "difference": 0.0012500000000000067,
+            "excluded": "D04_kv_increment"
+          },
+          {
+            "difference": 0.0010714285714285843,
+            "excluded": "D05_untrusted_copy"
+          },
+          {
+            "difference": 0.0015476190476190587,
+            "excluded": "D06_revoked_cache"
+          }
+        ],
+        "paired": [
+          {
+            "difference": 0.0008928571428571397,
+            "dynamic_auc": 0.15773809523809523,
+            "family_id": "D01_append_journal",
+            "static_auc": 0.1568452380952381
+          },
+          {
+            "difference": 0.001190476190476214,
+            "dynamic_auc": 0.1619047619047619,
+            "family_id": "D02_sqlite_transfer",
+            "static_auc": 0.1607142857142857
+          },
+          {
+            "difference": 0.0017857142857143071,
+            "dynamic_auc": 0.16428571428571428,
+            "family_id": "D03_render_report",
+            "static_auc": 0.16249999999999998
+          },
+          {
+            "difference": 0.0014880952380952606,
+            "dynamic_auc": 0.15416666666666665,
+            "family_id": "D04_kv_increment",
+            "static_auc": 0.15267857142857139
+          },
+          {
+            "difference": 0.0023809523809523725,
+            "dynamic_auc": 0.1636904761904762,
+            "family_id": "D05_untrusted_copy",
+            "static_auc": 0.16130952380952382
+          },
+          {
+            "difference": 0.0,
+            "dynamic_auc": 0.1538690476190476,
+            "family_id": "D06_revoked_cache",
+            "static_auc": 0.1538690476190476
+          }
+        ],
+        "positive_families": 5,
+        "positive_interior_points": 4,
+        "static_auc": 0.15798611111111108
+      },
+      "heldout": {
+        "curve": [
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.0,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.1,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.2,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.3,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.4,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.5,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0064484126984127,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.6,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0049603174603174705,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.7,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.001984126984126977,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.8,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0004960317460317443,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 0.9,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          },
+          {
+            "coverage_difference": 0.0,
+            "dynamic_wrong": 0.0,
+            "dynamic_wrong_safe": 0.0,
+            "rho": 1.0,
+            "static_wrong": 0.0,
+            "static_wrong_safe": 0.0
+          }
+        ],
+        "difference": 0.0013888888888889117,
+        "dynamic_auc": 0.15828373015873015,
+        "leave_one_out": [
+          {
+            "difference": 0.001547619047619042,
+            "excluded": "H01_publish_directory"
+          },
+          {
+            "difference": 0.0012499999999999955,
+            "excluded": "H02_inventory_reservation"
+          },
+          {
+            "difference": 0.0014285714285714236,
+            "excluded": "H03_manifest_package"
+          },
+          {
+            "difference": 0.0011904761904761862,
+            "excluded": "H04_sql_join_export"
+          },
+          {
+            "difference": 0.001309523809523805,
+            "excluded": "H05_queued_approval"
+          },
+          {
+            "difference": 0.0016071428571428515,
+            "excluded": "H06_revoked_lease_journal"
+          }
+        ],
+        "paired": [
+          {
+            "difference": 0.0005952380952380931,
+            "dynamic_auc": 0.1583333333333333,
+            "family_id": "H01_publish_directory",
+            "static_auc": 0.1577380952380952
+          },
+          {
+            "difference": 0.002083333333333326,
+            "dynamic_auc": 0.1595238095238095,
+            "family_id": "H02_inventory_reservation",
+            "static_auc": 0.1574404761904762
+          },
+          {
+            "difference": 0.0011904761904761862,
+            "dynamic_auc": 0.15297619047619046,
+            "family_id": "H03_manifest_package",
+            "static_auc": 0.15178571428571427
+          },
+          {
+            "difference": 0.0023809523809523725,
+            "dynamic_auc": 0.16160714285714284,
+            "family_id": "H04_sql_join_export",
+            "static_auc": 0.15922619047619047
+          },
+          {
+            "difference": 0.0017857142857142794,
+            "dynamic_auc": 0.16279761904761902,
+            "family_id": "H05_queued_approval",
+            "static_auc": 0.16101190476190474
+          },
+          {
+            "difference": 0.00029761904761904656,
+            "dynamic_auc": 0.1544642857142857,
+            "family_id": "H06_revoked_lease_journal",
+            "static_auc": 0.15416666666666665
+          }
+        ],
+        "positive_families": 6,
+        "positive_interior_points": 4,
+        "static_auc": 0.15689484126984124
+      }
+    }
+  }
+}

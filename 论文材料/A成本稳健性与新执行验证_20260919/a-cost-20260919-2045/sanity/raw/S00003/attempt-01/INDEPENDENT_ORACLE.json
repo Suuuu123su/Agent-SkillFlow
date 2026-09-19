@@ -1,0 +1,41 @@
+{
+  "actual_artifact_sha256": {
+    "effect_binding.json": "667f5d7ff6b1823a4aa06bbb9bdf4fe11cc4607ce16f9cf777df1962bfcca1e0",
+    "stock.sqlite": "19747089ffc0957e2c65b50b93c72c7010a29a23a255d0d4d0b7d2a38135755d"
+  },
+  "execution_unit_id": "S00003",
+  "family_id": "H02_inventory_reservation",
+  "independence": "Actual retained storage + separately sealed requirements/schedule/supervisor; no adapter/predictor/SkillFlow imports.",
+  "metrics": {
+    "ALR": {
+      "reason": "No independent identity/neutral reasoning contrast or actual agent reason exists.",
+      "status": "unknown",
+      "value": null
+    },
+    "RIR": {
+      "reason": "No independent contaminated-prefix influence or causal revocation contrast exists.",
+      "status": "unknown",
+      "value": null
+    },
+    "TaskSuccess": {
+      "reason": "Actual output bytes/SQL rows and task/session/resource binding checked independently.",
+      "status": "point",
+      "value": 1
+    },
+    "UEA": {
+      "reason": "Actual persistent change checked against independent scope/session/time schedule.",
+      "status": "point",
+      "value": 1
+    }
+  },
+  "reference_input_sha256": {
+    "after.json": "9a5ba722dca12ae0abf8b2888172170937c1e4bfb776fc8f9f47b3fae05d8356",
+    "before.json": "ddec71475593b1db7b7b63fb280536f382c16f4d307b6c8143268864350a04f2",
+    "permission_schedule.json": "36b922e86d7c74b3450f3a01a307ff2ad27333c0f7d26dd1901dec7e81afe012",
+    "supervisor.jsonl": "ea92f2be26c09420d20dab81fd192d6d04e3e9bf35d302aa45881ba2f6c930a1",
+    "task_requirements.json": "2275a7af52ac45e1eb7842d298a9dfbaae2e746db26a6ccd86dfb957ab90189f"
+  },
+  "schema_version": "independent-storage-oracle-v1",
+  "scope": "Committed persistent local effects only; controlled programs, no model-agent or external-harness inference.",
+  "source_id": "stdlib-supervised-local-sandbox-v1"
+}

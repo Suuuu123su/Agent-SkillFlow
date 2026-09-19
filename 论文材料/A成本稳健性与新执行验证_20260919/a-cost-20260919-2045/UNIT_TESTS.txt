@@ -1,0 +1,17 @@
+E:\Skill ＆ Harness\Agent\.venv-skillflow\Lib\site-packages\coverage\inorout.py:558: CoverageWarning: Module skillflow was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.15.4/messages.html#warning-module-not-imported
+  self.warn(f"Module {pkg} was never imported.", slug="module-not-imported")
+E:\Skill ＆ Harness\Agent\.venv-skillflow\Lib\site-packages\coverage\control.py:963: CoverageWarning: No data was collected. (no-data-collected); see https://coverage.readthedocs.io/en/7.15.4/messages.html#warning-no-data-collected
+  self._warn("No data was collected.", slug="no-data-collected")
+E:\Skill ＆ Harness\Agent\.venv-skillflow\Lib\site-packages\pytest_cov\plugin.py:366: CovReportWarning: Failed to generate report: No data to report.
+
+  warnings.warn(CovReportWarning(message), stacklevel=1)
+.......
+WARNING: Failed to generate report: No data to report.
+
+
+ERROR: Coverage failure: total of 0 is less than fail-under=90
+                                                                         [100%]
+- generated xml file: E:\Skill ＆ Harness\publication\a-cost-robustness-20260919\论文材料\A成本稳健性与新执行验证_20260919\a-cost-20260919-2045\UNIT_TESTS.xml -
+=============================== tests coverage ================================
+FAIL Required test coverage of 90% not reached. Total coverage: 0.00%
+7 passed in 0.35s

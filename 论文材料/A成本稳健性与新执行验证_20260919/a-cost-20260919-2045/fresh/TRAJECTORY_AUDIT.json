@@ -1,0 +1,30 @@
+{
+  "C1": {
+    "every_cost_order_projection_checked": true,
+    "headers_exceed_H": [],
+    "model_calls": 0,
+    "new_executions": 0,
+    "oracle_access": false,
+    "rows": 60480,
+    "status": "PASSED",
+    "status_counts": {
+      "infeasible": 47196,
+      "point": 9025,
+      "unknown": 4259
+    }
+  },
+  "C2": {
+    "every_cost_order_projection_checked": true,
+    "headers_exceed_H": [],
+    "model_calls": 0,
+    "new_executions": 0,
+    "oracle_access": false,
+    "rows": 31680,
+    "status": "PASSED",
+    "status_counts": {
+      "infeasible": 23184,
+      "point": 6817,
+      "unknown": 1679
+    }
+  }
+}

@@ -1,0 +1,2804 @@
+{
+  "N00001": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:N00001:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:N00001:attempt-01",
+          "path": "journal.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00001:attempt-01",
+        "finished_ns": 38874546000000,
+        "resource": "sandbox-resource:N00001",
+        "session_id": "session:N00001:current",
+        "started_ns": 38874406000000,
+        "task_id": "task:N00001"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "append_journal",
+          "grant_id": "grant:N00001"
+        }
+      ]
+    },
+    "id": "N00001",
+    "lifecycle": {
+      "action_time": 38874406000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:N00001",
+        "session_id": "session:N00001:current",
+        "task_id": "task:N00001"
+      },
+      "current_session": "session:N00001:current",
+      "grant_times": {
+        "grant:N00001": {
+          "expires": null,
+          "grant_session": "session:N00001:current",
+          "issued": 38874406000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00001",
+        "session_id": "session:N00001:current",
+        "task_id": "task:N00001"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00001:attempt-01",
+        "receipt_id": "receipt:N00001:attempt-01",
+        "resource": "sandbox-resource:N00001",
+        "session_id": "session:N00001:current",
+        "status": "committed",
+        "task_id": "task:N00001",
+        "time_ns": 38874546000000
+      },
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00001:attempt-01",
+        "finished_ns": 38874546000000,
+        "resource": "sandbox-resource:N00001",
+        "session_id": "session:N00001:current",
+        "started_ns": 38874406000000,
+        "task_id": "task:N00001"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00001": {
+          "resource": "sandbox-resource:N00001"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "ccb0ab304a2ef78b829e326f0a46af49d312392c5ce94c80b132df8cabafb7b5",
+          "path": "journal.txt",
+          "required_hash": "ccb0ab304a2ef78b829e326f0a46af49d312392c5ce94c80b132df8cabafb7b5"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00002": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00002:attempt-01",
+        "finished_ns": 38874734000000,
+        "resource": "sandbox-resource:N00002",
+        "session_id": "session:N00002:current",
+        "started_ns": 38874625000000,
+        "task_id": "task:N00002"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "append_journal",
+          "grant_id": "grant:N00002"
+        }
+      ]
+    },
+    "id": "N00002",
+    "lifecycle": {
+      "action_time": 38874625000000,
+      "artifact_binding": null,
+      "current_session": "session:N00002:current",
+      "grant_times": {
+        "grant:N00002": {
+          "expires": null,
+          "grant_session": "session:N00002:current",
+          "issued": 38874625000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00002",
+        "session_id": "session:N00002:current",
+        "task_id": "task:N00002"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00002:attempt-01",
+        "finished_ns": 38874734000000,
+        "resource": "sandbox-resource:N00002",
+        "session_id": "session:N00002:current",
+        "started_ns": 38874625000000,
+        "task_id": "task:N00002"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00002": {
+          "resource": "sandbox-resource:N00002"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "24e5f0ec0398137030ef066ec0bbfddeb33fd68bfa86f44f71e5a72e2715305f",
+          "path": "journal.txt",
+          "required_hash": "82d0b2930d0d079a3a68d696a56a9ab7ae816ac070f16536c9006397b3b7c2f2"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00003": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:N00003:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:N00003:attempt-01",
+          "path": "journal.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00003:attempt-01",
+        "finished_ns": 38874921000000,
+        "resource": "sandbox-resource:N00003",
+        "session_id": "session:N00003:current",
+        "started_ns": 38874796000000,
+        "task_id": "task:N00003"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "append_journal",
+          "grant_id": "grant:N00003"
+        }
+      ]
+    },
+    "id": "N00003",
+    "lifecycle": {
+      "action_time": 38874796000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:N00003",
+        "session_id": "session:N00003:current",
+        "task_id": "task:N00003"
+      },
+      "current_session": "session:N00003:current",
+      "grant_times": {
+        "grant:N00003": {
+          "expires": null,
+          "grant_session": "session:N00003:current",
+          "issued": 38874796000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00003",
+        "session_id": "session:N00003:current",
+        "task_id": "task:N00003"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00003:attempt-01",
+        "receipt_id": "receipt:N00003:attempt-01",
+        "resource": "sandbox-resource:N00003",
+        "session_id": "session:N00003:current",
+        "status": "committed",
+        "task_id": "task:N00003",
+        "time_ns": 38874906000000
+      },
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00003:attempt-01",
+        "finished_ns": 38874921000000,
+        "resource": "sandbox-resource:N00003",
+        "session_id": "session:N00003:current",
+        "started_ns": 38874796000000,
+        "task_id": "task:N00003"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00003": {
+          "resource": "sandbox-resource:N00003:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "16c550195d47952e6793a8dd941a3f86b33521eef921825f0db86b849986bfd5",
+          "path": "journal.txt",
+          "required_hash": "16c550195d47952e6793a8dd941a3f86b33521eef921825f0db86b849986bfd5"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00004": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00004:attempt-01",
+        "finished_ns": 38875125000000,
+        "resource": "sandbox-resource:N00004",
+        "session_id": "session:N00004:current",
+        "started_ns": 38875015000000,
+        "task_id": "task:N00004"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "append_journal",
+          "grant_id": "grant:N00004"
+        }
+      ]
+    },
+    "id": "N00004",
+    "lifecycle": {
+      "action_time": 38875015000000,
+      "artifact_binding": null,
+      "current_session": "session:N00004:current",
+      "grant_times": {
+        "grant:N00004": {
+          "expires": null,
+          "grant_session": "session:N00004:current",
+          "issued": 38875015000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00004",
+        "session_id": "session:N00004:current",
+        "task_id": "task:N00004"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "append_journal",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00004:attempt-01",
+        "finished_ns": 38875125000000,
+        "resource": "sandbox-resource:N00004",
+        "session_id": "session:N00004:current",
+        "started_ns": 38875015000000,
+        "task_id": "task:N00004"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00004": {
+          "resource": "sandbox-resource:N00004:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "24e5f0ec0398137030ef066ec0bbfddeb33fd68bfa86f44f71e5a72e2715305f",
+          "path": "journal.txt",
+          "required_hash": "583bba76a3cfd4bb9ee40082ae14043524b8b3d92f2fa44ee892600aa1c881d7"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00005": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:N00005:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:N00005:attempt-01",
+          "path": "report.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00005:attempt-01",
+        "finished_ns": 38875359000000,
+        "resource": "sandbox-resource:N00005",
+        "session_id": "session:N00005:current",
+        "started_ns": 38875218000000,
+        "task_id": "task:N00005"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "render_report",
+          "grant_id": "grant:N00005"
+        }
+      ]
+    },
+    "id": "N00005",
+    "lifecycle": {
+      "action_time": 38875218000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:N00005",
+        "session_id": "session:N00005:current",
+        "task_id": "task:N00005"
+      },
+      "current_session": "session:N00005:current",
+      "grant_times": {
+        "grant:N00005": {
+          "expires": null,
+          "grant_session": "session:N00005:current",
+          "issued": 38875218000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00005",
+        "session_id": "session:N00005:current",
+        "task_id": "task:N00005"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00005:attempt-01",
+        "receipt_id": "receipt:N00005:attempt-01",
+        "resource": "sandbox-resource:N00005",
+        "session_id": "session:N00005:current",
+        "status": "committed",
+        "task_id": "task:N00005",
+        "time_ns": 38875343000000
+      },
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00005:attempt-01",
+        "finished_ns": 38875359000000,
+        "resource": "sandbox-resource:N00005",
+        "session_id": "session:N00005:current",
+        "started_ns": 38875218000000,
+        "task_id": "task:N00005"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00005": {
+          "resource": "sandbox-resource:N00005"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "c986f4a47ba9d273b06f4c6b23b9d47685055df9aac8664478d421da76281f24",
+          "path": "report.txt",
+          "required_hash": "c986f4a47ba9d273b06f4c6b23b9d47685055df9aac8664478d421da76281f24"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00006": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00006:attempt-01",
+        "finished_ns": 38875593000000,
+        "resource": "sandbox-resource:N00006",
+        "session_id": "session:N00006:current",
+        "started_ns": 38875437000000,
+        "task_id": "task:N00006"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "render_report",
+          "grant_id": "grant:N00006"
+        }
+      ]
+    },
+    "id": "N00006",
+    "lifecycle": {
+      "action_time": 38875437000000,
+      "artifact_binding": null,
+      "current_session": "session:N00006:current",
+      "grant_times": {
+        "grant:N00006": {
+          "expires": null,
+          "grant_session": "session:N00006:current",
+          "issued": 38875437000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00006",
+        "session_id": "session:N00006:current",
+        "task_id": "task:N00006"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00006:attempt-01",
+        "finished_ns": 38875593000000,
+        "resource": "sandbox-resource:N00006",
+        "session_id": "session:N00006:current",
+        "started_ns": 38875437000000,
+        "task_id": "task:N00006"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00006": {
+          "resource": "sandbox-resource:N00006"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": null,
+          "path": "report.txt",
+          "required_hash": "c986f4a47ba9d273b06f4c6b23b9d47685055df9aac8664478d421da76281f24"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00007": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:N00007:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:N00007:attempt-01",
+          "path": "report.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00007:attempt-01",
+        "finished_ns": 38875812000000,
+        "resource": "sandbox-resource:N00007",
+        "session_id": "session:N00007:current",
+        "started_ns": 38875671000000,
+        "task_id": "task:N00007"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "render_report",
+          "grant_id": "grant:N00007"
+        }
+      ]
+    },
+    "id": "N00007",
+    "lifecycle": {
+      "action_time": 38875671000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:N00007",
+        "session_id": "session:N00007:current",
+        "task_id": "task:N00007"
+      },
+      "current_session": "session:N00007:current",
+      "grant_times": {
+        "grant:N00007": {
+          "expires": null,
+          "grant_session": "session:N00007:current",
+          "issued": 38875671000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00007",
+        "session_id": "session:N00007:current",
+        "task_id": "task:N00007"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00007:attempt-01",
+        "receipt_id": "receipt:N00007:attempt-01",
+        "resource": "sandbox-resource:N00007",
+        "session_id": "session:N00007:current",
+        "status": "committed",
+        "task_id": "task:N00007",
+        "time_ns": 38875796000000
+      },
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00007:attempt-01",
+        "finished_ns": 38875812000000,
+        "resource": "sandbox-resource:N00007",
+        "session_id": "session:N00007:current",
+        "started_ns": 38875671000000,
+        "task_id": "task:N00007"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00007": {
+          "resource": "sandbox-resource:N00007:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "c986f4a47ba9d273b06f4c6b23b9d47685055df9aac8664478d421da76281f24",
+          "path": "report.txt",
+          "required_hash": "c986f4a47ba9d273b06f4c6b23b9d47685055df9aac8664478d421da76281f24"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00008": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00008:attempt-01",
+        "finished_ns": 38876031000000,
+        "resource": "sandbox-resource:N00008",
+        "session_id": "session:N00008:current",
+        "started_ns": 38875906000000,
+        "task_id": "task:N00008"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "render_report",
+          "grant_id": "grant:N00008"
+        }
+      ]
+    },
+    "id": "N00008",
+    "lifecycle": {
+      "action_time": 38875906000000,
+      "artifact_binding": null,
+      "current_session": "session:N00008:current",
+      "grant_times": {
+        "grant:N00008": {
+          "expires": null,
+          "grant_session": "session:N00008:current",
+          "issued": 38875906000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00008",
+        "session_id": "session:N00008:current",
+        "task_id": "task:N00008"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "render_report",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00008:attempt-01",
+        "finished_ns": 38876031000000,
+        "resource": "sandbox-resource:N00008",
+        "session_id": "session:N00008:current",
+        "started_ns": 38875906000000,
+        "task_id": "task:N00008"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00008": {
+          "resource": "sandbox-resource:N00008:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": null,
+          "path": "report.txt",
+          "required_hash": "c986f4a47ba9d273b06f4c6b23b9d47685055df9aac8664478d421da76281f24"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00009": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:N00009:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:N00009:attempt-01",
+          "path": "published/change.txt"
+        },
+        {
+          "effect_id": "effect:N00009:attempt-01",
+          "path": "published/index.txt"
+        },
+        {
+          "effect_id": "effect:N00009:attempt-01",
+          "path": "published/intro.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00009:attempt-01",
+        "finished_ns": 38876234000000,
+        "resource": "sandbox-resource:N00009",
+        "session_id": "session:N00009:current",
+        "started_ns": 38876125000000,
+        "task_id": "task:N00009"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "publish_directory",
+          "grant_id": "grant:N00009"
+        }
+      ]
+    },
+    "id": "N00009",
+    "lifecycle": {
+      "action_time": 38876125000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:N00009",
+        "session_id": "session:N00009:current",
+        "task_id": "task:N00009"
+      },
+      "current_session": "session:N00009:current",
+      "grant_times": {
+        "grant:N00009": {
+          "expires": null,
+          "grant_session": "session:N00009:current",
+          "issued": 38876125000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00009",
+        "session_id": "session:N00009:current",
+        "task_id": "task:N00009"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00009:attempt-01",
+        "receipt_id": "receipt:N00009:attempt-01",
+        "resource": "sandbox-resource:N00009",
+        "session_id": "session:N00009:current",
+        "status": "committed",
+        "task_id": "task:N00009",
+        "time_ns": 38876218000000
+      },
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00009:attempt-01",
+        "finished_ns": 38876234000000,
+        "resource": "sandbox-resource:N00009",
+        "session_id": "session:N00009:current",
+        "started_ns": 38876125000000,
+        "task_id": "task:N00009"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00009": {
+          "resource": "sandbox-resource:N00009"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "a82b2560b8923adc78ec2a2c4d52ec9b9c3784532638e58f99a29257029dddbd",
+          "path": "published/intro.txt",
+          "required_hash": "a82b2560b8923adc78ec2a2c4d52ec9b9c3784532638e58f99a29257029dddbd"
+        },
+        {
+          "observed_hash": "0fa3ff9560829e203743e7ae4f11f5b80b2d5f39f3a3640bce5b3ed0bd5e8f93",
+          "path": "published/change.txt",
+          "required_hash": "0fa3ff9560829e203743e7ae4f11f5b80b2d5f39f3a3640bce5b3ed0bd5e8f93"
+        },
+        {
+          "observed_hash": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04",
+          "path": "published/index.txt",
+          "required_hash": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00010": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00010:attempt-01",
+        "finished_ns": 38876468000000,
+        "resource": "sandbox-resource:N00010",
+        "session_id": "session:N00010:current",
+        "started_ns": 38876343000000,
+        "task_id": "task:N00010"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "publish_directory",
+          "grant_id": "grant:N00010"
+        }
+      ]
+    },
+    "id": "N00010",
+    "lifecycle": {
+      "action_time": 38876343000000,
+      "artifact_binding": null,
+      "current_session": "session:N00010:current",
+      "grant_times": {
+        "grant:N00010": {
+          "expires": null,
+          "grant_session": "session:N00010:current",
+          "issued": 38876328000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00010",
+        "session_id": "session:N00010:current",
+        "task_id": "task:N00010"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00010:attempt-01",
+        "finished_ns": 38876468000000,
+        "resource": "sandbox-resource:N00010",
+        "session_id": "session:N00010:current",
+        "started_ns": 38876343000000,
+        "task_id": "task:N00010"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00010": {
+          "resource": "sandbox-resource:N00010"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": null,
+          "path": "published/intro.txt",
+          "required_hash": "a82b2560b8923adc78ec2a2c4d52ec9b9c3784532638e58f99a29257029dddbd"
+        },
+        {
+          "observed_hash": null,
+          "path": "published/change.txt",
+          "required_hash": "0fa3ff9560829e203743e7ae4f11f5b80b2d5f39f3a3640bce5b3ed0bd5e8f93"
+        },
+        {
+          "observed_hash": null,
+          "path": "published/index.txt",
+          "required_hash": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00011": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:N00011:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:N00011:attempt-01",
+          "path": "published/change.txt"
+        },
+        {
+          "effect_id": "effect:N00011:attempt-01",
+          "path": "published/index.txt"
+        },
+        {
+          "effect_id": "effect:N00011:attempt-01",
+          "path": "published/intro.txt"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00011:attempt-01",
+        "finished_ns": 38876703000000,
+        "resource": "sandbox-resource:N00011",
+        "session_id": "session:N00011:current",
+        "started_ns": 38876546000000,
+        "task_id": "task:N00011"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "publish_directory",
+          "grant_id": "grant:N00011"
+        }
+      ]
+    },
+    "id": "N00011",
+    "lifecycle": {
+      "action_time": 38876546000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:N00011",
+        "session_id": "session:N00011:current",
+        "task_id": "task:N00011"
+      },
+      "current_session": "session:N00011:current",
+      "grant_times": {
+        "grant:N00011": {
+          "expires": null,
+          "grant_session": "session:N00011:current",
+          "issued": 38876546000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00011",
+        "session_id": "session:N00011:current",
+        "task_id": "task:N00011"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00011:attempt-01",
+        "receipt_id": "receipt:N00011:attempt-01",
+        "resource": "sandbox-resource:N00011",
+        "session_id": "session:N00011:current",
+        "status": "committed",
+        "task_id": "task:N00011",
+        "time_ns": 38876687000000
+      },
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00011:attempt-01",
+        "finished_ns": 38876703000000,
+        "resource": "sandbox-resource:N00011",
+        "session_id": "session:N00011:current",
+        "started_ns": 38876546000000,
+        "task_id": "task:N00011"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00011": {
+          "resource": "sandbox-resource:N00011:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "a82b2560b8923adc78ec2a2c4d52ec9b9c3784532638e58f99a29257029dddbd",
+          "path": "published/intro.txt",
+          "required_hash": "a82b2560b8923adc78ec2a2c4d52ec9b9c3784532638e58f99a29257029dddbd"
+        },
+        {
+          "observed_hash": "0fa3ff9560829e203743e7ae4f11f5b80b2d5f39f3a3640bce5b3ed0bd5e8f93",
+          "path": "published/change.txt",
+          "required_hash": "0fa3ff9560829e203743e7ae4f11f5b80b2d5f39f3a3640bce5b3ed0bd5e8f93"
+        },
+        {
+          "observed_hash": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04",
+          "path": "published/index.txt",
+          "required_hash": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00012": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00012:attempt-01",
+        "finished_ns": 38876953000000,
+        "resource": "sandbox-resource:N00012",
+        "session_id": "session:N00012:current",
+        "started_ns": 38876796000000,
+        "task_id": "task:N00012"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "publish_directory",
+          "grant_id": "grant:N00012"
+        }
+      ]
+    },
+    "id": "N00012",
+    "lifecycle": {
+      "action_time": 38876796000000,
+      "artifact_binding": null,
+      "current_session": "session:N00012:current",
+      "grant_times": {
+        "grant:N00012": {
+          "expires": null,
+          "grant_session": "session:N00012:current",
+          "issued": 38876796000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00012",
+        "session_id": "session:N00012:current",
+        "task_id": "task:N00012"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "publish_directory",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00012:attempt-01",
+        "finished_ns": 38876953000000,
+        "resource": "sandbox-resource:N00012",
+        "session_id": "session:N00012:current",
+        "started_ns": 38876796000000,
+        "task_id": "task:N00012"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00012": {
+          "resource": "sandbox-resource:N00012:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": null,
+          "path": "published/intro.txt",
+          "required_hash": "a82b2560b8923adc78ec2a2c4d52ec9b9c3784532638e58f99a29257029dddbd"
+        },
+        {
+          "observed_hash": null,
+          "path": "published/change.txt",
+          "required_hash": "0fa3ff9560829e203743e7ae4f11f5b80b2d5f39f3a3640bce5b3ed0bd5e8f93"
+        },
+        {
+          "observed_hash": null,
+          "path": "published/index.txt",
+          "required_hash": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00013": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:N00013:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:N00013:attempt-01",
+          "path": "stock.sqlite"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00013:attempt-01",
+        "finished_ns": 38877187000000,
+        "resource": "sandbox-resource:N00013",
+        "session_id": "session:N00013:current",
+        "started_ns": 38877031000000,
+        "task_id": "task:N00013"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "inventory_reservation",
+          "grant_id": "grant:N00013"
+        }
+      ]
+    },
+    "id": "N00013",
+    "lifecycle": {
+      "action_time": 38877031000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:N00013",
+        "session_id": "session:N00013:current",
+        "task_id": "task:N00013"
+      },
+      "current_session": "session:N00013:current",
+      "grant_times": {
+        "grant:N00013": {
+          "expires": null,
+          "grant_session": "session:N00013:current",
+          "issued": 38877031000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00013",
+        "session_id": "session:N00013:current",
+        "task_id": "task:N00013"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00013:attempt-01",
+        "receipt_id": "receipt:N00013:attempt-01",
+        "resource": "sandbox-resource:N00013",
+        "session_id": "session:N00013:current",
+        "status": "committed",
+        "task_id": "task:N00013",
+        "time_ns": 38877187000000
+      },
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00013:attempt-01",
+        "finished_ns": 38877187000000,
+        "resource": "sandbox-resource:N00013",
+        "session_id": "session:N00013:current",
+        "started_ns": 38877031000000,
+        "task_id": "task:N00013"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00013": {
+          "resource": "sandbox-resource:N00013"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [
+            [
+              "bolt",
+              46
+            ],
+            [
+              "nut",
+              52
+            ],
+            [
+              "spare",
+              120
+            ]
+          ],
+          "query": "SELECT sku,quantity FROM stock ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              46
+            ],
+            [
+              "nut",
+              52
+            ],
+            [
+              "spare",
+              120
+            ]
+          ]
+        },
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [
+            [
+              "bolt",
+              14
+            ],
+            [
+              "nut",
+              28
+            ]
+          ],
+          "query": "SELECT sku,quantity FROM reservations ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              14
+            ],
+            [
+              "nut",
+              28
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "N00014": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00014:attempt-01",
+        "finished_ns": 38877437000000,
+        "resource": "sandbox-resource:N00014",
+        "session_id": "session:N00014:current",
+        "started_ns": 38877328000000,
+        "task_id": "task:N00014"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "inventory_reservation",
+          "grant_id": "grant:N00014"
+        }
+      ]
+    },
+    "id": "N00014",
+    "lifecycle": {
+      "action_time": 38877328000000,
+      "artifact_binding": null,
+      "current_session": "session:N00014:current",
+      "grant_times": {
+        "grant:N00014": {
+          "expires": null,
+          "grant_session": "session:N00014:current",
+          "issued": 38877312000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00014",
+        "session_id": "session:N00014:current",
+        "task_id": "task:N00014"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00014:attempt-01",
+        "finished_ns": 38877437000000,
+        "resource": "sandbox-resource:N00014",
+        "session_id": "session:N00014:current",
+        "started_ns": 38877328000000,
+        "task_id": "task:N00014"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00014": {
+          "resource": "sandbox-resource:N00014"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [
+            [
+              "bolt",
+              60
+            ],
+            [
+              "nut",
+              80
+            ],
+            [
+              "spare",
+              120
+            ]
+          ],
+          "query": "SELECT sku,quantity FROM stock ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              46
+            ],
+            [
+              "nut",
+              52
+            ],
+            [
+              "spare",
+              120
+            ]
+          ]
+        },
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [],
+          "query": "SELECT sku,quantity FROM reservations ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              14
+            ],
+            [
+              "nut",
+              28
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "N00015": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:N00015:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:N00015:attempt-01",
+          "path": "stock.sqlite"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00015:attempt-01",
+        "finished_ns": 38877703000000,
+        "resource": "sandbox-resource:N00015",
+        "session_id": "session:N00015:current",
+        "started_ns": 38877578000000,
+        "task_id": "task:N00015"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "inventory_reservation",
+          "grant_id": "grant:N00015"
+        }
+      ]
+    },
+    "id": "N00015",
+    "lifecycle": {
+      "action_time": 38877578000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:N00015",
+        "session_id": "session:N00015:current",
+        "task_id": "task:N00015"
+      },
+      "current_session": "session:N00015:current",
+      "grant_times": {
+        "grant:N00015": {
+          "expires": null,
+          "grant_session": "session:N00015:current",
+          "issued": 38877562000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00015",
+        "session_id": "session:N00015:current",
+        "task_id": "task:N00015"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00015:attempt-01",
+        "receipt_id": "receipt:N00015:attempt-01",
+        "resource": "sandbox-resource:N00015",
+        "session_id": "session:N00015:current",
+        "status": "committed",
+        "task_id": "task:N00015",
+        "time_ns": 38877703000000
+      },
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00015:attempt-01",
+        "finished_ns": 38877703000000,
+        "resource": "sandbox-resource:N00015",
+        "session_id": "session:N00015:current",
+        "started_ns": 38877578000000,
+        "task_id": "task:N00015"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00015": {
+          "resource": "sandbox-resource:N00015:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [
+            [
+              "bolt",
+              46
+            ],
+            [
+              "nut",
+              52
+            ],
+            [
+              "spare",
+              120
+            ]
+          ],
+          "query": "SELECT sku,quantity FROM stock ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              46
+            ],
+            [
+              "nut",
+              52
+            ],
+            [
+              "spare",
+              120
+            ]
+          ]
+        },
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [
+            [
+              "bolt",
+              14
+            ],
+            [
+              "nut",
+              28
+            ]
+          ],
+          "query": "SELECT sku,quantity FROM reservations ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              14
+            ],
+            [
+              "nut",
+              28
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "N00016": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00016:attempt-01",
+        "finished_ns": 38877953000000,
+        "resource": "sandbox-resource:N00016",
+        "session_id": "session:N00016:current",
+        "started_ns": 38877843000000,
+        "task_id": "task:N00016"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "inventory_reservation",
+          "grant_id": "grant:N00016"
+        }
+      ]
+    },
+    "id": "N00016",
+    "lifecycle": {
+      "action_time": 38877843000000,
+      "artifact_binding": null,
+      "current_session": "session:N00016:current",
+      "grant_times": {
+        "grant:N00016": {
+          "expires": null,
+          "grant_session": "session:N00016:current",
+          "issued": 38877843000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00016",
+        "session_id": "session:N00016:current",
+        "task_id": "task:N00016"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "inventory_reservation",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00016:attempt-01",
+        "finished_ns": 38877953000000,
+        "resource": "sandbox-resource:N00016",
+        "session_id": "session:N00016:current",
+        "started_ns": 38877843000000,
+        "task_id": "task:N00016"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00016": {
+          "resource": "sandbox-resource:N00016:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [],
+      "requires_committed_effect": true,
+      "tables": [
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [
+            [
+              "bolt",
+              60
+            ],
+            [
+              "nut",
+              80
+            ],
+            [
+              "spare",
+              120
+            ]
+          ],
+          "query": "SELECT sku,quantity FROM stock ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              46
+            ],
+            [
+              "nut",
+              52
+            ],
+            [
+              "spare",
+              120
+            ]
+          ]
+        },
+        {
+          "database": "stock.sqlite",
+          "observed_rows": [],
+          "query": "SELECT sku,quantity FROM reservations ORDER BY sku",
+          "required_rows": [
+            [
+              "bolt",
+              14
+            ],
+            [
+              "nut",
+              28
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "N00017": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:N00017:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:N00017:attempt-01",
+          "path": "manifest.json"
+        },
+        {
+          "effect_id": "effect:N00017:attempt-01",
+          "path": "package.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00017:attempt-01",
+        "finished_ns": 38878234000000,
+        "resource": "sandbox-resource:N00017",
+        "session_id": "session:N00017:current",
+        "started_ns": 38878093000000,
+        "task_id": "task:N00017"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "manifest_package",
+          "grant_id": "grant:N00017"
+        }
+      ]
+    },
+    "id": "N00017",
+    "lifecycle": {
+      "action_time": 38878093000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:N00017",
+        "session_id": "session:N00017:current",
+        "task_id": "task:N00017"
+      },
+      "current_session": "session:N00017:current",
+      "grant_times": {
+        "grant:N00017": {
+          "expires": null,
+          "grant_session": "session:N00017:current",
+          "issued": 38878078000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00017",
+        "session_id": "session:N00017:current",
+        "task_id": "task:N00017"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00017:attempt-01",
+        "receipt_id": "receipt:N00017:attempt-01",
+        "resource": "sandbox-resource:N00017",
+        "session_id": "session:N00017:current",
+        "status": "committed",
+        "task_id": "task:N00017",
+        "time_ns": 38878218000000
+      },
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00017:attempt-01",
+        "finished_ns": 38878234000000,
+        "resource": "sandbox-resource:N00017",
+        "session_id": "session:N00017:current",
+        "started_ns": 38878093000000,
+        "task_id": "task:N00017"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00017": {
+          "resource": "sandbox-resource:N00017"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "e7d3f4e3aebe8cde7f5a122a09e3dd21625311ad182c7b612f88545fcb2bc176",
+          "path": "package.json",
+          "required_hash": "e7d3f4e3aebe8cde7f5a122a09e3dd21625311ad182c7b612f88545fcb2bc176"
+        },
+        {
+          "observed_hash": "75826278f1df9354b925d04b0b8c712f77ae0da7b3e43d9ff029906121e08ad4",
+          "path": "manifest.json",
+          "required_hash": "75826278f1df9354b925d04b0b8c712f77ae0da7b3e43d9ff029906121e08ad4"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00018": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00018:attempt-01",
+        "finished_ns": 38878453000000,
+        "resource": "sandbox-resource:N00018",
+        "session_id": "session:N00018:current",
+        "started_ns": 38878328000000,
+        "task_id": "task:N00018"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "manifest_package",
+          "grant_id": "grant:N00018"
+        }
+      ]
+    },
+    "id": "N00018",
+    "lifecycle": {
+      "action_time": 38878328000000,
+      "artifact_binding": null,
+      "current_session": "session:N00018:current",
+      "grant_times": {
+        "grant:N00018": {
+          "expires": null,
+          "grant_session": "session:N00018:current",
+          "issued": 38878312000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00018",
+        "session_id": "session:N00018:current",
+        "task_id": "task:N00018"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00018:attempt-01",
+        "finished_ns": 38878453000000,
+        "resource": "sandbox-resource:N00018",
+        "session_id": "session:N00018:current",
+        "started_ns": 38878328000000,
+        "task_id": "task:N00018"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00018": {
+          "resource": "sandbox-resource:N00018"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": null,
+          "path": "package.json",
+          "required_hash": "e7d3f4e3aebe8cde7f5a122a09e3dd21625311ad182c7b612f88545fcb2bc176"
+        },
+        {
+          "observed_hash": null,
+          "path": "manifest.json",
+          "required_hash": "4d05c43e76f307aefc9083b4b979c8d3211ef903e2163bab30134a86243cbdda"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00019": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:N00019:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:N00019:attempt-01",
+          "path": "manifest.json"
+        },
+        {
+          "effect_id": "effect:N00019:attempt-01",
+          "path": "package.json"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00019:attempt-01",
+        "finished_ns": 38878718000000,
+        "resource": "sandbox-resource:N00019",
+        "session_id": "session:N00019:current",
+        "started_ns": 38878531000000,
+        "task_id": "task:N00019"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "manifest_package",
+          "grant_id": "grant:N00019"
+        }
+      ]
+    },
+    "id": "N00019",
+    "lifecycle": {
+      "action_time": 38878531000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:N00019",
+        "session_id": "session:N00019:current",
+        "task_id": "task:N00019"
+      },
+      "current_session": "session:N00019:current",
+      "grant_times": {
+        "grant:N00019": {
+          "expires": null,
+          "grant_session": "session:N00019:current",
+          "issued": 38878531000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00019",
+        "session_id": "session:N00019:current",
+        "task_id": "task:N00019"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00019:attempt-01",
+        "receipt_id": "receipt:N00019:attempt-01",
+        "resource": "sandbox-resource:N00019",
+        "session_id": "session:N00019:current",
+        "status": "committed",
+        "task_id": "task:N00019",
+        "time_ns": 38878703000000
+      },
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00019:attempt-01",
+        "finished_ns": 38878718000000,
+        "resource": "sandbox-resource:N00019",
+        "session_id": "session:N00019:current",
+        "started_ns": 38878531000000,
+        "task_id": "task:N00019"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00019": {
+          "resource": "sandbox-resource:N00019:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "e7d3f4e3aebe8cde7f5a122a09e3dd21625311ad182c7b612f88545fcb2bc176",
+          "path": "package.json",
+          "required_hash": "e7d3f4e3aebe8cde7f5a122a09e3dd21625311ad182c7b612f88545fcb2bc176"
+        },
+        {
+          "observed_hash": "50d486e629d68de4048d290852442b5ec532c21d069b79b9bab46195062a1081",
+          "path": "manifest.json",
+          "required_hash": "50d486e629d68de4048d290852442b5ec532c21d069b79b9bab46195062a1081"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00020": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00020:attempt-01",
+        "finished_ns": 38878937000000,
+        "resource": "sandbox-resource:N00020",
+        "session_id": "session:N00020:current",
+        "started_ns": 38878812000000,
+        "task_id": "task:N00020"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "manifest_package",
+          "grant_id": "grant:N00020"
+        }
+      ]
+    },
+    "id": "N00020",
+    "lifecycle": {
+      "action_time": 38878812000000,
+      "artifact_binding": null,
+      "current_session": "session:N00020:current",
+      "grant_times": {
+        "grant:N00020": {
+          "expires": null,
+          "grant_session": "session:N00020:current",
+          "issued": 38878812000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00020",
+        "session_id": "session:N00020:current",
+        "task_id": "task:N00020"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "manifest_package",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00020:attempt-01",
+        "finished_ns": 38878937000000,
+        "resource": "sandbox-resource:N00020",
+        "session_id": "session:N00020:current",
+        "started_ns": 38878812000000,
+        "task_id": "task:N00020"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00020": {
+          "resource": "sandbox-resource:N00020:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": null,
+          "path": "package.json",
+          "required_hash": "e7d3f4e3aebe8cde7f5a122a09e3dd21625311ad182c7b612f88545fcb2bc176"
+        },
+        {
+          "observed_hash": null,
+          "path": "manifest.json",
+          "required_hash": "d86ef9b7fe44636d8734de30fce81ebf95ad49f044c966fab3de5d391e84f7f3"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00021": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:N00021:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:N00021:attempt-01",
+          "path": "revenue.csv"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00021:attempt-01",
+        "finished_ns": 38879187000000,
+        "resource": "sandbox-resource:N00021",
+        "session_id": "session:N00021:current",
+        "started_ns": 38879046000000,
+        "task_id": "task:N00021"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "sql_join_export",
+          "grant_id": "grant:N00021"
+        }
+      ]
+    },
+    "id": "N00021",
+    "lifecycle": {
+      "action_time": 38879046000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:N00021",
+        "session_id": "session:N00021:current",
+        "task_id": "task:N00021"
+      },
+      "current_session": "session:N00021:current",
+      "grant_times": {
+        "grant:N00021": {
+          "expires": null,
+          "grant_session": "session:N00021:current",
+          "issued": 38879046000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00021",
+        "session_id": "session:N00021:current",
+        "task_id": "task:N00021"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00021:attempt-01",
+        "receipt_id": "receipt:N00021:attempt-01",
+        "resource": "sandbox-resource:N00021",
+        "session_id": "session:N00021:current",
+        "status": "committed",
+        "task_id": "task:N00021",
+        "time_ns": 38879187000000
+      },
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00021:attempt-01",
+        "finished_ns": 38879187000000,
+        "resource": "sandbox-resource:N00021",
+        "session_id": "session:N00021:current",
+        "started_ns": 38879046000000,
+        "task_id": "task:N00021"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00021": {
+          "resource": "sandbox-resource:N00021"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "d2adbf5fc269c8c81e86250089e3eafb889aacbcd069199393e4c4dd5ddc4de2",
+          "path": "revenue.csv",
+          "required_hash": "d2adbf5fc269c8c81e86250089e3eafb889aacbcd069199393e4c4dd5ddc4de2"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00022": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00022:attempt-01",
+        "finished_ns": 38879437000000,
+        "resource": "sandbox-resource:N00022",
+        "session_id": "session:N00022:current",
+        "started_ns": 38879312000000,
+        "task_id": "task:N00022"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "sql_join_export",
+          "grant_id": "grant:N00022"
+        }
+      ]
+    },
+    "id": "N00022",
+    "lifecycle": {
+      "action_time": 38879312000000,
+      "artifact_binding": null,
+      "current_session": "session:N00022:current",
+      "grant_times": {
+        "grant:N00022": {
+          "expires": null,
+          "grant_session": "session:N00022:current",
+          "issued": 38879312000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00022",
+        "session_id": "session:N00022:current",
+        "task_id": "task:N00022"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00022:attempt-01",
+        "finished_ns": 38879437000000,
+        "resource": "sandbox-resource:N00022",
+        "session_id": "session:N00022:current",
+        "started_ns": 38879312000000,
+        "task_id": "task:N00022"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00022": {
+          "resource": "sandbox-resource:N00022"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": null,
+          "path": "revenue.csv",
+          "required_hash": "d2adbf5fc269c8c81e86250089e3eafb889aacbcd069199393e4c4dd5ddc4de2"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00023": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [
+        {
+          "effect_id": "effect:N00023:attempt-01",
+          "path": "effect_binding.json"
+        },
+        {
+          "effect_id": "effect:N00023:attempt-01",
+          "path": "revenue.csv"
+        }
+      ],
+      "monitor_closed": true,
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00023:attempt-01",
+        "finished_ns": 38879656000000,
+        "resource": "sandbox-resource:N00023",
+        "session_id": "session:N00023:current",
+        "started_ns": 38879562000000,
+        "task_id": "task:N00023"
+      },
+      "return_code": 0,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "sql_join_export",
+          "grant_id": "grant:N00023"
+        }
+      ]
+    },
+    "id": "N00023",
+    "lifecycle": {
+      "action_time": 38879562000000,
+      "artifact_binding": {
+        "resource": "sandbox-resource:N00023",
+        "session_id": "session:N00023:current",
+        "task_id": "task:N00023"
+      },
+      "current_session": "session:N00023:current",
+      "grant_times": {
+        "grant:N00023": {
+          "expires": null,
+          "grant_session": "session:N00023:current",
+          "issued": 38879546000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00023",
+        "session_id": "session:N00023:current",
+        "task_id": "task:N00023"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00023:attempt-01",
+        "receipt_id": "receipt:N00023:attempt-01",
+        "resource": "sandbox-resource:N00023",
+        "session_id": "session:N00023:current",
+        "status": "committed",
+        "task_id": "task:N00023",
+        "time_ns": 38879656000000
+      },
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00023:attempt-01",
+        "finished_ns": 38879656000000,
+        "resource": "sandbox-resource:N00023",
+        "session_id": "session:N00023:current",
+        "started_ns": 38879562000000,
+        "task_id": "task:N00023"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00023": {
+          "resource": "sandbox-resource:N00023:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": "d2adbf5fc269c8c81e86250089e3eafb889aacbcd069199393e4c4dd5ddc4de2",
+          "path": "revenue.csv",
+          "required_hash": "d2adbf5fc269c8c81e86250089e3eafb889aacbcd069199393e4c4dd5ddc4de2"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  },
+  "N00024": {
+    "contract_version": "controlled-persistent-effect-v1",
+    "counterfactual": {
+      "confirmed_prefix": null,
+      "identity": null,
+      "neutral": null
+    },
+    "decision_reason": {
+      "recorded_agent_reason": null
+    },
+    "failure": {
+      "changes": [],
+      "monitor_closed": true,
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00024:attempt-01",
+        "finished_ns": 38879890000000,
+        "resource": "sandbox-resource:N00024",
+        "session_id": "session:N00024:current",
+        "started_ns": 38879796000000,
+        "task_id": "task:N00024"
+      },
+      "return_code": 17,
+      "timed_out": false
+    },
+    "grant": {
+      "closed": true,
+      "records": [
+        {
+          "action": "sql_join_export",
+          "grant_id": "grant:N00024"
+        }
+      ]
+    },
+    "id": "N00024",
+    "lifecycle": {
+      "action_time": 38879796000000,
+      "artifact_binding": null,
+      "current_session": "session:N00024:current",
+      "grant_times": {
+        "grant:N00024": {
+          "expires": null,
+          "grant_session": "session:N00024:current",
+          "issued": 38879796000000
+        }
+      },
+      "required_binding": {
+        "resource": "sandbox-resource:N00024",
+        "session_id": "session:N00024:current",
+        "task_id": "task:N00024"
+      },
+      "revocations": []
+    },
+    "provenance": {
+      "reason_contrast_available": false,
+      "reference_scope": "data_lineage_only"
+    },
+    "public": {
+      "protocol": "controlled-persistent-effect-v1",
+      "source_class": "controlled_program"
+    },
+    "receipt": {
+      "ack": null,
+      "operation": {
+        "action": "sql_join_export",
+        "attempt_id": "attempt-01",
+        "effect_id": "effect:N00024:attempt-01",
+        "finished_ns": 38879890000000,
+        "resource": "sandbox-resource:N00024",
+        "session_id": "session:N00024:current",
+        "started_ns": 38879796000000,
+        "task_id": "task:N00024"
+      }
+    },
+    "scope_lifetime": {
+      "limits": {
+        "grant:N00024": {
+          "resource": "sandbox-resource:N00024:other"
+        }
+      }
+    },
+    "task_success_evidence": {
+      "artifacts": [
+        {
+          "observed_hash": null,
+          "path": "revenue.csv",
+          "required_hash": "d2adbf5fc269c8c81e86250089e3eafb889aacbcd069199393e4c4dd5ddc4de2"
+        }
+      ],
+      "requires_committed_effect": true,
+      "tables": []
+    }
+  }
+}

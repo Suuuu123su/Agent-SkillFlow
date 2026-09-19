@@ -1,0 +1,460 @@
+{
+  "gate": {
+    "C1_half_percentage_point_interior_budgets": 4,
+    "actual_executions": 28,
+    "cap": 48,
+    "checks": {
+      "C1": {
+        "all_leave_one_out_positive": true,
+        "five_of_six": true,
+        "positive_auc": true,
+        "two_gain_families": true
+      },
+      "C2": {
+        "all_leave_one_out_positive": true,
+        "five_of_six": true,
+        "positive_auc": true,
+        "two_gain_families": true
+      }
+    },
+    "complete_four_cells": true,
+    "formal_units": 24,
+    "gain_families": {
+      "C1": [
+        "D01_append_journal",
+        "D03_render_report",
+        "H01_publish_directory",
+        "H02_inventory_reservation",
+        "H03_manifest_package",
+        "H04_sql_join_export"
+      ],
+      "C2": [
+        "D01_append_journal",
+        "D03_render_report",
+        "H01_publish_directory",
+        "H02_inventory_reservation",
+        "H03_manifest_package",
+        "H04_sql_join_export"
+      ]
+    },
+    "judge_calls": 0,
+    "model_calls": 0,
+    "next_step": "Stop this confirmation batch; report magnitude and limitations; no automatic expansion",
+    "no_additional_wrong_point_or_safe": true,
+    "paid_api_calls": 0,
+    "promising_limited": true,
+    "replicated_small_gain": true,
+    "retries": 0,
+    "sanity_executions": 4,
+    "status": "PROMISING_LIMITED"
+  },
+  "independent_truth_verified": true,
+  "new_families": false,
+  "primary_queries": 48,
+  "raw_units": 24,
+  "results": {
+    "C1": {
+      "curve": [
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.0,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.05,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.1,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.15,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.2,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.25,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.3,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.35,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.4,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.000496031746031746,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.45,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.00248015873015873,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.5,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.002976190476190476,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.55,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.004464285714285716,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.6,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.005952380952380952,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.65,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.00843253968253968,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.7,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.005952380952380945,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.75,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.00694444444444442,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.8,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.004960317460317443,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.85,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.00347222222222221,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.9,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.00347222222222221,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.95,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 1.0,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        }
+      ],
+      "difference": 0.0024801587301587352,
+      "dynamic_auc": 0.11584821428571429,
+      "leave_one_out": [
+        {
+          "difference": 0.0023214285714285715,
+          "excluded": "D01_append_journal"
+        },
+        {
+          "difference": 0.0023511904761904733,
+          "excluded": "D03_render_report"
+        },
+        {
+          "difference": 0.0026785714285714247,
+          "excluded": "H01_publish_directory"
+        },
+        {
+          "difference": 0.002470238095238092,
+          "excluded": "H02_inventory_reservation"
+        },
+        {
+          "difference": 0.002619047619047618,
+          "excluded": "H03_manifest_package"
+        },
+        {
+          "difference": 0.00244047619047619,
+          "excluded": "H04_sql_join_export"
+        }
+      ],
+      "paired": [
+        {
+          "difference": 0.003273809523809512,
+          "dynamic_auc": 0.11889880952380953,
+          "family_id": "D01_append_journal",
+          "static_auc": 0.11562500000000002
+        },
+        {
+          "difference": 0.0031250000000000028,
+          "dynamic_auc": 0.11592261904761905,
+          "family_id": "D03_render_report",
+          "static_auc": 0.11279761904761905
+        },
+        {
+          "difference": 0.0014880952380952467,
+          "dynamic_auc": 0.11473214285714287,
+          "family_id": "H01_publish_directory",
+          "static_auc": 0.11324404761904762
+        },
+        {
+          "difference": 0.0025297619047619097,
+          "dynamic_auc": 0.11681547619047619,
+          "family_id": "H02_inventory_reservation",
+          "static_auc": 0.11428571428571428
+        },
+        {
+          "difference": 0.0017857142857142794,
+          "dynamic_auc": 0.11547619047619048,
+          "family_id": "H03_manifest_package",
+          "static_auc": 0.1136904761904762
+        },
+        {
+          "difference": 0.002678571428571419,
+          "dynamic_auc": 0.11324404761904762,
+          "family_id": "H04_sql_join_export",
+          "static_auc": 0.1105654761904762
+        }
+      ],
+      "positive_families": 6,
+      "positive_interior_points": 11,
+      "static_auc": 0.11336805555555556
+    },
+    "C2": {
+      "curve": [
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.0,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.1,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.2,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.3,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.4,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.5,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.00992063492063492,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.6,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.006448412698412703,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.7,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.005456349206349187,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.8,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.9,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 1.0,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        }
+      ],
+      "difference": 0.0021825396825397025,
+      "dynamic_auc": 0.1690972222222222,
+      "leave_one_out": [
+        {
+          "difference": 0.0019642857142857183,
+          "excluded": "D01_append_journal"
+        },
+        {
+          "difference": 0.002083333333333337,
+          "excluded": "D03_render_report"
+        },
+        {
+          "difference": 0.002380952380952389,
+          "excluded": "H01_publish_directory"
+        },
+        {
+          "difference": 0.002142857142857152,
+          "excluded": "H02_inventory_reservation"
+        },
+        {
+          "difference": 0.002380952380952389,
+          "excluded": "H03_manifest_package"
+        },
+        {
+          "difference": 0.0021428571428571464,
+          "excluded": "H04_sql_join_export"
+        }
+      ],
+      "paired": [
+        {
+          "difference": 0.00327380952380954,
+          "dynamic_auc": 0.1708333333333333,
+          "family_id": "D01_append_journal",
+          "static_auc": 0.16755952380952377
+        },
+        {
+          "difference": 0.002678571428571447,
+          "dynamic_auc": 0.16934523809523808,
+          "family_id": "D03_render_report",
+          "static_auc": 0.16666666666666663
+        },
+        {
+          "difference": 0.0011904761904761862,
+          "dynamic_auc": 0.1657738095238095,
+          "family_id": "H01_publish_directory",
+          "static_auc": 0.1645833333333333
+        },
+        {
+          "difference": 0.0023809523809523725,
+          "dynamic_auc": 0.1708333333333333,
+          "family_id": "H02_inventory_reservation",
+          "static_auc": 0.16845238095238094
+        },
+        {
+          "difference": 0.0011904761904761862,
+          "dynamic_auc": 0.16874999999999998,
+          "family_id": "H03_manifest_package",
+          "static_auc": 0.1675595238095238
+        },
+        {
+          "difference": 0.0023809523809524002,
+          "dynamic_auc": 0.16904761904761903,
+          "family_id": "H04_sql_join_export",
+          "static_auc": 0.16666666666666663
+        }
+      ],
+      "positive_families": 6,
+      "positive_interior_points": 3,
+      "static_auc": 0.1669146825396825
+    }
+  },
+  "source": "new instances in preregistered old six families"
+}

@@ -1,0 +1,34 @@
+{
+  "costs": {
+    "C1": {
+      "checks": {
+        "all_leave_one_out_positive": true,
+        "dependency_recovery_witness": true,
+        "five_of_six": true,
+        "integrity": true,
+        "interior_points": true,
+        "positive_auc": true,
+        "zero_wrong_and_wrong_safe": true
+      },
+      "passed": true
+    },
+    "C2": {
+      "checks": {
+        "all_leave_one_out_positive": true,
+        "dependency_recovery_witness": true,
+        "five_of_six": true,
+        "integrity": true,
+        "interior_points": true,
+        "positive_auc": true,
+        "zero_wrong_and_wrong_safe": true
+      },
+      "passed": true
+    }
+  },
+  "model_calls": 0,
+  "new_business_executions": 0,
+  "new_sample_authorized": true,
+  "passed": true,
+  "status": "PASS",
+  "subsequent_scope": "Only preregistered 24 units plus bounded sanity/retry"
+}

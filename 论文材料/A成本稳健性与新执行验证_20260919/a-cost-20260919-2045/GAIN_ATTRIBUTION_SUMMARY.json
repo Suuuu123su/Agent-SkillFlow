@@ -1,0 +1,341 @@
+{
+  "change_table_missing_fields": [
+    "family",
+    "unit",
+    "metric",
+    "condition",
+    "seed",
+    "first_visible",
+    "first_missing",
+    "reference_correctness"
+  ],
+  "classes": {
+    "development": {
+      "benefit": 31,
+      "harm": 0,
+      "same": 11169
+    },
+    "heldout": {
+      "benefit": 47,
+      "harm": 1,
+      "same": 11152
+    }
+  },
+  "comparisons": {
+    "development": {
+      "curve": [
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.0,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.000992063492063492,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.5172531199664759,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0034722222222222238,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.6647329203933843,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.001984126984126977,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.7720231001925016,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0014880952380952328,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.812252006861962,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.00347222222222221,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.8658774537406859,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.001984126984126977,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.9463221717323835,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0014880952380952328,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.9463614577740529,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0004960317460317443,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.9597579979833165,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 1.0,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        }
+      ],
+      "difference": 0.0013241240823643335,
+      "dynamic_auc": 0.1107188807780881,
+      "leave_one_out": [
+        {
+          "difference": 0.0013614757022068185,
+          "excluded": "D01_append_journal"
+        },
+        {
+          "difference": 0.001409367257765698,
+          "excluded": "D02_sqlite_transfer"
+        },
+        {
+          "difference": 0.0012896344714437263,
+          "excluded": "D03_render_report"
+        },
+        {
+          "difference": 0.0014412871666220823,
+          "excluded": "D04_kv_increment"
+        },
+        {
+          "difference": 0.0008540309973104649,
+          "excluded": "D05_untrusted_copy"
+        },
+        {
+          "difference": 0.0015889488988371976,
+          "excluded": "D06_revoked_cache"
+        }
+      ],
+      "paired": [
+        {
+          "difference": 0.0011373659831518945,
+          "dynamic_auc": 0.10732728328291623,
+          "family_id": "D01_append_journal",
+          "static_auc": 0.10618991729976433
+        },
+        {
+          "difference": 0.0008979082053574977,
+          "dynamic_auc": 0.09403492123772232,
+          "family_id": "D02_sqlite_transfer",
+          "static_auc": 0.09313701303236482
+        },
+        {
+          "difference": 0.0014965721369673557,
+          "dynamic_auc": 0.12068315386471756,
+          "family_id": "D03_render_report",
+          "static_auc": 0.11918658172775021
+        },
+        {
+          "difference": 0.0007383086610755762,
+          "dynamic_auc": 0.1214318686499258,
+          "family_id": "D04_kv_increment",
+          "static_auc": 0.12069355998885023
+        },
+        {
+          "difference": 0.003674589507633663,
+          "dynamic_auc": 0.1110108368675181,
+          "family_id": "D05_untrusted_copy",
+          "static_auc": 0.10733624735988444
+        },
+        {
+          "difference": 0.0,
+          "dynamic_auc": 0.10982522076572859,
+          "family_id": "D06_revoked_cache",
+          "static_auc": 0.10982522076572859
+        }
+      ],
+      "positive_families": 5,
+      "positive_interior_points": 8,
+      "static_auc": 0.10939475669572377
+    },
+    "heldout": {
+      "curve": [
+        {
+          "coverage_difference": 0.0,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.0,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.000496031746031746,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.5172531199664759,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.00496031746031746,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.6647329203933843,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.004960317460317457,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.7720231001925016,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.004464285714285726,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.812252006861962,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0029761904761904656,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.8658774537406859,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0014880952380952328,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.9463221717323835,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0014880952380952883,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.9463614577740529,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0014880952380953438,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 0.9597579979833165,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        },
+        {
+          "coverage_difference": 0.0004960317460317443,
+          "dynamic_wrong": 0.0,
+          "dynamic_wrong_safe": 0.0,
+          "rho": 1.0,
+          "static_wrong": 0.0,
+          "static_wrong_safe": 0.0
+        }
+      ],
+      "difference": 0.0016913816661813103,
+      "dynamic_auc": 0.09130200476774569,
+      "leave_one_out": [
+        {
+          "difference": 0.0019099174182460627,
+          "excluded": "H01_publish_directory"
+        },
+        {
+          "difference": 0.001570716745768802,
+          "excluded": "H02_inventory_reservation"
+        },
+        {
+          "difference": 0.0017862014638103884,
+          "excluded": "H03_manifest_package"
+        },
+        {
+          "difference": 0.0014230511161289177,
+          "excluded": "H04_sql_join_export"
+        },
+        {
+          "difference": 0.0014686470884989812,
+          "excluded": "H05_queued_approval"
+        },
+        {
+          "difference": 0.0019897561646347096,
+          "excluded": "H06_revoked_lease_journal"
+        }
+      ],
+      "paired": [
+        {
+          "difference": 0.0005987029058575483,
+          "dynamic_auc": 0.09024358437113959,
+          "family_id": "H01_publish_directory",
+          "static_auc": 0.08964488146528204
+        },
+        {
+          "difference": 0.0022947062682438513,
+          "dynamic_auc": 0.09192814879182949,
+          "family_id": "H02_inventory_reservation",
+          "static_auc": 0.08963344252358564
+        },
+        {
+          "difference": 0.0012172826780359192,
+          "dynamic_auc": 0.08053085107908778,
+          "family_id": "H03_manifest_package",
+          "static_auc": 0.07931356840105186
+        },
+        {
+          "difference": 0.0030330344164432727,
+          "dynamic_auc": 0.0988751330580816,
+          "family_id": "H04_sql_join_export",
+          "static_auc": 0.09584209864163833
+        },
+        {
+          "difference": 0.002805054554592956,
+          "dynamic_auc": 0.10462570535593464,
+          "family_id": "H05_queued_approval",
+          "static_auc": 0.10182065080134169
+        },
+        {
+          "difference": 0.000199509173914314,
+          "dynamic_auc": 0.08160860595040105,
+          "family_id": "H06_revoked_lease_journal",
+          "static_auc": 0.08140909677648674
+        }
+      ],
+      "positive_families": 6,
+      "positive_interior_points": 8,
+      "static_auc": 0.08961062310156438
+    }
+  },
+  "dependency_recovery_witness": true,
+  "expected_heldout_delta": 0.0016913816661812964,
+  "model_calls": 0,
+  "new_business_executions": 0,
+  "pair_rows": 22400,
+  "priority_disabled_controls": 778,
+  "reconciliation_tolerance": 1e-10,
+  "source": "Reconstructed from complete sealed corrected predictions, documents and mask manifest; ROW_CHANGES alone insufficient",
+  "status": "ATTRIBUTION_RECONCILED"
+}

@@ -1,0 +1,666 @@
+[
+  {
+    "offline_prerequisite_deletions": [
+      {
+        "after": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": false
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": false
+        },
+        "channel": "counterfactual",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": false
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": false
+        },
+        "channel": "decision_reason",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [
+            "failure",
+            "receipt"
+          ],
+          "reason": "execution_not_established",
+          "status": "unknown",
+          "value": null
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": false
+        },
+        "channel": "failure",
+        "point_to_unknown": true
+      },
+      {
+        "after": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": false
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": false
+        },
+        "channel": "scope_lifetime",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": false
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": false
+        },
+        "channel": "task_success_evidence",
+        "point_to_unknown": false
+      }
+    ],
+    "oracle_unchanged": true,
+    "pair": {
+      "budget": 39499,
+      "class_": "benefit",
+      "condition": "random_5",
+      "dependency_group": "receipt_execution",
+      "dynamic_correct": true,
+      "dynamic_cost": 37451,
+      "dynamic_first_choice": "failure",
+      "dynamic_order": "[\"failure\"]",
+      "dynamic_status": "point",
+      "dynamic_value": false,
+      "family_id": "H05_queued_approval",
+      "final_dynamic_missing": "[]",
+      "final_static_missing": "[\"failure\", \"receipt\"]",
+      "first_common_prefix": "[]",
+      "first_missing": "[\"failure\", \"receipt\"]",
+      "first_visible_sha256": "57e3ed89e8643fbcef289b843b621fd2ff43ce1ce95978ba021e1eaadd51deb1",
+      "mechanism": "random",
+      "metric": "UEA",
+      "query_id": "H05_queued_approval_03:UEA",
+      "remaining_at_divergence": 12288,
+      "rho": 0.5172531199664759,
+      "seed": 19119,
+      "split": "heldout",
+      "static_correct": false,
+      "static_cost": 38475,
+      "static_first_choice": "grant",
+      "static_order": "[\"grant\"]",
+      "static_status": "unknown",
+      "static_value": null,
+      "truth_status": "point",
+      "truth_value": 0,
+      "unit": "H05_queued_approval_03",
+      "weighted_auc_contribution": 0.000164864315573756,
+      "weighted_coverage_delta": 0.000496031746031746
+    },
+    "role": "benefit"
+  },
+  {
+    "offline_prerequisite_deletions": [
+      {
+        "after": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "before": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "channel": "counterfactual",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "before": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "channel": "decision_reason",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "before": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "channel": "failure",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "before": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "channel": "lifecycle",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "before": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "channel": "provenance",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "before": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "channel": "receipt",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "before": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "channel": "scope_lifetime",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "before": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "channel": "task_success_evidence",
+        "point_to_unknown": false
+      }
+    ],
+    "oracle_unchanged": true,
+    "pair": {
+      "budget": 66121,
+      "class_": "harm",
+      "condition": "random_3",
+      "dependency_group": "lifecycle_session",
+      "dynamic_correct": false,
+      "dynamic_cost": 65105,
+      "dynamic_first_choice": "lifecycle",
+      "dynamic_order": "[\"lifecycle\", \"failure\"]",
+      "dynamic_status": "unknown",
+      "dynamic_value": null,
+      "family_id": "H02_inventory_reservation",
+      "final_dynamic_missing": "[\"grant\"]",
+      "final_static_missing": "[]",
+      "first_common_prefix": "[]",
+      "first_missing": "[\"failure\", \"lifecycle\", \"receipt\"]",
+      "first_visible_sha256": "8ba6b3b9357e4569b55a95c0b98e0af0a51c6a5b1e978ea1f61ef0599d0475f8",
+      "mechanism": "random",
+      "metric": "UEA",
+      "query_id": "H02_inventory_reservation_02:UEA",
+      "remaining_at_divergence": 25592,
+      "rho": 0.8658774537406859,
+      "seed": 19120,
+      "split": "heldout",
+      "static_correct": true,
+      "static_cost": 62033,
+      "static_first_choice": "grant",
+      "static_order": "[\"grant\", \"failure\"]",
+      "static_status": "point",
+      "static_value": true,
+      "truth_status": "point",
+      "truth_value": 1,
+      "unit": "H02_inventory_reservation_02",
+      "weighted_auc_contribution": -3.325152898571963e-05,
+      "weighted_coverage_delta": -0.000496031746031746
+    },
+    "role": "harm"
+  },
+  {
+    "offline_prerequisite_deletions": [
+      {
+        "after": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "channel": "decision_reason",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "channel": "failure",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "channel": "grant",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [
+            "lifecycle"
+          ],
+          "reason": "artifact_binding_missing",
+          "status": "unknown",
+          "value": null
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "channel": "lifecycle",
+        "point_to_unknown": true
+      },
+      {
+        "after": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "channel": "provenance",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "channel": "receipt",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "channel": "scope_lifetime",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [
+            "task_success_evidence"
+          ],
+          "reason": "task_requirement_or_artifact_evidence_missing",
+          "status": "unknown",
+          "value": null
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "channel": "task_success_evidence",
+        "point_to_unknown": true
+      }
+    ],
+    "oracle_unchanged": true,
+    "pair": {
+      "budget": 0,
+      "class_": "same",
+      "condition": "channel_counterfactual",
+      "dependency_group": "no_divergence",
+      "dynamic_correct": false,
+      "dynamic_cost": 0,
+      "dynamic_first_choice": null,
+      "dynamic_order": "[]",
+      "dynamic_status": "infeasible",
+      "dynamic_value": null,
+      "family_id": "H01_publish_directory",
+      "final_dynamic_missing": "[]",
+      "final_static_missing": "[]",
+      "first_common_prefix": "[]",
+      "first_missing": "[]",
+      "first_visible_sha256": null,
+      "mechanism": "whole_channel",
+      "metric": "TaskSuccess",
+      "query_id": "H01_publish_directory_01:TaskSuccess",
+      "remaining_at_divergence": null,
+      "rho": 0.0,
+      "seed": 0,
+      "split": "heldout",
+      "static_correct": false,
+      "static_cost": 0,
+      "static_first_choice": null,
+      "static_order": "[]",
+      "static_status": "infeasible",
+      "static_value": null,
+      "truth_status": "point",
+      "truth_value": 1,
+      "unit": "H01_publish_directory_01",
+      "weighted_auc_contribution": 0.0,
+      "weighted_coverage_delta": 0.0
+    },
+    "role": "same"
+  },
+  {
+    "offline_prerequisite_deletions": [
+      {
+        "after": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "channel": "counterfactual",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "channel": "decision_reason",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [
+            "grant"
+          ],
+          "reason": "authorization_evidence_incomplete",
+          "status": "unknown",
+          "value": null
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "channel": "grant",
+        "point_to_unknown": true
+      },
+      {
+        "after": {
+          "missing_channels": [
+            "failure",
+            "lifecycle",
+            "receipt"
+          ],
+          "reason": "execution_not_established",
+          "status": "unknown",
+          "value": null
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "channel": "lifecycle",
+        "point_to_unknown": true
+      },
+      {
+        "after": {
+          "missing_channels": [
+            "failure",
+            "receipt"
+          ],
+          "reason": "execution_not_established",
+          "status": "unknown",
+          "value": null
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "channel": "receipt",
+        "point_to_unknown": true
+      },
+      {
+        "after": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "channel": "scope_lifetime",
+        "point_to_unknown": false
+      },
+      {
+        "after": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "before": {
+          "missing_channels": [],
+          "reason": null,
+          "status": "point",
+          "value": true
+        },
+        "channel": "task_success_evidence",
+        "point_to_unknown": false
+      }
+    ],
+    "oracle_unchanged": true,
+    "pair": {
+      "budget": 66121,
+      "class_": "same",
+      "condition": "random_3",
+      "dependency_group": "no_divergence",
+      "dynamic_correct": true,
+      "dynamic_cost": 63053,
+      "dynamic_first_choice": null,
+      "dynamic_order": "[\"lifecycle\"]",
+      "dynamic_status": "point",
+      "dynamic_value": true,
+      "family_id": "H01_publish_directory",
+      "final_dynamic_missing": "[]",
+      "final_static_missing": "[]",
+      "first_common_prefix": "[\"lifecycle\"]",
+      "first_missing": "[]",
+      "first_visible_sha256": null,
+      "mechanism": "random",
+      "metric": "UEA",
+      "query_id": "H01_publish_directory_02:UEA",
+      "remaining_at_divergence": null,
+      "rho": 0.8658774537406859,
+      "seed": 19121,
+      "split": "heldout",
+      "static_correct": true,
+      "static_cost": 63053,
+      "static_first_choice": null,
+      "static_order": "[\"lifecycle\"]",
+      "static_status": "point",
+      "static_value": true,
+      "truth_status": "point",
+      "truth_value": 1,
+      "unit": "H01_publish_directory_02",
+      "weighted_auc_contribution": 0.0,
+      "weighted_coverage_delta": 0.0
+    },
+    "role": "known_lifecycle_counterexample"
+  }
+]

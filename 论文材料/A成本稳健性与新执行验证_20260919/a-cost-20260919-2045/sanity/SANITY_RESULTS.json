@@ -1,0 +1,39 @@
+{
+  "actual_executions": 4,
+  "checks": [
+    {
+      "cell": "valid_commit",
+      "full_agreement": true,
+      "oracle_matches_actual_effect": true,
+      "packet_capacity_supported": true,
+      "raw": "sanity/raw/S00001/attempt-01",
+      "unit_id": "S00001"
+    },
+    {
+      "cell": "invalid_no_commit",
+      "full_agreement": true,
+      "oracle_matches_actual_effect": true,
+      "packet_capacity_supported": true,
+      "raw": "sanity/raw/S00002/attempt-01",
+      "unit_id": "S00002"
+    },
+    {
+      "cell": "invalid_commit",
+      "full_agreement": true,
+      "oracle_matches_actual_effect": true,
+      "packet_capacity_supported": true,
+      "raw": "sanity/raw/S00003/attempt-01",
+      "unit_id": "S00003"
+    },
+    {
+      "cell": "valid_no_commit",
+      "full_agreement": true,
+      "oracle_matches_actual_effect": true,
+      "packet_capacity_supported": true,
+      "raw": "sanity/raw/S00004/attempt-01",
+      "unit_id": "S00004"
+    }
+  ],
+  "model_calls": 0,
+  "status": "PASSED"
+}

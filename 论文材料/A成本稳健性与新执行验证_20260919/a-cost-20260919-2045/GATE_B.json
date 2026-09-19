@@ -1,0 +1,49 @@
+{
+  "C1_half_percentage_point_interior_budgets": 4,
+  "actual_executions": 28,
+  "cap": 48,
+  "checks": {
+    "C1": {
+      "all_leave_one_out_positive": true,
+      "five_of_six": true,
+      "positive_auc": true,
+      "two_gain_families": true
+    },
+    "C2": {
+      "all_leave_one_out_positive": true,
+      "five_of_six": true,
+      "positive_auc": true,
+      "two_gain_families": true
+    }
+  },
+  "complete_four_cells": true,
+  "formal_units": 24,
+  "gain_families": {
+    "C1": [
+      "D01_append_journal",
+      "D03_render_report",
+      "H01_publish_directory",
+      "H02_inventory_reservation",
+      "H03_manifest_package",
+      "H04_sql_join_export"
+    ],
+    "C2": [
+      "D01_append_journal",
+      "D03_render_report",
+      "H01_publish_directory",
+      "H02_inventory_reservation",
+      "H03_manifest_package",
+      "H04_sql_join_export"
+    ]
+  },
+  "judge_calls": 0,
+  "model_calls": 0,
+  "next_step": "Stop this confirmation batch; report magnitude and limitations; no automatic expansion",
+  "no_additional_wrong_point_or_safe": true,
+  "paid_api_calls": 0,
+  "promising_limited": true,
+  "replicated_small_gain": true,
+  "retries": 0,
+  "sanity_executions": 4,
+  "status": "PROMISING_LIMITED"
+}
