@@ -20,4 +20,4 @@
 
 最终交付核对见[DELIVERY_CHECKS.json](DELIVERY_CHECKS.json)。只读复核：`python -B experiments/evidence_recovery_pilot/verify_delivery.py`，验证31项HIAA输入绑定、两份冻结计划、压缩结果逐字节回读及当前文档链接，不重复实验。
 
-交付状态：代码与结果已在本地提交。Git推送缺少写入凭据，GitHub连接器建分支操作返回aborted且无具体原因；未确认任何成功远端发布，也未创建PR。交付包提供相对基准提交的二进制补丁、全部变更文件及应用说明。
+交付状态：修复代码与结果已上传GitHub，提交 `4ba3aaf5e53b17733e0858b5394ec153c03998b4`，远端文件树与本地交付一致。首轮Git缺少写入凭据及连接器aborted属于历史发布失败，已由本轮连接器发布解决。下一阶段本地Codex任务见[执行入口](../../docs/tasks/evidence-strengthening-20260919/CODEX_GOAL.md)，新实验尚未启动。

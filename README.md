@@ -6,7 +6,9 @@ SkillFlow研究Agent Skill与Harness交互中的安全机制，以统一运行�
 
 ## 当前阶段与结果
 
-2026-09-19（本地完成，尚未成功发布至GitHub）：HIAA分母修复完成，F/H ToolReturn valid_only恢复每格13；48项逐格样本集合与P3R一致，156项离线修正版输出及13项针对性测试通过，点值不变。已完成240查询补证先导、235查询有限参照扩展及三对合成见证；动态策略未超过按指标固定顺序。新增模型、Judge、业务调用均为0。[修复与实验总览](论文材料/修复与补强_20260919/README.md) · [结果及论文措辞](论文材料/修复与补强_20260919/RESULTS_AND_PAPER_CLAIMS.md)。
+2026-09-19（修复与先导已上传至GitHub）：HIAA分母修复完成，F/H ToolReturn valid_only恢复每格13；48项逐格样本集合与P3R一致，156项离线修正版输出及13项针对性测试通过，点值不变。已完成240查询补证先导、235查询有限参照扩展及三对合成见证；动态策略未超过按指标固定顺序。新增模型、Judge、业务调用均为0。[修复与实验总览](论文材料/修复与补强_20260919/README.md) · [结果及论文措辞](论文材料/修复与补强_20260919/RESULTS_AND_PAPER_CLAIMS.md)。
+
+下一阶段补强任务已编写，状态为 `READY_TO_EXECUTE`，新一轮实验尚未启动：[本地Codex入口](docs/tasks/evidence-strengthening-20260919/CODEX_GOAL.md) · [实验计划](docs/tasks/evidence-strengthening-20260919/refine-logs/EXPERIMENT_PLAN.md)。重点是独立参照、按任务家族留出和统一字节预算；动态优势不作为预设结论。
 
 P3/P3R与P4已完成并发布，研究缺口和不利结果保留。P4管理状态为`CLOSED_WITH_DOCUMENTED_GAPS`；完成实验与材料交付不等于全部研究主张成立。[当前状态](论文材料/metadata/current_state.json) · [论文材料](论文材料/README.md)。
 

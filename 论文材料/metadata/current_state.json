@@ -53,7 +53,15 @@
       "adaptive_gain_over_metric_static": "NOT_DEMONSTRATED",
       "new_model_calls": 0,
       "business_tool_calls": 0,
-      "publication": "LOCAL_COMMIT_ONLY_REMOTE_PUBLICATION_NOT_CONFIRMED"
+      "publication": "PUBLISHED_TO_GITHUB",
+      "published_repair_commit": "4ba3aaf5e53b17733e0858b5394ec153c03998b4"
+    },
+    "EVIDENCE_STRENGTHENING_V2": {
+      "status": "READY_TO_EXECUTE",
+      "execution_status": "NOT_STARTED",
+      "source": "docs/tasks/evidence-strengthening-20260919/CODEX_GOAL.md",
+      "new_model_calls": 0,
+      "new_sandbox_runs": 0
     }
   },
   "research_limits": [
