@@ -1,0 +1,131 @@
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai/local-script"
+      },
+      "models": {
+        "openai/local-script": {
+          "params": {
+            "openaiWsWarmup": false,
+            "transport": "sse"
+          }
+        }
+      },
+      "workspace": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\runtime\\heldout\\01-original\\empty"
+    },
+    "list": [
+      {
+        "agentDir": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\runtime\\heldout\\01-original\\state\\u027",
+        "id": "u027",
+        "workspace": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\raw\\u027\\workspace"
+      },
+      {
+        "agentDir": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\runtime\\heldout\\01-original\\state\\u028",
+        "id": "u028",
+        "workspace": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\raw\\u028\\workspace"
+      },
+      {
+        "agentDir": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\runtime\\heldout\\01-original\\state\\u039",
+        "id": "u039",
+        "workspace": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\raw\\u039\\workspace"
+      },
+      {
+        "agentDir": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\runtime\\heldout\\01-original\\state\\u040",
+        "id": "u040",
+        "workspace": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\raw\\u040\\workspace"
+      },
+      {
+        "agentDir": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\runtime\\heldout\\01-original\\state\\u051",
+        "id": "u051",
+        "workspace": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\raw\\u051\\workspace"
+      },
+      {
+        "agentDir": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\runtime\\heldout\\01-original\\state\\u052",
+        "id": "u052",
+        "workspace": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\raw\\u052\\workspace"
+      },
+      {
+        "agentDir": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\runtime\\heldout\\01-original\\state\\u063",
+        "id": "u063",
+        "workspace": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\raw\\u063\\workspace"
+      },
+      {
+        "agentDir": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\runtime\\heldout\\01-original\\state\\u064",
+        "id": "u064",
+        "workspace": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\raw\\u064\\workspace"
+      }
+    ],
+    "ownership": "explicit"
+  },
+  "gateway": {
+    "auth": {
+      "mode": "token",
+      "token": "local-research-placeholder"
+    },
+    "bind": "loopback",
+    "controlUi": {
+      "enabled": false
+    },
+    "http": {
+      "endpoints": {
+        "responses": {
+          "enabled": true
+        }
+      }
+    },
+    "mode": "local",
+    "port": 13795
+  },
+  "logging": {
+    "file": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\runtime\\heldout\\01-original\\gateway.log",
+    "level": "info"
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "openai": {
+        "api": "openai-responses",
+        "apiKey": "local-script-placeholder",
+        "baseUrl": "http://127.0.0.1:13796/v1",
+        "models": [
+          {
+            "api": "openai-responses",
+            "contextWindow": 128000,
+            "cost": {
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "input": 0,
+              "output": 0
+            },
+            "id": "local-script",
+            "input": [
+              "text"
+            ],
+            "maxTokens": 1024,
+            "name": "local-script",
+            "reasoning": false
+          }
+        ],
+        "request": {
+          "allowPrivateNetwork": true
+        }
+      }
+    }
+  },
+  "plugins": {
+    "enabled": false
+  },
+  "skills": {
+    "allowBundled": []
+  },
+  "tools": {
+    "allow": [
+      "read",
+      "write"
+    ],
+    "fs": {
+      "workspaceOnly": true
+    }
+  }
+}

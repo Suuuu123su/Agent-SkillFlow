@@ -1,0 +1,14 @@
+temp/
+closeout/policy_ipc/
+
+# Byte-exact compressed originals are in pilot/NATIVE_AUXILIARY.tar.gz
+pilot/runtime/*/*/state/
+pilot/runtime/*/*/home/
+pilot/runtime/*/*/temp/
+pilot/qualification-*/state/
+pilot/qualification-*/home/
+pilot/qualification-*/temp/
+
+# Native workspaces include nested .git; exact bytes are in WORKSPACES.tar.gz
+pilot/raw/**/workspace/
+pilot/qualification-*/workspace/

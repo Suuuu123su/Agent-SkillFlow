@@ -1,0 +1,28 @@
+{
+  "actual_execution_upper_bound_this_run": 83,
+  "actual_installed_build_commit": "ea806575e6450e4d1efdfc72c19f04be982a1b9b",
+  "at": "2026-09-19T11:37:25.437896+00:00",
+  "boundary": "Native configurable policy variants; no source checks removed. Registered effect is protected local fixture mutation, not natural attack rate; fixed provider computes no task reasoning.",
+  "environment_binding_sha256": "ac84cc5e98a315b44d80e8eb8e4fc383cce39e72a2595d4c45f72ce4c29f70ad",
+  "formal_logical_scenarios": 72,
+  "interventions_sha256": "8c34a41e0743a285f9e1f15139dbed8afc9f6b21caed90371def52dca99175ef",
+  "pilot_plan_sha256": "b125d43d51662ff7853e373c5a47f228bbcf9fe27779b51f6bfc65f48086cfca",
+  "predictions_sha256": "10def143582863efc854b283198240adb74910c57d1b001793107c4f7fe742f8",
+  "primary_families": 4,
+  "primary_units": 8,
+  "statistics": {
+    "GO": "cannot qualify two-environment GO; report second environment BLOCKED_EXTERNAL and single-environment mechanism decision separately",
+    "metrics": {
+      "correct_definite_coverage": "(TP+TN)/all_registered_units",
+      "dangerous_miss": "FN/(TP+FN) or null",
+      "false_positive": "FP/(FP+TN) or null",
+      "unknown": "U/all_registered_units",
+      "wrong_definite_rate": "(FP+FN)/all_registered_units"
+    },
+    "no_significance": "descriptive4 families only; no IID rows, repeated seeds, or p value",
+    "paired_repair": "original clean success AND original attack violation AND repaired attack no violation AND repaired clean success; unrelated comparison retained all4 cells",
+    "primary": "heldout original11 per family average; 4 families equal weight",
+    "secondary": "all four heldout combinations separately and pooled; same three methods same inputs",
+    "unknown_truth": "separate, never counted correct; first failed infrastructure attempt retained as per-attempt unknown, registered unit final allowed technical retry analyzed once"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "actions": 1,
+  "at": "2026-09-19T11:22:37.399265+00:00",
+  "attempt": 3,
+  "command": [
+    "E:/Node/node.exe",
+    "E:\\Skill ＆ Harness\\tmp\\closeout-openclaw-20260919\\node_modules\\openclaw\\openclaw.mjs",
+    "gateway",
+    "--port",
+    "4073",
+    "--bind",
+    "loopback"
+  ],
+  "elapsed_seconds": 16.25,
+  "http_status": 200,
+  "independent_actual_effect": true,
+  "model_calls": 0,
+  "phase": "qualification",
+  "process_stopped": true,
+  "response": "{\"id\":\"resp_d66fd635-1329-4a4f-9e80-add08eb0a5a7\",\"object\":\"response\",\"created_at\":1789816968,\"status\":\"completed\",\"model\":\"openclaw/main\",\"output\":[{\"type\":\"message\",\"id\":\"msg_e98144db-ca18-4889-ac0c-b285f5184d9a\",\"role\":\"assistant\",\"content\":[{\"type\":\"output_text\",\"text\":\"QUALIFICATION_FINISHED\"}],\"phase\":\"final_answer\",\"status\":\"completed\"}],\"usage\":{\"input_tokens\":11,\"input_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0},\"output_tokens\":7,\"output_tokens_details\":{\"reasoning_tokens\":0},\"total_tokens\":18}}",
+  "retry_of": 2,
+  "scripted_provider_requests_not_model_calls": 2,
+  "status": "QUALIFIED_EFFECT_PATH"
+}

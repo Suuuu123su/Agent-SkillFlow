@@ -1,0 +1,22 @@
+mock-openai listening on 4074
+2026-09-19T19:22:40.666+08:00 [gateway] loading configuration…
+2026-09-19T19:22:40.981+08:00 [gateway] resolving authentication…
+2026-09-19T19:22:40.995+08:00 [gateway] starting...
+2026-09-19T19:22:45.497+08:00 [gateway] starting HTTP server...
+2026-09-19T19:22:46.417+08:00 [gateway] ready
+2026-09-19T19:22:46.574+08:00 [gateway] starting channels and sidecars...
+2026-09-19T19:22:46.586+08:00 [gateway] agent model: openai/local-script (thinking=off, fast=off)
+2026-09-19T19:22:46.587+08:00 [gateway] http server listening (0 plugins, 4.1s)
+2026-09-19T19:22:46.589+08:00 [gateway] log file: E:\Skill ＆ Harness\publication\closeout-predictive-pilot-20260919\论文材料\补证收口与能力先导_20260919\closeout-pilot-20260919-1100\pilot\qualification-03\gateway.log
+2026-09-19T19:22:48.337+08:00 [gateway/channels] skipping channel start (OPENCLAW_SKIP_CHANNELS=1 or OPENCLAW_SKIP_PROVIDERS=1)
+2026-09-19T19:22:48.346+08:00 [gateway] startup outcomes: internal-hooks=skipped (not-configured); internal-startup-hook=skipped (no-handlers-loaded); gateway-start-hooks=skipped (no-handlers-loaded); gmail-watcher=skipped (hooks-disabled); gmail-model=skipped (not-configured)
+2026-09-19T19:22:48.360+08:00 [gateway] ready
+2026-09-19T19:22:48.364+08:00 [heartbeat] started
+2026-09-19T19:22:52.169+08:00 [gateway] remote model catalog refresh failed
+2026-09-19T19:22:52.849+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:4074/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:22:52.953+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=104 dispatcher=new contentType=text/event-stream
+2026-09-19T19:22:53.154+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:4074/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:22:53.168+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=14 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:22:53.351+08:00 QUALIFICATION_FINISHED
+2026-09-19T19:22:53.354+08:00 [agents/agent-command] [agent] run resp_d66fd635-1329-4a4f-9e80-add08eb0a5a7 ended with stopReason=stop
+2026-09-19T19:22:53.413+08:00 [gateway] update available (latest): v2026.9.5 (current v2026.8.1). Run: openclaw update

@@ -1,0 +1,5858 @@
+[
+  {
+    "candidate_index": 0,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "provenance",
+      "decision_reason",
+      "counterfactual",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17229803.33333333,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 1,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "decision_reason",
+      "provenance",
+      "counterfactual",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17229803.33333333,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 2,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "counterfactual",
+      "provenance",
+      "decision_reason",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17231509.999999996,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 3,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "receipt",
+      "provenance",
+      "decision_reason",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17254379.33333333,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 4,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "provenance",
+      "decision_reason",
+      "receipt",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17240725.999999996,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 5,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "decision_reason",
+      "provenance",
+      "receipt",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17240725.999999996,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 6,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "counterfactual",
+      "provenance",
+      "receipt",
+      "decision_reason",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17244480.666666664,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 7,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "receipt",
+      "provenance",
+      "counterfactual",
+      "decision_reason",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17255061.999999996,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 8,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "provenance",
+      "counterfactual",
+      "decision_reason",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17229803.33333333,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 9,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "decision_reason",
+      "counterfactual",
+      "provenance",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17230827.33333333,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 10,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "counterfactual",
+      "decision_reason",
+      "provenance",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17231509.999999996,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 11,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "receipt",
+      "decision_reason",
+      "provenance",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17254379.33333333,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 12,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "provenance",
+      "counterfactual",
+      "receipt",
+      "decision_reason",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17242773.999999996,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 13,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "decision_reason",
+      "counterfactual",
+      "receipt",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17243797.999999996,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 14,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "counterfactual",
+      "decision_reason",
+      "receipt",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17244480.666666664,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 15,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "receipt",
+      "decision_reason",
+      "counterfactual",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17256768.666666664,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 16,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "provenance",
+      "receipt",
+      "decision_reason",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17250965.999999996,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 17,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "decision_reason",
+      "receipt",
+      "provenance",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17248576.666666664,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 18,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "counterfactual",
+      "receipt",
+      "provenance",
+      "decision_reason",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17253013.999999996,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 19,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "receipt",
+      "counterfactual",
+      "provenance",
+      "decision_reason",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17258133.999999996,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 20,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "provenance",
+      "receipt",
+      "counterfactual",
+      "decision_reason",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17251648.666666664,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 21,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "decision_reason",
+      "receipt",
+      "counterfactual",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17250965.999999996,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 22,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "counterfactual",
+      "receipt",
+      "decision_reason",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17253013.999999996,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 23,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "ALR",
+    "order": [
+      "receipt",
+      "counterfactual",
+      "decision_reason",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17258133.999999996,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 0,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 18042402.333333343,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 1,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "provenance",
+      "counterfactual",
+      "receipt",
+      "lifecycle",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17963554.333333336,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 2,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "provenance",
+      "lifecycle",
+      "counterfactual",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 18036941.000000007,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 3,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "counterfactual",
+      "lifecycle",
+      "provenance",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 18036941.00000001,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 4,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "receipt",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17990861.000000004,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 5,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "lifecycle",
+      "provenance",
+      "receipt",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 18051277.00000001,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 6,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "provenance",
+      "lifecycle",
+      "receipt",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 18045815.666666675,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 7,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "counterfactual",
+      "lifecycle",
+      "receipt",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 18043085.00000001,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 8,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "receipt",
+      "lifecycle",
+      "counterfactual",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17991543.66666667,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 9,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "lifecycle",
+      "counterfactual",
+      "provenance",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 18042743.666666675,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 10,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "provenance",
+      "counterfactual",
+      "lifecycle",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 18031138.33333334,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 11,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "counterfactual",
+      "provenance",
+      "lifecycle",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 18031479.666666675,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 12,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "receipt",
+      "provenance",
+      "lifecycle",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17984717.000000004,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 13,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "lifecycle",
+      "counterfactual",
+      "receipt",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 18048887.666666675,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 14,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "counterfactual",
+      "provenance",
+      "receipt",
+      "lifecycle",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17963895.666666668,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 15,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "receipt",
+      "provenance",
+      "counterfactual",
+      "lifecycle",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17972087.666666668,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 16,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "provenance",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 18056397.00000001,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 17,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "provenance",
+      "receipt",
+      "lifecycle",
+      "counterfactual",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17980962.33333334,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 18,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "counterfactual",
+      "receipt",
+      "lifecycle",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17974818.333333336,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 19,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "receipt",
+      "counterfactual",
+      "lifecycle",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17978914.333333336,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 20,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "counterfactual",
+      "provenance",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 18057079.666666675,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 21,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "provenance",
+      "receipt",
+      "counterfactual",
+      "lifecycle",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17968333.0,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 22,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "counterfactual",
+      "receipt",
+      "provenance",
+      "lifecycle",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17968674.333333332,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 23,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": null
+      },
+      {
+        "budget": 39499,
+        "coverage": null
+      },
+      {
+        "budget": 50761,
+        "coverage": null
+      },
+      {
+        "budget": 58954,
+        "coverage": null
+      },
+      {
+        "budget": 62026,
+        "coverage": null
+      },
+      {
+        "budget": 66121,
+        "coverage": null
+      },
+      {
+        "budget": 72264,
+        "coverage": null
+      },
+      {
+        "budget": 72267,
+        "coverage": null
+      },
+      {
+        "budget": 73290,
+        "coverage": null
+      },
+      {
+        "budget": 76363,
+        "coverage": null
+      }
+    ],
+    "family_equal_coverage_auc": null,
+    "metric": "RIR",
+    "order": [
+      "receipt",
+      "counterfactual",
+      "provenance",
+      "lifecycle",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "replay_rows": 800,
+    "total_charged_bytes": 17972770.333333332,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 0,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.002976190476190474
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.028769841269841247
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09226190476190468
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.11904761904761894
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.32738095238095205
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.46031746031745974
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5952380952380946
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7797619047619047
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10254830650138252,
+    "metric": "TaskSuccess",
+    "order": [
+      "task_success_evidence",
+      "lifecycle",
+      "receipt",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100690419.33333345,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 1,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.002976190476190474
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.018849206349206334
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.07539682539682534
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.10515873015873006
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.27876984126984106
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.3908730158730155
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.52579365079365
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7182539682539677
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.09121948654182845,
+    "metric": "TaskSuccess",
+    "order": [
+      "failure",
+      "receipt",
+      "lifecycle",
+      "task_success_evidence",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 101083635.3333333,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 2,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.003968253968253965
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.028769841269841247
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.0992063492063491
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.12499999999999988
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3382936507936505
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.4751984126984121
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.610119047619047
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.794642857142857
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10549902081100102,
+    "metric": "TaskSuccess",
+    "order": [
+      "task_success_evidence",
+      "lifecycle",
+      "failure",
+      "receipt",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100475038.00000018,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 3,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.003968253968253965
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.029761904761904736
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09623015873015864
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.12202380952380941
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3343253968253965
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.47420634920634863
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.60813492063492
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.794642857142857
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10494694409679409,
+    "metric": "TaskSuccess",
+    "order": [
+      "task_success_evidence",
+      "failure",
+      "lifecycle",
+      "receipt",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100454899.33333336,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 4,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.0019841269841269827
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.026785714285714263
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09027777777777769
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.11706349206349195
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.32638888888888856
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.45932539682539625
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5942460317460312
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7797619047619047
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10161328182081027,
+    "metric": "TaskSuccess",
+    "order": [
+      "lifecycle",
+      "task_success_evidence",
+      "receipt",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100769267.33333355,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 5,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.0019841269841269827
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.024801587301587283
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.0892857142857142
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.11408730158730149
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.2876984126984125
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.39484126984126944
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5307539682539676
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7202380952380947
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.09393618647691294,
+    "metric": "TaskSuccess",
+    "order": [
+      "receipt",
+      "task_success_evidence",
+      "lifecycle",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100914675.33333363,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 6,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.003968253968253965
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.026785714285714263
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09424603174603166
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.12003968253968242
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3343253968253965
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.47420634920634863
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.60813492063492
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.794642857142857
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10432836432461572,
+    "metric": "TaskSuccess",
+    "order": [
+      "failure",
+      "task_success_evidence",
+      "lifecycle",
+      "receipt",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100571294.00000004,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 7,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.002976190476190474
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.026785714285714263
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09722222222222213
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.1230158730158729
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.337301587301587
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.47420634920634863
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.6091269841269835
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.794642857142857
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10456399613042876,
+    "metric": "TaskSuccess",
+    "order": [
+      "lifecycle",
+      "task_success_evidence",
+      "failure",
+      "receipt",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100553886.00000028,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 8,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.0019841269841269827
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.0228174603174603
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.08333333333333326
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.11011904761904752
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.28273809523809507
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.39285714285714246
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5277777777777771
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7192460317460312
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.09259921388422751,
+    "metric": "TaskSuccess",
+    "order": [
+      "receipt",
+      "task_success_evidence",
+      "failure",
+      "lifecycle",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100914334.0,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 9,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.003968253968253965
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.02480158730158728
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.08730158730158723
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.11507936507936498
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.290674603174603
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.3968253968253964
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5317460317460311
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7192460317460312
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.09475526277061373,
+    "metric": "TaskSuccess",
+    "order": [
+      "failure",
+      "task_success_evidence",
+      "receipt",
+      "lifecycle",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100664477.99999976,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 10,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.002976190476190474
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.028769841269841247
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.0912698412698412
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.11706349206349195
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.29265873015872995
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.3988095238095234
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5347222222222215
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7202380952380947
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.0955762877766989,
+    "metric": "TaskSuccess",
+    "order": [
+      "task_success_evidence",
+      "receipt",
+      "lifecycle",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100710216.6666667,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 11,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.0019841269841269827
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.0228174603174603
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.08630952380952374
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.113095238095238
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.31944444444444414
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.4533730158730153
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5882936507936501
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7777777777777776
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.09983061272298199,
+    "metric": "TaskSuccess",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "task_success_evidence",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 101002398.00000039,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 12,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.0019841269841269827
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.0228174603174603
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.08630952380952374
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.1121031746031745
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.286706349206349
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.39384920634920595
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5297619047619041
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7202380952380947
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.09325771627745418,
+    "metric": "TaskSuccess",
+    "order": [
+      "receipt",
+      "lifecycle",
+      "task_success_evidence",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100979528.66666698,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 13,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.002976190476190474
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.02480158730158728
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09126984126984118
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.11805555555555544
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.33333333333333304
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.47321428571428514
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.6071428571428565
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.794642857142857
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10332016549400944,
+    "metric": "TaskSuccess",
+    "order": [
+      "failure",
+      "lifecycle",
+      "task_success_evidence",
+      "receipt",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100668574.00000012,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 14,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.002976190476190474
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.026785714285714263
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.08531746031746024
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.113095238095238
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.2876984126984125
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.3968253968253964
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5317460317460311
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7192460317460312
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.09423931518401348,
+    "metric": "TaskSuccess",
+    "order": [
+      "task_success_evidence",
+      "receipt",
+      "failure",
+      "lifecycle",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100711240.66666639,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 15,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.0019841269841269827
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.019841269841269826
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.07738095238095231
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.10515873015873006
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3134920634920632
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.4523809523809518
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5873015873015867
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7767857142857141
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.09794827348239989,
+    "metric": "TaskSuccess",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "failure",
+      "task_success_evidence",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 101218803.3333337,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 16,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.0019841269841269827
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.019841269841269826
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.07738095238095231
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.10416666666666657
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.2807539682539681
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.39285714285714246
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5287698412698406
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7192460317460312
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.09137537703687208,
+    "metric": "TaskSuccess",
+    "order": [
+      "receipt",
+      "lifecycle",
+      "failure",
+      "task_success_evidence",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 101195934.00000028,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 17,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.002976190476190474
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.020833333333333315
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.0803571428571428
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.10813492063492053
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.32043650793650763
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.46626984126984067
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.600198412698412
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7916666666666664
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10027373692777744,
+    "metric": "TaskSuccess",
+    "order": [
+      "failure",
+      "lifecycle",
+      "receipt",
+      "task_success_evidence",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 101049160.66666684,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 18,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.002976190476190474
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.02380952380952379
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09226190476190468
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.11805555555555544
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.33432539682539647
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.47420634920634863
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.6091269841269835
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.794642857142857
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10338672051764446,
+    "metric": "TaskSuccess",
+    "order": [
+      "lifecycle",
+      "failure",
+      "task_success_evidence",
+      "receipt",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100712606.0000003,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 19,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.0019841269841269827
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.019841269841269826
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.0783730158730158
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.10615079365079355
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.27976190476190455
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.39186507936507897
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5267857142857135
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7182539682539677
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.09139529937314853,
+    "metric": "TaskSuccess",
+    "order": [
+      "receipt",
+      "failure",
+      "task_success_evidence",
+      "lifecycle",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 101069640.66666666,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 20,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.002976190476190474
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.020833333333333315
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.0793650793650793
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.10714285714285704
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.27976190476190455
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.39186507936507897
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5267857142857135
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7182539682539677
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.09197113089132124,
+    "metric": "TaskSuccess",
+    "order": [
+      "failure",
+      "receipt",
+      "task_success_evidence",
+      "lifecycle",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100997619.33333331,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 21,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.003968253968253965
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.027777777777777755
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.0892857142857142
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.11706349206349195
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.290674603174603
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.3968253968253964
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5317460317460311
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7192460317460312
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.0953738425427921,
+    "metric": "TaskSuccess",
+    "order": [
+      "task_success_evidence",
+      "failure",
+      "receipt",
+      "lifecycle",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100549448.66666645,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 22,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.002976190476190474
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.019841269841269826
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.08134920634920628
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.10813492063492053
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3214285714285711
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.4672619047619042
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.602182539682539
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7916666666666664
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10034029195141246,
+    "metric": "TaskSuccess",
+    "order": [
+      "lifecycle",
+      "failure",
+      "receipt",
+      "task_success_evidence",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 101093192.66666703,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 23,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.0019841269841269827
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.017857142857142842
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.07440476190476185
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.10416666666666657
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.27876984126984106
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.3908730158730155
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.52579365079365
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7182539682539677
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.09064365502365575,
+    "metric": "TaskSuccess",
+    "order": [
+      "receipt",
+      "failure",
+      "lifecycle",
+      "task_success_evidence",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 101155656.66666664,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 0,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.028769841269841247
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09920634920634912
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.20634920634920625
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3124999999999998
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.4037698412698408
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5049603174603168
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6954365079365075
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.1016756406171109,
+    "metric": "UEA",
+    "order": [
+      "receipt",
+      "grant",
+      "scope_lifetime",
+      "lifecycle",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100332701.99999973,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 1,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.006944444444444439
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.027777777777777755
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.0992063492063491
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.1994047619047618
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.2976190476190474
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.39583333333333287
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.4980158730158724
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6904761904761899
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10038622959802058,
+    "metric": "UEA",
+    "order": [
+      "scope_lifetime",
+      "failure",
+      "receipt",
+      "grant",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100265459.33333309,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 2,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.042658730158730125
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.10813492063492053
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.21825396825396814
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.36309523809523775
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.4781746031746026
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5773809523809517
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7609126984126979
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.1132904925804464,
+    "metric": "UEA",
+    "order": [
+      "grant",
+      "lifecycle",
+      "failure",
+      "scope_lifetime",
+      "receipt",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 99999901.9999996,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 3,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.005952380952380948
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.03968253968253965
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.10615079365079354
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.2142857142857142
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3581349206349203
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.4761904761904756
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5753968253968247
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7609126984126979
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.11248284223702613,
+    "metric": "UEA",
+    "order": [
+      "scope_lifetime",
+      "grant",
+      "failure",
+      "lifecycle",
+      "receipt",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 99799197.9999995,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 4,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.03273809523809521
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.10416666666666656
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.2132936507936507
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3194444444444442
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.40773809523809473
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5079365079365072
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6954365079365075
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10351809621089239,
+    "metric": "UEA",
+    "order": [
+      "grant",
+      "receipt",
+      "scope_lifetime",
+      "lifecycle",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100161693.9999997,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 5,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.02976190476190474
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09920634920634912
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.20634920634920625
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3115079365079363
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.4057539682539678
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5069444444444438
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6954365079365075
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.1018286859920733,
+    "metric": "UEA",
+    "order": [
+      "scope_lifetime",
+      "receipt",
+      "grant",
+      "lifecycle",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100321437.99999969,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 6,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.030753968253968228
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.0992063492063491
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.20734126984126974
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3452380952380949
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.4563492063492057
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5575396825396819
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7470238095238091
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10802220061489923,
+    "metric": "UEA",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "grant",
+      "scope_lifetime",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100427592.66666643,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 7,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.006944444444444439
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.027777777777777755
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.10019841269841259
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.1994047619047618
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.2996031746031744
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.3928571428571424
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.49603174603174544
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6904761904761899
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10045931280814333,
+    "metric": "UEA",
+    "order": [
+      "failure",
+      "receipt",
+      "grant",
+      "scope_lifetime",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100335773.99999993,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 8,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.02579365079365077
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09722222222222213
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.20238095238095227
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3035714285714284
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.39781746031745985
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.4990079365079359
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6924603174603169
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10000608128178083,
+    "metric": "UEA",
+    "order": [
+      "receipt",
+      "grant",
+      "scope_lifetime",
+      "failure",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100341235.33333294,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 9,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.02976190476190474
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.10218253968253958
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.20932539682539672
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3105158730158728
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.4017857142857138
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5019841269841263
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6924603174603169
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10184853687556233,
+    "metric": "UEA",
+    "order": [
+      "grant",
+      "receipt",
+      "scope_lifetime",
+      "failure",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100170227.33333291,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 10,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.026785714285714263
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09722222222222213
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.20238095238095227
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.30257936507936484
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.3998015873015868
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5009920634920628
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6924603174603169
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10015912665674323,
+    "metric": "UEA",
+    "order": [
+      "scope_lifetime",
+      "receipt",
+      "grant",
+      "failure",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100329971.3333329,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 11,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.030753968253968228
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.10019841269841259
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.20734126984126974
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3432539682539679
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.45535714285714224
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5555555555555549
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7450396825396821
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10785590399572294,
+    "metric": "UEA",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "grant",
+      "failure",
+      "scope_lifetime",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100677448.66666654,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 12,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.006944444444444439
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.028769841269841247
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.10019841269841259
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.1994047619047618
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.2996031746031744
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.3928571428571424
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.4970238095238089
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6914682539682535
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10061895782238088,
+    "metric": "UEA",
+    "order": [
+      "failure",
+      "receipt",
+      "grant",
+      "lifecycle",
+      "scope_lifetime",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100427251.33333324,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 13,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.029761904761904736
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.0992063492063491
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.20734126984126974
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.31349206349206327
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.4027777777777773
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5049603174603168
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6954365079365075
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10187514979102522,
+    "metric": "UEA",
+    "order": [
+      "receipt",
+      "grant",
+      "lifecycle",
+      "scope_lifetime",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100382877.99999973,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 14,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.0337301587301587
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.10416666666666656
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.2142857142857142
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3204365079365077
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.40674603174603124
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5079365079365072
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6954365079365075
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.1037176053848067,
+    "metric": "UEA",
+    "order": [
+      "grant",
+      "receipt",
+      "lifecycle",
+      "scope_lifetime",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100211869.9999997,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 15,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.028769841269841244
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09722222222222213
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.20535714285714277
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3105158730158728
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.4057539682539678
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5069444444444438
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6954365079365075
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10144290589704265,
+    "metric": "UEA",
+    "order": [
+      "scope_lifetime",
+      "receipt",
+      "lifecycle",
+      "grant",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100391069.99999972,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 16,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.031746031746031717
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09821428571428562
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.20634920634920625
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.343253968253968
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.4563492063492057
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5575396825396819
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7470238095238091
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10789583960818713,
+    "metric": "UEA",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "scope_lifetime",
+      "grant",
+      "failure",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100462408.66666642,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 17,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.006944444444444439
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.027777777777777755
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.10019841269841259
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.1994047619047618
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.29861111111111094
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.3928571428571424
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.49603174603174544
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6904761904761899
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10039280975017188,
+    "metric": "UEA",
+    "order": [
+      "failure",
+      "receipt",
+      "scope_lifetime",
+      "grant",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100350451.3333332,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 18,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.02976190476190474
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.1001984126984126
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.20734126984126974
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3115079365079363
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.4017857142857138
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5029761904761898
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6934523809523805
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10170885317184893,
+    "metric": "UEA",
+    "order": [
+      "receipt",
+      "grant",
+      "lifecycle",
+      "failure",
+      "scope_lifetime",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100636829.99999984,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 19,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.03373015873015871
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.10515873015873006
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.2142857142857142
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3184523809523807
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.40575396825396776
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5059523809523804
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6934523809523805
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10355130876563041,
+    "metric": "UEA",
+    "order": [
+      "grant",
+      "receipt",
+      "lifecycle",
+      "failure",
+      "scope_lifetime",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100465821.99999979,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 20,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.02579365079365077
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09722222222222213
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.1994047619047618
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.30059523809523786
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.39682539682539636
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.5009920634920628
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6914682539682534
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.09961370804318298,
+    "metric": "UEA",
+    "order": [
+      "scope_lifetime",
+      "receipt",
+      "lifecycle",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100550131.33333315,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 21,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.028769841269841244
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09821428571428562
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.2003968253968253
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.3333333333333331
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.44742063492063433
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.551587301587301
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.7430555555555551
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.10606664175432748,
+    "metric": "UEA",
+    "order": [
+      "lifecycle",
+      "receipt",
+      "scope_lifetime",
+      "failure",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100621128.66666651,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 22,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.006944444444444439
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.026785714285714263
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.0992063492063491
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.19742063492063483
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.29662698412698396
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.3918650793650789
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.49603174603174544
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6904761904761899
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.09992722338729233,
+    "metric": "UEA",
+    "order": [
+      "failure",
+      "receipt",
+      "scope_lifetime",
+      "lifecycle",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100461725.99999991,
+    "wrong": 0
+  },
+  {
+    "candidate_index": 23,
+    "curve": [
+      {
+        "budget": 0,
+        "coverage": 0.0
+      },
+      {
+        "budget": 39499,
+        "coverage": 0.004960317460317457
+      },
+      {
+        "budget": 50761,
+        "coverage": 0.02579365079365077
+      },
+      {
+        "budget": 58954,
+        "coverage": 0.09821428571428562
+      },
+      {
+        "budget": 62026,
+        "coverage": 0.20238095238095227
+      },
+      {
+        "budget": 66121,
+        "coverage": 0.30456349206349187
+      },
+      {
+        "budget": 72264,
+        "coverage": 0.39583333333333287
+      },
+      {
+        "budget": 72267,
+        "coverage": 0.4990079365079359
+      },
+      {
+        "budget": 73290,
+        "coverage": 0.6924603174603169
+      },
+      {
+        "budget": 76363,
+        "coverage": 1.0
+      }
+    ],
+    "family_equal_coverage_auc": 0.1000659132476897,
+    "metric": "UEA",
+    "order": [
+      "receipt",
+      "grant",
+      "failure",
+      "scope_lifetime",
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ],
+    "replay_rows": 4800,
+    "total_charged_bytes": 100462408.66666637,
+    "wrong": 0
+  }
+]

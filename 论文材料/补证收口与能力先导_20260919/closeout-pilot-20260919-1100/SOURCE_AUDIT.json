@@ -1,0 +1,37 @@
+{
+  "A_inputs": "closeout/CLOSEOUT_PLAN.json",
+  "PR1": "open, mergeable, unmerged",
+  "additional_runtime_install_attempts": 1,
+  "at": "2026-09-19T11:35:48.955295+00:00",
+  "available_qualified_real_environments": 1,
+  "old_snapshot": "../evidence-strengthening-20260919",
+  "origin_main": "db53c47e0afcf4b3b0e0e414f3690fe0b0cf1d28",
+  "public_web_read": "GitHub raw fixed source and npm official registry; response artifacts retained; one429 dependency read retry retained",
+  "repository_base": "317ff3199f087abd375ebb4560d72b118cb58f46",
+  "scope": "Known scripts and newly heldout factor combinations inside one known runtime",
+  "source_version_caution": "Actual npm distribution pinned by integrity/build info/file hashes; NOT a rerun of the old452e734 build.",
+  "sources": [
+    {
+      "name": "MockPilotAdapter / LiveReferenceHarnessAdapter",
+      "qualified": false,
+      "reason": "latter subclasses MockHarnessAdapter"
+    },
+    {
+      "name": "historical OpenClaw T15",
+      "qualified": false,
+      "reason": "historical source folder empty; safe_sink receipt only; injected origin tags are not independent provenance"
+    },
+    {
+      "name": "AgentDyn public benchmark copy",
+      "qualified": false,
+      "reason": "banking/environment effects inspected are in-memory Pydantic objects, not required independently observed file/SQL/local receiver effects; not counted as real second environment"
+    },
+    {
+      "actual_build_commit": "ea806575e6450e4d1efdfc72c19f04be982a1b9b",
+      "effect": "native agent/write created independently checked file",
+      "evidence": "pilot/qualification-03/RESULT.json",
+      "name": "OpenClaw npm2026.8.1",
+      "qualified": true
+    }
+  ]
+}

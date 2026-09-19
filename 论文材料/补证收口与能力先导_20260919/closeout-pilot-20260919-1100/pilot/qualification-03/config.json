@@ -1,0 +1,88 @@
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai/local-script"
+      },
+      "models": {
+        "openai/local-script": {
+          "params": {
+            "openaiWsWarmup": false,
+            "transport": "sse"
+          }
+        }
+      },
+      "workspace": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\qualification-03\\workspace"
+    }
+  },
+  "gateway": {
+    "auth": {
+      "mode": "token",
+      "token": "local-research-placeholder"
+    },
+    "bind": "loopback",
+    "controlUi": {
+      "enabled": false
+    },
+    "http": {
+      "endpoints": {
+        "responses": {
+          "enabled": true
+        }
+      }
+    },
+    "mode": "local",
+    "port": 4073
+  },
+  "logging": {
+    "file": "E:\\Skill ＆ Harness\\publication\\closeout-predictive-pilot-20260919\\论文材料\\补证收口与能力先导_20260919\\closeout-pilot-20260919-1100\\pilot\\qualification-03\\gateway.log"
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "openai": {
+        "api": "openai-responses",
+        "apiKey": "local-script-placeholder",
+        "baseUrl": "http://127.0.0.1:4074/v1",
+        "models": [
+          {
+            "api": "openai-responses",
+            "contextWindow": 128000,
+            "cost": {
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "input": 0,
+              "output": 0
+            },
+            "id": "local-script",
+            "input": [
+              "text"
+            ],
+            "maxTokens": 1024,
+            "name": "local-script",
+            "reasoning": false
+          }
+        ],
+        "request": {
+          "allowPrivateNetwork": true
+        }
+      }
+    }
+  },
+  "plugins": {
+    "enabled": false
+  },
+  "skills": {
+    "allowBundled": []
+  },
+  "tools": {
+    "allow": [
+      "read",
+      "write",
+      "edit"
+    ],
+    "fs": {
+      "workspaceOnly": true
+    }
+  }
+}

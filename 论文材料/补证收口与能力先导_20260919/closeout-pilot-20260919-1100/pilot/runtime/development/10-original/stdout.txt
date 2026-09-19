@@ -1,0 +1,75 @@
+mock-openai listening on 5898
+2026-09-19T19:34:48.442+08:00 [gateway] loading configuration…
+2026-09-19T19:34:48.738+08:00 [gateway] resolving authentication…
+2026-09-19T19:34:48.742+08:00 [gateway] starting...
+2026-09-19T19:34:51.579+08:00 [gateway] starting HTTP server...
+2026-09-19T19:34:51.931+08:00 [gateway] ready
+2026-09-19T19:34:52.065+08:00 [gateway] starting channels and sidecars...
+2026-09-19T19:34:52.070+08:00 [gateway] agent model: openai/local-script (thinking=off, fast=off)
+2026-09-19T19:34:52.071+08:00 [gateway] http server listening (0 plugins, 2.2s)
+2026-09-19T19:34:52.071+08:00 [gateway] log file: E:\Skill ＆ Harness\publication\closeout-predictive-pilot-20260919\论文材料\补证收口与能力先导_20260919\closeout-pilot-20260919-1100\pilot\runtime\development\10-original\gateway.log
+2026-09-19T19:34:55.395+08:00 [gateway/channels] skipping channel start (OPENCLAW_SKIP_CHANNELS=1 or OPENCLAW_SKIP_PROVIDERS=1)
+2026-09-19T19:34:55.398+08:00 [gateway] startup outcomes: internal-hooks=skipped (not-configured); internal-startup-hook=skipped (no-handlers-loaded); gateway-start-hooks=skipped (no-handlers-loaded); gmail-watcher=skipped (hooks-disabled); gmail-model=skipped (not-configured)
+2026-09-19T19:34:55.402+08:00 [gateway] ready
+2026-09-19T19:34:55.403+08:00 [heartbeat] disabled
+2026-09-19T19:34:59.125+08:00 [gateway] remote model catalog refresh failed
+2026-09-19T19:35:02.315+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:02.346+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=30 dispatcher=new contentType=text/event-stream
+2026-09-19T19:35:02.374+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:02.379+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=5 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:02.442+08:00 REGISTERED_SEQUENCE_FINISHED
+2026-09-19T19:35:02.443+08:00 [agents/agent-command] [agent] run resp_71e8d1a8-7000-4f2c-a2ca-56b7bcb93f16 ended with stopReason=stop
+2026-09-19T19:35:09.278+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:09.289+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=12 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:09.298+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:09.301+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=4 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:09.310+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:09.313+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=4 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:09.333+08:00 REGISTERED_SEQUENCE_FINISHED
+2026-09-19T19:35:09.334+08:00 [agents/agent-command] [agent] run resp_a1ab1824-374c-4b2c-9fd4-a0c738908c5e ended with stopReason=stop
+2026-09-19T19:35:13.210+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:13.219+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=9 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:13.228+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:13.231+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=3 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:13.248+08:00 REGISTERED_SEQUENCE_FINISHED
+2026-09-19T19:35:13.249+08:00 [agents/agent-command] [agent] run resp_65fb2b9f-1412-4760-9e8e-f54d96d61b9a ended with stopReason=stop
+2026-09-19T19:35:17.106+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:17.116+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=9 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:17.124+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:17.128+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=3 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:17.136+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:17.139+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=3 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:17.157+08:00 REGISTERED_SEQUENCE_FINISHED
+2026-09-19T19:35:17.158+08:00 [agents/agent-command] [agent] run resp_33911d75-6ffc-4643-8544-ec944747b8b9 ended with stopReason=stop
+2026-09-19T19:35:21.016+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:21.025+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=9 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:21.032+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:21.036+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=3 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:21.053+08:00 REGISTERED_SEQUENCE_FINISHED
+2026-09-19T19:35:21.054+08:00 [agents/agent-command] [agent] run resp_cc01476f-8d5f-4c5c-8276-ff1babeaa8bb ended with stopReason=stop
+2026-09-19T19:35:24.992+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:25.001+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=9 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:25.009+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:25.012+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=3 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:25.019+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:25.033+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=14 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:25.050+08:00 REGISTERED_SEQUENCE_FINISHED
+2026-09-19T19:35:25.051+08:00 [agents/agent-command] [agent] run resp_5d7bf9a3-e5dc-46e5-a649-45f5b3bfcf60 ended with stopReason=stop
+2026-09-19T19:35:29.109+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:29.119+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=10 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:29.127+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:29.129+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=3 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:29.136+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:29.140+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=3 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:29.156+08:00 REGISTERED_SEQUENCE_FINISHED
+2026-09-19T19:35:29.157+08:00 [agents/agent-command] [agent] run resp_7dc2811e-ab99-4883-9d37-f4d8d612ffe6 ended with stopReason=stop
+2026-09-19T19:35:33.219+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:33.229+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=9 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:33.236+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:33.239+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=3 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:33.246+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:33.249+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=2 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:33.256+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:5898/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:35:33.258+08:00 [provider-transport-fetch] [model-fetch] response provider=openai api=openai-responses model=local-script status=200 elapsedMs=3 dispatcher=reused contentType=text/event-stream
+2026-09-19T19:35:33.275+08:00 REGISTERED_SEQUENCE_FINISHED
+2026-09-19T19:35:33.276+08:00 [agents/agent-command] [agent] run resp_64e96038-2b2d-4810-ac5f-6a29f2693fbd ended with stopReason=stop

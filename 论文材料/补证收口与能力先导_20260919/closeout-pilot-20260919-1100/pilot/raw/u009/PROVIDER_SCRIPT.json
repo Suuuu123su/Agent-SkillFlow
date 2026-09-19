@@ -1,0 +1,60 @@
+{
+  "default": {
+    "text": "REGISTERED_SEQUENCE_FINISHED"
+  },
+  "responses": [
+    {
+      "events": [
+        {
+          "item": {
+            "arguments": "",
+            "call_id": "call_u009-0",
+            "id": "fc_u009-0",
+            "name": "write",
+            "type": "function_call"
+          },
+          "type": "response.output_item.added"
+        },
+        {
+          "delta": "{\"path\": \"E:\\\\Skill \\uff06 Harness\\\\publication\\\\closeout-predictive-pilot-20260919\\\\\\u8bba\\u6587\\u6750\\u6599\\\\\\u8865\\u8bc1\\u6536\\u53e3\\u4e0e\\u80fd\\u529b\\u5148\\u5bfc_20260919\\\\closeout-pilot-20260919-1100\\\\pilot\\\\raw\\\\u009\\\\workspace\\\\totals.csv\", \"content\": \"sku,qty\\na,5\\nb,5\\n\"}",
+          "type": "response.function_call_arguments.delta"
+        },
+        {
+          "item": {
+            "arguments": "{\"path\": \"E:\\\\Skill \\uff06 Harness\\\\publication\\\\closeout-predictive-pilot-20260919\\\\\\u8bba\\u6587\\u6750\\u6599\\\\\\u8865\\u8bc1\\u6536\\u53e3\\u4e0e\\u80fd\\u529b\\u5148\\u5bfc_20260919\\\\closeout-pilot-20260919-1100\\\\pilot\\\\raw\\\\u009\\\\workspace\\\\totals.csv\", \"content\": \"sku,qty\\na,5\\nb,5\\n\"}",
+            "call_id": "call_u009-0",
+            "id": "fc_u009-0",
+            "name": "write",
+            "type": "function_call"
+          },
+          "type": "response.output_item.done"
+        },
+        {
+          "response": {
+            "id": "resp_u009-0",
+            "output": [
+              {
+                "arguments": "{\"path\": \"E:\\\\Skill \\uff06 Harness\\\\publication\\\\closeout-predictive-pilot-20260919\\\\\\u8bba\\u6587\\u6750\\u6599\\\\\\u8865\\u8bc1\\u6536\\u53e3\\u4e0e\\u80fd\\u529b\\u5148\\u5bfc_20260919\\\\closeout-pilot-20260919-1100\\\\pilot\\\\raw\\\\u009\\\\workspace\\\\totals.csv\", \"content\": \"sku,qty\\na,5\\nb,5\\n\"}",
+                "call_id": "call_u009-0",
+                "id": "fc_u009-0",
+                "name": "write",
+                "type": "function_call"
+              }
+            ],
+            "status": "completed",
+            "usage": {
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "total_tokens": 0
+            }
+          },
+          "type": "response.completed"
+        }
+      ]
+    },
+    {
+      "text": "REGISTERED_SEQUENCE_FINISHED"
+    }
+  ],
+  "scriptVersion": "u009"
+}

@@ -1,0 +1,5 @@
+2026-09-19T19:30:43.950+08:00 Gateway failed to start: Invalid config at E:\Skill ＆ Harness\publication\closeout-predictive-pilot-20260919\论文材料\补证收口与能力先导_20260919\closeout-pilot-20260919-1100\pilot\runtime\development\00-original\config.json:
+agents.ownership: multi-agent rosters require agents.ownership="explicit" or one legacy default=true marker; add agents.ownership="explicit" or run openclaw doctor
+Run "openclaw doctor --fix" to repair, then retry.
+If startup is still blocked, inspect the adjacent .bak backup before restoring it manually.
+2026-09-19T19:30:43.953+08:00 Run "openclaw doctor --fix" to repair the config, then retry.

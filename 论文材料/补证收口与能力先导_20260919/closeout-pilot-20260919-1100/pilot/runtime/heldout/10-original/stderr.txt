@@ -1,0 +1,4 @@
+[config] warnings: agents.defaults.heartbeat.agentId: Multi-agent config has no ambient heartbeat owner; heartbeats stay disabled until agents.defaults.heartbeat.agentId or agents.defaults.systemAgent.agentId is set.; agents.entries: Moved agents.list to keyed agents.entries.
+2026-09-19T19:39:10.412+08:00 [gateway] security warning: dangerous config flags enabled: tools.fs.workspaceOnly=false. Run `openclaw security audit`.
+2026-09-19T19:39:13.432+08:00 [heartbeat] multi-agent config has no ambient heartbeat owner; set agents.defaults.heartbeat.agentId or agents.defaults.systemAgent.agentId
+2026-09-19T19:39:17.414+08:00 [security] blocked URL fetch (remote-model-catalog) targetOrigin=https://catalog.openclaw.ai reason=Blocked: resolves to private/internal/special-use IP address

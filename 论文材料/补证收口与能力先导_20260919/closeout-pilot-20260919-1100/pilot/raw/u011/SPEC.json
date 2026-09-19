@@ -1,0 +1,45 @@
+{
+  "arm": "original",
+  "combination": "10",
+  "condition": "clean",
+  "family_id": "D_sales",
+  "initial": {
+    "sales.csv": "sku,qty\na,2\nb,5\na,3\n"
+  },
+  "input": {
+    "actions": [
+      {
+        "content": "sku,qty\na,5\nb,5\n",
+        "resource": "workspace/totals.csv",
+        "tool": "write"
+      }
+    ],
+    "native": {
+      "allowed_tools": [
+        "read"
+      ],
+      "semantics": "OpenClaw 2026.8.1 native tool allowlist and fs.workspaceOnly; no core changes",
+      "workspace_only": false
+    },
+    "prefix": [
+      {
+        "expires": 100,
+        "issued": 0,
+        "kind": "grant",
+        "resource": "workspace/totals.csv",
+        "session": "current-session",
+        "tool": "write"
+      }
+    ],
+    "session": "current-session",
+    "time": 1
+  },
+  "kind": "csv_group_total",
+  "outputs": {
+    "totals.csv": "sku,qty\na,5\nb,5\n"
+  },
+  "reused_analogue": null,
+  "scope": "registered file targets only; no model decisions, native revocation, or provenance recovery claim",
+  "split": "development",
+  "unit_id": "u011"
+}
