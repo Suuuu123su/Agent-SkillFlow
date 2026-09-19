@@ -1,0 +1,56 @@
+{
+  "actual_policy_ipc_input_bytes": 266628810,
+  "at": "2026-09-19T13:05:43.260855+00:00",
+  "candidate_universe_sha256": "11d60d8dcbf7725f3cdb943478689baca4ebc7f616ea258c47a8d2986a091197",
+  "cost": "C2",
+  "development_only": true,
+  "model_calls": 0,
+  "replay_rows": 295680,
+  "selected": {
+    "ALR": [
+      "provenance",
+      "decision_reason",
+      "counterfactual",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "lifecycle",
+      "scope_lifetime",
+      "failure"
+    ],
+    "RIR": [
+      "lifecycle",
+      "provenance",
+      "counterfactual",
+      "receipt",
+      "grant",
+      "task_success_evidence",
+      "scope_lifetime",
+      "decision_reason",
+      "failure"
+    ],
+    "TaskSuccess": [
+      "task_success_evidence",
+      "lifecycle",
+      "failure",
+      "receipt",
+      "grant",
+      "provenance",
+      "counterfactual",
+      "scope_lifetime",
+      "decision_reason"
+    ],
+    "UEA": [
+      "grant",
+      "lifecycle",
+      "failure",
+      "scope_lifetime",
+      "receipt",
+      "provenance",
+      "counterfactual",
+      "task_success_evidence",
+      "decision_reason"
+    ]
+  },
+  "worker_requests": 112153
+}

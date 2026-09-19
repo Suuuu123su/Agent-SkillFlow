@@ -1,0 +1,11 @@
+{"at":"2026-09-19T13:02:15.788942+00:00","cost":"C1","entry":"experiments.evidence_cost_validation.sweep.select","new_business_executions":0}
+{"at":"2026-09-19T13:04:07.885922+00:00","cost":"C1","entry":"experiments.evidence_cost_validation.sweep.replay","new_business_executions":0,"split":"development"}
+{"at":"2026-09-19T13:04:23.795122+00:00","cost":"C1","entry":"experiments.evidence_cost_validation.sweep.replay","new_business_executions":0,"split":"heldout"}
+{"at":"2026-09-19T13:04:41.479314+00:00","cost":"C2","entry":"experiments.evidence_cost_validation.sweep.select","new_business_executions":0}
+{"at":"2026-09-19T13:05:43.277004+00:00","cost":"C2","entry":"experiments.evidence_cost_validation.sweep.replay","new_business_executions":0,"split":"development"}
+{"at":"2026-09-19T13:05:51.965245+00:00","cost":"C2","entry":"experiments.evidence_cost_validation.sweep.replay","new_business_executions":0,"split":"heldout"}
+{"argv":["E:\\Skill ＆ Harness\\publication\\a-cost-robustness-20260919\\experiments\\evidence_cost_validation\\fresh.py","sanity","--out","论文材料/A成本稳健性与新执行验证_20260919/a-cost-20260919-2045"],"at":"2026-09-19T13:15:46.890879+00:00","stage":"sanity"}
+{"argv":["E:\\Skill ＆ Harness\\publication\\a-cost-robustness-20260919\\experiments\\evidence_cost_validation\\fresh.py","freeze","--out","论文材料/A成本稳健性与新执行验证_20260919/a-cost-20260919-2045"],"at":"2026-09-19T13:16:38.417689+00:00","stage":"freeze"}
+{"argv":["E:\\Skill ＆ Harness\\publication\\a-cost-robustness-20260919\\experiments\\evidence_cost_validation\\fresh.py","collect","--out","论文材料/A成本稳健性与新执行验证_20260919/a-cost-20260919-2045"],"at":"2026-09-19T13:16:38.703150+00:00","stage":"collect"}
+{"at":"2026-09-19T13:17:14.393044+00:00","cost":"C1","dataset":"fresh","entry":"experiments.evidence_cost_validation.sweep.replay","new_business_executions":0,"split":"heldout"}
+{"at":"2026-09-19T13:17:51.705214+00:00","cost":"C2","dataset":"fresh","entry":"experiments.evidence_cost_validation.sweep.replay","new_business_executions":0,"split":"heldout"}

@@ -1,0 +1,13 @@
+# Output Manifest
+
+任务状态：READY_TO_EXECUTE。新实验未执行。
+
+| 文件 | SHA256 |
+|---|---|
+| `BACKGROUND_HANDOFF.md` | `06e921d1286a107164687569e001af8fe6de9bd8b43fbd6c453d60821b6cfb89` |
+| `CODEX_GOAL.md` | `ea0cfe35996c5cdc4b2240d2701c8693cfb76a65b72461f3edef49675af787e3` |
+| `START_HERE.md` | `4d38935c6352dbf2a5d7103027e661d31e309972b58fc4fd64c9cdf9b4620ccb` |
+| `refine-logs/EXPERIMENT_PLAN.md` | `c93ffdc25c36b6ba0fc2b509f5acb278214c8019b26d18cd459cd0dd2fe56fff` |
+| `refine-logs/EXPERIMENT_PLAN_20260919-A-validation.md` | `c93ffdc25c36b6ba0fc2b509f5acb278214c8019b26d18cd459cd0dd2fe56fff` |
+| `refine-logs/EXPERIMENT_TRACKER.md` | `c911cf4b2549f71cf97495252372c4839eef66a89f6025892773fb840a3602b7` |
+| `refine-logs/EXPERIMENT_TRACKER_20260919-A-validation.md` | `c911cf4b2549f71cf97495252372c4839eef66a89f6025892773fb840a3602b7` |

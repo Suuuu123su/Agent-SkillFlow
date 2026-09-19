@@ -1,0 +1,8692 @@
+{
+  "heldout": {
+    "N00001:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "grant"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "grant",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00001:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "grant"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "grant",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00002:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "lifecycle",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "lifecycle",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00002:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "lifecycle",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "lifecycle",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00003:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "grant",
+          "lifecycle",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00003:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "grant",
+          "lifecycle",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00004:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "grant",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "lifecycle",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "grant",
+          "lifecycle",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "grant"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00004:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "grant",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "lifecycle",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "grant",
+          "lifecycle",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "grant"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00005:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "grant"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "lifecycle",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "lifecycle",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "lifecycle",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00005:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "grant"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "lifecycle",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "lifecycle",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "lifecycle",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00006:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "lifecycle",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "lifecycle",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "lifecycle",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00006:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "lifecycle",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "lifecycle",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "lifecycle",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00007:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "lifecycle",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00007:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "lifecycle",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00008:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "grant",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "grant",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "lifecycle",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "provenance",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00008:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "grant",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "grant",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "lifecycle",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "provenance",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00009:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "lifecycle",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "lifecycle",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00009:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "lifecycle",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "lifecycle",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00010:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant",
+          "lifecycle",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00010:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant",
+          "lifecycle",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00011:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "lifecycle"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "provenance",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "grant"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "lifecycle",
+          "provenance",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00011:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "lifecycle"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "provenance",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "grant"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "lifecycle",
+          "provenance",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00012:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "provenance",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure",
+          "grant",
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00012:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "provenance",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure",
+          "grant",
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00013:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "provenance",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00013:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "provenance",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00014:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "provenance"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "lifecycle",
+          "provenance",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "provenance",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00014:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "provenance"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "lifecycle",
+          "provenance",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "provenance",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00015:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "provenance",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "provenance",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00015:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "provenance",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "provenance",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00016:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "grant",
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "provenance",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00016:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "grant",
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "provenance",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00017:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle",
+          "provenance",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "grant",
+          "lifecycle",
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00017:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle",
+          "provenance",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "grant",
+          "lifecycle",
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00018:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "grant",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "grant",
+          "lifecycle",
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00018:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "grant",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "grant",
+          "lifecycle",
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00019:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "grant"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "lifecycle",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant",
+          "lifecycle",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "lifecycle",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "grant",
+          "lifecycle",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00019:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "grant"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "lifecycle",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant",
+          "lifecycle",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "lifecycle",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "grant",
+          "lifecycle",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00020:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "lifecycle",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "grant"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "provenance",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00020:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "lifecycle",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "grant"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "grant",
+          "lifecycle",
+          "provenance"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "provenance",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "provenance",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00021:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "lifecycle",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "grant",
+          "lifecycle",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00021:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "lifecycle"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "lifecycle",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "failure",
+          "grant",
+          "lifecycle",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00022:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "provenance"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "lifecycle",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "provenance",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "lifecycle",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00022:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "provenance"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "failure"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "lifecycle",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "grant",
+          "provenance",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "lifecycle",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00023:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "provenance"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "provenance",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00023:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "grant",
+          "provenance",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure",
+          "receipt",
+          "scope_lifetime"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "provenance"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "lifecycle",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "failure",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "provenance",
+          "receipt",
+          "scope_lifetime",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00024:TaskSuccess": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "grant",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ],
+    "N00024:UEA": [
+      {
+        "condition": "channel_receipt",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_grant",
+        "mechanism": "whole_channel",
+        "missing": [
+          "grant"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_provenance",
+        "mechanism": "whole_channel",
+        "missing": [
+          "provenance"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_counterfactual",
+        "mechanism": "whole_channel",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_task_success_evidence",
+        "mechanism": "whole_channel",
+        "missing": [
+          "task_success_evidence"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_scope_lifetime",
+        "mechanism": "whole_channel",
+        "missing": [
+          "scope_lifetime"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_decision_reason",
+        "mechanism": "whole_channel",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_failure",
+        "mechanism": "whole_channel",
+        "missing": [
+          "failure"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "channel_receipt_lifecycle",
+        "mechanism": "whole_channel",
+        "missing": [
+          "receipt",
+          "lifecycle"
+        ],
+        "seed": 0
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "receipt"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "lifecycle",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091901
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason",
+          "provenance",
+          "task_success_evidence"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "failure",
+          "grant",
+          "provenance",
+          "scope_lifetime"
+        ],
+        "seed": 2026091902
+      },
+      {
+        "condition": "random_1",
+        "mechanism": "random",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_3",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "grant",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "random_5",
+        "mechanism": "random",
+        "missing": [
+          "counterfactual",
+          "decision_reason",
+          "failure",
+          "receipt",
+          "task_success_evidence"
+        ],
+        "seed": 2026091903
+      },
+      {
+        "condition": "failure_correlated",
+        "mechanism": "failure_stress",
+        "missing": [
+          "decision_reason"
+        ],
+        "seed": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+{"attempt_id":"attempt-01","event":"attempt_registered","execution_unit_id":"N00013","time_ns":38877015000000}
+{"action":"inventory_reservation","event":"action_started","resource":"sandbox-resource:N00013","session_id":"session:N00013:current","task_id":"task:N00013","time_ns":38877031000000}
+{"changes":[{"after_sha256":"080a5065f0f5954ffc16c5f66abc53eaffe131663e7f1a4291dcde4fe6b69a3b","before_sha256":null,"path":"effect_binding.json"},{"after_sha256":"f16a499410c5f37fbe49e0396395b3ddc43354c969c0c791f0cdbf5157cfe429","before_sha256":"0d44f3fe09119fb05bdb55175baaf18b6876360ac9ca6e92358b3f20ccba972a","path":"stock.sqlite"}],"effect_id":"effect:N00013:attempt-01","event":"action_joined","returncode":0,"snapshot_complete":true,"time_ns":38877187000000,"timed_out":false}

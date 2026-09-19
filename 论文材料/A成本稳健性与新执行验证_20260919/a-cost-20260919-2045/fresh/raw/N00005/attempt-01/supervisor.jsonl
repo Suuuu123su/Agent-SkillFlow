@@ -1,0 +1,3 @@
+{"attempt_id":"attempt-01","event":"attempt_registered","execution_unit_id":"N00005","time_ns":38875203000000}
+{"action":"render_report","event":"action_started","resource":"sandbox-resource:N00005","session_id":"session:N00005:current","task_id":"task:N00005","time_ns":38875218000000}
+{"changes":[{"after_sha256":"cc42699271f09789eadf79c658fa884a1e6619eff940194aa8ae291f99ef294d","before_sha256":null,"path":"effect_binding.json"},{"after_sha256":"c986f4a47ba9d273b06f4c6b23b9d47685055df9aac8664478d421da76281f24","before_sha256":null,"path":"report.txt"}],"effect_id":"effect:N00005:attempt-01","event":"action_joined","returncode":0,"snapshot_complete":true,"time_ns":38875359000000,"timed_out":false}

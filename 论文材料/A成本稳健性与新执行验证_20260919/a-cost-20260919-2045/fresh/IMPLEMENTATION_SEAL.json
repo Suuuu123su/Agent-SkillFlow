@@ -1,0 +1,18 @@
+{
+  "at": "2026-09-19T13:00:42.726848+00:00",
+  "compared_cost_outcomes_before_seal": false,
+  "diagnostic_plan_sha256": "719ce22483ea207ce8dd96fda36a64b5c96d97b8aa1f322074374e2756fb0463",
+  "model_calls": 0,
+  "new_executions": 0,
+  "source_hashes": {
+    "experiments/evidence_cost_validation/__init__.py": "aab1342ad75ad55fb577459465c9868f4524c765a2db9c3dc821408cfef5c107",
+    "experiments/evidence_cost_validation/attribution.py": "91667427fd8a5d3836c804c9a27a7efd9a62f4aaa5d4c12c933f26f343d4b63f",
+    "experiments/evidence_cost_validation/audit.py": "0cf9d9fd8bf99c73a25b8a0910a2f1b40df7559245e270d3751cd9e539a20023",
+    "experiments/evidence_cost_validation/costs.py": "49de5ee2e2e68ad9d9173d5fa22a59954b78ca5b9ee2c7d93da1fe5a2ad68d53",
+    "experiments/evidence_cost_validation/registration.py": "d676cf5dbdee157924e5b7031d5b65e4274cedef092482cfd6127dd7dba30f53",
+    "experiments/evidence_cost_validation/report.py": "5ea5519c299686e25921a77d73fcdf44cd77db5a8c64887d2de8ecf542678749",
+    "experiments/evidence_cost_validation/statistics.py": "be3d246a368b53c9cac8364c3fbb00827a02a14a042f57881235e89e9ac97c65",
+    "experiments/evidence_cost_validation/sweep.py": "8ee0b7b4d1a13eb9eb64c56d2a636710ed55e7be51da525c73eca242c1c0e554",
+    "tests/unit/analysis/test_evidence_cost_validation.py": "086428a079333fa51946bed416bc3814b789c955b6028d89c63a1a7477c05cc5"
+  }
+}

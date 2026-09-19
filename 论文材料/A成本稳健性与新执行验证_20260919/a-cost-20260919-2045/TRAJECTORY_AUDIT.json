@@ -1,0 +1,62 @@
+{
+  "C1": {
+    "development": {
+      "every_cost_order_projection_checked": true,
+      "headers_exceed_H": [],
+      "model_calls": 0,
+      "new_executions": 0,
+      "oracle_access": false,
+      "rows": 70560,
+      "status": "PASSED",
+      "status_counts": {
+        "infeasible": 54438,
+        "point": 8244,
+        "unknown": 7878
+      }
+    },
+    "heldout": {
+      "every_cost_order_projection_checked": true,
+      "headers_exceed_H": [],
+      "model_calls": 0,
+      "new_executions": 0,
+      "oracle_access": false,
+      "rows": 70560,
+      "status": "PASSED",
+      "status_counts": {
+        "infeasible": 54336,
+        "point": 8147,
+        "unknown": 8077
+      }
+    }
+  },
+  "C2": {
+    "development": {
+      "every_cost_order_projection_checked": true,
+      "headers_exceed_H": [],
+      "model_calls": 0,
+      "new_executions": 0,
+      "oracle_access": false,
+      "rows": 36960,
+      "status": "PASSED",
+      "status_counts": {
+        "infeasible": 26976,
+        "point": 6502,
+        "unknown": 3482
+      }
+    },
+    "heldout": {
+      "every_cost_order_projection_checked": true,
+      "headers_exceed_H": [],
+      "model_calls": 0,
+      "new_executions": 0,
+      "oracle_access": false,
+      "rows": 36960,
+      "status": "PASSED",
+      "status_counts": {
+        "infeasible": 26976,
+        "point": 6446,
+        "unknown": 3538
+      }
+    }
+  }
+}

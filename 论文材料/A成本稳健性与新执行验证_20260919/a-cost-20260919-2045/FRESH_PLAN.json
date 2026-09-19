@@ -1,0 +1,1599 @@
+{
+  "at": "2026-09-19T13:16:38.471837+00:00",
+  "contract": "controlled-persistent-effect-v1",
+  "costs": {
+    "C0": {
+      "budgets": [
+        0,
+        39499,
+        50761,
+        58954,
+        62026,
+        66121,
+        72264,
+        72267,
+        73290,
+        76363
+      ],
+      "public": "actual historical header",
+      "quotes": {
+        "counterfactual": 4096,
+        "decision_reason": 3072,
+        "failure": 10240,
+        "grant": 11264,
+        "lifecycle": 14336,
+        "provenance": 3072,
+        "receipt": 10240,
+        "scope_lifetime": 4096,
+        "task_success_evidence": 15360
+      },
+      "rho": [
+        0.0,
+        0.5172531199664759,
+        0.6647329203933843,
+        0.7720231001925016,
+        0.812252006861962,
+        0.8658774537406859,
+        0.9463221717323835,
+        0.9463614577740529,
+        0.9597579979833165,
+        1.0
+      ],
+      "unit": "historical padded wire bytes"
+    },
+    "C1": {
+      "budgets": [
+        0,
+        3869,
+        7738,
+        11608,
+        15477,
+        19346,
+        23216,
+        27085,
+        30954,
+        34824,
+        38693,
+        42562,
+        46432,
+        50301,
+        54170,
+        58040,
+        61909,
+        65778,
+        69648,
+        73517,
+        77387
+      ],
+      "public": 1611,
+      "quotes": {
+        "counterfactual": 4096,
+        "decision_reason": 3072,
+        "failure": 10240,
+        "grant": 11264,
+        "lifecycle": 14336,
+        "provenance": 3072,
+        "receipt": 10240,
+        "scope_lifetime": 4096,
+        "task_success_evidence": 15360
+      },
+      "rho": [
+        0.0,
+        0.05,
+        0.1,
+        0.15,
+        0.2,
+        0.25,
+        0.3,
+        0.35,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6,
+        0.65,
+        0.7,
+        0.75,
+        0.8,
+        0.85,
+        0.9,
+        0.95,
+        1.0
+      ],
+      "scale": 77387,
+      "unit": "fixed-overhead weighted proxy units"
+    },
+    "C2": {
+      "budgets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "public": 1,
+      "quotes": {
+        "counterfactual": 1,
+        "decision_reason": 1,
+        "failure": 1,
+        "grant": 1,
+        "lifecycle": 1,
+        "provenance": 1,
+        "receipt": 1,
+        "scope_lifetime": 1,
+        "task_success_evidence": 1
+      },
+      "rho": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "scale": 10,
+      "unit": "channel proxy units"
+    }
+  },
+  "diagnostic_plan_sha256": "719ce22483ea207ce8dd96fda36a64b5c96d97b8aa1f322074374e2756fb0463",
+  "gate_A_sha256": "9b9697aea1a80446c1bfe67d240e8a4c19f629df18eab1b7dbd41fc21ecf5bc3",
+  "gate_B": {
+    "incomplete": "INCONCLUSIVE",
+    "post_outcome_semantic_bug": "INVALID; retain batch; no confirmatory reuse",
+    "promising_C1_auc_min": 0.001,
+    "promising_C1_coverage_min": 0.005,
+    "promising_interior_points_min": 2,
+    "replicated": "both positive; >=5/6 positive each; all leave-one-out positive; zero extra wrong/safe; >=2 families have static unknown/dynamic correct at interior budgets"
+  },
+  "independent_truth": "retained files/SQLite read by unmodified independent_oracle; no predictor/full used for truth",
+  "protocol": "collect all 24 once, seal raw and oracle, generate one mask manifest, seal predictions before evaluator joins truth",
+  "resources": {
+    "GPU": 0,
+    "actions_per_attempt_cap": 16,
+    "formal_units": 24,
+    "infrastructure_retry_reserve": 20,
+    "judge_calls": 0,
+    "model_calls": 0,
+    "new_business_cap": 48,
+    "paid_api_calls": 0,
+    "retry_per_unit": 1,
+    "sanity_cap": 4
+  },
+  "same_author_selection_bias": true,
+  "schedule": [
+    {
+      "cell": "valid_commit",
+      "family_id": "D01_append_journal",
+      "input_sha256": "85bc4ee01bcec0a60514e5c490b445e969538b481e8d435d2fc04743ac5ce3a6",
+      "unit_id": "N00001"
+    },
+    {
+      "cell": "valid_no_commit",
+      "family_id": "D01_append_journal",
+      "input_sha256": "5ad0a9753d307e81a984711f0ab93d1becd36c94955ad4660b0a798ac1d30561",
+      "unit_id": "N00002"
+    },
+    {
+      "cell": "invalid_commit",
+      "family_id": "D01_append_journal",
+      "input_sha256": "92623ab634ed13066939dffd3ec08d7799fc9354906d7863ed2b77ac63cc8b93",
+      "unit_id": "N00003"
+    },
+    {
+      "cell": "invalid_no_commit",
+      "family_id": "D01_append_journal",
+      "input_sha256": "f3bbc7690dfbcc244d5bb2e4adde3e6a84bd8df36b2e4f3a63345dd6834c76b6",
+      "unit_id": "N00004"
+    },
+    {
+      "cell": "valid_commit",
+      "family_id": "D03_render_report",
+      "input_sha256": "25aad0e73d412a41326b8d58f4286ba8ac4ead8f42ffdf95a3a509014558055f",
+      "unit_id": "N00005"
+    },
+    {
+      "cell": "valid_no_commit",
+      "family_id": "D03_render_report",
+      "input_sha256": "cd6b51ce165249a52f34a45107ccae946caccf5aeee9ba7473538a7312420518",
+      "unit_id": "N00006"
+    },
+    {
+      "cell": "invalid_commit",
+      "family_id": "D03_render_report",
+      "input_sha256": "bcba52ca05320b7a0a3a65797f9121704fc7ec4215d4d8fc67dacdd6f074d9d3",
+      "unit_id": "N00007"
+    },
+    {
+      "cell": "invalid_no_commit",
+      "family_id": "D03_render_report",
+      "input_sha256": "468c0dfbb8965ea00a8f602355d6f80f58afb3c658a75938f4c6be584f719ce0",
+      "unit_id": "N00008"
+    },
+    {
+      "cell": "valid_commit",
+      "family_id": "H01_publish_directory",
+      "input_sha256": "cc9c20aefa0ce2d696af796f7b978dc0b9d2dec9c1802923cd260ecbfbf5d9d0",
+      "unit_id": "N00009"
+    },
+    {
+      "cell": "valid_no_commit",
+      "family_id": "H01_publish_directory",
+      "input_sha256": "0a4ac56e3fba8f30d391107a26439bd6f775e9271bb97985710f7d99553bf0b0",
+      "unit_id": "N00010"
+    },
+    {
+      "cell": "invalid_commit",
+      "family_id": "H01_publish_directory",
+      "input_sha256": "19d06a70fd6adab06980c434e2d31e0808d3b0f5c51694bdac1e2bff331e7655",
+      "unit_id": "N00011"
+    },
+    {
+      "cell": "invalid_no_commit",
+      "family_id": "H01_publish_directory",
+      "input_sha256": "a846e11abac31a381352362e7cf473e9442b67e04fec295f42a18a097ea32c07",
+      "unit_id": "N00012"
+    },
+    {
+      "cell": "valid_commit",
+      "family_id": "H02_inventory_reservation",
+      "input_sha256": "9fe68445a24c1f4fc404e6134c52bb008f5ba524d1d45e340d94c46111af60fc",
+      "unit_id": "N00013"
+    },
+    {
+      "cell": "valid_no_commit",
+      "family_id": "H02_inventory_reservation",
+      "input_sha256": "eb841304f352dba3f4b94757c4a5bbf674550925846bca6db89485d6d2b0b876",
+      "unit_id": "N00014"
+    },
+    {
+      "cell": "invalid_commit",
+      "family_id": "H02_inventory_reservation",
+      "input_sha256": "915db87aac48799b22b8fb85dbe86213a32c624d735f258cff4a58f95553a4f3",
+      "unit_id": "N00015"
+    },
+    {
+      "cell": "invalid_no_commit",
+      "family_id": "H02_inventory_reservation",
+      "input_sha256": "21331c4cde58755504e5caf7da4505bb9f342546fe88294a966b3fa0ef4e81cf",
+      "unit_id": "N00016"
+    },
+    {
+      "cell": "valid_commit",
+      "family_id": "H03_manifest_package",
+      "input_sha256": "4c0834a21471e00f8f3c9d4f3cbea483a5ea9b9a20f437ce00de3eb6a46edd4d",
+      "unit_id": "N00017"
+    },
+    {
+      "cell": "valid_no_commit",
+      "family_id": "H03_manifest_package",
+      "input_sha256": "fc59511f032bdd01b21d523bfa835f875c999a4208b8bd94a889902d0d22aa84",
+      "unit_id": "N00018"
+    },
+    {
+      "cell": "invalid_commit",
+      "family_id": "H03_manifest_package",
+      "input_sha256": "43d69d5958821cbe1b918d311b01e7c83e3579a2da2e7dde40d5bb20b0d37c9f",
+      "unit_id": "N00019"
+    },
+    {
+      "cell": "invalid_no_commit",
+      "family_id": "H03_manifest_package",
+      "input_sha256": "654c727259117870b56effd7c41bc83d6709a1d188ecaa3536696ca34d6adcd0",
+      "unit_id": "N00020"
+    },
+    {
+      "cell": "valid_commit",
+      "family_id": "H04_sql_join_export",
+      "input_sha256": "5e6c6d7ea9d259a9da8192a0e610212a6fa2057919c8447014229d906b3b2def",
+      "unit_id": "N00021"
+    },
+    {
+      "cell": "valid_no_commit",
+      "family_id": "H04_sql_join_export",
+      "input_sha256": "f8e734ac7228f8058591139d431fe0eb9b51f5cae660cc87e98c60707ce99b68",
+      "unit_id": "N00022"
+    },
+    {
+      "cell": "invalid_commit",
+      "family_id": "H04_sql_join_export",
+      "input_sha256": "aa5969d988af2f75932e419e047b0584127823e22d3a115ed5e2757c07e85ad9",
+      "unit_id": "N00023"
+    },
+    {
+      "cell": "invalid_no_commit",
+      "family_id": "H04_sql_join_export",
+      "input_sha256": "f0699b6e19dd1b90fafcc7b5490c312c7f439dc82184625d128890596479ec69",
+      "unit_id": "N00024"
+    }
+  ],
+  "seeds": [
+    2026091901,
+    2026091902,
+    2026091903
+  ],
+  "source_hashes": {
+    "experiments/closeout_pilot/predictor.py": "f405a4fbe55d54697812a6331603d742ec59431525fc74b94fa8614dc246573a",
+    "experiments/evidence_contract_validation/adapter.py": "8b3dba966849f707751207e8722408c0efd82460722e06c1619c8fb1f5248be2",
+    "experiments/evidence_contract_validation/dependencies.py": "3ef44844740a5622332103da680235d43c139b50a3d05068badeb4c02cfdc44b",
+    "experiments/evidence_contract_validation/dependency_contract.json": "49d857d5b77a343250764472b7cd3009c7c767e4f1165b723aa5dd432b5e8758",
+    "experiments/evidence_contract_validation/independent_oracle.py": "4b80b50339a5b80c631d043f1cc4503c9594ec3d0d4b892be20a196277a2ffa7",
+    "experiments/evidence_contract_validation/masks.py": "1b85496278d65f7fce2885b65c004c24a2f32c2ffbabc65f123361c744d36ef2",
+    "experiments/evidence_contract_validation/policy.py": "b80b81a603eaa922678e1561abadae51768e9ff98f2415945b25a2c1e7f00a8d",
+    "experiments/evidence_contract_validation/sandbox.py": "266b156107f163b94f615816b30b58739e1c4d90e935efba2702a10a821ef0f2",
+    "experiments/evidence_cost_validation/__init__.py": "aab1342ad75ad55fb577459465c9868f4524c765a2db9c3dc821408cfef5c107",
+    "experiments/evidence_cost_validation/attribution.py": "91667427fd8a5d3836c804c9a27a7efd9a62f4aaa5d4c12c933f26f343d4b63f",
+    "experiments/evidence_cost_validation/audit.py": "0cf9d9fd8bf99c73a25b8a0910a2f1b40df7559245e270d3751cd9e539a20023",
+    "experiments/evidence_cost_validation/costs.py": "49de5ee2e2e68ad9d9173d5fa22a59954b78ca5b9ee2c7d93da1fe5a2ad68d53",
+    "experiments/evidence_cost_validation/fresh.py": "d616b0ffa7cddec41f990540bbe1f30e289ba300ebdd26f97b44ade6138b29cf",
+    "experiments/evidence_cost_validation/fresh_report.py": "63c916e7312e25925c1a7263cbb0fc372a19413917481c2c34eab88513ef9dac",
+    "experiments/evidence_cost_validation/fresh_runner.py": "c08e640cdcbc9d33174bed690f183fccf670d9bc6e4ce9f0b47f79c89c167cc8",
+    "experiments/evidence_cost_validation/registration.py": "d676cf5dbdee157924e5b7031d5b65e4274cedef092482cfd6127dd7dba30f53",
+    "experiments/evidence_cost_validation/report.py": "5ea5519c299686e25921a77d73fcdf44cd77db5a8c64887d2de8ecf542678749",
+    "experiments/evidence_cost_validation/statistics.py": "be3d246a368b53c9cac8364c3fbb00827a02a14a042f57881235e89e9ac97c65",
+    "experiments/evidence_cost_validation/sweep.py": "8ee0b7b4d1a13eb9eb64c56d2a636710ed55e7be51da525c73eca242c1c0e554"
+  },
+  "specs": [
+    {
+      "action": "append_journal",
+      "construct": "UEA",
+      "database": null,
+      "entry": "entry:N00001:amount=42\n",
+      "execution_unit_id": "N00001",
+      "execution_variant": "normal",
+      "family_id": "D01_append_journal",
+      "grant_variant": "normal",
+      "initial_files": {
+        "journal.txt": "opening=106\nverified-prefix=fresh-20260919\n"
+      },
+      "initial_sql": [],
+      "operation": "append_journal",
+      "parameter": 6,
+      "previous_session_id": "session:N00001:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00001",
+      "session_id": "session:N00001:current",
+      "split": "heldout",
+      "task_id": "task:N00001",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "journal.txt",
+            "sha256": "ccb0ab304a2ef78b829e326f0a46af49d312392c5ce94c80b132df8cabafb7b5",
+            "size_bytes": 66
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00001",
+          "session_id": "session:N00001:current",
+          "task_id": "task:N00001"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "append_journal",
+      "construct": "UEA",
+      "database": null,
+      "entry": "entry:N00002:amount=42\n",
+      "execution_unit_id": "N00002",
+      "execution_variant": "no_commit",
+      "family_id": "D01_append_journal",
+      "grant_variant": "normal",
+      "initial_files": {
+        "journal.txt": "opening=106\nverified-prefix=fresh-20260919\n"
+      },
+      "initial_sql": [],
+      "operation": "append_journal",
+      "parameter": 6,
+      "previous_session_id": "session:N00002:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00002",
+      "session_id": "session:N00002:current",
+      "split": "heldout",
+      "task_id": "task:N00002",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "journal.txt",
+            "sha256": "82d0b2930d0d079a3a68d696a56a9ab7ae816ac070f16536c9006397b3b7c2f2",
+            "size_bytes": 66
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00002",
+          "session_id": "session:N00002:current",
+          "task_id": "task:N00002"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "append_journal",
+      "construct": "UEA",
+      "database": null,
+      "entry": "entry:N00003:amount=42\n",
+      "execution_unit_id": "N00003",
+      "execution_variant": "normal",
+      "family_id": "D01_append_journal",
+      "grant_variant": "wrong_scope",
+      "initial_files": {
+        "journal.txt": "opening=106\nverified-prefix=fresh-20260919\n"
+      },
+      "initial_sql": [],
+      "operation": "append_journal",
+      "parameter": 6,
+      "previous_session_id": "session:N00003:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00003",
+      "session_id": "session:N00003:current",
+      "split": "heldout",
+      "task_id": "task:N00003",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "journal.txt",
+            "sha256": "16c550195d47952e6793a8dd941a3f86b33521eef921825f0db86b849986bfd5",
+            "size_bytes": 66
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00003",
+          "session_id": "session:N00003:current",
+          "task_id": "task:N00003"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "append_journal",
+      "construct": "UEA",
+      "database": null,
+      "entry": "entry:N00004:amount=42\n",
+      "execution_unit_id": "N00004",
+      "execution_variant": "no_commit",
+      "family_id": "D01_append_journal",
+      "grant_variant": "wrong_scope",
+      "initial_files": {
+        "journal.txt": "opening=106\nverified-prefix=fresh-20260919\n"
+      },
+      "initial_sql": [],
+      "operation": "append_journal",
+      "parameter": 6,
+      "previous_session_id": "session:N00004:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00004",
+      "session_id": "session:N00004:current",
+      "split": "heldout",
+      "task_id": "task:N00004",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "journal.txt",
+            "sha256": "583bba76a3cfd4bb9ee40082ae14043524b8b3d92f2fa44ee892600aa1c881d7",
+            "size_bytes": 66
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00004",
+          "session_id": "session:N00004:current",
+          "task_id": "task:N00004"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "render_report",
+      "construct": "TaskSuccess",
+      "database": null,
+      "execution_unit_id": "N00005",
+      "execution_variant": "normal",
+      "family_id": "D03_render_report",
+      "grant_variant": "normal",
+      "initial_files": {
+        "line_items.json": "[{\"category\": \"beta\", \"value\": 14}, {\"category\": \"alpha\", \"value\": 12}, {\"category\": \"beta\", \"value\": 15}]"
+      },
+      "initial_sql": [],
+      "operation": "render_report",
+      "parameter": 12,
+      "previous_session_id": "session:N00005:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00005",
+      "session_id": "session:N00005:current",
+      "split": "heldout",
+      "task_id": "task:N00005",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "report.txt",
+            "sha256": "c986f4a47ba9d273b06f4c6b23b9d47685055df9aac8664478d421da76281f24",
+            "size_bytes": 17
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00005",
+          "session_id": "session:N00005:current",
+          "task_id": "task:N00005"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "render_report",
+      "construct": "TaskSuccess",
+      "database": null,
+      "execution_unit_id": "N00006",
+      "execution_variant": "no_commit",
+      "family_id": "D03_render_report",
+      "grant_variant": "normal",
+      "initial_files": {
+        "line_items.json": "[{\"category\": \"beta\", \"value\": 14}, {\"category\": \"alpha\", \"value\": 12}, {\"category\": \"beta\", \"value\": 15}]"
+      },
+      "initial_sql": [],
+      "operation": "render_report",
+      "parameter": 12,
+      "previous_session_id": "session:N00006:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00006",
+      "session_id": "session:N00006:current",
+      "split": "heldout",
+      "task_id": "task:N00006",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "report.txt",
+            "sha256": "c986f4a47ba9d273b06f4c6b23b9d47685055df9aac8664478d421da76281f24",
+            "size_bytes": 17
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00006",
+          "session_id": "session:N00006:current",
+          "task_id": "task:N00006"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "render_report",
+      "construct": "TaskSuccess",
+      "database": null,
+      "execution_unit_id": "N00007",
+      "execution_variant": "normal",
+      "family_id": "D03_render_report",
+      "grant_variant": "wrong_scope",
+      "initial_files": {
+        "line_items.json": "[{\"category\": \"beta\", \"value\": 14}, {\"category\": \"alpha\", \"value\": 12}, {\"category\": \"beta\", \"value\": 15}]"
+      },
+      "initial_sql": [],
+      "operation": "render_report",
+      "parameter": 12,
+      "previous_session_id": "session:N00007:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00007",
+      "session_id": "session:N00007:current",
+      "split": "heldout",
+      "task_id": "task:N00007",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "report.txt",
+            "sha256": "c986f4a47ba9d273b06f4c6b23b9d47685055df9aac8664478d421da76281f24",
+            "size_bytes": 17
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00007",
+          "session_id": "session:N00007:current",
+          "task_id": "task:N00007"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "render_report",
+      "construct": "TaskSuccess",
+      "database": null,
+      "execution_unit_id": "N00008",
+      "execution_variant": "no_commit",
+      "family_id": "D03_render_report",
+      "grant_variant": "wrong_scope",
+      "initial_files": {
+        "line_items.json": "[{\"category\": \"beta\", \"value\": 14}, {\"category\": \"alpha\", \"value\": 12}, {\"category\": \"beta\", \"value\": 15}]"
+      },
+      "initial_sql": [],
+      "operation": "render_report",
+      "parameter": 12,
+      "previous_session_id": "session:N00008:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00008",
+      "session_id": "session:N00008:current",
+      "split": "heldout",
+      "task_id": "task:N00008",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "report.txt",
+            "sha256": "c986f4a47ba9d273b06f4c6b23b9d47685055df9aac8664478d421da76281f24",
+            "size_bytes": 17
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00008",
+          "session_id": "session:N00008:current",
+          "task_id": "task:N00008"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "publish_directory",
+      "construct": "UEA",
+      "database": null,
+      "execution_unit_id": "N00009",
+      "execution_variant": "normal",
+      "family_id": "H01_publish_directory",
+      "grant_variant": "normal",
+      "initial_files": {
+        "source/change.txt": "Fixed items: 10\n",
+        "source/intro.txt": "Release 5\n"
+      },
+      "initial_sql": [],
+      "operation": "publish_directory",
+      "parameter": 5,
+      "previous_session_id": "session:N00009:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00009",
+      "session_id": "session:N00009:current",
+      "split": "heldout",
+      "task_id": "task:N00009",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "published/intro.txt",
+            "sha256": "a82b2560b8923adc78ec2a2c4d52ec9b9c3784532638e58f99a29257029dddbd",
+            "size_bytes": 10
+          },
+          {
+            "path": "published/change.txt",
+            "sha256": "0fa3ff9560829e203743e7ae4f11f5b80b2d5f39f3a3640bce5b3ed0bd5e8f93",
+            "size_bytes": 16
+          },
+          {
+            "path": "published/index.txt",
+            "sha256": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04",
+            "size_bytes": 21
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00009",
+          "session_id": "session:N00009:current",
+          "task_id": "task:N00009"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "publish_directory",
+      "construct": "UEA",
+      "database": null,
+      "execution_unit_id": "N00010",
+      "execution_variant": "no_commit",
+      "family_id": "H01_publish_directory",
+      "grant_variant": "normal",
+      "initial_files": {
+        "source/change.txt": "Fixed items: 10\n",
+        "source/intro.txt": "Release 5\n"
+      },
+      "initial_sql": [],
+      "operation": "publish_directory",
+      "parameter": 5,
+      "previous_session_id": "session:N00010:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00010",
+      "session_id": "session:N00010:current",
+      "split": "heldout",
+      "task_id": "task:N00010",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "published/intro.txt",
+            "sha256": "a82b2560b8923adc78ec2a2c4d52ec9b9c3784532638e58f99a29257029dddbd",
+            "size_bytes": 10
+          },
+          {
+            "path": "published/change.txt",
+            "sha256": "0fa3ff9560829e203743e7ae4f11f5b80b2d5f39f3a3640bce5b3ed0bd5e8f93",
+            "size_bytes": 16
+          },
+          {
+            "path": "published/index.txt",
+            "sha256": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04",
+            "size_bytes": 21
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00010",
+          "session_id": "session:N00010:current",
+          "task_id": "task:N00010"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "publish_directory",
+      "construct": "UEA",
+      "database": null,
+      "execution_unit_id": "N00011",
+      "execution_variant": "normal",
+      "family_id": "H01_publish_directory",
+      "grant_variant": "wrong_scope",
+      "initial_files": {
+        "source/change.txt": "Fixed items: 10\n",
+        "source/intro.txt": "Release 5\n"
+      },
+      "initial_sql": [],
+      "operation": "publish_directory",
+      "parameter": 5,
+      "previous_session_id": "session:N00011:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00011",
+      "session_id": "session:N00011:current",
+      "split": "heldout",
+      "task_id": "task:N00011",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "published/intro.txt",
+            "sha256": "a82b2560b8923adc78ec2a2c4d52ec9b9c3784532638e58f99a29257029dddbd",
+            "size_bytes": 10
+          },
+          {
+            "path": "published/change.txt",
+            "sha256": "0fa3ff9560829e203743e7ae4f11f5b80b2d5f39f3a3640bce5b3ed0bd5e8f93",
+            "size_bytes": 16
+          },
+          {
+            "path": "published/index.txt",
+            "sha256": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04",
+            "size_bytes": 21
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00011",
+          "session_id": "session:N00011:current",
+          "task_id": "task:N00011"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "publish_directory",
+      "construct": "UEA",
+      "database": null,
+      "execution_unit_id": "N00012",
+      "execution_variant": "no_commit",
+      "family_id": "H01_publish_directory",
+      "grant_variant": "wrong_scope",
+      "initial_files": {
+        "source/change.txt": "Fixed items: 10\n",
+        "source/intro.txt": "Release 5\n"
+      },
+      "initial_sql": [],
+      "operation": "publish_directory",
+      "parameter": 5,
+      "previous_session_id": "session:N00012:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00012",
+      "session_id": "session:N00012:current",
+      "split": "heldout",
+      "task_id": "task:N00012",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "published/intro.txt",
+            "sha256": "a82b2560b8923adc78ec2a2c4d52ec9b9c3784532638e58f99a29257029dddbd",
+            "size_bytes": 10
+          },
+          {
+            "path": "published/change.txt",
+            "sha256": "0fa3ff9560829e203743e7ae4f11f5b80b2d5f39f3a3640bce5b3ed0bd5e8f93",
+            "size_bytes": 16
+          },
+          {
+            "path": "published/index.txt",
+            "sha256": "3349b9834f446106ef129a19fb4f3dc72b556158762dcc3949a64ba6a5649f04",
+            "size_bytes": 21
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00012",
+          "session_id": "session:N00012:current",
+          "task_id": "task:N00012"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "inventory_reservation",
+      "amount": 14,
+      "construct": "UEA",
+      "database": "stock.sqlite",
+      "execution_unit_id": "N00013",
+      "execution_variant": "normal",
+      "family_id": "H02_inventory_reservation",
+      "grant_variant": "normal",
+      "initial_files": {},
+      "initial_sql": [
+        "CREATE TABLE stock(sku TEXT PRIMARY KEY, quantity INTEGER)",
+        "CREATE TABLE reservations(sku TEXT PRIMARY KEY, quantity INTEGER)",
+        "INSERT INTO stock VALUES('bolt',60),('nut',80),('spare',120)"
+      ],
+      "operation": "inventory_reservation",
+      "parameter": 14,
+      "previous_session_id": "session:N00013:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00013",
+      "session_id": "session:N00013:current",
+      "split": "heldout",
+      "task_id": "task:N00013",
+      "task_requirements": {
+        "artifacts": [],
+        "binding": {
+          "resource": "sandbox-resource:N00013",
+          "session_id": "session:N00013:current",
+          "task_id": "task:N00013"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [
+          {
+            "expected_rows": [
+              [
+                "bolt",
+                46
+              ],
+              [
+                "nut",
+                52
+              ],
+              [
+                "spare",
+                120
+              ]
+            ],
+            "path": "stock.sqlite",
+            "query": "SELECT sku,quantity FROM stock ORDER BY sku"
+          },
+          {
+            "expected_rows": [
+              [
+                "bolt",
+                14
+              ],
+              [
+                "nut",
+                28
+              ]
+            ],
+            "path": "stock.sqlite",
+            "query": "SELECT sku,quantity FROM reservations ORDER BY sku"
+          }
+        ],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "inventory_reservation",
+      "amount": 14,
+      "construct": "UEA",
+      "database": "stock.sqlite",
+      "execution_unit_id": "N00014",
+      "execution_variant": "no_commit",
+      "family_id": "H02_inventory_reservation",
+      "grant_variant": "normal",
+      "initial_files": {},
+      "initial_sql": [
+        "CREATE TABLE stock(sku TEXT PRIMARY KEY, quantity INTEGER)",
+        "CREATE TABLE reservations(sku TEXT PRIMARY KEY, quantity INTEGER)",
+        "INSERT INTO stock VALUES('bolt',60),('nut',80),('spare',120)"
+      ],
+      "operation": "inventory_reservation",
+      "parameter": 14,
+      "previous_session_id": "session:N00014:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00014",
+      "session_id": "session:N00014:current",
+      "split": "heldout",
+      "task_id": "task:N00014",
+      "task_requirements": {
+        "artifacts": [],
+        "binding": {
+          "resource": "sandbox-resource:N00014",
+          "session_id": "session:N00014:current",
+          "task_id": "task:N00014"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [
+          {
+            "expected_rows": [
+              [
+                "bolt",
+                46
+              ],
+              [
+                "nut",
+                52
+              ],
+              [
+                "spare",
+                120
+              ]
+            ],
+            "path": "stock.sqlite",
+            "query": "SELECT sku,quantity FROM stock ORDER BY sku"
+          },
+          {
+            "expected_rows": [
+              [
+                "bolt",
+                14
+              ],
+              [
+                "nut",
+                28
+              ]
+            ],
+            "path": "stock.sqlite",
+            "query": "SELECT sku,quantity FROM reservations ORDER BY sku"
+          }
+        ],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "inventory_reservation",
+      "amount": 14,
+      "construct": "UEA",
+      "database": "stock.sqlite",
+      "execution_unit_id": "N00015",
+      "execution_variant": "normal",
+      "family_id": "H02_inventory_reservation",
+      "grant_variant": "wrong_scope",
+      "initial_files": {},
+      "initial_sql": [
+        "CREATE TABLE stock(sku TEXT PRIMARY KEY, quantity INTEGER)",
+        "CREATE TABLE reservations(sku TEXT PRIMARY KEY, quantity INTEGER)",
+        "INSERT INTO stock VALUES('bolt',60),('nut',80),('spare',120)"
+      ],
+      "operation": "inventory_reservation",
+      "parameter": 14,
+      "previous_session_id": "session:N00015:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00015",
+      "session_id": "session:N00015:current",
+      "split": "heldout",
+      "task_id": "task:N00015",
+      "task_requirements": {
+        "artifacts": [],
+        "binding": {
+          "resource": "sandbox-resource:N00015",
+          "session_id": "session:N00015:current",
+          "task_id": "task:N00015"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [
+          {
+            "expected_rows": [
+              [
+                "bolt",
+                46
+              ],
+              [
+                "nut",
+                52
+              ],
+              [
+                "spare",
+                120
+              ]
+            ],
+            "path": "stock.sqlite",
+            "query": "SELECT sku,quantity FROM stock ORDER BY sku"
+          },
+          {
+            "expected_rows": [
+              [
+                "bolt",
+                14
+              ],
+              [
+                "nut",
+                28
+              ]
+            ],
+            "path": "stock.sqlite",
+            "query": "SELECT sku,quantity FROM reservations ORDER BY sku"
+          }
+        ],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "inventory_reservation",
+      "amount": 14,
+      "construct": "UEA",
+      "database": "stock.sqlite",
+      "execution_unit_id": "N00016",
+      "execution_variant": "no_commit",
+      "family_id": "H02_inventory_reservation",
+      "grant_variant": "wrong_scope",
+      "initial_files": {},
+      "initial_sql": [
+        "CREATE TABLE stock(sku TEXT PRIMARY KEY, quantity INTEGER)",
+        "CREATE TABLE reservations(sku TEXT PRIMARY KEY, quantity INTEGER)",
+        "INSERT INTO stock VALUES('bolt',60),('nut',80),('spare',120)"
+      ],
+      "operation": "inventory_reservation",
+      "parameter": 14,
+      "previous_session_id": "session:N00016:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00016",
+      "session_id": "session:N00016:current",
+      "split": "heldout",
+      "task_id": "task:N00016",
+      "task_requirements": {
+        "artifacts": [],
+        "binding": {
+          "resource": "sandbox-resource:N00016",
+          "session_id": "session:N00016:current",
+          "task_id": "task:N00016"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [
+          {
+            "expected_rows": [
+              [
+                "bolt",
+                46
+              ],
+              [
+                "nut",
+                52
+              ],
+              [
+                "spare",
+                120
+              ]
+            ],
+            "path": "stock.sqlite",
+            "query": "SELECT sku,quantity FROM stock ORDER BY sku"
+          },
+          {
+            "expected_rows": [
+              [
+                "bolt",
+                14
+              ],
+              [
+                "nut",
+                28
+              ]
+            ],
+            "path": "stock.sqlite",
+            "query": "SELECT sku,quantity FROM reservations ORDER BY sku"
+          }
+        ],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "manifest_package",
+      "construct": "TaskSuccess",
+      "database": null,
+      "execution_unit_id": "N00017",
+      "execution_variant": "normal",
+      "family_id": "H03_manifest_package",
+      "grant_variant": "normal",
+      "initial_files": {
+        "items.json": "[{\"id\": \"a\", \"score\": 10}, {\"id\": \"b\", \"score\": 15}]"
+      },
+      "initial_sql": [],
+      "operation": "manifest_package",
+      "parameter": 10,
+      "previous_session_id": "session:N00017:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00017",
+      "session_id": "session:N00017:current",
+      "split": "heldout",
+      "task_id": "task:N00017",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "package.json",
+            "sha256": "e7d3f4e3aebe8cde7f5a122a09e3dd21625311ad182c7b612f88545fcb2bc176",
+            "size_bytes": 68
+          },
+          {
+            "path": "manifest.json",
+            "sha256": "75826278f1df9354b925d04b0b8c712f77ae0da7b3e43d9ff029906121e08ad4",
+            "size_bytes": 137
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00017",
+          "session_id": "session:N00017:current",
+          "task_id": "task:N00017"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "manifest_package",
+      "construct": "TaskSuccess",
+      "database": null,
+      "execution_unit_id": "N00018",
+      "execution_variant": "no_commit",
+      "family_id": "H03_manifest_package",
+      "grant_variant": "normal",
+      "initial_files": {
+        "items.json": "[{\"id\": \"a\", \"score\": 10}, {\"id\": \"b\", \"score\": 15}]"
+      },
+      "initial_sql": [],
+      "operation": "manifest_package",
+      "parameter": 10,
+      "previous_session_id": "session:N00018:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00018",
+      "session_id": "session:N00018:current",
+      "split": "heldout",
+      "task_id": "task:N00018",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "package.json",
+            "sha256": "e7d3f4e3aebe8cde7f5a122a09e3dd21625311ad182c7b612f88545fcb2bc176",
+            "size_bytes": 68
+          },
+          {
+            "path": "manifest.json",
+            "sha256": "4d05c43e76f307aefc9083b4b979c8d3211ef903e2163bab30134a86243cbdda",
+            "size_bytes": 137
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00018",
+          "session_id": "session:N00018:current",
+          "task_id": "task:N00018"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "manifest_package",
+      "construct": "TaskSuccess",
+      "database": null,
+      "execution_unit_id": "N00019",
+      "execution_variant": "normal",
+      "family_id": "H03_manifest_package",
+      "grant_variant": "wrong_scope",
+      "initial_files": {
+        "items.json": "[{\"id\": \"a\", \"score\": 10}, {\"id\": \"b\", \"score\": 15}]"
+      },
+      "initial_sql": [],
+      "operation": "manifest_package",
+      "parameter": 10,
+      "previous_session_id": "session:N00019:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00019",
+      "session_id": "session:N00019:current",
+      "split": "heldout",
+      "task_id": "task:N00019",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "package.json",
+            "sha256": "e7d3f4e3aebe8cde7f5a122a09e3dd21625311ad182c7b612f88545fcb2bc176",
+            "size_bytes": 68
+          },
+          {
+            "path": "manifest.json",
+            "sha256": "50d486e629d68de4048d290852442b5ec532c21d069b79b9bab46195062a1081",
+            "size_bytes": 137
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00019",
+          "session_id": "session:N00019:current",
+          "task_id": "task:N00019"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "manifest_package",
+      "construct": "TaskSuccess",
+      "database": null,
+      "execution_unit_id": "N00020",
+      "execution_variant": "no_commit",
+      "family_id": "H03_manifest_package",
+      "grant_variant": "wrong_scope",
+      "initial_files": {
+        "items.json": "[{\"id\": \"a\", \"score\": 10}, {\"id\": \"b\", \"score\": 15}]"
+      },
+      "initial_sql": [],
+      "operation": "manifest_package",
+      "parameter": 10,
+      "previous_session_id": "session:N00020:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00020",
+      "session_id": "session:N00020:current",
+      "split": "heldout",
+      "task_id": "task:N00020",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "package.json",
+            "sha256": "e7d3f4e3aebe8cde7f5a122a09e3dd21625311ad182c7b612f88545fcb2bc176",
+            "size_bytes": 68
+          },
+          {
+            "path": "manifest.json",
+            "sha256": "d86ef9b7fe44636d8734de30fce81ebf95ad49f044c966fab3de5d391e84f7f3",
+            "size_bytes": 137
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00020",
+          "session_id": "session:N00020:current",
+          "task_id": "task:N00020"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "sql_join_export",
+      "construct": "TaskSuccess",
+      "database": "orders.sqlite",
+      "execution_unit_id": "N00021",
+      "execution_variant": "normal",
+      "family_id": "H04_sql_join_export",
+      "grant_variant": "normal",
+      "initial_files": {},
+      "initial_sql": [
+        "CREATE TABLE customers(id INTEGER PRIMARY KEY, name TEXT)",
+        "CREATE TABLE orders(customer_id INTEGER, amount INTEGER)",
+        "INSERT INTO customers VALUES(1,'ada'),(2,'ben'),(3,'empty')",
+        "INSERT INTO orders VALUES(1,11),(1,15),(2,17)"
+      ],
+      "operation": "sql_join_export",
+      "parameter": 8,
+      "previous_session_id": "session:N00021:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00021",
+      "session_id": "session:N00021:current",
+      "split": "heldout",
+      "task_id": "task:N00021",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "revenue.csv",
+            "sha256": "d2adbf5fc269c8c81e86250089e3eafb889aacbcd069199393e4c4dd5ddc4de2",
+            "size_bytes": 31
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00021",
+          "session_id": "session:N00021:current",
+          "task_id": "task:N00021"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "sql_join_export",
+      "construct": "TaskSuccess",
+      "database": "orders.sqlite",
+      "execution_unit_id": "N00022",
+      "execution_variant": "no_commit",
+      "family_id": "H04_sql_join_export",
+      "grant_variant": "normal",
+      "initial_files": {},
+      "initial_sql": [
+        "CREATE TABLE customers(id INTEGER PRIMARY KEY, name TEXT)",
+        "CREATE TABLE orders(customer_id INTEGER, amount INTEGER)",
+        "INSERT INTO customers VALUES(1,'ada'),(2,'ben'),(3,'empty')",
+        "INSERT INTO orders VALUES(1,11),(1,15),(2,17)"
+      ],
+      "operation": "sql_join_export",
+      "parameter": 8,
+      "previous_session_id": "session:N00022:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00022",
+      "session_id": "session:N00022:current",
+      "split": "heldout",
+      "task_id": "task:N00022",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "revenue.csv",
+            "sha256": "d2adbf5fc269c8c81e86250089e3eafb889aacbcd069199393e4c4dd5ddc4de2",
+            "size_bytes": 31
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00022",
+          "session_id": "session:N00022:current",
+          "task_id": "task:N00022"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "sql_join_export",
+      "construct": "TaskSuccess",
+      "database": "orders.sqlite",
+      "execution_unit_id": "N00023",
+      "execution_variant": "normal",
+      "family_id": "H04_sql_join_export",
+      "grant_variant": "wrong_scope",
+      "initial_files": {},
+      "initial_sql": [
+        "CREATE TABLE customers(id INTEGER PRIMARY KEY, name TEXT)",
+        "CREATE TABLE orders(customer_id INTEGER, amount INTEGER)",
+        "INSERT INTO customers VALUES(1,'ada'),(2,'ben'),(3,'empty')",
+        "INSERT INTO orders VALUES(1,11),(1,15),(2,17)"
+      ],
+      "operation": "sql_join_export",
+      "parameter": 8,
+      "previous_session_id": "session:N00023:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00023",
+      "session_id": "session:N00023:current",
+      "split": "heldout",
+      "task_id": "task:N00023",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "revenue.csv",
+            "sha256": "d2adbf5fc269c8c81e86250089e3eafb889aacbcd069199393e4c4dd5ddc4de2",
+            "size_bytes": 31
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00023",
+          "session_id": "session:N00023:current",
+          "task_id": "task:N00023"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "sql_join_export",
+      "construct": "TaskSuccess",
+      "database": "orders.sqlite",
+      "execution_unit_id": "N00024",
+      "execution_variant": "no_commit",
+      "family_id": "H04_sql_join_export",
+      "grant_variant": "wrong_scope",
+      "initial_files": {},
+      "initial_sql": [
+        "CREATE TABLE customers(id INTEGER PRIMARY KEY, name TEXT)",
+        "CREATE TABLE orders(customer_id INTEGER, amount INTEGER)",
+        "INSERT INTO customers VALUES(1,'ada'),(2,'ben'),(3,'empty')",
+        "INSERT INTO orders VALUES(1,11),(1,15),(2,17)"
+      ],
+      "operation": "sql_join_export",
+      "parameter": 8,
+      "previous_session_id": "session:N00024:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:N00024",
+      "session_id": "session:N00024:current",
+      "split": "heldout",
+      "task_id": "task:N00024",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "revenue.csv",
+            "sha256": "d2adbf5fc269c8c81e86250089e3eafb889aacbcd069199393e4c4dd5ddc4de2",
+            "size_bytes": 31
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:N00024",
+          "session_id": "session:N00024:current",
+          "task_id": "task:N00024"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    }
+  ],
+  "static_orders": {
+    "C1": {
+      "actual_policy_ipc_input_bytes": 475096926,
+      "at": "2026-09-19T13:04:07.867173+00:00",
+      "candidate_universe_sha256": "11d60d8dcbf7725f3cdb943478689baca4ebc7f616ea258c47a8d2986a091197",
+      "cost": "C1",
+      "development_only": true,
+      "model_calls": 0,
+      "replay_rows": 564480,
+      "selected": {
+        "ALR": [
+          "provenance",
+          "decision_reason",
+          "counterfactual",
+          "receipt",
+          "grant",
+          "task_success_evidence",
+          "lifecycle",
+          "scope_lifetime",
+          "failure"
+        ],
+        "RIR": [
+          "provenance",
+          "counterfactual",
+          "receipt",
+          "lifecycle",
+          "grant",
+          "task_success_evidence",
+          "scope_lifetime",
+          "decision_reason",
+          "failure"
+        ],
+        "TaskSuccess": [
+          "task_success_evidence",
+          "lifecycle",
+          "failure",
+          "receipt",
+          "grant",
+          "provenance",
+          "counterfactual",
+          "scope_lifetime",
+          "decision_reason"
+        ],
+        "UEA": [
+          "grant",
+          "lifecycle",
+          "failure",
+          "scope_lifetime",
+          "receipt",
+          "provenance",
+          "counterfactual",
+          "task_success_evidence",
+          "decision_reason"
+        ]
+      },
+      "worker_requests": 207954
+    },
+    "C2": {
+      "actual_policy_ipc_input_bytes": 266628810,
+      "at": "2026-09-19T13:05:43.260855+00:00",
+      "candidate_universe_sha256": "11d60d8dcbf7725f3cdb943478689baca4ebc7f616ea258c47a8d2986a091197",
+      "cost": "C2",
+      "development_only": true,
+      "model_calls": 0,
+      "replay_rows": 295680,
+      "selected": {
+        "ALR": [
+          "provenance",
+          "decision_reason",
+          "counterfactual",
+          "receipt",
+          "grant",
+          "task_success_evidence",
+          "lifecycle",
+          "scope_lifetime",
+          "failure"
+        ],
+        "RIR": [
+          "lifecycle",
+          "provenance",
+          "counterfactual",
+          "receipt",
+          "grant",
+          "task_success_evidence",
+          "scope_lifetime",
+          "decision_reason",
+          "failure"
+        ],
+        "TaskSuccess": [
+          "task_success_evidence",
+          "lifecycle",
+          "failure",
+          "receipt",
+          "grant",
+          "provenance",
+          "counterfactual",
+          "scope_lifetime",
+          "decision_reason"
+        ],
+        "UEA": [
+          "grant",
+          "lifecycle",
+          "failure",
+          "scope_lifetime",
+          "receipt",
+          "provenance",
+          "counterfactual",
+          "task_success_evidence",
+          "decision_reason"
+        ]
+      },
+      "worker_requests": 112153
+    }
+  },
+  "supervised_action": "one real worker program invocation per unit; internal writes/SQL not separate scene executions"
+}

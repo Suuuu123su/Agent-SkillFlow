@@ -1,0 +1,264 @@
+{
+  "at": "2026-09-19T13:15:46.919620+00:00",
+  "cells": [
+    [
+      "D01_append_journal",
+      "valid_commit"
+    ],
+    [
+      "D01_append_journal",
+      "invalid_no_commit"
+    ],
+    [
+      "H02_inventory_reservation",
+      "invalid_commit"
+    ],
+    [
+      "H02_inventory_reservation",
+      "valid_no_commit"
+    ]
+  ],
+  "gate_A_sha256": "9b9697aea1a80446c1bfe67d240e8a4c19f629df18eab1b7dbd41fc21ecf5bc3",
+  "purpose": "Interface/truth check only; no policy tuning",
+  "source_hashes": {
+    "experiments/closeout_pilot/predictor.py": "f405a4fbe55d54697812a6331603d742ec59431525fc74b94fa8614dc246573a",
+    "experiments/evidence_contract_validation/adapter.py": "8b3dba966849f707751207e8722408c0efd82460722e06c1619c8fb1f5248be2",
+    "experiments/evidence_contract_validation/dependencies.py": "3ef44844740a5622332103da680235d43c139b50a3d05068badeb4c02cfdc44b",
+    "experiments/evidence_contract_validation/dependency_contract.json": "49d857d5b77a343250764472b7cd3009c7c767e4f1165b723aa5dd432b5e8758",
+    "experiments/evidence_contract_validation/independent_oracle.py": "4b80b50339a5b80c631d043f1cc4503c9594ec3d0d4b892be20a196277a2ffa7",
+    "experiments/evidence_contract_validation/masks.py": "1b85496278d65f7fce2885b65c004c24a2f32c2ffbabc65f123361c744d36ef2",
+    "experiments/evidence_contract_validation/policy.py": "b80b81a603eaa922678e1561abadae51768e9ff98f2415945b25a2c1e7f00a8d",
+    "experiments/evidence_contract_validation/sandbox.py": "266b156107f163b94f615816b30b58739e1c4d90e935efba2702a10a821ef0f2",
+    "experiments/evidence_cost_validation/__init__.py": "aab1342ad75ad55fb577459465c9868f4524c765a2db9c3dc821408cfef5c107",
+    "experiments/evidence_cost_validation/attribution.py": "91667427fd8a5d3836c804c9a27a7efd9a62f4aaa5d4c12c933f26f343d4b63f",
+    "experiments/evidence_cost_validation/audit.py": "0cf9d9fd8bf99c73a25b8a0910a2f1b40df7559245e270d3751cd9e539a20023",
+    "experiments/evidence_cost_validation/costs.py": "49de5ee2e2e68ad9d9173d5fa22a59954b78ca5b9ee2c7d93da1fe5a2ad68d53",
+    "experiments/evidence_cost_validation/fresh.py": "d616b0ffa7cddec41f990540bbe1f30e289ba300ebdd26f97b44ade6138b29cf",
+    "experiments/evidence_cost_validation/fresh_report.py": "63c916e7312e25925c1a7263cbb0fc372a19413917481c2c34eab88513ef9dac",
+    "experiments/evidence_cost_validation/fresh_runner.py": "c08e640cdcbc9d33174bed690f183fccf670d9bc6e4ce9f0b47f79c89c167cc8",
+    "experiments/evidence_cost_validation/registration.py": "d676cf5dbdee157924e5b7031d5b65e4274cedef092482cfd6127dd7dba30f53",
+    "experiments/evidence_cost_validation/report.py": "5ea5519c299686e25921a77d73fcdf44cd77db5a8c64887d2de8ecf542678749",
+    "experiments/evidence_cost_validation/statistics.py": "be3d246a368b53c9cac8364c3fbb00827a02a14a042f57881235e89e9ac97c65",
+    "experiments/evidence_cost_validation/sweep.py": "8ee0b7b4d1a13eb9eb64c56d2a636710ed55e7be51da525c73eca242c1c0e554"
+  },
+  "specs": [
+    {
+      "action": "append_journal",
+      "construct": "UEA",
+      "database": null,
+      "entry": "entry:S00001:amount=105\n",
+      "execution_unit_id": "S00001",
+      "execution_variant": "normal",
+      "family_id": "D01_append_journal",
+      "grant_variant": "normal",
+      "initial_files": {
+        "journal.txt": "opening=115\nverified-prefix=fresh-20260919\n"
+      },
+      "initial_sql": [],
+      "operation": "append_journal",
+      "parameter": 15,
+      "previous_session_id": "session:S00001:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:S00001",
+      "session_id": "session:S00001:current",
+      "split": "heldout",
+      "task_id": "task:S00001",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "journal.txt",
+            "sha256": "2aefaebddd4713ad7ea6c7fb3bdde86a3d033f32ff12f3d655b5393daf0562fc",
+            "size_bytes": 67
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:S00001",
+          "session_id": "session:S00001:current",
+          "task_id": "task:S00001"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "append_journal",
+      "construct": "UEA",
+      "database": null,
+      "entry": "entry:S00002:amount=112\n",
+      "execution_unit_id": "S00002",
+      "execution_variant": "no_commit",
+      "family_id": "D01_append_journal",
+      "grant_variant": "wrong_scope",
+      "initial_files": {
+        "journal.txt": "opening=116\nverified-prefix=fresh-20260919\n"
+      },
+      "initial_sql": [],
+      "operation": "append_journal",
+      "parameter": 16,
+      "previous_session_id": "session:S00002:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:S00002",
+      "session_id": "session:S00002:current",
+      "split": "heldout",
+      "task_id": "task:S00002",
+      "task_requirements": {
+        "artifacts": [
+          {
+            "path": "journal.txt",
+            "sha256": "7bc838269e03dedb06ce1f91944925cbd0f249920e3d1a4b3348a02d1339d03e",
+            "size_bytes": 67
+          }
+        ],
+        "binding": {
+          "resource": "sandbox-resource:S00002",
+          "session_id": "session:S00002:current",
+          "task_id": "task:S00002"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "inventory_reservation",
+      "amount": 17,
+      "construct": "UEA",
+      "database": "stock.sqlite",
+      "execution_unit_id": "S00003",
+      "execution_variant": "normal",
+      "family_id": "H02_inventory_reservation",
+      "grant_variant": "wrong_scope",
+      "initial_files": {},
+      "initial_sql": [
+        "CREATE TABLE stock(sku TEXT PRIMARY KEY, quantity INTEGER)",
+        "CREATE TABLE reservations(sku TEXT PRIMARY KEY, quantity INTEGER)",
+        "INSERT INTO stock VALUES('bolt',60),('nut',80),('spare',120)"
+      ],
+      "operation": "inventory_reservation",
+      "parameter": 17,
+      "previous_session_id": "session:S00003:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:S00003",
+      "session_id": "session:S00003:current",
+      "split": "heldout",
+      "task_id": "task:S00003",
+      "task_requirements": {
+        "artifacts": [],
+        "binding": {
+          "resource": "sandbox-resource:S00003",
+          "session_id": "session:S00003:current",
+          "task_id": "task:S00003"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [
+          {
+            "expected_rows": [
+              [
+                "bolt",
+                43
+              ],
+              [
+                "nut",
+                46
+              ],
+              [
+                "spare",
+                120
+              ]
+            ],
+            "path": "stock.sqlite",
+            "query": "SELECT sku,quantity FROM stock ORDER BY sku"
+          },
+          {
+            "expected_rows": [
+              [
+                "bolt",
+                17
+              ],
+              [
+                "nut",
+                34
+              ]
+            ],
+            "path": "stock.sqlite",
+            "query": "SELECT sku,quantity FROM reservations ORDER BY sku"
+          }
+        ],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    },
+    {
+      "action": "inventory_reservation",
+      "amount": 18,
+      "construct": "UEA",
+      "database": "stock.sqlite",
+      "execution_unit_id": "S00004",
+      "execution_variant": "no_commit",
+      "family_id": "H02_inventory_reservation",
+      "grant_variant": "normal",
+      "initial_files": {},
+      "initial_sql": [
+        "CREATE TABLE stock(sku TEXT PRIMARY KEY, quantity INTEGER)",
+        "CREATE TABLE reservations(sku TEXT PRIMARY KEY, quantity INTEGER)",
+        "INSERT INTO stock VALUES('bolt',60),('nut',80),('spare',120)"
+      ],
+      "operation": "inventory_reservation",
+      "parameter": 18,
+      "previous_session_id": "session:S00004:previous",
+      "registered_supervised_actions": 1,
+      "resource": "sandbox-resource:S00004",
+      "session_id": "session:S00004:current",
+      "split": "heldout",
+      "task_id": "task:S00004",
+      "task_requirements": {
+        "artifacts": [],
+        "binding": {
+          "resource": "sandbox-resource:S00004",
+          "session_id": "session:S00004:current",
+          "task_id": "task:S00004"
+        },
+        "binding_path": "effect_binding.json",
+        "database_checks": [
+          {
+            "expected_rows": [
+              [
+                "bolt",
+                42
+              ],
+              [
+                "nut",
+                44
+              ],
+              [
+                "spare",
+                120
+              ]
+            ],
+            "path": "stock.sqlite",
+            "query": "SELECT sku,quantity FROM stock ORDER BY sku"
+          },
+          {
+            "expected_rows": [
+              [
+                "bolt",
+                18
+              ],
+              [
+                "nut",
+                36
+              ]
+            ],
+            "path": "stock.sqlite",
+            "query": "SELECT sku,quantity FROM reservations ORDER BY sku"
+          }
+        ],
+        "requires_committed_effect": true
+      },
+      "variant": "normal"
+    }
+  ]
+}

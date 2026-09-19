@@ -1,0 +1,38 @@
+{
+  "B": "NOT_RUN",
+  "at": "2026-09-19T13:29:36.493912+00:00",
+  "boundary": "same six old families, new controlled instances; no automatic expansion",
+  "candidate_trials": 860160,
+  "cap": 48,
+  "executions": 28,
+  "formal_units": 24,
+  "fresh_TaskSuccess_counts": {
+    "0": 12,
+    "1": 12
+  },
+  "fresh_UEA_counts": {
+    "0": 18,
+    "1": 6
+  },
+  "fresh_deltas": {
+    "C1": 0.0024801587301587352,
+    "C2": 0.0021825396825397025
+  },
+  "gate_A": "PASS",
+  "gate_B": "PROMISING_LIMITED",
+  "judge_calls": 0,
+  "model_calls": 0,
+  "old_cost_deltas": {
+    "C1": 0.0016121031746031828,
+    "C2": 0.0013888888888889117
+  },
+  "original_gain": 0.0016913816661812964,
+  "paid_api_calls": 0,
+  "retries": 0,
+  "sanity": 4,
+  "status": "EXPERIMENT_COMPLETE",
+  "trajectory_rows": {
+    "fresh": 92160,
+    "old": 215040
+  }
+}

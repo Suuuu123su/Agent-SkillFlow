@@ -6,6 +6,16 @@ SkillFlow研究Agent Skill与Harness交互中的安全机制，以统一运行�
 
 ## 当前阶段与结果
 
+<!-- a-cost-validation:start -->
+
+M0–M4实验完成：Gate A PASS，Gate B **PROMISING_LIMITED**。新24实例C1/C2动态−静态AUC +0.002480/+0.002183，两者6/6族为正且删一族均为正，未见新增错误点/错误safe。实际28/48次（4 sanity+24正式），0重试，模型/Judge/付费API均0。优势仍小、来自受控旧语义族；保留负结果，到此停止，不扩样、不继续B。
+
+[中文结果](论文材料/A成本稳健性与新执行验证_20260919/a-cost-20260919-2045/FINAL_REPORT_CN.md) · [机器摘要](论文材料/A成本稳健性与新执行验证_20260919/a-cost-20260919-2045/SUMMARY.json) · [只读复核](论文材料/A成本稳健性与新执行验证_20260919/a-cost-20260919-2045/REPRODUCE.md)
+
+已推送研究分支并创建[增量结果PR #3](https://github.com/Suuuu123su/Agent-SkillFlow/pull/3)，以未合并的PR #2为base；本地及Git导出副本只读复核均通过，未自动合并。
+
+<!-- a-cost-validation:end -->
+
 <!-- closeout-pilot:start -->
 
 2026-09-19 收口与能力先导M0–M4完成：**A可信收口PASSED；B相对B1/B0为NO_GAIN**。A旧48次执行、134400对及80曲线核账通过；纠错重分析动态−静态AUC +0.001691（已公开留出，不是新盲测）。B单真实OpenClaw环境有效72场景，含资格/失败/重试累计83/96次，模型/Judge/付费API均0。三方法32留出预测一致；4/4族局部原生边界修复阻断越权且正常功能保留。00/10组合正常任务失败，第二环境BLOCKED_EXTERNAL，全部负结果保留；不继续扩样。
