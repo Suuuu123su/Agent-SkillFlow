@@ -6,11 +6,14 @@ SkillFlow研究Agent Skill与Harness交互中的安全机制，以统一运行�
 
 ## 当前阶段与结果
 
+2026-09-19（本地完成，尚未成功发布至GitHub）：HIAA分母修复完成，F/H ToolReturn valid_only恢复每格13；48项逐格样本集合与P3R一致，156项离线修正版输出及13项针对性测试通过，点值不变。已完成240查询补证先导、235查询有限参照扩展及三对合成见证；动态策略未超过按指标固定顺序。新增模型、Judge、业务调用均为0。[修复与实验总览](论文材料/修复与补强_20260919/README.md) · [结果及论文措辞](论文材料/修复与补强_20260919/RESULTS_AND_PAPER_CLAIMS.md)。
+
 P3/P3R与P4已完成并发布，研究缺口和不利结果保留。P4管理状态为`CLOSED_WITH_DOCUMENTED_GAPS`；完成实验与材料交付不等于全部研究主张成立。[当前状态](论文材料/metadata/current_state.json) · [论文材料](论文材料/README.md)。
 
 | 阅读目的 | 入口 |
 |---|---|
 | 框架实现与合同 | [核心代码](src/skillflow/) · [安全语义](docs/security-semantics.md) · [Schema](schemas/) · [测试](tests/) |
+| 当前HIAA修正 | [修复报告](论文材料/修复与补强_20260919/hiaa/README.md) · [修正版四格表](论文材料/修复与补强_20260919/hiaa/HIAA_CELLS_CORRECTED.csv) · [复现](论文材料/修复与补强_20260919/hiaa/REPRODUCE.md) |
 | 机制测量 | [P3主表](论文材料/P3_机制测量/p3-20260916-232018/P3_METRIC_MAIN.md) · [P3R主表](论文材料/P3_机制测量/p3r-20260917-103400/P3R_METRIC_MAIN.md) · [指标合同](论文材料/P3_机制测量/p3r-20260917-103400/METRIC_CONTRACTS_P3R.md) |
 | 测量证据消融 | [P4主表](论文材料/P4_测量证据消融/p4-20260917-123623/P4_METRIC_MAIN.md) · [结项](论文材料/P4_测量证据消融/closeout-20260917-141455/P4_CLOSEOUT.md) · [表格数据册](论文材料/P4_测量证据消融/closeout-20260917-141455/PAPER_TABLES.md) · [六案例](论文材料/P4_测量证据消融/closeout-20260917-141455/PAPER_CASES.md) |
 | 测量差异与防御应用 | [P0结项](论文材料/P0/CLOSEOUT.md) · [P0指标与措辞](论文材料/P0/PAPER_METRICS.md) · [P2 Luna All](论文材料/P2/luna-all/CURRENT_STATUS.md) · [三模型五方法历史结果](benchmarks/clawtrojan/results/three-models-20260915/README.md) |
@@ -18,19 +21,19 @@ P3/P3R与P4已完成并发布，研究缺口和不利结果保留。P4管理状�
 
 ## 结论边界
 
-- HIAA按target/neutral×单bridge四格计算；F/H ToolReturn的P3R每格13与P4每格15冲突未决，不能把Evidence-All的ASR差当HIAA。
+- HIAA按target/neutral×单bridge四格计算；F/H ToolReturn的历史13/15冲突已由追加修正版解决为每格13，旧P4原件保留历史身份。修复不改变点值，不把Evidence-All的ASR差当HIAA。
 - ALR保留合同区别、reason缺证与空分母；空分母不是零风险。RIR零值不证明撤销的因果收益。
 - 旧CI的593对中289对破坏JSON结构，另304对中和语义未确认；正、零、负结果保留。
 - P4有限独立参照覆盖190/192，已答一致190/190，不是通用100%准确率，也不证明框架唯一必要性。表格数据册含541行，不是三张已排版正文表。
 - P0辅助标签人审0、unknown及原`PROCESSED_WITH_GAPS`保留；业务违规V不等同UEA。DS混合版本、GLM预算、Luna传输及个人上下文差异未消除。P2历史比较均为`HISTORY_ONLY`。
 - 当前事件证据已被防御路径使用，不等于聚合HIAA/ALR/RIR已驱动在线Router。
 
-P0已结项，P1因资源延期，P2已完成；P5画像接口可选且未启动，P6全文未完成。本次目录发布不授权继续研究实验。
+P0已结项，P1因资源延期，P2已完成；P5画像接口可选且未启动，P6全文未完成。9月17日目录发布本身不授权继续研究实验；9月19日用户另行授权本轮修复与对应实验。
 
 ## 历史与仓库布局
 
 源码、测试、Schema及数据保留开发路径。历史审计已移至[docs/history/audits](docs/history/audits/)，早期规范移至[docs/history/specs](docs/history/specs/)，P2旧任务入口归入[历史任务](docs/history/tasks/P2_Luna_All_Completion.md)，两个旧T16启动器位于[scripts/legacy/t16](scripts/legacy/t16/)；历史运行标记不是当前执行授权。
 
-本轮实际迁移16项、将52个与原ZIP逐字节一致的展开任务包文件改为archive-only，根目录文件由14个降至6个。原四ZIP、T17分卷、冻结组件、失败与未知证据保留；Git历史不改写。迁移后位置、哈希、还原方法及冻结旧链接解释见[迁移说明](docs/releases/repo-restructure-20260917.md)与[机器映射](docs/releases/repo-restructure-20260917.json)。
+9月17日重组实际迁移16项、将52个与原ZIP逐字节一致的展开任务包文件改为archive-only，根目录文件由14个降至6个。原四ZIP、T17分卷、冻结组件、失败与未知证据保留；Git历史不改写。迁移后位置、哈希、还原方法及冻结旧链接解释见[迁移说明](docs/releases/repo-restructure-20260917.md)与[机器映射](docs/releases/repo-restructure-20260917.json)。
 
-本轮验证仅覆盖受影响路径、链接、Git索引字节、只读定位与发布树；未执行Live启动器、P3/P4复算、全量测试或自愿远端CI。新增模型、Judge、业务工具、反事实执行均为0，算法、指标和原分数不改。独立工作树完成整理，原工作区未提交修改不纳入发布。
+9月17日重组验证仅覆盖受影响路径、链接、Git索引字节、只读定位与发布树；未执行Live启动器、P3/P4复算、全量测试或自愿远端CI。新增模型、Judge、业务工具、反事实执行均为0，算法、指标和原分数不改。独立工作树完成整理，原工作区未提交修改不纳入发布。

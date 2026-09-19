@@ -1,0 +1,11 @@
+{
+  "original_name": "query_results.csv",
+  "original_bytes": 27053908,
+  "original_sha256": "5e60f35712ff8b413806ea3ea615d81392074f496106eb41b01e6b5bd2127eaf",
+  "archive_name": "query_results.csv.gz",
+  "archive_bytes": 507151,
+  "archive_sha256": "74788e404ffdc2c033f80cfdb88da0643d43afdc9c9b6ea32f74879b93d99529",
+  "round_trip_exact": true,
+  "plan_and_runner_unchanged": true,
+  "restore": "python -m gzip -d query_results.csv.gz"
+}

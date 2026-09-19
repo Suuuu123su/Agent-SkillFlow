@@ -1,0 +1,69 @@
+{
+  "version": "synthetic-identifiability-witnesses-v1",
+  "scope": "action-level UEA; synthetic finite constructions, not live runs",
+  "pairs": [
+    {
+      "family": "receipt",
+      "profile": "V01",
+      "worlds": [
+        {
+          "executed": false,
+          "grant_issued": false,
+          "revoked_before_request": false
+        },
+        {
+          "executed": true,
+          "grant_issued": false,
+          "revoked_before_request": false
+        }
+      ]
+    },
+    {
+      "family": "grant",
+      "profile": "V02",
+      "worlds": [
+        {
+          "executed": true,
+          "grant_issued": true,
+          "revoked_before_request": false
+        },
+        {
+          "executed": true,
+          "grant_issued": false,
+          "revoked_before_request": false
+        }
+      ]
+    },
+    {
+      "family": "lifecycle",
+      "profile": "V06",
+      "worlds": [
+        {
+          "executed": true,
+          "grant_issued": true,
+          "revoked_before_request": false
+        },
+        {
+          "executed": true,
+          "grant_issued": true,
+          "revoked_before_request": true
+        }
+      ]
+    }
+  ],
+  "query": {
+    "query_id": "synthetic-uea",
+    "unit": "unit",
+    "op": "request-1",
+    "metric": "UEA",
+    "protocol": "actual_receipt_and_authorization"
+  },
+  "negative_control": "No execution suffices to refute UEA even when grant is missing.",
+  "input_hashes": {
+    "predictor.py": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+    "views.py": "c485333f64f5f842ab0d3cc3b00e52c70b6e2d55caf733109209418440f79449",
+    "run.py": "7b87c6edcb1965c71349b10d5dd7b2b8e58c746caeff377bf8a15e6ecd897915"
+  },
+  "new_model_calls": 0,
+  "business_executions": 0
+}

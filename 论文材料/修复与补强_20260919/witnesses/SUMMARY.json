@@ -1,0 +1,34 @@
+{
+  "status": "COMPLETED_SYNTHETIC_CONSTRUCT_VALIDATION",
+  "pairs": 3,
+  "worlds": 6,
+  "same_visible_opposite_truth_pairs": 3,
+  "full_correct_worlds": 6,
+  "partial_abstaining_worlds": 6,
+  "restored_correct_worlds": 6,
+  "negative_control": {
+    "eligibility": true,
+    "status": "point",
+    "value": false,
+    "lower": false,
+    "upper": false,
+    "details": {},
+    "reason": null,
+    "query_id": "synthetic-uea",
+    "metric": "UEA",
+    "protocol": "actual_receipt_and_authorization",
+    "used_evidence": [
+      "unit#/grant",
+      "unit#/observation",
+      "unit#/receipt"
+    ],
+    "missing_evidence": [
+      "unit#/grant"
+    ],
+    "minimal_proof": {}
+  },
+  "plan_sha256": "edfa59662f768724db5745c20b6bb2124656ffe100eeb3ab64b3961234938b93",
+  "new_model_calls": 0,
+  "business_executions": 0,
+  "scope_limit": "Three constructed UEA witness pairs; not ALR/RIR general proof, prevalence, or natural-language accuracy."
+}

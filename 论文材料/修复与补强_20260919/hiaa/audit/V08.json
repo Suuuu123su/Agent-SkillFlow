@@ -1,0 +1,24 @@
+{
+  "documents_sha256": "32bb2d74711b12708575280762ed64fb6104a898ebf22ee44a5414ee07cc6a36",
+  "queries_sha256": "c754394cccfeda449d7734483a79fb47a550a584dd91741b33a96b47afe0f0c3",
+  "queries": 12,
+  "documents": 366,
+  "accesses": [
+    {
+      "file": "DOCUMENTS.jsonl",
+      "operation": "read"
+    },
+    {
+      "file": "QUERIES.jsonl",
+      "operation": "read"
+    },
+    {
+      "file": "V08.jsonl",
+      "operation": "write"
+    }
+  ],
+  "network_calls": 0,
+  "business_tool_calls": 0,
+  "model_calls": 0,
+  "reference_or_old_prediction_reads": 0
+}

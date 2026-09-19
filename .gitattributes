@@ -58,3 +58,7 @@ benchmarks/clawtrojan/** -text
 docs/history/audits/** -text
 论文材料/P0/tables/** -text
 论文材料/发布记录/p0-20260915/metadata/** -text
+
+# Versioned repair and offline pilot evidence preserve recorded hashes.
+论文材料/修复与补强_20260919/** -text
+论文材料/修复与补强_20260919/**/*.csv -text whitespace=cr-at-eol

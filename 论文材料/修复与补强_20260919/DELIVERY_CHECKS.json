@@ -1,0 +1,176 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "hiaa_input_hash",
+      "path": "experiments/hiaa_contract_repair/__init__.py",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "experiments/hiaa_contract_repair/contract.py",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "experiments/hiaa_contract_repair/predict.py",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "experiments/hiaa_contract_repair/reproduce.py",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/code/predictor.py",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/code/views.py",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/code/ingest.py",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/minimal_data/PREDICTOR_QUERIES.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/QUERY_REGISTRY.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip!minimal_data/BASE_DOCUMENTS.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "datasets/t17-v2/stages/f/dataset-manifest.json",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "datasets/t17-v2/stages/f/core-trials.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "datasets/t17-v2/stages/g/dataset-manifest.json",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "datasets/t17-v2/stages/g/core-trials.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "datasets/t17-v2/stages/h/dataset-manifest.json",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "datasets/t17-v2/stages/h/core-trials.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip!results/V00.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip!results/V01.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip!results/V02.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip!results/V03.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip!results/V04.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip!results/V05.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip!results/V06.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip!results/V07.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip!results/V08.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip!results/V09.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip!results/V10.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip!results/V11.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P4_测量证据消融/p4-20260917-123623/p4-evidence-ablation-review.zip!results/V12.jsonl",
+      "pass": true
+    },
+    {
+      "check": "hiaa_input_hash",
+      "path": "论文材料/P3_机制测量/p3r-20260917-103400/legacy/HIAA_CELLS.csv",
+      "pass": true
+    },
+    {
+      "check": "frozen_plan_and_archived_result",
+      "path": "evidence_pilot",
+      "pass": true
+    },
+    {
+      "check": "frozen_plan_and_archived_result",
+      "path": "evidence_pilot_reference",
+      "pass": true
+    },
+    {
+      "check": "current_and_supplement_markdown_local_links",
+      "pass": true
+    }
+  ],
+  "new_predictions": 0,
+  "scope": "Hash bindings, gzip round trips and local links; does not repeat experimental runs."
+}
