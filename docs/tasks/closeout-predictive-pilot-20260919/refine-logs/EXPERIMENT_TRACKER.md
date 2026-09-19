@@ -46,3 +46,5 @@
 | R010 | LOCAL_READY | 本地结果完成，待推送及增量PR；不自动合并 |
 
 M3实际新增48（留出32+干预16），M4新增0；累计83/96，剩余13不消费。模型/Judge/付费API=0。72有效attempt真值point；8初始化失败truth unknown单列，资格不参与准确率。正常clean失败16，均00/10。主终点11四族三方法全对，SkillFlow−B1=0，停止本轮，不启动第二轮。
+
+R010最终：DONE。研究分支已推送，增量[PR #2](https://github.com/Suuuu123su/Agent-SkillFlow/pull/2)已创建，base为PR1研究分支，未合并。结果提交b9817be，A阶段659ed31；实验在83/96停止，模型调用0。

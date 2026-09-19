@@ -12,6 +12,8 @@ SkillFlow研究Agent Skill与Harness交互中的安全机制，以统一运行�
 
 [最终中文报告](论文材料/补证收口与能力先导_20260919/closeout-pilot-20260919-1100/FINAL_REPORT_CN.md) · [机器摘要](论文材料/补证收口与能力先导_20260919/closeout-pilot-20260919-1100/SUMMARY.json) · [83次账本](论文材料/补证收口与能力先导_20260919/closeout-pilot-20260919-1100/ALL_ATTEMPTS.csv) · [复验/执行命令](论文材料/补证收口与能力先导_20260919/closeout-pilot-20260919-1100/REPRODUCE.md)。原工作区修改与旧封存保留。
 
+已推送研究分支并创建[增量结果PR #2](https://github.com/Suuuu123su/Agent-SkillFlow/pull/2)，依赖PR #1，未自动合并。
+
 <!-- closeout-pilot:end -->
 
 <!-- evidence-strengthening-current:start -->
