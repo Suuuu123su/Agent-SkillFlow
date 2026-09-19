@@ -1,0 +1,1217 @@
+{
+  "changed_rows": {
+    "development:dependency_guided": 82,
+    "development:global_fixed": 41,
+    "development:metric_static": 9,
+    "development:random_19119": 19,
+    "development:random_19120": 11,
+    "development:random_19121": 28,
+    "heldout:dependency_guided": 132,
+    "heldout:global_fixed": 89,
+    "heldout:metric_static": 23,
+    "heldout:random_19119": 41,
+    "heldout:random_19120": 17,
+    "heldout:random_19121": 49
+  },
+  "curves_independently_compared": 80,
+  "dynamic_vs_static": {
+    "auc_difference": 0.0016913816661812964,
+    "baseline": "metric_static",
+    "baseline_correct_coverage_auc": 0.0896106231015644,
+    "budgets": [
+      {
+        "budget": 0,
+        "correct_coverage_difference": 0.0,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 39499,
+        "correct_coverage_difference": 0.000496031746031746,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 50761,
+        "correct_coverage_difference": 0.0049603174603174635,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 58954,
+        "correct_coverage_difference": 0.0049603174603174705,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 62026,
+        "correct_coverage_difference": 0.004464285714285698,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 66121,
+        "correct_coverage_difference": 0.0029761904761904934,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 72264,
+        "correct_coverage_difference": 0.0014880952380952883,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 72267,
+        "correct_coverage_difference": 0.0014880952380952328,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 73290,
+        "correct_coverage_difference": 0.0014880952380952328,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 76363,
+        "correct_coverage_difference": 0.0004960317460317443,
+        "wrong_rate_difference": 0.0
+      }
+    ],
+    "correct_coverage_auc": 0.09130200476774569,
+    "negative_families": 0,
+    "paired_families": [
+      {
+        "baseline_auc": 0.08964488146528204,
+        "difference": 0.0005987029058575483,
+        "family_id": "H01_publish_directory",
+        "treatment_auc": 0.09024358437113959
+      },
+      {
+        "baseline_auc": 0.08963344252358565,
+        "difference": 0.0022947062682438513,
+        "family_id": "H02_inventory_reservation",
+        "treatment_auc": 0.0919281487918295
+      },
+      {
+        "baseline_auc": 0.07931356840105187,
+        "difference": 0.0012172826780359192,
+        "family_id": "H03_manifest_package",
+        "treatment_auc": 0.08053085107908779
+      },
+      {
+        "baseline_auc": 0.09584209864163835,
+        "difference": 0.0030330344164432588,
+        "family_id": "H04_sql_join_export",
+        "treatment_auc": 0.09887513305808161
+      },
+      {
+        "baseline_auc": 0.10182065080134171,
+        "difference": 0.0028050545545929423,
+        "family_id": "H05_queued_approval",
+        "treatment_auc": 0.10462570535593466
+      },
+      {
+        "baseline_auc": 0.08140909677648674,
+        "difference": 0.00019950917391432788,
+        "family_id": "H06_revoked_lease_journal",
+        "treatment_auc": 0.08160860595040106
+      }
+    ],
+    "positive_families": 6,
+    "statistical_status": "descriptive; six heldout families, no iid-query CI or significance test",
+    "status": "SUPPORTED_IN_SCOPE",
+    "treatment": "dependency_guided",
+    "wrong_point_rate_not_increased_at_any_budget": true
+  },
+  "highest_budget": [
+    {
+      "acquired_channels": 6182.333333333334,
+      "answered_oracle_point": 582.0,
+      "bounded": 0.0,
+      "budget": 76363,
+      "charged_total_bytes": 53008784.0,
+      "correct_point": 582.0,
+      "error": 0.0,
+      "evidence_events": 668.3333333333333,
+      "evidence_fields": 40587.0,
+      "families": 6,
+      "families_with_point_reference": 6,
+      "family_equal_bounded_rate": 0.0,
+      "family_equal_correct_point_coverage": 0.8660714285714286,
+      "family_equal_error_rate": 0.0,
+      "family_equal_full_point_agreement": 1.0,
+      "family_equal_full_state_agreement": 0.8781415343915344,
+      "family_equal_infeasible_rate": 0.0,
+      "family_equal_mean_acquired_channels": 7.860449735449736,
+      "family_equal_mean_charged_bytes_feasible": 67422.26190476191,
+      "family_equal_mean_evidence_events": 0.8622685185185185,
+      "family_equal_mean_evidence_fields": 51.79315476190476,
+      "family_equal_mean_initial_bytes": 63007.78571428572,
+      "family_equal_mean_visible_json_bytes": 2511.843253968254,
+      "family_equal_not_applicable_rate": 0.0,
+      "family_equal_point_coverage": 0.7670304232804233,
+      "family_equal_reference_coverage": 0.8888888888888888,
+      "family_equal_reference_not_applicable_rate": 0.0,
+      "family_equal_reference_unknown_rate": 0.1111111111111111,
+      "family_equal_selective_error_rate": 0.0,
+      "family_equal_unknown_rate": 0.23296957671957672,
+      "family_equal_wrong_point_rate": 0.0,
+      "family_equal_wrong_safe_rate": 0.0,
+      "feasible": 784.0,
+      "full_agree": 694.0,
+      "full_comparable": 784.0,
+      "full_point_agree": 582.0,
+      "full_point_comparable": 582.0,
+      "infeasible": 0.0,
+      "initial_bytes": 49383824.0,
+      "mechanism": "ALL",
+      "metric": "ALL",
+      "not_applicable": 0.0,
+      "observations": 784.0,
+      "oracle_not_applicable": 0.0,
+      "oracle_point": 672.0,
+      "oracle_unknown": 112.0,
+      "point": 582.0,
+      "policy": "dependency_guided",
+      "pooled_bounded_rate": 0.0,
+      "pooled_correct_point_coverage": 0.8660714285714286,
+      "pooled_error_rate": 0.0,
+      "pooled_full_point_agreement": 1.0,
+      "pooled_full_state_agreement": 0.8852040816326531,
+      "pooled_infeasible_rate": 0.0,
+      "pooled_mean_acquired_channels": 7.885629251700681,
+      "pooled_mean_charged_bytes_feasible": 67613.24489795919,
+      "pooled_mean_evidence_events": 0.8524659863945577,
+      "pooled_mean_evidence_fields": 51.76913265306123,
+      "pooled_mean_initial_bytes": 62989.57142857143,
+      "pooled_mean_visible_json_bytes": 2513.9264455782313,
+      "pooled_not_applicable_rate": 0.0,
+      "pooled_point_coverage": 0.7423469387755102,
+      "pooled_reference_coverage": 0.8571428571428571,
+      "pooled_reference_not_applicable_rate": 0.0,
+      "pooled_reference_unknown_rate": 0.14285714285714285,
+      "pooled_selective_error_rate": 0.0,
+      "pooled_unknown_rate": 0.2576530612244898,
+      "pooled_wrong_point_rate": 0.0,
+      "pooled_wrong_safe_rate": 0.0,
+      "split": "heldout",
+      "unknown": 202.0,
+      "visible_json_bytes": 1970918.3333333335,
+      "wrong_point": 0.0,
+      "wrong_safe": 0.0
+    },
+    {
+      "acquired_channels": 6291.666666666667,
+      "answered_oracle_point": 527.6666666666666,
+      "bounded": 0.0,
+      "budget": 76363,
+      "charged_total_bytes": 53679504.0,
+      "correct_point": 527.6666666666666,
+      "error": 0.0,
+      "evidence_events": 682.0,
+      "evidence_fields": 41013.0,
+      "families": 6,
+      "families_with_point_reference": 6,
+      "family_equal_bounded_rate": 0.0,
+      "family_equal_correct_point_coverage": 0.785218253968254,
+      "family_equal_error_rate": 0.0,
+      "family_equal_full_point_agreement": 1.0,
+      "family_equal_full_state_agreement": 0.8030753968253967,
+      "family_equal_infeasible_rate": 0.0,
+      "family_equal_mean_acquired_channels": 8.003306878306878,
+      "family_equal_mean_charged_bytes_feasible": 68287.95502645502,
+      "family_equal_mean_evidence_events": 0.8804563492063492,
+      "family_equal_mean_evidence_fields": 52.33201058201058,
+      "family_equal_mean_initial_bytes": 63007.78571428572,
+      "family_equal_mean_visible_json_bytes": 2532.0876322751324,
+      "family_equal_not_applicable_rate": 0.0,
+      "family_equal_point_coverage": 0.6919642857142857,
+      "family_equal_reference_coverage": 0.8888888888888888,
+      "family_equal_reference_not_applicable_rate": 0.0,
+      "family_equal_reference_unknown_rate": 0.1111111111111111,
+      "family_equal_selective_error_rate": 0.0,
+      "family_equal_unknown_rate": 0.3080357142857143,
+      "family_equal_wrong_point_rate": 0.0,
+      "family_equal_wrong_safe_rate": 0.0,
+      "feasible": 784.0,
+      "full_agree": 639.6666666666666,
+      "full_comparable": 784.0,
+      "full_point_agree": 527.6666666666666,
+      "full_point_comparable": 527.6666666666666,
+      "infeasible": 0.0,
+      "initial_bytes": 49383824.0,
+      "mechanism": "ALL",
+      "metric": "ALL",
+      "not_applicable": 0.0,
+      "observations": 784.0,
+      "oracle_not_applicable": 0.0,
+      "oracle_point": 672.0,
+      "oracle_unknown": 112.0,
+      "point": 527.6666666666666,
+      "policy": "global_fixed",
+      "pooled_bounded_rate": 0.0,
+      "pooled_correct_point_coverage": 0.785218253968254,
+      "pooled_error_rate": 0.0,
+      "pooled_full_point_agreement": 1.0,
+      "pooled_full_state_agreement": 0.8159013605442177,
+      "pooled_infeasible_rate": 0.0,
+      "pooled_mean_acquired_channels": 8.025085034013605,
+      "pooled_mean_charged_bytes_feasible": 68468.75510204081,
+      "pooled_mean_evidence_events": 0.8698979591836735,
+      "pooled_mean_evidence_fields": 52.3125,
+      "pooled_mean_initial_bytes": 62989.57142857143,
+      "pooled_mean_visible_json_bytes": 2534.594387755102,
+      "pooled_not_applicable_rate": 0.0,
+      "pooled_point_coverage": 0.6730442176870748,
+      "pooled_reference_coverage": 0.8571428571428571,
+      "pooled_reference_not_applicable_rate": 0.0,
+      "pooled_reference_unknown_rate": 0.14285714285714285,
+      "pooled_selective_error_rate": 0.0,
+      "pooled_unknown_rate": 0.32695578231292516,
+      "pooled_wrong_point_rate": 0.0,
+      "pooled_wrong_safe_rate": 0.0,
+      "split": "heldout",
+      "unknown": 256.3333333333333,
+      "visible_json_bytes": 1987122.0,
+      "wrong_point": 0.0,
+      "wrong_safe": 0.0
+    },
+    {
+      "acquired_channels": 6191.333333333333,
+      "answered_oracle_point": 581.6666666666666,
+      "bounded": 0.0,
+      "budget": 76363,
+      "charged_total_bytes": 53123813.333333336,
+      "correct_point": 581.6666666666666,
+      "error": 0.0,
+      "evidence_events": 669.3333333333333,
+      "evidence_fields": 40681.0,
+      "families": 6,
+      "families_with_point_reference": 6,
+      "family_equal_bounded_rate": 0.0,
+      "family_equal_correct_point_coverage": 0.8655753968253969,
+      "family_equal_error_rate": 0.0,
+      "family_equal_full_point_agreement": 1.0,
+      "family_equal_full_state_agreement": 0.8776455026455027,
+      "family_equal_infeasible_rate": 0.0,
+      "family_equal_mean_acquired_channels": 7.872685185185185,
+      "family_equal_mean_charged_bytes_feasible": 67578.02910052911,
+      "family_equal_mean_evidence_events": 0.8635912698412698,
+      "family_equal_mean_evidence_fields": 51.92311507936508,
+      "family_equal_mean_initial_bytes": 63007.78571428572,
+      "family_equal_mean_visible_json_bytes": 2518.127314814815,
+      "family_equal_not_applicable_rate": 0.0,
+      "family_equal_point_coverage": 0.7665343915343915,
+      "family_equal_reference_coverage": 0.8888888888888888,
+      "family_equal_reference_not_applicable_rate": 0.0,
+      "family_equal_reference_unknown_rate": 0.1111111111111111,
+      "family_equal_selective_error_rate": 0.0,
+      "family_equal_unknown_rate": 0.23346560846560846,
+      "family_equal_wrong_point_rate": 0.0,
+      "family_equal_wrong_safe_rate": 0.0,
+      "feasible": 784.0,
+      "full_agree": 693.6666666666666,
+      "full_comparable": 784.0,
+      "full_point_agree": 581.6666666666666,
+      "full_point_comparable": 581.6666666666666,
+      "infeasible": 0.0,
+      "initial_bytes": 49383824.0,
+      "mechanism": "ALL",
+      "metric": "ALL",
+      "not_applicable": 0.0,
+      "observations": 784.0,
+      "oracle_not_applicable": 0.0,
+      "oracle_point": 672.0,
+      "oracle_unknown": 112.0,
+      "point": 581.6666666666666,
+      "policy": "metric_static",
+      "pooled_bounded_rate": 0.0,
+      "pooled_correct_point_coverage": 0.8655753968253967,
+      "pooled_error_rate": 0.0,
+      "pooled_full_point_agreement": 1.0,
+      "pooled_full_state_agreement": 0.8847789115646258,
+      "pooled_infeasible_rate": 0.0,
+      "pooled_mean_acquired_channels": 7.897108843537414,
+      "pooled_mean_charged_bytes_feasible": 67759.96598639456,
+      "pooled_mean_evidence_events": 0.8537414965986394,
+      "pooled_mean_evidence_fields": 51.889030612244895,
+      "pooled_mean_initial_bytes": 62989.57142857143,
+      "pooled_mean_visible_json_bytes": 2519.75425170068,
+      "pooled_not_applicable_rate": 0.0,
+      "pooled_point_coverage": 0.7419217687074829,
+      "pooled_reference_coverage": 0.8571428571428571,
+      "pooled_reference_not_applicable_rate": 0.0,
+      "pooled_reference_unknown_rate": 0.14285714285714285,
+      "pooled_selective_error_rate": 0.0,
+      "pooled_unknown_rate": 0.258078231292517,
+      "pooled_wrong_point_rate": 0.0,
+      "pooled_wrong_safe_rate": 0.0,
+      "split": "heldout",
+      "unknown": 202.33333333333331,
+      "visible_json_bytes": 1975487.3333333333,
+      "wrong_point": 0.0,
+      "wrong_safe": 0.0
+    },
+    {
+      "acquired_channels": 6295.777777777777,
+      "answered_oracle_point": 531.8888888888889,
+      "bounded": 0.0,
+      "budget": 76363,
+      "charged_total_bytes": 53459457.777777776,
+      "correct_point": 531.8888888888889,
+      "error": 0.0,
+      "evidence_events": 670.1111111111111,
+      "evidence_fields": 40999.88888888889,
+      "families": 6,
+      "families_with_point_reference": 6,
+      "family_equal_bounded_rate": 0.0,
+      "family_equal_correct_point_coverage": 0.7915013227513228,
+      "family_equal_error_rate": 0.0,
+      "family_equal_full_point_agreement": 1.0,
+      "family_equal_full_state_agreement": 0.8103505291005291,
+      "family_equal_infeasible_rate": 0.0,
+      "family_equal_mean_acquired_channels": 8.00788139329806,
+      "family_equal_mean_charged_bytes_feasible": 67995.89153439153,
+      "family_equal_mean_evidence_events": 0.8651344797178131,
+      "family_equal_mean_evidence_fields": 52.316688712522044,
+      "family_equal_mean_initial_bytes": 63007.78571428572,
+      "family_equal_mean_visible_json_bytes": 2524.719025573192,
+      "family_equal_not_applicable_rate": 0.0,
+      "family_equal_point_coverage": 0.699239417989418,
+      "family_equal_reference_coverage": 0.8888888888888888,
+      "family_equal_reference_not_applicable_rate": 0.0,
+      "family_equal_reference_unknown_rate": 0.1111111111111111,
+      "family_equal_selective_error_rate": 0.0,
+      "family_equal_unknown_rate": 0.300760582010582,
+      "family_equal_wrong_point_rate": 0.0,
+      "family_equal_wrong_safe_rate": 0.0,
+      "feasible": 784.0,
+      "full_agree": 643.8888888888889,
+      "full_comparable": 784.0,
+      "full_point_agree": 531.8888888888889,
+      "full_point_comparable": 531.8888888888889,
+      "infeasible": 0.0,
+      "initial_bytes": 49383824.0,
+      "mechanism": "ALL",
+      "metric": "ALL",
+      "not_applicable": 0.0,
+      "observations": 784.0,
+      "oracle_not_applicable": 0.0,
+      "oracle_point": 672.0,
+      "oracle_unknown": 112.0,
+      "point": 531.8888888888889,
+      "policy": "random",
+      "pooled_bounded_rate": 0.0,
+      "pooled_correct_point_coverage": 0.7915013227513228,
+      "pooled_error_rate": 0.0,
+      "pooled_full_point_agreement": 1.0,
+      "pooled_full_state_agreement": 0.8212868480725624,
+      "pooled_infeasible_rate": 0.0,
+      "pooled_mean_acquired_channels": 8.030328798185941,
+      "pooled_mean_charged_bytes_feasible": 68188.08390022676,
+      "pooled_mean_evidence_events": 0.8547335600907029,
+      "pooled_mean_evidence_fields": 52.29577664399093,
+      "pooled_mean_initial_bytes": 62989.57142857143,
+      "pooled_mean_visible_json_bytes": 2527.1926020408164,
+      "pooled_not_applicable_rate": 0.0,
+      "pooled_point_coverage": 0.6784297052154196,
+      "pooled_reference_coverage": 0.8571428571428571,
+      "pooled_reference_not_applicable_rate": 0.0,
+      "pooled_reference_unknown_rate": 0.14285714285714285,
+      "pooled_selective_error_rate": 0.0,
+      "pooled_unknown_rate": 0.3215702947845805,
+      "pooled_wrong_point_rate": 0.0,
+      "pooled_wrong_safe_rate": 0.0,
+      "split": "heldout",
+      "unknown": 252.11111111111111,
+      "visible_json_bytes": 1981319.0,
+      "wrong_point": 0.0,
+      "wrong_safe": 0.0
+    }
+  ],
+  "independent_audit": {
+    "development": {
+      "events_verified": 301601,
+      "family_equal_correct_coverage_auc": {
+        "dependency_guided": 0.11071888077808811,
+        "global_fixed": 0.08741863995880994,
+        "metric_static": 0.10939475669572378,
+        "random": 0.09083616940272815
+      },
+      "family_equal_curves": [
+        {
+          "budget": 0,
+          "correct_coverage": 0.0,
+          "policy": "dependency_guided",
+          "selective_error_rate": null,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 39499,
+          "correct_coverage": 0.005456349206349206,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 50761,
+          "correct_coverage": 0.039186507936507936,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 58954,
+          "correct_coverage": 0.1056547619047619,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 62026,
+          "correct_coverage": 0.17311507936507936,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 66121,
+          "correct_coverage": 0.3541666666666667,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72264,
+          "correct_coverage": 0.4786706349206349,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72267,
+          "correct_coverage": 0.5952380952380952,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 73290,
+          "correct_coverage": 0.7782738095238095,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 76363,
+          "correct_coverage": 1.0,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 0,
+          "correct_coverage": 0.0,
+          "policy": "global_fixed",
+          "selective_error_rate": null,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 39499,
+          "correct_coverage": 0.003472222222222222,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 50761,
+          "correct_coverage": 0.020833333333333332,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 58954,
+          "correct_coverage": 0.06001984126984126,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 62026,
+          "correct_coverage": 0.12996031746031744,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 66121,
+          "correct_coverage": 0.26686507936507936,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72264,
+          "correct_coverage": 0.35168650793650796,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72267,
+          "correct_coverage": 0.47073412698412703,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 73290,
+          "correct_coverage": 0.6622023809523809,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 76363,
+          "correct_coverage": 1.0,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 0,
+          "correct_coverage": 0.0,
+          "policy": "metric_static",
+          "selective_error_rate": null,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 39499,
+          "correct_coverage": 0.004464285714285714,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 50761,
+          "correct_coverage": 0.03571428571428571,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 58954,
+          "correct_coverage": 0.10367063492063493,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 62026,
+          "correct_coverage": 0.17162698412698413,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 66121,
+          "correct_coverage": 0.3506944444444445,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72264,
+          "correct_coverage": 0.4766865079365079,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72267,
+          "correct_coverage": 0.59375,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 73290,
+          "correct_coverage": 0.7777777777777778,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 76363,
+          "correct_coverage": 1.0,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 0,
+          "correct_coverage": 0.0,
+          "policy": "random",
+          "selective_error_rate": null,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 39499,
+          "correct_coverage": 0.004133597883597883,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 50761,
+          "correct_coverage": 0.022652116402116403,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 58954,
+          "correct_coverage": 0.06415343915343914,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 62026,
+          "correct_coverage": 0.13012566137566137,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 66121,
+          "correct_coverage": 0.2819113756613757,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72264,
+          "correct_coverage": 0.37896825396825407,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72267,
+          "correct_coverage": 0.4960317460317461,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 73290,
+          "correct_coverage": 0.6762566137566137,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 76363,
+          "correct_coverage": 1.0,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "development",
+          "wrong_point_rate": 0.0
+        }
+      ],
+      "rows": 67200,
+      "statuses": {
+        "infeasible": 31524,
+        "point": 20316,
+        "unknown": 15360
+      },
+      "uncompressed_cost_sha256": "ddf173d7e512d6cfb7631bc1f3afbee1932b84de5b47728902f5ff0900c6fac9",
+      "uncompressed_prediction_sha256": "2e56d49bc74a4366544712d05dfeb0967d6bf609c49f3a9f6ce95c30df779258",
+      "wrong_examples": [],
+      "wrong_point_rows": 0,
+      "wrong_safe_rows": 0
+    },
+    "heldout": {
+      "events_verified": 279540,
+      "family_equal_correct_coverage_auc": {
+        "dependency_guided": 0.09130200476774569,
+        "global_fixed": 0.06927951192393723,
+        "metric_static": 0.0896106231015644,
+        "random": 0.07131401853629078
+      },
+      "family_equal_curves": [
+        {
+          "budget": 0,
+          "correct_coverage": 0.0,
+          "policy": "dependency_guided",
+          "selective_error_rate": null,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 39499,
+          "correct_coverage": 0.005456349206349206,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 50761,
+          "correct_coverage": 0.03125,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 58954,
+          "correct_coverage": 0.09375,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 62026,
+          "correct_coverage": 0.15575396825396826,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 66121,
+          "correct_coverage": 0.24305555555555555,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72264,
+          "correct_coverage": 0.4573412698412698,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72267,
+          "correct_coverage": 0.5014880952380952,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 73290,
+          "correct_coverage": 0.5887896825396826,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 76363,
+          "correct_coverage": 0.8660714285714286,
+          "policy": "dependency_guided",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 0,
+          "correct_coverage": 0.0,
+          "policy": "global_fixed",
+          "selective_error_rate": null,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 39499,
+          "correct_coverage": 0.002976190476190476,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 50761,
+          "correct_coverage": 0.014384920634920634,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 58954,
+          "correct_coverage": 0.05357142857142857,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 62026,
+          "correct_coverage": 0.10714285714285715,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 66121,
+          "correct_coverage": 0.19246031746031744,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72264,
+          "correct_coverage": 0.3368055555555556,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72267,
+          "correct_coverage": 0.38293650793650796,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 73290,
+          "correct_coverage": 0.4717261904761905,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 76363,
+          "correct_coverage": 0.785218253968254,
+          "policy": "global_fixed",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 0,
+          "correct_coverage": 0.0,
+          "policy": "metric_static",
+          "selective_error_rate": null,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 39499,
+          "correct_coverage": 0.00496031746031746,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 50761,
+          "correct_coverage": 0.02628968253968254,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 58954,
+          "correct_coverage": 0.08878968253968254,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 62026,
+          "correct_coverage": 0.15128968253968253,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 66121,
+          "correct_coverage": 0.2400793650793651,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72264,
+          "correct_coverage": 0.4558531746031746,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72267,
+          "correct_coverage": 0.49999999999999994,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 73290,
+          "correct_coverage": 0.5873015873015872,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 76363,
+          "correct_coverage": 0.8655753968253969,
+          "policy": "metric_static",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 0,
+          "correct_coverage": 0.0,
+          "policy": "random",
+          "selective_error_rate": null,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 39499,
+          "correct_coverage": 0.003472222222222222,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 50761,
+          "correct_coverage": 0.015046296296296297,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 58954,
+          "correct_coverage": 0.05505952380952381,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 62026,
+          "correct_coverage": 0.11425264550264551,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 66121,
+          "correct_coverage": 0.18964947089947087,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72264,
+          "correct_coverage": 0.35681216931216936,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 72267,
+          "correct_coverage": 0.4014550264550265,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 73290,
+          "correct_coverage": 0.4894179894179895,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        },
+        {
+          "budget": 76363,
+          "correct_coverage": 0.7915013227513227,
+          "policy": "random",
+          "selective_error_rate": 0.0,
+          "split": "heldout",
+          "wrong_point_rate": 0.0
+        }
+      ],
+      "rows": 67200,
+      "statuses": {
+        "infeasible": 33786,
+        "point": 16864,
+        "unknown": 16550
+      },
+      "uncompressed_cost_sha256": "fb40a6f8e2662f5636214acb37c9173bfc101130355a79e4dccfe49bb2b86450",
+      "uncompressed_prediction_sha256": "d03821c39371e0fdbbd43f4167e353975e990c1cc7492d102fd6708242864550",
+      "wrong_examples": [],
+      "wrong_point_rows": 0,
+      "wrong_safe_rows": 0
+    }
+  },
+  "model_calls": 0,
+  "new_business_executions": 0,
+  "scope": "Already disclosed heldout reanalysis; finite persistent-effect contract and padded-byte proxy only; not a new blind test",
+  "static_vs_global": {
+    "auc_difference": 0.020331111177627162,
+    "baseline": "global_fixed",
+    "baseline_correct_coverage_auc": 0.06927951192393723,
+    "budgets": [
+      {
+        "budget": 0,
+        "correct_coverage_difference": 0.0,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 39499,
+        "correct_coverage_difference": 0.001984126984126984,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 50761,
+        "correct_coverage_difference": 0.011904761904761902,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 58954,
+        "correct_coverage_difference": 0.03521825396825396,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 62026,
+        "correct_coverage_difference": 0.04414682539682542,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 66121,
+        "correct_coverage_difference": 0.047619047619047616,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 72264,
+        "correct_coverage_difference": 0.11904761904761901,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 72267,
+        "correct_coverage_difference": 0.11706349206349209,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 73290,
+        "correct_coverage_difference": 0.11557539682539686,
+        "wrong_rate_difference": 0.0
+      },
+      {
+        "budget": 76363,
+        "correct_coverage_difference": 0.0803571428571429,
+        "wrong_rate_difference": 0.0
+      }
+    ],
+    "correct_coverage_auc": 0.0896106231015644,
+    "negative_families": 0,
+    "paired_families": [
+      {
+        "baseline_auc": 0.07007443067977948,
+        "difference": 0.01957045078550257,
+        "family_id": "H01_publish_directory",
+        "treatment_auc": 0.08964488146528204
+      },
+      {
+        "baseline_auc": 0.06950423743610562,
+        "difference": 0.020129205087480034,
+        "family_id": "H02_inventory_reservation",
+        "treatment_auc": 0.08963344252358565
+      },
+      {
+        "baseline_auc": 0.05286969724180808,
+        "difference": 0.026443871159243793,
+        "family_id": "H03_manifest_package",
+        "treatment_auc": 0.07931356840105187
+      },
+      {
+        "baseline_auc": 0.0803439890485482,
+        "difference": 0.015498109593090156,
+        "family_id": "H04_sql_join_export",
+        "treatment_auc": 0.09584209864163835
+      },
+      {
+        "baseline_auc": 0.08269051157909309,
+        "difference": 0.019130139222248627,
+        "family_id": "H05_queued_approval",
+        "treatment_auc": 0.10182065080134171
+      },
+      {
+        "baseline_auc": 0.06019420555828895,
+        "difference": 0.021214891218197786,
+        "family_id": "H06_revoked_lease_journal",
+        "treatment_auc": 0.08140909677648674
+      }
+    ],
+    "positive_families": 6,
+    "statistical_status": "descriptive; six heldout families, no iid-query CI or significance test",
+    "status": "SUPPORTED_IN_SCOPE",
+    "treatment": "metric_static",
+    "wrong_point_rate_not_increased_at_any_budget": true
+  },
+  "status": "CLOSED_EXPLORATORY_REANALYSIS"
+}
