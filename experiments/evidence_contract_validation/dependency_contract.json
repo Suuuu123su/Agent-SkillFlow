@@ -1,0 +1,251 @@
+{
+  "version": "evidence-dependency-contract-v1",
+  "channels": [
+    "receipt",
+    "grant",
+    "provenance",
+    "counterfactual",
+    "task_success_evidence",
+    "lifecycle",
+    "scope_lifetime",
+    "decision_reason",
+    "failure"
+  ],
+  "encoding": "JSON sorted keys, ensure_ascii=false, separators=(',', ':'), allow_nan=false; UTF-8",
+  "projection": "A value is visible iff every channel in its requires closure is acquired. Channel containers require themselves and all enclosing channels. Cross-field rules add prerequisites and override the unique logical owner. Hidden values become null before traversal; no hidden value determines a visible field.",
+  "public_root_keys": [
+    "id",
+    "unit",
+    "execution_unit_id",
+    "contract",
+    "contract_version",
+    "schema_version",
+    "public",
+    "layout",
+    "authorization_contract",
+    "observation",
+    "manifest",
+    "design",
+    "capability_universe",
+    "declared_capability_rules",
+    "irrelevant_metadata"
+  ],
+  "evaluation_only_keys": [
+    "oracle",
+    "oracle_label",
+    "reference",
+    "reference_truth",
+    "ground_truth",
+    "Full",
+    "full",
+    "labels",
+    "label",
+    "hidden_documents"
+  ],
+  "public_boundary": "The legacy P4 observation, manifest, design and capability schema are declared public only for historical development regression. New sandbox documents must put all measured facts in the nine channels and use public only for frozen protocol/identifier metadata. Unknown root keys fail closed. This is cooperative input isolation, not OS access control.",
+  "rules": [
+    {
+      "id": "channel",
+      "concrete_paths": [
+        "/**/<channel>"
+      ],
+      "owner": "matched channel",
+      "dependencies": [
+        "enclosing channels",
+        "matched channel"
+      ]
+    },
+    {
+      "id": "provenance-source",
+      "concrete_paths": [
+        "/**/source_object"
+      ],
+      "owner": "provenance",
+      "dependencies": [
+        "enclosing channels",
+        "provenance"
+      ],
+      "mirrors": [
+        "/provenance",
+        "/counterfactual/*/source_object",
+        "/counterfactual/pair/source_object"
+      ]
+    },
+    {
+      "id": "failure-qualification",
+      "concrete_paths": [
+        "/**/qualification",
+        "/**/qualification_evidence",
+        "/**/qualification_complete",
+        "/**/observation_complete",
+        "/**/collector_complete",
+        "/**/execution_complete",
+        "/**/schema_valid"
+      ],
+      "owner": "failure",
+      "dependencies": [
+        "enclosing channels",
+        "failure"
+      ]
+    },
+    {
+      "id": "grant-limits",
+      "concrete_paths": [
+        "/**/scope_lifetime/grant_limits",
+        "/**/scope_lifetime/limits"
+      ],
+      "owner": "scope_lifetime",
+      "dependencies": [
+        "enclosing channels",
+        "grant",
+        "scope_lifetime"
+      ]
+    },
+    {
+      "id": "grant-lifecycle",
+      "concrete_paths": [
+        "/**/lifecycle/grant_issue_positions",
+        "/**/lifecycle/grant_boundary_sessions",
+        "/**/lifecycle/grant_times",
+        "/**/lifecycle/revocations"
+      ],
+      "owner": "lifecycle",
+      "dependencies": [
+        "enclosing channels",
+        "grant",
+        "lifecycle"
+      ]
+    },
+    {
+      "id": "session-mirror",
+      "concrete_paths": [
+        "/**/<channel>/**/session_id"
+      ],
+      "owner": "lifecycle",
+      "dependencies": [
+        "enclosing channels",
+        "lifecycle"
+      ]
+    },
+    {
+      "id": "scope-mirror",
+      "concrete_paths": [
+        "/**/<channel>/**/scope",
+        "/**/<channel>/**/lifetime",
+        "/**/<channel>/**/valid_from",
+        "/**/<channel>/**/expires_at",
+        "/**/manifest/**/scope",
+        "/**/manifest/**/lifetime"
+      ],
+      "owner": "scope_lifetime",
+      "dependencies": [
+        "enclosing channels",
+        "scope_lifetime"
+      ]
+    },
+    {
+      "id": "capability-grant-state",
+      "concrete_paths": [
+        "/**/declared_capability_rules/initial",
+        "/**/declared_capability_rules/unknown_initial_atoms"
+      ],
+      "owner": "grant",
+      "dependencies": [
+        "enclosing channels",
+        "grant"
+      ],
+      "migration": "Conservatively hides the entire initial grant-state list. Historical views instead derived unknown atoms from hidden state; capability metrics are outside the current nine-channel experiment."
+    },
+    {
+      "id": "artifact-hash-mirror",
+      "concrete_paths": [
+        "/**/<channel>/**/artifact_hashes",
+        "/**/<channel>/**/before_sha256",
+        "/**/<channel>/**/after_sha256",
+        "/**/<channel>/**/artifact_sha256"
+      ],
+      "owner": "task_success_evidence",
+      "dependencies": [
+        "enclosing channels",
+        "task_success_evidence"
+      ],
+      "mirrors": [
+        "/receipt/ack/artifact_hashes",
+        "/failure/changes/*/before_sha256",
+        "/failure/changes/*/after_sha256"
+      ],
+      "boundary": "Hash comparisons may not establish execution when hashes are hidden. An independent observed change event remains failure-channel evidence."
+    }
+  ],
+  "metric_protocol_dependencies": {
+    "UEA/*": [
+      "receipt",
+      "grant",
+      "scope_lifetime",
+      "lifecycle"
+    ],
+    "ALR/P3R_identity_guard": [
+      "provenance",
+      "grant",
+      "decision_reason",
+      "receipt",
+      "counterfactual",
+      "lifecycle",
+      "scope_lifetime"
+    ],
+    "ALR/*": [
+      "provenance",
+      "grant",
+      "decision_reason",
+      "receipt",
+      "counterfactual",
+      "lifecycle",
+      "scope_lifetime"
+    ],
+    "RIR/*": [
+      "lifecycle",
+      "receipt",
+      "grant",
+      "scope_lifetime",
+      "provenance",
+      "counterfactual",
+      "failure",
+      "task_success_evidence"
+    ],
+    "TaskSuccess/*": [
+      "lifecycle",
+      "receipt",
+      "task_success_evidence"
+    ],
+    "CI/*": [
+      "counterfactual",
+      "provenance",
+      "receipt",
+      "failure"
+    ],
+    "UEA/controlled-persistent-effect-v1": [
+      "receipt",
+      "failure",
+      "grant",
+      "scope_lifetime",
+      "lifecycle"
+    ],
+    "TaskSuccess/controlled-persistent-effect-v1": [
+      "receipt",
+      "failure",
+      "task_success_evidence",
+      "lifecycle"
+    ]
+  },
+  "explanation_completeness": "These are conservative channel prerequisites, not a minimal-proof theorem. Historical Analyzer.get only logs top-level reads; missing_evidence alone is incomplete. complete=false unless the explicit versioned interface covers every prediction read.",
+  "transport": {
+    "atom_id": "version + concrete JSON pointer",
+    "unique_owner": "Most-specific rule wins; every sensitive descendant inherits its nearest owner unless a more-specific rule overrides it.",
+    "mirrors": "Every physical mirror path has its own path token and remains physically chargeable even when it describes the same logical evidence.",
+    "initial": "The entire canonical projected input is charged.",
+    "restoration": "Transmit whole changed frontier values, all newly visible dependency atoms, and envelope metadata. Cross-field mirrors are explicit patches, never free additions.",
+    "cache": "No channel retransmission on an acquired-channel request; an empty acknowledgement envelope is still charged if transmitted. Any nonempty retransmission costs its full serialized bytes.",
+    "quote": "Do not expose hidden exact payload size as free policy input; callers must use a preregistered public fixed-size quote/padding policy.",
+    "budget": "Reject an entire bundle if its full canonical serialized size exceeds remaining budget. Do not truncate atoms after observing outcomes."
+  }
+}

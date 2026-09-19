@@ -1,0 +1,82 @@
+{
+  "at": "2026-09-19T09:02:12.640984+00:00",
+  "baseline_summary": {
+    "ci_regression": {
+      "ci_queries_replayed": 30,
+      "difference_counts": {
+        "all_nine_missing": 8,
+        "five_missing": 2
+      },
+      "model_calls": 0,
+      "policy_endpoint_rows_verified_against_archive": 120,
+      "sandbox_executions": 0
+    },
+    "external_source_audit": {
+      "clawtrojan_fact_records": 585,
+      "clawtrojan_observed_calls": 4744,
+      "external_source": "NOT_AVAILABLE",
+      "qualification": "independent contract oracle unavailable; not absence of external records",
+      "source_candidates_audited": 3
+    },
+    "hiaa_regression": {
+      "exact_membership_checks_passed": 48,
+      "f_h_toolreturn_valid_only_denominators": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "quartets": 90,
+      "raw_runs": 360,
+      "tests_passed": 13,
+      "tests_run": 13
+    },
+    "historical_results_modified": false,
+    "new_model_calls": 0,
+    "new_sandbox_executions": 0,
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "repository_root": "E:\\Skill ＆ Harness\\publication\\evidence-strengthening-20260919"
+  },
+  "code_hashes": {
+    "experiments/evidence_contract_validation/__init__.py": "a6433d4b7cc8b90b699cc7425a59c1014c4993d123823d4e5ba4290013b2b56b",
+    "experiments/evidence_contract_validation/adapter.py": "8b3dba966849f707751207e8722408c0efd82460722e06c1619c8fb1f5248be2",
+    "experiments/evidence_contract_validation/audit_baseline.py": "938bdf02202ec0fdae185c6f75d90c703a60b7eaecafa2e98e8eaebb1468f63f",
+    "experiments/evidence_contract_validation/common.py": "9c017cd9b067b9cf9f62f014a12801473ad619f6b974b71ba545625f9e7e6772",
+    "experiments/evidence_contract_validation/dependencies.py": "3ef44844740a5622332103da680235d43c139b50a3d05068badeb4c02cfdc44b",
+    "experiments/evidence_contract_validation/dependency_contract.json": "49d857d5b77a343250764472b7cd3009c7c767e4f1165b723aa5dd432b5e8758",
+    "experiments/evidence_contract_validation/evaluation.py": "271ef0a964b8a7006d64b6c9fe050b21eb18c72a8ed897a7ab86c947cf112b23",
+    "experiments/evidence_contract_validation/family_registry.json": "b6587f495fa70d5934b91ea8c4bd07f8ccfb0e2588ba19a67410fb22336bd07a",
+    "experiments/evidence_contract_validation/independent_oracle.py": "4b80b50339a5b80c631d043f1cc4503c9594ec3d0d4b892be20a196277a2ffa7",
+    "experiments/evidence_contract_validation/masks.py": "1b85496278d65f7fce2885b65c004c24a2f32c2ffbabc65f123361c744d36ef2",
+    "experiments/evidence_contract_validation/migration_check.py": "ab9c9c3d7c44c073c902f5faae0d624b34ff0169c8e1f54dff96b1fc979febdb",
+    "experiments/evidence_contract_validation/policy.py": "b80b81a603eaa922678e1561abadae51768e9ff98f2415945b25a2c1e7f00a8d",
+    "experiments/evidence_contract_validation/policy_worker.py": "6cf818f37b64978891bbed85546e577603a66f015bbeed8cec1cdba1206c8428",
+    "experiments/evidence_contract_validation/predictor.py": "427d2fb7446642eca7f06a47c7f9989700a9cc7bcf6554b51ce8e45b56b8e597",
+    "experiments/evidence_contract_validation/run.py": "50e5e85ffff494de19e22e24dd18969c2375aa5c8d72ed4d59605e751ea8e213",
+    "experiments/evidence_contract_validation/sandbox.py": "266b156107f163b94f615816b30b58739e1c4d90e935efba2702a10a821ef0f2",
+    "experiments/evidence_contract_validation/transport.py": "2559fe3f4e70cb4234da3b1c300155c6fec9ce6e8d75315f576dcb1ec9649ae0"
+  },
+  "exit_code": 0,
+  "models": 0,
+  "new_sandbox_executions": 0,
+  "test_command": [
+    "E:\\Skill ＆ Harness\\Agent\\.venv-skillflow\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/unit/analysis/test_evidence_contract_dependencies.py",
+    "tests/unit/analysis/test_evidence_sandbox_contract.py",
+    "tests/unit/analysis/test_evidence_receipt_binding.py",
+    "tests/unit/analysis/test_evidence_budget.py",
+    "-o",
+    "addopts=",
+    "-p",
+    "no:cacheprovider",
+    "-q",
+    "--junitxml=E:\\Skill ＆ Harness\\publication\\evidence-strengthening-20260919\\论文材料\\证据合同补强_20260919\\strengthening-20260919-085337\\M0_TESTS.xml"
+  ]
+}

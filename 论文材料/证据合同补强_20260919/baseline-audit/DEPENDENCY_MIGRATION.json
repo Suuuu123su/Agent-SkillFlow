@@ -1,0 +1,159 @@
+{
+  "dependency_contract_version": "evidence-dependency-contract-v1",
+  "status": "PASS",
+  "archive_sha256": "dcda387b143a72eb56dd53a1a03fe5aa934462eccf974181025b868bd8c1265d",
+  "frozen_member_sha256": {
+    "code/predictor.py": "8d3bc0669a91d608f84924ce2eeecd8c6c89c01c62a8c3ffe5f3932a13f44cd6",
+    "code/views.py": "c485333f64f5f842ab0d3cc3b00e52c70b6e2d55caf733109209418440f79449",
+    "minimal_data/BASE_DOCUMENTS.jsonl": "a0a50d62ad06f47088196a1ff7c68a2c3367c42ae755efbadf3a6685be077685",
+    "minimal_data/PREDICTOR_QUERIES.jsonl": "fd39394747ef0fd80d28423557f5e18609edbf768cda09c3c36204cf2c418a92"
+  },
+  "full_migration": [
+    {
+      "development_source": "evidence_pilot",
+      "queries": 240,
+      "full_state_differences": [],
+      "status": "PASS"
+    },
+    {
+      "development_source": "evidence_pilot_reference",
+      "queries": 235,
+      "full_state_differences": [],
+      "status": "PASS"
+    }
+  ],
+  "unique_historical_documents": 267,
+  "controlled_concrete_paths": 147992,
+  "single_channel_projections_checked": 2403,
+  "unregistered_changed_paths": [],
+  "versioned_projection_differences": {
+    "receipt": {
+      "documents_with_projection_change": 0,
+      "changed_path_examples": []
+    },
+    "grant": {
+      "documents_with_projection_change": 261,
+      "changed_path_examples": [
+        {
+          "unit": "i_014c8d6275c166cdf947de87",
+          "paths": [
+            "/lifecycle/revocations"
+          ]
+        },
+        {
+          "unit": "i_020cd70c809a8344957f1021",
+          "paths": [
+            "/lifecycle/revocations"
+          ]
+        },
+        {
+          "unit": "i_0292e0bf71ed324801c0c1e2",
+          "paths": [
+            "/lifecycle/revocations"
+          ]
+        },
+        {
+          "unit": "i_029fd9ad1b013ee7af9b087d",
+          "paths": [
+            "/counterfactual/0/identity/lifecycle/revocations",
+            "/counterfactual/0/neutral/lifecycle/revocations",
+            "/lifecycle/revocations"
+          ]
+        },
+        {
+          "unit": "i_04e50a8f52c2c2993aff1c43",
+          "paths": [
+            "/lifecycle/revocations"
+          ]
+        }
+      ]
+    },
+    "provenance": {
+      "documents_with_projection_change": 0,
+      "changed_path_examples": []
+    },
+    "counterfactual": {
+      "documents_with_projection_change": 0,
+      "changed_path_examples": []
+    },
+    "task_success_evidence": {
+      "documents_with_projection_change": 0,
+      "changed_path_examples": []
+    },
+    "lifecycle": {
+      "documents_with_projection_change": 0,
+      "changed_path_examples": []
+    },
+    "scope_lifetime": {
+      "documents_with_projection_change": 0,
+      "changed_path_examples": []
+    },
+    "decision_reason": {
+      "documents_with_projection_change": 0,
+      "changed_path_examples": []
+    },
+    "failure": {
+      "documents_with_projection_change": 48,
+      "changed_path_examples": [
+        {
+          "unit": "i_076cc90afc22d2f005d39de8",
+          "paths": [
+            "/counterfactual/0/identity/lifecycle/sessions/0/observation_complete",
+            "/counterfactual/0/identity/lifecycle/sessions/1/observation_complete",
+            "/counterfactual/0/identity/lifecycle/sessions/2/observation_complete",
+            "/counterfactual/0/identity/lifecycle/sessions/3/observation_complete",
+            "/counterfactual/0/neutral/lifecycle/sessions/0/observation_complete",
+            "/counterfactual/0/neutral/lifecycle/sessions/1/observation_complete",
+            "/counterfactual/0/neutral/lifecycle/sessions/2/observation_complete",
+            "/counterfactual/0/neutral/lifecycle/sessions/3/observation_complete"
+          ]
+        },
+        {
+          "unit": "i_089b40d91e7ff0b124d9a3b2",
+          "paths": [
+            "/lifecycle/sessions/0/observation_complete"
+          ]
+        },
+        {
+          "unit": "i_11fcc57892f35fbe771209bb",
+          "paths": [
+            "/lifecycle/sessions/0/observation_complete",
+            "/lifecycle/sessions/1/observation_complete"
+          ]
+        },
+        {
+          "unit": "i_12f8e542b4e3731290eb5b8d",
+          "paths": [
+            "/counterfactual/0/identity/lifecycle/sessions/0/observation_complete",
+            "/counterfactual/0/identity/lifecycle/sessions/1/observation_complete",
+            "/counterfactual/0/neutral/lifecycle/sessions/0/observation_complete",
+            "/counterfactual/0/neutral/lifecycle/sessions/1/observation_complete",
+            "/lifecycle/sessions/0/observation_complete",
+            "/lifecycle/sessions/1/observation_complete"
+          ]
+        },
+        {
+          "unit": "i_1efc855b6892c38d31f705f4",
+          "paths": [
+            "/lifecycle/sessions/0/observation_complete",
+            "/lifecycle/sessions/1/observation_complete",
+            "/lifecycle/sessions/2/observation_complete",
+            "/lifecycle/sessions/3/observation_complete"
+          ]
+        }
+      ]
+    }
+  },
+  "new_business_executions": 0,
+  "model_calls": 0,
+  "scope": "Historical development observations only; 240 and 235 selections overlap. Full is the same predictor comparator, not independent truth.",
+  "migration_notes": [
+    "The historical files and predictor remain unchanged.",
+    "Failure qualification/completeness mirrors are now masked in every layout.",
+    "Lifecycle grant times and revocations, and scope grant limits, require grant visibility.",
+    "Session and scope/lifetime mirrors require their owner channel wherever carried by a channel.",
+    "Capability initial state is conservatively hidden with grant; capability metrics remain out of scope.",
+    "Every cross-field restoration is an explicit chargeable patch with concrete dependency atoms.",
+    "Historical CI 8+2 trajectory reproduction is reported separately in the baseline source audit."
+  ]
+}

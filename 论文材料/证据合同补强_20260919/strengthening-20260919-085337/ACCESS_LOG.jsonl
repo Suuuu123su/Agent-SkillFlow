@@ -1,0 +1,13 @@
+{"action":"prepare","at":"2026-09-19T09:02:07.848481+00:00","heldout_results_created":false}
+{"action":"collect_development_started","at":"2026-09-19T09:02:29.575856+00:00","results_shown_to_policy":false}
+{"action":"collect_development_sealed","at":"2026-09-19T09:02:33.491305+00:00","query_count":56,"units":24}
+{"action":"reference_join_development","at":"2026-09-19T09:02:34.959206+00:00","oracle_queries":56,"policy_trajectories_sealed":false}
+{"action":"R006_final_freeze","at":"2026-09-19T09:05:29.262240+00:00","heldout_accessed":false,"policy_count":6,"run_dynamic":true}
+{"action":"R006_pre_heldout_amended_freeze","at":"2026-09-19T09:08:06.952991+00:00","heldout_accessed":false,"parent_plan_retained":true}
+{"action":"collect_heldout_started","at":"2026-09-19T09:08:41.081454+00:00","results_shown_to_policy":false}
+{"action":"collect_heldout_sealed","at":"2026-09-19T09:08:46.924632+00:00","query_count":56,"units":24}
+{"action":"policy_replay_development_started","at":"2026-09-19T09:08:47.244698+00:00","reference_joined":false}
+{"action":"policy_replay_development_sealed","at":"2026-09-19T09:09:08.523084+00:00","rows":67200}
+{"action":"policy_replay_heldout_started","at":"2026-09-19T09:09:08.552867+00:00","reference_joined":false}
+{"action":"policy_replay_heldout_sealed","at":"2026-09-19T09:09:31.106005+00:00","rows":67200}
+{"action":"reference_join_heldout","at":"2026-09-19T09:09:31.156773+00:00","oracle_queries":56,"policy_trajectories_sealed":true}

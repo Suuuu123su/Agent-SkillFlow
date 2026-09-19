@@ -1,0 +1,47 @@
+{
+  "execution_status": "M0_M3_COMPLETED",
+  "research_verdict": "PARTIAL",
+  "source_contract": "controlled-persistent-effect-v1",
+  "source_class": "controlled_local_programs",
+  "logical_units": 48,
+  "families": 12,
+  "sandbox_executions": 48,
+  "sandbox_cap": 192,
+  "model_calls": 0,
+  "repeated_prediction_rows": 134400,
+  "point_reference_queries": 96,
+  "unknown_reference_queries": 16,
+  "heldout_core_full_correct": 48,
+  "heldout_core_full_total": 48,
+  "heldout_wrong_point_repeated_rows": 0,
+  "mechanical_gate": {
+    "C1": "SUPPORTED_IN_SCOPE",
+    "C2": "SUPPORTED_IN_SCOPE",
+    "dynamic": "SUPPORTED_IN_SCOPE"
+  },
+  "paper_claims": {
+    "finite_controlled_contract": "SUPPORTED_IN_SCOPE",
+    "production_contract_external_agents": "UNSUPPORTED",
+    "frozen_packet_static_frontier": "SUPPORTED_IN_SCOPE",
+    "general_efficiency": "PARTIAL",
+    "exploratory_dynamic": "PARTIAL",
+    "strong_dynamic_algorithm": "UNSUPPORTED"
+  },
+  "static_auc_delta": 0.020331111177627162,
+  "dynamic_auc_delta": 0.0008399664904614884,
+  "dynamic_positive_families": 3,
+  "dynamic_negative_families": 3,
+  "heldout_units_above_max_budget": 16,
+  "overage_bytes": [
+    1,
+    2,
+    6
+  ],
+  "expected_nonzero_exits": 18,
+  "unplanned_collection_failures": 0,
+  "raw_results_unchanged": true,
+  "final_plan": "FINAL_PLAN.json",
+  "review": "../baseline-audit/FINAL_CLAIM_REVIEW.md",
+  "audit": "../baseline-audit/DELIVERY_AUDIT.json",
+  "report": "FINAL_REVIEWED_RESULTS.md"
+}
