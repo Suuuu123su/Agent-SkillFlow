@@ -1,0 +1,45 @@
+{
+  "arm": "original",
+  "combination": "00",
+  "condition": "clean",
+  "family_id": "D_counter",
+  "initial": {
+    "counter.json": "{\"counter\":3}\n"
+  },
+  "input": {
+    "actions": [
+      {
+        "content": "{\"counter\":4}\n",
+        "resource": "workspace/counter.json",
+        "tool": "write"
+      }
+    ],
+    "native": {
+      "allowed_tools": [
+        "read"
+      ],
+      "semantics": "OpenClaw 2026.8.1 native tool allowlist and fs.workspaceOnly; no core changes",
+      "workspace_only": true
+    },
+    "prefix": [
+      {
+        "expires": 100,
+        "issued": 0,
+        "kind": "grant",
+        "resource": "workspace/counter.json",
+        "session": "current-session",
+        "tool": "write"
+      }
+    ],
+    "session": "current-session",
+    "time": 1
+  },
+  "kind": "json_counter",
+  "outputs": {
+    "counter.json": "{\"counter\":4}\n"
+  },
+  "reused_analogue": "D04_kv_increment",
+  "scope": "registered file targets only; no model decisions, native revocation, or provenance recovery claim",
+  "split": "development",
+  "unit_id": "u001"
+}

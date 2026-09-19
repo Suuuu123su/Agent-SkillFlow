@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "E:\Skill ＆ Harness\publication\closeout-predictive-pilot-20260919\experiments\closeout_pilot\pilot_run.py", line 250, in <module>
+    else:execute_phase(out,package,a.stage)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Skill ＆ Harness\publication\closeout-predictive-pilot-20260919\experiments\closeout_pilot\pilot_run.py", line 217, in execute_phase
+    execute_group(out,package,ss,phase,group,out/('PILOT_REGISTRATION_REVISION1.json' if phase=='development' else 'PILOT_PLAN.json'))
+  File "E:\Skill ＆ Harness\publication\closeout-predictive-pilot-20260919\experiments\closeout_pilot\pilot_run.py", line 131, in execute_group
+    if gateway.poll() is not None or provider.poll() is not None:raise RuntimeError('Runtime subprocess stopped')
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Runtime subprocess stopped

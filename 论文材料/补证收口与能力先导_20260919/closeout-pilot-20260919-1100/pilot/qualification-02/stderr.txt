@@ -1,0 +1,31 @@
+node:internal/modules/esm/resolve:271
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'E:\Skill ＆ Harness\publication\closeout-predictive-pilot-20260919\论文材料\补证收口与能力先导_20260919\closeout-pilot-20260919-1100\pilot\source\packages\normalization-core\src\utf16-slice.ts' imported from E:\Skill ＆ Harness\publication\closeout-predictive-pilot-20260919\论文材料\补证收口与能力先导_20260919\closeout-pilot-20260919-1100\pilot\source\scripts\e2e\lib\mock-openai-http.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+    at moduleResolve (node:internal/modules/esm/resolve:861:10)
+    at defaultResolve (node:internal/modules/esm/resolve:988:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:697:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:714:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:746:52)
+    at #resolve (node:internal/modules/esm/loader:679:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:599:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:162:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:252:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///E:/Skill%20%EF%BC%86%20Harness/publication/closeout-predictive-pilot-20260919/%E8%AE%BA%E6%96%87%E6%9D%90%E6%96%99/%E8%A1%A5%E8%AF%81%E6%94%B6%E5%8F%A3%E4%B8%8E%E8%83%BD%E5%8A%9B%E5%85%88%E5%AF%BC_20260919/closeout-pilot-20260919-1100/pilot/source/packages/normalization-core/src/utf16-slice.ts'
+}
+
+Node.js v24.15.0
+2026-09-19T19:19:36.259+08:00 [security] blocked URL fetch (remote-model-catalog) targetOrigin=https://catalog.openclaw.ai reason=Blocked: resolves to private/internal/special-use IP address
+2026-09-19T19:19:45.463+08:00 [provider-transport-fetch] [model-fetch] error provider=openai api=openai-responses model=local-script elapsedMs=69 name=TypeError code=undefined causeName=Error causeCode=ECONNREFUSED message=fetch failed
+2026-09-19T19:19:45.952+08:00 [provider-transport-fetch] [model-fetch] error provider=openai api=openai-responses model=local-script elapsedMs=6 name=TypeError code=undefined causeName=Error causeCode=ECONNREFUSED message=fetch failed
+2026-09-19T19:19:46.931+08:00 [provider-transport-fetch] [model-fetch] error provider=openai api=openai-responses model=local-script elapsedMs=6 name=TypeError code=undefined causeName=Error causeCode=ECONNREFUSED message=fetch failed
+2026-09-19T19:19:46.936+08:00 [openai-transport] [responses] error provider=openai api=openai-responses model=local-script name=Error status=undefined code=undefined type=undefined causeName=TypeError causeCode=undefined message=Connection error.
+2026-09-19T19:19:46.988+08:00 [agent/embedded] embedded run agent end: runId=resp_3d6dcb55-6f4f-4fc6-ba37-e7290c6d44c5 isError=true model=local-script provider=openai error=LLM request failed: network connection error. rawError=Connection error.
+2026-09-19T19:19:47.124+08:00 [agent/embedded] embedded run failover decision: runId=resp_3d6dcb55-6f4f-4fc6-ba37-e7290c6d44c5 stage=assistant decision=surface_error reason=timeout from=openai/local-script profile=- rawError=Connection error.
+2026-09-19T19:19:47.130+08:00 [diagnostic] lane task error: lane=main durationMs=7887 error="LLM request failed: network connection error."
+2026-09-19T19:19:47.132+08:00 [diagnostic] lane task error: lane=session:agent:main:probe00 durationMs=7890 error="LLM request failed: network connection error."
+2026-09-19T19:19:47.140+08:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/local-script candidate=openai/local-script reason=timeout next=none detail=Connection error.
+2026-09-19T19:19:47.176+08:00 [openresponses] non-stream response failed: FailoverError: LLM request failed: network connection error.

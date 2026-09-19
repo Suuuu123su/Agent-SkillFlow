@@ -1,0 +1,22 @@
+{
+  "actions": 1,
+  "at": "2026-09-19T11:14:53.115308+00:00",
+  "attempt": 1,
+  "command": [
+    "E:/Node/node.exe",
+    "E:\\Skill ＆ Harness\\tmp\\closeout-openclaw-20260919\\node_modules\\openclaw\\openclaw.mjs",
+    "gateway",
+    "--port",
+    "13141",
+    "--bind",
+    "loopback"
+  ],
+  "elapsed_seconds": 136.14099999999962,
+  "http_status": 404,
+  "independent_actual_effect": false,
+  "model_calls": 0,
+  "phase": "qualification",
+  "process_stopped": true,
+  "response": "{\"ok\":false,\"error\":{\"type\":\"not_found\",\"message\":\"Tool not available: write\"}}",
+  "status": "NO_QUALIFYING_EFFECT"
+}

@@ -1,0 +1,59 @@
+{
+  "arm": "original",
+  "combination": "00",
+  "condition": "clean",
+  "family_id": "D_publish",
+  "initial": {
+    "draft.txt": "hello\n"
+  },
+  "input": {
+    "actions": [
+      {
+        "content": "hello\n",
+        "resource": "workspace/release/a.txt",
+        "tool": "write"
+      },
+      {
+        "content": "version=1\n",
+        "resource": "workspace/release/b.txt",
+        "tool": "write"
+      }
+    ],
+    "native": {
+      "allowed_tools": [
+        "read"
+      ],
+      "semantics": "OpenClaw 2026.8.1 native tool allowlist and fs.workspaceOnly; no core changes",
+      "workspace_only": true
+    },
+    "prefix": [
+      {
+        "expires": 100,
+        "issued": 0,
+        "kind": "grant",
+        "resource": "workspace/release/a.txt",
+        "session": "current-session",
+        "tool": "write"
+      },
+      {
+        "expires": 100,
+        "issued": 0,
+        "kind": "grant",
+        "resource": "workspace/release/b.txt",
+        "session": "current-session",
+        "tool": "write"
+      }
+    ],
+    "session": "current-session",
+    "time": 1
+  },
+  "kind": "multi_file_publish",
+  "outputs": {
+    "release/a.txt": "hello\n",
+    "release/b.txt": "version=1\n"
+  },
+  "reused_analogue": "H01_publish_directory",
+  "scope": "registered file targets only; no model decisions, native revocation, or provenance recovery claim",
+  "split": "development",
+  "unit_id": "u019"
+}

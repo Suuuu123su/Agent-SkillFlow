@@ -1,0 +1,17 @@
+2026-09-19T19:19:28.108+08:00 [gateway] loading configuration…
+2026-09-19T19:19:28.241+08:00 [gateway] resolving authentication…
+2026-09-19T19:19:28.254+08:00 [gateway] starting...
+2026-09-19T19:19:32.621+08:00 [gateway] starting HTTP server...
+2026-09-19T19:19:33.492+08:00 [gateway] ready
+2026-09-19T19:19:33.641+08:00 [gateway] starting channels and sidecars...
+2026-09-19T19:19:33.650+08:00 [gateway] agent model: openai/local-script (thinking=off, fast=off)
+2026-09-19T19:19:33.651+08:00 [gateway] http server listening (0 plugins, 4.0s)
+2026-09-19T19:19:33.654+08:00 [gateway] log file: E:\Skill ＆ Harness\publication\closeout-predictive-pilot-20260919\论文材料\补证收口与能力先导_20260919\closeout-pilot-20260919-1100\pilot\qualification-02\gateway.log
+2026-09-19T19:19:35.218+08:00 [gateway/channels] skipping channel start (OPENCLAW_SKIP_CHANNELS=1 or OPENCLAW_SKIP_PROVIDERS=1)
+2026-09-19T19:19:35.226+08:00 [gateway] startup outcomes: internal-hooks=skipped (not-configured); internal-startup-hook=skipped (no-handlers-loaded); gateway-start-hooks=skipped (no-handlers-loaded); gmail-watcher=skipped (hooks-disabled); gmail-model=skipped (not-configured)
+2026-09-19T19:19:35.241+08:00 [gateway] ready
+2026-09-19T19:19:35.244+08:00 [heartbeat] started
+2026-09-19T19:19:36.262+08:00 [gateway] remote model catalog refresh failed
+2026-09-19T19:19:45.394+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:1237/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:19:45.945+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:1237/v1/responses timeoutMs=undefined proxy=none policy=custom
+2026-09-19T19:19:46.923+08:00 [provider-transport-fetch] [model-fetch] start provider=openai api=openai-responses model=local-script method=POST url=http://127.0.0.1:1237/v1/responses timeoutMs=undefined proxy=none policy=custom

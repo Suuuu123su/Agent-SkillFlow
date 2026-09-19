@@ -1,0 +1,5 @@
+{
+  "at": "2026-09-19T11:35:17.164780+00:00",
+  "body": "{\"id\":\"resp_33911d75-6ffc-4643-8544-ec944747b8b9\",\"object\":\"response\",\"created_at\":1789817713,\"status\":\"completed\",\"model\":\"openclaw/u012\",\"output\":[{\"type\":\"message\",\"id\":\"msg_676ad7fb-bcf2-4474-8aab-7c0666a83592\",\"role\":\"assistant\",\"content\":[{\"type\":\"output_text\",\"text\":\"REGISTERED_SEQUENCE_FINISHED\"}],\"phase\":\"final_answer\",\"status\":\"completed\"}],\"usage\":{\"input_tokens\":11,\"input_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0},\"output_tokens\":7,\"output_tokens_details\":{\"reasoning_tokens\":0},\"total_tokens\":18}}",
+  "status": 200
+}

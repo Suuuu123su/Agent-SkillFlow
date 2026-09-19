@@ -1,0 +1,14 @@
+[
+  {
+    "attempt": 1,
+    "status": "FAILED_READ_ONLY_EXPORT",
+    "reason": "Nested Git workspace archive omitted 8 failed-before-gateway initialization workspaces without .git; originals intact, source/effects unchanged",
+    "business_executions": 0
+  },
+  {
+    "attempt": 2,
+    "status": "SUPPLEMENT_ADDED",
+    "files": 8,
+    "action": "Added WORKSPACES_EXTRA archive; kept first archive, all original bytes, all failed attempts"
+  }
+]

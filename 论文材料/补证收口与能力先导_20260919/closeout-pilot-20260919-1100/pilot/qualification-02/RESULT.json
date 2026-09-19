@@ -1,0 +1,23 @@
+{
+  "actions": 1,
+  "at": "2026-09-19T11:19:25.061722+00:00",
+  "attempt": 2,
+  "command": [
+    "E:/Node/node.exe",
+    "E:\\Skill ＆ Harness\\tmp\\closeout-openclaw-20260919\\node_modules\\openclaw\\openclaw.mjs",
+    "gateway",
+    "--port",
+    "1236",
+    "--bind",
+    "loopback"
+  ],
+  "elapsed_seconds": 22.312999999998283,
+  "http_status": 408,
+  "independent_actual_effect": false,
+  "model_calls": 0,
+  "phase": "qualification",
+  "process_stopped": true,
+  "response": "{\"id\":\"resp_3d6dcb55-6f4f-4fc6-ba37-e7290c6d44c5\",\"object\":\"response\",\"created_at\":1789816776,\"status\":\"failed\",\"model\":\"openclaw/main\",\"output\":[],\"usage\":{\"input_tokens\":0,\"input_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"reasoning_tokens\":0},\"total_tokens\":0},\"error\":{\"code\":\"api_error\",\"message\":\"upstream provider timeout\"}}",
+  "scripted_provider_requests_not_model_calls": 0,
+  "status": "NO_QUALIFYING_EFFECT"
+}

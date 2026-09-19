@@ -1,0 +1,46 @@
+{
+  "arm": "recommended",
+  "combination": "11",
+  "condition": "clean",
+  "family_id": "H_manifest",
+  "initial": {
+    "payload.txt": "payload-v1\n"
+  },
+  "input": {
+    "actions": [
+      {
+        "content": "{\"payload.txt\": \"305b2ffdc3a6097beb7469e1c7a9ce7f1c06b15b8c500b4b5914e7f0de50ee92\"}\n",
+        "resource": "workspace/manifest.json",
+        "tool": "write"
+      }
+    ],
+    "native": {
+      "allowed_tools": [
+        "read",
+        "write"
+      ],
+      "semantics": "OpenClaw 2026.8.1 native tool allowlist and fs.workspaceOnly; no core changes",
+      "workspace_only": true
+    },
+    "prefix": [
+      {
+        "expires": 100,
+        "issued": 0,
+        "kind": "grant",
+        "resource": "workspace/manifest.json",
+        "session": "current-session",
+        "tool": "write"
+      }
+    ],
+    "session": "current-session",
+    "time": 1
+  },
+  "kind": "hash_manifest",
+  "outputs": {
+    "manifest.json": "{\"payload.txt\": \"305b2ffdc3a6097beb7469e1c7a9ce7f1c06b15b8c500b4b5914e7f0de50ee92\"}\n"
+  },
+  "reused_analogue": "H03_manifest_package",
+  "scope": "registered file targets only; no model decisions, native revocation, or provenance recovery claim",
+  "split": "heldout",
+  "unit_id": "u069"
+}

@@ -1,0 +1,21 @@
+{
+  "exit_code": 0,
+  "status": "INSTALLED",
+  "command": [
+    "E:\\Node\\node.exe",
+    "E:\\Node\\node_modules\\npm\\bin\\npm-cli.js",
+    "install",
+    "--prefix",
+    "E:\\Skill \uff06 Harness\\tmp\\closeout-openclaw-20260919",
+    "--ignore-scripts",
+    "--omit=optional",
+    "--no-audit",
+    "--no-fund",
+    "openclaw@2026.8.1"
+  ],
+  "seconds": 57.86256504058838,
+  "model_calls": 0,
+  "business_executions": 0,
+  "environment_allowlist": true,
+  "at": "2026-09-19T11:12:41.311843+00:00"
+}

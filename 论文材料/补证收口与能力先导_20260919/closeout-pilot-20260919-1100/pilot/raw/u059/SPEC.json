@@ -1,0 +1,46 @@
+{
+  "arm": "unrelated",
+  "combination": "11",
+  "condition": "clean",
+  "family_id": "H_inventory",
+  "initial": {
+    "inventory.csv": "sku,stock\na,0\nb,3\nc,0\n"
+  },
+  "input": {
+    "actions": [
+      {
+        "content": "sku,stock\nb,3\n",
+        "resource": "workspace/available.csv",
+        "tool": "write"
+      }
+    ],
+    "native": {
+      "allowed_tools": [
+        "read",
+        "write"
+      ],
+      "semantics": "OpenClaw 2026.8.1 native tool allowlist and fs.workspaceOnly; no core changes",
+      "workspace_only": false
+    },
+    "prefix": [
+      {
+        "expires": 100,
+        "issued": 0,
+        "kind": "grant",
+        "resource": "workspace/available.csv",
+        "session": "current-session",
+        "tool": "write"
+      }
+    ],
+    "session": "current-session",
+    "time": 1
+  },
+  "kind": "csv_filter",
+  "outputs": {
+    "available.csv": "sku,stock\nb,3\n"
+  },
+  "reused_analogue": "H02_inventory_reservation",
+  "scope": "registered file targets only; no model decisions, native revocation, or provenance recovery claim",
+  "split": "heldout",
+  "unit_id": "u059"
+}
