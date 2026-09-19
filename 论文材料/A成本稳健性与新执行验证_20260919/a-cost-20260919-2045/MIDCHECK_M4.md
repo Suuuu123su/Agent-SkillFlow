@@ -6,3 +6,6 @@ M0–M4实验完成：Gate A PASS，Gate B **PROMISING_LIMITED**。新24实例C1
 
 
 本地完整只读复核及Git暂存导出副本复核均PASSED；7项针对性测试通过。旧输入/源码与用户修改保持不变。正在提交增量研究分支。
+
+
+发布完成：增量PR #3 https://github.com/Suuuu123su/Agent-SkillFlow/pull/3；以PR #2分支为base，未合并。最终28/48次、模型/Judge/付费API 0，停止本批。

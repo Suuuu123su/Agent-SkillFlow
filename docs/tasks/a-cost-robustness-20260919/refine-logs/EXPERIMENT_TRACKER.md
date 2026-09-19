@@ -32,3 +32,5 @@ R007 / M3采集完成：4 sanity + 24正式 = 28/48次，无重试、模型0。2
 
 
 R008–R009 / M3–M4：M0–M4实验完成：Gate A PASS，Gate B **PROMISING_LIMITED**。新24实例C1/C2动态−静态AUC +0.002480/+0.002183，两者6/6族为正且删一族均为正，未见新增错误点/错误safe。实际28/48次（4 sanity+24正式），0重试，模型/Judge/付费API均0。优势仍小、来自受控旧语义族；保留负结果，到此停止，不扩样、不继续B。 发布核验另见PUBLICATION.json。
+
+R009发布完成：研究提交05a0f3bc，增量PR #3（https://github.com/Suuuu123su/Agent-SkillFlow/pull/3），base为PR #2分支。全部307200轨迹和独立持久状态复核、Git暂存导出复核PASSED；原工作区修改保持，0额外业务/模型调用。

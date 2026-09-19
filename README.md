@@ -12,6 +12,8 @@ M0–M4实验完成：Gate A PASS，Gate B **PROMISING_LIMITED**。新24实例C1
 
 [中文结果](论文材料/A成本稳健性与新执行验证_20260919/a-cost-20260919-2045/FINAL_REPORT_CN.md) · [机器摘要](论文材料/A成本稳健性与新执行验证_20260919/a-cost-20260919-2045/SUMMARY.json) · [只读复核](论文材料/A成本稳健性与新执行验证_20260919/a-cost-20260919-2045/REPRODUCE.md)
 
+已推送研究分支并创建[增量结果PR #3](https://github.com/Suuuu123su/Agent-SkillFlow/pull/3)，以未合并的PR #2为base；本地及Git导出副本只读复核均通过，未自动合并。
+
 <!-- a-cost-validation:end -->
 
 <!-- closeout-pilot:start -->

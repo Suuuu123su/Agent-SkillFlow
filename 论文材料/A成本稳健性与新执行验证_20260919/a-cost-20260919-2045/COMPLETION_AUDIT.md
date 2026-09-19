@@ -12,6 +12,6 @@
 | 固定Gate B、不调参扩样 | FRESH_PLAN源码SHA、Gate B PROMISING_LIMITED，28/48停止 | PASS |
 | 中文报告/三主表/主张边界/复核入口 | FINAL_REPORT_CN、CLAIM_EVIDENCE_MATRIX、REPRODUCE | PASS |
 | README及tracker每阶段更新 | MIDCHECK M0/M1/M2/M3/M4和实际阶段记录 | PASS |
-| 研究分支及增量PR | 以PUBLICATION.json及远端核验为准 | 待发布后确认 |
+| 研究分支及增量PR | PUBLICATION.json，PR #3；研究提交05a0f3bc已推送 | PASS |
 
 源码、输入和所有原始记录的事后发布哈希见DELIVERY_MANIFEST；它不替代预注册seal。新加delivery/verify_delivery只呈现与复核已冻结结果。全仓库CI、Linux平台未运行。
